@@ -314,14 +314,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.idleTimeout);
     }
     /**
-     * If true, the LB will be internal.
+     * If true, the LB will be internal. Defaults to `false`.
      * 
      */
     @Export(name="internal", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> internal;
 
     /**
-     * @return If true, the LB will be internal.
+     * @return If true, the LB will be internal. Defaults to `false`.
      * 
      */
     public Output<Boolean> internal() {

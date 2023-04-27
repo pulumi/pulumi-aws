@@ -14,6 +14,7 @@ import com.pulumi.aws.emr.outputs.ClusterEc2Attributes;
 import com.pulumi.aws.emr.outputs.ClusterKerberosAttributes;
 import com.pulumi.aws.emr.outputs.ClusterMasterInstanceFleet;
 import com.pulumi.aws.emr.outputs.ClusterMasterInstanceGroup;
+import com.pulumi.aws.emr.outputs.ClusterPlacementGroupConfig;
 import com.pulumi.aws.emr.outputs.ClusterStep;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -170,7 +171,9 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
- * The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service, and another to place on your Cluster Instances to interact with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`, and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html) guide for more information on these IAM roles.
+ * The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
+ * 
+ * The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You&#39;ll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page.
  * ### Instance Fleet
  * ```java
  * package generated_program;
@@ -716,6 +719,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The specified placement group configuration for an Amazon EMR cluster.
+     * 
+     */
+    @Export(name="placementGroupConfigs", refs={List.class,ClusterPlacementGroupConfig.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ClusterPlacementGroupConfig>> placementGroupConfigs;
+
+    /**
+     * @return The specified placement group configuration for an Amazon EMR cluster.
+     * 
+     */
+    public Output<Optional<List<ClusterPlacementGroupConfig>>> placementGroupConfigs() {
+        return Codegen.optional(this.placementGroupConfigs);
     }
     /**
      * Release label for the Amazon EMR release.

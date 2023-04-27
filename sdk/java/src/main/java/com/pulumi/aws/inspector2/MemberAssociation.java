@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Resource for associating accounts to existing Inspector2 instances.
+ * Resource for associating accounts to existing Inspector instances.
  * 
  * ## Example Usage
  * ### Basic Usage
@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MemberAssociation(&#34;example&#34;, MemberAssociationArgs.builder()        
- *             .accountId(&#34;012345678901&#34;)
+ *             .accountId(&#34;123456789012&#34;)
  *             .build());
  * 
  *     }

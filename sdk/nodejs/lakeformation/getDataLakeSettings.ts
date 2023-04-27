@@ -48,6 +48,14 @@ export interface GetDataLakeSettingsResult {
      * List of ARNs of AWS Lake Formation principals (IAM users or roles).
      */
     readonly admins: string[];
+    /**
+     * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+     */
+    readonly allowExternalDataFiltering: boolean;
+    /**
+     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+     */
+    readonly authorizedSessionTagValueLists: string[];
     readonly catalogId?: string;
     /**
      * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
@@ -57,6 +65,10 @@ export interface GetDataLakeSettingsResult {
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      */
     readonly createTableDefaultPermissions: outputs.lakeformation.GetDataLakeSettingsCreateTableDefaultPermission[];
+    /**
+     * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+     */
+    readonly externalDataFilteringAllowLists: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */

@@ -38,6 +38,7 @@ class ClusterArgs:
                  master_instance_fleet: Optional[pulumi.Input['ClusterMasterInstanceFleetArgs']] = None,
                  master_instance_group: Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]] = None,
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
                  step_concurrency_level: Optional[pulumi.Input[int]] = None,
@@ -70,6 +71,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterMasterInstanceFleetArgs'] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input['ClusterMasterInstanceGroupArgs'] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         :param pulumi.Input[str] name: Name of the job flow.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]] placement_group_configs: The specified placement group configuration for an Amazon EMR cluster.
         :param pulumi.Input[str] scale_down_behavior: Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         :param pulumi.Input[str] security_configuration: Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
         :param pulumi.Input[int] step_concurrency_level: Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
@@ -121,6 +123,8 @@ class ClusterArgs:
             pulumi.set(__self__, "master_instance_group", master_instance_group)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if placement_group_configs is not None:
+            pulumi.set(__self__, "placement_group_configs", placement_group_configs)
         if scale_down_behavior is not None:
             pulumi.set(__self__, "scale_down_behavior", scale_down_behavior)
         if security_configuration is not None:
@@ -403,6 +407,18 @@ class ClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="placementGroupConfigs")
+    def placement_group_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]:
+        """
+        The specified placement group configuration for an Amazon EMR cluster.
+        """
+        return pulumi.get(self, "placement_group_configs")
+
+    @placement_group_configs.setter
+    def placement_group_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]):
+        pulumi.set(self, "placement_group_configs", value)
+
+    @property
     @pulumi.getter(name="scaleDownBehavior")
     def scale_down_behavior(self) -> Optional[pulumi.Input[str]]:
         """
@@ -525,6 +541,7 @@ class _ClusterState:
                  master_instance_group: Optional[pulumi.Input['ClusterMasterInstanceGroupArgs']] = None,
                  master_public_dns: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -559,6 +576,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterMasterInstanceGroupArgs'] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         :param pulumi.Input[str] master_public_dns: The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         :param pulumi.Input[str] name: Name of the job flow.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]] placement_group_configs: The specified placement group configuration for an Amazon EMR cluster.
         :param pulumi.Input[str] release_label: Release label for the Amazon EMR release.
         :param pulumi.Input[str] scale_down_behavior: Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         :param pulumi.Input[str] security_configuration: Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
@@ -616,6 +634,8 @@ class _ClusterState:
             pulumi.set(__self__, "master_public_dns", master_public_dns)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if placement_group_configs is not None:
+            pulumi.set(__self__, "placement_group_configs", placement_group_configs)
         if release_label is not None:
             pulumi.set(__self__, "release_label", release_label)
         if scale_down_behavior is not None:
@@ -911,6 +931,18 @@ class _ClusterState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="placementGroupConfigs")
+    def placement_group_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]:
+        """
+        The specified placement group configuration for an Amazon EMR cluster.
+        """
+        return pulumi.get(self, "placement_group_configs")
+
+    @placement_group_configs.setter
+    def placement_group_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]):
+        pulumi.set(self, "placement_group_configs", value)
+
+    @property
     @pulumi.getter(name="releaseLabel")
     def release_label(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1056,6 +1088,7 @@ class Cluster(pulumi.CustomResource):
                  master_instance_fleet: Optional[pulumi.Input[pulumi.InputType['ClusterMasterInstanceFleetArgs']]] = None,
                  master_instance_group: Optional[pulumi.Input[pulumi.InputType['ClusterMasterInstanceGroupArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPlacementGroupConfigArgs']]]]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -1184,7 +1217,9 @@ class Cluster(pulumi.CustomResource):
             service_role=aws_iam_role["iam_emr_service_role"]["arn"])
         ```
 
-        The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service, and another to place on your Cluster Instances to interact with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`, and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html) guide for more information on these IAM roles.
+        The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
+
+        The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page.
         ### Instance Fleet
 
         ```python
@@ -1364,6 +1399,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterMasterInstanceFleetArgs']] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterMasterInstanceGroupArgs']] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         :param pulumi.Input[str] name: Name of the job flow.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPlacementGroupConfigArgs']]]] placement_group_configs: The specified placement group configuration for an Amazon EMR cluster.
         :param pulumi.Input[str] release_label: Release label for the Amazon EMR release.
         :param pulumi.Input[str] scale_down_behavior: Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         :param pulumi.Input[str] security_configuration: Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
@@ -1498,7 +1534,9 @@ class Cluster(pulumi.CustomResource):
             service_role=aws_iam_role["iam_emr_service_role"]["arn"])
         ```
 
-        The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service, and another to place on your Cluster Instances to interact with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`, and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html) guide for more information on these IAM roles.
+        The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
+
+        The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page.
         ### Instance Fleet
 
         ```python
@@ -1691,6 +1729,7 @@ class Cluster(pulumi.CustomResource):
                  master_instance_fleet: Optional[pulumi.Input[pulumi.InputType['ClusterMasterInstanceFleetArgs']]] = None,
                  master_instance_group: Optional[pulumi.Input[pulumi.InputType['ClusterMasterInstanceGroupArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPlacementGroupConfigArgs']]]]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -1730,6 +1769,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["master_instance_fleet"] = master_instance_fleet
             __props__.__dict__["master_instance_group"] = master_instance_group
             __props__.__dict__["name"] = name
+            __props__.__dict__["placement_group_configs"] = placement_group_configs
             if release_label is None and not opts.urn:
                 raise TypeError("Missing required property 'release_label'")
             __props__.__dict__["release_label"] = release_label
@@ -1780,6 +1820,7 @@ class Cluster(pulumi.CustomResource):
             master_instance_group: Optional[pulumi.Input[pulumi.InputType['ClusterMasterInstanceGroupArgs']]] = None,
             master_public_dns: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPlacementGroupConfigArgs']]]]] = None,
             release_label: Optional[pulumi.Input[str]] = None,
             scale_down_behavior: Optional[pulumi.Input[str]] = None,
             security_configuration: Optional[pulumi.Input[str]] = None,
@@ -1819,6 +1860,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterMasterInstanceGroupArgs']] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         :param pulumi.Input[str] master_public_dns: The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         :param pulumi.Input[str] name: Name of the job flow.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPlacementGroupConfigArgs']]]] placement_group_configs: The specified placement group configuration for an Amazon EMR cluster.
         :param pulumi.Input[str] release_label: Release label for the Amazon EMR release.
         :param pulumi.Input[str] scale_down_behavior: Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         :param pulumi.Input[str] security_configuration: Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
@@ -1857,6 +1899,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["master_instance_group"] = master_instance_group
         __props__.__dict__["master_public_dns"] = master_public_dns
         __props__.__dict__["name"] = name
+        __props__.__dict__["placement_group_configs"] = placement_group_configs
         __props__.__dict__["release_label"] = release_label
         __props__.__dict__["scale_down_behavior"] = scale_down_behavior
         __props__.__dict__["security_configuration"] = security_configuration
@@ -2049,6 +2092,14 @@ class Cluster(pulumi.CustomResource):
         Name of the job flow.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="placementGroupConfigs")
+    def placement_group_configs(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterPlacementGroupConfig']]]:
+        """
+        The specified placement group configuration for an Amazon EMR cluster.
+        """
+        return pulumi.get(self, "placement_group_configs")
 
     @property
     @pulumi.getter(name="releaseLabel")

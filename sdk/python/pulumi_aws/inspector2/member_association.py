@@ -66,7 +66,7 @@ class MemberAssociation(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for associating accounts to existing Inspector2 instances.
+        Resource for associating accounts to existing Inspector instances.
 
         ## Example Usage
         ### Basic Usage
@@ -75,7 +75,7 @@ class MemberAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector2.MemberAssociation("example", account_id="012345678901")
+        example = aws.inspector2.MemberAssociation("example", account_id="123456789012")
         ```
 
         :param str resource_name: The name of the resource.
@@ -89,7 +89,7 @@ class MemberAssociation(pulumi.CustomResource):
                  args: MemberAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for associating accounts to existing Inspector2 instances.
+        Resource for associating accounts to existing Inspector instances.
 
         ## Example Usage
         ### Basic Usage
@@ -98,7 +98,7 @@ class MemberAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector2.MemberAssociation("example", account_id="012345678901")
+        example = aws.inspector2.MemberAssociation("example", account_id="123456789012")
         ```
 
         :param str resource_name: The name of the resource.

@@ -105,6 +105,14 @@ namespace Pulumi.Aws.LakeFormation
         /// List of ARNs of AWS Lake Formation principals (IAM users or roles).
         /// </summary>
         public readonly ImmutableArray<string> Admins;
+        /// <summary>
+        /// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+        /// </summary>
+        public readonly bool AllowExternalDataFiltering;
+        /// <summary>
+        /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        /// </summary>
+        public readonly ImmutableArray<string> AuthorizedSessionTagValueLists;
         public readonly string? CatalogId;
         /// <summary>
         /// Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
@@ -114,6 +122,10 @@ namespace Pulumi.Aws.LakeFormation
         /// Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDataLakeSettingsCreateTableDefaultPermissionResult> CreateTableDefaultPermissions;
+        /// <summary>
+        /// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+        /// </summary>
+        public readonly ImmutableArray<string> ExternalDataFilteringAllowLists;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -127,20 +139,29 @@ namespace Pulumi.Aws.LakeFormation
         private GetDataLakeSettingsResult(
             ImmutableArray<string> admins,
 
+            bool allowExternalDataFiltering,
+
+            ImmutableArray<string> authorizedSessionTagValueLists,
+
             string? catalogId,
 
             ImmutableArray<Outputs.GetDataLakeSettingsCreateDatabaseDefaultPermissionResult> createDatabaseDefaultPermissions,
 
             ImmutableArray<Outputs.GetDataLakeSettingsCreateTableDefaultPermissionResult> createTableDefaultPermissions,
 
+            ImmutableArray<string> externalDataFilteringAllowLists,
+
             string id,
 
             ImmutableArray<string> trustedResourceOwners)
         {
             Admins = admins;
+            AllowExternalDataFiltering = allowExternalDataFiltering;
+            AuthorizedSessionTagValueLists = authorizedSessionTagValueLists;
             CatalogId = catalogId;
             CreateDatabaseDefaultPermissions = createDatabaseDefaultPermissions;
             CreateTableDefaultPermissions = createTableDefaultPermissions;
+            ExternalDataFilteringAllowLists = externalDataFilteringAllowLists;
             Id = id;
             TrustedResourceOwners = trustedResourceOwners;
         }

@@ -13,6 +13,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -285,6 +286,20 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<MetricStreamIncludeFilter>>> includeFilters() {
         return Codegen.optional(this.includeFilters);
+    }
+    /**
+     * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+     * 
+     */
+    @Export(name="includeLinkedAccountsMetrics", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> includeLinkedAccountsMetrics;
+
+    /**
+     * @return If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+     * 
+     */
+    public Output<Optional<Boolean>> includeLinkedAccountsMetrics() {
+        return Codegen.optional(this.includeLinkedAccountsMetrics);
     }
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.

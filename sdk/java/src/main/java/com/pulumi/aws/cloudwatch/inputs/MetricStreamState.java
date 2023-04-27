@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudwatch.inputs.MetricStreamIncludeFilterArgs;
 import com.pulumi.aws.cloudwatch.inputs.MetricStreamStatisticsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -93,6 +94,21 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<MetricStreamIncludeFilterArgs>>> includeFilters() {
         return Optional.ofNullable(this.includeFilters);
+    }
+
+    /**
+     * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+     * 
+     */
+    @Import(name="includeLinkedAccountsMetrics")
+    private @Nullable Output<Boolean> includeLinkedAccountsMetrics;
+
+    /**
+     * @return If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+     * 
+     */
+    public Optional<Output<Boolean>> includeLinkedAccountsMetrics() {
+        return Optional.ofNullable(this.includeLinkedAccountsMetrics);
     }
 
     /**
@@ -238,6 +254,7 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
         this.excludeFilters = $.excludeFilters;
         this.firehoseArn = $.firehoseArn;
         this.includeFilters = $.includeFilters;
+        this.includeLinkedAccountsMetrics = $.includeLinkedAccountsMetrics;
         this.lastUpdateDate = $.lastUpdateDate;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
@@ -390,6 +407,27 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder includeFilters(MetricStreamIncludeFilterArgs... includeFilters) {
             return includeFilters(List.of(includeFilters));
+        }
+
+        /**
+         * @param includeLinkedAccountsMetrics If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeLinkedAccountsMetrics(@Nullable Output<Boolean> includeLinkedAccountsMetrics) {
+            $.includeLinkedAccountsMetrics = includeLinkedAccountsMetrics;
+            return this;
+        }
+
+        /**
+         * @param includeLinkedAccountsMetrics If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeLinkedAccountsMetrics(Boolean includeLinkedAccountsMetrics) {
+            return includeLinkedAccountsMetrics(Output.of(includeLinkedAccountsMetrics));
         }
 
         /**

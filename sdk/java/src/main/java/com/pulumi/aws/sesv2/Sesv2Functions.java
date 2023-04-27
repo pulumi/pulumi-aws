@@ -4,8 +4,11 @@
 package com.pulumi.aws.sesv2;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.sesv2.inputs.GetConfigurationSetArgs;
+import com.pulumi.aws.sesv2.inputs.GetConfigurationSetPlainArgs;
 import com.pulumi.aws.sesv2.inputs.GetDedicatedIpPoolArgs;
 import com.pulumi.aws.sesv2.inputs.GetDedicatedIpPoolPlainArgs;
+import com.pulumi.aws.sesv2.outputs.GetConfigurationSetResult;
 import com.pulumi.aws.sesv2.outputs.GetDedicatedIpPoolResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -14,6 +17,158 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class Sesv2Functions {
+    /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sesv2.Sesv2Functions;
+     * import com.pulumi.aws.sesv2.inputs.GetConfigurationSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Sesv2Functions.getConfigurationSet(GetConfigurationSetArgs.builder()
+     *             .configurationSetName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetConfigurationSetResult> getConfigurationSet(GetConfigurationSetArgs args) {
+        return getConfigurationSet(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sesv2.Sesv2Functions;
+     * import com.pulumi.aws.sesv2.inputs.GetConfigurationSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Sesv2Functions.getConfigurationSet(GetConfigurationSetArgs.builder()
+     *             .configurationSetName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetConfigurationSetResult> getConfigurationSetPlain(GetConfigurationSetPlainArgs args) {
+        return getConfigurationSetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sesv2.Sesv2Functions;
+     * import com.pulumi.aws.sesv2.inputs.GetConfigurationSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Sesv2Functions.getConfigurationSet(GetConfigurationSetArgs.builder()
+     *             .configurationSetName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetConfigurationSetResult> getConfigurationSet(GetConfigurationSetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:sesv2/getConfigurationSet:getConfigurationSet", TypeShape.of(GetConfigurationSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sesv2.Sesv2Functions;
+     * import com.pulumi.aws.sesv2.inputs.GetConfigurationSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Sesv2Functions.getConfigurationSet(GetConfigurationSetArgs.builder()
+     *             .configurationSetName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetConfigurationSetResult> getConfigurationSetPlain(GetConfigurationSetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:sesv2/getConfigurationSet:getConfigurationSet", TypeShape.of(GetConfigurationSetResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
      * 

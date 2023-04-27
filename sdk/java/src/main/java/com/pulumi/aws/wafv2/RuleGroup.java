@@ -86,6 +86,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Complex
+ * 
  * ```java
  * package generated_program;
  * 
@@ -107,6 +108,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleVisibilityConfigArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionCountArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementOrStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleCaptchaConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs;
@@ -249,6 +252,11 @@ import javax.annotation.Nullable;
  *                         .metricName(&#34;rule-2&#34;)
  *                         .sampledRequestsEnabled(false)
  *                         .build())
+ *                     .captchaConfig(RuleGroupRuleCaptchaConfigArgs.builder()
+ *                         .immunityTimeProperty(RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs.builder()
+ *                             .immunityTime(240)
+ *                             .build())
+ *                         .build())
  *                     .build(),
  *                 RuleGroupRuleArgs.builder()
  *                     .name(&#34;rule-3&#34;)
@@ -318,6 +326,7 @@ import javax.annotation.Nullable;
  *                 .metricName(&#34;friendly-metric-name&#34;)
  *                 .sampledRequestsEnabled(false)
  *                 .build())
+ *             .captchaConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .tags(Map.ofEntries(
  *                 Map.entry(&#34;Name&#34;, &#34;example-and-statement&#34;),
  *                 Map.entry(&#34;Code&#34;, &#34;123456&#34;)

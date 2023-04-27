@@ -48,14 +48,14 @@ public final class DataSetPhysicalTableMapCustomSqlArgs extends com.pulumi.resou
     }
 
     /**
-     * Display name for the dataset.
+     * Display name for the SQL query result.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Display name for the dataset.
+     * @return Display name for the SQL query result.
      * 
      */
     public Output<String> name() {
@@ -157,7 +157,7 @@ public final class DataSetPhysicalTableMapCustomSqlArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name Display name for the dataset.
+         * @param name Display name for the SQL query result.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class DataSetPhysicalTableMapCustomSqlArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name Display name for the dataset.
+         * @param name Display name for the SQL query result.
          * 
          * @return builder
          * 

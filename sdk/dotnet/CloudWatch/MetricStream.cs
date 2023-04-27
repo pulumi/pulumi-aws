@@ -276,6 +276,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<ImmutableArray<Outputs.MetricStreamIncludeFilter>> IncludeFilters { get; private set; } = null!;
 
         /// <summary>
+        /// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+        /// </summary>
+        [Output("includeLinkedAccountsMetrics")]
+        public Output<bool?> IncludeLinkedAccountsMetrics { get; private set; } = null!;
+
+        /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
         /// </summary>
         [Output("lastUpdateDate")]
@@ -406,6 +412,12 @@ namespace Pulumi.Aws.CloudWatch
         }
 
         /// <summary>
+        /// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+        /// </summary>
+        [Input("includeLinkedAccountsMetrics")]
+        public Input<bool>? IncludeLinkedAccountsMetrics { get; set; }
+
+        /// <summary>
         /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
@@ -514,6 +526,12 @@ namespace Pulumi.Aws.CloudWatch
             get => _includeFilters ?? (_includeFilters = new InputList<Inputs.MetricStreamIncludeFilterGetArgs>());
             set => _includeFilters = value;
         }
+
+        /// <summary>
+        /// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+        /// </summary>
+        [Input("includeLinkedAccountsMetrics")]
+        public Input<bool>? IncludeLinkedAccountsMetrics { get; set; }
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.

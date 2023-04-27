@@ -277,6 +277,10 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public /*out*/ readonly capacity!: pulumi.Output<number>;
     /**
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     */
+    public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
+    /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      */
     public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.WebAclCustomResponseBody[] | undefined>;
@@ -329,6 +333,7 @@ export class WebAcl extends pulumi.CustomResource {
             const state = argsOrState as WebAclState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
+            resourceInputs["captchaConfig"] = state ? state.captchaConfig : undefined;
             resourceInputs["customResponseBodies"] = state ? state.customResponseBodies : undefined;
             resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -350,6 +355,7 @@ export class WebAcl extends pulumi.CustomResource {
             if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
+            resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
             resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
             resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -380,6 +386,10 @@ export interface WebAclState {
      * Web ACL capacity units (WCUs) currently being used by this web ACL.
      */
     capacity?: pulumi.Input<number>;
+    /**
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     */
+    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      */
@@ -423,6 +433,10 @@ export interface WebAclState {
  * The set of arguments for constructing a WebAcl resource.
  */
 export interface WebAclArgs {
+    /**
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     */
+    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
     /**
      * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      */

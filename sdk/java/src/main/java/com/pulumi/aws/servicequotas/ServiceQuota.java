@@ -6,6 +6,7 @@ package com.pulumi.aws.servicequotas;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.servicequotas.ServiceQuotaArgs;
 import com.pulumi.aws.servicequotas.inputs.ServiceQuotaState;
+import com.pulumi.aws.servicequotas.outputs.ServiceQuotaUsageMetric;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -13,6 +14,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import javax.annotation.Nullable;
 
 /**
@@ -172,6 +174,20 @@ public class ServiceQuota extends com.pulumi.resources.CustomResource {
      */
     public Output<String> serviceName() {
         return this.serviceName;
+    }
+    /**
+     * Information about the measurement.
+     * 
+     */
+    @Export(name="usageMetrics", refs={List.class,ServiceQuotaUsageMetric.class}, tree="[0,1]")
+    private Output<List<ServiceQuotaUsageMetric>> usageMetrics;
+
+    /**
+     * @return Information about the measurement.
+     * 
+     */
+    public Output<List<ServiceQuotaUsageMetric>> usageMetrics() {
+        return this.usageMetrics;
     }
     /**
      * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.

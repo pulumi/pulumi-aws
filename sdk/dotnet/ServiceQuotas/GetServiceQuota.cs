@@ -171,6 +171,10 @@ namespace Pulumi.Aws.ServiceQuotas
         /// </summary>
         public readonly string ServiceName;
         /// <summary>
+        /// Information about the measurement.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServiceQuotaUsageMetricResult> UsageMetrics;
+        /// <summary>
         /// Current value of the service quota.
         /// </summary>
         public readonly double Value;
@@ -195,6 +199,8 @@ namespace Pulumi.Aws.ServiceQuotas
 
             string serviceName,
 
+            ImmutableArray<Outputs.GetServiceQuotaUsageMetricResult> usageMetrics,
+
             double value)
         {
             Adjustable = adjustable;
@@ -206,6 +212,7 @@ namespace Pulumi.Aws.ServiceQuotas
             QuotaName = quotaName;
             ServiceCode = serviceCode;
             ServiceName = serviceName;
+            UsageMetrics = usageMetrics;
             Value = value;
         }
     }

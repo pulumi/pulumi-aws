@@ -89,7 +89,7 @@ import (
 //
 // ## Import
 //
-// Individual routes can be imported using `ROUTETABLEID_DESTINATION`. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
+// Individual routes can be imported using `ROUTETABLEID_DESTINATION`. [Local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) can be imported using the VPC's IPv4 or IPv6 CIDR blocks. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
 //
 // ```sh
 //
@@ -127,7 +127,7 @@ type Route struct {
 	DestinationPrefixListId pulumi.StringPtrOutput `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId pulumi.StringPtrOutput `pulumi:"egressOnlyGatewayId"`
-	// Identifier of a VPC internet gateway or a virtual private gateway.
+	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrOutput `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
 	//
@@ -199,7 +199,7 @@ type routeState struct {
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId *string `pulumi:"egressOnlyGatewayId"`
-	// Identifier of a VPC internet gateway or a virtual private gateway.
+	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId *string `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
 	//
@@ -240,7 +240,7 @@ type RouteState struct {
 	DestinationPrefixListId pulumi.StringPtrInput
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId pulumi.StringPtrInput
-	// Identifier of a VPC internet gateway or a virtual private gateway.
+	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 instance.
 	//
@@ -285,7 +285,7 @@ type routeArgs struct {
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId *string `pulumi:"egressOnlyGatewayId"`
-	// Identifier of a VPC internet gateway or a virtual private gateway.
+	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId *string `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
 	//
@@ -321,7 +321,7 @@ type RouteArgs struct {
 	DestinationPrefixListId pulumi.StringPtrInput
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId pulumi.StringPtrInput
-	// Identifier of a VPC internet gateway or a virtual private gateway.
+	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 instance.
 	//
@@ -460,7 +460,7 @@ func (o RouteOutput) EgressOnlyGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.EgressOnlyGatewayId }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of a VPC internet gateway or a virtual private gateway.
+// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 func (o RouteOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.GatewayId }).(pulumi.StringPtrOutput)
 }

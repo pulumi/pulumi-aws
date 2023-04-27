@@ -25,6 +25,11 @@ export const getOpenZfsSnapshot: typeof import("./getOpenZfsSnapshot").getOpenZf
 export const getOpenZfsSnapshotOutput: typeof import("./getOpenZfsSnapshot").getOpenZfsSnapshotOutput = null as any;
 utilities.lazyLoad(exports, ["getOpenZfsSnapshot","getOpenZfsSnapshotOutput"], () => require("./getOpenZfsSnapshot"));
 
+export { GetWindowsFileSystemArgs, GetWindowsFileSystemResult, GetWindowsFileSystemOutputArgs } from "./getWindowsFileSystem";
+export const getWindowsFileSystem: typeof import("./getWindowsFileSystem").getWindowsFileSystem = null as any;
+export const getWindowsFileSystemOutput: typeof import("./getWindowsFileSystem").getWindowsFileSystemOutput = null as any;
+utilities.lazyLoad(exports, ["getWindowsFileSystem","getWindowsFileSystemOutput"], () => require("./getWindowsFileSystem"));
+
 export { LustreFileSystemArgs, LustreFileSystemState } from "./lustreFileSystem";
 export type LustreFileSystem = import("./lustreFileSystem").LustreFileSystem;
 export const LustreFileSystem: typeof import("./lustreFileSystem").LustreFileSystem = null as any;

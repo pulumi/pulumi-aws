@@ -2493,6 +2493,813 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) Tokens() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+type GetConfigurationSetDeliveryOption struct {
+	// The name of the dedicated IP pool to associate with the configuration set.
+	SendingPoolName string `pulumi:"sendingPoolName"`
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+	TlsPolicy string `pulumi:"tlsPolicy"`
+}
+
+// GetConfigurationSetDeliveryOptionInput is an input type that accepts GetConfigurationSetDeliveryOptionArgs and GetConfigurationSetDeliveryOptionOutput values.
+// You can construct a concrete instance of `GetConfigurationSetDeliveryOptionInput` via:
+//
+//	GetConfigurationSetDeliveryOptionArgs{...}
+type GetConfigurationSetDeliveryOptionInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetDeliveryOptionOutput() GetConfigurationSetDeliveryOptionOutput
+	ToGetConfigurationSetDeliveryOptionOutputWithContext(context.Context) GetConfigurationSetDeliveryOptionOutput
+}
+
+type GetConfigurationSetDeliveryOptionArgs struct {
+	// The name of the dedicated IP pool to associate with the configuration set.
+	SendingPoolName pulumi.StringInput `pulumi:"sendingPoolName"`
+	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+	TlsPolicy pulumi.StringInput `pulumi:"tlsPolicy"`
+}
+
+func (GetConfigurationSetDeliveryOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetDeliveryOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetDeliveryOptionArgs) ToGetConfigurationSetDeliveryOptionOutput() GetConfigurationSetDeliveryOptionOutput {
+	return i.ToGetConfigurationSetDeliveryOptionOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetDeliveryOptionArgs) ToGetConfigurationSetDeliveryOptionOutputWithContext(ctx context.Context) GetConfigurationSetDeliveryOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetDeliveryOptionOutput)
+}
+
+// GetConfigurationSetDeliveryOptionArrayInput is an input type that accepts GetConfigurationSetDeliveryOptionArray and GetConfigurationSetDeliveryOptionArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationSetDeliveryOptionArrayInput` via:
+//
+//	GetConfigurationSetDeliveryOptionArray{ GetConfigurationSetDeliveryOptionArgs{...} }
+type GetConfigurationSetDeliveryOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetDeliveryOptionArrayOutput() GetConfigurationSetDeliveryOptionArrayOutput
+	ToGetConfigurationSetDeliveryOptionArrayOutputWithContext(context.Context) GetConfigurationSetDeliveryOptionArrayOutput
+}
+
+type GetConfigurationSetDeliveryOptionArray []GetConfigurationSetDeliveryOptionInput
+
+func (GetConfigurationSetDeliveryOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetDeliveryOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetDeliveryOptionArray) ToGetConfigurationSetDeliveryOptionArrayOutput() GetConfigurationSetDeliveryOptionArrayOutput {
+	return i.ToGetConfigurationSetDeliveryOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetDeliveryOptionArray) ToGetConfigurationSetDeliveryOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetDeliveryOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetDeliveryOptionArrayOutput)
+}
+
+type GetConfigurationSetDeliveryOptionOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetDeliveryOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetDeliveryOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetDeliveryOptionOutput) ToGetConfigurationSetDeliveryOptionOutput() GetConfigurationSetDeliveryOptionOutput {
+	return o
+}
+
+func (o GetConfigurationSetDeliveryOptionOutput) ToGetConfigurationSetDeliveryOptionOutputWithContext(ctx context.Context) GetConfigurationSetDeliveryOptionOutput {
+	return o
+}
+
+// The name of the dedicated IP pool to associate with the configuration set.
+func (o GetConfigurationSetDeliveryOptionOutput) SendingPoolName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationSetDeliveryOption) string { return v.SendingPoolName }).(pulumi.StringOutput)
+}
+
+// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+func (o GetConfigurationSetDeliveryOptionOutput) TlsPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationSetDeliveryOption) string { return v.TlsPolicy }).(pulumi.StringOutput)
+}
+
+type GetConfigurationSetDeliveryOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetDeliveryOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetDeliveryOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetDeliveryOptionArrayOutput) ToGetConfigurationSetDeliveryOptionArrayOutput() GetConfigurationSetDeliveryOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetDeliveryOptionArrayOutput) ToGetConfigurationSetDeliveryOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetDeliveryOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetDeliveryOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetDeliveryOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationSetDeliveryOption {
+		return vs[0].([]GetConfigurationSetDeliveryOption)[vs[1].(int)]
+	}).(GetConfigurationSetDeliveryOptionOutput)
+}
+
+type GetConfigurationSetReputationOption struct {
+	// The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+	LastFreshStart string `pulumi:"lastFreshStart"`
+	// Specifies whether tracking of reputation metrics is enabled.
+	ReputationMetricsEnabled bool `pulumi:"reputationMetricsEnabled"`
+}
+
+// GetConfigurationSetReputationOptionInput is an input type that accepts GetConfigurationSetReputationOptionArgs and GetConfigurationSetReputationOptionOutput values.
+// You can construct a concrete instance of `GetConfigurationSetReputationOptionInput` via:
+//
+//	GetConfigurationSetReputationOptionArgs{...}
+type GetConfigurationSetReputationOptionInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetReputationOptionOutput() GetConfigurationSetReputationOptionOutput
+	ToGetConfigurationSetReputationOptionOutputWithContext(context.Context) GetConfigurationSetReputationOptionOutput
+}
+
+type GetConfigurationSetReputationOptionArgs struct {
+	// The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+	LastFreshStart pulumi.StringInput `pulumi:"lastFreshStart"`
+	// Specifies whether tracking of reputation metrics is enabled.
+	ReputationMetricsEnabled pulumi.BoolInput `pulumi:"reputationMetricsEnabled"`
+}
+
+func (GetConfigurationSetReputationOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetReputationOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetReputationOptionArgs) ToGetConfigurationSetReputationOptionOutput() GetConfigurationSetReputationOptionOutput {
+	return i.ToGetConfigurationSetReputationOptionOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetReputationOptionArgs) ToGetConfigurationSetReputationOptionOutputWithContext(ctx context.Context) GetConfigurationSetReputationOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetReputationOptionOutput)
+}
+
+// GetConfigurationSetReputationOptionArrayInput is an input type that accepts GetConfigurationSetReputationOptionArray and GetConfigurationSetReputationOptionArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationSetReputationOptionArrayInput` via:
+//
+//	GetConfigurationSetReputationOptionArray{ GetConfigurationSetReputationOptionArgs{...} }
+type GetConfigurationSetReputationOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetReputationOptionArrayOutput() GetConfigurationSetReputationOptionArrayOutput
+	ToGetConfigurationSetReputationOptionArrayOutputWithContext(context.Context) GetConfigurationSetReputationOptionArrayOutput
+}
+
+type GetConfigurationSetReputationOptionArray []GetConfigurationSetReputationOptionInput
+
+func (GetConfigurationSetReputationOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetReputationOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetReputationOptionArray) ToGetConfigurationSetReputationOptionArrayOutput() GetConfigurationSetReputationOptionArrayOutput {
+	return i.ToGetConfigurationSetReputationOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetReputationOptionArray) ToGetConfigurationSetReputationOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetReputationOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetReputationOptionArrayOutput)
+}
+
+type GetConfigurationSetReputationOptionOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetReputationOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetReputationOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetReputationOptionOutput) ToGetConfigurationSetReputationOptionOutput() GetConfigurationSetReputationOptionOutput {
+	return o
+}
+
+func (o GetConfigurationSetReputationOptionOutput) ToGetConfigurationSetReputationOptionOutputWithContext(ctx context.Context) GetConfigurationSetReputationOptionOutput {
+	return o
+}
+
+// The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+func (o GetConfigurationSetReputationOptionOutput) LastFreshStart() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationSetReputationOption) string { return v.LastFreshStart }).(pulumi.StringOutput)
+}
+
+// Specifies whether tracking of reputation metrics is enabled.
+func (o GetConfigurationSetReputationOptionOutput) ReputationMetricsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetConfigurationSetReputationOption) bool { return v.ReputationMetricsEnabled }).(pulumi.BoolOutput)
+}
+
+type GetConfigurationSetReputationOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetReputationOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetReputationOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetReputationOptionArrayOutput) ToGetConfigurationSetReputationOptionArrayOutput() GetConfigurationSetReputationOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetReputationOptionArrayOutput) ToGetConfigurationSetReputationOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetReputationOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetReputationOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetReputationOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationSetReputationOption {
+		return vs[0].([]GetConfigurationSetReputationOption)[vs[1].(int)]
+	}).(GetConfigurationSetReputationOptionOutput)
+}
+
+type GetConfigurationSetSendingOption struct {
+	// Specifies whether email sending is enabled.
+	SendingEnabled bool `pulumi:"sendingEnabled"`
+}
+
+// GetConfigurationSetSendingOptionInput is an input type that accepts GetConfigurationSetSendingOptionArgs and GetConfigurationSetSendingOptionOutput values.
+// You can construct a concrete instance of `GetConfigurationSetSendingOptionInput` via:
+//
+//	GetConfigurationSetSendingOptionArgs{...}
+type GetConfigurationSetSendingOptionInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetSendingOptionOutput() GetConfigurationSetSendingOptionOutput
+	ToGetConfigurationSetSendingOptionOutputWithContext(context.Context) GetConfigurationSetSendingOptionOutput
+}
+
+type GetConfigurationSetSendingOptionArgs struct {
+	// Specifies whether email sending is enabled.
+	SendingEnabled pulumi.BoolInput `pulumi:"sendingEnabled"`
+}
+
+func (GetConfigurationSetSendingOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetSendingOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetSendingOptionArgs) ToGetConfigurationSetSendingOptionOutput() GetConfigurationSetSendingOptionOutput {
+	return i.ToGetConfigurationSetSendingOptionOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetSendingOptionArgs) ToGetConfigurationSetSendingOptionOutputWithContext(ctx context.Context) GetConfigurationSetSendingOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetSendingOptionOutput)
+}
+
+// GetConfigurationSetSendingOptionArrayInput is an input type that accepts GetConfigurationSetSendingOptionArray and GetConfigurationSetSendingOptionArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationSetSendingOptionArrayInput` via:
+//
+//	GetConfigurationSetSendingOptionArray{ GetConfigurationSetSendingOptionArgs{...} }
+type GetConfigurationSetSendingOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetSendingOptionArrayOutput() GetConfigurationSetSendingOptionArrayOutput
+	ToGetConfigurationSetSendingOptionArrayOutputWithContext(context.Context) GetConfigurationSetSendingOptionArrayOutput
+}
+
+type GetConfigurationSetSendingOptionArray []GetConfigurationSetSendingOptionInput
+
+func (GetConfigurationSetSendingOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetSendingOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetSendingOptionArray) ToGetConfigurationSetSendingOptionArrayOutput() GetConfigurationSetSendingOptionArrayOutput {
+	return i.ToGetConfigurationSetSendingOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetSendingOptionArray) ToGetConfigurationSetSendingOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetSendingOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetSendingOptionArrayOutput)
+}
+
+type GetConfigurationSetSendingOptionOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetSendingOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetSendingOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetSendingOptionOutput) ToGetConfigurationSetSendingOptionOutput() GetConfigurationSetSendingOptionOutput {
+	return o
+}
+
+func (o GetConfigurationSetSendingOptionOutput) ToGetConfigurationSetSendingOptionOutputWithContext(ctx context.Context) GetConfigurationSetSendingOptionOutput {
+	return o
+}
+
+// Specifies whether email sending is enabled.
+func (o GetConfigurationSetSendingOptionOutput) SendingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetConfigurationSetSendingOption) bool { return v.SendingEnabled }).(pulumi.BoolOutput)
+}
+
+type GetConfigurationSetSendingOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetSendingOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetSendingOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetSendingOptionArrayOutput) ToGetConfigurationSetSendingOptionArrayOutput() GetConfigurationSetSendingOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetSendingOptionArrayOutput) ToGetConfigurationSetSendingOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetSendingOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetSendingOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetSendingOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationSetSendingOption {
+		return vs[0].([]GetConfigurationSetSendingOption)[vs[1].(int)]
+	}).(GetConfigurationSetSendingOptionOutput)
+}
+
+type GetConfigurationSetSuppressionOption struct {
+	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+	SuppressedReasons []string `pulumi:"suppressedReasons"`
+}
+
+// GetConfigurationSetSuppressionOptionInput is an input type that accepts GetConfigurationSetSuppressionOptionArgs and GetConfigurationSetSuppressionOptionOutput values.
+// You can construct a concrete instance of `GetConfigurationSetSuppressionOptionInput` via:
+//
+//	GetConfigurationSetSuppressionOptionArgs{...}
+type GetConfigurationSetSuppressionOptionInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetSuppressionOptionOutput() GetConfigurationSetSuppressionOptionOutput
+	ToGetConfigurationSetSuppressionOptionOutputWithContext(context.Context) GetConfigurationSetSuppressionOptionOutput
+}
+
+type GetConfigurationSetSuppressionOptionArgs struct {
+	// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+	SuppressedReasons pulumi.StringArrayInput `pulumi:"suppressedReasons"`
+}
+
+func (GetConfigurationSetSuppressionOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetSuppressionOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetSuppressionOptionArgs) ToGetConfigurationSetSuppressionOptionOutput() GetConfigurationSetSuppressionOptionOutput {
+	return i.ToGetConfigurationSetSuppressionOptionOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetSuppressionOptionArgs) ToGetConfigurationSetSuppressionOptionOutputWithContext(ctx context.Context) GetConfigurationSetSuppressionOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetSuppressionOptionOutput)
+}
+
+// GetConfigurationSetSuppressionOptionArrayInput is an input type that accepts GetConfigurationSetSuppressionOptionArray and GetConfigurationSetSuppressionOptionArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationSetSuppressionOptionArrayInput` via:
+//
+//	GetConfigurationSetSuppressionOptionArray{ GetConfigurationSetSuppressionOptionArgs{...} }
+type GetConfigurationSetSuppressionOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetSuppressionOptionArrayOutput() GetConfigurationSetSuppressionOptionArrayOutput
+	ToGetConfigurationSetSuppressionOptionArrayOutputWithContext(context.Context) GetConfigurationSetSuppressionOptionArrayOutput
+}
+
+type GetConfigurationSetSuppressionOptionArray []GetConfigurationSetSuppressionOptionInput
+
+func (GetConfigurationSetSuppressionOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetSuppressionOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetSuppressionOptionArray) ToGetConfigurationSetSuppressionOptionArrayOutput() GetConfigurationSetSuppressionOptionArrayOutput {
+	return i.ToGetConfigurationSetSuppressionOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetSuppressionOptionArray) ToGetConfigurationSetSuppressionOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetSuppressionOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetSuppressionOptionArrayOutput)
+}
+
+type GetConfigurationSetSuppressionOptionOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetSuppressionOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetSuppressionOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetSuppressionOptionOutput) ToGetConfigurationSetSuppressionOptionOutput() GetConfigurationSetSuppressionOptionOutput {
+	return o
+}
+
+func (o GetConfigurationSetSuppressionOptionOutput) ToGetConfigurationSetSuppressionOptionOutputWithContext(ctx context.Context) GetConfigurationSetSuppressionOptionOutput {
+	return o
+}
+
+// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+func (o GetConfigurationSetSuppressionOptionOutput) SuppressedReasons() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetConfigurationSetSuppressionOption) []string { return v.SuppressedReasons }).(pulumi.StringArrayOutput)
+}
+
+type GetConfigurationSetSuppressionOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetSuppressionOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetSuppressionOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetSuppressionOptionArrayOutput) ToGetConfigurationSetSuppressionOptionArrayOutput() GetConfigurationSetSuppressionOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetSuppressionOptionArrayOutput) ToGetConfigurationSetSuppressionOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetSuppressionOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetSuppressionOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetSuppressionOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationSetSuppressionOption {
+		return vs[0].([]GetConfigurationSetSuppressionOption)[vs[1].(int)]
+	}).(GetConfigurationSetSuppressionOptionOutput)
+}
+
+type GetConfigurationSetTrackingOption struct {
+	// The domain to use for tracking open and click events.
+	CustomRedirectDomain string `pulumi:"customRedirectDomain"`
+}
+
+// GetConfigurationSetTrackingOptionInput is an input type that accepts GetConfigurationSetTrackingOptionArgs and GetConfigurationSetTrackingOptionOutput values.
+// You can construct a concrete instance of `GetConfigurationSetTrackingOptionInput` via:
+//
+//	GetConfigurationSetTrackingOptionArgs{...}
+type GetConfigurationSetTrackingOptionInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetTrackingOptionOutput() GetConfigurationSetTrackingOptionOutput
+	ToGetConfigurationSetTrackingOptionOutputWithContext(context.Context) GetConfigurationSetTrackingOptionOutput
+}
+
+type GetConfigurationSetTrackingOptionArgs struct {
+	// The domain to use for tracking open and click events.
+	CustomRedirectDomain pulumi.StringInput `pulumi:"customRedirectDomain"`
+}
+
+func (GetConfigurationSetTrackingOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetTrackingOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetTrackingOptionArgs) ToGetConfigurationSetTrackingOptionOutput() GetConfigurationSetTrackingOptionOutput {
+	return i.ToGetConfigurationSetTrackingOptionOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetTrackingOptionArgs) ToGetConfigurationSetTrackingOptionOutputWithContext(ctx context.Context) GetConfigurationSetTrackingOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetTrackingOptionOutput)
+}
+
+// GetConfigurationSetTrackingOptionArrayInput is an input type that accepts GetConfigurationSetTrackingOptionArray and GetConfigurationSetTrackingOptionArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationSetTrackingOptionArrayInput` via:
+//
+//	GetConfigurationSetTrackingOptionArray{ GetConfigurationSetTrackingOptionArgs{...} }
+type GetConfigurationSetTrackingOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetTrackingOptionArrayOutput() GetConfigurationSetTrackingOptionArrayOutput
+	ToGetConfigurationSetTrackingOptionArrayOutputWithContext(context.Context) GetConfigurationSetTrackingOptionArrayOutput
+}
+
+type GetConfigurationSetTrackingOptionArray []GetConfigurationSetTrackingOptionInput
+
+func (GetConfigurationSetTrackingOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetTrackingOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetTrackingOptionArray) ToGetConfigurationSetTrackingOptionArrayOutput() GetConfigurationSetTrackingOptionArrayOutput {
+	return i.ToGetConfigurationSetTrackingOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetTrackingOptionArray) ToGetConfigurationSetTrackingOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetTrackingOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetTrackingOptionArrayOutput)
+}
+
+type GetConfigurationSetTrackingOptionOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetTrackingOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetTrackingOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetTrackingOptionOutput) ToGetConfigurationSetTrackingOptionOutput() GetConfigurationSetTrackingOptionOutput {
+	return o
+}
+
+func (o GetConfigurationSetTrackingOptionOutput) ToGetConfigurationSetTrackingOptionOutputWithContext(ctx context.Context) GetConfigurationSetTrackingOptionOutput {
+	return o
+}
+
+// The domain to use for tracking open and click events.
+func (o GetConfigurationSetTrackingOptionOutput) CustomRedirectDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationSetTrackingOption) string { return v.CustomRedirectDomain }).(pulumi.StringOutput)
+}
+
+type GetConfigurationSetTrackingOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetTrackingOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetTrackingOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetTrackingOptionArrayOutput) ToGetConfigurationSetTrackingOptionArrayOutput() GetConfigurationSetTrackingOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetTrackingOptionArrayOutput) ToGetConfigurationSetTrackingOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetTrackingOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetTrackingOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetTrackingOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationSetTrackingOption {
+		return vs[0].([]GetConfigurationSetTrackingOption)[vs[1].(int)]
+	}).(GetConfigurationSetTrackingOptionOutput)
+}
+
+type GetConfigurationSetVdmOption struct {
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+	DashboardOptions []GetConfigurationSetVdmOptionDashboardOption `pulumi:"dashboardOptions"`
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	GuardianOptions []GetConfigurationSetVdmOptionGuardianOption `pulumi:"guardianOptions"`
+}
+
+// GetConfigurationSetVdmOptionInput is an input type that accepts GetConfigurationSetVdmOptionArgs and GetConfigurationSetVdmOptionOutput values.
+// You can construct a concrete instance of `GetConfigurationSetVdmOptionInput` via:
+//
+//	GetConfigurationSetVdmOptionArgs{...}
+type GetConfigurationSetVdmOptionInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetVdmOptionOutput() GetConfigurationSetVdmOptionOutput
+	ToGetConfigurationSetVdmOptionOutputWithContext(context.Context) GetConfigurationSetVdmOptionOutput
+}
+
+type GetConfigurationSetVdmOptionArgs struct {
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+	DashboardOptions GetConfigurationSetVdmOptionDashboardOptionArrayInput `pulumi:"dashboardOptions"`
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	GuardianOptions GetConfigurationSetVdmOptionGuardianOptionArrayInput `pulumi:"guardianOptions"`
+}
+
+func (GetConfigurationSetVdmOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetVdmOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetVdmOptionArgs) ToGetConfigurationSetVdmOptionOutput() GetConfigurationSetVdmOptionOutput {
+	return i.ToGetConfigurationSetVdmOptionOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetVdmOptionArgs) ToGetConfigurationSetVdmOptionOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetVdmOptionOutput)
+}
+
+// GetConfigurationSetVdmOptionArrayInput is an input type that accepts GetConfigurationSetVdmOptionArray and GetConfigurationSetVdmOptionArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationSetVdmOptionArrayInput` via:
+//
+//	GetConfigurationSetVdmOptionArray{ GetConfigurationSetVdmOptionArgs{...} }
+type GetConfigurationSetVdmOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetVdmOptionArrayOutput() GetConfigurationSetVdmOptionArrayOutput
+	ToGetConfigurationSetVdmOptionArrayOutputWithContext(context.Context) GetConfigurationSetVdmOptionArrayOutput
+}
+
+type GetConfigurationSetVdmOptionArray []GetConfigurationSetVdmOptionInput
+
+func (GetConfigurationSetVdmOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetVdmOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetVdmOptionArray) ToGetConfigurationSetVdmOptionArrayOutput() GetConfigurationSetVdmOptionArrayOutput {
+	return i.ToGetConfigurationSetVdmOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetVdmOptionArray) ToGetConfigurationSetVdmOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetVdmOptionArrayOutput)
+}
+
+type GetConfigurationSetVdmOptionOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetVdmOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetVdmOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetVdmOptionOutput) ToGetConfigurationSetVdmOptionOutput() GetConfigurationSetVdmOptionOutput {
+	return o
+}
+
+func (o GetConfigurationSetVdmOptionOutput) ToGetConfigurationSetVdmOptionOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionOutput {
+	return o
+}
+
+// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+func (o GetConfigurationSetVdmOptionOutput) DashboardOptions() GetConfigurationSetVdmOptionDashboardOptionArrayOutput {
+	return o.ApplyT(func(v GetConfigurationSetVdmOption) []GetConfigurationSetVdmOptionDashboardOption {
+		return v.DashboardOptions
+	}).(GetConfigurationSetVdmOptionDashboardOptionArrayOutput)
+}
+
+// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+func (o GetConfigurationSetVdmOptionOutput) GuardianOptions() GetConfigurationSetVdmOptionGuardianOptionArrayOutput {
+	return o.ApplyT(func(v GetConfigurationSetVdmOption) []GetConfigurationSetVdmOptionGuardianOption {
+		return v.GuardianOptions
+	}).(GetConfigurationSetVdmOptionGuardianOptionArrayOutput)
+}
+
+type GetConfigurationSetVdmOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetVdmOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetVdmOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetVdmOptionArrayOutput) ToGetConfigurationSetVdmOptionArrayOutput() GetConfigurationSetVdmOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetVdmOptionArrayOutput) ToGetConfigurationSetVdmOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetVdmOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetVdmOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationSetVdmOption {
+		return vs[0].([]GetConfigurationSetVdmOption)[vs[1].(int)]
+	}).(GetConfigurationSetVdmOptionOutput)
+}
+
+type GetConfigurationSetVdmOptionDashboardOption struct {
+	// Specifies the status of your VDM engagement metrics collection.
+	EngagementMetrics string `pulumi:"engagementMetrics"`
+}
+
+// GetConfigurationSetVdmOptionDashboardOptionInput is an input type that accepts GetConfigurationSetVdmOptionDashboardOptionArgs and GetConfigurationSetVdmOptionDashboardOptionOutput values.
+// You can construct a concrete instance of `GetConfigurationSetVdmOptionDashboardOptionInput` via:
+//
+//	GetConfigurationSetVdmOptionDashboardOptionArgs{...}
+type GetConfigurationSetVdmOptionDashboardOptionInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetVdmOptionDashboardOptionOutput() GetConfigurationSetVdmOptionDashboardOptionOutput
+	ToGetConfigurationSetVdmOptionDashboardOptionOutputWithContext(context.Context) GetConfigurationSetVdmOptionDashboardOptionOutput
+}
+
+type GetConfigurationSetVdmOptionDashboardOptionArgs struct {
+	// Specifies the status of your VDM engagement metrics collection.
+	EngagementMetrics pulumi.StringInput `pulumi:"engagementMetrics"`
+}
+
+func (GetConfigurationSetVdmOptionDashboardOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetVdmOptionDashboardOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetVdmOptionDashboardOptionArgs) ToGetConfigurationSetVdmOptionDashboardOptionOutput() GetConfigurationSetVdmOptionDashboardOptionOutput {
+	return i.ToGetConfigurationSetVdmOptionDashboardOptionOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetVdmOptionDashboardOptionArgs) ToGetConfigurationSetVdmOptionDashboardOptionOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionDashboardOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetVdmOptionDashboardOptionOutput)
+}
+
+// GetConfigurationSetVdmOptionDashboardOptionArrayInput is an input type that accepts GetConfigurationSetVdmOptionDashboardOptionArray and GetConfigurationSetVdmOptionDashboardOptionArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationSetVdmOptionDashboardOptionArrayInput` via:
+//
+//	GetConfigurationSetVdmOptionDashboardOptionArray{ GetConfigurationSetVdmOptionDashboardOptionArgs{...} }
+type GetConfigurationSetVdmOptionDashboardOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetVdmOptionDashboardOptionArrayOutput() GetConfigurationSetVdmOptionDashboardOptionArrayOutput
+	ToGetConfigurationSetVdmOptionDashboardOptionArrayOutputWithContext(context.Context) GetConfigurationSetVdmOptionDashboardOptionArrayOutput
+}
+
+type GetConfigurationSetVdmOptionDashboardOptionArray []GetConfigurationSetVdmOptionDashboardOptionInput
+
+func (GetConfigurationSetVdmOptionDashboardOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetVdmOptionDashboardOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetVdmOptionDashboardOptionArray) ToGetConfigurationSetVdmOptionDashboardOptionArrayOutput() GetConfigurationSetVdmOptionDashboardOptionArrayOutput {
+	return i.ToGetConfigurationSetVdmOptionDashboardOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetVdmOptionDashboardOptionArray) ToGetConfigurationSetVdmOptionDashboardOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionDashboardOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetVdmOptionDashboardOptionArrayOutput)
+}
+
+type GetConfigurationSetVdmOptionDashboardOptionOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetVdmOptionDashboardOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetVdmOptionDashboardOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetVdmOptionDashboardOptionOutput) ToGetConfigurationSetVdmOptionDashboardOptionOutput() GetConfigurationSetVdmOptionDashboardOptionOutput {
+	return o
+}
+
+func (o GetConfigurationSetVdmOptionDashboardOptionOutput) ToGetConfigurationSetVdmOptionDashboardOptionOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionDashboardOptionOutput {
+	return o
+}
+
+// Specifies the status of your VDM engagement metrics collection.
+func (o GetConfigurationSetVdmOptionDashboardOptionOutput) EngagementMetrics() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationSetVdmOptionDashboardOption) string { return v.EngagementMetrics }).(pulumi.StringOutput)
+}
+
+type GetConfigurationSetVdmOptionDashboardOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetVdmOptionDashboardOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetVdmOptionDashboardOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetVdmOptionDashboardOptionArrayOutput) ToGetConfigurationSetVdmOptionDashboardOptionArrayOutput() GetConfigurationSetVdmOptionDashboardOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetVdmOptionDashboardOptionArrayOutput) ToGetConfigurationSetVdmOptionDashboardOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionDashboardOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetVdmOptionDashboardOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetVdmOptionDashboardOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationSetVdmOptionDashboardOption {
+		return vs[0].([]GetConfigurationSetVdmOptionDashboardOption)[vs[1].(int)]
+	}).(GetConfigurationSetVdmOptionDashboardOptionOutput)
+}
+
+type GetConfigurationSetVdmOptionGuardianOption struct {
+	// Specifies the status of your VDM optimized shared delivery.
+	OptimizedSharedDelivery string `pulumi:"optimizedSharedDelivery"`
+}
+
+// GetConfigurationSetVdmOptionGuardianOptionInput is an input type that accepts GetConfigurationSetVdmOptionGuardianOptionArgs and GetConfigurationSetVdmOptionGuardianOptionOutput values.
+// You can construct a concrete instance of `GetConfigurationSetVdmOptionGuardianOptionInput` via:
+//
+//	GetConfigurationSetVdmOptionGuardianOptionArgs{...}
+type GetConfigurationSetVdmOptionGuardianOptionInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetVdmOptionGuardianOptionOutput() GetConfigurationSetVdmOptionGuardianOptionOutput
+	ToGetConfigurationSetVdmOptionGuardianOptionOutputWithContext(context.Context) GetConfigurationSetVdmOptionGuardianOptionOutput
+}
+
+type GetConfigurationSetVdmOptionGuardianOptionArgs struct {
+	// Specifies the status of your VDM optimized shared delivery.
+	OptimizedSharedDelivery pulumi.StringInput `pulumi:"optimizedSharedDelivery"`
+}
+
+func (GetConfigurationSetVdmOptionGuardianOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetVdmOptionGuardianOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetVdmOptionGuardianOptionArgs) ToGetConfigurationSetVdmOptionGuardianOptionOutput() GetConfigurationSetVdmOptionGuardianOptionOutput {
+	return i.ToGetConfigurationSetVdmOptionGuardianOptionOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetVdmOptionGuardianOptionArgs) ToGetConfigurationSetVdmOptionGuardianOptionOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionGuardianOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetVdmOptionGuardianOptionOutput)
+}
+
+// GetConfigurationSetVdmOptionGuardianOptionArrayInput is an input type that accepts GetConfigurationSetVdmOptionGuardianOptionArray and GetConfigurationSetVdmOptionGuardianOptionArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationSetVdmOptionGuardianOptionArrayInput` via:
+//
+//	GetConfigurationSetVdmOptionGuardianOptionArray{ GetConfigurationSetVdmOptionGuardianOptionArgs{...} }
+type GetConfigurationSetVdmOptionGuardianOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationSetVdmOptionGuardianOptionArrayOutput() GetConfigurationSetVdmOptionGuardianOptionArrayOutput
+	ToGetConfigurationSetVdmOptionGuardianOptionArrayOutputWithContext(context.Context) GetConfigurationSetVdmOptionGuardianOptionArrayOutput
+}
+
+type GetConfigurationSetVdmOptionGuardianOptionArray []GetConfigurationSetVdmOptionGuardianOptionInput
+
+func (GetConfigurationSetVdmOptionGuardianOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetVdmOptionGuardianOption)(nil)).Elem()
+}
+
+func (i GetConfigurationSetVdmOptionGuardianOptionArray) ToGetConfigurationSetVdmOptionGuardianOptionArrayOutput() GetConfigurationSetVdmOptionGuardianOptionArrayOutput {
+	return i.ToGetConfigurationSetVdmOptionGuardianOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationSetVdmOptionGuardianOptionArray) ToGetConfigurationSetVdmOptionGuardianOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionGuardianOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetVdmOptionGuardianOptionArrayOutput)
+}
+
+type GetConfigurationSetVdmOptionGuardianOptionOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetVdmOptionGuardianOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationSetVdmOptionGuardianOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetVdmOptionGuardianOptionOutput) ToGetConfigurationSetVdmOptionGuardianOptionOutput() GetConfigurationSetVdmOptionGuardianOptionOutput {
+	return o
+}
+
+func (o GetConfigurationSetVdmOptionGuardianOptionOutput) ToGetConfigurationSetVdmOptionGuardianOptionOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionGuardianOptionOutput {
+	return o
+}
+
+// Specifies the status of your VDM optimized shared delivery.
+func (o GetConfigurationSetVdmOptionGuardianOptionOutput) OptimizedSharedDelivery() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationSetVdmOptionGuardianOption) string { return v.OptimizedSharedDelivery }).(pulumi.StringOutput)
+}
+
+type GetConfigurationSetVdmOptionGuardianOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationSetVdmOptionGuardianOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationSetVdmOptionGuardianOption)(nil)).Elem()
+}
+
+func (o GetConfigurationSetVdmOptionGuardianOptionArrayOutput) ToGetConfigurationSetVdmOptionGuardianOptionArrayOutput() GetConfigurationSetVdmOptionGuardianOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetVdmOptionGuardianOptionArrayOutput) ToGetConfigurationSetVdmOptionGuardianOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionGuardianOptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationSetVdmOptionGuardianOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetVdmOptionGuardianOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationSetVdmOptionGuardianOption {
+		return vs[0].([]GetConfigurationSetVdmOptionGuardianOption)[vs[1].(int)]
+	}).(GetConfigurationSetVdmOptionGuardianOptionOutput)
+}
+
 type GetDedicatedIpPoolDedicatedIp struct {
 	// IPv4 address.
 	Ip string `pulumi:"ip"`
@@ -2641,6 +3448,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicArrayInput)(nil)).Elem(), ContactListTopicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimSigningAttributesInput)(nil)).Elem(), EmailIdentityDkimSigningAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailIdentityDkimSigningAttributesPtrInput)(nil)).Elem(), EmailIdentityDkimSigningAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetDeliveryOptionInput)(nil)).Elem(), GetConfigurationSetDeliveryOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetDeliveryOptionArrayInput)(nil)).Elem(), GetConfigurationSetDeliveryOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetReputationOptionInput)(nil)).Elem(), GetConfigurationSetReputationOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetReputationOptionArrayInput)(nil)).Elem(), GetConfigurationSetReputationOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetSendingOptionInput)(nil)).Elem(), GetConfigurationSetSendingOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetSendingOptionArrayInput)(nil)).Elem(), GetConfigurationSetSendingOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetSuppressionOptionInput)(nil)).Elem(), GetConfigurationSetSuppressionOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetSuppressionOptionArrayInput)(nil)).Elem(), GetConfigurationSetSuppressionOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetTrackingOptionInput)(nil)).Elem(), GetConfigurationSetTrackingOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetTrackingOptionArrayInput)(nil)).Elem(), GetConfigurationSetTrackingOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetVdmOptionInput)(nil)).Elem(), GetConfigurationSetVdmOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetVdmOptionArrayInput)(nil)).Elem(), GetConfigurationSetVdmOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetVdmOptionDashboardOptionInput)(nil)).Elem(), GetConfigurationSetVdmOptionDashboardOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetVdmOptionDashboardOptionArrayInput)(nil)).Elem(), GetConfigurationSetVdmOptionDashboardOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetVdmOptionGuardianOptionInput)(nil)).Elem(), GetConfigurationSetVdmOptionGuardianOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetVdmOptionGuardianOptionArrayInput)(nil)).Elem(), GetConfigurationSetVdmOptionGuardianOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedIpPoolDedicatedIpInput)(nil)).Elem(), GetDedicatedIpPoolDedicatedIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedIpPoolDedicatedIpArrayInput)(nil)).Elem(), GetDedicatedIpPoolDedicatedIpArray{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
@@ -2675,6 +3498,22 @@ func init() {
 	pulumi.RegisterOutputType(ContactListTopicArrayOutput{})
 	pulumi.RegisterOutputType(EmailIdentityDkimSigningAttributesOutput{})
 	pulumi.RegisterOutputType(EmailIdentityDkimSigningAttributesPtrOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetDeliveryOptionOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetDeliveryOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetReputationOptionOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetReputationOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetSendingOptionOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetSendingOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetSuppressionOptionOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetSuppressionOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetTrackingOptionOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetTrackingOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetVdmOptionOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetVdmOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetVdmOptionDashboardOptionOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetVdmOptionDashboardOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetVdmOptionGuardianOptionOutput{})
+	pulumi.RegisterOutputType(GetConfigurationSetVdmOptionGuardianOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDedicatedIpPoolDedicatedIpOutput{})
 	pulumi.RegisterOutputType(GetDedicatedIpPoolDedicatedIpArrayOutput{})
 }

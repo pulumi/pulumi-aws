@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -206,6 +207,20 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enableDns64() {
         return Codegen.optional(this.enableDns64);
+    }
+    /**
+     * Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+     * 
+     */
+    @Export(name="enableLniAtDeviceIndex", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> enableLniAtDeviceIndex;
+
+    /**
+     * @return Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+     * 
+     */
+    public Output<Optional<Integer>> enableLniAtDeviceIndex() {
+        return Codegen.optional(this.enableLniAtDeviceIndex);
     }
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.

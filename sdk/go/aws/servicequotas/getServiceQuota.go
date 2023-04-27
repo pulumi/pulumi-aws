@@ -83,6 +83,8 @@ type LookupServiceQuotaResult struct {
 	ServiceCode string `pulumi:"serviceCode"`
 	// Name of the service.
 	ServiceName string `pulumi:"serviceName"`
+	// Information about the measurement.
+	UsageMetrics []GetServiceQuotaUsageMetric `pulumi:"usageMetrics"`
 	// Current value of the service quota.
 	Value float64 `pulumi:"value"`
 }
@@ -169,6 +171,11 @@ func (o LookupServiceQuotaResultOutput) ServiceCode() pulumi.StringOutput {
 // Name of the service.
 func (o LookupServiceQuotaResultOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceQuotaResult) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+// Information about the measurement.
+func (o LookupServiceQuotaResultOutput) UsageMetrics() GetServiceQuotaUsageMetricArrayOutput {
+	return o.ApplyT(func(v LookupServiceQuotaResult) []GetServiceQuotaUsageMetric { return v.UsageMetrics }).(GetServiceQuotaUsageMetricArrayOutput)
 }
 
 // Current value of the service quota.

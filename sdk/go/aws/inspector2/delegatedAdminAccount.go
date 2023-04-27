@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Inspector V2 Delegated Admin Account.
+// Resource for managing an Amazon Inspector Delegated Admin Account.
 //
 // ## Example Usage
 // ### Basic Usage
@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Inspector V2 Delegated Admin Account can be imported using the `account_id`, e.g.,
+// Inspector Delegated Admin Account can be imported using the `account_id`, e.g.,
 //
 // ```sh
 //

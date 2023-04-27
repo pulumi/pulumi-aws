@@ -168,6 +168,10 @@ namespace Pulumi.Aws.Eks
         /// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Labels;
+        /// <summary>
+        /// Nested attribute containing information about the launch template used to create the EKS Node Group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetNodeGroupLaunchTemplateResult> LaunchTemplates;
         public readonly string NodeGroupName;
         /// <summary>
         /// ARN of the IAM Role that provides permissions for the EKS Node Group.
@@ -228,6 +232,8 @@ namespace Pulumi.Aws.Eks
 
             ImmutableDictionary<string, string> labels,
 
+            ImmutableArray<Outputs.GetNodeGroupLaunchTemplateResult> launchTemplates,
+
             string nodeGroupName,
 
             string nodeRoleArn,
@@ -258,6 +264,7 @@ namespace Pulumi.Aws.Eks
             Id = id;
             InstanceTypes = instanceTypes;
             Labels = labels;
+            LaunchTemplates = launchTemplates;
             NodeGroupName = nodeGroupName;
             NodeRoleArn = nodeRoleArn;
             ReleaseVersion = releaseVersion;

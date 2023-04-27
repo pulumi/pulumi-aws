@@ -21,6 +21,7 @@ class EventSourceMappingArgs:
                  batch_size: Optional[pulumi.Input[int]] = None,
                  bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
                  destination_config: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']] = None,
+                 document_db_event_source_config: Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
                  filter_criteria: Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']] = None,
@@ -45,8 +46,9 @@ class EventSourceMappingArgs:
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         :param pulumi.Input[bool] bisect_batch_on_function_error: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
         :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        :param pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs'] document_db_event_source_config: - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
-        :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         :param pulumi.Input['EventSourceMappingFilterCriteriaArgs'] filter_criteria: The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
@@ -72,6 +74,8 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "bisect_batch_on_function_error", bisect_batch_on_function_error)
         if destination_config is not None:
             pulumi.set(__self__, "destination_config", destination_config)
+        if document_db_event_source_config is not None:
+            pulumi.set(__self__, "document_db_event_source_config", document_db_event_source_config)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if event_source_arn is not None:
@@ -168,6 +172,18 @@ class EventSourceMappingArgs:
         pulumi.set(self, "destination_config", value)
 
     @property
+    @pulumi.getter(name="documentDbEventSourceConfig")
+    def document_db_event_source_config(self) -> Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs']]:
+        """
+        - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+        """
+        return pulumi.get(self, "document_db_event_source_config")
+
+    @document_db_event_source_config.setter
+    def document_db_event_source_config(self, value: Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs']]):
+        pulumi.set(self, "document_db_event_source_config", value)
+
+    @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -183,7 +199,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="eventSourceArn")
     def event_source_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         """
         return pulumi.get(self, "event_source_arn")
 
@@ -379,6 +395,7 @@ class _EventSourceMappingState:
                  batch_size: Optional[pulumi.Input[int]] = None,
                  bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
                  destination_config: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']] = None,
+                 document_db_event_source_config: Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
                  filter_criteria: Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']] = None,
@@ -409,8 +426,9 @@ class _EventSourceMappingState:
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         :param pulumi.Input[bool] bisect_batch_on_function_error: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
         :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        :param pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs'] document_db_event_source_config: - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
-        :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         :param pulumi.Input['EventSourceMappingFilterCriteriaArgs'] filter_criteria: The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
         :param pulumi.Input[str] function_arn: The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
@@ -442,6 +460,8 @@ class _EventSourceMappingState:
             pulumi.set(__self__, "bisect_batch_on_function_error", bisect_batch_on_function_error)
         if destination_config is not None:
             pulumi.set(__self__, "destination_config", destination_config)
+        if document_db_event_source_config is not None:
+            pulumi.set(__self__, "document_db_event_source_config", document_db_event_source_config)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if event_source_arn is not None:
@@ -540,6 +560,18 @@ class _EventSourceMappingState:
         pulumi.set(self, "destination_config", value)
 
     @property
+    @pulumi.getter(name="documentDbEventSourceConfig")
+    def document_db_event_source_config(self) -> Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs']]:
+        """
+        - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+        """
+        return pulumi.get(self, "document_db_event_source_config")
+
+    @document_db_event_source_config.setter
+    def document_db_event_source_config(self, value: Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigArgs']]):
+        pulumi.set(self, "document_db_event_source_config", value)
+
+    @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -555,7 +587,7 @@ class _EventSourceMappingState:
     @pulumi.getter(name="eventSourceArn")
     def event_source_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         """
         return pulumi.get(self, "event_source_arn")
 
@@ -837,6 +869,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  batch_size: Optional[pulumi.Input[int]] = None,
                  bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
                  destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
+                 document_db_event_source_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDbEventSourceConfigArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
                  filter_criteria: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']]] = None,
@@ -1020,8 +1053,9 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         :param pulumi.Input[bool] bisect_batch_on_function_error: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']] destination_config: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDbEventSourceConfigArgs']] document_db_event_source_config: - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
-        :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']] filter_criteria: The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
@@ -1222,6 +1256,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  batch_size: Optional[pulumi.Input[int]] = None,
                  bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
                  destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
+                 document_db_event_source_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDbEventSourceConfigArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
                  filter_criteria: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']]] = None,
@@ -1253,6 +1288,7 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["batch_size"] = batch_size
             __props__.__dict__["bisect_batch_on_function_error"] = bisect_batch_on_function_error
             __props__.__dict__["destination_config"] = destination_config
+            __props__.__dict__["document_db_event_source_config"] = document_db_event_source_config
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["event_source_arn"] = event_source_arn
             __props__.__dict__["filter_criteria"] = filter_criteria
@@ -1293,6 +1329,7 @@ class EventSourceMapping(pulumi.CustomResource):
             batch_size: Optional[pulumi.Input[int]] = None,
             bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
             destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
+            document_db_event_source_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDbEventSourceConfigArgs']]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             event_source_arn: Optional[pulumi.Input[str]] = None,
             filter_criteria: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']]] = None,
@@ -1328,8 +1365,9 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[int] batch_size: The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         :param pulumi.Input[bool] bisect_batch_on_function_error: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']] destination_config: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingDocumentDbEventSourceConfigArgs']] document_db_event_source_config: - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
-        :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']] filter_criteria: The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
         :param pulumi.Input[str] function_arn: The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
@@ -1361,6 +1399,7 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["batch_size"] = batch_size
         __props__.__dict__["bisect_batch_on_function_error"] = bisect_batch_on_function_error
         __props__.__dict__["destination_config"] = destination_config
+        __props__.__dict__["document_db_event_source_config"] = document_db_event_source_config
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["event_source_arn"] = event_source_arn
         __props__.__dict__["filter_criteria"] = filter_criteria
@@ -1420,6 +1459,14 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "destination_config")
 
     @property
+    @pulumi.getter(name="documentDbEventSourceConfig")
+    def document_db_event_source_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingDocumentDbEventSourceConfig']]:
+        """
+        - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+        """
+        return pulumi.get(self, "document_db_event_source_config")
+
+    @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1431,7 +1478,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="eventSourceArn")
     def event_source_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         """
         return pulumi.get(self, "event_source_arn")
 

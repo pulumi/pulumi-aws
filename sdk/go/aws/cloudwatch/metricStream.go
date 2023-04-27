@@ -257,6 +257,8 @@ type MetricStream struct {
 	FirehoseArn pulumi.StringOutput `pulumi:"firehoseArn"`
 	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
 	IncludeFilters MetricStreamIncludeFilterArrayOutput `pulumi:"includeFilters"`
+	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+	IncludeLinkedAccountsMetrics pulumi.BoolPtrOutput `pulumi:"includeLinkedAccountsMetrics"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
 	LastUpdateDate pulumi.StringOutput `pulumi:"lastUpdateDate"`
 	// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -325,6 +327,8 @@ type metricStreamState struct {
 	FirehoseArn *string `pulumi:"firehoseArn"`
 	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
 	IncludeFilters []MetricStreamIncludeFilter `pulumi:"includeFilters"`
+	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+	IncludeLinkedAccountsMetrics *bool `pulumi:"includeLinkedAccountsMetrics"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
 	LastUpdateDate *string `pulumi:"lastUpdateDate"`
 	// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -356,6 +360,8 @@ type MetricStreamState struct {
 	FirehoseArn pulumi.StringPtrInput
 	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
 	IncludeFilters MetricStreamIncludeFilterArrayInput
+	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+	IncludeLinkedAccountsMetrics pulumi.BoolPtrInput
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
 	LastUpdateDate pulumi.StringPtrInput
 	// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -387,6 +393,8 @@ type metricStreamArgs struct {
 	FirehoseArn string `pulumi:"firehoseArn"`
 	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
 	IncludeFilters []MetricStreamIncludeFilter `pulumi:"includeFilters"`
+	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+	IncludeLinkedAccountsMetrics *bool `pulumi:"includeLinkedAccountsMetrics"`
 	// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
@@ -411,6 +419,8 @@ type MetricStreamArgs struct {
 	FirehoseArn pulumi.StringInput
 	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
 	IncludeFilters MetricStreamIncludeFilterArrayInput
+	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+	IncludeLinkedAccountsMetrics pulumi.BoolPtrInput
 	// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
@@ -537,6 +547,11 @@ func (o MetricStreamOutput) FirehoseArn() pulumi.StringOutput {
 // List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
 func (o MetricStreamOutput) IncludeFilters() MetricStreamIncludeFilterArrayOutput {
 	return o.ApplyT(func(v *MetricStream) MetricStreamIncludeFilterArrayOutput { return v.IncludeFilters }).(MetricStreamIncludeFilterArrayOutput)
+}
+
+// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+func (o MetricStreamOutput) IncludeLinkedAccountsMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MetricStream) pulumi.BoolPtrOutput { return v.IncludeLinkedAccountsMetrics }).(pulumi.BoolPtrOutput)
 }
 
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.

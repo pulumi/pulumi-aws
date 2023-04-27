@@ -79,7 +79,7 @@ export interface GetServiceResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * Family for the latest ACTIVE revision
+     * Family for the latest ACTIVE revision or full ARN of the task definition.
      */
     readonly taskDefinition: string;
 }

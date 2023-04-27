@@ -15,6 +15,11 @@ export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null a
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
+export { GetWorkspacesArgs, GetWorkspacesResult, GetWorkspacesOutputArgs } from "./getWorkspaces";
+export const getWorkspaces: typeof import("./getWorkspaces").getWorkspaces = null as any;
+export const getWorkspacesOutput: typeof import("./getWorkspaces").getWorkspacesOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaces","getWorkspacesOutput"], () => require("./getWorkspaces"));
+
 export { RuleGroupNamespaceArgs, RuleGroupNamespaceState } from "./ruleGroupNamespace";
 export type RuleGroupNamespace = import("./ruleGroupNamespace").RuleGroupNamespace;
 export const RuleGroupNamespace: typeof import("./ruleGroupNamespace").RuleGroupNamespace = null as any;

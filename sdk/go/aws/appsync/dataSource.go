@@ -146,6 +146,8 @@ type DataSource struct {
 	LambdaConfig DataSourceLambdaConfigPtrOutput `pulumi:"lambdaConfig"`
 	// User-supplied name for the data source.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Amazon OpenSearch Service settings. See below
+	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrOutput `pulumi:"opensearchserviceConfig"`
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrOutput `pulumi:"relationalDatabaseConfig"`
 	// IAM service role ARN for the data source.
@@ -207,6 +209,8 @@ type dataSourceState struct {
 	LambdaConfig *DataSourceLambdaConfig `pulumi:"lambdaConfig"`
 	// User-supplied name for the data source.
 	Name *string `pulumi:"name"`
+	// Amazon OpenSearch Service settings. See below
+	OpensearchserviceConfig *DataSourceOpensearchserviceConfig `pulumi:"opensearchserviceConfig"`
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	// IAM service role ARN for the data source.
@@ -234,6 +238,8 @@ type DataSourceState struct {
 	LambdaConfig DataSourceLambdaConfigPtrInput
 	// User-supplied name for the data source.
 	Name pulumi.StringPtrInput
+	// Amazon OpenSearch Service settings. See below
+	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrInput
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
 	// IAM service role ARN for the data source.
@@ -263,6 +269,8 @@ type dataSourceArgs struct {
 	LambdaConfig *DataSourceLambdaConfig `pulumi:"lambdaConfig"`
 	// User-supplied name for the data source.
 	Name *string `pulumi:"name"`
+	// Amazon OpenSearch Service settings. See below
+	OpensearchserviceConfig *DataSourceOpensearchserviceConfig `pulumi:"opensearchserviceConfig"`
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	// IAM service role ARN for the data source.
@@ -289,6 +297,8 @@ type DataSourceArgs struct {
 	LambdaConfig DataSourceLambdaConfigPtrInput
 	// User-supplied name for the data source.
 	Name pulumi.StringPtrInput
+	// Amazon OpenSearch Service settings. See below
+	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrInput
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
 	// IAM service role ARN for the data source.
@@ -427,6 +437,11 @@ func (o DataSourceOutput) LambdaConfig() DataSourceLambdaConfigPtrOutput {
 // User-supplied name for the data source.
 func (o DataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Amazon OpenSearch Service settings. See below
+func (o DataSourceOutput) OpensearchserviceConfig() DataSourceOpensearchserviceConfigPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceOpensearchserviceConfigPtrOutput { return v.OpensearchserviceConfig }).(DataSourceOpensearchserviceConfigPtrOutput)
 }
 
 // AWS RDS settings. See Relational Database Config

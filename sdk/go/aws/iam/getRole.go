@@ -75,6 +75,8 @@ type LookupRoleResult struct {
 	Path string `pulumi:"path"`
 	// The ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary string `pulumi:"permissionsBoundary"`
+	// Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
+	RoleLastUseds []GetRoleRoleLastUsed `pulumi:"roleLastUseds"`
 	// Tags attached to the role.
 	Tags map[string]string `pulumi:"tags"`
 	// Stable and unique string identifying the role.
@@ -163,6 +165,11 @@ func (o LookupRoleResultOutput) Path() pulumi.StringOutput {
 // The ARN of the policy that is used to set the permissions boundary for the role.
 func (o LookupRoleResultOutput) PermissionsBoundary() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRoleResult) string { return v.PermissionsBoundary }).(pulumi.StringOutput)
+}
+
+// Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
+func (o LookupRoleResultOutput) RoleLastUseds() GetRoleRoleLastUsedArrayOutput {
+	return o.ApplyT(func(v LookupRoleResult) []GetRoleRoleLastUsed { return v.RoleLastUseds }).(GetRoleRoleLastUsedArrayOutput)
 }
 
 // Tags attached to the role.

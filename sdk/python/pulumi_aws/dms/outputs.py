@@ -17,6 +17,13 @@ __all__ = [
     'EndpointRedisSettings',
     'EndpointRedshiftSettings',
     'EndpointS3Settings',
+    'GetEndpointElasticsearchSettingResult',
+    'GetEndpointKafkaSettingResult',
+    'GetEndpointKinesisSettingResult',
+    'GetEndpointMongodbSettingResult',
+    'GetEndpointRedisSettingResult',
+    'GetEndpointRedshiftSettingResult',
+    'GetEndpointS3SettingResult',
 ]
 
 @pulumi.output_type
@@ -1374,6 +1381,650 @@ class EndpointS3Settings(dict):
         """
         When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
         """
+        return pulumi.get(self, "use_task_start_time_for_full_load_timestamp")
+
+
+@pulumi.output_type
+class GetEndpointElasticsearchSettingResult(dict):
+    def __init__(__self__, *,
+                 endpoint_uri: str,
+                 error_retry_duration: int,
+                 full_load_error_percentage: int,
+                 service_access_role_arn: str):
+        pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        pulumi.set(__self__, "error_retry_duration", error_retry_duration)
+        pulumi.set(__self__, "full_load_error_percentage", full_load_error_percentage)
+        pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+
+    @property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> str:
+        return pulumi.get(self, "endpoint_uri")
+
+    @property
+    @pulumi.getter(name="errorRetryDuration")
+    def error_retry_duration(self) -> int:
+        return pulumi.get(self, "error_retry_duration")
+
+    @property
+    @pulumi.getter(name="fullLoadErrorPercentage")
+    def full_load_error_percentage(self) -> int:
+        return pulumi.get(self, "full_load_error_percentage")
+
+    @property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> str:
+        return pulumi.get(self, "service_access_role_arn")
+
+
+@pulumi.output_type
+class GetEndpointKafkaSettingResult(dict):
+    def __init__(__self__, *,
+                 broker: str,
+                 include_control_details: bool,
+                 include_null_and_empty: bool,
+                 include_partition_value: bool,
+                 include_table_alter_operations: bool,
+                 include_transaction_details: bool,
+                 message_format: str,
+                 message_max_bytes: int,
+                 no_hex_prefix: bool,
+                 partition_include_schema_table: bool,
+                 sasl_password: str,
+                 sasl_username: str,
+                 security_protocol: str,
+                 ssl_ca_certificate_arn: str,
+                 ssl_client_certificate_arn: str,
+                 ssl_client_key_arn: str,
+                 ssl_client_key_password: str,
+                 topic: str):
+        pulumi.set(__self__, "broker", broker)
+        pulumi.set(__self__, "include_control_details", include_control_details)
+        pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+        pulumi.set(__self__, "include_partition_value", include_partition_value)
+        pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
+        pulumi.set(__self__, "include_transaction_details", include_transaction_details)
+        pulumi.set(__self__, "message_format", message_format)
+        pulumi.set(__self__, "message_max_bytes", message_max_bytes)
+        pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
+        pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
+        pulumi.set(__self__, "sasl_password", sasl_password)
+        pulumi.set(__self__, "sasl_username", sasl_username)
+        pulumi.set(__self__, "security_protocol", security_protocol)
+        pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+        pulumi.set(__self__, "ssl_client_certificate_arn", ssl_client_certificate_arn)
+        pulumi.set(__self__, "ssl_client_key_arn", ssl_client_key_arn)
+        pulumi.set(__self__, "ssl_client_key_password", ssl_client_key_password)
+        pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter
+    def broker(self) -> str:
+        return pulumi.get(self, "broker")
+
+    @property
+    @pulumi.getter(name="includeControlDetails")
+    def include_control_details(self) -> bool:
+        return pulumi.get(self, "include_control_details")
+
+    @property
+    @pulumi.getter(name="includeNullAndEmpty")
+    def include_null_and_empty(self) -> bool:
+        return pulumi.get(self, "include_null_and_empty")
+
+    @property
+    @pulumi.getter(name="includePartitionValue")
+    def include_partition_value(self) -> bool:
+        return pulumi.get(self, "include_partition_value")
+
+    @property
+    @pulumi.getter(name="includeTableAlterOperations")
+    def include_table_alter_operations(self) -> bool:
+        return pulumi.get(self, "include_table_alter_operations")
+
+    @property
+    @pulumi.getter(name="includeTransactionDetails")
+    def include_transaction_details(self) -> bool:
+        return pulumi.get(self, "include_transaction_details")
+
+    @property
+    @pulumi.getter(name="messageFormat")
+    def message_format(self) -> str:
+        return pulumi.get(self, "message_format")
+
+    @property
+    @pulumi.getter(name="messageMaxBytes")
+    def message_max_bytes(self) -> int:
+        return pulumi.get(self, "message_max_bytes")
+
+    @property
+    @pulumi.getter(name="noHexPrefix")
+    def no_hex_prefix(self) -> bool:
+        return pulumi.get(self, "no_hex_prefix")
+
+    @property
+    @pulumi.getter(name="partitionIncludeSchemaTable")
+    def partition_include_schema_table(self) -> bool:
+        return pulumi.get(self, "partition_include_schema_table")
+
+    @property
+    @pulumi.getter(name="saslPassword")
+    def sasl_password(self) -> str:
+        return pulumi.get(self, "sasl_password")
+
+    @property
+    @pulumi.getter(name="saslUsername")
+    def sasl_username(self) -> str:
+        return pulumi.get(self, "sasl_username")
+
+    @property
+    @pulumi.getter(name="securityProtocol")
+    def security_protocol(self) -> str:
+        return pulumi.get(self, "security_protocol")
+
+    @property
+    @pulumi.getter(name="sslCaCertificateArn")
+    def ssl_ca_certificate_arn(self) -> str:
+        return pulumi.get(self, "ssl_ca_certificate_arn")
+
+    @property
+    @pulumi.getter(name="sslClientCertificateArn")
+    def ssl_client_certificate_arn(self) -> str:
+        return pulumi.get(self, "ssl_client_certificate_arn")
+
+    @property
+    @pulumi.getter(name="sslClientKeyArn")
+    def ssl_client_key_arn(self) -> str:
+        return pulumi.get(self, "ssl_client_key_arn")
+
+    @property
+    @pulumi.getter(name="sslClientKeyPassword")
+    def ssl_client_key_password(self) -> str:
+        return pulumi.get(self, "ssl_client_key_password")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> str:
+        return pulumi.get(self, "topic")
+
+
+@pulumi.output_type
+class GetEndpointKinesisSettingResult(dict):
+    def __init__(__self__, *,
+                 include_control_details: bool,
+                 include_null_and_empty: bool,
+                 include_partition_value: bool,
+                 include_table_alter_operations: bool,
+                 include_transaction_details: bool,
+                 message_format: str,
+                 partition_include_schema_table: bool,
+                 service_access_role_arn: str,
+                 stream_arn: str):
+        pulumi.set(__self__, "include_control_details", include_control_details)
+        pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+        pulumi.set(__self__, "include_partition_value", include_partition_value)
+        pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
+        pulumi.set(__self__, "include_transaction_details", include_transaction_details)
+        pulumi.set(__self__, "message_format", message_format)
+        pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
+        pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="includeControlDetails")
+    def include_control_details(self) -> bool:
+        return pulumi.get(self, "include_control_details")
+
+    @property
+    @pulumi.getter(name="includeNullAndEmpty")
+    def include_null_and_empty(self) -> bool:
+        return pulumi.get(self, "include_null_and_empty")
+
+    @property
+    @pulumi.getter(name="includePartitionValue")
+    def include_partition_value(self) -> bool:
+        return pulumi.get(self, "include_partition_value")
+
+    @property
+    @pulumi.getter(name="includeTableAlterOperations")
+    def include_table_alter_operations(self) -> bool:
+        return pulumi.get(self, "include_table_alter_operations")
+
+    @property
+    @pulumi.getter(name="includeTransactionDetails")
+    def include_transaction_details(self) -> bool:
+        return pulumi.get(self, "include_transaction_details")
+
+    @property
+    @pulumi.getter(name="messageFormat")
+    def message_format(self) -> str:
+        return pulumi.get(self, "message_format")
+
+    @property
+    @pulumi.getter(name="partitionIncludeSchemaTable")
+    def partition_include_schema_table(self) -> bool:
+        return pulumi.get(self, "partition_include_schema_table")
+
+    @property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> str:
+        return pulumi.get(self, "service_access_role_arn")
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> str:
+        return pulumi.get(self, "stream_arn")
+
+
+@pulumi.output_type
+class GetEndpointMongodbSettingResult(dict):
+    def __init__(__self__, *,
+                 auth_mechanism: str,
+                 auth_source: str,
+                 auth_type: str,
+                 docs_to_investigate: str,
+                 extract_doc_id: str,
+                 nesting_level: str):
+        pulumi.set(__self__, "auth_mechanism", auth_mechanism)
+        pulumi.set(__self__, "auth_source", auth_source)
+        pulumi.set(__self__, "auth_type", auth_type)
+        pulumi.set(__self__, "docs_to_investigate", docs_to_investigate)
+        pulumi.set(__self__, "extract_doc_id", extract_doc_id)
+        pulumi.set(__self__, "nesting_level", nesting_level)
+
+    @property
+    @pulumi.getter(name="authMechanism")
+    def auth_mechanism(self) -> str:
+        return pulumi.get(self, "auth_mechanism")
+
+    @property
+    @pulumi.getter(name="authSource")
+    def auth_source(self) -> str:
+        return pulumi.get(self, "auth_source")
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="docsToInvestigate")
+    def docs_to_investigate(self) -> str:
+        return pulumi.get(self, "docs_to_investigate")
+
+    @property
+    @pulumi.getter(name="extractDocId")
+    def extract_doc_id(self) -> str:
+        return pulumi.get(self, "extract_doc_id")
+
+    @property
+    @pulumi.getter(name="nestingLevel")
+    def nesting_level(self) -> str:
+        return pulumi.get(self, "nesting_level")
+
+
+@pulumi.output_type
+class GetEndpointRedisSettingResult(dict):
+    def __init__(__self__, *,
+                 auth_password: str,
+                 auth_type: str,
+                 auth_user_name: str,
+                 port: int,
+                 server_name: str,
+                 ssl_ca_certificate_arn: str,
+                 ssl_security_protocol: str):
+        pulumi.set(__self__, "auth_password", auth_password)
+        pulumi.set(__self__, "auth_type", auth_type)
+        pulumi.set(__self__, "auth_user_name", auth_user_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+        pulumi.set(__self__, "ssl_security_protocol", ssl_security_protocol)
+
+    @property
+    @pulumi.getter(name="authPassword")
+    def auth_password(self) -> str:
+        return pulumi.get(self, "auth_password")
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="authUserName")
+    def auth_user_name(self) -> str:
+        return pulumi.get(self, "auth_user_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> str:
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="sslCaCertificateArn")
+    def ssl_ca_certificate_arn(self) -> str:
+        return pulumi.get(self, "ssl_ca_certificate_arn")
+
+    @property
+    @pulumi.getter(name="sslSecurityProtocol")
+    def ssl_security_protocol(self) -> str:
+        return pulumi.get(self, "ssl_security_protocol")
+
+
+@pulumi.output_type
+class GetEndpointRedshiftSettingResult(dict):
+    def __init__(__self__, *,
+                 bucket_folder: str,
+                 bucket_name: str,
+                 encryption_mode: str,
+                 server_side_encryption_kms_key_id: str,
+                 service_access_role_arn: str):
+        pulumi.set(__self__, "bucket_folder", bucket_folder)
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "encryption_mode", encryption_mode)
+        pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+        pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+
+    @property
+    @pulumi.getter(name="bucketFolder")
+    def bucket_folder(self) -> str:
+        return pulumi.get(self, "bucket_folder")
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="encryptionMode")
+    def encryption_mode(self) -> str:
+        return pulumi.get(self, "encryption_mode")
+
+    @property
+    @pulumi.getter(name="serverSideEncryptionKmsKeyId")
+    def server_side_encryption_kms_key_id(self) -> str:
+        return pulumi.get(self, "server_side_encryption_kms_key_id")
+
+    @property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> str:
+        return pulumi.get(self, "service_access_role_arn")
+
+
+@pulumi.output_type
+class GetEndpointS3SettingResult(dict):
+    def __init__(__self__, *,
+                 add_column_name: bool,
+                 bucket_folder: str,
+                 bucket_name: str,
+                 canned_acl_for_objects: str,
+                 cdc_inserts_and_updates: bool,
+                 cdc_inserts_only: bool,
+                 cdc_max_batch_interval: int,
+                 cdc_min_file_size: int,
+                 cdc_path: str,
+                 compression_type: str,
+                 csv_delimiter: str,
+                 csv_no_sup_value: str,
+                 csv_null_value: str,
+                 csv_row_delimiter: str,
+                 data_format: str,
+                 data_page_size: int,
+                 date_partition_delimiter: str,
+                 date_partition_enabled: bool,
+                 date_partition_sequence: str,
+                 dict_page_size_limit: int,
+                 enable_statistics: bool,
+                 encoding_type: str,
+                 encryption_mode: str,
+                 external_table_definition: str,
+                 ignore_header_rows: int,
+                 ignore_headers_row: int,
+                 include_op_for_full_load: bool,
+                 max_file_size: int,
+                 parquet_timestamp_in_millisecond: bool,
+                 parquet_version: str,
+                 preserve_transactions: bool,
+                 rfc4180: bool,
+                 row_group_length: int,
+                 server_side_encryption_kms_key_id: str,
+                 service_access_role_arn: str,
+                 timestamp_column_name: str,
+                 use_csv_no_sup_value: bool,
+                 use_task_start_time_for_full_load_timestamp: bool):
+        pulumi.set(__self__, "add_column_name", add_column_name)
+        pulumi.set(__self__, "bucket_folder", bucket_folder)
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "canned_acl_for_objects", canned_acl_for_objects)
+        pulumi.set(__self__, "cdc_inserts_and_updates", cdc_inserts_and_updates)
+        pulumi.set(__self__, "cdc_inserts_only", cdc_inserts_only)
+        pulumi.set(__self__, "cdc_max_batch_interval", cdc_max_batch_interval)
+        pulumi.set(__self__, "cdc_min_file_size", cdc_min_file_size)
+        pulumi.set(__self__, "cdc_path", cdc_path)
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "csv_delimiter", csv_delimiter)
+        pulumi.set(__self__, "csv_no_sup_value", csv_no_sup_value)
+        pulumi.set(__self__, "csv_null_value", csv_null_value)
+        pulumi.set(__self__, "csv_row_delimiter", csv_row_delimiter)
+        pulumi.set(__self__, "data_format", data_format)
+        pulumi.set(__self__, "data_page_size", data_page_size)
+        pulumi.set(__self__, "date_partition_delimiter", date_partition_delimiter)
+        pulumi.set(__self__, "date_partition_enabled", date_partition_enabled)
+        pulumi.set(__self__, "date_partition_sequence", date_partition_sequence)
+        pulumi.set(__self__, "dict_page_size_limit", dict_page_size_limit)
+        pulumi.set(__self__, "enable_statistics", enable_statistics)
+        pulumi.set(__self__, "encoding_type", encoding_type)
+        pulumi.set(__self__, "encryption_mode", encryption_mode)
+        pulumi.set(__self__, "external_table_definition", external_table_definition)
+        pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
+        pulumi.set(__self__, "ignore_headers_row", ignore_headers_row)
+        pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
+        pulumi.set(__self__, "max_file_size", max_file_size)
+        pulumi.set(__self__, "parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
+        pulumi.set(__self__, "parquet_version", parquet_version)
+        pulumi.set(__self__, "preserve_transactions", preserve_transactions)
+        pulumi.set(__self__, "rfc4180", rfc4180)
+        pulumi.set(__self__, "row_group_length", row_group_length)
+        pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+        pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+        pulumi.set(__self__, "timestamp_column_name", timestamp_column_name)
+        pulumi.set(__self__, "use_csv_no_sup_value", use_csv_no_sup_value)
+        pulumi.set(__self__, "use_task_start_time_for_full_load_timestamp", use_task_start_time_for_full_load_timestamp)
+
+    @property
+    @pulumi.getter(name="addColumnName")
+    def add_column_name(self) -> bool:
+        return pulumi.get(self, "add_column_name")
+
+    @property
+    @pulumi.getter(name="bucketFolder")
+    def bucket_folder(self) -> str:
+        return pulumi.get(self, "bucket_folder")
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="cannedAclForObjects")
+    def canned_acl_for_objects(self) -> str:
+        return pulumi.get(self, "canned_acl_for_objects")
+
+    @property
+    @pulumi.getter(name="cdcInsertsAndUpdates")
+    def cdc_inserts_and_updates(self) -> bool:
+        return pulumi.get(self, "cdc_inserts_and_updates")
+
+    @property
+    @pulumi.getter(name="cdcInsertsOnly")
+    def cdc_inserts_only(self) -> bool:
+        return pulumi.get(self, "cdc_inserts_only")
+
+    @property
+    @pulumi.getter(name="cdcMaxBatchInterval")
+    def cdc_max_batch_interval(self) -> int:
+        return pulumi.get(self, "cdc_max_batch_interval")
+
+    @property
+    @pulumi.getter(name="cdcMinFileSize")
+    def cdc_min_file_size(self) -> int:
+        return pulumi.get(self, "cdc_min_file_size")
+
+    @property
+    @pulumi.getter(name="cdcPath")
+    def cdc_path(self) -> str:
+        return pulumi.get(self, "cdc_path")
+
+    @property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> str:
+        return pulumi.get(self, "compression_type")
+
+    @property
+    @pulumi.getter(name="csvDelimiter")
+    def csv_delimiter(self) -> str:
+        return pulumi.get(self, "csv_delimiter")
+
+    @property
+    @pulumi.getter(name="csvNoSupValue")
+    def csv_no_sup_value(self) -> str:
+        return pulumi.get(self, "csv_no_sup_value")
+
+    @property
+    @pulumi.getter(name="csvNullValue")
+    def csv_null_value(self) -> str:
+        return pulumi.get(self, "csv_null_value")
+
+    @property
+    @pulumi.getter(name="csvRowDelimiter")
+    def csv_row_delimiter(self) -> str:
+        return pulumi.get(self, "csv_row_delimiter")
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> str:
+        return pulumi.get(self, "data_format")
+
+    @property
+    @pulumi.getter(name="dataPageSize")
+    def data_page_size(self) -> int:
+        return pulumi.get(self, "data_page_size")
+
+    @property
+    @pulumi.getter(name="datePartitionDelimiter")
+    def date_partition_delimiter(self) -> str:
+        return pulumi.get(self, "date_partition_delimiter")
+
+    @property
+    @pulumi.getter(name="datePartitionEnabled")
+    def date_partition_enabled(self) -> bool:
+        return pulumi.get(self, "date_partition_enabled")
+
+    @property
+    @pulumi.getter(name="datePartitionSequence")
+    def date_partition_sequence(self) -> str:
+        return pulumi.get(self, "date_partition_sequence")
+
+    @property
+    @pulumi.getter(name="dictPageSizeLimit")
+    def dict_page_size_limit(self) -> int:
+        return pulumi.get(self, "dict_page_size_limit")
+
+    @property
+    @pulumi.getter(name="enableStatistics")
+    def enable_statistics(self) -> bool:
+        return pulumi.get(self, "enable_statistics")
+
+    @property
+    @pulumi.getter(name="encodingType")
+    def encoding_type(self) -> str:
+        return pulumi.get(self, "encoding_type")
+
+    @property
+    @pulumi.getter(name="encryptionMode")
+    def encryption_mode(self) -> str:
+        return pulumi.get(self, "encryption_mode")
+
+    @property
+    @pulumi.getter(name="externalTableDefinition")
+    def external_table_definition(self) -> str:
+        return pulumi.get(self, "external_table_definition")
+
+    @property
+    @pulumi.getter(name="ignoreHeaderRows")
+    def ignore_header_rows(self) -> int:
+        return pulumi.get(self, "ignore_header_rows")
+
+    @property
+    @pulumi.getter(name="ignoreHeadersRow")
+    def ignore_headers_row(self) -> int:
+        return pulumi.get(self, "ignore_headers_row")
+
+    @property
+    @pulumi.getter(name="includeOpForFullLoad")
+    def include_op_for_full_load(self) -> bool:
+        return pulumi.get(self, "include_op_for_full_load")
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> int:
+        return pulumi.get(self, "max_file_size")
+
+    @property
+    @pulumi.getter(name="parquetTimestampInMillisecond")
+    def parquet_timestamp_in_millisecond(self) -> bool:
+        return pulumi.get(self, "parquet_timestamp_in_millisecond")
+
+    @property
+    @pulumi.getter(name="parquetVersion")
+    def parquet_version(self) -> str:
+        return pulumi.get(self, "parquet_version")
+
+    @property
+    @pulumi.getter(name="preserveTransactions")
+    def preserve_transactions(self) -> bool:
+        return pulumi.get(self, "preserve_transactions")
+
+    @property
+    @pulumi.getter
+    def rfc4180(self) -> bool:
+        return pulumi.get(self, "rfc4180")
+
+    @property
+    @pulumi.getter(name="rowGroupLength")
+    def row_group_length(self) -> int:
+        return pulumi.get(self, "row_group_length")
+
+    @property
+    @pulumi.getter(name="serverSideEncryptionKmsKeyId")
+    def server_side_encryption_kms_key_id(self) -> str:
+        return pulumi.get(self, "server_side_encryption_kms_key_id")
+
+    @property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> str:
+        return pulumi.get(self, "service_access_role_arn")
+
+    @property
+    @pulumi.getter(name="timestampColumnName")
+    def timestamp_column_name(self) -> str:
+        return pulumi.get(self, "timestamp_column_name")
+
+    @property
+    @pulumi.getter(name="useCsvNoSupValue")
+    def use_csv_no_sup_value(self) -> bool:
+        return pulumi.get(self, "use_csv_no_sup_value")
+
+    @property
+    @pulumi.getter(name="useTaskStartTimeForFullLoadTimestamp")
+    def use_task_start_time_for_full_load_timestamp(self) -> bool:
         return pulumi.get(self, "use_task_start_time_for_full_load_timestamp")
 
 

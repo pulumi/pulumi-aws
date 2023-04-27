@@ -5,13 +5,31 @@ package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class TopicRuleIotAnalyticArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TopicRuleIotAnalyticArgs Empty = new TopicRuleIotAnalyticArgs();
+
+    /**
+     * The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+     * 
+     */
+    @Import(name="batchMode")
+    private @Nullable Output<Boolean> batchMode;
+
+    /**
+     * @return The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+     * 
+     */
+    public Optional<Output<Boolean>> batchMode() {
+        return Optional.ofNullable(this.batchMode);
+    }
 
     /**
      * Name of AWS IOT Analytics channel.
@@ -46,6 +64,7 @@ public final class TopicRuleIotAnalyticArgs extends com.pulumi.resources.Resourc
     private TopicRuleIotAnalyticArgs() {}
 
     private TopicRuleIotAnalyticArgs(TopicRuleIotAnalyticArgs $) {
+        this.batchMode = $.batchMode;
         this.channelName = $.channelName;
         this.roleArn = $.roleArn;
     }
@@ -66,6 +85,27 @@ public final class TopicRuleIotAnalyticArgs extends com.pulumi.resources.Resourc
 
         public Builder(TopicRuleIotAnalyticArgs defaults) {
             $ = new TopicRuleIotAnalyticArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param batchMode The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder batchMode(@Nullable Output<Boolean> batchMode) {
+            $.batchMode = batchMode;
+            return this;
+        }
+
+        /**
+         * @param batchMode The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder batchMode(Boolean batchMode) {
+            return batchMode(Output.of(batchMode));
         }
 
         /**

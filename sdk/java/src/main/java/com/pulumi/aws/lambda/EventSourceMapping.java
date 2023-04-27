@@ -8,6 +8,7 @@ import com.pulumi.aws.lambda.EventSourceMappingArgs;
 import com.pulumi.aws.lambda.inputs.EventSourceMappingState;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingDestinationConfig;
+import com.pulumi.aws.lambda.outputs.EventSourceMappingDocumentDbEventSourceConfig;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingFilterCriteria;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingScalingConfig;
 import com.pulumi.aws.lambda.outputs.EventSourceMappingSelfManagedEventSource;
@@ -404,6 +405,20 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.destinationConfig);
     }
     /**
+     * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+     * 
+     */
+    @Export(name="documentDbEventSourceConfig", refs={EventSourceMappingDocumentDbEventSourceConfig.class}, tree="[0]")
+    private Output</* @Nullable */ EventSourceMappingDocumentDbEventSourceConfig> documentDbEventSourceConfig;
+
+    /**
+     * @return - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+     * 
+     */
+    public Output<Optional<EventSourceMappingDocumentDbEventSourceConfig>> documentDbEventSourceConfig() {
+        return Codegen.optional(this.documentDbEventSourceConfig);
+    }
+    /**
      * Determines if the mapping will be enabled on creation. Defaults to `true`.
      * 
      */
@@ -418,14 +433,14 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
-     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
      * 
      */
     @Export(name="eventSourceArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventSourceArn;
 
     /**
-     * @return The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+     * @return The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
      * 
      */
     public Output<Optional<String>> eventSourceArn() {

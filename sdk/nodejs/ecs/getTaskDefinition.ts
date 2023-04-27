@@ -74,6 +74,10 @@ export interface GetTaskDefinitionResult {
      */
     readonly arnWithoutRevision: string;
     /**
+     * ARN of the task execution role that the Amazon ECS container agent and the Docker.
+     */
+    readonly executionRoleArn: string;
+    /**
      * Family of this task definition.
      */
     readonly family: string;

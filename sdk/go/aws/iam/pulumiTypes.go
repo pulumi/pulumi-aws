@@ -116,6 +116,224 @@ func (o RoleInlinePolicyArrayOutput) Index(i pulumi.IntInput) RoleInlinePolicyOu
 	}).(RoleInlinePolicyOutput)
 }
 
+type RoleRoleLastUsed struct {
+	LastUsedDate *string `pulumi:"lastUsedDate"`
+	// The name of the AWS Region in which the role was last used.
+	Region *string `pulumi:"region"`
+}
+
+// RoleRoleLastUsedInput is an input type that accepts RoleRoleLastUsedArgs and RoleRoleLastUsedOutput values.
+// You can construct a concrete instance of `RoleRoleLastUsedInput` via:
+//
+//	RoleRoleLastUsedArgs{...}
+type RoleRoleLastUsedInput interface {
+	pulumi.Input
+
+	ToRoleRoleLastUsedOutput() RoleRoleLastUsedOutput
+	ToRoleRoleLastUsedOutputWithContext(context.Context) RoleRoleLastUsedOutput
+}
+
+type RoleRoleLastUsedArgs struct {
+	LastUsedDate pulumi.StringPtrInput `pulumi:"lastUsedDate"`
+	// The name of the AWS Region in which the role was last used.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (RoleRoleLastUsedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleRoleLastUsed)(nil)).Elem()
+}
+
+func (i RoleRoleLastUsedArgs) ToRoleRoleLastUsedOutput() RoleRoleLastUsedOutput {
+	return i.ToRoleRoleLastUsedOutputWithContext(context.Background())
+}
+
+func (i RoleRoleLastUsedArgs) ToRoleRoleLastUsedOutputWithContext(ctx context.Context) RoleRoleLastUsedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleRoleLastUsedOutput)
+}
+
+// RoleRoleLastUsedArrayInput is an input type that accepts RoleRoleLastUsedArray and RoleRoleLastUsedArrayOutput values.
+// You can construct a concrete instance of `RoleRoleLastUsedArrayInput` via:
+//
+//	RoleRoleLastUsedArray{ RoleRoleLastUsedArgs{...} }
+type RoleRoleLastUsedArrayInput interface {
+	pulumi.Input
+
+	ToRoleRoleLastUsedArrayOutput() RoleRoleLastUsedArrayOutput
+	ToRoleRoleLastUsedArrayOutputWithContext(context.Context) RoleRoleLastUsedArrayOutput
+}
+
+type RoleRoleLastUsedArray []RoleRoleLastUsedInput
+
+func (RoleRoleLastUsedArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleRoleLastUsed)(nil)).Elem()
+}
+
+func (i RoleRoleLastUsedArray) ToRoleRoleLastUsedArrayOutput() RoleRoleLastUsedArrayOutput {
+	return i.ToRoleRoleLastUsedArrayOutputWithContext(context.Background())
+}
+
+func (i RoleRoleLastUsedArray) ToRoleRoleLastUsedArrayOutputWithContext(ctx context.Context) RoleRoleLastUsedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleRoleLastUsedArrayOutput)
+}
+
+type RoleRoleLastUsedOutput struct{ *pulumi.OutputState }
+
+func (RoleRoleLastUsedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleRoleLastUsed)(nil)).Elem()
+}
+
+func (o RoleRoleLastUsedOutput) ToRoleRoleLastUsedOutput() RoleRoleLastUsedOutput {
+	return o
+}
+
+func (o RoleRoleLastUsedOutput) ToRoleRoleLastUsedOutputWithContext(ctx context.Context) RoleRoleLastUsedOutput {
+	return o
+}
+
+func (o RoleRoleLastUsedOutput) LastUsedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleRoleLastUsed) *string { return v.LastUsedDate }).(pulumi.StringPtrOutput)
+}
+
+// The name of the AWS Region in which the role was last used.
+func (o RoleRoleLastUsedOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleRoleLastUsed) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type RoleRoleLastUsedArrayOutput struct{ *pulumi.OutputState }
+
+func (RoleRoleLastUsedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleRoleLastUsed)(nil)).Elem()
+}
+
+func (o RoleRoleLastUsedArrayOutput) ToRoleRoleLastUsedArrayOutput() RoleRoleLastUsedArrayOutput {
+	return o
+}
+
+func (o RoleRoleLastUsedArrayOutput) ToRoleRoleLastUsedArrayOutputWithContext(ctx context.Context) RoleRoleLastUsedArrayOutput {
+	return o
+}
+
+func (o RoleRoleLastUsedArrayOutput) Index(i pulumi.IntInput) RoleRoleLastUsedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleRoleLastUsed {
+		return vs[0].([]RoleRoleLastUsed)[vs[1].(int)]
+	}).(RoleRoleLastUsedOutput)
+}
+
+type GetAccessKeysAccessKey struct {
+	// Access key ID.
+	AccessKeyId string `pulumi:"accessKeyId"`
+	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+	CreateDate string `pulumi:"createDate"`
+	// Access key status. Possible values are `Active` and `Inactive`.
+	Status string `pulumi:"status"`
+}
+
+// GetAccessKeysAccessKeyInput is an input type that accepts GetAccessKeysAccessKeyArgs and GetAccessKeysAccessKeyOutput values.
+// You can construct a concrete instance of `GetAccessKeysAccessKeyInput` via:
+//
+//	GetAccessKeysAccessKeyArgs{...}
+type GetAccessKeysAccessKeyInput interface {
+	pulumi.Input
+
+	ToGetAccessKeysAccessKeyOutput() GetAccessKeysAccessKeyOutput
+	ToGetAccessKeysAccessKeyOutputWithContext(context.Context) GetAccessKeysAccessKeyOutput
+}
+
+type GetAccessKeysAccessKeyArgs struct {
+	// Access key ID.
+	AccessKeyId pulumi.StringInput `pulumi:"accessKeyId"`
+	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+	CreateDate pulumi.StringInput `pulumi:"createDate"`
+	// Access key status. Possible values are `Active` and `Inactive`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetAccessKeysAccessKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessKeysAccessKey)(nil)).Elem()
+}
+
+func (i GetAccessKeysAccessKeyArgs) ToGetAccessKeysAccessKeyOutput() GetAccessKeysAccessKeyOutput {
+	return i.ToGetAccessKeysAccessKeyOutputWithContext(context.Background())
+}
+
+func (i GetAccessKeysAccessKeyArgs) ToGetAccessKeysAccessKeyOutputWithContext(ctx context.Context) GetAccessKeysAccessKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessKeysAccessKeyOutput)
+}
+
+// GetAccessKeysAccessKeyArrayInput is an input type that accepts GetAccessKeysAccessKeyArray and GetAccessKeysAccessKeyArrayOutput values.
+// You can construct a concrete instance of `GetAccessKeysAccessKeyArrayInput` via:
+//
+//	GetAccessKeysAccessKeyArray{ GetAccessKeysAccessKeyArgs{...} }
+type GetAccessKeysAccessKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessKeysAccessKeyArrayOutput() GetAccessKeysAccessKeyArrayOutput
+	ToGetAccessKeysAccessKeyArrayOutputWithContext(context.Context) GetAccessKeysAccessKeyArrayOutput
+}
+
+type GetAccessKeysAccessKeyArray []GetAccessKeysAccessKeyInput
+
+func (GetAccessKeysAccessKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessKeysAccessKey)(nil)).Elem()
+}
+
+func (i GetAccessKeysAccessKeyArray) ToGetAccessKeysAccessKeyArrayOutput() GetAccessKeysAccessKeyArrayOutput {
+	return i.ToGetAccessKeysAccessKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessKeysAccessKeyArray) ToGetAccessKeysAccessKeyArrayOutputWithContext(ctx context.Context) GetAccessKeysAccessKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessKeysAccessKeyArrayOutput)
+}
+
+type GetAccessKeysAccessKeyOutput struct{ *pulumi.OutputState }
+
+func (GetAccessKeysAccessKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessKeysAccessKey)(nil)).Elem()
+}
+
+func (o GetAccessKeysAccessKeyOutput) ToGetAccessKeysAccessKeyOutput() GetAccessKeysAccessKeyOutput {
+	return o
+}
+
+func (o GetAccessKeysAccessKeyOutput) ToGetAccessKeysAccessKeyOutputWithContext(ctx context.Context) GetAccessKeysAccessKeyOutput {
+	return o
+}
+
+// Access key ID.
+func (o GetAccessKeysAccessKeyOutput) AccessKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessKeysAccessKey) string { return v.AccessKeyId }).(pulumi.StringOutput)
+}
+
+// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
+func (o GetAccessKeysAccessKeyOutput) CreateDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessKeysAccessKey) string { return v.CreateDate }).(pulumi.StringOutput)
+}
+
+// Access key status. Possible values are `Active` and `Inactive`.
+func (o GetAccessKeysAccessKeyOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessKeysAccessKey) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetAccessKeysAccessKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessKeysAccessKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessKeysAccessKey)(nil)).Elem()
+}
+
+func (o GetAccessKeysAccessKeyArrayOutput) ToGetAccessKeysAccessKeyArrayOutput() GetAccessKeysAccessKeyArrayOutput {
+	return o
+}
+
+func (o GetAccessKeysAccessKeyArrayOutput) ToGetAccessKeysAccessKeyArrayOutputWithContext(ctx context.Context) GetAccessKeysAccessKeyArrayOutput {
+	return o
+}
+
+func (o GetAccessKeysAccessKeyArrayOutput) Index(i pulumi.IntInput) GetAccessKeysAccessKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessKeysAccessKey {
+		return vs[0].([]GetAccessKeysAccessKey)[vs[1].(int)]
+	}).(GetAccessKeysAccessKeyOutput)
+}
+
 type GetGroupUser struct {
 	// User ARN.
 	Arn string `pulumi:"arn"`
@@ -736,9 +954,116 @@ func (o GetPolicyDocumentStatementPrincipalArrayOutput) Index(i pulumi.IntInput)
 	}).(GetPolicyDocumentStatementPrincipalOutput)
 }
 
+type GetRoleRoleLastUsed struct {
+	LastUsedDate string `pulumi:"lastUsedDate"`
+	// The name of the AWS Region in which the role was last used.
+	Region string `pulumi:"region"`
+}
+
+// GetRoleRoleLastUsedInput is an input type that accepts GetRoleRoleLastUsedArgs and GetRoleRoleLastUsedOutput values.
+// You can construct a concrete instance of `GetRoleRoleLastUsedInput` via:
+//
+//	GetRoleRoleLastUsedArgs{...}
+type GetRoleRoleLastUsedInput interface {
+	pulumi.Input
+
+	ToGetRoleRoleLastUsedOutput() GetRoleRoleLastUsedOutput
+	ToGetRoleRoleLastUsedOutputWithContext(context.Context) GetRoleRoleLastUsedOutput
+}
+
+type GetRoleRoleLastUsedArgs struct {
+	LastUsedDate pulumi.StringInput `pulumi:"lastUsedDate"`
+	// The name of the AWS Region in which the role was last used.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetRoleRoleLastUsedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleRoleLastUsed)(nil)).Elem()
+}
+
+func (i GetRoleRoleLastUsedArgs) ToGetRoleRoleLastUsedOutput() GetRoleRoleLastUsedOutput {
+	return i.ToGetRoleRoleLastUsedOutputWithContext(context.Background())
+}
+
+func (i GetRoleRoleLastUsedArgs) ToGetRoleRoleLastUsedOutputWithContext(ctx context.Context) GetRoleRoleLastUsedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleRoleLastUsedOutput)
+}
+
+// GetRoleRoleLastUsedArrayInput is an input type that accepts GetRoleRoleLastUsedArray and GetRoleRoleLastUsedArrayOutput values.
+// You can construct a concrete instance of `GetRoleRoleLastUsedArrayInput` via:
+//
+//	GetRoleRoleLastUsedArray{ GetRoleRoleLastUsedArgs{...} }
+type GetRoleRoleLastUsedArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleRoleLastUsedArrayOutput() GetRoleRoleLastUsedArrayOutput
+	ToGetRoleRoleLastUsedArrayOutputWithContext(context.Context) GetRoleRoleLastUsedArrayOutput
+}
+
+type GetRoleRoleLastUsedArray []GetRoleRoleLastUsedInput
+
+func (GetRoleRoleLastUsedArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleRoleLastUsed)(nil)).Elem()
+}
+
+func (i GetRoleRoleLastUsedArray) ToGetRoleRoleLastUsedArrayOutput() GetRoleRoleLastUsedArrayOutput {
+	return i.ToGetRoleRoleLastUsedArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleRoleLastUsedArray) ToGetRoleRoleLastUsedArrayOutputWithContext(ctx context.Context) GetRoleRoleLastUsedArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleRoleLastUsedArrayOutput)
+}
+
+type GetRoleRoleLastUsedOutput struct{ *pulumi.OutputState }
+
+func (GetRoleRoleLastUsedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleRoleLastUsed)(nil)).Elem()
+}
+
+func (o GetRoleRoleLastUsedOutput) ToGetRoleRoleLastUsedOutput() GetRoleRoleLastUsedOutput {
+	return o
+}
+
+func (o GetRoleRoleLastUsedOutput) ToGetRoleRoleLastUsedOutputWithContext(ctx context.Context) GetRoleRoleLastUsedOutput {
+	return o
+}
+
+func (o GetRoleRoleLastUsedOutput) LastUsedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleRoleLastUsed) string { return v.LastUsedDate }).(pulumi.StringOutput)
+}
+
+// The name of the AWS Region in which the role was last used.
+func (o GetRoleRoleLastUsedOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleRoleLastUsed) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetRoleRoleLastUsedArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleRoleLastUsedArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleRoleLastUsed)(nil)).Elem()
+}
+
+func (o GetRoleRoleLastUsedArrayOutput) ToGetRoleRoleLastUsedArrayOutput() GetRoleRoleLastUsedArrayOutput {
+	return o
+}
+
+func (o GetRoleRoleLastUsedArrayOutput) ToGetRoleRoleLastUsedArrayOutputWithContext(ctx context.Context) GetRoleRoleLastUsedArrayOutput {
+	return o
+}
+
+func (o GetRoleRoleLastUsedArrayOutput) Index(i pulumi.IntInput) GetRoleRoleLastUsedOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleRoleLastUsed {
+		return vs[0].([]GetRoleRoleLastUsed)[vs[1].(int)]
+	}).(GetRoleRoleLastUsedOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleInlinePolicyInput)(nil)).Elem(), RoleInlinePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleInlinePolicyArrayInput)(nil)).Elem(), RoleInlinePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleRoleLastUsedInput)(nil)).Elem(), RoleRoleLastUsedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleRoleLastUsedArrayInput)(nil)).Elem(), RoleRoleLastUsedArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessKeysAccessKeyInput)(nil)).Elem(), GetAccessKeysAccessKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessKeysAccessKeyArrayInput)(nil)).Elem(), GetAccessKeysAccessKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupUserInput)(nil)).Elem(), GetGroupUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupUserArrayInput)(nil)).Elem(), GetGroupUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementInput)(nil)).Elem(), GetPolicyDocumentStatementArgs{})
@@ -749,8 +1074,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementNotPrincipalArrayInput)(nil)).Elem(), GetPolicyDocumentStatementNotPrincipalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementPrincipalInput)(nil)).Elem(), GetPolicyDocumentStatementPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementPrincipalArrayInput)(nil)).Elem(), GetPolicyDocumentStatementPrincipalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleRoleLastUsedInput)(nil)).Elem(), GetRoleRoleLastUsedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleRoleLastUsedArrayInput)(nil)).Elem(), GetRoleRoleLastUsedArray{})
 	pulumi.RegisterOutputType(RoleInlinePolicyOutput{})
 	pulumi.RegisterOutputType(RoleInlinePolicyArrayOutput{})
+	pulumi.RegisterOutputType(RoleRoleLastUsedOutput{})
+	pulumi.RegisterOutputType(RoleRoleLastUsedArrayOutput{})
+	pulumi.RegisterOutputType(GetAccessKeysAccessKeyOutput{})
+	pulumi.RegisterOutputType(GetAccessKeysAccessKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupUserOutput{})
 	pulumi.RegisterOutputType(GetGroupUserArrayOutput{})
 	pulumi.RegisterOutputType(GetPolicyDocumentStatementOutput{})
@@ -761,4 +1092,6 @@ func init() {
 	pulumi.RegisterOutputType(GetPolicyDocumentStatementNotPrincipalArrayOutput{})
 	pulumi.RegisterOutputType(GetPolicyDocumentStatementPrincipalOutput{})
 	pulumi.RegisterOutputType(GetPolicyDocumentStatementPrincipalArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleRoleLastUsedOutput{})
+	pulumi.RegisterOutputType(GetRoleRoleLastUsedArrayOutput{})
 }

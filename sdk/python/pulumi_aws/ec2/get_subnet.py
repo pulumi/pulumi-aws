@@ -23,7 +23,7 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, available_ip_address_count=None, cidr_block=None, customer_owned_ipv4_pool=None, default_for_az=None, enable_dns64=None, enable_resource_name_dns_a_record_on_launch=None, enable_resource_name_dns_aaaa_record_on_launch=None, filters=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, ipv6_native=None, map_customer_owned_ip_on_launch=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, private_dns_hostname_type_on_launch=None, state=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, available_ip_address_count=None, cidr_block=None, customer_owned_ipv4_pool=None, default_for_az=None, enable_dns64=None, enable_lni_at_device_index=None, enable_resource_name_dns_a_record_on_launch=None, enable_resource_name_dns_aaaa_record_on_launch=None, filters=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, ipv6_native=None, map_customer_owned_ip_on_launch=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, private_dns_hostname_type_on_launch=None, state=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,6 +51,9 @@ class GetSubnetResult:
         if enable_dns64 and not isinstance(enable_dns64, bool):
             raise TypeError("Expected argument 'enable_dns64' to be a bool")
         pulumi.set(__self__, "enable_dns64", enable_dns64)
+        if enable_lni_at_device_index and not isinstance(enable_lni_at_device_index, int):
+            raise TypeError("Expected argument 'enable_lni_at_device_index' to be a int")
+        pulumi.set(__self__, "enable_lni_at_device_index", enable_lni_at_device_index)
         if enable_resource_name_dns_a_record_on_launch and not isinstance(enable_resource_name_dns_a_record_on_launch, bool):
             raise TypeError("Expected argument 'enable_resource_name_dns_a_record_on_launch' to be a bool")
         pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
@@ -156,6 +159,14 @@ class GetSubnetResult:
         Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
         """
         return pulumi.get(self, "enable_dns64")
+
+    @property
+    @pulumi.getter(name="enableLniAtDeviceIndex")
+    def enable_lni_at_device_index(self) -> int:
+        """
+        Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+        """
+        return pulumi.get(self, "enable_lni_at_device_index")
 
     @property
     @pulumi.getter(name="enableResourceNameDnsARecordOnLaunch")
@@ -275,6 +286,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             customer_owned_ipv4_pool=self.customer_owned_ipv4_pool,
             default_for_az=self.default_for_az,
             enable_dns64=self.enable_dns64,
+            enable_lni_at_device_index=self.enable_lni_at_device_index,
             enable_resource_name_dns_a_record_on_launch=self.enable_resource_name_dns_a_record_on_launch,
             enable_resource_name_dns_aaaa_record_on_launch=self.enable_resource_name_dns_aaaa_record_on_launch,
             filters=self.filters,
@@ -378,6 +390,7 @@ def get_subnet(availability_zone: Optional[str] = None,
         customer_owned_ipv4_pool=__ret__.customer_owned_ipv4_pool,
         default_for_az=__ret__.default_for_az,
         enable_dns64=__ret__.enable_dns64,
+        enable_lni_at_device_index=__ret__.enable_lni_at_device_index,
         enable_resource_name_dns_a_record_on_launch=__ret__.enable_resource_name_dns_a_record_on_launch,
         enable_resource_name_dns_aaaa_record_on_launch=__ret__.enable_resource_name_dns_aaaa_record_on_launch,
         filters=__ret__.filters,

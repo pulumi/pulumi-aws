@@ -23,12 +23,19 @@ __all__ = [
     'EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs',
     'EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs',
     'EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs',
+    'EventEndpointEventBusArgs',
+    'EventEndpointReplicationConfigArgs',
+    'EventEndpointRoutingConfigArgs',
+    'EventEndpointRoutingConfigFailoverConfigArgs',
+    'EventEndpointRoutingConfigFailoverConfigPrimaryArgs',
+    'EventEndpointRoutingConfigFailoverConfigSecondaryArgs',
     'EventPermissionConditionArgs',
     'EventTargetBatchTargetArgs',
     'EventTargetDeadLetterConfigArgs',
     'EventTargetEcsTargetArgs',
     'EventTargetEcsTargetCapacityProviderStrategyArgs',
     'EventTargetEcsTargetNetworkConfigurationArgs',
+    'EventTargetEcsTargetOrderedPlacementStrategyArgs',
     'EventTargetEcsTargetPlacementConstraintArgs',
     'EventTargetHttpTargetArgs',
     'EventTargetInputTransformerArgs',
@@ -746,6 +753,156 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs:
 
 
 @pulumi.input_type
+class EventEndpointEventBusArgs:
+    def __init__(__self__, *,
+                 event_bus_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] event_bus_arn: The ARN of the event bus the endpoint is associated with.
+        """
+        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+
+    @property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the event bus the endpoint is associated with.
+        """
+        return pulumi.get(self, "event_bus_arn")
+
+    @event_bus_arn.setter
+    def event_bus_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_bus_arn", value)
+
+
+@pulumi.input_type
+class EventEndpointReplicationConfigArgs:
+    def __init__(__self__, *,
+                 state: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] state: The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don't have a `role_arn` or you don't want event replication enabled, set `state` to `DISABLED`.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don't have a `role_arn` or you don't want event replication enabled, set `state` to `DISABLED`.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class EventEndpointRoutingConfigArgs:
+    def __init__(__self__, *,
+                 failover_config: pulumi.Input['EventEndpointRoutingConfigFailoverConfigArgs']):
+        """
+        :param pulumi.Input['EventEndpointRoutingConfigFailoverConfigArgs'] failover_config: Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
+        """
+        pulumi.set(__self__, "failover_config", failover_config)
+
+    @property
+    @pulumi.getter(name="failoverConfig")
+    def failover_config(self) -> pulumi.Input['EventEndpointRoutingConfigFailoverConfigArgs']:
+        """
+        Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
+        """
+        return pulumi.get(self, "failover_config")
+
+    @failover_config.setter
+    def failover_config(self, value: pulumi.Input['EventEndpointRoutingConfigFailoverConfigArgs']):
+        pulumi.set(self, "failover_config", value)
+
+
+@pulumi.input_type
+class EventEndpointRoutingConfigFailoverConfigArgs:
+    def __init__(__self__, *,
+                 primary: pulumi.Input['EventEndpointRoutingConfigFailoverConfigPrimaryArgs'],
+                 secondary: pulumi.Input['EventEndpointRoutingConfigFailoverConfigSecondaryArgs']):
+        """
+        :param pulumi.Input['EventEndpointRoutingConfigFailoverConfigPrimaryArgs'] primary: Parameters used for the primary Region. Documented below.
+        :param pulumi.Input['EventEndpointRoutingConfigFailoverConfigSecondaryArgs'] secondary: Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
+        """
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "secondary", secondary)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> pulumi.Input['EventEndpointRoutingConfigFailoverConfigPrimaryArgs']:
+        """
+        Parameters used for the primary Region. Documented below.
+        """
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: pulumi.Input['EventEndpointRoutingConfigFailoverConfigPrimaryArgs']):
+        pulumi.set(self, "primary", value)
+
+    @property
+    @pulumi.getter
+    def secondary(self) -> pulumi.Input['EventEndpointRoutingConfigFailoverConfigSecondaryArgs']:
+        """
+        Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
+        """
+        return pulumi.get(self, "secondary")
+
+    @secondary.setter
+    def secondary(self, value: pulumi.Input['EventEndpointRoutingConfigFailoverConfigSecondaryArgs']):
+        pulumi.set(self, "secondary", value)
+
+
+@pulumi.input_type
+class EventEndpointRoutingConfigFailoverConfigPrimaryArgs:
+    def __init__(__self__, *,
+                 health_check: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] health_check: The ARN of the health check used by the endpoint to determine whether failover is triggered.
+        """
+        if health_check is not None:
+            pulumi.set(__self__, "health_check", health_check)
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the health check used by the endpoint to determine whether failover is triggered.
+        """
+        return pulumi.get(self, "health_check")
+
+    @health_check.setter
+    def health_check(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check", value)
+
+
+@pulumi.input_type
+class EventEndpointRoutingConfigFailoverConfigSecondaryArgs:
+    def __init__(__self__, *,
+                 route: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] route: The name of the secondary Region.
+        """
+        if route is not None:
+            pulumi.set(__self__, "route", route)
+
+    @property
+    @pulumi.getter
+    def route(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the secondary Region.
+        """
+        return pulumi.get(self, "route")
+
+    @route.setter
+    def route(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route", value)
+
+
+@pulumi.input_type
 class EventPermissionConditionArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -899,6 +1056,7 @@ class EventTargetEcsTargetArgs:
                  group: Optional[pulumi.Input[str]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['EventTargetEcsTargetNetworkConfigurationArgs']] = None,
+                 ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetOrderedPlacementStrategyArgs']]]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgs']]]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
                  propagate_tags: Optional[pulumi.Input[str]] = None,
@@ -912,6 +1070,7 @@ class EventTargetEcsTargetArgs:
         :param pulumi.Input[str] group: Specifies an ECS task group for the task. The maximum length is 255 characters.
         :param pulumi.Input[str] launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
         :param pulumi.Input['EventTargetEcsTargetNetworkConfigurationArgs'] network_configuration: Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
+        :param pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetOrderedPlacementStrategyArgs']]] ordered_placement_strategies: An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgs']]] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
         :param pulumi.Input[str] platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[str] propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
@@ -931,6 +1090,8 @@ class EventTargetEcsTargetArgs:
             pulumi.set(__self__, "launch_type", launch_type)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if ordered_placement_strategies is not None:
+            pulumi.set(__self__, "ordered_placement_strategies", ordered_placement_strategies)
         if placement_constraints is not None:
             pulumi.set(__self__, "placement_constraints", placement_constraints)
         if platform_version is not None:
@@ -1025,6 +1186,18 @@ class EventTargetEcsTargetArgs:
     @network_configuration.setter
     def network_configuration(self, value: Optional[pulumi.Input['EventTargetEcsTargetNetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
+
+    @property
+    @pulumi.getter(name="orderedPlacementStrategies")
+    def ordered_placement_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetOrderedPlacementStrategyArgs']]]]:
+        """
+        An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+        """
+        return pulumi.get(self, "ordered_placement_strategies")
+
+    @ordered_placement_strategies.setter
+    def ordered_placement_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetOrderedPlacementStrategyArgs']]]]):
+        pulumi.set(self, "ordered_placement_strategies", value)
 
     @property
     @pulumi.getter(name="placementConstraints")
@@ -1193,6 +1366,44 @@ class EventTargetEcsTargetNetworkConfigurationArgs:
     @security_groups.setter
     def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_groups", value)
+
+
+@pulumi.input_type
+class EventTargetEcsTargetOrderedPlacementStrategyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 field: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
+        :param pulumi.Input[str] field: The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+        """
+        pulumi.set(__self__, "type", type)
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+        """
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field", value)
 
 
 @pulumi.input_type

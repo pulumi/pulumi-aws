@@ -179,6 +179,12 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon OpenSearch Service settings. See below
+        /// </summary>
+        [Output("opensearchserviceConfig")]
+        public Output<Outputs.DataSourceOpensearchserviceConfig?> OpensearchserviceConfig { get; private set; } = null!;
+
+        /// <summary>
         /// AWS RDS settings. See Relational Database Config
         /// </summary>
         [Output("relationalDatabaseConfig")]
@@ -291,6 +297,12 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Amazon OpenSearch Service settings. See below
+        /// </summary>
+        [Input("opensearchserviceConfig")]
+        public Input<Inputs.DataSourceOpensearchserviceConfigArgs>? OpensearchserviceConfig { get; set; }
+
+        /// <summary>
         /// AWS RDS settings. See Relational Database Config
         /// </summary>
         [Input("relationalDatabaseConfig")]
@@ -369,6 +381,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Amazon OpenSearch Service settings. See below
+        /// </summary>
+        [Input("opensearchserviceConfig")]
+        public Input<Inputs.DataSourceOpensearchserviceConfigGetArgs>? OpensearchserviceConfig { get; set; }
 
         /// <summary>
         /// AWS RDS settings. See Relational Database Config

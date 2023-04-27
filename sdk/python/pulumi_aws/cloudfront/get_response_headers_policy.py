@@ -22,7 +22,7 @@ class GetResponseHeadersPolicyResult:
     """
     A collection of values returned by getResponseHeadersPolicy.
     """
-    def __init__(__self__, comment=None, cors_configs=None, custom_headers_configs=None, etag=None, id=None, name=None, security_headers_configs=None, server_timing_headers_configs=None):
+    def __init__(__self__, comment=None, cors_configs=None, custom_headers_configs=None, etag=None, id=None, name=None, remove_headers_configs=None, security_headers_configs=None, server_timing_headers_configs=None):
         if comment and not isinstance(comment, str):
             raise TypeError("Expected argument 'comment' to be a str")
         pulumi.set(__self__, "comment", comment)
@@ -41,6 +41,9 @@ class GetResponseHeadersPolicyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if remove_headers_configs and not isinstance(remove_headers_configs, list):
+            raise TypeError("Expected argument 'remove_headers_configs' to be a list")
+        pulumi.set(__self__, "remove_headers_configs", remove_headers_configs)
         if security_headers_configs and not isinstance(security_headers_configs, list):
             raise TypeError("Expected argument 'security_headers_configs' to be a list")
         pulumi.set(__self__, "security_headers_configs", security_headers_configs)
@@ -68,7 +71,7 @@ class GetResponseHeadersPolicyResult:
     @pulumi.getter(name="customHeadersConfigs")
     def custom_headers_configs(self) -> Sequence['outputs.GetResponseHeadersPolicyCustomHeadersConfigResult']:
         """
-        Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        Object that contains an attribute `items` that contains a list of Custom Headers. See Custom Header for more information.
         """
         return pulumi.get(self, "custom_headers_configs")
 
@@ -89,6 +92,14 @@ class GetResponseHeadersPolicyResult:
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="removeHeadersConfigs")
+    def remove_headers_configs(self) -> Sequence['outputs.GetResponseHeadersPolicyRemoveHeadersConfigResult']:
+        """
+        Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
+        """
+        return pulumi.get(self, "remove_headers_configs")
 
     @property
     @pulumi.getter(name="securityHeadersConfigs")
@@ -119,6 +130,7 @@ class AwaitableGetResponseHeadersPolicyResult(GetResponseHeadersPolicyResult):
             etag=self.etag,
             id=self.id,
             name=self.name,
+            remove_headers_configs=self.remove_headers_configs,
             security_headers_configs=self.security_headers_configs,
             server_timing_headers_configs=self.server_timing_headers_configs)
 
@@ -166,6 +178,7 @@ def get_response_headers_policy(id: Optional[str] = None,
         etag=__ret__.etag,
         id=__ret__.id,
         name=__ret__.name,
+        remove_headers_configs=__ret__.remove_headers_configs,
         security_headers_configs=__ret__.security_headers_configs,
         server_timing_headers_configs=__ret__.server_timing_headers_configs)
 

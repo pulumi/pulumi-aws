@@ -2119,6 +2119,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudwatch/eventEndpoint",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/eventEndpoint:EventEndpoint": "EventEndpoint"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudwatch/eventPermission",
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
@@ -9763,6 +9771,22 @@ _utilities.register(
   "fqn": "pulumi_aws.transfer",
   "classes": {
    "aws:transfer/workflow:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/listener",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/listener:Listener": "Listener"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/listenerRule",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/listenerRule:ListenerRule": "ListenerRule"
   }
  },
  {

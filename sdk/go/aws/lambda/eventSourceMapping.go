@@ -330,9 +330,11 @@ type EventSourceMapping struct {
 	BisectBatchOnFunctionError pulumi.BoolPtrOutput `pulumi:"bisectBatchOnFunctionError"`
 	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
 	DestinationConfig EventSourceMappingDestinationConfigPtrOutput `pulumi:"destinationConfig"`
+	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrOutput `pulumi:"documentDbEventSourceConfig"`
 	// Determines if the mapping will be enabled on creation. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
 	EventSourceArn pulumi.StringPtrOutput `pulumi:"eventSourceArn"`
 	// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
 	FilterCriteria EventSourceMappingFilterCriteriaPtrOutput `pulumi:"filterCriteria"`
@@ -420,9 +422,11 @@ type eventSourceMappingState struct {
 	BisectBatchOnFunctionError *bool `pulumi:"bisectBatchOnFunctionError"`
 	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
+	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
 	// Determines if the mapping will be enabled on creation. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
 	EventSourceArn *string `pulumi:"eventSourceArn"`
 	// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
 	FilterCriteria *EventSourceMappingFilterCriteria `pulumi:"filterCriteria"`
@@ -479,9 +483,11 @@ type EventSourceMappingState struct {
 	BisectBatchOnFunctionError pulumi.BoolPtrInput
 	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
 	DestinationConfig EventSourceMappingDestinationConfigPtrInput
+	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrInput
 	// Determines if the mapping will be enabled on creation. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
 	EventSourceArn pulumi.StringPtrInput
 	// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
 	FilterCriteria EventSourceMappingFilterCriteriaPtrInput
@@ -542,9 +548,11 @@ type eventSourceMappingArgs struct {
 	BisectBatchOnFunctionError *bool `pulumi:"bisectBatchOnFunctionError"`
 	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
 	DestinationConfig *EventSourceMappingDestinationConfig `pulumi:"destinationConfig"`
+	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+	DocumentDbEventSourceConfig *EventSourceMappingDocumentDbEventSourceConfig `pulumi:"documentDbEventSourceConfig"`
 	// Determines if the mapping will be enabled on creation. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
 	EventSourceArn *string `pulumi:"eventSourceArn"`
 	// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
 	FilterCriteria *EventSourceMappingFilterCriteria `pulumi:"filterCriteria"`
@@ -590,9 +598,11 @@ type EventSourceMappingArgs struct {
 	BisectBatchOnFunctionError pulumi.BoolPtrInput
 	// - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
 	DestinationConfig EventSourceMappingDestinationConfigPtrInput
+	// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+	DocumentDbEventSourceConfig EventSourceMappingDocumentDbEventSourceConfigPtrInput
 	// Determines if the mapping will be enabled on creation. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+	// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
 	EventSourceArn pulumi.StringPtrInput
 	// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
 	FilterCriteria EventSourceMappingFilterCriteriaPtrInput
@@ -737,12 +747,19 @@ func (o EventSourceMappingOutput) DestinationConfig() EventSourceMappingDestinat
 	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingDestinationConfigPtrOutput { return v.DestinationConfig }).(EventSourceMappingDestinationConfigPtrOutput)
 }
 
+// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+func (o EventSourceMappingOutput) DocumentDbEventSourceConfig() EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
+		return v.DocumentDbEventSourceConfig
+	}).(EventSourceMappingDocumentDbEventSourceConfigPtrOutput)
+}
+
 // Determines if the mapping will be enabled on creation. Defaults to `true`.
 func (o EventSourceMappingOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
 func (o EventSourceMappingOutput) EventSourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringPtrOutput { return v.EventSourceArn }).(pulumi.StringPtrOutput)
 }

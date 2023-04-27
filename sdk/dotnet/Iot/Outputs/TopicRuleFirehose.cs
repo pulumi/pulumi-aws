@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Iot.Outputs
     public sealed class TopicRuleFirehose
     {
         /// <summary>
+        /// The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+        /// </summary>
+        public readonly bool? BatchMode;
+        /// <summary>
         /// The delivery stream name.
         /// </summary>
         public readonly string DeliveryStreamName;
@@ -28,12 +32,15 @@ namespace Pulumi.Aws.Iot.Outputs
 
         [OutputConstructor]
         private TopicRuleFirehose(
+            bool? batchMode,
+
             string deliveryStreamName,
 
             string roleArn,
 
             string? separator)
         {
+            BatchMode = batchMode;
             DeliveryStreamName = deliveryStreamName;
             RoleArn = roleArn;
             Separator = separator;

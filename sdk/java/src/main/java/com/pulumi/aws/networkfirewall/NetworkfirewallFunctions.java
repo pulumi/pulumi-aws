@@ -8,8 +8,11 @@ import com.pulumi.aws.networkfirewall.inputs.GetFirewallArgs;
 import com.pulumi.aws.networkfirewall.inputs.GetFirewallPlainArgs;
 import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyArgs;
 import com.pulumi.aws.networkfirewall.inputs.GetFirewallPolicyPlainArgs;
+import com.pulumi.aws.networkfirewall.inputs.GetResourcePolicyArgs;
+import com.pulumi.aws.networkfirewall.inputs.GetResourcePolicyPlainArgs;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyResult;
 import com.pulumi.aws.networkfirewall.outputs.GetFirewallResult;
+import com.pulumi.aws.networkfirewall.outputs.GetResourcePolicyResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -1204,5 +1207,153 @@ public final class NetworkfirewallFunctions {
      */
     public static CompletableFuture<GetFirewallPolicyResult> getFirewallPolicyPlain(GetFirewallPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:networkfirewall/getFirewallPolicy:getFirewallPolicy", TypeShape.of(GetFirewallPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about a Network Firewall resource policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetResourcePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
+     *             .resourceArn(var_.resource_policy_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResourcePolicyResult> getResourcePolicy(GetResourcePolicyArgs args) {
+        return getResourcePolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about a Network Firewall resource policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetResourcePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
+     *             .resourceArn(var_.resource_policy_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResourcePolicyResult> getResourcePolicyPlain(GetResourcePolicyPlainArgs args) {
+        return getResourcePolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about a Network Firewall resource policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetResourcePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
+     *             .resourceArn(var_.resource_policy_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResourcePolicyResult> getResourcePolicy(GetResourcePolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:networkfirewall/getResourcePolicy:getResourcePolicy", TypeShape.of(GetResourcePolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about a Network Firewall resource policy.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.networkfirewall.NetworkfirewallFunctions;
+     * import com.pulumi.aws.networkfirewall.inputs.GetResourcePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = NetworkfirewallFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
+     *             .resourceArn(var_.resource_policy_arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResourcePolicyResult> getResourcePolicyPlain(GetResourcePolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:networkfirewall/getResourcePolicy:getResourcePolicy", TypeShape.of(GetResourcePolicyResult.class), args, Utilities.withVersion(options));
     }
 }

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string DataSourceArn;
         /// <summary>
-        /// Display name for the dataset.
+        /// Display name for the SQL query result.
         /// </summary>
         public readonly string Name;
         /// <summary>

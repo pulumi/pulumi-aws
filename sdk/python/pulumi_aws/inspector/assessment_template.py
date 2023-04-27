@@ -280,7 +280,7 @@ class AssessmentTemplate(pulumi.CustomResource):
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Inspector assessment template
+        Provides an Inspector Classic Assessment Template
 
         ## Example Usage
 
@@ -328,7 +328,7 @@ class AssessmentTemplate(pulumi.CustomResource):
                  args: AssessmentTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Inspector assessment template
+        Provides an Inspector Classic Assessment Template
 
         ## Example Usage
 

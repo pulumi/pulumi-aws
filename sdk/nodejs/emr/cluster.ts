@@ -125,7 +125,9 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service, and another to place on your Cluster Instances to interact with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`, and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html) guide for more information on these IAM roles.
+ * The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
+ *
+ * The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page.
  * ### Instance Fleet
  *
  * ```typescript
@@ -404,6 +406,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The specified placement group configuration for an Amazon EMR cluster.
+     */
+    public readonly placementGroupConfigs!: pulumi.Output<outputs.emr.ClusterPlacementGroupConfig[] | undefined>;
+    /**
      * Release label for the Amazon EMR release.
      */
     public readonly releaseLabel!: pulumi.Output<string>;
@@ -480,6 +486,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterInstanceGroup"] = state ? state.masterInstanceGroup : undefined;
             resourceInputs["masterPublicDns"] = state ? state.masterPublicDns : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["placementGroupConfigs"] = state ? state.placementGroupConfigs : undefined;
             resourceInputs["releaseLabel"] = state ? state.releaseLabel : undefined;
             resourceInputs["scaleDownBehavior"] = state ? state.scaleDownBehavior : undefined;
             resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
@@ -518,6 +525,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterInstanceFleet"] = args ? args.masterInstanceFleet : undefined;
             resourceInputs["masterInstanceGroup"] = args ? args.masterInstanceGroup : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["placementGroupConfigs"] = args ? args.placementGroupConfigs : undefined;
             resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
             resourceInputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
             resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
@@ -630,6 +638,10 @@ export interface ClusterState {
      * Name of the job flow.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The specified placement group configuration for an Amazon EMR cluster.
+     */
+    placementGroupConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterPlacementGroupConfig>[]>;
     /**
      * Release label for the Amazon EMR release.
      */
@@ -756,6 +768,10 @@ export interface ClusterArgs {
      * Name of the job flow.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The specified placement group configuration for an Amazon EMR cluster.
+     */
+    placementGroupConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterPlacementGroupConfig>[]>;
     /**
      * Release label for the Amazon EMR release.
      */

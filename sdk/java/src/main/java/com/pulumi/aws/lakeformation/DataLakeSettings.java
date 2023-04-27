@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -98,6 +99,55 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Enable EMR access to LakeFormation resources
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lakeformation.DataLakeSettings;
+ * import com.pulumi.aws.lakeformation.DataLakeSettingsArgs;
+ * import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs;
+ * import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateTableDefaultPermissionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DataLakeSettings(&#34;example&#34;, DataLakeSettingsArgs.builder()        
+ *             .admins(            
+ *                 aws_iam_user.test().arn(),
+ *                 aws_iam_role.test().arn())
+ *             .createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs.builder()
+ *                 .permissions(                
+ *                     &#34;SELECT&#34;,
+ *                     &#34;ALTER&#34;,
+ *                     &#34;DROP&#34;)
+ *                 .principal(aws_iam_user.test().arn())
+ *                 .build())
+ *             .createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs.builder()
+ *                 .permissions(&#34;ALL&#34;)
+ *                 .principal(aws_iam_role.test().arn())
+ *                 .build())
+ *             .allowExternalDataFiltering(true)
+ *             .externalDataFilteringAllowLists(            
+ *                 data.aws_caller_identity().current().account_id(),
+ *                 data.aws_caller_identity().third_party().account_id())
+ *             .authorizedSessionTagValueLists(&#34;Amazon EMR&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  */
 @ResourceType(type="aws:lakeformation/dataLakeSettings:DataLakeSettings")
@@ -115,6 +165,34 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> admins() {
         return this.admins;
+    }
+    /**
+     * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+     * 
+     */
+    @Export(name="allowExternalDataFiltering", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> allowExternalDataFiltering;
+
+    /**
+     * @return Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+     * 
+     */
+    public Output<Optional<Boolean>> allowExternalDataFiltering() {
+        return Codegen.optional(this.allowExternalDataFiltering);
+    }
+    /**
+     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+     * 
+     */
+    @Export(name="authorizedSessionTagValueLists", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> authorizedSessionTagValueLists;
+
+    /**
+     * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+     * 
+     */
+    public Output<List<String>> authorizedSessionTagValueLists() {
+        return this.authorizedSessionTagValueLists;
     }
     /**
      * Identifier for the Data Catalog. By default, the account ID.
@@ -157,6 +235,20 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
      */
     public Output<List<DataLakeSettingsCreateTableDefaultPermission>> createTableDefaultPermissions() {
         return this.createTableDefaultPermissions;
+    }
+    /**
+     * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+     * 
+     */
+    @Export(name="externalDataFilteringAllowLists", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> externalDataFilteringAllowLists;
+
+    /**
+     * @return A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+     * 
+     */
+    public Output<List<String>> externalDataFilteringAllowLists() {
+        return this.externalDataFilteringAllowLists;
     }
     /**
      * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).

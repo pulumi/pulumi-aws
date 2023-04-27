@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetServiceQuotaResult',
@@ -21,7 +22,7 @@ class GetServiceQuotaResult:
     """
     A collection of values returned by getServiceQuota.
     """
-    def __init__(__self__, adjustable=None, arn=None, default_value=None, global_quota=None, id=None, quota_code=None, quota_name=None, service_code=None, service_name=None, value=None):
+    def __init__(__self__, adjustable=None, arn=None, default_value=None, global_quota=None, id=None, quota_code=None, quota_name=None, service_code=None, service_name=None, usage_metrics=None, value=None):
         if adjustable and not isinstance(adjustable, bool):
             raise TypeError("Expected argument 'adjustable' to be a bool")
         pulumi.set(__self__, "adjustable", adjustable)
@@ -49,6 +50,9 @@ class GetServiceQuotaResult:
         if service_name and not isinstance(service_name, str):
             raise TypeError("Expected argument 'service_name' to be a str")
         pulumi.set(__self__, "service_name", service_name)
+        if usage_metrics and not isinstance(usage_metrics, list):
+            raise TypeError("Expected argument 'usage_metrics' to be a list")
+        pulumi.set(__self__, "usage_metrics", usage_metrics)
         if value and not isinstance(value, float):
             raise TypeError("Expected argument 'value' to be a float")
         pulumi.set(__self__, "value", value)
@@ -117,6 +121,14 @@ class GetServiceQuotaResult:
         return pulumi.get(self, "service_name")
 
     @property
+    @pulumi.getter(name="usageMetrics")
+    def usage_metrics(self) -> Sequence['outputs.GetServiceQuotaUsageMetricResult']:
+        """
+        Information about the measurement.
+        """
+        return pulumi.get(self, "usage_metrics")
+
+    @property
     @pulumi.getter
     def value(self) -> float:
         """
@@ -140,6 +152,7 @@ class AwaitableGetServiceQuotaResult(GetServiceQuotaResult):
             quota_name=self.quota_name,
             service_code=self.service_code,
             service_name=self.service_name,
+            usage_metrics=self.usage_metrics,
             value=self.value)
 
 
@@ -186,6 +199,7 @@ def get_service_quota(quota_code: Optional[str] = None,
         quota_name=__ret__.quota_name,
         service_code=__ret__.service_code,
         service_name=__ret__.service_name,
+        usage_metrics=__ret__.usage_metrics,
         value=__ret__.value)
 
 

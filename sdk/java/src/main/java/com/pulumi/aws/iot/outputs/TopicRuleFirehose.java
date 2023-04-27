@@ -4,6 +4,7 @@
 package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -11,6 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleFirehose {
+    /**
+     * @return The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+     * 
+     */
+    private @Nullable Boolean batchMode;
     /**
      * @return The delivery stream name.
      * 
@@ -28,6 +34,13 @@ public final class TopicRuleFirehose {
     private @Nullable String separator;
 
     private TopicRuleFirehose() {}
+    /**
+     * @return The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+     * 
+     */
+    public Optional<Boolean> batchMode() {
+        return Optional.ofNullable(this.batchMode);
+    }
     /**
      * @return The delivery stream name.
      * 
@@ -59,17 +72,24 @@ public final class TopicRuleFirehose {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean batchMode;
         private String deliveryStreamName;
         private String roleArn;
         private @Nullable String separator;
         public Builder() {}
         public Builder(TopicRuleFirehose defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.batchMode = defaults.batchMode;
     	      this.deliveryStreamName = defaults.deliveryStreamName;
     	      this.roleArn = defaults.roleArn;
     	      this.separator = defaults.separator;
         }
 
+        @CustomType.Setter
+        public Builder batchMode(@Nullable Boolean batchMode) {
+            this.batchMode = batchMode;
+            return this;
+        }
         @CustomType.Setter
         public Builder deliveryStreamName(String deliveryStreamName) {
             this.deliveryStreamName = Objects.requireNonNull(deliveryStreamName);
@@ -87,6 +107,7 @@ public final class TopicRuleFirehose {
         }
         public TopicRuleFirehose build() {
             final var o = new TopicRuleFirehose();
+            o.batchMode = batchMode;
             o.deliveryStreamName = deliveryStreamName;
             o.roleArn = roleArn;
             o.separator = separator;

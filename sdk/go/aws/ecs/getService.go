@@ -74,7 +74,7 @@ type LookupServiceResult struct {
 	ServiceName        string `pulumi:"serviceName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Family for the latest ACTIVE revision
+	// Family for the latest ACTIVE revision or full ARN of the task definition.
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
 
@@ -158,7 +158,7 @@ func (o LookupServiceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServiceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Family for the latest ACTIVE revision
+// Family for the latest ACTIVE revision or full ARN of the task definition.
 func (o LookupServiceResultOutput) TaskDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.TaskDefinition }).(pulumi.StringOutput)
 }

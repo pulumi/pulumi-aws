@@ -67,7 +67,6 @@ import javax.annotation.Nullable;
  * 
  *         var policyFileSystemPolicy = new FileSystemPolicy(&#34;policyFileSystemPolicy&#34;, FileSystemPolicyArgs.builder()        
  *             .fileSystemId(fs.id())
- *             .bypassPolicyLockoutSafetyCheck(true)
  *             .policy(policyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(policyPolicyDocument -&gt; policyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 

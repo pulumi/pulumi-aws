@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Inspector V2 Delegated Admin Account.
+ * Resource for managing an Amazon Inspector Delegated Admin Account.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Inspector V2 Delegated Admin Account can be imported using the `account_id`, e.g.,
+ * Inspector Delegated Admin Account can be imported using the `account_id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901

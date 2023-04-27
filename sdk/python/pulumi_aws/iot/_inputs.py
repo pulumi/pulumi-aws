@@ -1919,14 +1919,18 @@ class TopicRuleErrorActionFirehoseArgs:
     def __init__(__self__, *,
                  delivery_stream_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
+                 batch_mode: Optional[pulumi.Input[bool]] = None,
                  separator: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] delivery_stream_name: The delivery stream name.
         :param pulumi.Input[str] role_arn: The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
+        :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
         :param pulumi.Input[str] separator: A character separator that is used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
         if separator is not None:
             pulumi.set(__self__, "separator", separator)
 
@@ -1953,6 +1957,18 @@ class TopicRuleErrorActionFirehoseArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+        """
+        return pulumi.get(self, "batch_mode")
+
+    @batch_mode.setter
+    def batch_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batch_mode", value)
 
     @property
     @pulumi.getter
@@ -2062,13 +2078,17 @@ class TopicRuleErrorActionHttpHttpHeaderArgs:
 class TopicRuleErrorActionIotAnalyticsArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
-                 role_arn: pulumi.Input[str]):
+                 role_arn: pulumi.Input[str],
+                 batch_mode: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] channel_name: Name of AWS IOT Analytics channel.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access.
+        :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
         """
         pulumi.set(__self__, "channel_name", channel_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2094,20 +2114,36 @@ class TopicRuleErrorActionIotAnalyticsArgs:
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
 
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+        """
+        return pulumi.get(self, "batch_mode")
+
+    @batch_mode.setter
+    def batch_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batch_mode", value)
+
 
 @pulumi.input_type
 class TopicRuleErrorActionIotEventsArgs:
     def __init__(__self__, *,
                  input_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
+                 batch_mode: Optional[pulumi.Input[bool]] = None,
                  message_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] input_name: The name of the AWS IoT Events input.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access.
+        :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
         :param pulumi.Input[str] message_id: Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
         """
         pulumi.set(__self__, "input_name", input_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
         if message_id is not None:
             pulumi.set(__self__, "message_id", message_id)
 
@@ -2134,6 +2170,18 @@ class TopicRuleErrorActionIotEventsArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+        """
+        return pulumi.get(self, "batch_mode")
+
+    @batch_mode.setter
+    def batch_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batch_mode", value)
 
     @property
     @pulumi.getter(name="messageId")
@@ -2748,14 +2796,18 @@ class TopicRuleFirehoseArgs:
     def __init__(__self__, *,
                  delivery_stream_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
+                 batch_mode: Optional[pulumi.Input[bool]] = None,
                  separator: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] delivery_stream_name: The delivery stream name.
         :param pulumi.Input[str] role_arn: The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
+        :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
         :param pulumi.Input[str] separator: A character separator that is used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
         if separator is not None:
             pulumi.set(__self__, "separator", separator)
 
@@ -2782,6 +2834,18 @@ class TopicRuleFirehoseArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+        """
+        return pulumi.get(self, "batch_mode")
+
+    @batch_mode.setter
+    def batch_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batch_mode", value)
 
     @property
     @pulumi.getter
@@ -2891,13 +2955,17 @@ class TopicRuleHttpHttpHeaderArgs:
 class TopicRuleIotAnalyticArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
-                 role_arn: pulumi.Input[str]):
+                 role_arn: pulumi.Input[str],
+                 batch_mode: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] channel_name: Name of AWS IOT Analytics channel.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access.
+        :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
         """
         pulumi.set(__self__, "channel_name", channel_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2923,20 +2991,36 @@ class TopicRuleIotAnalyticArgs:
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
 
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+        """
+        return pulumi.get(self, "batch_mode")
+
+    @batch_mode.setter
+    def batch_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batch_mode", value)
+
 
 @pulumi.input_type
 class TopicRuleIotEventArgs:
     def __init__(__self__, *,
                  input_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
+                 batch_mode: Optional[pulumi.Input[bool]] = None,
                  message_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] input_name: The name of the AWS IoT Events input.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access.
+        :param pulumi.Input[bool] batch_mode: The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
         :param pulumi.Input[str] message_id: Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
         """
         pulumi.set(__self__, "input_name", input_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
         if message_id is not None:
             pulumi.set(__self__, "message_id", message_id)
 
@@ -2963,6 +3047,18 @@ class TopicRuleIotEventArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+        """
+        return pulumi.get(self, "batch_mode")
+
+    @batch_mode.setter
+    def batch_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batch_mode", value)
 
     @property
     @pulumi.getter(name="messageId")

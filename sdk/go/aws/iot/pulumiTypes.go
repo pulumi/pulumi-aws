@@ -4955,6 +4955,8 @@ func (o TopicRuleErrorActionElasticsearchPtrOutput) Type() pulumi.StringPtrOutpu
 }
 
 type TopicRuleErrorActionFirehose struct {
+	// The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+	BatchMode *bool `pulumi:"batchMode"`
 	// The delivery stream name.
 	DeliveryStreamName string `pulumi:"deliveryStreamName"`
 	// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
@@ -4975,6 +4977,8 @@ type TopicRuleErrorActionFirehoseInput interface {
 }
 
 type TopicRuleErrorActionFirehoseArgs struct {
+	// The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
 	// The delivery stream name.
 	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
 	// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
@@ -5060,6 +5064,11 @@ func (o TopicRuleErrorActionFirehoseOutput) ToTopicRuleErrorActionFirehosePtrOut
 	}).(TopicRuleErrorActionFirehosePtrOutput)
 }
 
+// The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+func (o TopicRuleErrorActionFirehoseOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionFirehose) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
+}
+
 // The delivery stream name.
 func (o TopicRuleErrorActionFirehoseOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionFirehose) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
@@ -5097,6 +5106,16 @@ func (o TopicRuleErrorActionFirehosePtrOutput) Elem() TopicRuleErrorActionFireho
 		var ret TopicRuleErrorActionFirehose
 		return ret
 	}).(TopicRuleErrorActionFirehoseOutput)
+}
+
+// The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+func (o TopicRuleErrorActionFirehosePtrOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionFirehose) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BatchMode
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The delivery stream name.
@@ -5411,6 +5430,8 @@ func (o TopicRuleErrorActionHttpHttpHeaderArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type TopicRuleErrorActionIotAnalytics struct {
+	// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+	BatchMode *bool `pulumi:"batchMode"`
 	// Name of AWS IOT Analytics channel.
 	ChannelName string `pulumi:"channelName"`
 	// The ARN of the IAM role that grants access.
@@ -5429,6 +5450,8 @@ type TopicRuleErrorActionIotAnalyticsInput interface {
 }
 
 type TopicRuleErrorActionIotAnalyticsArgs struct {
+	// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
 	// Name of AWS IOT Analytics channel.
 	ChannelName pulumi.StringInput `pulumi:"channelName"`
 	// The ARN of the IAM role that grants access.
@@ -5512,6 +5535,11 @@ func (o TopicRuleErrorActionIotAnalyticsOutput) ToTopicRuleErrorActionIotAnalyti
 	}).(TopicRuleErrorActionIotAnalyticsPtrOutput)
 }
 
+// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+func (o TopicRuleErrorActionIotAnalyticsOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionIotAnalytics) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
+}
+
 // Name of AWS IOT Analytics channel.
 func (o TopicRuleErrorActionIotAnalyticsOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionIotAnalytics) string { return v.ChannelName }).(pulumi.StringOutput)
@@ -5546,6 +5574,16 @@ func (o TopicRuleErrorActionIotAnalyticsPtrOutput) Elem() TopicRuleErrorActionIo
 	}).(TopicRuleErrorActionIotAnalyticsOutput)
 }
 
+// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+func (o TopicRuleErrorActionIotAnalyticsPtrOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionIotAnalytics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BatchMode
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Name of AWS IOT Analytics channel.
 func (o TopicRuleErrorActionIotAnalyticsPtrOutput) ChannelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionIotAnalytics) *string {
@@ -5567,6 +5605,8 @@ func (o TopicRuleErrorActionIotAnalyticsPtrOutput) RoleArn() pulumi.StringPtrOut
 }
 
 type TopicRuleErrorActionIotEvents struct {
+	// The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+	BatchMode *bool `pulumi:"batchMode"`
 	// The name of the AWS IoT Events input.
 	InputName string `pulumi:"inputName"`
 	// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
@@ -5587,6 +5627,8 @@ type TopicRuleErrorActionIotEventsInput interface {
 }
 
 type TopicRuleErrorActionIotEventsArgs struct {
+	// The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
 	// The name of the AWS IoT Events input.
 	InputName pulumi.StringInput `pulumi:"inputName"`
 	// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
@@ -5672,6 +5714,11 @@ func (o TopicRuleErrorActionIotEventsOutput) ToTopicRuleErrorActionIotEventsPtrO
 	}).(TopicRuleErrorActionIotEventsPtrOutput)
 }
 
+// The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+func (o TopicRuleErrorActionIotEventsOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionIotEvents) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
+}
+
 // The name of the AWS IoT Events input.
 func (o TopicRuleErrorActionIotEventsOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionIotEvents) string { return v.InputName }).(pulumi.StringOutput)
@@ -5709,6 +5756,16 @@ func (o TopicRuleErrorActionIotEventsPtrOutput) Elem() TopicRuleErrorActionIotEv
 		var ret TopicRuleErrorActionIotEvents
 		return ret
 	}).(TopicRuleErrorActionIotEventsOutput)
+}
+
+// The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+func (o TopicRuleErrorActionIotEventsPtrOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionIotEvents) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BatchMode
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The name of the AWS IoT Events input.
@@ -7636,6 +7693,8 @@ func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) Value() pulumi.StringP
 }
 
 type TopicRuleFirehose struct {
+	// The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+	BatchMode *bool `pulumi:"batchMode"`
 	// The delivery stream name.
 	DeliveryStreamName string `pulumi:"deliveryStreamName"`
 	// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
@@ -7656,6 +7715,8 @@ type TopicRuleFirehoseInput interface {
 }
 
 type TopicRuleFirehoseArgs struct {
+	// The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
 	// The delivery stream name.
 	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
 	// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
@@ -7741,6 +7802,11 @@ func (o TopicRuleFirehoseOutput) ToTopicRuleFirehosePtrOutputWithContext(ctx con
 	}).(TopicRuleFirehosePtrOutput)
 }
 
+// The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+func (o TopicRuleFirehoseOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRuleFirehose) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
+}
+
 // The delivery stream name.
 func (o TopicRuleFirehoseOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleFirehose) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
@@ -7778,6 +7844,16 @@ func (o TopicRuleFirehosePtrOutput) Elem() TopicRuleFirehoseOutput {
 		var ret TopicRuleFirehose
 		return ret
 	}).(TopicRuleFirehoseOutput)
+}
+
+// The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+func (o TopicRuleFirehosePtrOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicRuleFirehose) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BatchMode
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The delivery stream name.
@@ -8032,6 +8108,8 @@ func (o TopicRuleHttpHttpHeaderArrayOutput) Index(i pulumi.IntInput) TopicRuleHt
 }
 
 type TopicRuleIotAnalytic struct {
+	// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+	BatchMode *bool `pulumi:"batchMode"`
 	// Name of AWS IOT Analytics channel.
 	ChannelName string `pulumi:"channelName"`
 	// The ARN of the IAM role that grants access.
@@ -8050,6 +8128,8 @@ type TopicRuleIotAnalyticInput interface {
 }
 
 type TopicRuleIotAnalyticArgs struct {
+	// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
 	// Name of AWS IOT Analytics channel.
 	ChannelName pulumi.StringInput `pulumi:"channelName"`
 	// The ARN of the IAM role that grants access.
@@ -8107,6 +8187,11 @@ func (o TopicRuleIotAnalyticOutput) ToTopicRuleIotAnalyticOutputWithContext(ctx 
 	return o
 }
 
+// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+func (o TopicRuleIotAnalyticOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRuleIotAnalytic) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
+}
+
 // Name of AWS IOT Analytics channel.
 func (o TopicRuleIotAnalyticOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotAnalytic) string { return v.ChannelName }).(pulumi.StringOutput)
@@ -8138,6 +8223,8 @@ func (o TopicRuleIotAnalyticArrayOutput) Index(i pulumi.IntInput) TopicRuleIotAn
 }
 
 type TopicRuleIotEvent struct {
+	// The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+	BatchMode *bool `pulumi:"batchMode"`
 	// The name of the AWS IoT Events input.
 	InputName string `pulumi:"inputName"`
 	// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
@@ -8158,6 +8245,8 @@ type TopicRuleIotEventInput interface {
 }
 
 type TopicRuleIotEventArgs struct {
+	// The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
 	// The name of the AWS IoT Events input.
 	InputName pulumi.StringInput `pulumi:"inputName"`
 	// Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
@@ -8215,6 +8304,11 @@ func (o TopicRuleIotEventOutput) ToTopicRuleIotEventOutput() TopicRuleIotEventOu
 
 func (o TopicRuleIotEventOutput) ToTopicRuleIotEventOutputWithContext(ctx context.Context) TopicRuleIotEventOutput {
 	return o
+}
+
+// The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+func (o TopicRuleIotEventOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRuleIotEvent) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the AWS IoT Events input.

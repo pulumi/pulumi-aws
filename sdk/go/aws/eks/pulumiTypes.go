@@ -3501,6 +3501,121 @@ func (o GetClusterVpcConfigOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterVpcConfig) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
+type GetNodeGroupLaunchTemplate struct {
+	// The ID of the launch template.
+	Id string `pulumi:"id"`
+	// Name of the AutoScaling Group.
+	Name string `pulumi:"name"`
+	// Kubernetes version.
+	Version string `pulumi:"version"`
+}
+
+// GetNodeGroupLaunchTemplateInput is an input type that accepts GetNodeGroupLaunchTemplateArgs and GetNodeGroupLaunchTemplateOutput values.
+// You can construct a concrete instance of `GetNodeGroupLaunchTemplateInput` via:
+//
+//	GetNodeGroupLaunchTemplateArgs{...}
+type GetNodeGroupLaunchTemplateInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupLaunchTemplateOutput() GetNodeGroupLaunchTemplateOutput
+	ToGetNodeGroupLaunchTemplateOutputWithContext(context.Context) GetNodeGroupLaunchTemplateOutput
+}
+
+type GetNodeGroupLaunchTemplateArgs struct {
+	// The ID of the launch template.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the AutoScaling Group.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Kubernetes version.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetNodeGroupLaunchTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (i GetNodeGroupLaunchTemplateArgs) ToGetNodeGroupLaunchTemplateOutput() GetNodeGroupLaunchTemplateOutput {
+	return i.ToGetNodeGroupLaunchTemplateOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupLaunchTemplateArgs) ToGetNodeGroupLaunchTemplateOutputWithContext(ctx context.Context) GetNodeGroupLaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupLaunchTemplateOutput)
+}
+
+// GetNodeGroupLaunchTemplateArrayInput is an input type that accepts GetNodeGroupLaunchTemplateArray and GetNodeGroupLaunchTemplateArrayOutput values.
+// You can construct a concrete instance of `GetNodeGroupLaunchTemplateArrayInput` via:
+//
+//	GetNodeGroupLaunchTemplateArray{ GetNodeGroupLaunchTemplateArgs{...} }
+type GetNodeGroupLaunchTemplateArrayInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupLaunchTemplateArrayOutput() GetNodeGroupLaunchTemplateArrayOutput
+	ToGetNodeGroupLaunchTemplateArrayOutputWithContext(context.Context) GetNodeGroupLaunchTemplateArrayOutput
+}
+
+type GetNodeGroupLaunchTemplateArray []GetNodeGroupLaunchTemplateInput
+
+func (GetNodeGroupLaunchTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (i GetNodeGroupLaunchTemplateArray) ToGetNodeGroupLaunchTemplateArrayOutput() GetNodeGroupLaunchTemplateArrayOutput {
+	return i.ToGetNodeGroupLaunchTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupLaunchTemplateArray) ToGetNodeGroupLaunchTemplateArrayOutputWithContext(ctx context.Context) GetNodeGroupLaunchTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupLaunchTemplateArrayOutput)
+}
+
+type GetNodeGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupLaunchTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (o GetNodeGroupLaunchTemplateOutput) ToGetNodeGroupLaunchTemplateOutput() GetNodeGroupLaunchTemplateOutput {
+	return o
+}
+
+func (o GetNodeGroupLaunchTemplateOutput) ToGetNodeGroupLaunchTemplateOutputWithContext(ctx context.Context) GetNodeGroupLaunchTemplateOutput {
+	return o
+}
+
+// The ID of the launch template.
+func (o GetNodeGroupLaunchTemplateOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeGroupLaunchTemplate) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the AutoScaling Group.
+func (o GetNodeGroupLaunchTemplateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeGroupLaunchTemplate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Kubernetes version.
+func (o GetNodeGroupLaunchTemplateOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeGroupLaunchTemplate) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetNodeGroupLaunchTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupLaunchTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupLaunchTemplate)(nil)).Elem()
+}
+
+func (o GetNodeGroupLaunchTemplateArrayOutput) ToGetNodeGroupLaunchTemplateArrayOutput() GetNodeGroupLaunchTemplateArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupLaunchTemplateArrayOutput) ToGetNodeGroupLaunchTemplateArrayOutputWithContext(ctx context.Context) GetNodeGroupLaunchTemplateArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupLaunchTemplateArrayOutput) Index(i pulumi.IntInput) GetNodeGroupLaunchTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNodeGroupLaunchTemplate {
+		return vs[0].([]GetNodeGroupLaunchTemplate)[vs[1].(int)]
+	}).(GetNodeGroupLaunchTemplateOutput)
+}
+
 type GetNodeGroupRemoteAccess struct {
 	// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
 	Ec2SshKey string `pulumi:"ec2SshKey"`
@@ -4091,6 +4206,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigControlPlanePlacementInput)(nil)).Elem(), GetClusterOutpostConfigControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigControlPlanePlacementArrayInput)(nil)).Elem(), GetClusterOutpostConfigControlPlanePlacementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVpcConfigInput)(nil)).Elem(), GetClusterVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupLaunchTemplateInput)(nil)).Elem(), GetNodeGroupLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupLaunchTemplateArrayInput)(nil)).Elem(), GetNodeGroupLaunchTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupRemoteAccessInput)(nil)).Elem(), GetNodeGroupRemoteAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupRemoteAccessArrayInput)(nil)).Elem(), GetNodeGroupRemoteAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupResourceInput)(nil)).Elem(), GetNodeGroupResourceArgs{})
@@ -4151,6 +4268,8 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterOutpostConfigControlPlanePlacementOutput{})
 	pulumi.RegisterOutputType(GetClusterOutpostConfigControlPlanePlacementArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVpcConfigOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupLaunchTemplateOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupLaunchTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetNodeGroupRemoteAccessOutput{})
 	pulumi.RegisterOutputType(GetNodeGroupRemoteAccessArrayOutput{})
 	pulumi.RegisterOutputType(GetNodeGroupResourceOutput{})

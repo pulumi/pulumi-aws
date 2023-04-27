@@ -240,6 +240,10 @@ export class Role extends pulumi.CustomResource {
      */
     public readonly permissionsBoundary!: pulumi.Output<string | undefined>;
     /**
+     * Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
+     */
+    public /*out*/ readonly roleLastUseds!: pulumi.Output<outputs.iam.RoleRoleLastUsed[]>;
+    /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -277,6 +281,7 @@ export class Role extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["path"] = state ? state.path : undefined;
             resourceInputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
+            resourceInputs["roleLastUseds"] = state ? state.roleLastUseds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
@@ -299,6 +304,7 @@ export class Role extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createDate"] = undefined /*out*/;
+            resourceInputs["roleLastUseds"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -355,6 +361,10 @@ export interface RoleState {
      * ARN of the policy that is used to set the permissions boundary for the role.
      */
     permissionsBoundary?: pulumi.Input<string>;
+    /**
+     * Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
+     */
+    roleLastUseds?: pulumi.Input<pulumi.Input<inputs.iam.RoleRoleLastUsed>[]>;
     /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

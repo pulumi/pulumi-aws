@@ -19,6 +19,7 @@ __all__ = [
     'DataSourceHttpConfigAuthorizationConfig',
     'DataSourceHttpConfigAuthorizationConfigAwsIamConfig',
     'DataSourceLambdaConfig',
+    'DataSourceOpensearchserviceConfig',
     'DataSourceRelationalDatabaseConfig',
     'DataSourceRelationalDatabaseConfigHttpEndpointConfig',
     'FunctionRuntime',
@@ -412,6 +413,36 @@ class DataSourceLambdaConfig(dict):
         ARN for the Lambda function.
         """
         return pulumi.get(self, "function_arn")
+
+
+@pulumi.output_type
+class DataSourceOpensearchserviceConfig(dict):
+    def __init__(__self__, *,
+                 endpoint: str,
+                 region: Optional[str] = None):
+        """
+        :param str endpoint: HTTP endpoint of the OpenSearch domain.
+        :param str region: AWS region of the OpenSearch domain. Defaults to current region.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        HTTP endpoint of the OpenSearch domain.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        AWS region of the OpenSearch domain. Defaults to current region.
+        """
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type

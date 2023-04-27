@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch.inputs;
 
 import com.pulumi.aws.cloudwatch.inputs.EventTargetEcsTargetCapacityProviderStrategyArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetEcsTargetNetworkConfigurationArgs;
+import com.pulumi.aws.cloudwatch.inputs.EventTargetEcsTargetOrderedPlacementStrategyArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetEcsTargetPlacementConstraintArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -113,6 +114,21 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+     * 
+     */
+    @Import(name="orderedPlacementStrategies")
+    private @Nullable Output<List<EventTargetEcsTargetOrderedPlacementStrategyArgs>> orderedPlacementStrategies;
+
+    /**
+     * @return An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+     * 
+     */
+    public Optional<Output<List<EventTargetEcsTargetOrderedPlacementStrategyArgs>>> orderedPlacementStrategies() {
+        return Optional.ofNullable(this.orderedPlacementStrategies);
+    }
+
+    /**
      * An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
      * 
      */
@@ -211,6 +227,7 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
         this.group = $.group;
         this.launchType = $.launchType;
         this.networkConfiguration = $.networkConfiguration;
+        this.orderedPlacementStrategies = $.orderedPlacementStrategies;
         this.placementConstraints = $.placementConstraints;
         this.platformVersion = $.platformVersion;
         this.propagateTags = $.propagateTags;
@@ -371,6 +388,37 @@ public final class EventTargetEcsTargetArgs extends com.pulumi.resources.Resourc
          */
         public Builder networkConfiguration(EventTargetEcsTargetNetworkConfigurationArgs networkConfiguration) {
             return networkConfiguration(Output.of(networkConfiguration));
+        }
+
+        /**
+         * @param orderedPlacementStrategies An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orderedPlacementStrategies(@Nullable Output<List<EventTargetEcsTargetOrderedPlacementStrategyArgs>> orderedPlacementStrategies) {
+            $.orderedPlacementStrategies = orderedPlacementStrategies;
+            return this;
+        }
+
+        /**
+         * @param orderedPlacementStrategies An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orderedPlacementStrategies(List<EventTargetEcsTargetOrderedPlacementStrategyArgs> orderedPlacementStrategies) {
+            return orderedPlacementStrategies(Output.of(orderedPlacementStrategies));
+        }
+
+        /**
+         * @param orderedPlacementStrategies An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orderedPlacementStrategies(EventTargetEcsTargetOrderedPlacementStrategyArgs... orderedPlacementStrategies) {
+            return orderedPlacementStrategies(List.of(orderedPlacementStrategies));
         }
 
         /**

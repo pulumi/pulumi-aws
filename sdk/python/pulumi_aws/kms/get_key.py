@@ -22,16 +22,22 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, arn=None, aws_account_id=None, creation_date=None, customer_master_key_spec=None, deletion_date=None, description=None, enabled=None, expiration_model=None, grant_tokens=None, id=None, key_id=None, key_manager=None, key_state=None, key_usage=None, multi_region=None, multi_region_configurations=None, origin=None, valid_to=None):
+    def __init__(__self__, arn=None, aws_account_id=None, cloud_hsm_cluster_id=None, creation_date=None, custom_key_store_id=None, customer_master_key_spec=None, deletion_date=None, description=None, enabled=None, expiration_model=None, grant_tokens=None, id=None, key_id=None, key_manager=None, key_spec=None, key_state=None, key_usage=None, multi_region=None, multi_region_configurations=None, origin=None, pending_deletion_window_in_days=None, valid_to=None, xks_key_configurations=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if aws_account_id and not isinstance(aws_account_id, str):
             raise TypeError("Expected argument 'aws_account_id' to be a str")
         pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if cloud_hsm_cluster_id and not isinstance(cloud_hsm_cluster_id, str):
+            raise TypeError("Expected argument 'cloud_hsm_cluster_id' to be a str")
+        pulumi.set(__self__, "cloud_hsm_cluster_id", cloud_hsm_cluster_id)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if custom_key_store_id and not isinstance(custom_key_store_id, str):
+            raise TypeError("Expected argument 'custom_key_store_id' to be a str")
+        pulumi.set(__self__, "custom_key_store_id", custom_key_store_id)
         if customer_master_key_spec and not isinstance(customer_master_key_spec, str):
             raise TypeError("Expected argument 'customer_master_key_spec' to be a str")
         pulumi.set(__self__, "customer_master_key_spec", customer_master_key_spec)
@@ -59,6 +65,9 @@ class GetKeyResult:
         if key_manager and not isinstance(key_manager, str):
             raise TypeError("Expected argument 'key_manager' to be a str")
         pulumi.set(__self__, "key_manager", key_manager)
+        if key_spec and not isinstance(key_spec, str):
+            raise TypeError("Expected argument 'key_spec' to be a str")
+        pulumi.set(__self__, "key_spec", key_spec)
         if key_state and not isinstance(key_state, str):
             raise TypeError("Expected argument 'key_state' to be a str")
         pulumi.set(__self__, "key_state", key_state)
@@ -74,9 +83,15 @@ class GetKeyResult:
         if origin and not isinstance(origin, str):
             raise TypeError("Expected argument 'origin' to be a str")
         pulumi.set(__self__, "origin", origin)
+        if pending_deletion_window_in_days and not isinstance(pending_deletion_window_in_days, int):
+            raise TypeError("Expected argument 'pending_deletion_window_in_days' to be a int")
+        pulumi.set(__self__, "pending_deletion_window_in_days", pending_deletion_window_in_days)
         if valid_to and not isinstance(valid_to, str):
             raise TypeError("Expected argument 'valid_to' to be a str")
         pulumi.set(__self__, "valid_to", valid_to)
+        if xks_key_configurations and not isinstance(xks_key_configurations, list):
+            raise TypeError("Expected argument 'xks_key_configurations' to be a list")
+        pulumi.set(__self__, "xks_key_configurations", xks_key_configurations)
 
     @property
     @pulumi.getter
@@ -95,12 +110,28 @@ class GetKeyResult:
         return pulumi.get(self, "aws_account_id")
 
     @property
+    @pulumi.getter(name="cloudHsmClusterId")
+    def cloud_hsm_cluster_id(self) -> str:
+        """
+        The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
+        """
+        return pulumi.get(self, "cloud_hsm_cluster_id")
+
+    @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> str:
         """
         The date and time when the key was created
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="customKeyStoreId")
+    def custom_key_store_id(self) -> str:
+        """
+        A unique identifier for the custom key store that contains the KMS key.
+        """
+        return pulumi.get(self, "custom_key_store_id")
 
     @property
     @pulumi.getter(name="customerMasterKeySpec")
@@ -169,6 +200,14 @@ class GetKeyResult:
         return pulumi.get(self, "key_manager")
 
     @property
+    @pulumi.getter(name="keySpec")
+    def key_spec(self) -> str:
+        """
+        Describes the type of key material in the KMS key.
+        """
+        return pulumi.get(self, "key_spec")
+
+    @property
     @pulumi.getter(name="keyState")
     def key_state(self) -> str:
         """
@@ -209,12 +248,28 @@ class GetKeyResult:
         return pulumi.get(self, "origin")
 
     @property
+    @pulumi.getter(name="pendingDeletionWindowInDays")
+    def pending_deletion_window_in_days(self) -> int:
+        """
+        The waiting period before the primary key in a multi-Region key is deleted.
+        """
+        return pulumi.get(self, "pending_deletion_window_in_days")
+
+    @property
     @pulumi.getter(name="validTo")
     def valid_to(self) -> str:
         """
         The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
         """
         return pulumi.get(self, "valid_to")
+
+    @property
+    @pulumi.getter(name="xksKeyConfigurations")
+    def xks_key_configurations(self) -> Sequence['outputs.GetKeyXksKeyConfigurationResult']:
+        """
+        Information about the external key that is associated with a KMS key in an external key store.
+        """
+        return pulumi.get(self, "xks_key_configurations")
 
 
 class AwaitableGetKeyResult(GetKeyResult):
@@ -225,7 +280,9 @@ class AwaitableGetKeyResult(GetKeyResult):
         return GetKeyResult(
             arn=self.arn,
             aws_account_id=self.aws_account_id,
+            cloud_hsm_cluster_id=self.cloud_hsm_cluster_id,
             creation_date=self.creation_date,
+            custom_key_store_id=self.custom_key_store_id,
             customer_master_key_spec=self.customer_master_key_spec,
             deletion_date=self.deletion_date,
             description=self.description,
@@ -235,12 +292,15 @@ class AwaitableGetKeyResult(GetKeyResult):
             id=self.id,
             key_id=self.key_id,
             key_manager=self.key_manager,
+            key_spec=self.key_spec,
             key_state=self.key_state,
             key_usage=self.key_usage,
             multi_region=self.multi_region,
             multi_region_configurations=self.multi_region_configurations,
             origin=self.origin,
-            valid_to=self.valid_to)
+            pending_deletion_window_in_days=self.pending_deletion_window_in_days,
+            valid_to=self.valid_to,
+            xks_key_configurations=self.xks_key_configurations)
 
 
 def get_key(grant_tokens: Optional[Sequence[str]] = None,
@@ -281,7 +341,9 @@ def get_key(grant_tokens: Optional[Sequence[str]] = None,
     return AwaitableGetKeyResult(
         arn=__ret__.arn,
         aws_account_id=__ret__.aws_account_id,
+        cloud_hsm_cluster_id=__ret__.cloud_hsm_cluster_id,
         creation_date=__ret__.creation_date,
+        custom_key_store_id=__ret__.custom_key_store_id,
         customer_master_key_spec=__ret__.customer_master_key_spec,
         deletion_date=__ret__.deletion_date,
         description=__ret__.description,
@@ -291,12 +353,15 @@ def get_key(grant_tokens: Optional[Sequence[str]] = None,
         id=__ret__.id,
         key_id=__ret__.key_id,
         key_manager=__ret__.key_manager,
+        key_spec=__ret__.key_spec,
         key_state=__ret__.key_state,
         key_usage=__ret__.key_usage,
         multi_region=__ret__.multi_region,
         multi_region_configurations=__ret__.multi_region_configurations,
         origin=__ret__.origin,
-        valid_to=__ret__.valid_to)
+        pending_deletion_window_in_days=__ret__.pending_deletion_window_in_days,
+        valid_to=__ret__.valid_to,
+        xks_key_configurations=__ret__.xks_key_configurations)
 
 
 @_utilities.lift_output_func(get_key)

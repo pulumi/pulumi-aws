@@ -121,6 +121,12 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> EnableDns64 { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+        /// </summary>
+        [Output("enableLniAtDeviceIndex")]
+        public Output<int?> EnableLniAtDeviceIndex { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
         /// </summary>
         [Output("enableResourceNameDnsARecordOnLaunch")]
@@ -286,6 +292,12 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? EnableDns64 { get; set; }
 
         /// <summary>
+        /// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+        /// </summary>
+        [Input("enableLniAtDeviceIndex")]
+        public Input<int>? EnableLniAtDeviceIndex { get; set; }
+
+        /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
         /// </summary>
         [Input("enableResourceNameDnsARecordOnLaunch")]
@@ -417,6 +429,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("enableDns64")]
         public Input<bool>? EnableDns64 { get; set; }
+
+        /// <summary>
+        /// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+        /// </summary>
+        [Input("enableLniAtDeviceIndex")]
+        public Input<int>? EnableLniAtDeviceIndex { get; set; }
 
         /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.

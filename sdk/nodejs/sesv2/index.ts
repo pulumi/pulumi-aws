@@ -45,6 +45,11 @@ export type EmailIdentityMailFromAttributes = import("./emailIdentityMailFromAtt
 export const EmailIdentityMailFromAttributes: typeof import("./emailIdentityMailFromAttributes").EmailIdentityMailFromAttributes = null as any;
 utilities.lazyLoad(exports, ["EmailIdentityMailFromAttributes"], () => require("./emailIdentityMailFromAttributes"));
 
+export { GetConfigurationSetArgs, GetConfigurationSetResult, GetConfigurationSetOutputArgs } from "./getConfigurationSet";
+export const getConfigurationSet: typeof import("./getConfigurationSet").getConfigurationSet = null as any;
+export const getConfigurationSetOutput: typeof import("./getConfigurationSet").getConfigurationSetOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationSet","getConfigurationSetOutput"], () => require("./getConfigurationSet"));
+
 export { GetDedicatedIpPoolArgs, GetDedicatedIpPoolResult, GetDedicatedIpPoolOutputArgs } from "./getDedicatedIpPool";
 export const getDedicatedIpPool: typeof import("./getDedicatedIpPool").getDedicatedIpPool = null as any;
 export const getDedicatedIpPoolOutput: typeof import("./getDedicatedIpPool").getDedicatedIpPoolOutput = null as any;

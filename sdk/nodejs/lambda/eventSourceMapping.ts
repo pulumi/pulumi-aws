@@ -217,11 +217,15 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDestinationConfig | undefined>;
     /**
+     * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+     */
+    public readonly documentDbEventSourceConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDocumentDbEventSourceConfig | undefined>;
+    /**
      * Determines if the mapping will be enabled on creation. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
      */
     public readonly eventSourceArn!: pulumi.Output<string | undefined>;
     /**
@@ -330,6 +334,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["batchSize"] = state ? state.batchSize : undefined;
             resourceInputs["bisectBatchOnFunctionError"] = state ? state.bisectBatchOnFunctionError : undefined;
             resourceInputs["destinationConfig"] = state ? state.destinationConfig : undefined;
+            resourceInputs["documentDbEventSourceConfig"] = state ? state.documentDbEventSourceConfig : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["eventSourceArn"] = state ? state.eventSourceArn : undefined;
             resourceInputs["filterCriteria"] = state ? state.filterCriteria : undefined;
@@ -363,6 +368,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["batchSize"] = args ? args.batchSize : undefined;
             resourceInputs["bisectBatchOnFunctionError"] = args ? args.bisectBatchOnFunctionError : undefined;
             resourceInputs["destinationConfig"] = args ? args.destinationConfig : undefined;
+            resourceInputs["documentDbEventSourceConfig"] = args ? args.documentDbEventSourceConfig : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
             resourceInputs["filterCriteria"] = args ? args.filterCriteria : undefined;
@@ -414,11 +420,15 @@ export interface EventSourceMappingState {
      */
     destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfig>;
     /**
+     * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+     */
+    documentDbEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDocumentDbEventSourceConfig>;
+    /**
      * Determines if the mapping will be enabled on creation. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
      */
     eventSourceArn?: pulumi.Input<string>;
     /**
@@ -532,11 +542,15 @@ export interface EventSourceMappingArgs {
      */
     destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfig>;
     /**
+     * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+     */
+    documentDbEventSourceConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDocumentDbEventSourceConfig>;
+    /**
      * Determines if the mapping will be enabled on creation. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
      */
     eventSourceArn?: pulumi.Input<string>;
     /**

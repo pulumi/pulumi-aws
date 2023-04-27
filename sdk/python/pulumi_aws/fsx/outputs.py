@@ -44,6 +44,7 @@ __all__ = [
     'WindowsFileSystemAuditLogConfiguration',
     'WindowsFileSystemSelfManagedActiveDirectory',
     'GetOpenZfsSnapshotFilterResult',
+    'GetWindowsFileSystemAuditLogConfigurationResult',
 ]
 
 @pulumi.output_type
@@ -1716,5 +1717,31 @@ class GetOpenZfsSnapshotFilterResult(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetWindowsFileSystemAuditLogConfigurationResult(dict):
+    def __init__(__self__, *,
+                 audit_log_destination: str,
+                 file_access_audit_log_level: str,
+                 file_share_access_audit_log_level: str):
+        pulumi.set(__self__, "audit_log_destination", audit_log_destination)
+        pulumi.set(__self__, "file_access_audit_log_level", file_access_audit_log_level)
+        pulumi.set(__self__, "file_share_access_audit_log_level", file_share_access_audit_log_level)
+
+    @property
+    @pulumi.getter(name="auditLogDestination")
+    def audit_log_destination(self) -> str:
+        return pulumi.get(self, "audit_log_destination")
+
+    @property
+    @pulumi.getter(name="fileAccessAuditLogLevel")
+    def file_access_audit_log_level(self) -> str:
+        return pulumi.get(self, "file_access_audit_log_level")
+
+    @property
+    @pulumi.getter(name="fileShareAccessAuditLogLevel")
+    def file_share_access_audit_log_level(self) -> str:
+        return pulumi.get(self, "file_share_access_audit_log_level")
 
 

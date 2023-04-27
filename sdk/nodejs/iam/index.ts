@@ -21,6 +21,11 @@ export const AccountPasswordPolicy: typeof import("./accountPasswordPolicy").Acc
 utilities.lazyLoad(exports, ["AccountPasswordPolicy"], () => require("./accountPasswordPolicy"));
 
 export * from "./documents";
+export { GetAccessKeysArgs, GetAccessKeysResult, GetAccessKeysOutputArgs } from "./getAccessKeys";
+export const getAccessKeys: typeof import("./getAccessKeys").getAccessKeys = null as any;
+export const getAccessKeysOutput: typeof import("./getAccessKeys").getAccessKeysOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessKeys","getAccessKeysOutput"], () => require("./getAccessKeys"));
+
 export { GetAccountAliasResult } from "./getAccountAlias";
 export const getAccountAlias: typeof import("./getAccountAlias").getAccountAlias = null as any;
 utilities.lazyLoad(exports, ["getAccountAlias"], () => require("./getAccountAlias"));

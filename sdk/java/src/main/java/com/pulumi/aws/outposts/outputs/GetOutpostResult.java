@@ -5,7 +5,10 @@ package com.pulumi.aws.outposts.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOutpostResult {
@@ -21,18 +24,38 @@ public final class GetOutpostResult {
      */
     private String availabilityZoneId;
     /**
-     * @return Description.
+     * @return The description of the Outpost.
      * 
      */
     private String description;
     private String id;
-    private String name;
-    private String ownerId;
     /**
-     * @return Site identifier.
+     * @return The life cycle status.
+     * 
+     */
+    private String lifecycleStatus;
+    private String name;
+    private @Nullable String ownerId;
+    /**
+     * @return The Amazon Resource Name (ARN) of the site.
+     * 
+     */
+    private String siteArn;
+    /**
+     * @return The ID of the site.
      * 
      */
     private String siteId;
+    /**
+     * @return The hardware type.
+     * 
+     */
+    private String supportedHardwareType;
+    /**
+     * @return The Outpost tags.
+     * 
+     */
+    private Map<String,String> tags;
 
     private GetOutpostResult() {}
     public String arn() {
@@ -53,7 +76,7 @@ public final class GetOutpostResult {
         return this.availabilityZoneId;
     }
     /**
-     * @return Description.
+     * @return The description of the Outpost.
      * 
      */
     public String description() {
@@ -62,18 +85,46 @@ public final class GetOutpostResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The life cycle status.
+     * 
+     */
+    public String lifecycleStatus() {
+        return this.lifecycleStatus;
+    }
     public String name() {
         return this.name;
     }
-    public String ownerId() {
-        return this.ownerId;
+    public Optional<String> ownerId() {
+        return Optional.ofNullable(this.ownerId);
     }
     /**
-     * @return Site identifier.
+     * @return The Amazon Resource Name (ARN) of the site.
+     * 
+     */
+    public String siteArn() {
+        return this.siteArn;
+    }
+    /**
+     * @return The ID of the site.
      * 
      */
     public String siteId() {
         return this.siteId;
+    }
+    /**
+     * @return The hardware type.
+     * 
+     */
+    public String supportedHardwareType() {
+        return this.supportedHardwareType;
+    }
+    /**
+     * @return The Outpost tags.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
     }
 
     public static Builder builder() {
@@ -90,9 +141,13 @@ public final class GetOutpostResult {
         private String availabilityZoneId;
         private String description;
         private String id;
+        private String lifecycleStatus;
         private String name;
-        private String ownerId;
+        private @Nullable String ownerId;
+        private String siteArn;
         private String siteId;
+        private String supportedHardwareType;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetOutpostResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -101,9 +156,13 @@ public final class GetOutpostResult {
     	      this.availabilityZoneId = defaults.availabilityZoneId;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.lifecycleStatus = defaults.lifecycleStatus;
     	      this.name = defaults.name;
     	      this.ownerId = defaults.ownerId;
+    	      this.siteArn = defaults.siteArn;
     	      this.siteId = defaults.siteId;
+    	      this.supportedHardwareType = defaults.supportedHardwareType;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -132,18 +191,38 @@ public final class GetOutpostResult {
             return this;
         }
         @CustomType.Setter
+        public Builder lifecycleStatus(String lifecycleStatus) {
+            this.lifecycleStatus = Objects.requireNonNull(lifecycleStatus);
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
         @CustomType.Setter
-        public Builder ownerId(String ownerId) {
-            this.ownerId = Objects.requireNonNull(ownerId);
+        public Builder ownerId(@Nullable String ownerId) {
+            this.ownerId = ownerId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder siteArn(String siteArn) {
+            this.siteArn = Objects.requireNonNull(siteArn);
             return this;
         }
         @CustomType.Setter
         public Builder siteId(String siteId) {
             this.siteId = Objects.requireNonNull(siteId);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder supportedHardwareType(String supportedHardwareType) {
+            this.supportedHardwareType = Objects.requireNonNull(supportedHardwareType);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            this.tags = Objects.requireNonNull(tags);
             return this;
         }
         public GetOutpostResult build() {
@@ -153,9 +232,13 @@ public final class GetOutpostResult {
             o.availabilityZoneId = availabilityZoneId;
             o.description = description;
             o.id = id;
+            o.lifecycleStatus = lifecycleStatus;
             o.name = name;
             o.ownerId = ownerId;
+            o.siteArn = siteArn;
             o.siteId = siteId;
+            o.supportedHardwareType = supportedHardwareType;
+            o.tags = tags;
             return o;
         }
     }

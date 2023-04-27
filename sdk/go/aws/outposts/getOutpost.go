@@ -56,6 +56,8 @@ type GetOutpostArgs struct {
 	Name *string `pulumi:"name"`
 	// AWS Account identifier of the Outpost owner.
 	OwnerId *string `pulumi:"ownerId"`
+	// The Outpost tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getOutpost.
@@ -65,13 +67,21 @@ type GetOutpostResult struct {
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// Availability Zone identifier.
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
-	// Description.
+	// The description of the Outpost.
 	Description string `pulumi:"description"`
 	Id          string `pulumi:"id"`
-	Name        string `pulumi:"name"`
-	OwnerId     string `pulumi:"ownerId"`
-	// Site identifier.
+	// The life cycle status.
+	LifecycleStatus string  `pulumi:"lifecycleStatus"`
+	Name            string  `pulumi:"name"`
+	OwnerId         *string `pulumi:"ownerId"`
+	// The Amazon Resource Name (ARN) of the site.
+	SiteArn string `pulumi:"siteArn"`
+	// The ID of the site.
 	SiteId string `pulumi:"siteId"`
+	// The hardware type.
+	SupportedHardwareType string `pulumi:"supportedHardwareType"`
+	// The Outpost tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func GetOutpostOutput(ctx *pulumi.Context, args GetOutpostOutputArgs, opts ...pulumi.InvokeOption) GetOutpostResultOutput {
@@ -97,6 +107,8 @@ type GetOutpostOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// AWS Account identifier of the Outpost owner.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
+	// The Outpost tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetOutpostOutputArgs) ElementType() reflect.Type {
@@ -132,7 +144,7 @@ func (o GetOutpostResultOutput) AvailabilityZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
 }
 
-// Description.
+// The description of the Outpost.
 func (o GetOutpostResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -141,17 +153,37 @@ func (o GetOutpostResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The life cycle status.
+func (o GetOutpostResultOutput) LifecycleStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostResult) string { return v.LifecycleStatus }).(pulumi.StringOutput)
+}
+
 func (o GetOutpostResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o GetOutpostResultOutput) OwnerId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOutpostResult) string { return v.OwnerId }).(pulumi.StringOutput)
+func (o GetOutpostResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOutpostResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
 }
 
-// Site identifier.
+// The Amazon Resource Name (ARN) of the site.
+func (o GetOutpostResultOutput) SiteArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostResult) string { return v.SiteArn }).(pulumi.StringOutput)
+}
+
+// The ID of the site.
 func (o GetOutpostResultOutput) SiteId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.SiteId }).(pulumi.StringOutput)
+}
+
+// The hardware type.
+func (o GetOutpostResultOutput) SupportedHardwareType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostResult) string { return v.SupportedHardwareType }).(pulumi.StringOutput)
+}
+
+// The Outpost tags.
+func (o GetOutpostResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetOutpostResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

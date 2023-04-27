@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource for associating accounts to existing Inspector2 instances.
+ * Resource for associating accounts to existing Inspector instances.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.inspector2.MemberAssociation("example", {accountId: "012345678901"});
+ * const example = new aws.inspector2.MemberAssociation("example", {accountId: "123456789012"});
  * ```
  */
 export class MemberAssociation extends pulumi.CustomResource {

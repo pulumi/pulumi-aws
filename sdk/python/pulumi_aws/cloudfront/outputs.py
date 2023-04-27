@@ -71,6 +71,8 @@ __all__ = [
     'ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders',
     'ResponseHeadersPolicyCustomHeadersConfig',
     'ResponseHeadersPolicyCustomHeadersConfigItem',
+    'ResponseHeadersPolicyRemoveHeadersConfig',
+    'ResponseHeadersPolicyRemoveHeadersConfigItem',
     'ResponseHeadersPolicySecurityHeadersConfig',
     'ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy',
     'ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions',
@@ -101,6 +103,8 @@ __all__ = [
     'GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderResult',
     'GetResponseHeadersPolicyCustomHeadersConfigResult',
     'GetResponseHeadersPolicyCustomHeadersConfigItemResult',
+    'GetResponseHeadersPolicyRemoveHeadersConfigResult',
+    'GetResponseHeadersPolicyRemoveHeadersConfigItemResult',
     'GetResponseHeadersPolicySecurityHeadersConfigResult',
     'GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyResult',
     'GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionResult',
@@ -3234,6 +3238,37 @@ class ResponseHeadersPolicyCustomHeadersConfigItem(dict):
 
 
 @pulumi.output_type
+class ResponseHeadersPolicyRemoveHeadersConfig(dict):
+    def __init__(__self__, *,
+                 items: Optional[Sequence['outputs.ResponseHeadersPolicyRemoveHeadersConfigItem']] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence['outputs.ResponseHeadersPolicyRemoveHeadersConfigItem']]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyRemoveHeadersConfigItem(dict):
+    def __init__(__self__, *,
+                 header: str):
+        """
+        :param str header: The HTTP response header name.
+        """
+        pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> str:
+        """
+        The HTTP response header name.
+        """
+        return pulumi.get(self, "header")
+
+
+@pulumi.output_type
 class ResponseHeadersPolicySecurityHeadersConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4188,7 +4223,7 @@ class GetResponseHeadersPolicyCustomHeadersConfigItemResult(dict):
                  override: bool,
                  value: str):
         """
-        :param str header: HTTP response header name.
+        :param str header: The HTTP header name.
         :param bool override: Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         :param str value: Value for the HTTP response header.
         """
@@ -4200,7 +4235,7 @@ class GetResponseHeadersPolicyCustomHeadersConfigItemResult(dict):
     @pulumi.getter
     def header(self) -> str:
         """
-        HTTP response header name.
+        The HTTP header name.
         """
         return pulumi.get(self, "header")
 
@@ -4219,6 +4254,36 @@ class GetResponseHeadersPolicyCustomHeadersConfigItemResult(dict):
         Value for the HTTP response header.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetResponseHeadersPolicyRemoveHeadersConfigResult(dict):
+    def __init__(__self__, *,
+                 items: Sequence['outputs.GetResponseHeadersPolicyRemoveHeadersConfigItemResult']):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Sequence['outputs.GetResponseHeadersPolicyRemoveHeadersConfigItemResult']:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class GetResponseHeadersPolicyRemoveHeadersConfigItemResult(dict):
+    def __init__(__self__, *,
+                 header: str):
+        """
+        :param str header: The HTTP header name.
+        """
+        pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> str:
+        """
+        The HTTP header name.
+        """
+        return pulumi.get(self, "header")
 
 
 @pulumi.output_type

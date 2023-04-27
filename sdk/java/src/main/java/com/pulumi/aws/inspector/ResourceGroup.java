@@ -15,7 +15,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 /**
- * Provides an Amazon Inspector resource group resource.
+ * Provides an Amazon Inspector Classic Resource Group.
  * 
  * ## Example Usage
  * ```java

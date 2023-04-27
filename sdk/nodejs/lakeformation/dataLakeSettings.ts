@@ -49,6 +49,37 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### Enable EMR access to LakeFormation resources
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lakeformation.DataLakeSettings("example", {
+ *     admins: [
+ *         aws_iam_user.test.arn,
+ *         aws_iam_role.test.arn,
+ *     ],
+ *     createDatabaseDefaultPermissions: [{
+ *         permissions: [
+ *             "SELECT",
+ *             "ALTER",
+ *             "DROP",
+ *         ],
+ *         principal: aws_iam_user.test.arn,
+ *     }],
+ *     createTableDefaultPermissions: [{
+ *         permissions: ["ALL"],
+ *         principal: aws_iam_role.test.arn,
+ *     }],
+ *     allowExternalDataFiltering: true,
+ *     externalDataFilteringAllowLists: [
+ *         data.aws_caller_identity.current.account_id,
+ *         data.aws_caller_identity.third_party.account_id,
+ *     ],
+ *     authorizedSessionTagValueLists: ["Amazon EMR"],
+ * });
+ * ```
  */
 export class DataLakeSettings extends pulumi.CustomResource {
     /**
@@ -83,6 +114,14 @@ export class DataLakeSettings extends pulumi.CustomResource {
      */
     public readonly admins!: pulumi.Output<string[]>;
     /**
+     * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+     */
+    public readonly allowExternalDataFiltering!: pulumi.Output<boolean | undefined>;
+    /**
+     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+     */
+    public readonly authorizedSessionTagValueLists!: pulumi.Output<string[]>;
+    /**
      * Identifier for the Data Catalog. By default, the account ID.
      */
     public readonly catalogId!: pulumi.Output<string | undefined>;
@@ -94,6 +133,10 @@ export class DataLakeSettings extends pulumi.CustomResource {
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      */
     public readonly createTableDefaultPermissions!: pulumi.Output<outputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission[]>;
+    /**
+     * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+     */
+    public readonly externalDataFilteringAllowLists!: pulumi.Output<string[]>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      */
@@ -113,16 +156,22 @@ export class DataLakeSettings extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DataLakeSettingsState | undefined;
             resourceInputs["admins"] = state ? state.admins : undefined;
+            resourceInputs["allowExternalDataFiltering"] = state ? state.allowExternalDataFiltering : undefined;
+            resourceInputs["authorizedSessionTagValueLists"] = state ? state.authorizedSessionTagValueLists : undefined;
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
             resourceInputs["createDatabaseDefaultPermissions"] = state ? state.createDatabaseDefaultPermissions : undefined;
             resourceInputs["createTableDefaultPermissions"] = state ? state.createTableDefaultPermissions : undefined;
+            resourceInputs["externalDataFilteringAllowLists"] = state ? state.externalDataFilteringAllowLists : undefined;
             resourceInputs["trustedResourceOwners"] = state ? state.trustedResourceOwners : undefined;
         } else {
             const args = argsOrState as DataLakeSettingsArgs | undefined;
             resourceInputs["admins"] = args ? args.admins : undefined;
+            resourceInputs["allowExternalDataFiltering"] = args ? args.allowExternalDataFiltering : undefined;
+            resourceInputs["authorizedSessionTagValueLists"] = args ? args.authorizedSessionTagValueLists : undefined;
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["createDatabaseDefaultPermissions"] = args ? args.createDatabaseDefaultPermissions : undefined;
             resourceInputs["createTableDefaultPermissions"] = args ? args.createTableDefaultPermissions : undefined;
+            resourceInputs["externalDataFilteringAllowLists"] = args ? args.externalDataFilteringAllowLists : undefined;
             resourceInputs["trustedResourceOwners"] = args ? args.trustedResourceOwners : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -139,6 +188,14 @@ export interface DataLakeSettingsState {
      */
     admins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+     */
+    allowExternalDataFiltering?: pulumi.Input<boolean>;
+    /**
+     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+     */
+    authorizedSessionTagValueLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Identifier for the Data Catalog. By default, the account ID.
      */
     catalogId?: pulumi.Input<string>;
@@ -150,6 +207,10 @@ export interface DataLakeSettingsState {
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      */
     createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission>[]>;
+    /**
+     * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+     */
+    externalDataFilteringAllowLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      */
@@ -165,6 +226,14 @@ export interface DataLakeSettingsArgs {
      */
     admins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+     */
+    allowExternalDataFiltering?: pulumi.Input<boolean>;
+    /**
+     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+     */
+    authorizedSessionTagValueLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Identifier for the Data Catalog. By default, the account ID.
      */
     catalogId?: pulumi.Input<string>;
@@ -176,6 +245,10 @@ export interface DataLakeSettingsArgs {
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      */
     createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission>[]>;
+    /**
+     * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+     */
+    externalDataFilteringAllowLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      */

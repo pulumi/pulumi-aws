@@ -7,6 +7,7 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigur
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamKinesisSourceConfigurationArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamServerSideEncryptionArgs;
@@ -40,14 +41,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
      * 
      */
     @Import(name="destination", required=true)
     private Output<String> destination;
 
     /**
-     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
+     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
      * 
      */
     public Output<String> destination() {
@@ -134,6 +135,21 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Configuration options if opensearch is the destination. More details are given below.
+     * 
+     */
+    @Import(name="opensearchConfiguration")
+    private @Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationArgs> opensearchConfiguration;
+
+    /**
+     * @return Configuration options if opensearch is the destination. More details are given below.
+     * 
+     */
+    public Optional<Output<FirehoseDeliveryStreamOpensearchConfigurationArgs>> opensearchConfiguration() {
+        return Optional.ofNullable(this.opensearchConfiguration);
     }
 
     /**
@@ -260,6 +276,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         this.httpEndpointConfiguration = $.httpEndpointConfiguration;
         this.kinesisSourceConfiguration = $.kinesisSourceConfiguration;
         this.name = $.name;
+        this.opensearchConfiguration = $.opensearchConfiguration;
         this.redshiftConfiguration = $.redshiftConfiguration;
         this.s3Configuration = $.s3Configuration;
         this.serverSideEncryption = $.serverSideEncryption;
@@ -309,7 +326,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
+         * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
          * 
          * @return builder
          * 
@@ -320,7 +337,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, and `http_endpoint`.
+         * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
          * 
          * @return builder
          * 
@@ -441,6 +458,27 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param opensearchConfiguration Configuration options if opensearch is the destination. More details are given below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder opensearchConfiguration(@Nullable Output<FirehoseDeliveryStreamOpensearchConfigurationArgs> opensearchConfiguration) {
+            $.opensearchConfiguration = opensearchConfiguration;
+            return this;
+        }
+
+        /**
+         * @param opensearchConfiguration Configuration options if opensearch is the destination. More details are given below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder opensearchConfiguration(FirehoseDeliveryStreamOpensearchConfigurationArgs opensearchConfiguration) {
+            return opensearchConfiguration(Output.of(opensearchConfiguration));
         }
 
         /**

@@ -21,7 +21,7 @@ class GetOutpostResult:
     """
     A collection of values returned by getOutpost.
     """
-    def __init__(__self__, arn=None, availability_zone=None, availability_zone_id=None, description=None, id=None, name=None, owner_id=None, site_id=None):
+    def __init__(__self__, arn=None, availability_zone=None, availability_zone_id=None, description=None, id=None, lifecycle_status=None, name=None, owner_id=None, site_arn=None, site_id=None, supported_hardware_type=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,15 +37,27 @@ class GetOutpostResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if lifecycle_status and not isinstance(lifecycle_status, str):
+            raise TypeError("Expected argument 'lifecycle_status' to be a str")
+        pulumi.set(__self__, "lifecycle_status", lifecycle_status)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if site_arn and not isinstance(site_arn, str):
+            raise TypeError("Expected argument 'site_arn' to be a str")
+        pulumi.set(__self__, "site_arn", site_arn)
         if site_id and not isinstance(site_id, str):
             raise TypeError("Expected argument 'site_id' to be a str")
         pulumi.set(__self__, "site_id", site_id)
+        if supported_hardware_type and not isinstance(supported_hardware_type, str):
+            raise TypeError("Expected argument 'supported_hardware_type' to be a str")
+        pulumi.set(__self__, "supported_hardware_type", supported_hardware_type)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -72,7 +84,7 @@ class GetOutpostResult:
     @pulumi.getter
     def description(self) -> str:
         """
-        Description.
+        The description of the Outpost.
         """
         return pulumi.get(self, "description")
 
@@ -82,22 +94,54 @@ class GetOutpostResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="lifecycleStatus")
+    def lifecycle_status(self) -> str:
+        """
+        The life cycle status.
+        """
+        return pulumi.get(self, "lifecycle_status")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerId")
-    def owner_id(self) -> str:
+    def owner_id(self) -> Optional[str]:
         return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter(name="siteArn")
+    def site_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the site.
+        """
+        return pulumi.get(self, "site_arn")
 
     @property
     @pulumi.getter(name="siteId")
     def site_id(self) -> str:
         """
-        Site identifier.
+        The ID of the site.
         """
         return pulumi.get(self, "site_id")
+
+    @property
+    @pulumi.getter(name="supportedHardwareType")
+    def supported_hardware_type(self) -> str:
+        """
+        The hardware type.
+        """
+        return pulumi.get(self, "supported_hardware_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        The Outpost tags.
+        """
+        return pulumi.get(self, "tags")
 
 
 class AwaitableGetOutpostResult(GetOutpostResult):
@@ -111,15 +155,20 @@ class AwaitableGetOutpostResult(GetOutpostResult):
             availability_zone_id=self.availability_zone_id,
             description=self.description,
             id=self.id,
+            lifecycle_status=self.lifecycle_status,
             name=self.name,
             owner_id=self.owner_id,
-            site_id=self.site_id)
+            site_arn=self.site_arn,
+            site_id=self.site_id,
+            supported_hardware_type=self.supported_hardware_type,
+            tags=self.tags)
 
 
 def get_outpost(arn: Optional[str] = None,
                 id: Optional[str] = None,
                 name: Optional[str] = None,
                 owner_id: Optional[str] = None,
+                tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostResult:
     """
     Provides details about an Outposts Outpost.
@@ -138,12 +187,14 @@ def get_outpost(arn: Optional[str] = None,
     :param str id: Identifier of the Outpost.
     :param str name: Name of the Outpost.
     :param str owner_id: AWS Account identifier of the Outpost owner.
+    :param Mapping[str, str] tags: The Outpost tags.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['id'] = id
     __args__['name'] = name
     __args__['ownerId'] = owner_id
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:outposts/getOutpost:getOutpost', __args__, opts=opts, typ=GetOutpostResult).value
 
@@ -153,9 +204,13 @@ def get_outpost(arn: Optional[str] = None,
         availability_zone_id=__ret__.availability_zone_id,
         description=__ret__.description,
         id=__ret__.id,
+        lifecycle_status=__ret__.lifecycle_status,
         name=__ret__.name,
         owner_id=__ret__.owner_id,
-        site_id=__ret__.site_id)
+        site_arn=__ret__.site_arn,
+        site_id=__ret__.site_id,
+        supported_hardware_type=__ret__.supported_hardware_type,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_outpost)
@@ -163,6 +218,7 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                        id: Optional[pulumi.Input[Optional[str]]] = None,
                        name: Optional[pulumi.Input[Optional[str]]] = None,
                        owner_id: Optional[pulumi.Input[Optional[str]]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostResult]:
     """
     Provides details about an Outposts Outpost.
@@ -181,5 +237,6 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     :param str id: Identifier of the Outpost.
     :param str name: Name of the Outpost.
     :param str owner_id: AWS Account identifier of the Outpost owner.
+    :param Mapping[str, str] tags: The Outpost tags.
     """
     ...

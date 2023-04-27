@@ -88,12 +88,14 @@ type LookupResponseHeadersPolicyResult struct {
 	Comment string `pulumi:"comment"`
 	// Configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
 	CorsConfigs []GetResponseHeadersPolicyCorsConfig `pulumi:"corsConfigs"`
-	// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+	// Object that contains an attribute `items` that contains a list of Custom Headers. See Custom Header for more information.
 	CustomHeadersConfigs []GetResponseHeadersPolicyCustomHeadersConfig `pulumi:"customHeadersConfigs"`
 	// Current version of the response headers policy.
 	Etag string `pulumi:"etag"`
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
+	// Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
+	RemoveHeadersConfigs []GetResponseHeadersPolicyRemoveHeadersConfig `pulumi:"removeHeadersConfigs"`
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfigs []GetResponseHeadersPolicySecurityHeadersConfig `pulumi:"securityHeadersConfigs"`
 	// (Optional) Configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
@@ -150,7 +152,7 @@ func (o LookupResponseHeadersPolicyResultOutput) CorsConfigs() GetResponseHeader
 	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) []GetResponseHeadersPolicyCorsConfig { return v.CorsConfigs }).(GetResponseHeadersPolicyCorsConfigArrayOutput)
 }
 
-// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+// Object that contains an attribute `items` that contains a list of Custom Headers. See Custom Header for more information.
 func (o LookupResponseHeadersPolicyResultOutput) CustomHeadersConfigs() GetResponseHeadersPolicyCustomHeadersConfigArrayOutput {
 	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) []GetResponseHeadersPolicyCustomHeadersConfig {
 		return v.CustomHeadersConfigs
@@ -168,6 +170,13 @@ func (o LookupResponseHeadersPolicyResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupResponseHeadersPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
+func (o LookupResponseHeadersPolicyResultOutput) RemoveHeadersConfigs() GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput {
+	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) []GetResponseHeadersPolicyRemoveHeadersConfig {
+		return v.RemoveHeadersConfigs
+	}).(GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput)
 }
 
 // A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.

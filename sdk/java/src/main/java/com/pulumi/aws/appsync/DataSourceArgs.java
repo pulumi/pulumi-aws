@@ -8,6 +8,7 @@ import com.pulumi.aws.appsync.inputs.DataSourceElasticsearchConfigArgs;
 import com.pulumi.aws.appsync.inputs.DataSourceEventBridgeConfigArgs;
 import com.pulumi.aws.appsync.inputs.DataSourceHttpConfigArgs;
 import com.pulumi.aws.appsync.inputs.DataSourceLambdaConfigArgs;
+import com.pulumi.aws.appsync.inputs.DataSourceOpensearchserviceConfigArgs;
 import com.pulumi.aws.appsync.inputs.DataSourceRelationalDatabaseConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -142,6 +143,21 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Amazon OpenSearch Service settings. See below
+     * 
+     */
+    @Import(name="opensearchserviceConfig")
+    private @Nullable Output<DataSourceOpensearchserviceConfigArgs> opensearchserviceConfig;
+
+    /**
+     * @return Amazon OpenSearch Service settings. See below
+     * 
+     */
+    public Optional<Output<DataSourceOpensearchserviceConfigArgs>> opensearchserviceConfig() {
+        return Optional.ofNullable(this.opensearchserviceConfig);
+    }
+
+    /**
      * AWS RDS settings. See Relational Database Config
      * 
      */
@@ -197,6 +213,7 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         this.httpConfig = $.httpConfig;
         this.lambdaConfig = $.lambdaConfig;
         this.name = $.name;
+        this.opensearchserviceConfig = $.opensearchserviceConfig;
         this.relationalDatabaseConfig = $.relationalDatabaseConfig;
         this.serviceRoleArn = $.serviceRoleArn;
         this.type = $.type;
@@ -386,6 +403,27 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param opensearchserviceConfig Amazon OpenSearch Service settings. See below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder opensearchserviceConfig(@Nullable Output<DataSourceOpensearchserviceConfigArgs> opensearchserviceConfig) {
+            $.opensearchserviceConfig = opensearchserviceConfig;
+            return this;
+        }
+
+        /**
+         * @param opensearchserviceConfig Amazon OpenSearch Service settings. See below
+         * 
+         * @return builder
+         * 
+         */
+        public Builder opensearchserviceConfig(DataSourceOpensearchserviceConfigArgs opensearchserviceConfig) {
+            return opensearchserviceConfig(Output.of(opensearchserviceConfig));
         }
 
         /**

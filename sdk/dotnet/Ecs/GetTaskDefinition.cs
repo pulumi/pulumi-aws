@@ -170,6 +170,10 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string ArnWithoutRevision;
         /// <summary>
+        /// ARN of the task execution role that the Amazon ECS container agent and the Docker.
+        /// </summary>
+        public readonly string ExecutionRoleArn;
+        /// <summary>
         /// Family of this task definition.
         /// </summary>
         public readonly string Family;
@@ -201,6 +205,8 @@ namespace Pulumi.Aws.Ecs
 
             string arnWithoutRevision,
 
+            string executionRoleArn,
+
             string family,
 
             string id,
@@ -217,6 +223,7 @@ namespace Pulumi.Aws.Ecs
         {
             Arn = arn;
             ArnWithoutRevision = arnWithoutRevision;
+            ExecutionRoleArn = executionRoleArn;
             Family = family;
             Id = id;
             NetworkMode = networkMode;

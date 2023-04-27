@@ -25,6 +25,11 @@ export const getCertificate: typeof import("./getCertificate").getCertificate = 
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+
 export { ReplicationInstanceArgs, ReplicationInstanceState } from "./replicationInstance";
 export type ReplicationInstance = import("./replicationInstance").ReplicationInstance;
 export const ReplicationInstance: typeof import("./replicationInstance").ReplicationInstance = null as any;

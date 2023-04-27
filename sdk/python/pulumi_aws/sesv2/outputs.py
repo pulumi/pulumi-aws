@@ -27,6 +27,14 @@ __all__ = [
     'ConfigurationSetVdmOptionsGuardianOptions',
     'ContactListTopic',
     'EmailIdentityDkimSigningAttributes',
+    'GetConfigurationSetDeliveryOptionResult',
+    'GetConfigurationSetReputationOptionResult',
+    'GetConfigurationSetSendingOptionResult',
+    'GetConfigurationSetSuppressionOptionResult',
+    'GetConfigurationSetTrackingOptionResult',
+    'GetConfigurationSetVdmOptionResult',
+    'GetConfigurationSetVdmOptionDashboardOptionResult',
+    'GetConfigurationSetVdmOptionGuardianOptionResult',
     'GetDedicatedIpPoolDedicatedIpResult',
 ]
 
@@ -869,6 +877,183 @@ class EmailIdentityDkimSigningAttributes(dict):
         If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
         """
         return pulumi.get(self, "tokens")
+
+
+@pulumi.output_type
+class GetConfigurationSetDeliveryOptionResult(dict):
+    def __init__(__self__, *,
+                 sending_pool_name: str,
+                 tls_policy: str):
+        """
+        :param str sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
+        :param str tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        """
+        pulumi.set(__self__, "sending_pool_name", sending_pool_name)
+        pulumi.set(__self__, "tls_policy", tls_policy)
+
+    @property
+    @pulumi.getter(name="sendingPoolName")
+    def sending_pool_name(self) -> str:
+        """
+        The name of the dedicated IP pool to associate with the configuration set.
+        """
+        return pulumi.get(self, "sending_pool_name")
+
+    @property
+    @pulumi.getter(name="tlsPolicy")
+    def tls_policy(self) -> str:
+        """
+        Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        """
+        return pulumi.get(self, "tls_policy")
+
+
+@pulumi.output_type
+class GetConfigurationSetReputationOptionResult(dict):
+    def __init__(__self__, *,
+                 last_fresh_start: str,
+                 reputation_metrics_enabled: bool):
+        """
+        :param str last_fresh_start: The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+        :param bool reputation_metrics_enabled: Specifies whether tracking of reputation metrics is enabled.
+        """
+        pulumi.set(__self__, "last_fresh_start", last_fresh_start)
+        pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
+
+    @property
+    @pulumi.getter(name="lastFreshStart")
+    def last_fresh_start(self) -> str:
+        """
+        The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+        """
+        return pulumi.get(self, "last_fresh_start")
+
+    @property
+    @pulumi.getter(name="reputationMetricsEnabled")
+    def reputation_metrics_enabled(self) -> bool:
+        """
+        Specifies whether tracking of reputation metrics is enabled.
+        """
+        return pulumi.get(self, "reputation_metrics_enabled")
+
+
+@pulumi.output_type
+class GetConfigurationSetSendingOptionResult(dict):
+    def __init__(__self__, *,
+                 sending_enabled: bool):
+        """
+        :param bool sending_enabled: Specifies whether email sending is enabled.
+        """
+        pulumi.set(__self__, "sending_enabled", sending_enabled)
+
+    @property
+    @pulumi.getter(name="sendingEnabled")
+    def sending_enabled(self) -> bool:
+        """
+        Specifies whether email sending is enabled.
+        """
+        return pulumi.get(self, "sending_enabled")
+
+
+@pulumi.output_type
+class GetConfigurationSetSuppressionOptionResult(dict):
+    def __init__(__self__, *,
+                 suppressed_reasons: Sequence[str]):
+        """
+        :param Sequence[str] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+        """
+        pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
+
+    @property
+    @pulumi.getter(name="suppressedReasons")
+    def suppressed_reasons(self) -> Sequence[str]:
+        """
+        A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+        """
+        return pulumi.get(self, "suppressed_reasons")
+
+
+@pulumi.output_type
+class GetConfigurationSetTrackingOptionResult(dict):
+    def __init__(__self__, *,
+                 custom_redirect_domain: str):
+        """
+        :param str custom_redirect_domain: The domain to use for tracking open and click events.
+        """
+        pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+
+    @property
+    @pulumi.getter(name="customRedirectDomain")
+    def custom_redirect_domain(self) -> str:
+        """
+        The domain to use for tracking open and click events.
+        """
+        return pulumi.get(self, "custom_redirect_domain")
+
+
+@pulumi.output_type
+class GetConfigurationSetVdmOptionResult(dict):
+    def __init__(__self__, *,
+                 dashboard_options: Sequence['outputs.GetConfigurationSetVdmOptionDashboardOptionResult'],
+                 guardian_options: Sequence['outputs.GetConfigurationSetVdmOptionGuardianOptionResult']):
+        """
+        :param Sequence['GetConfigurationSetVdmOptionDashboardOptionArgs'] dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        :param Sequence['GetConfigurationSetVdmOptionGuardianOptionArgs'] guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        """
+        pulumi.set(__self__, "dashboard_options", dashboard_options)
+        pulumi.set(__self__, "guardian_options", guardian_options)
+
+    @property
+    @pulumi.getter(name="dashboardOptions")
+    def dashboard_options(self) -> Sequence['outputs.GetConfigurationSetVdmOptionDashboardOptionResult']:
+        """
+        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        """
+        return pulumi.get(self, "dashboard_options")
+
+    @property
+    @pulumi.getter(name="guardianOptions")
+    def guardian_options(self) -> Sequence['outputs.GetConfigurationSetVdmOptionGuardianOptionResult']:
+        """
+        Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        """
+        return pulumi.get(self, "guardian_options")
+
+
+@pulumi.output_type
+class GetConfigurationSetVdmOptionDashboardOptionResult(dict):
+    def __init__(__self__, *,
+                 engagement_metrics: str):
+        """
+        :param str engagement_metrics: Specifies the status of your VDM engagement metrics collection.
+        """
+        pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+
+    @property
+    @pulumi.getter(name="engagementMetrics")
+    def engagement_metrics(self) -> str:
+        """
+        Specifies the status of your VDM engagement metrics collection.
+        """
+        return pulumi.get(self, "engagement_metrics")
+
+
+@pulumi.output_type
+class GetConfigurationSetVdmOptionGuardianOptionResult(dict):
+    def __init__(__self__, *,
+                 optimized_shared_delivery: str):
+        """
+        :param str optimized_shared_delivery: Specifies the status of your VDM optimized shared delivery.
+        """
+        pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+
+    @property
+    @pulumi.getter(name="optimizedSharedDelivery")
+    def optimized_shared_delivery(self) -> str:
+        """
+        Specifies the status of your VDM optimized shared delivery.
+        """
+        return pulumi.get(self, "optimized_shared_delivery")
 
 
 @pulumi.output_type

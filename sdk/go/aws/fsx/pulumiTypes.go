@@ -4562,6 +4562,112 @@ func (o GetOpenZfsSnapshotFilterArrayOutput) Index(i pulumi.IntInput) GetOpenZfs
 	}).(GetOpenZfsSnapshotFilterOutput)
 }
 
+type GetWindowsFileSystemAuditLogConfiguration struct {
+	AuditLogDestination          string `pulumi:"auditLogDestination"`
+	FileAccessAuditLogLevel      string `pulumi:"fileAccessAuditLogLevel"`
+	FileShareAccessAuditLogLevel string `pulumi:"fileShareAccessAuditLogLevel"`
+}
+
+// GetWindowsFileSystemAuditLogConfigurationInput is an input type that accepts GetWindowsFileSystemAuditLogConfigurationArgs and GetWindowsFileSystemAuditLogConfigurationOutput values.
+// You can construct a concrete instance of `GetWindowsFileSystemAuditLogConfigurationInput` via:
+//
+//	GetWindowsFileSystemAuditLogConfigurationArgs{...}
+type GetWindowsFileSystemAuditLogConfigurationInput interface {
+	pulumi.Input
+
+	ToGetWindowsFileSystemAuditLogConfigurationOutput() GetWindowsFileSystemAuditLogConfigurationOutput
+	ToGetWindowsFileSystemAuditLogConfigurationOutputWithContext(context.Context) GetWindowsFileSystemAuditLogConfigurationOutput
+}
+
+type GetWindowsFileSystemAuditLogConfigurationArgs struct {
+	AuditLogDestination          pulumi.StringInput `pulumi:"auditLogDestination"`
+	FileAccessAuditLogLevel      pulumi.StringInput `pulumi:"fileAccessAuditLogLevel"`
+	FileShareAccessAuditLogLevel pulumi.StringInput `pulumi:"fileShareAccessAuditLogLevel"`
+}
+
+func (GetWindowsFileSystemAuditLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFileSystemAuditLogConfiguration)(nil)).Elem()
+}
+
+func (i GetWindowsFileSystemAuditLogConfigurationArgs) ToGetWindowsFileSystemAuditLogConfigurationOutput() GetWindowsFileSystemAuditLogConfigurationOutput {
+	return i.ToGetWindowsFileSystemAuditLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFileSystemAuditLogConfigurationArgs) ToGetWindowsFileSystemAuditLogConfigurationOutputWithContext(ctx context.Context) GetWindowsFileSystemAuditLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFileSystemAuditLogConfigurationOutput)
+}
+
+// GetWindowsFileSystemAuditLogConfigurationArrayInput is an input type that accepts GetWindowsFileSystemAuditLogConfigurationArray and GetWindowsFileSystemAuditLogConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFileSystemAuditLogConfigurationArrayInput` via:
+//
+//	GetWindowsFileSystemAuditLogConfigurationArray{ GetWindowsFileSystemAuditLogConfigurationArgs{...} }
+type GetWindowsFileSystemAuditLogConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFileSystemAuditLogConfigurationArrayOutput() GetWindowsFileSystemAuditLogConfigurationArrayOutput
+	ToGetWindowsFileSystemAuditLogConfigurationArrayOutputWithContext(context.Context) GetWindowsFileSystemAuditLogConfigurationArrayOutput
+}
+
+type GetWindowsFileSystemAuditLogConfigurationArray []GetWindowsFileSystemAuditLogConfigurationInput
+
+func (GetWindowsFileSystemAuditLogConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFileSystemAuditLogConfiguration)(nil)).Elem()
+}
+
+func (i GetWindowsFileSystemAuditLogConfigurationArray) ToGetWindowsFileSystemAuditLogConfigurationArrayOutput() GetWindowsFileSystemAuditLogConfigurationArrayOutput {
+	return i.ToGetWindowsFileSystemAuditLogConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFileSystemAuditLogConfigurationArray) ToGetWindowsFileSystemAuditLogConfigurationArrayOutputWithContext(ctx context.Context) GetWindowsFileSystemAuditLogConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFileSystemAuditLogConfigurationArrayOutput)
+}
+
+type GetWindowsFileSystemAuditLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFileSystemAuditLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFileSystemAuditLogConfiguration)(nil)).Elem()
+}
+
+func (o GetWindowsFileSystemAuditLogConfigurationOutput) ToGetWindowsFileSystemAuditLogConfigurationOutput() GetWindowsFileSystemAuditLogConfigurationOutput {
+	return o
+}
+
+func (o GetWindowsFileSystemAuditLogConfigurationOutput) ToGetWindowsFileSystemAuditLogConfigurationOutputWithContext(ctx context.Context) GetWindowsFileSystemAuditLogConfigurationOutput {
+	return o
+}
+
+func (o GetWindowsFileSystemAuditLogConfigurationOutput) AuditLogDestination() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFileSystemAuditLogConfiguration) string { return v.AuditLogDestination }).(pulumi.StringOutput)
+}
+
+func (o GetWindowsFileSystemAuditLogConfigurationOutput) FileAccessAuditLogLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFileSystemAuditLogConfiguration) string { return v.FileAccessAuditLogLevel }).(pulumi.StringOutput)
+}
+
+func (o GetWindowsFileSystemAuditLogConfigurationOutput) FileShareAccessAuditLogLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFileSystemAuditLogConfiguration) string { return v.FileShareAccessAuditLogLevel }).(pulumi.StringOutput)
+}
+
+type GetWindowsFileSystemAuditLogConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFileSystemAuditLogConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFileSystemAuditLogConfiguration)(nil)).Elem()
+}
+
+func (o GetWindowsFileSystemAuditLogConfigurationArrayOutput) ToGetWindowsFileSystemAuditLogConfigurationArrayOutput() GetWindowsFileSystemAuditLogConfigurationArrayOutput {
+	return o
+}
+
+func (o GetWindowsFileSystemAuditLogConfigurationArrayOutput) ToGetWindowsFileSystemAuditLogConfigurationArrayOutputWithContext(ctx context.Context) GetWindowsFileSystemAuditLogConfigurationArrayOutput {
+	return o
+}
+
+func (o GetWindowsFileSystemAuditLogConfigurationArrayOutput) Index(i pulumi.IntInput) GetWindowsFileSystemAuditLogConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFileSystemAuditLogConfiguration {
+		return vs[0].([]GetWindowsFileSystemAuditLogConfiguration)[vs[1].(int)]
+	}).(GetWindowsFileSystemAuditLogConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3Input)(nil)).Elem(), DataRepositoryAssociationS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3PtrInput)(nil)).Elem(), DataRepositoryAssociationS3Args{})
@@ -4629,6 +4735,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemSelfManagedActiveDirectoryPtrInput)(nil)).Elem(), WindowsFileSystemSelfManagedActiveDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenZfsSnapshotFilterInput)(nil)).Elem(), GetOpenZfsSnapshotFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenZfsSnapshotFilterArrayInput)(nil)).Elem(), GetOpenZfsSnapshotFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFileSystemAuditLogConfigurationInput)(nil)).Elem(), GetWindowsFileSystemAuditLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFileSystemAuditLogConfigurationArrayInput)(nil)).Elem(), GetWindowsFileSystemAuditLogConfigurationArray{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3Output{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3PtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3AutoExportPolicyOutput{})
@@ -4695,4 +4803,6 @@ func init() {
 	pulumi.RegisterOutputType(WindowsFileSystemSelfManagedActiveDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(GetOpenZfsSnapshotFilterOutput{})
 	pulumi.RegisterOutputType(GetOpenZfsSnapshotFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFileSystemAuditLogConfigurationOutput{})
+	pulumi.RegisterOutputType(GetWindowsFileSystemAuditLogConfigurationArrayOutput{})
 }
