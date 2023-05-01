@@ -22,6 +22,17 @@ const role = new aws.iam.Role("role", {
     assumeRolePolicy: aws.iam.assumeRolePolicyForPrincipal({ Service: "lambda.amazonaws.com" }),
 }, providerOpts);
 
+const policy = new aws.iam.Policy("policy", {
+    policy: {
+        Version: "2012-10-17",
+        Statement: [{
+            Action: ["s3:ListBucket"],
+            Effect: "Allow",
+            Resource: "arn:aws:s3:::*",
+        }],
+    }
+});
+
 const functions = [
     new aws.lambda.CallbackFunction("a", {
         callback: async () => ({ success: true }),
@@ -43,6 +54,10 @@ const functions = [
             const ret = { success: true };
             return async () => ret;
         },
+    }, providerOpts),
+    new aws.lambda.CallbackFunction("f", {
+        policies: { one: policy.arn },
+        callback: async () => ({ success: true }),
     }, providerOpts),
 ];
 
