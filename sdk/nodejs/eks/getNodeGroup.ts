@@ -83,6 +83,10 @@ export interface GetNodeGroupResult {
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
     readonly labels: {[key: string]: string};
+    /**
+     * Nested attribute containing information about the launch template used to create the EKS Node Group.
+     */
+    readonly launchTemplates: outputs.eks.GetNodeGroupLaunchTemplate[];
     readonly nodeGroupName: string;
     /**
      * ARN of the IAM Role that provides permissions for the EKS Node Group.

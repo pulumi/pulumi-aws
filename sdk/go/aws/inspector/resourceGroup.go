@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Amazon Inspector resource group resource.
+// Provides an Amazon Inspector Classic Resource Group.
 //
 // ## Example Usage
 //

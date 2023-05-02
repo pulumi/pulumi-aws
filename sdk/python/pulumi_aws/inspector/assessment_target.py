@@ -116,7 +116,7 @@ class AssessmentTarget(pulumi.CustomResource):
                  resource_group_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Inspector assessment target
+        Provides an Inspector Classic Assessment Target
 
         ## Example Usage
 
@@ -133,7 +133,7 @@ class AssessmentTarget(pulumi.CustomResource):
 
         ## Import
 
-        Inspector Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.,
+        Inspector Classic Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.,
 
         ```sh
          $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
@@ -151,7 +151,7 @@ class AssessmentTarget(pulumi.CustomResource):
                  args: Optional[AssessmentTargetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Inspector assessment target
+        Provides an Inspector Classic Assessment Target
 
         ## Example Usage
 
@@ -168,7 +168,7 @@ class AssessmentTarget(pulumi.CustomResource):
 
         ## Import
 
-        Inspector Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.,
+        Inspector Classic Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.,
 
         ```sh
          $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx

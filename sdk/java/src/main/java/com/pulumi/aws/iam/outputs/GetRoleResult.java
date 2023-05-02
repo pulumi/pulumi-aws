@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.iam.outputs;
 
+import com.pulumi.aws.iam.outputs.GetRoleRoleLastUsed;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -52,6 +54,11 @@ public final class GetRoleResult {
      * 
      */
     private String permissionsBoundary;
+    /**
+     * @return Contains information about the last time that an IAM role was used. See `role_last_used` for details.
+     * 
+     */
+    private List<GetRoleRoleLastUsed> roleLastUseds;
     /**
      * @return Tags attached to the role.
      * 
@@ -124,6 +131,13 @@ public final class GetRoleResult {
         return this.permissionsBoundary;
     }
     /**
+     * @return Contains information about the last time that an IAM role was used. See `role_last_used` for details.
+     * 
+     */
+    public List<GetRoleRoleLastUsed> roleLastUseds() {
+        return this.roleLastUseds;
+    }
+    /**
      * @return Tags attached to the role.
      * 
      */
@@ -156,6 +170,7 @@ public final class GetRoleResult {
         private String name;
         private String path;
         private String permissionsBoundary;
+        private List<GetRoleRoleLastUsed> roleLastUseds;
         private Map<String,String> tags;
         private String uniqueId;
         public Builder() {}
@@ -170,6 +185,7 @@ public final class GetRoleResult {
     	      this.name = defaults.name;
     	      this.path = defaults.path;
     	      this.permissionsBoundary = defaults.permissionsBoundary;
+    	      this.roleLastUseds = defaults.roleLastUseds;
     	      this.tags = defaults.tags;
     	      this.uniqueId = defaults.uniqueId;
         }
@@ -220,6 +236,14 @@ public final class GetRoleResult {
             return this;
         }
         @CustomType.Setter
+        public Builder roleLastUseds(List<GetRoleRoleLastUsed> roleLastUseds) {
+            this.roleLastUseds = Objects.requireNonNull(roleLastUseds);
+            return this;
+        }
+        public Builder roleLastUseds(GetRoleRoleLastUsed... roleLastUseds) {
+            return roleLastUseds(List.of(roleLastUseds));
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
@@ -240,6 +264,7 @@ public final class GetRoleResult {
             o.name = name;
             o.path = path;
             o.permissionsBoundary = permissionsBoundary;
+            o.roleLastUseds = roleLastUseds;
             o.tags = tags;
             o.uniqueId = uniqueId;
             return o;

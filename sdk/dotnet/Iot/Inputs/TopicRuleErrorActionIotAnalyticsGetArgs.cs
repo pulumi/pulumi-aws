@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Iot.Inputs
     public sealed class TopicRuleErrorActionIotAnalyticsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+        /// </summary>
+        [Input("batchMode")]
+        public Input<bool>? BatchMode { get; set; }
+
+        /// <summary>
         /// Name of AWS IOT Analytics channel.
         /// </summary>
         [Input("channelName", required: true)]

@@ -10,6 +10,7 @@ from .cidr_collection import *
 from .cidr_location import *
 from .delegation_set import *
 from .get_delegation_set import *
+from .get_query_log_config import *
 from .get_resolver_endpoint import *
 from .get_resolver_firewall_config import *
 from .get_resolver_firewall_domain_list import *

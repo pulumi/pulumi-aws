@@ -2489,6 +2489,1144 @@ func (o EndpointS3SettingsPtrOutput) UseTaskStartTimeForFullLoadTimestamp() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetEndpointElasticsearchSetting struct {
+	EndpointUri             string `pulumi:"endpointUri"`
+	ErrorRetryDuration      int    `pulumi:"errorRetryDuration"`
+	FullLoadErrorPercentage int    `pulumi:"fullLoadErrorPercentage"`
+	ServiceAccessRoleArn    string `pulumi:"serviceAccessRoleArn"`
+}
+
+// GetEndpointElasticsearchSettingInput is an input type that accepts GetEndpointElasticsearchSettingArgs and GetEndpointElasticsearchSettingOutput values.
+// You can construct a concrete instance of `GetEndpointElasticsearchSettingInput` via:
+//
+//	GetEndpointElasticsearchSettingArgs{...}
+type GetEndpointElasticsearchSettingInput interface {
+	pulumi.Input
+
+	ToGetEndpointElasticsearchSettingOutput() GetEndpointElasticsearchSettingOutput
+	ToGetEndpointElasticsearchSettingOutputWithContext(context.Context) GetEndpointElasticsearchSettingOutput
+}
+
+type GetEndpointElasticsearchSettingArgs struct {
+	EndpointUri             pulumi.StringInput `pulumi:"endpointUri"`
+	ErrorRetryDuration      pulumi.IntInput    `pulumi:"errorRetryDuration"`
+	FullLoadErrorPercentage pulumi.IntInput    `pulumi:"fullLoadErrorPercentage"`
+	ServiceAccessRoleArn    pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
+}
+
+func (GetEndpointElasticsearchSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointElasticsearchSetting)(nil)).Elem()
+}
+
+func (i GetEndpointElasticsearchSettingArgs) ToGetEndpointElasticsearchSettingOutput() GetEndpointElasticsearchSettingOutput {
+	return i.ToGetEndpointElasticsearchSettingOutputWithContext(context.Background())
+}
+
+func (i GetEndpointElasticsearchSettingArgs) ToGetEndpointElasticsearchSettingOutputWithContext(ctx context.Context) GetEndpointElasticsearchSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointElasticsearchSettingOutput)
+}
+
+// GetEndpointElasticsearchSettingArrayInput is an input type that accepts GetEndpointElasticsearchSettingArray and GetEndpointElasticsearchSettingArrayOutput values.
+// You can construct a concrete instance of `GetEndpointElasticsearchSettingArrayInput` via:
+//
+//	GetEndpointElasticsearchSettingArray{ GetEndpointElasticsearchSettingArgs{...} }
+type GetEndpointElasticsearchSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointElasticsearchSettingArrayOutput() GetEndpointElasticsearchSettingArrayOutput
+	ToGetEndpointElasticsearchSettingArrayOutputWithContext(context.Context) GetEndpointElasticsearchSettingArrayOutput
+}
+
+type GetEndpointElasticsearchSettingArray []GetEndpointElasticsearchSettingInput
+
+func (GetEndpointElasticsearchSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointElasticsearchSetting)(nil)).Elem()
+}
+
+func (i GetEndpointElasticsearchSettingArray) ToGetEndpointElasticsearchSettingArrayOutput() GetEndpointElasticsearchSettingArrayOutput {
+	return i.ToGetEndpointElasticsearchSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointElasticsearchSettingArray) ToGetEndpointElasticsearchSettingArrayOutputWithContext(ctx context.Context) GetEndpointElasticsearchSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointElasticsearchSettingArrayOutput)
+}
+
+type GetEndpointElasticsearchSettingOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointElasticsearchSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointElasticsearchSetting)(nil)).Elem()
+}
+
+func (o GetEndpointElasticsearchSettingOutput) ToGetEndpointElasticsearchSettingOutput() GetEndpointElasticsearchSettingOutput {
+	return o
+}
+
+func (o GetEndpointElasticsearchSettingOutput) ToGetEndpointElasticsearchSettingOutputWithContext(ctx context.Context) GetEndpointElasticsearchSettingOutput {
+	return o
+}
+
+func (o GetEndpointElasticsearchSettingOutput) EndpointUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointElasticsearchSetting) string { return v.EndpointUri }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointElasticsearchSettingOutput) ErrorRetryDuration() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointElasticsearchSetting) int { return v.ErrorRetryDuration }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointElasticsearchSettingOutput) FullLoadErrorPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointElasticsearchSetting) int { return v.FullLoadErrorPercentage }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointElasticsearchSettingOutput) ServiceAccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointElasticsearchSetting) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
+}
+
+type GetEndpointElasticsearchSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointElasticsearchSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointElasticsearchSetting)(nil)).Elem()
+}
+
+func (o GetEndpointElasticsearchSettingArrayOutput) ToGetEndpointElasticsearchSettingArrayOutput() GetEndpointElasticsearchSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointElasticsearchSettingArrayOutput) ToGetEndpointElasticsearchSettingArrayOutputWithContext(ctx context.Context) GetEndpointElasticsearchSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointElasticsearchSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointElasticsearchSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointElasticsearchSetting {
+		return vs[0].([]GetEndpointElasticsearchSetting)[vs[1].(int)]
+	}).(GetEndpointElasticsearchSettingOutput)
+}
+
+type GetEndpointKafkaSetting struct {
+	Broker                      string `pulumi:"broker"`
+	IncludeControlDetails       bool   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         bool   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       bool   `pulumi:"includePartitionValue"`
+	IncludeTableAlterOperations bool   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   bool   `pulumi:"includeTransactionDetails"`
+	MessageFormat               string `pulumi:"messageFormat"`
+	MessageMaxBytes             int    `pulumi:"messageMaxBytes"`
+	NoHexPrefix                 bool   `pulumi:"noHexPrefix"`
+	PartitionIncludeSchemaTable bool   `pulumi:"partitionIncludeSchemaTable"`
+	SaslPassword                string `pulumi:"saslPassword"`
+	SaslUsername                string `pulumi:"saslUsername"`
+	SecurityProtocol            string `pulumi:"securityProtocol"`
+	SslCaCertificateArn         string `pulumi:"sslCaCertificateArn"`
+	SslClientCertificateArn     string `pulumi:"sslClientCertificateArn"`
+	SslClientKeyArn             string `pulumi:"sslClientKeyArn"`
+	SslClientKeyPassword        string `pulumi:"sslClientKeyPassword"`
+	Topic                       string `pulumi:"topic"`
+}
+
+// GetEndpointKafkaSettingInput is an input type that accepts GetEndpointKafkaSettingArgs and GetEndpointKafkaSettingOutput values.
+// You can construct a concrete instance of `GetEndpointKafkaSettingInput` via:
+//
+//	GetEndpointKafkaSettingArgs{...}
+type GetEndpointKafkaSettingInput interface {
+	pulumi.Input
+
+	ToGetEndpointKafkaSettingOutput() GetEndpointKafkaSettingOutput
+	ToGetEndpointKafkaSettingOutputWithContext(context.Context) GetEndpointKafkaSettingOutput
+}
+
+type GetEndpointKafkaSettingArgs struct {
+	Broker                      pulumi.StringInput `pulumi:"broker"`
+	IncludeControlDetails       pulumi.BoolInput   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         pulumi.BoolInput   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       pulumi.BoolInput   `pulumi:"includePartitionValue"`
+	IncludeTableAlterOperations pulumi.BoolInput   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   pulumi.BoolInput   `pulumi:"includeTransactionDetails"`
+	MessageFormat               pulumi.StringInput `pulumi:"messageFormat"`
+	MessageMaxBytes             pulumi.IntInput    `pulumi:"messageMaxBytes"`
+	NoHexPrefix                 pulumi.BoolInput   `pulumi:"noHexPrefix"`
+	PartitionIncludeSchemaTable pulumi.BoolInput   `pulumi:"partitionIncludeSchemaTable"`
+	SaslPassword                pulumi.StringInput `pulumi:"saslPassword"`
+	SaslUsername                pulumi.StringInput `pulumi:"saslUsername"`
+	SecurityProtocol            pulumi.StringInput `pulumi:"securityProtocol"`
+	SslCaCertificateArn         pulumi.StringInput `pulumi:"sslCaCertificateArn"`
+	SslClientCertificateArn     pulumi.StringInput `pulumi:"sslClientCertificateArn"`
+	SslClientKeyArn             pulumi.StringInput `pulumi:"sslClientKeyArn"`
+	SslClientKeyPassword        pulumi.StringInput `pulumi:"sslClientKeyPassword"`
+	Topic                       pulumi.StringInput `pulumi:"topic"`
+}
+
+func (GetEndpointKafkaSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointKafkaSetting)(nil)).Elem()
+}
+
+func (i GetEndpointKafkaSettingArgs) ToGetEndpointKafkaSettingOutput() GetEndpointKafkaSettingOutput {
+	return i.ToGetEndpointKafkaSettingOutputWithContext(context.Background())
+}
+
+func (i GetEndpointKafkaSettingArgs) ToGetEndpointKafkaSettingOutputWithContext(ctx context.Context) GetEndpointKafkaSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointKafkaSettingOutput)
+}
+
+// GetEndpointKafkaSettingArrayInput is an input type that accepts GetEndpointKafkaSettingArray and GetEndpointKafkaSettingArrayOutput values.
+// You can construct a concrete instance of `GetEndpointKafkaSettingArrayInput` via:
+//
+//	GetEndpointKafkaSettingArray{ GetEndpointKafkaSettingArgs{...} }
+type GetEndpointKafkaSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointKafkaSettingArrayOutput() GetEndpointKafkaSettingArrayOutput
+	ToGetEndpointKafkaSettingArrayOutputWithContext(context.Context) GetEndpointKafkaSettingArrayOutput
+}
+
+type GetEndpointKafkaSettingArray []GetEndpointKafkaSettingInput
+
+func (GetEndpointKafkaSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointKafkaSetting)(nil)).Elem()
+}
+
+func (i GetEndpointKafkaSettingArray) ToGetEndpointKafkaSettingArrayOutput() GetEndpointKafkaSettingArrayOutput {
+	return i.ToGetEndpointKafkaSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointKafkaSettingArray) ToGetEndpointKafkaSettingArrayOutputWithContext(ctx context.Context) GetEndpointKafkaSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointKafkaSettingArrayOutput)
+}
+
+type GetEndpointKafkaSettingOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointKafkaSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointKafkaSetting)(nil)).Elem()
+}
+
+func (o GetEndpointKafkaSettingOutput) ToGetEndpointKafkaSettingOutput() GetEndpointKafkaSettingOutput {
+	return o
+}
+
+func (o GetEndpointKafkaSettingOutput) ToGetEndpointKafkaSettingOutputWithContext(ctx context.Context) GetEndpointKafkaSettingOutput {
+	return o
+}
+
+func (o GetEndpointKafkaSettingOutput) Broker() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.Broker }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) IncludeControlDetails() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.IncludeControlDetails }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) IncludeNullAndEmpty() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.IncludeNullAndEmpty }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) IncludePartitionValue() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.IncludePartitionValue }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) IncludeTableAlterOperations() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.IncludeTableAlterOperations }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) IncludeTransactionDetails() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.IncludeTransactionDetails }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) MessageFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.MessageFormat }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) MessageMaxBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) int { return v.MessageMaxBytes }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) NoHexPrefix() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.NoHexPrefix }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) PartitionIncludeSchemaTable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) SaslPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SaslPassword }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) SaslUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SaslUsername }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) SecurityProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SecurityProtocol }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) SslCaCertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SslCaCertificateArn }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) SslClientCertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SslClientCertificateArn }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) SslClientKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SslClientKeyArn }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) SslClientKeyPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.SslClientKeyPassword }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointKafkaSettingOutput) Topic() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKafkaSetting) string { return v.Topic }).(pulumi.StringOutput)
+}
+
+type GetEndpointKafkaSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointKafkaSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointKafkaSetting)(nil)).Elem()
+}
+
+func (o GetEndpointKafkaSettingArrayOutput) ToGetEndpointKafkaSettingArrayOutput() GetEndpointKafkaSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointKafkaSettingArrayOutput) ToGetEndpointKafkaSettingArrayOutputWithContext(ctx context.Context) GetEndpointKafkaSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointKafkaSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointKafkaSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointKafkaSetting {
+		return vs[0].([]GetEndpointKafkaSetting)[vs[1].(int)]
+	}).(GetEndpointKafkaSettingOutput)
+}
+
+type GetEndpointKinesisSetting struct {
+	IncludeControlDetails       bool   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         bool   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       bool   `pulumi:"includePartitionValue"`
+	IncludeTableAlterOperations bool   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   bool   `pulumi:"includeTransactionDetails"`
+	MessageFormat               string `pulumi:"messageFormat"`
+	PartitionIncludeSchemaTable bool   `pulumi:"partitionIncludeSchemaTable"`
+	ServiceAccessRoleArn        string `pulumi:"serviceAccessRoleArn"`
+	StreamArn                   string `pulumi:"streamArn"`
+}
+
+// GetEndpointKinesisSettingInput is an input type that accepts GetEndpointKinesisSettingArgs and GetEndpointKinesisSettingOutput values.
+// You can construct a concrete instance of `GetEndpointKinesisSettingInput` via:
+//
+//	GetEndpointKinesisSettingArgs{...}
+type GetEndpointKinesisSettingInput interface {
+	pulumi.Input
+
+	ToGetEndpointKinesisSettingOutput() GetEndpointKinesisSettingOutput
+	ToGetEndpointKinesisSettingOutputWithContext(context.Context) GetEndpointKinesisSettingOutput
+}
+
+type GetEndpointKinesisSettingArgs struct {
+	IncludeControlDetails       pulumi.BoolInput   `pulumi:"includeControlDetails"`
+	IncludeNullAndEmpty         pulumi.BoolInput   `pulumi:"includeNullAndEmpty"`
+	IncludePartitionValue       pulumi.BoolInput   `pulumi:"includePartitionValue"`
+	IncludeTableAlterOperations pulumi.BoolInput   `pulumi:"includeTableAlterOperations"`
+	IncludeTransactionDetails   pulumi.BoolInput   `pulumi:"includeTransactionDetails"`
+	MessageFormat               pulumi.StringInput `pulumi:"messageFormat"`
+	PartitionIncludeSchemaTable pulumi.BoolInput   `pulumi:"partitionIncludeSchemaTable"`
+	ServiceAccessRoleArn        pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
+	StreamArn                   pulumi.StringInput `pulumi:"streamArn"`
+}
+
+func (GetEndpointKinesisSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointKinesisSetting)(nil)).Elem()
+}
+
+func (i GetEndpointKinesisSettingArgs) ToGetEndpointKinesisSettingOutput() GetEndpointKinesisSettingOutput {
+	return i.ToGetEndpointKinesisSettingOutputWithContext(context.Background())
+}
+
+func (i GetEndpointKinesisSettingArgs) ToGetEndpointKinesisSettingOutputWithContext(ctx context.Context) GetEndpointKinesisSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointKinesisSettingOutput)
+}
+
+// GetEndpointKinesisSettingArrayInput is an input type that accepts GetEndpointKinesisSettingArray and GetEndpointKinesisSettingArrayOutput values.
+// You can construct a concrete instance of `GetEndpointKinesisSettingArrayInput` via:
+//
+//	GetEndpointKinesisSettingArray{ GetEndpointKinesisSettingArgs{...} }
+type GetEndpointKinesisSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointKinesisSettingArrayOutput() GetEndpointKinesisSettingArrayOutput
+	ToGetEndpointKinesisSettingArrayOutputWithContext(context.Context) GetEndpointKinesisSettingArrayOutput
+}
+
+type GetEndpointKinesisSettingArray []GetEndpointKinesisSettingInput
+
+func (GetEndpointKinesisSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointKinesisSetting)(nil)).Elem()
+}
+
+func (i GetEndpointKinesisSettingArray) ToGetEndpointKinesisSettingArrayOutput() GetEndpointKinesisSettingArrayOutput {
+	return i.ToGetEndpointKinesisSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointKinesisSettingArray) ToGetEndpointKinesisSettingArrayOutputWithContext(ctx context.Context) GetEndpointKinesisSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointKinesisSettingArrayOutput)
+}
+
+type GetEndpointKinesisSettingOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointKinesisSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointKinesisSetting)(nil)).Elem()
+}
+
+func (o GetEndpointKinesisSettingOutput) ToGetEndpointKinesisSettingOutput() GetEndpointKinesisSettingOutput {
+	return o
+}
+
+func (o GetEndpointKinesisSettingOutput) ToGetEndpointKinesisSettingOutputWithContext(ctx context.Context) GetEndpointKinesisSettingOutput {
+	return o
+}
+
+func (o GetEndpointKinesisSettingOutput) IncludeControlDetails() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.IncludeControlDetails }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKinesisSettingOutput) IncludeNullAndEmpty() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.IncludeNullAndEmpty }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKinesisSettingOutput) IncludePartitionValue() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.IncludePartitionValue }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKinesisSettingOutput) IncludeTableAlterOperations() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.IncludeTableAlterOperations }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKinesisSettingOutput) IncludeTransactionDetails() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.IncludeTransactionDetails }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKinesisSettingOutput) MessageFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) string { return v.MessageFormat }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointKinesisSettingOutput) PartitionIncludeSchemaTable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointKinesisSettingOutput) ServiceAccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointKinesisSettingOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointKinesisSetting) string { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+type GetEndpointKinesisSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointKinesisSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointKinesisSetting)(nil)).Elem()
+}
+
+func (o GetEndpointKinesisSettingArrayOutput) ToGetEndpointKinesisSettingArrayOutput() GetEndpointKinesisSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointKinesisSettingArrayOutput) ToGetEndpointKinesisSettingArrayOutputWithContext(ctx context.Context) GetEndpointKinesisSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointKinesisSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointKinesisSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointKinesisSetting {
+		return vs[0].([]GetEndpointKinesisSetting)[vs[1].(int)]
+	}).(GetEndpointKinesisSettingOutput)
+}
+
+type GetEndpointMongodbSetting struct {
+	AuthMechanism     string `pulumi:"authMechanism"`
+	AuthSource        string `pulumi:"authSource"`
+	AuthType          string `pulumi:"authType"`
+	DocsToInvestigate string `pulumi:"docsToInvestigate"`
+	ExtractDocId      string `pulumi:"extractDocId"`
+	NestingLevel      string `pulumi:"nestingLevel"`
+}
+
+// GetEndpointMongodbSettingInput is an input type that accepts GetEndpointMongodbSettingArgs and GetEndpointMongodbSettingOutput values.
+// You can construct a concrete instance of `GetEndpointMongodbSettingInput` via:
+//
+//	GetEndpointMongodbSettingArgs{...}
+type GetEndpointMongodbSettingInput interface {
+	pulumi.Input
+
+	ToGetEndpointMongodbSettingOutput() GetEndpointMongodbSettingOutput
+	ToGetEndpointMongodbSettingOutputWithContext(context.Context) GetEndpointMongodbSettingOutput
+}
+
+type GetEndpointMongodbSettingArgs struct {
+	AuthMechanism     pulumi.StringInput `pulumi:"authMechanism"`
+	AuthSource        pulumi.StringInput `pulumi:"authSource"`
+	AuthType          pulumi.StringInput `pulumi:"authType"`
+	DocsToInvestigate pulumi.StringInput `pulumi:"docsToInvestigate"`
+	ExtractDocId      pulumi.StringInput `pulumi:"extractDocId"`
+	NestingLevel      pulumi.StringInput `pulumi:"nestingLevel"`
+}
+
+func (GetEndpointMongodbSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointMongodbSetting)(nil)).Elem()
+}
+
+func (i GetEndpointMongodbSettingArgs) ToGetEndpointMongodbSettingOutput() GetEndpointMongodbSettingOutput {
+	return i.ToGetEndpointMongodbSettingOutputWithContext(context.Background())
+}
+
+func (i GetEndpointMongodbSettingArgs) ToGetEndpointMongodbSettingOutputWithContext(ctx context.Context) GetEndpointMongodbSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointMongodbSettingOutput)
+}
+
+// GetEndpointMongodbSettingArrayInput is an input type that accepts GetEndpointMongodbSettingArray and GetEndpointMongodbSettingArrayOutput values.
+// You can construct a concrete instance of `GetEndpointMongodbSettingArrayInput` via:
+//
+//	GetEndpointMongodbSettingArray{ GetEndpointMongodbSettingArgs{...} }
+type GetEndpointMongodbSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointMongodbSettingArrayOutput() GetEndpointMongodbSettingArrayOutput
+	ToGetEndpointMongodbSettingArrayOutputWithContext(context.Context) GetEndpointMongodbSettingArrayOutput
+}
+
+type GetEndpointMongodbSettingArray []GetEndpointMongodbSettingInput
+
+func (GetEndpointMongodbSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointMongodbSetting)(nil)).Elem()
+}
+
+func (i GetEndpointMongodbSettingArray) ToGetEndpointMongodbSettingArrayOutput() GetEndpointMongodbSettingArrayOutput {
+	return i.ToGetEndpointMongodbSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointMongodbSettingArray) ToGetEndpointMongodbSettingArrayOutputWithContext(ctx context.Context) GetEndpointMongodbSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointMongodbSettingArrayOutput)
+}
+
+type GetEndpointMongodbSettingOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointMongodbSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointMongodbSetting)(nil)).Elem()
+}
+
+func (o GetEndpointMongodbSettingOutput) ToGetEndpointMongodbSettingOutput() GetEndpointMongodbSettingOutput {
+	return o
+}
+
+func (o GetEndpointMongodbSettingOutput) ToGetEndpointMongodbSettingOutputWithContext(ctx context.Context) GetEndpointMongodbSettingOutput {
+	return o
+}
+
+func (o GetEndpointMongodbSettingOutput) AuthMechanism() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.AuthMechanism }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointMongodbSettingOutput) AuthSource() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.AuthSource }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointMongodbSettingOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.AuthType }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointMongodbSettingOutput) DocsToInvestigate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.DocsToInvestigate }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointMongodbSettingOutput) ExtractDocId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.ExtractDocId }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointMongodbSettingOutput) NestingLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointMongodbSetting) string { return v.NestingLevel }).(pulumi.StringOutput)
+}
+
+type GetEndpointMongodbSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointMongodbSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointMongodbSetting)(nil)).Elem()
+}
+
+func (o GetEndpointMongodbSettingArrayOutput) ToGetEndpointMongodbSettingArrayOutput() GetEndpointMongodbSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointMongodbSettingArrayOutput) ToGetEndpointMongodbSettingArrayOutputWithContext(ctx context.Context) GetEndpointMongodbSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointMongodbSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointMongodbSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointMongodbSetting {
+		return vs[0].([]GetEndpointMongodbSetting)[vs[1].(int)]
+	}).(GetEndpointMongodbSettingOutput)
+}
+
+type GetEndpointRedisSetting struct {
+	AuthPassword        string `pulumi:"authPassword"`
+	AuthType            string `pulumi:"authType"`
+	AuthUserName        string `pulumi:"authUserName"`
+	Port                int    `pulumi:"port"`
+	ServerName          string `pulumi:"serverName"`
+	SslCaCertificateArn string `pulumi:"sslCaCertificateArn"`
+	SslSecurityProtocol string `pulumi:"sslSecurityProtocol"`
+}
+
+// GetEndpointRedisSettingInput is an input type that accepts GetEndpointRedisSettingArgs and GetEndpointRedisSettingOutput values.
+// You can construct a concrete instance of `GetEndpointRedisSettingInput` via:
+//
+//	GetEndpointRedisSettingArgs{...}
+type GetEndpointRedisSettingInput interface {
+	pulumi.Input
+
+	ToGetEndpointRedisSettingOutput() GetEndpointRedisSettingOutput
+	ToGetEndpointRedisSettingOutputWithContext(context.Context) GetEndpointRedisSettingOutput
+}
+
+type GetEndpointRedisSettingArgs struct {
+	AuthPassword        pulumi.StringInput `pulumi:"authPassword"`
+	AuthType            pulumi.StringInput `pulumi:"authType"`
+	AuthUserName        pulumi.StringInput `pulumi:"authUserName"`
+	Port                pulumi.IntInput    `pulumi:"port"`
+	ServerName          pulumi.StringInput `pulumi:"serverName"`
+	SslCaCertificateArn pulumi.StringInput `pulumi:"sslCaCertificateArn"`
+	SslSecurityProtocol pulumi.StringInput `pulumi:"sslSecurityProtocol"`
+}
+
+func (GetEndpointRedisSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointRedisSetting)(nil)).Elem()
+}
+
+func (i GetEndpointRedisSettingArgs) ToGetEndpointRedisSettingOutput() GetEndpointRedisSettingOutput {
+	return i.ToGetEndpointRedisSettingOutputWithContext(context.Background())
+}
+
+func (i GetEndpointRedisSettingArgs) ToGetEndpointRedisSettingOutputWithContext(ctx context.Context) GetEndpointRedisSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointRedisSettingOutput)
+}
+
+// GetEndpointRedisSettingArrayInput is an input type that accepts GetEndpointRedisSettingArray and GetEndpointRedisSettingArrayOutput values.
+// You can construct a concrete instance of `GetEndpointRedisSettingArrayInput` via:
+//
+//	GetEndpointRedisSettingArray{ GetEndpointRedisSettingArgs{...} }
+type GetEndpointRedisSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointRedisSettingArrayOutput() GetEndpointRedisSettingArrayOutput
+	ToGetEndpointRedisSettingArrayOutputWithContext(context.Context) GetEndpointRedisSettingArrayOutput
+}
+
+type GetEndpointRedisSettingArray []GetEndpointRedisSettingInput
+
+func (GetEndpointRedisSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointRedisSetting)(nil)).Elem()
+}
+
+func (i GetEndpointRedisSettingArray) ToGetEndpointRedisSettingArrayOutput() GetEndpointRedisSettingArrayOutput {
+	return i.ToGetEndpointRedisSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointRedisSettingArray) ToGetEndpointRedisSettingArrayOutputWithContext(ctx context.Context) GetEndpointRedisSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointRedisSettingArrayOutput)
+}
+
+type GetEndpointRedisSettingOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointRedisSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointRedisSetting)(nil)).Elem()
+}
+
+func (o GetEndpointRedisSettingOutput) ToGetEndpointRedisSettingOutput() GetEndpointRedisSettingOutput {
+	return o
+}
+
+func (o GetEndpointRedisSettingOutput) ToGetEndpointRedisSettingOutputWithContext(ctx context.Context) GetEndpointRedisSettingOutput {
+	return o
+}
+
+func (o GetEndpointRedisSettingOutput) AuthPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) string { return v.AuthPassword }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointRedisSettingOutput) AuthType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) string { return v.AuthType }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointRedisSettingOutput) AuthUserName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) string { return v.AuthUserName }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointRedisSettingOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointRedisSettingOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointRedisSettingOutput) SslCaCertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) string { return v.SslCaCertificateArn }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointRedisSettingOutput) SslSecurityProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointRedisSetting) string { return v.SslSecurityProtocol }).(pulumi.StringOutput)
+}
+
+type GetEndpointRedisSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointRedisSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointRedisSetting)(nil)).Elem()
+}
+
+func (o GetEndpointRedisSettingArrayOutput) ToGetEndpointRedisSettingArrayOutput() GetEndpointRedisSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointRedisSettingArrayOutput) ToGetEndpointRedisSettingArrayOutputWithContext(ctx context.Context) GetEndpointRedisSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointRedisSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointRedisSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointRedisSetting {
+		return vs[0].([]GetEndpointRedisSetting)[vs[1].(int)]
+	}).(GetEndpointRedisSettingOutput)
+}
+
+type GetEndpointRedshiftSetting struct {
+	BucketFolder                 string `pulumi:"bucketFolder"`
+	BucketName                   string `pulumi:"bucketName"`
+	EncryptionMode               string `pulumi:"encryptionMode"`
+	ServerSideEncryptionKmsKeyId string `pulumi:"serverSideEncryptionKmsKeyId"`
+	ServiceAccessRoleArn         string `pulumi:"serviceAccessRoleArn"`
+}
+
+// GetEndpointRedshiftSettingInput is an input type that accepts GetEndpointRedshiftSettingArgs and GetEndpointRedshiftSettingOutput values.
+// You can construct a concrete instance of `GetEndpointRedshiftSettingInput` via:
+//
+//	GetEndpointRedshiftSettingArgs{...}
+type GetEndpointRedshiftSettingInput interface {
+	pulumi.Input
+
+	ToGetEndpointRedshiftSettingOutput() GetEndpointRedshiftSettingOutput
+	ToGetEndpointRedshiftSettingOutputWithContext(context.Context) GetEndpointRedshiftSettingOutput
+}
+
+type GetEndpointRedshiftSettingArgs struct {
+	BucketFolder                 pulumi.StringInput `pulumi:"bucketFolder"`
+	BucketName                   pulumi.StringInput `pulumi:"bucketName"`
+	EncryptionMode               pulumi.StringInput `pulumi:"encryptionMode"`
+	ServerSideEncryptionKmsKeyId pulumi.StringInput `pulumi:"serverSideEncryptionKmsKeyId"`
+	ServiceAccessRoleArn         pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
+}
+
+func (GetEndpointRedshiftSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointRedshiftSetting)(nil)).Elem()
+}
+
+func (i GetEndpointRedshiftSettingArgs) ToGetEndpointRedshiftSettingOutput() GetEndpointRedshiftSettingOutput {
+	return i.ToGetEndpointRedshiftSettingOutputWithContext(context.Background())
+}
+
+func (i GetEndpointRedshiftSettingArgs) ToGetEndpointRedshiftSettingOutputWithContext(ctx context.Context) GetEndpointRedshiftSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointRedshiftSettingOutput)
+}
+
+// GetEndpointRedshiftSettingArrayInput is an input type that accepts GetEndpointRedshiftSettingArray and GetEndpointRedshiftSettingArrayOutput values.
+// You can construct a concrete instance of `GetEndpointRedshiftSettingArrayInput` via:
+//
+//	GetEndpointRedshiftSettingArray{ GetEndpointRedshiftSettingArgs{...} }
+type GetEndpointRedshiftSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointRedshiftSettingArrayOutput() GetEndpointRedshiftSettingArrayOutput
+	ToGetEndpointRedshiftSettingArrayOutputWithContext(context.Context) GetEndpointRedshiftSettingArrayOutput
+}
+
+type GetEndpointRedshiftSettingArray []GetEndpointRedshiftSettingInput
+
+func (GetEndpointRedshiftSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointRedshiftSetting)(nil)).Elem()
+}
+
+func (i GetEndpointRedshiftSettingArray) ToGetEndpointRedshiftSettingArrayOutput() GetEndpointRedshiftSettingArrayOutput {
+	return i.ToGetEndpointRedshiftSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointRedshiftSettingArray) ToGetEndpointRedshiftSettingArrayOutputWithContext(ctx context.Context) GetEndpointRedshiftSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointRedshiftSettingArrayOutput)
+}
+
+type GetEndpointRedshiftSettingOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointRedshiftSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointRedshiftSetting)(nil)).Elem()
+}
+
+func (o GetEndpointRedshiftSettingOutput) ToGetEndpointRedshiftSettingOutput() GetEndpointRedshiftSettingOutput {
+	return o
+}
+
+func (o GetEndpointRedshiftSettingOutput) ToGetEndpointRedshiftSettingOutputWithContext(ctx context.Context) GetEndpointRedshiftSettingOutput {
+	return o
+}
+
+func (o GetEndpointRedshiftSettingOutput) BucketFolder() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointRedshiftSetting) string { return v.BucketFolder }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointRedshiftSettingOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointRedshiftSetting) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointRedshiftSettingOutput) EncryptionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointRedshiftSetting) string { return v.EncryptionMode }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointRedshiftSettingOutput) ServerSideEncryptionKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointRedshiftSetting) string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointRedshiftSettingOutput) ServiceAccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointRedshiftSetting) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
+}
+
+type GetEndpointRedshiftSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointRedshiftSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointRedshiftSetting)(nil)).Elem()
+}
+
+func (o GetEndpointRedshiftSettingArrayOutput) ToGetEndpointRedshiftSettingArrayOutput() GetEndpointRedshiftSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointRedshiftSettingArrayOutput) ToGetEndpointRedshiftSettingArrayOutputWithContext(ctx context.Context) GetEndpointRedshiftSettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointRedshiftSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointRedshiftSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointRedshiftSetting {
+		return vs[0].([]GetEndpointRedshiftSetting)[vs[1].(int)]
+	}).(GetEndpointRedshiftSettingOutput)
+}
+
+type GetEndpointS3Setting struct {
+	AddColumnName                        bool   `pulumi:"addColumnName"`
+	BucketFolder                         string `pulumi:"bucketFolder"`
+	BucketName                           string `pulumi:"bucketName"`
+	CannedAclForObjects                  string `pulumi:"cannedAclForObjects"`
+	CdcInsertsAndUpdates                 bool   `pulumi:"cdcInsertsAndUpdates"`
+	CdcInsertsOnly                       bool   `pulumi:"cdcInsertsOnly"`
+	CdcMaxBatchInterval                  int    `pulumi:"cdcMaxBatchInterval"`
+	CdcMinFileSize                       int    `pulumi:"cdcMinFileSize"`
+	CdcPath                              string `pulumi:"cdcPath"`
+	CompressionType                      string `pulumi:"compressionType"`
+	CsvDelimiter                         string `pulumi:"csvDelimiter"`
+	CsvNoSupValue                        string `pulumi:"csvNoSupValue"`
+	CsvNullValue                         string `pulumi:"csvNullValue"`
+	CsvRowDelimiter                      string `pulumi:"csvRowDelimiter"`
+	DataFormat                           string `pulumi:"dataFormat"`
+	DataPageSize                         int    `pulumi:"dataPageSize"`
+	DatePartitionDelimiter               string `pulumi:"datePartitionDelimiter"`
+	DatePartitionEnabled                 bool   `pulumi:"datePartitionEnabled"`
+	DatePartitionSequence                string `pulumi:"datePartitionSequence"`
+	DictPageSizeLimit                    int    `pulumi:"dictPageSizeLimit"`
+	EnableStatistics                     bool   `pulumi:"enableStatistics"`
+	EncodingType                         string `pulumi:"encodingType"`
+	EncryptionMode                       string `pulumi:"encryptionMode"`
+	ExternalTableDefinition              string `pulumi:"externalTableDefinition"`
+	IgnoreHeaderRows                     int    `pulumi:"ignoreHeaderRows"`
+	IgnoreHeadersRow                     int    `pulumi:"ignoreHeadersRow"`
+	IncludeOpForFullLoad                 bool   `pulumi:"includeOpForFullLoad"`
+	MaxFileSize                          int    `pulumi:"maxFileSize"`
+	ParquetTimestampInMillisecond        bool   `pulumi:"parquetTimestampInMillisecond"`
+	ParquetVersion                       string `pulumi:"parquetVersion"`
+	PreserveTransactions                 bool   `pulumi:"preserveTransactions"`
+	Rfc4180                              bool   `pulumi:"rfc4180"`
+	RowGroupLength                       int    `pulumi:"rowGroupLength"`
+	ServerSideEncryptionKmsKeyId         string `pulumi:"serverSideEncryptionKmsKeyId"`
+	ServiceAccessRoleArn                 string `pulumi:"serviceAccessRoleArn"`
+	TimestampColumnName                  string `pulumi:"timestampColumnName"`
+	UseCsvNoSupValue                     bool   `pulumi:"useCsvNoSupValue"`
+	UseTaskStartTimeForFullLoadTimestamp bool   `pulumi:"useTaskStartTimeForFullLoadTimestamp"`
+}
+
+// GetEndpointS3SettingInput is an input type that accepts GetEndpointS3SettingArgs and GetEndpointS3SettingOutput values.
+// You can construct a concrete instance of `GetEndpointS3SettingInput` via:
+//
+//	GetEndpointS3SettingArgs{...}
+type GetEndpointS3SettingInput interface {
+	pulumi.Input
+
+	ToGetEndpointS3SettingOutput() GetEndpointS3SettingOutput
+	ToGetEndpointS3SettingOutputWithContext(context.Context) GetEndpointS3SettingOutput
+}
+
+type GetEndpointS3SettingArgs struct {
+	AddColumnName                        pulumi.BoolInput   `pulumi:"addColumnName"`
+	BucketFolder                         pulumi.StringInput `pulumi:"bucketFolder"`
+	BucketName                           pulumi.StringInput `pulumi:"bucketName"`
+	CannedAclForObjects                  pulumi.StringInput `pulumi:"cannedAclForObjects"`
+	CdcInsertsAndUpdates                 pulumi.BoolInput   `pulumi:"cdcInsertsAndUpdates"`
+	CdcInsertsOnly                       pulumi.BoolInput   `pulumi:"cdcInsertsOnly"`
+	CdcMaxBatchInterval                  pulumi.IntInput    `pulumi:"cdcMaxBatchInterval"`
+	CdcMinFileSize                       pulumi.IntInput    `pulumi:"cdcMinFileSize"`
+	CdcPath                              pulumi.StringInput `pulumi:"cdcPath"`
+	CompressionType                      pulumi.StringInput `pulumi:"compressionType"`
+	CsvDelimiter                         pulumi.StringInput `pulumi:"csvDelimiter"`
+	CsvNoSupValue                        pulumi.StringInput `pulumi:"csvNoSupValue"`
+	CsvNullValue                         pulumi.StringInput `pulumi:"csvNullValue"`
+	CsvRowDelimiter                      pulumi.StringInput `pulumi:"csvRowDelimiter"`
+	DataFormat                           pulumi.StringInput `pulumi:"dataFormat"`
+	DataPageSize                         pulumi.IntInput    `pulumi:"dataPageSize"`
+	DatePartitionDelimiter               pulumi.StringInput `pulumi:"datePartitionDelimiter"`
+	DatePartitionEnabled                 pulumi.BoolInput   `pulumi:"datePartitionEnabled"`
+	DatePartitionSequence                pulumi.StringInput `pulumi:"datePartitionSequence"`
+	DictPageSizeLimit                    pulumi.IntInput    `pulumi:"dictPageSizeLimit"`
+	EnableStatistics                     pulumi.BoolInput   `pulumi:"enableStatistics"`
+	EncodingType                         pulumi.StringInput `pulumi:"encodingType"`
+	EncryptionMode                       pulumi.StringInput `pulumi:"encryptionMode"`
+	ExternalTableDefinition              pulumi.StringInput `pulumi:"externalTableDefinition"`
+	IgnoreHeaderRows                     pulumi.IntInput    `pulumi:"ignoreHeaderRows"`
+	IgnoreHeadersRow                     pulumi.IntInput    `pulumi:"ignoreHeadersRow"`
+	IncludeOpForFullLoad                 pulumi.BoolInput   `pulumi:"includeOpForFullLoad"`
+	MaxFileSize                          pulumi.IntInput    `pulumi:"maxFileSize"`
+	ParquetTimestampInMillisecond        pulumi.BoolInput   `pulumi:"parquetTimestampInMillisecond"`
+	ParquetVersion                       pulumi.StringInput `pulumi:"parquetVersion"`
+	PreserveTransactions                 pulumi.BoolInput   `pulumi:"preserveTransactions"`
+	Rfc4180                              pulumi.BoolInput   `pulumi:"rfc4180"`
+	RowGroupLength                       pulumi.IntInput    `pulumi:"rowGroupLength"`
+	ServerSideEncryptionKmsKeyId         pulumi.StringInput `pulumi:"serverSideEncryptionKmsKeyId"`
+	ServiceAccessRoleArn                 pulumi.StringInput `pulumi:"serviceAccessRoleArn"`
+	TimestampColumnName                  pulumi.StringInput `pulumi:"timestampColumnName"`
+	UseCsvNoSupValue                     pulumi.BoolInput   `pulumi:"useCsvNoSupValue"`
+	UseTaskStartTimeForFullLoadTimestamp pulumi.BoolInput   `pulumi:"useTaskStartTimeForFullLoadTimestamp"`
+}
+
+func (GetEndpointS3SettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointS3Setting)(nil)).Elem()
+}
+
+func (i GetEndpointS3SettingArgs) ToGetEndpointS3SettingOutput() GetEndpointS3SettingOutput {
+	return i.ToGetEndpointS3SettingOutputWithContext(context.Background())
+}
+
+func (i GetEndpointS3SettingArgs) ToGetEndpointS3SettingOutputWithContext(ctx context.Context) GetEndpointS3SettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointS3SettingOutput)
+}
+
+// GetEndpointS3SettingArrayInput is an input type that accepts GetEndpointS3SettingArray and GetEndpointS3SettingArrayOutput values.
+// You can construct a concrete instance of `GetEndpointS3SettingArrayInput` via:
+//
+//	GetEndpointS3SettingArray{ GetEndpointS3SettingArgs{...} }
+type GetEndpointS3SettingArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointS3SettingArrayOutput() GetEndpointS3SettingArrayOutput
+	ToGetEndpointS3SettingArrayOutputWithContext(context.Context) GetEndpointS3SettingArrayOutput
+}
+
+type GetEndpointS3SettingArray []GetEndpointS3SettingInput
+
+func (GetEndpointS3SettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointS3Setting)(nil)).Elem()
+}
+
+func (i GetEndpointS3SettingArray) ToGetEndpointS3SettingArrayOutput() GetEndpointS3SettingArrayOutput {
+	return i.ToGetEndpointS3SettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointS3SettingArray) ToGetEndpointS3SettingArrayOutputWithContext(ctx context.Context) GetEndpointS3SettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointS3SettingArrayOutput)
+}
+
+type GetEndpointS3SettingOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointS3SettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointS3Setting)(nil)).Elem()
+}
+
+func (o GetEndpointS3SettingOutput) ToGetEndpointS3SettingOutput() GetEndpointS3SettingOutput {
+	return o
+}
+
+func (o GetEndpointS3SettingOutput) ToGetEndpointS3SettingOutputWithContext(ctx context.Context) GetEndpointS3SettingOutput {
+	return o
+}
+
+func (o GetEndpointS3SettingOutput) AddColumnName() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.AddColumnName }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointS3SettingOutput) BucketFolder() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.BucketFolder }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) CannedAclForObjects() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CannedAclForObjects }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) CdcInsertsAndUpdates() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.CdcInsertsAndUpdates }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointS3SettingOutput) CdcInsertsOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.CdcInsertsOnly }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointS3SettingOutput) CdcMaxBatchInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.CdcMaxBatchInterval }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointS3SettingOutput) CdcMinFileSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.CdcMinFileSize }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointS3SettingOutput) CdcPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CdcPath }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) CompressionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CompressionType }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) CsvDelimiter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CsvDelimiter }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) CsvNoSupValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CsvNoSupValue }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) CsvNullValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CsvNullValue }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) CsvRowDelimiter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.CsvRowDelimiter }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) DataFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.DataFormat }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) DataPageSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.DataPageSize }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointS3SettingOutput) DatePartitionDelimiter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.DatePartitionDelimiter }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) DatePartitionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.DatePartitionEnabled }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointS3SettingOutput) DatePartitionSequence() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.DatePartitionSequence }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) DictPageSizeLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.DictPageSizeLimit }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointS3SettingOutput) EnableStatistics() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.EnableStatistics }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointS3SettingOutput) EncodingType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.EncodingType }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) EncryptionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.EncryptionMode }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) ExternalTableDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.ExternalTableDefinition }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) IgnoreHeaderRows() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.IgnoreHeaderRows }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointS3SettingOutput) IgnoreHeadersRow() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.IgnoreHeadersRow }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointS3SettingOutput) IncludeOpForFullLoad() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.IncludeOpForFullLoad }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointS3SettingOutput) MaxFileSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.MaxFileSize }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointS3SettingOutput) ParquetTimestampInMillisecond() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.ParquetTimestampInMillisecond }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointS3SettingOutput) ParquetVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.ParquetVersion }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) PreserveTransactions() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.PreserveTransactions }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointS3SettingOutput) Rfc4180() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.Rfc4180 }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointS3SettingOutput) RowGroupLength() pulumi.IntOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) int { return v.RowGroupLength }).(pulumi.IntOutput)
+}
+
+func (o GetEndpointS3SettingOutput) ServerSideEncryptionKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) ServiceAccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) TimestampColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) string { return v.TimestampColumnName }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointS3SettingOutput) UseCsvNoSupValue() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.UseCsvNoSupValue }).(pulumi.BoolOutput)
+}
+
+func (o GetEndpointS3SettingOutput) UseTaskStartTimeForFullLoadTimestamp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEndpointS3Setting) bool { return v.UseTaskStartTimeForFullLoadTimestamp }).(pulumi.BoolOutput)
+}
+
+type GetEndpointS3SettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointS3SettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointS3Setting)(nil)).Elem()
+}
+
+func (o GetEndpointS3SettingArrayOutput) ToGetEndpointS3SettingArrayOutput() GetEndpointS3SettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointS3SettingArrayOutput) ToGetEndpointS3SettingArrayOutputWithContext(ctx context.Context) GetEndpointS3SettingArrayOutput {
+	return o
+}
+
+func (o GetEndpointS3SettingArrayOutput) Index(i pulumi.IntInput) GetEndpointS3SettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointS3Setting {
+		return vs[0].([]GetEndpointS3Setting)[vs[1].(int)]
+	}).(GetEndpointS3SettingOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointElasticsearchSettingsInput)(nil)).Elem(), EndpointElasticsearchSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointElasticsearchSettingsPtrInput)(nil)).Elem(), EndpointElasticsearchSettingsArgs{})
@@ -2504,6 +3642,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedshiftSettingsPtrInput)(nil)).Elem(), EndpointRedshiftSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3SettingsInput)(nil)).Elem(), EndpointS3SettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3SettingsPtrInput)(nil)).Elem(), EndpointS3SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointElasticsearchSettingInput)(nil)).Elem(), GetEndpointElasticsearchSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointElasticsearchSettingArrayInput)(nil)).Elem(), GetEndpointElasticsearchSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointKafkaSettingInput)(nil)).Elem(), GetEndpointKafkaSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointKafkaSettingArrayInput)(nil)).Elem(), GetEndpointKafkaSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointKinesisSettingInput)(nil)).Elem(), GetEndpointKinesisSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointKinesisSettingArrayInput)(nil)).Elem(), GetEndpointKinesisSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointMongodbSettingInput)(nil)).Elem(), GetEndpointMongodbSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointMongodbSettingArrayInput)(nil)).Elem(), GetEndpointMongodbSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointRedisSettingInput)(nil)).Elem(), GetEndpointRedisSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointRedisSettingArrayInput)(nil)).Elem(), GetEndpointRedisSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointRedshiftSettingInput)(nil)).Elem(), GetEndpointRedshiftSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointRedshiftSettingArrayInput)(nil)).Elem(), GetEndpointRedshiftSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointS3SettingInput)(nil)).Elem(), GetEndpointS3SettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointS3SettingArrayInput)(nil)).Elem(), GetEndpointS3SettingArray{})
 	pulumi.RegisterOutputType(EndpointElasticsearchSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointElasticsearchSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointKafkaSettingsOutput{})
@@ -2518,4 +3670,18 @@ func init() {
 	pulumi.RegisterOutputType(EndpointRedshiftSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointS3SettingsOutput{})
 	pulumi.RegisterOutputType(EndpointS3SettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetEndpointElasticsearchSettingOutput{})
+	pulumi.RegisterOutputType(GetEndpointElasticsearchSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointKafkaSettingOutput{})
+	pulumi.RegisterOutputType(GetEndpointKafkaSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointKinesisSettingOutput{})
+	pulumi.RegisterOutputType(GetEndpointKinesisSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointMongodbSettingOutput{})
+	pulumi.RegisterOutputType(GetEndpointMongodbSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointRedisSettingOutput{})
+	pulumi.RegisterOutputType(GetEndpointRedisSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointRedshiftSettingOutput{})
+	pulumi.RegisterOutputType(GetEndpointRedshiftSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointS3SettingOutput{})
+	pulumi.RegisterOutputType(GetEndpointS3SettingArrayOutput{})
 }

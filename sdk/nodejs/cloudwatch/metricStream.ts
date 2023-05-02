@@ -189,6 +189,10 @@ export class MetricStream extends pulumi.CustomResource {
      */
     public readonly includeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamIncludeFilter[] | undefined>;
     /**
+     * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+     */
+    public readonly includeLinkedAccountsMetrics!: pulumi.Output<boolean | undefined>;
+    /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
      */
     public /*out*/ readonly lastUpdateDate!: pulumi.Output<string>;
@@ -243,6 +247,7 @@ export class MetricStream extends pulumi.CustomResource {
             resourceInputs["excludeFilters"] = state ? state.excludeFilters : undefined;
             resourceInputs["firehoseArn"] = state ? state.firehoseArn : undefined;
             resourceInputs["includeFilters"] = state ? state.includeFilters : undefined;
+            resourceInputs["includeLinkedAccountsMetrics"] = state ? state.includeLinkedAccountsMetrics : undefined;
             resourceInputs["lastUpdateDate"] = state ? state.lastUpdateDate : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
@@ -266,6 +271,7 @@ export class MetricStream extends pulumi.CustomResource {
             resourceInputs["excludeFilters"] = args ? args.excludeFilters : undefined;
             resourceInputs["firehoseArn"] = args ? args.firehoseArn : undefined;
             resourceInputs["includeFilters"] = args ? args.includeFilters : undefined;
+            resourceInputs["includeLinkedAccountsMetrics"] = args ? args.includeLinkedAccountsMetrics : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
@@ -307,6 +313,10 @@ export interface MetricStreamState {
      * List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
      */
     includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamIncludeFilter>[]>;
+    /**
+     * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+     */
+    includeLinkedAccountsMetrics?: pulumi.Input<boolean>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
      */
@@ -361,6 +371,10 @@ export interface MetricStreamArgs {
      * List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
      */
     includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamIncludeFilter>[]>;
+    /**
+     * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
+     */
+    includeLinkedAccountsMetrics?: pulumi.Input<boolean>;
     /**
      * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */

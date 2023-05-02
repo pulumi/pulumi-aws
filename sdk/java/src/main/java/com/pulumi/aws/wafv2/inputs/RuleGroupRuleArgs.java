@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleCaptchaConfigArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleRuleLabelArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleVisibilityConfigArgs;
@@ -34,6 +35,21 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<RuleGroupRuleActionArgs> action() {
         return this.action;
+    }
+
+    /**
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * 
+     */
+    @Import(name="captchaConfig")
+    private @Nullable Output<RuleGroupRuleCaptchaConfigArgs> captchaConfig;
+
+    /**
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleCaptchaConfigArgs>> captchaConfig() {
+        return Optional.ofNullable(this.captchaConfig);
     }
 
     /**
@@ -115,6 +131,7 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     private RuleGroupRuleArgs(RuleGroupRuleArgs $) {
         this.action = $.action;
+        this.captchaConfig = $.captchaConfig;
         this.name = $.name;
         this.priority = $.priority;
         this.ruleLabels = $.ruleLabels;
@@ -159,6 +176,27 @@ public final class RuleGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder action(RuleGroupRuleActionArgs action) {
             return action(Output.of(action));
+        }
+
+        /**
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder captchaConfig(@Nullable Output<RuleGroupRuleCaptchaConfigArgs> captchaConfig) {
+            $.captchaConfig = captchaConfig;
+            return this;
+        }
+
+        /**
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder captchaConfig(RuleGroupRuleCaptchaConfigArgs captchaConfig) {
+            return captchaConfig(Output.of(captchaConfig));
         }
 
         /**

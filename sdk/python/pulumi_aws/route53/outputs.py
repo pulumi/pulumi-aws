@@ -21,6 +21,7 @@ __all__ = [
     'ResolverEndpointIpAddress',
     'ResolverRuleTargetIp',
     'ZoneVpc',
+    'GetQueryLogConfigFilterResult',
     'GetResolverEndpointFilterResult',
     'GetResolverFirewallRulesFirewallRuleResult',
     'GetTrafficPolicyDocumentEndpointResult',
@@ -371,6 +372,31 @@ class ZoneVpc(dict):
         Region of the VPC to associate. Defaults to AWS provider region.
         """
         return pulumi.get(self, "vpc_region")
+
+
+@pulumi.output_type
+class GetQueryLogConfigFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the query logging configuration.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the query logging configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type

@@ -8,7 +8,7 @@ require (
 	github.com/hashicorp/terraform-provider-aws/shim v0.0.0
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.7.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.43.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.45.3
 	github.com/pulumi/pulumi/pkg/v3 v3.64.0
 	github.com/pulumi/pulumi/sdk/v3 v3.64.0
 )
@@ -64,7 +64,7 @@ require (
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/armon/go-metrics v0.4.0 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
-	github.com/aws/aws-sdk-go v1.44.242 // indirect
+	github.com/aws/aws-sdk-go v1.44.246 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.17.8 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.4.10 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.18.12 // indirect
@@ -78,7 +78,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/cleanrooms v1.1.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/cloudcontrol v1.11.9 // indirect
 	github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs v1.20.9 // indirect
-	github.com/aws/aws-sdk-go-v2/service/comprehend v1.23.2 // indirect
+	github.com/aws/aws-sdk-go-v2/service/comprehend v1.24.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/computeoptimizer v1.22.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/docdbelastic v1.1.8 // indirect
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.93.2 // indirect
@@ -94,13 +94,13 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ivschat v1.4.3 // indirect
 	github.com/aws/aws-sdk-go-v2/service/kendra v1.39.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/kms v1.18.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/lambda v1.31.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/lambda v1.33.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/medialive v1.31.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/oam v1.1.9 // indirect
 	github.com/aws/aws-sdk-go-v2/service/opensearchserverless v1.2.2 // indirect
 	github.com/aws/aws-sdk-go-v2/service/pipes v1.2.4 // indirect
 	github.com/aws/aws-sdk-go-v2/service/rbin v1.8.9 // indirect
-	github.com/aws/aws-sdk-go-v2/service/rds v1.42.3 // indirect
+	github.com/aws/aws-sdk-go-v2/service/rds v1.43.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/resourceexplorer2 v1.2.10 // indirect
 	github.com/aws/aws-sdk-go-v2/service/rolesanywhere v1.1.9 // indirect
 	github.com/aws/aws-sdk-go-v2/service/route53domains v1.14.8 // indirect

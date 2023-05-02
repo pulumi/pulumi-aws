@@ -73,8 +73,10 @@ type LookupNodeGroupResult struct {
 	// Set of instance types associated with the EKS Node Group.
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-	Labels        map[string]string `pulumi:"labels"`
-	NodeGroupName string            `pulumi:"nodeGroupName"`
+	Labels map[string]string `pulumi:"labels"`
+	// Nested attribute containing information about the launch template used to create the EKS Node Group.
+	LaunchTemplates []GetNodeGroupLaunchTemplate `pulumi:"launchTemplates"`
+	NodeGroupName   string                       `pulumi:"nodeGroupName"`
 	// ARN of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn string `pulumi:"nodeRoleArn"`
 	// AMI version of the EKS Node Group.
@@ -176,6 +178,11 @@ func (o LookupNodeGroupResultOutput) InstanceTypes() pulumi.StringArrayOutput {
 // Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 func (o LookupNodeGroupResultOutput) Labels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupNodeGroupResult) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+// Nested attribute containing information about the launch template used to create the EKS Node Group.
+func (o LookupNodeGroupResultOutput) LaunchTemplates() GetNodeGroupLaunchTemplateArrayOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) []GetNodeGroupLaunchTemplate { return v.LaunchTemplates }).(GetNodeGroupLaunchTemplateArrayOutput)
 }
 
 func (o LookupNodeGroupResultOutput) NodeGroupName() pulumi.StringOutput {

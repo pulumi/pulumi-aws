@@ -25,6 +25,11 @@ export const getDelegationSet: typeof import("./getDelegationSet").getDelegation
 export const getDelegationSetOutput: typeof import("./getDelegationSet").getDelegationSetOutput = null as any;
 utilities.lazyLoad(exports, ["getDelegationSet","getDelegationSetOutput"], () => require("./getDelegationSet"));
 
+export { GetQueryLogConfigArgs, GetQueryLogConfigResult, GetQueryLogConfigOutputArgs } from "./getQueryLogConfig";
+export const getQueryLogConfig: typeof import("./getQueryLogConfig").getQueryLogConfig = null as any;
+export const getQueryLogConfigOutput: typeof import("./getQueryLogConfig").getQueryLogConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getQueryLogConfig","getQueryLogConfigOutput"], () => require("./getQueryLogConfig"));
+
 export { GetResolverEndpointArgs, GetResolverEndpointResult, GetResolverEndpointOutputArgs } from "./getResolverEndpoint";
 export const getResolverEndpoint: typeof import("./getResolverEndpoint").getResolverEndpoint = null as any;
 export const getResolverEndpointOutput: typeof import("./getResolverEndpoint").getResolverEndpointOutput = null as any;

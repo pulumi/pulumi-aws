@@ -7,6 +7,7 @@ import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateDatabaseDefault
 import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateTableDefaultPermissionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -31,6 +32,36 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<List<String>>> admins() {
         return Optional.ofNullable(this.admins);
+    }
+
+    /**
+     * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+     * 
+     */
+    @Import(name="allowExternalDataFiltering")
+    private @Nullable Output<Boolean> allowExternalDataFiltering;
+
+    /**
+     * @return Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+     * 
+     */
+    public Optional<Output<Boolean>> allowExternalDataFiltering() {
+        return Optional.ofNullable(this.allowExternalDataFiltering);
+    }
+
+    /**
+     * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+     * 
+     */
+    @Import(name="authorizedSessionTagValueLists")
+    private @Nullable Output<List<String>> authorizedSessionTagValueLists;
+
+    /**
+     * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+     * 
+     */
+    public Optional<Output<List<String>>> authorizedSessionTagValueLists() {
+        return Optional.ofNullable(this.authorizedSessionTagValueLists);
     }
 
     /**
@@ -79,6 +110,21 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+     * 
+     */
+    @Import(name="externalDataFilteringAllowLists")
+    private @Nullable Output<List<String>> externalDataFilteringAllowLists;
+
+    /**
+     * @return A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+     * 
+     */
+    public Optional<Output<List<String>>> externalDataFilteringAllowLists() {
+        return Optional.ofNullable(this.externalDataFilteringAllowLists);
+    }
+
+    /**
      * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
      */
@@ -97,9 +143,12 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
 
     private DataLakeSettingsArgs(DataLakeSettingsArgs $) {
         this.admins = $.admins;
+        this.allowExternalDataFiltering = $.allowExternalDataFiltering;
+        this.authorizedSessionTagValueLists = $.authorizedSessionTagValueLists;
         this.catalogId = $.catalogId;
         this.createDatabaseDefaultPermissions = $.createDatabaseDefaultPermissions;
         this.createTableDefaultPermissions = $.createTableDefaultPermissions;
+        this.externalDataFilteringAllowLists = $.externalDataFilteringAllowLists;
         this.trustedResourceOwners = $.trustedResourceOwners;
     }
 
@@ -150,6 +199,58 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder admins(String... admins) {
             return admins(List.of(admins));
+        }
+
+        /**
+         * @param allowExternalDataFiltering Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowExternalDataFiltering(@Nullable Output<Boolean> allowExternalDataFiltering) {
+            $.allowExternalDataFiltering = allowExternalDataFiltering;
+            return this;
+        }
+
+        /**
+         * @param allowExternalDataFiltering Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowExternalDataFiltering(Boolean allowExternalDataFiltering) {
+            return allowExternalDataFiltering(Output.of(allowExternalDataFiltering));
+        }
+
+        /**
+         * @param authorizedSessionTagValueLists Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorizedSessionTagValueLists(@Nullable Output<List<String>> authorizedSessionTagValueLists) {
+            $.authorizedSessionTagValueLists = authorizedSessionTagValueLists;
+            return this;
+        }
+
+        /**
+         * @param authorizedSessionTagValueLists Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorizedSessionTagValueLists(List<String> authorizedSessionTagValueLists) {
+            return authorizedSessionTagValueLists(Output.of(authorizedSessionTagValueLists));
+        }
+
+        /**
+         * @param authorizedSessionTagValueLists Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authorizedSessionTagValueLists(String... authorizedSessionTagValueLists) {
+            return authorizedSessionTagValueLists(List.of(authorizedSessionTagValueLists));
         }
 
         /**
@@ -233,6 +334,37 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs... createTableDefaultPermissions) {
             return createTableDefaultPermissions(List.of(createTableDefaultPermissions));
+        }
+
+        /**
+         * @param externalDataFilteringAllowLists A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalDataFilteringAllowLists(@Nullable Output<List<String>> externalDataFilteringAllowLists) {
+            $.externalDataFilteringAllowLists = externalDataFilteringAllowLists;
+            return this;
+        }
+
+        /**
+         * @param externalDataFilteringAllowLists A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalDataFilteringAllowLists(List<String> externalDataFilteringAllowLists) {
+            return externalDataFilteringAllowLists(Output.of(externalDataFilteringAllowLists));
+        }
+
+        /**
+         * @param externalDataFilteringAllowLists A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalDataFilteringAllowLists(String... externalDataFilteringAllowLists) {
+            return externalDataFilteringAllowLists(List.of(externalDataFilteringAllowLists));
         }
 
         /**

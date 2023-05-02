@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Inspector assessment target
+// Provides an Inspector Classic Assessment Target
 //
 // ## Example Usage
 //
@@ -49,7 +49,7 @@ import (
 //
 // ## Import
 //
-// Inspector Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.,
+// Inspector Classic Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
 //

@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudfront;
 
 import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCorsConfigArgs;
 import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyCustomHeadersConfigArgs;
+import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyRemoveHeadersConfigArgs;
 import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicySecurityHeadersConfigArgs;
 import com.pulumi.aws.cloudfront.inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs;
 import com.pulumi.core.Output;
@@ -95,6 +96,21 @@ public final class ResponseHeadersPolicyArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+     * 
+     */
+    @Import(name="removeHeadersConfig")
+    private @Nullable Output<ResponseHeadersPolicyRemoveHeadersConfigArgs> removeHeadersConfig;
+
+    /**
+     * @return A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+     * 
+     */
+    public Optional<Output<ResponseHeadersPolicyRemoveHeadersConfigArgs>> removeHeadersConfig() {
+        return Optional.ofNullable(this.removeHeadersConfig);
+    }
+
+    /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      * 
      */
@@ -132,6 +148,7 @@ public final class ResponseHeadersPolicyArgs extends com.pulumi.resources.Resour
         this.customHeadersConfig = $.customHeadersConfig;
         this.etag = $.etag;
         this.name = $.name;
+        this.removeHeadersConfig = $.removeHeadersConfig;
         this.securityHeadersConfig = $.securityHeadersConfig;
         this.serverTimingHeadersConfig = $.serverTimingHeadersConfig;
     }
@@ -257,6 +274,27 @@ public final class ResponseHeadersPolicyArgs extends com.pulumi.resources.Resour
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param removeHeadersConfig A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder removeHeadersConfig(@Nullable Output<ResponseHeadersPolicyRemoveHeadersConfigArgs> removeHeadersConfig) {
+            $.removeHeadersConfig = removeHeadersConfig;
+            return this;
+        }
+
+        /**
+         * @param removeHeadersConfig A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder removeHeadersConfig(ResponseHeadersPolicyRemoveHeadersConfigArgs removeHeadersConfig) {
+            return removeHeadersConfig(Output.of(removeHeadersConfig));
         }
 
         /**

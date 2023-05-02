@@ -21,6 +21,7 @@ class ResponseHeadersPolicyArgs:
                  custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 remove_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']] = None,
                  security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
                  server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None):
         """
@@ -30,6 +31,7 @@ class ResponseHeadersPolicyArgs:
         :param pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs'] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         :param pulumi.Input[str] etag: The current version of the response headers policy.
         :param pulumi.Input[str] name: A unique name to identify the response headers policy.
+        :param pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs'] remove_headers_config: A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
         :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs'] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         :param pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs'] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
@@ -43,6 +45,8 @@ class ResponseHeadersPolicyArgs:
             pulumi.set(__self__, "etag", etag)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if remove_headers_config is not None:
+            pulumi.set(__self__, "remove_headers_config", remove_headers_config)
         if security_headers_config is not None:
             pulumi.set(__self__, "security_headers_config", security_headers_config)
         if server_timing_headers_config is not None:
@@ -107,6 +111,18 @@ class ResponseHeadersPolicyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="removeHeadersConfig")
+    def remove_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']]:
+        """
+        A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+        """
+        return pulumi.get(self, "remove_headers_config")
+
+    @remove_headers_config.setter
+    def remove_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']]):
+        pulumi.set(self, "remove_headers_config", value)
 
     @property
     @pulumi.getter(name="securityHeadersConfig")
@@ -141,6 +157,7 @@ class _ResponseHeadersPolicyState:
                  custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 remove_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']] = None,
                  security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
                  server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None):
         """
@@ -150,6 +167,7 @@ class _ResponseHeadersPolicyState:
         :param pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs'] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         :param pulumi.Input[str] etag: The current version of the response headers policy.
         :param pulumi.Input[str] name: A unique name to identify the response headers policy.
+        :param pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs'] remove_headers_config: A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
         :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs'] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         :param pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs'] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
@@ -163,6 +181,8 @@ class _ResponseHeadersPolicyState:
             pulumi.set(__self__, "etag", etag)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if remove_headers_config is not None:
+            pulumi.set(__self__, "remove_headers_config", remove_headers_config)
         if security_headers_config is not None:
             pulumi.set(__self__, "security_headers_config", security_headers_config)
         if server_timing_headers_config is not None:
@@ -227,6 +247,18 @@ class _ResponseHeadersPolicyState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="removeHeadersConfig")
+    def remove_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']]:
+        """
+        A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+        """
+        return pulumi.get(self, "remove_headers_config")
+
+    @remove_headers_config.setter
+    def remove_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']]):
+        pulumi.set(self, "remove_headers_config", value)
 
     @property
     @pulumi.getter(name="securityHeadersConfig")
@@ -263,6 +295,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                  custom_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyCustomHeadersConfigArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 remove_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyRemoveHeadersConfigArgs']]] = None,
                  security_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']]] = None,
                  server_timing_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]] = None,
                  __props__=None):
@@ -354,6 +387,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyCustomHeadersConfigArgs']] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         :param pulumi.Input[str] etag: The current version of the response headers policy.
         :param pulumi.Input[str] name: A unique name to identify the response headers policy.
+        :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyRemoveHeadersConfigArgs']] remove_headers_config: A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
@@ -464,6 +498,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                  custom_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyCustomHeadersConfigArgs']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 remove_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyRemoveHeadersConfigArgs']]] = None,
                  security_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']]] = None,
                  server_timing_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]] = None,
                  __props__=None):
@@ -480,6 +515,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             __props__.__dict__["custom_headers_config"] = custom_headers_config
             __props__.__dict__["etag"] = etag
             __props__.__dict__["name"] = name
+            __props__.__dict__["remove_headers_config"] = remove_headers_config
             __props__.__dict__["security_headers_config"] = security_headers_config
             __props__.__dict__["server_timing_headers_config"] = server_timing_headers_config
         super(ResponseHeadersPolicy, __self__).__init__(
@@ -497,6 +533,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             custom_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyCustomHeadersConfigArgs']]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            remove_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyRemoveHeadersConfigArgs']]] = None,
             security_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']]] = None,
             server_timing_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]] = None) -> 'ResponseHeadersPolicy':
         """
@@ -511,6 +548,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyCustomHeadersConfigArgs']] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         :param pulumi.Input[str] etag: The current version of the response headers policy.
         :param pulumi.Input[str] name: A unique name to identify the response headers policy.
+        :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyRemoveHeadersConfigArgs']] remove_headers_config: A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
@@ -523,6 +561,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         __props__.__dict__["custom_headers_config"] = custom_headers_config
         __props__.__dict__["etag"] = etag
         __props__.__dict__["name"] = name
+        __props__.__dict__["remove_headers_config"] = remove_headers_config
         __props__.__dict__["security_headers_config"] = security_headers_config
         __props__.__dict__["server_timing_headers_config"] = server_timing_headers_config
         return ResponseHeadersPolicy(resource_name, opts=opts, __props__=__props__)
@@ -566,6 +605,14 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         A unique name to identify the response headers policy.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="removeHeadersConfig")
+    def remove_headers_config(self) -> pulumi.Output[Optional['outputs.ResponseHeadersPolicyRemoveHeadersConfig']]:
+        """
+        A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+        """
+        return pulumi.get(self, "remove_headers_config")
 
     @property
     @pulumi.getter(name="securityHeadersConfig")

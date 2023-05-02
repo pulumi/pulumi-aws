@@ -25,6 +25,7 @@ class DataSourceArgs:
                  http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
                  lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 opensearchservice_config: Optional[pulumi.Input['DataSourceOpensearchserviceConfigArgs']] = None,
                  relational_database_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -38,6 +39,7 @@ class DataSourceArgs:
         :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See below
         :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See below
         :param pulumi.Input[str] name: User-supplied name for the data source.
+        :param pulumi.Input['DataSourceOpensearchserviceConfigArgs'] opensearchservice_config: Amazon OpenSearch Service settings. See below
         :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See Relational Database Config
         :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
         """
@@ -57,6 +59,8 @@ class DataSourceArgs:
             pulumi.set(__self__, "lambda_config", lambda_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if opensearchservice_config is not None:
+            pulumi.set(__self__, "opensearchservice_config", opensearchservice_config)
         if relational_database_config is not None:
             pulumi.set(__self__, "relational_database_config", relational_database_config)
         if service_role_arn is not None:
@@ -171,6 +175,18 @@ class DataSourceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="opensearchserviceConfig")
+    def opensearchservice_config(self) -> Optional[pulumi.Input['DataSourceOpensearchserviceConfigArgs']]:
+        """
+        Amazon OpenSearch Service settings. See below
+        """
+        return pulumi.get(self, "opensearchservice_config")
+
+    @opensearchservice_config.setter
+    def opensearchservice_config(self, value: Optional[pulumi.Input['DataSourceOpensearchserviceConfigArgs']]):
+        pulumi.set(self, "opensearchservice_config", value)
+
+    @property
     @pulumi.getter(name="relationalDatabaseConfig")
     def relational_database_config(self) -> Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']]:
         """
@@ -207,6 +223,7 @@ class _DataSourceState:
                  http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
                  lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 opensearchservice_config: Optional[pulumi.Input['DataSourceOpensearchserviceConfigArgs']] = None,
                  relational_database_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -221,6 +238,7 @@ class _DataSourceState:
         :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See below
         :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See below
         :param pulumi.Input[str] name: User-supplied name for the data source.
+        :param pulumi.Input['DataSourceOpensearchserviceConfigArgs'] opensearchservice_config: Amazon OpenSearch Service settings. See below
         :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See Relational Database Config
         :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
         :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
@@ -243,6 +261,8 @@ class _DataSourceState:
             pulumi.set(__self__, "lambda_config", lambda_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if opensearchservice_config is not None:
+            pulumi.set(__self__, "opensearchservice_config", opensearchservice_config)
         if relational_database_config is not None:
             pulumi.set(__self__, "relational_database_config", relational_database_config)
         if service_role_arn is not None:
@@ -359,6 +379,18 @@ class _DataSourceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="opensearchserviceConfig")
+    def opensearchservice_config(self) -> Optional[pulumi.Input['DataSourceOpensearchserviceConfigArgs']]:
+        """
+        Amazon OpenSearch Service settings. See below
+        """
+        return pulumi.get(self, "opensearchservice_config")
+
+    @opensearchservice_config.setter
+    def opensearchservice_config(self, value: Optional[pulumi.Input['DataSourceOpensearchserviceConfigArgs']]):
+        pulumi.set(self, "opensearchservice_config", value)
+
+    @property
     @pulumi.getter(name="relationalDatabaseConfig")
     def relational_database_config(self) -> Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']]:
         """
@@ -408,6 +440,7 @@ class DataSource(pulumi.CustomResource):
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
                  lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 opensearchservice_config: Optional[pulumi.Input[pulumi.InputType['DataSourceOpensearchserviceConfigArgs']]] = None,
                  relational_database_config: Optional[pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -475,6 +508,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']] http_config: HTTP settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']] lambda_config: AWS Lambda settings. See below
         :param pulumi.Input[str] name: User-supplied name for the data source.
+        :param pulumi.Input[pulumi.InputType['DataSourceOpensearchserviceConfigArgs']] opensearchservice_config: Amazon OpenSearch Service settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']] relational_database_config: AWS RDS settings. See Relational Database Config
         :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
         :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
@@ -561,6 +595,7 @@ class DataSource(pulumi.CustomResource):
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
                  lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 opensearchservice_config: Optional[pulumi.Input[pulumi.InputType['DataSourceOpensearchserviceConfigArgs']]] = None,
                  relational_database_config: Optional[pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -583,6 +618,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["http_config"] = http_config
             __props__.__dict__["lambda_config"] = lambda_config
             __props__.__dict__["name"] = name
+            __props__.__dict__["opensearchservice_config"] = opensearchservice_config
             __props__.__dict__["relational_database_config"] = relational_database_config
             __props__.__dict__["service_role_arn"] = service_role_arn
             if type is None and not opts.urn:
@@ -608,6 +644,7 @@ class DataSource(pulumi.CustomResource):
             http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
             lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            opensearchservice_config: Optional[pulumi.Input[pulumi.InputType['DataSourceOpensearchserviceConfigArgs']]] = None,
             relational_database_config: Optional[pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']]] = None,
             service_role_arn: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'DataSource':
@@ -627,6 +664,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']] http_config: HTTP settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']] lambda_config: AWS Lambda settings. See below
         :param pulumi.Input[str] name: User-supplied name for the data source.
+        :param pulumi.Input[pulumi.InputType['DataSourceOpensearchserviceConfigArgs']] opensearchservice_config: Amazon OpenSearch Service settings. See below
         :param pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']] relational_database_config: AWS RDS settings. See Relational Database Config
         :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
         :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
@@ -644,6 +682,7 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["http_config"] = http_config
         __props__.__dict__["lambda_config"] = lambda_config
         __props__.__dict__["name"] = name
+        __props__.__dict__["opensearchservice_config"] = opensearchservice_config
         __props__.__dict__["relational_database_config"] = relational_database_config
         __props__.__dict__["service_role_arn"] = service_role_arn
         __props__.__dict__["type"] = type
@@ -720,6 +759,14 @@ class DataSource(pulumi.CustomResource):
         User-supplied name for the data source.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="opensearchserviceConfig")
+    def opensearchservice_config(self) -> pulumi.Output[Optional['outputs.DataSourceOpensearchserviceConfig']]:
+        """
+        Amazon OpenSearch Service settings. See below
+        """
+        return pulumi.get(self, "opensearchservice_config")
 
     @property
     @pulumi.getter(name="relationalDatabaseConfig")

@@ -7,8 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS Inspector Rules Packages data source allows access to the list of AWS
-// Inspector Rules Packages which can be used by AWS Inspector within the region
+// The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
+// Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
 // configured in the provider.
 //
 // ## Example Usage
@@ -67,7 +67,7 @@ func GetRulesPackages(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRul
 
 // A collection of values returned by getRulesPackages.
 type GetRulesPackagesResult struct {
-	// List of the AWS Inspector Rules Packages arns available in the AWS region.
+	// List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`

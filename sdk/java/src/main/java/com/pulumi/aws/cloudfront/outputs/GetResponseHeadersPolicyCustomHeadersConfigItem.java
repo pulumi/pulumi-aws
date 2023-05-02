@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetResponseHeadersPolicyCustomHeadersConfigItem {
     /**
-     * @return HTTP response header name.
+     * @return The HTTP header name.
      * 
      */
     private String header;
@@ -28,7 +28,7 @@ public final class GetResponseHeadersPolicyCustomHeadersConfigItem {
 
     private GetResponseHeadersPolicyCustomHeadersConfigItem() {}
     /**
-     * @return HTTP response header name.
+     * @return The HTTP header name.
      * 
      */
     public String header() {

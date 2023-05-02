@@ -70,6 +70,8 @@ __all__ = [
     'ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs',
     'ResponseHeadersPolicyCustomHeadersConfigArgs',
     'ResponseHeadersPolicyCustomHeadersConfigItemArgs',
+    'ResponseHeadersPolicyRemoveHeadersConfigArgs',
+    'ResponseHeadersPolicyRemoveHeadersConfigItemArgs',
     'ResponseHeadersPolicySecurityHeadersConfigArgs',
     'ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs',
     'ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs',
@@ -3009,6 +3011,45 @@ class ResponseHeadersPolicyCustomHeadersConfigItemArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyRemoveHeadersConfigArgs:
+    def __init__(__self__, *,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigItemArgs']]]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigItemArgs']]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigItemArgs']]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyRemoveHeadersConfigItemArgs:
+    def __init__(__self__, *,
+                 header: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] header: The HTTP response header name.
+        """
+        pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> pulumi.Input[str]:
+        """
+        The HTTP response header name.
+        """
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header", value)
 
 
 @pulumi.input_type

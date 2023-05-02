@@ -5,6 +5,7 @@ package com.pulumi.aws.outposts.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -74,6 +75,21 @@ public final class GetOutpostPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.ownerId);
     }
 
+    /**
+     * The Outpost tags.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Map<String,String> tags;
+
+    /**
+     * @return The Outpost tags.
+     * 
+     */
+    public Optional<Map<String,String>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetOutpostPlainArgs() {}
 
     private GetOutpostPlainArgs(GetOutpostPlainArgs $) {
@@ -81,6 +97,7 @@ public final class GetOutpostPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.id = $.id;
         this.name = $.name;
         this.ownerId = $.ownerId;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -142,6 +159,17 @@ public final class GetOutpostPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder ownerId(@Nullable String ownerId) {
             $.ownerId = ownerId;
+            return this;
+        }
+
+        /**
+         * @param tags The Outpost tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Map<String,String> tags) {
+            $.tags = tags;
             return this;
         }
 

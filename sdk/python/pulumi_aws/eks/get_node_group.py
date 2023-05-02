@@ -22,7 +22,7 @@ class GetNodeGroupResult:
     """
     A collection of values returned by getNodeGroup.
     """
-    def __init__(__self__, ami_type=None, arn=None, capacity_type=None, cluster_name=None, disk_size=None, id=None, instance_types=None, labels=None, node_group_name=None, node_role_arn=None, release_version=None, remote_accesses=None, resources=None, scaling_configs=None, status=None, subnet_ids=None, tags=None, taints=None, version=None):
+    def __init__(__self__, ami_type=None, arn=None, capacity_type=None, cluster_name=None, disk_size=None, id=None, instance_types=None, labels=None, launch_templates=None, node_group_name=None, node_role_arn=None, release_version=None, remote_accesses=None, resources=None, scaling_configs=None, status=None, subnet_ids=None, tags=None, taints=None, version=None):
         if ami_type and not isinstance(ami_type, str):
             raise TypeError("Expected argument 'ami_type' to be a str")
         pulumi.set(__self__, "ami_type", ami_type)
@@ -47,6 +47,9 @@ class GetNodeGroupResult:
         if labels and not isinstance(labels, dict):
             raise TypeError("Expected argument 'labels' to be a dict")
         pulumi.set(__self__, "labels", labels)
+        if launch_templates and not isinstance(launch_templates, list):
+            raise TypeError("Expected argument 'launch_templates' to be a list")
+        pulumi.set(__self__, "launch_templates", launch_templates)
         if node_group_name and not isinstance(node_group_name, str):
             raise TypeError("Expected argument 'node_group_name' to be a str")
         pulumi.set(__self__, "node_group_name", node_group_name)
@@ -141,6 +144,14 @@ class GetNodeGroupResult:
         Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         """
         return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="launchTemplates")
+    def launch_templates(self) -> Sequence['outputs.GetNodeGroupLaunchTemplateResult']:
+        """
+        Nested attribute containing information about the launch template used to create the EKS Node Group.
+        """
+        return pulumi.get(self, "launch_templates")
 
     @property
     @pulumi.getter(name="nodeGroupName")
@@ -242,6 +253,7 @@ class AwaitableGetNodeGroupResult(GetNodeGroupResult):
             id=self.id,
             instance_types=self.instance_types,
             labels=self.labels,
+            launch_templates=self.launch_templates,
             node_group_name=self.node_group_name,
             node_role_arn=self.node_role_arn,
             release_version=self.release_version,
@@ -293,6 +305,7 @@ def get_node_group(cluster_name: Optional[str] = None,
         id=__ret__.id,
         instance_types=__ret__.instance_types,
         labels=__ret__.labels,
+        launch_templates=__ret__.launch_templates,
         node_group_name=__ret__.node_group_name,
         node_role_arn=__ret__.node_role_arn,
         release_version=__ret__.release_version,

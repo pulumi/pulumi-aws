@@ -713,6 +713,362 @@ func (o WorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) Index(i pulumi.
 	}).(WorkgroupEndpointVpcEndpointNetworkInterfaceOutput)
 }
 
+type GetWorkgroupEndpoint struct {
+	// The DNS address of the VPC endpoint.
+	Address string `pulumi:"address"`
+	// The port that Amazon Redshift Serverless listens on.
+	Port int `pulumi:"port"`
+	// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
+	VpcEndpoints []GetWorkgroupEndpointVpcEndpoint `pulumi:"vpcEndpoints"`
+}
+
+// GetWorkgroupEndpointInput is an input type that accepts GetWorkgroupEndpointArgs and GetWorkgroupEndpointOutput values.
+// You can construct a concrete instance of `GetWorkgroupEndpointInput` via:
+//
+//	GetWorkgroupEndpointArgs{...}
+type GetWorkgroupEndpointInput interface {
+	pulumi.Input
+
+	ToGetWorkgroupEndpointOutput() GetWorkgroupEndpointOutput
+	ToGetWorkgroupEndpointOutputWithContext(context.Context) GetWorkgroupEndpointOutput
+}
+
+type GetWorkgroupEndpointArgs struct {
+	// The DNS address of the VPC endpoint.
+	Address pulumi.StringInput `pulumi:"address"`
+	// The port that Amazon Redshift Serverless listens on.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
+	VpcEndpoints GetWorkgroupEndpointVpcEndpointArrayInput `pulumi:"vpcEndpoints"`
+}
+
+func (GetWorkgroupEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkgroupEndpoint)(nil)).Elem()
+}
+
+func (i GetWorkgroupEndpointArgs) ToGetWorkgroupEndpointOutput() GetWorkgroupEndpointOutput {
+	return i.ToGetWorkgroupEndpointOutputWithContext(context.Background())
+}
+
+func (i GetWorkgroupEndpointArgs) ToGetWorkgroupEndpointOutputWithContext(ctx context.Context) GetWorkgroupEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkgroupEndpointOutput)
+}
+
+// GetWorkgroupEndpointArrayInput is an input type that accepts GetWorkgroupEndpointArray and GetWorkgroupEndpointArrayOutput values.
+// You can construct a concrete instance of `GetWorkgroupEndpointArrayInput` via:
+//
+//	GetWorkgroupEndpointArray{ GetWorkgroupEndpointArgs{...} }
+type GetWorkgroupEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkgroupEndpointArrayOutput() GetWorkgroupEndpointArrayOutput
+	ToGetWorkgroupEndpointArrayOutputWithContext(context.Context) GetWorkgroupEndpointArrayOutput
+}
+
+type GetWorkgroupEndpointArray []GetWorkgroupEndpointInput
+
+func (GetWorkgroupEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkgroupEndpoint)(nil)).Elem()
+}
+
+func (i GetWorkgroupEndpointArray) ToGetWorkgroupEndpointArrayOutput() GetWorkgroupEndpointArrayOutput {
+	return i.ToGetWorkgroupEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkgroupEndpointArray) ToGetWorkgroupEndpointArrayOutputWithContext(ctx context.Context) GetWorkgroupEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkgroupEndpointArrayOutput)
+}
+
+type GetWorkgroupEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetWorkgroupEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkgroupEndpoint)(nil)).Elem()
+}
+
+func (o GetWorkgroupEndpointOutput) ToGetWorkgroupEndpointOutput() GetWorkgroupEndpointOutput {
+	return o
+}
+
+func (o GetWorkgroupEndpointOutput) ToGetWorkgroupEndpointOutputWithContext(ctx context.Context) GetWorkgroupEndpointOutput {
+	return o
+}
+
+// The DNS address of the VPC endpoint.
+func (o GetWorkgroupEndpointOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpoint) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// The port that Amazon Redshift Serverless listens on.
+func (o GetWorkgroupEndpointOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpoint) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
+func (o GetWorkgroupEndpointOutput) VpcEndpoints() GetWorkgroupEndpointVpcEndpointArrayOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpoint) []GetWorkgroupEndpointVpcEndpoint { return v.VpcEndpoints }).(GetWorkgroupEndpointVpcEndpointArrayOutput)
+}
+
+type GetWorkgroupEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkgroupEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkgroupEndpoint)(nil)).Elem()
+}
+
+func (o GetWorkgroupEndpointArrayOutput) ToGetWorkgroupEndpointArrayOutput() GetWorkgroupEndpointArrayOutput {
+	return o
+}
+
+func (o GetWorkgroupEndpointArrayOutput) ToGetWorkgroupEndpointArrayOutputWithContext(ctx context.Context) GetWorkgroupEndpointArrayOutput {
+	return o
+}
+
+func (o GetWorkgroupEndpointArrayOutput) Index(i pulumi.IntInput) GetWorkgroupEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkgroupEndpoint {
+		return vs[0].([]GetWorkgroupEndpoint)[vs[1].(int)]
+	}).(GetWorkgroupEndpointOutput)
+}
+
+type GetWorkgroupEndpointVpcEndpoint struct {
+	// The network interfaces of the endpoint.. See `Network Interface` below.
+	NetworkInterfaces []GetWorkgroupEndpointVpcEndpointNetworkInterface `pulumi:"networkInterfaces"`
+	// The DNS address of the VPC endpoint.
+	VpcEndpointId string `pulumi:"vpcEndpointId"`
+	// The port that Amazon Redshift Serverless listens on.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// GetWorkgroupEndpointVpcEndpointInput is an input type that accepts GetWorkgroupEndpointVpcEndpointArgs and GetWorkgroupEndpointVpcEndpointOutput values.
+// You can construct a concrete instance of `GetWorkgroupEndpointVpcEndpointInput` via:
+//
+//	GetWorkgroupEndpointVpcEndpointArgs{...}
+type GetWorkgroupEndpointVpcEndpointInput interface {
+	pulumi.Input
+
+	ToGetWorkgroupEndpointVpcEndpointOutput() GetWorkgroupEndpointVpcEndpointOutput
+	ToGetWorkgroupEndpointVpcEndpointOutputWithContext(context.Context) GetWorkgroupEndpointVpcEndpointOutput
+}
+
+type GetWorkgroupEndpointVpcEndpointArgs struct {
+	// The network interfaces of the endpoint.. See `Network Interface` below.
+	NetworkInterfaces GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
+	// The DNS address of the VPC endpoint.
+	VpcEndpointId pulumi.StringInput `pulumi:"vpcEndpointId"`
+	// The port that Amazon Redshift Serverless listens on.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (GetWorkgroupEndpointVpcEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkgroupEndpointVpcEndpoint)(nil)).Elem()
+}
+
+func (i GetWorkgroupEndpointVpcEndpointArgs) ToGetWorkgroupEndpointVpcEndpointOutput() GetWorkgroupEndpointVpcEndpointOutput {
+	return i.ToGetWorkgroupEndpointVpcEndpointOutputWithContext(context.Background())
+}
+
+func (i GetWorkgroupEndpointVpcEndpointArgs) ToGetWorkgroupEndpointVpcEndpointOutputWithContext(ctx context.Context) GetWorkgroupEndpointVpcEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkgroupEndpointVpcEndpointOutput)
+}
+
+// GetWorkgroupEndpointVpcEndpointArrayInput is an input type that accepts GetWorkgroupEndpointVpcEndpointArray and GetWorkgroupEndpointVpcEndpointArrayOutput values.
+// You can construct a concrete instance of `GetWorkgroupEndpointVpcEndpointArrayInput` via:
+//
+//	GetWorkgroupEndpointVpcEndpointArray{ GetWorkgroupEndpointVpcEndpointArgs{...} }
+type GetWorkgroupEndpointVpcEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkgroupEndpointVpcEndpointArrayOutput() GetWorkgroupEndpointVpcEndpointArrayOutput
+	ToGetWorkgroupEndpointVpcEndpointArrayOutputWithContext(context.Context) GetWorkgroupEndpointVpcEndpointArrayOutput
+}
+
+type GetWorkgroupEndpointVpcEndpointArray []GetWorkgroupEndpointVpcEndpointInput
+
+func (GetWorkgroupEndpointVpcEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkgroupEndpointVpcEndpoint)(nil)).Elem()
+}
+
+func (i GetWorkgroupEndpointVpcEndpointArray) ToGetWorkgroupEndpointVpcEndpointArrayOutput() GetWorkgroupEndpointVpcEndpointArrayOutput {
+	return i.ToGetWorkgroupEndpointVpcEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkgroupEndpointVpcEndpointArray) ToGetWorkgroupEndpointVpcEndpointArrayOutputWithContext(ctx context.Context) GetWorkgroupEndpointVpcEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkgroupEndpointVpcEndpointArrayOutput)
+}
+
+type GetWorkgroupEndpointVpcEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetWorkgroupEndpointVpcEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkgroupEndpointVpcEndpoint)(nil)).Elem()
+}
+
+func (o GetWorkgroupEndpointVpcEndpointOutput) ToGetWorkgroupEndpointVpcEndpointOutput() GetWorkgroupEndpointVpcEndpointOutput {
+	return o
+}
+
+func (o GetWorkgroupEndpointVpcEndpointOutput) ToGetWorkgroupEndpointVpcEndpointOutputWithContext(ctx context.Context) GetWorkgroupEndpointVpcEndpointOutput {
+	return o
+}
+
+// The network interfaces of the endpoint.. See `Network Interface` below.
+func (o GetWorkgroupEndpointVpcEndpointOutput) NetworkInterfaces() GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpoint) []GetWorkgroupEndpointVpcEndpointNetworkInterface {
+		return v.NetworkInterfaces
+	}).(GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput)
+}
+
+// The DNS address of the VPC endpoint.
+func (o GetWorkgroupEndpointVpcEndpointOutput) VpcEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpoint) string { return v.VpcEndpointId }).(pulumi.StringOutput)
+}
+
+// The port that Amazon Redshift Serverless listens on.
+func (o GetWorkgroupEndpointVpcEndpointOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpoint) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type GetWorkgroupEndpointVpcEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkgroupEndpointVpcEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkgroupEndpointVpcEndpoint)(nil)).Elem()
+}
+
+func (o GetWorkgroupEndpointVpcEndpointArrayOutput) ToGetWorkgroupEndpointVpcEndpointArrayOutput() GetWorkgroupEndpointVpcEndpointArrayOutput {
+	return o
+}
+
+func (o GetWorkgroupEndpointVpcEndpointArrayOutput) ToGetWorkgroupEndpointVpcEndpointArrayOutputWithContext(ctx context.Context) GetWorkgroupEndpointVpcEndpointArrayOutput {
+	return o
+}
+
+func (o GetWorkgroupEndpointVpcEndpointArrayOutput) Index(i pulumi.IntInput) GetWorkgroupEndpointVpcEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkgroupEndpointVpcEndpoint {
+		return vs[0].([]GetWorkgroupEndpointVpcEndpoint)[vs[1].(int)]
+	}).(GetWorkgroupEndpointVpcEndpointOutput)
+}
+
+type GetWorkgroupEndpointVpcEndpointNetworkInterface struct {
+	// The availability Zone.
+	AvailabilityZone string `pulumi:"availabilityZone"`
+	// The unique identifier of the network interface.
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	// The IPv4 address of the network interface within the subnet.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The unique identifier of the subnet.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetWorkgroupEndpointVpcEndpointNetworkInterfaceInput is an input type that accepts GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs and GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput values.
+// You can construct a concrete instance of `GetWorkgroupEndpointVpcEndpointNetworkInterfaceInput` via:
+//
+//	GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs{...}
+type GetWorkgroupEndpointVpcEndpointNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput() GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput
+	ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceOutputWithContext(context.Context) GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput
+}
+
+type GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs struct {
+	// The availability Zone.
+	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
+	// The unique identifier of the network interface.
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
+	// The IPv4 address of the network interface within the subnet.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// The unique identifier of the subnet.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkgroupEndpointVpcEndpointNetworkInterface)(nil)).Elem()
+}
+
+func (i GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs) ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput() GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput {
+	return i.ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs) ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceOutputWithContext(ctx context.Context) GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput)
+}
+
+// GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayInput is an input type that accepts GetWorkgroupEndpointVpcEndpointNetworkInterfaceArray and GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayInput` via:
+//
+//	GetWorkgroupEndpointVpcEndpointNetworkInterfaceArray{ GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs{...} }
+type GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput() GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput
+	ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutputWithContext(context.Context) GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput
+}
+
+type GetWorkgroupEndpointVpcEndpointNetworkInterfaceArray []GetWorkgroupEndpointVpcEndpointNetworkInterfaceInput
+
+func (GetWorkgroupEndpointVpcEndpointNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkgroupEndpointVpcEndpointNetworkInterface)(nil)).Elem()
+}
+
+func (i GetWorkgroupEndpointVpcEndpointNetworkInterfaceArray) ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput() GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput {
+	return i.ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkgroupEndpointVpcEndpointNetworkInterfaceArray) ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput)
+}
+
+type GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkgroupEndpointVpcEndpointNetworkInterface)(nil)).Elem()
+}
+
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput() GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput {
+	return o
+}
+
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceOutputWithContext(ctx context.Context) GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput {
+	return o
+}
+
+// The availability Zone.
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpointNetworkInterface) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the network interface.
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpointNetworkInterface) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+// The IPv4 address of the network interface within the subnet.
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpointNetworkInterface) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the subnet.
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkgroupEndpointVpcEndpointNetworkInterface) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkgroupEndpointVpcEndpointNetworkInterface)(nil)).Elem()
+}
+
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput() GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkgroupEndpointVpcEndpointNetworkInterface {
+		return vs[0].([]GetWorkgroupEndpointVpcEndpointNetworkInterface)[vs[1].(int)]
+	}).(GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcEndpointInput)(nil)).Elem(), EndpointAccessVpcEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcEndpointArrayInput)(nil)).Elem(), EndpointAccessVpcEndpointArray{})
@@ -726,6 +1082,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupEndpointVpcEndpointArrayInput)(nil)).Elem(), WorkgroupEndpointVpcEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupEndpointVpcEndpointNetworkInterfaceInput)(nil)).Elem(), WorkgroupEndpointVpcEndpointNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupEndpointVpcEndpointNetworkInterfaceArrayInput)(nil)).Elem(), WorkgroupEndpointVpcEndpointNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkgroupEndpointInput)(nil)).Elem(), GetWorkgroupEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkgroupEndpointArrayInput)(nil)).Elem(), GetWorkgroupEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkgroupEndpointVpcEndpointInput)(nil)).Elem(), GetWorkgroupEndpointVpcEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkgroupEndpointVpcEndpointArrayInput)(nil)).Elem(), GetWorkgroupEndpointVpcEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkgroupEndpointVpcEndpointNetworkInterfaceInput)(nil)).Elem(), GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayInput)(nil)).Elem(), GetWorkgroupEndpointVpcEndpointNetworkInterfaceArray{})
 	pulumi.RegisterOutputType(EndpointAccessVpcEndpointOutput{})
 	pulumi.RegisterOutputType(EndpointAccessVpcEndpointArrayOutput{})
 	pulumi.RegisterOutputType(EndpointAccessVpcEndpointNetworkInterfaceOutput{})
@@ -738,4 +1100,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkgroupEndpointVpcEndpointArrayOutput{})
 	pulumi.RegisterOutputType(WorkgroupEndpointVpcEndpointNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(WorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(GetWorkgroupEndpointOutput{})
+	pulumi.RegisterOutputType(GetWorkgroupEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetWorkgroupEndpointVpcEndpointOutput{})
+	pulumi.RegisterOutputType(GetWorkgroupEndpointVpcEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput{})
 }

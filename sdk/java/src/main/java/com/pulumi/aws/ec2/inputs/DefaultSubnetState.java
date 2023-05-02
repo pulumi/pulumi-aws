@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -92,6 +93,13 @@ public final class DefaultSubnetState extends com.pulumi.resources.ResourceArgs 
 
     public Optional<Output<Boolean>> enableDns64() {
         return Optional.ofNullable(this.enableDns64);
+    }
+
+    @Import(name="enableLniAtDeviceIndex")
+    private @Nullable Output<Integer> enableLniAtDeviceIndex;
+
+    public Optional<Output<Integer>> enableLniAtDeviceIndex() {
+        return Optional.ofNullable(this.enableLniAtDeviceIndex);
     }
 
     @Import(name="enableResourceNameDnsARecordOnLaunch")
@@ -225,6 +233,7 @@ public final class DefaultSubnetState extends com.pulumi.resources.ResourceArgs 
         this.cidrBlock = $.cidrBlock;
         this.customerOwnedIpv4Pool = $.customerOwnedIpv4Pool;
         this.enableDns64 = $.enableDns64;
+        this.enableLniAtDeviceIndex = $.enableLniAtDeviceIndex;
         this.enableResourceNameDnsARecordOnLaunch = $.enableResourceNameDnsARecordOnLaunch;
         this.enableResourceNameDnsAaaaRecordOnLaunch = $.enableResourceNameDnsAaaaRecordOnLaunch;
         this.existingDefaultSubnet = $.existingDefaultSubnet;
@@ -361,6 +370,15 @@ public final class DefaultSubnetState extends com.pulumi.resources.ResourceArgs 
 
         public Builder enableDns64(Boolean enableDns64) {
             return enableDns64(Output.of(enableDns64));
+        }
+
+        public Builder enableLniAtDeviceIndex(@Nullable Output<Integer> enableLniAtDeviceIndex) {
+            $.enableLniAtDeviceIndex = enableLniAtDeviceIndex;
+            return this;
+        }
+
+        public Builder enableLniAtDeviceIndex(Integer enableLniAtDeviceIndex) {
+            return enableLniAtDeviceIndex(Output.of(enableLniAtDeviceIndex));
         }
 
         public Builder enableResourceNameDnsARecordOnLaunch(@Nullable Output<Boolean> enableResourceNameDnsARecordOnLaunch) {

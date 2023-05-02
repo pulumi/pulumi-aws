@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.WebAclRuleAction;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleCaptchaConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleOverrideAction;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleRuleLabel;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
@@ -23,6 +24,11 @@ public final class WebAclRule {
      * 
      */
     private @Nullable WebAclRuleAction action;
+    /**
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * 
+     */
+    private @Nullable WebAclRuleCaptchaConfig captchaConfig;
     /**
      * @return Friendly name of the rule. **NOTE:** The provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
      * 
@@ -61,6 +67,13 @@ public final class WebAclRule {
      */
     public Optional<WebAclRuleAction> action() {
         return Optional.ofNullable(this.action);
+    }
+    /**
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * 
+     */
+    public Optional<WebAclRuleCaptchaConfig> captchaConfig() {
+        return Optional.ofNullable(this.captchaConfig);
     }
     /**
      * @return Friendly name of the rule. **NOTE:** The provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
@@ -115,6 +128,7 @@ public final class WebAclRule {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleAction action;
+        private @Nullable WebAclRuleCaptchaConfig captchaConfig;
         private String name;
         private @Nullable WebAclRuleOverrideAction overrideAction;
         private Integer priority;
@@ -125,6 +139,7 @@ public final class WebAclRule {
         public Builder(WebAclRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
+    	      this.captchaConfig = defaults.captchaConfig;
     	      this.name = defaults.name;
     	      this.overrideAction = defaults.overrideAction;
     	      this.priority = defaults.priority;
@@ -136,6 +151,11 @@ public final class WebAclRule {
         @CustomType.Setter
         public Builder action(@Nullable WebAclRuleAction action) {
             this.action = action;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder captchaConfig(@Nullable WebAclRuleCaptchaConfig captchaConfig) {
+            this.captchaConfig = captchaConfig;
             return this;
         }
         @CustomType.Setter
@@ -174,6 +194,7 @@ public final class WebAclRule {
         public WebAclRule build() {
             final var o = new WebAclRule();
             o.action = action;
+            o.captchaConfig = captchaConfig;
             o.name = name;
             o.overrideAction = overrideAction;
             o.priority = priority;

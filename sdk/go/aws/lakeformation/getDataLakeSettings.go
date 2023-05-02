@@ -55,12 +55,18 @@ type LookupDataLakeSettingsArgs struct {
 // A collection of values returned by getDataLakeSettings.
 type LookupDataLakeSettingsResult struct {
 	// List of ARNs of AWS Lake Formation principals (IAM users or roles).
-	Admins    []string `pulumi:"admins"`
-	CatalogId *string  `pulumi:"catalogId"`
+	Admins []string `pulumi:"admins"`
+	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+	AllowExternalDataFiltering bool `pulumi:"allowExternalDataFiltering"`
+	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+	AuthorizedSessionTagValueLists []string `pulumi:"authorizedSessionTagValueLists"`
+	CatalogId                      *string  `pulumi:"catalogId"`
 	// Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
 	CreateDatabaseDefaultPermissions []GetDataLakeSettingsCreateDatabaseDefaultPermission `pulumi:"createDatabaseDefaultPermissions"`
 	// Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
 	CreateTableDefaultPermissions []GetDataLakeSettingsCreateTableDefaultPermission `pulumi:"createTableDefaultPermissions"`
+	// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+	ExternalDataFilteringAllowLists []string `pulumi:"externalDataFilteringAllowLists"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
@@ -110,6 +116,16 @@ func (o LookupDataLakeSettingsResultOutput) Admins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) []string { return v.Admins }).(pulumi.StringArrayOutput)
 }
 
+// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+func (o LookupDataLakeSettingsResultOutput) AllowExternalDataFiltering() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) bool { return v.AllowExternalDataFiltering }).(pulumi.BoolOutput)
+}
+
+// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+func (o LookupDataLakeSettingsResultOutput) AuthorizedSessionTagValueLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) []string { return v.AuthorizedSessionTagValueLists }).(pulumi.StringArrayOutput)
+}
+
 func (o LookupDataLakeSettingsResultOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
@@ -126,6 +142,11 @@ func (o LookupDataLakeSettingsResultOutput) CreateTableDefaultPermissions() GetD
 	return o.ApplyT(func(v LookupDataLakeSettingsResult) []GetDataLakeSettingsCreateTableDefaultPermission {
 		return v.CreateTableDefaultPermissions
 	}).(GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput)
+}
+
+// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+func (o LookupDataLakeSettingsResultOutput) ExternalDataFilteringAllowLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDataLakeSettingsResult) []string { return v.ExternalDataFilteringAllowLists }).(pulumi.StringArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

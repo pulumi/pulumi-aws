@@ -78,6 +78,8 @@ type LookupTaskDefinitionResult struct {
 	Arn string `pulumi:"arn"`
 	// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
 	ArnWithoutRevision string `pulumi:"arnWithoutRevision"`
+	// ARN of the task execution role that the Amazon ECS container agent and the Docker.
+	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// Family of this task definition.
 	Family string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
@@ -139,6 +141,11 @@ func (o LookupTaskDefinitionResultOutput) Arn() pulumi.StringOutput {
 // ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
 func (o LookupTaskDefinitionResultOutput) ArnWithoutRevision() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.ArnWithoutRevision }).(pulumi.StringOutput)
+}
+
+// ARN of the task execution role that the Amazon ECS container agent and the Docker.
+func (o LookupTaskDefinitionResultOutput) ExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }
 
 // Family of this task definition.

@@ -143,6 +143,8 @@ type LookupSubnetResult struct {
 	DefaultForAz          bool   `pulumi:"defaultForAz"`
 	// Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
 	EnableDns64 bool `pulumi:"enableDns64"`
+	// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+	EnableLniAtDeviceIndex int `pulumi:"enableLniAtDeviceIndex"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
 	EnableResourceNameDnsARecordOnLaunch bool `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
@@ -264,6 +266,11 @@ func (o LookupSubnetResultOutput) DefaultForAz() pulumi.BoolOutput {
 // Whether DNS queries made to the Amazon-provided DNS Resolver in this subnet return synthetic IPv6 addresses for IPv4-only destinations.
 func (o LookupSubnetResultOutput) EnableDns64() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnableDns64 }).(pulumi.BoolOutput)
+}
+
+// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+func (o LookupSubnetResultOutput) EnableLniAtDeviceIndex() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupSubnetResult) int { return v.EnableLniAtDeviceIndex }).(pulumi.IntOutput)
 }
 
 // Indicates whether to respond to DNS queries for instance hostnames with DNS A records.

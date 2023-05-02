@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Individual routes can be imported using `ROUTETABLEID_DESTINATION`. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
+ * Individual routes can be imported using `ROUTETABLEID_DESTINATION`. [Local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) can be imported using the VPC&#39;s IPv4 or IPv6 CIDR blocks. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
  * 
  * ```sh
  *  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
@@ -208,14 +208,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.egressOnlyGatewayId);
     }
     /**
-     * Identifier of a VPC internet gateway or a virtual private gateway.
+     * Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
      * 
      */
     @Export(name="gatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gatewayId;
 
     /**
-     * @return Identifier of a VPC internet gateway or a virtual private gateway.
+     * @return Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
      * 
      */
     public Output<Optional<String>> gatewayId() {

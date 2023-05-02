@@ -782,6 +782,10 @@ class Branch(pulumi.CustomResource):
         amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy",
             arn=amplify_app_master_topic.arn,
             policy=amplify_app_master_policy_document.json)
+        this = aws.sns.TopicSubscription("this",
+            topic=amplify_app_master_topic.arn,
+            protocol="email",
+            endpoint="user@acme.com")
         ```
 
         ## Import
@@ -896,6 +900,10 @@ class Branch(pulumi.CustomResource):
         amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy",
             arn=amplify_app_master_topic.arn,
             policy=amplify_app_master_policy_document.json)
+        this = aws.sns.TopicSubscription("this",
+            topic=amplify_app_master_topic.arn,
+            protocol="email",
+            endpoint="user@acme.com")
         ```
 
         ## Import

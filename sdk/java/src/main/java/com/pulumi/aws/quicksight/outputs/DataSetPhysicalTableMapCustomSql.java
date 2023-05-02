@@ -23,7 +23,7 @@ public final class DataSetPhysicalTableMapCustomSql {
      */
     private String dataSourceArn;
     /**
-     * @return Display name for the dataset.
+     * @return Display name for the SQL query result.
      * 
      */
     private String name;
@@ -49,7 +49,7 @@ public final class DataSetPhysicalTableMapCustomSql {
         return this.dataSourceArn;
     }
     /**
-     * @return Display name for the dataset.
+     * @return Display name for the SQL query result.
      * 
      */
     public String name() {

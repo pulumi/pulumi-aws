@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.outputs;
 
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleAction;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleCaptchaConfig;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleRuleLabel;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatement;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleVisibilityConfig;
@@ -12,6 +13,7 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -21,6 +23,11 @@ public final class RuleGroupRule {
      * 
      */
     private RuleGroupRuleAction action;
+    /**
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleCaptchaConfig captchaConfig;
     /**
      * @return A friendly name of the rule.
      * 
@@ -54,6 +61,13 @@ public final class RuleGroupRule {
      */
     public RuleGroupRuleAction action() {
         return this.action;
+    }
+    /**
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleCaptchaConfig> captchaConfig() {
+        return Optional.ofNullable(this.captchaConfig);
     }
     /**
      * @return A friendly name of the rule.
@@ -101,6 +115,7 @@ public final class RuleGroupRule {
     @CustomType.Builder
     public static final class Builder {
         private RuleGroupRuleAction action;
+        private @Nullable RuleGroupRuleCaptchaConfig captchaConfig;
         private String name;
         private Integer priority;
         private @Nullable List<RuleGroupRuleRuleLabel> ruleLabels;
@@ -110,6 +125,7 @@ public final class RuleGroupRule {
         public Builder(RuleGroupRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
+    	      this.captchaConfig = defaults.captchaConfig;
     	      this.name = defaults.name;
     	      this.priority = defaults.priority;
     	      this.ruleLabels = defaults.ruleLabels;
@@ -120,6 +136,11 @@ public final class RuleGroupRule {
         @CustomType.Setter
         public Builder action(RuleGroupRuleAction action) {
             this.action = Objects.requireNonNull(action);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder captchaConfig(@Nullable RuleGroupRuleCaptchaConfig captchaConfig) {
+            this.captchaConfig = captchaConfig;
             return this;
         }
         @CustomType.Setter
@@ -153,6 +174,7 @@ public final class RuleGroupRule {
         public RuleGroupRule build() {
             final var o = new RuleGroupRule();
             o.action = action;
+            o.captchaConfig = captchaConfig;
             o.name = name;
             o.priority = priority;
             o.ruleLabels = ruleLabels;

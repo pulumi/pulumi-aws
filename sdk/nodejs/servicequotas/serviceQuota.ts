@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -89,6 +92,10 @@ export class ServiceQuota extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceName!: pulumi.Output<string>;
     /**
+     * Information about the measurement.
+     */
+    public /*out*/ readonly usageMetrics!: pulumi.Output<outputs.servicequotas.ServiceQuotaUsageMetric[]>;
+    /**
      * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
      */
     public readonly value!: pulumi.Output<number>;
@@ -115,6 +122,7 @@ export class ServiceQuota extends pulumi.CustomResource {
             resourceInputs["requestStatus"] = state ? state.requestStatus : undefined;
             resourceInputs["serviceCode"] = state ? state.serviceCode : undefined;
             resourceInputs["serviceName"] = state ? state.serviceName : undefined;
+            resourceInputs["usageMetrics"] = state ? state.usageMetrics : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as ServiceQuotaArgs | undefined;
@@ -137,6 +145,7 @@ export class ServiceQuota extends pulumi.CustomResource {
             resourceInputs["requestId"] = undefined /*out*/;
             resourceInputs["requestStatus"] = undefined /*out*/;
             resourceInputs["serviceName"] = undefined /*out*/;
+            resourceInputs["usageMetrics"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceQuota.__pulumiType, name, resourceInputs, opts);
@@ -177,6 +186,10 @@ export interface ServiceQuotaState {
      * Name of the service.
      */
     serviceName?: pulumi.Input<string>;
+    /**
+     * Information about the measurement.
+     */
+    usageMetrics?: pulumi.Input<pulumi.Input<inputs.servicequotas.ServiceQuotaUsageMetric>[]>;
     /**
      * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
      */

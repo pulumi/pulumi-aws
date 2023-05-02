@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventBusPolicy{}
 	case "aws:cloudwatch/eventConnection:EventConnection":
 		r = &EventConnection{}
+	case "aws:cloudwatch/eventEndpoint:EventEndpoint":
+		r = &EventEndpoint{}
 	case "aws:cloudwatch/eventPermission:EventPermission":
 		r = &EventPermission{}
 	case "aws:cloudwatch/eventRule:EventRule":
@@ -109,6 +111,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudwatch/eventConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/eventEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

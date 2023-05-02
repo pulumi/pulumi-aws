@@ -112,7 +112,7 @@ class GetServiceResult:
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> str:
         """
-        Family for the latest ACTIVE revision
+        Family for the latest ACTIVE revision or full ARN of the task definition.
         """
         return pulumi.get(self, "task_definition")
 

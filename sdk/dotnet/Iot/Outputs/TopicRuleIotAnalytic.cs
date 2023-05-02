@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Iot.Outputs
     public sealed class TopicRuleIotAnalytic
     {
         /// <summary>
+        /// The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+        /// </summary>
+        public readonly bool? BatchMode;
+        /// <summary>
         /// Name of AWS IOT Analytics channel.
         /// </summary>
         public readonly string ChannelName;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.Iot.Outputs
 
         [OutputConstructor]
         private TopicRuleIotAnalytic(
+            bool? batchMode,
+
             string channelName,
 
             string roleArn)
         {
+            BatchMode = batchMode;
             ChannelName = channelName;
             RoleArn = roleArn;
         }

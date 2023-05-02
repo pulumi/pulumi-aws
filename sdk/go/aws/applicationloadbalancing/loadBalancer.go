@@ -128,7 +128,7 @@ type LoadBalancer struct {
 	EnableXffClientPort pulumi.BoolPtrOutput `pulumi:"enableXffClientPort"`
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrOutput `pulumi:"idleTimeout"`
-	// If true, the LB will be internal.
+	// If true, the LB will be internal. Defaults to `false`.
 	Internal pulumi.BoolOutput `pulumi:"internal"`
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
 	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
@@ -218,7 +218,7 @@ type loadBalancerState struct {
 	EnableXffClientPort *bool `pulumi:"enableXffClientPort"`
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout *int `pulumi:"idleTimeout"`
-	// If true, the LB will be internal.
+	// If true, the LB will be internal. Defaults to `false`.
 	Internal *bool `pulumi:"internal"`
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
 	IpAddressType *string `pulumi:"ipAddressType"`
@@ -280,7 +280,7 @@ type LoadBalancerState struct {
 	EnableXffClientPort pulumi.BoolPtrInput
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrInput
-	// If true, the LB will be internal.
+	// If true, the LB will be internal. Defaults to `false`.
 	Internal pulumi.BoolPtrInput
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
 	IpAddressType pulumi.StringPtrInput
@@ -340,7 +340,7 @@ type loadBalancerArgs struct {
 	EnableXffClientPort *bool `pulumi:"enableXffClientPort"`
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout *int `pulumi:"idleTimeout"`
-	// If true, the LB will be internal.
+	// If true, the LB will be internal. Defaults to `false`.
 	Internal *bool `pulumi:"internal"`
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
 	IpAddressType *string `pulumi:"ipAddressType"`
@@ -394,7 +394,7 @@ type LoadBalancerArgs struct {
 	EnableXffClientPort pulumi.BoolPtrInput
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrInput
-	// If true, the LB will be internal.
+	// If true, the LB will be internal. Defaults to `false`.
 	Internal pulumi.BoolPtrInput
 	// The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
 	IpAddressType pulumi.StringPtrInput
@@ -581,7 +581,7 @@ func (o LoadBalancerOutput) IdleTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.IntPtrOutput { return v.IdleTimeout }).(pulumi.IntPtrOutput)
 }
 
-// If true, the LB will be internal.
+// If true, the LB will be internal. Defaults to `false`.
 func (o LoadBalancerOutput) Internal() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolOutput { return v.Internal }).(pulumi.BoolOutput)
 }

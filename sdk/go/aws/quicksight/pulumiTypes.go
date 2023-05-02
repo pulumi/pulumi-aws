@@ -3187,7 +3187,7 @@ type DataSetPhysicalTableMapCustomSql struct {
 	Columns []DataSetPhysicalTableMapCustomSqlColumn `pulumi:"columns"`
 	// ARN of the data source.
 	DataSourceArn string `pulumi:"dataSourceArn"`
-	// Display name for the dataset.
+	// Display name for the SQL query result.
 	Name string `pulumi:"name"`
 	// SQL query.
 	SqlQuery string `pulumi:"sqlQuery"`
@@ -3209,7 +3209,7 @@ type DataSetPhysicalTableMapCustomSqlArgs struct {
 	Columns DataSetPhysicalTableMapCustomSqlColumnArrayInput `pulumi:"columns"`
 	// ARN of the data source.
 	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
-	// Display name for the dataset.
+	// Display name for the SQL query result.
 	Name pulumi.StringInput `pulumi:"name"`
 	// SQL query.
 	SqlQuery pulumi.StringInput `pulumi:"sqlQuery"`
@@ -3302,7 +3302,7 @@ func (o DataSetPhysicalTableMapCustomSqlOutput) DataSourceArn() pulumi.StringOut
 	return o.ApplyT(func(v DataSetPhysicalTableMapCustomSql) string { return v.DataSourceArn }).(pulumi.StringOutput)
 }
 
-// Display name for the dataset.
+// Display name for the SQL query result.
 func (o DataSetPhysicalTableMapCustomSqlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetPhysicalTableMapCustomSql) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3356,7 +3356,7 @@ func (o DataSetPhysicalTableMapCustomSqlPtrOutput) DataSourceArn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Display name for the dataset.
+// Display name for the SQL query result.
 func (o DataSetPhysicalTableMapCustomSqlPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetPhysicalTableMapCustomSql) *string {
 		if v == nil {

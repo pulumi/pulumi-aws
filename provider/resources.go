@@ -1084,6 +1084,7 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_cloudwatch_event_bus":       {Tok: awsResource(cloudwatchMod, "EventBus")},
 			"aws_cloudwatch_composite_alarm": {Tok: awsResource(cloudwatchMod, "CompositeAlarm")},
 			"aws_cloudwatch_event_archive":   {Tok: awsResource(cloudwatchMod, "EventArchive")},
+			"aws_cloudwatch_event_endpoint":  {Tok: awsResource(cloudwatchMod, "EventEndpoint")},
 			"aws_cloudwatch_log_subscription_filter": {
 				Tok: awsResource(cloudwatchMod, "LogSubscriptionFilter"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -3817,6 +3818,8 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_vpclattice_service_network_service_association": {Tok: awsResource(vpclatticeMod, "ServiceNetworkServiceAssociation")},
 			"aws_vpclattice_service_network_vpc_association":     {Tok: awsResource(vpclatticeMod, "ServiceNetworkVpcAssociation")},
 			"aws_vpclattice_target_group":                        {Tok: awsResource(vpclatticeMod, "TargetGroup")},
+			"aws_vpclattice_listener":                            {Tok: awsResource(vpclatticeMod, "Listener")},
+			"aws_vpclattice_listener_rule":                       {Tok: awsResource(vpclatticeMod, "ListenerRule")},
 		},
 		ExtraTypes: map[string]schema.ComplexTypeSpec{
 			"aws:index/Region:Region": {
@@ -5770,7 +5773,8 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_acmpca_certificate_authority": {Tok: awsDataSource(acmpcaMod, "getCertificateAuthority")},
 			"aws_acmpca_certificate":           {Tok: awsDataSource(acmpcaMod, "getCertificate")},
 			// Amp
-			"aws_prometheus_workspace": {Tok: awsDataSource(ampMod, "getWorkspace")},
+			"aws_prometheus_workspace":  {Tok: awsDataSource(ampMod, "getWorkspace")},
+			"aws_prometheus_workspaces": {Tok: awsDataSource(ampMod, "getWorkspaces")},
 			// AppConfig
 			"aws_appconfig_configuration_profile":  {Tok: awsDataSource(appConfigMod, "getConfigurationProfile")},
 			"aws_appconfig_configuration_profiles": {Tok: awsDataSource(appConfigMod, "getConfigurationProfiles")},
@@ -5855,6 +5859,7 @@ func Provider() *tfbridge.ProviderInfo {
 
 			// Data Migration Service
 			"aws_dms_certificate": {Tok: awsDataSource(dmsMod, "getCertificate")},
+			"aws_dms_endpoint":    {Tok: awsDataSource(dmsMod, "getEndpoint")},
 
 			// DynamoDB
 			"aws_dynamodb_table": {
@@ -6061,7 +6066,8 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_emrcontainers_virtual_cluster": {Tok: awsDataSource(emrContainersMod, "getVirtualCluster")},
 
 			// Fsx
-			"aws_fsx_openzfs_snapshot": {Tok: awsDataSource(fsxMod, "getOpenZfsSnapshot")},
+			"aws_fsx_openzfs_snapshot":    {Tok: awsDataSource(fsxMod, "getOpenZfsSnapshot")},
+			"aws_fsx_windows_file_system": {Tok: awsDataSource(fsxMod, "getWindowsFileSystem")},
 
 			// Global Accelerator
 			"aws_globalaccelerator_accelerator": {Tok: awsDataSource(globalacceleratorMod, "getAccelerator")},
@@ -6146,6 +6152,7 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_iam_openid_connect_provider": {Tok: awsDataSource(iamMod, "getOpenidConnectProvider")},
 			"aws_iam_saml_provider":           {Tok: awsDataSource(iamMod, "getSamlProvider")},
 			"aws_iam_instance_profiles":       {Tok: awsDataSource(iamMod, "getInstanceProfiles")},
+			"aws_iam_access_keys":             {Tok: awsDataSource(iamMod, "getAccessKeys")},
 
 			// IdentityStore
 			"aws_identitystore_group": {Tok: awsDataSource(identityStoreMod, "getGroup")},
@@ -6217,6 +6224,7 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_redshift_cluster_credentials": {Tok: awsDataSource(redshiftMod, "getClusterCredentials")},
 			// RedShift Serverless
 			"aws_redshiftserverless_credentials": {Tok: awsDataSource(redshiftServerlessMod, "getCredentials")},
+			"aws_redshiftserverless_workgroup":   {Tok: awsDataSource(redshiftServerlessMod, "getWorkgroup")},
 			// Route53
 			"aws_route53_zone":                                     {Tok: awsDataSource(route53Mod, "getZone")},
 			"aws_route53_delegation_set":                           {Tok: awsDataSource(route53Mod, "getDelegationSet")},
@@ -6228,6 +6236,7 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_route53_resolver_rule":                            {Tok: awsDataSource(route53Mod, "getResolverRule")},
 			"aws_route53_resolver_rules":                           {Tok: awsDataSource(route53Mod, "getResolverRules")},
 			"aws_route53_resolver_endpoint":                        {Tok: awsDataSource(route53Mod, "getResolverEndpoint")},
+			"aws_route53_resolver_query_log_config":                {Tok: awsDataSource(route53Mod, "getQueryLogConfig")},
 			"aws_route53_traffic_policy_document":                  {Tok: awsDataSource(route53Mod, "getTrafficPolicyDocument")},
 			// S3
 			"aws_s3_bucket":                      {Tok: awsDataSource(s3Mod, "getBucket")},
@@ -6341,6 +6350,7 @@ func Provider() *tfbridge.ProviderInfo {
 			// networkfirewall
 			"aws_networkfirewall_firewall_policy": {Tok: awsDataSource(networkFirewallMod, "getFirewallPolicy")},
 			"aws_networkfirewall_firewall":        {Tok: awsDataSource(networkFirewallMod, "getFirewall")},
+			"aws_networkfirewall_resource_policy": {Tok: awsDataSource(networkFirewallMod, "getResourcePolicy")},
 			// networkmanager
 			"aws_networkmanager_connection":                   {Tok: awsDataSource(networkManagerMod, "getConnection")},
 			"aws_networkmanager_connections":                  {Tok: awsDataSource(networkManagerMod, "getConnections")},
@@ -6445,6 +6455,7 @@ func Provider() *tfbridge.ProviderInfo {
 
 			// SES v2
 			"aws_sesv2_dedicated_ip_pool": {Tok: awsDataSource(sesV2Mod, "getDedicatedIpPool")},
+			"aws_sesv2_configuration_set": {Tok: awsDataSource(sesV2Mod, "getConfigurationSet")},
 
 			// Control Tower
 			"aws_controltower_controls": {Tok: awsDataSource(controlTowerMod, "getControls")},
@@ -6458,7 +6469,8 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_quicksight_user":     {Tok: awsDataSource(quicksightMod, "getQuicksightUser")},
 
 			// VpcLattice
-			"aws_vpclattice_service": {Tok: awsDataSource(vpclatticeMod, "getService")},
+			"aws_vpclattice_service":  {Tok: awsDataSource(vpclatticeMod, "getService")},
+			"aws_vpclattice_listener": {Tok: awsDataSource(vpclatticeMod, "getListener")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

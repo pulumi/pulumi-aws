@@ -6,7 +6,10 @@ package com.pulumi.aws.redshiftserverless;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
 import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsPlainArgs;
+import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
+import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupPlainArgs;
 import com.pulumi.aws.redshiftserverless.outputs.GetCredentialsResult;
+import com.pulumi.aws.redshiftserverless.outputs.GetWorkgroupResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -161,5 +164,157 @@ public final class RedshiftserverlessFunctions {
      */
     public static CompletableFuture<GetCredentialsResult> getCredentialsPlain(GetCredentialsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshiftserverless/getCredentials:getCredentials", TypeShape.of(GetCredentialsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Redshift Serverless Workgroup.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
+     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetWorkgroupResult> getWorkgroup(GetWorkgroupArgs args) {
+        return getWorkgroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Redshift Serverless Workgroup.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
+     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetWorkgroupResult> getWorkgroupPlain(GetWorkgroupPlainArgs args) {
+        return getWorkgroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Redshift Serverless Workgroup.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
+     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetWorkgroupResult> getWorkgroup(GetWorkgroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:redshiftserverless/getWorkgroup:getWorkgroup", TypeShape.of(GetWorkgroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Redshift Serverless Workgroup.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftserverlessFunctions.getWorkgroup(GetWorkgroupArgs.builder()
+     *             .workgroupName(aws_redshiftserverless_workgroup.example().workgroup_name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetWorkgroupResult> getWorkgroupPlain(GetWorkgroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:redshiftserverless/getWorkgroup:getWorkgroup", TypeShape.of(GetWorkgroupResult.class), args, Utilities.withVersion(options));
     }
 }

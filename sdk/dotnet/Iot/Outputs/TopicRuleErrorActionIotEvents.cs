@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Iot.Outputs
     public sealed class TopicRuleErrorActionIotEvents
     {
         /// <summary>
+        /// The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+        /// </summary>
+        public readonly bool? BatchMode;
+        /// <summary>
         /// The name of the AWS IoT Events input.
         /// </summary>
         public readonly string InputName;
@@ -28,12 +32,15 @@ namespace Pulumi.Aws.Iot.Outputs
 
         [OutputConstructor]
         private TopicRuleErrorActionIotEvents(
+            bool? batchMode,
+
             string inputName,
 
             string? messageId,
 
             string roleArn)
         {
+            BatchMode = batchMode;
             InputName = inputName;
             MessageId = messageId;
             RoleArn = roleArn;

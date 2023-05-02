@@ -25,6 +25,11 @@ export const getFirewallPolicy: typeof import("./getFirewallPolicy").getFirewall
 export const getFirewallPolicyOutput: typeof import("./getFirewallPolicy").getFirewallPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getFirewallPolicy","getFirewallPolicyOutput"], () => require("./getFirewallPolicy"));
 
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+
 export { LoggingConfigurationArgs, LoggingConfigurationState } from "./loggingConfiguration";
 export type LoggingConfiguration = import("./loggingConfiguration").LoggingConfiguration;
 export const LoggingConfiguration: typeof import("./loggingConfiguration").LoggingConfiguration = null as any;

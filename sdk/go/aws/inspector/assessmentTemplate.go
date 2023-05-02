@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Inspector assessment template
+// Provides an Inspector Classic Assessment Template
 //
 // ## Example Usage
 //

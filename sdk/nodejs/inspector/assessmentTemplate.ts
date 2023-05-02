@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Inspector assessment template
+ * Provides an Inspector Classic Assessment Template
  *
  * ## Example Usage
  *

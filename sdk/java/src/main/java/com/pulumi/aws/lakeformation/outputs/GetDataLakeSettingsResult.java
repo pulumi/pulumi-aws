@@ -6,6 +6,7 @@ package com.pulumi.aws.lakeformation.outputs;
 import com.pulumi.aws.lakeformation.outputs.GetDataLakeSettingsCreateDatabaseDefaultPermission;
 import com.pulumi.aws.lakeformation.outputs.GetDataLakeSettingsCreateTableDefaultPermission;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +20,16 @@ public final class GetDataLakeSettingsResult {
      * 
      */
     private List<String> admins;
+    /**
+     * @return Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+     * 
+     */
+    private Boolean allowExternalDataFiltering;
+    /**
+     * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+     * 
+     */
+    private List<String> authorizedSessionTagValueLists;
     private @Nullable String catalogId;
     /**
      * @return Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
@@ -30,6 +41,11 @@ public final class GetDataLakeSettingsResult {
      * 
      */
     private List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions;
+    /**
+     * @return A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+     * 
+     */
+    private List<String> externalDataFilteringAllowLists;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -49,6 +65,20 @@ public final class GetDataLakeSettingsResult {
     public List<String> admins() {
         return this.admins;
     }
+    /**
+     * @return Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
+     * 
+     */
+    public Boolean allowExternalDataFiltering() {
+        return this.allowExternalDataFiltering;
+    }
+    /**
+     * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+     * 
+     */
+    public List<String> authorizedSessionTagValueLists() {
+        return this.authorizedSessionTagValueLists;
+    }
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
@@ -65,6 +95,13 @@ public final class GetDataLakeSettingsResult {
      */
     public List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions() {
         return this.createTableDefaultPermissions;
+    }
+    /**
+     * @return A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+     * 
+     */
+    public List<String> externalDataFilteringAllowLists() {
+        return this.externalDataFilteringAllowLists;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -91,18 +128,24 @@ public final class GetDataLakeSettingsResult {
     @CustomType.Builder
     public static final class Builder {
         private List<String> admins;
+        private Boolean allowExternalDataFiltering;
+        private List<String> authorizedSessionTagValueLists;
         private @Nullable String catalogId;
         private List<GetDataLakeSettingsCreateDatabaseDefaultPermission> createDatabaseDefaultPermissions;
         private List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions;
+        private List<String> externalDataFilteringAllowLists;
         private String id;
         private List<String> trustedResourceOwners;
         public Builder() {}
         public Builder(GetDataLakeSettingsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.admins = defaults.admins;
+    	      this.allowExternalDataFiltering = defaults.allowExternalDataFiltering;
+    	      this.authorizedSessionTagValueLists = defaults.authorizedSessionTagValueLists;
     	      this.catalogId = defaults.catalogId;
     	      this.createDatabaseDefaultPermissions = defaults.createDatabaseDefaultPermissions;
     	      this.createTableDefaultPermissions = defaults.createTableDefaultPermissions;
+    	      this.externalDataFilteringAllowLists = defaults.externalDataFilteringAllowLists;
     	      this.id = defaults.id;
     	      this.trustedResourceOwners = defaults.trustedResourceOwners;
         }
@@ -114,6 +157,19 @@ public final class GetDataLakeSettingsResult {
         }
         public Builder admins(String... admins) {
             return admins(List.of(admins));
+        }
+        @CustomType.Setter
+        public Builder allowExternalDataFiltering(Boolean allowExternalDataFiltering) {
+            this.allowExternalDataFiltering = Objects.requireNonNull(allowExternalDataFiltering);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder authorizedSessionTagValueLists(List<String> authorizedSessionTagValueLists) {
+            this.authorizedSessionTagValueLists = Objects.requireNonNull(authorizedSessionTagValueLists);
+            return this;
+        }
+        public Builder authorizedSessionTagValueLists(String... authorizedSessionTagValueLists) {
+            return authorizedSessionTagValueLists(List.of(authorizedSessionTagValueLists));
         }
         @CustomType.Setter
         public Builder catalogId(@Nullable String catalogId) {
@@ -137,6 +193,14 @@ public final class GetDataLakeSettingsResult {
             return createTableDefaultPermissions(List.of(createTableDefaultPermissions));
         }
         @CustomType.Setter
+        public Builder externalDataFilteringAllowLists(List<String> externalDataFilteringAllowLists) {
+            this.externalDataFilteringAllowLists = Objects.requireNonNull(externalDataFilteringAllowLists);
+            return this;
+        }
+        public Builder externalDataFilteringAllowLists(String... externalDataFilteringAllowLists) {
+            return externalDataFilteringAllowLists(List.of(externalDataFilteringAllowLists));
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
@@ -152,9 +216,12 @@ public final class GetDataLakeSettingsResult {
         public GetDataLakeSettingsResult build() {
             final var o = new GetDataLakeSettingsResult();
             o.admins = admins;
+            o.allowExternalDataFiltering = allowExternalDataFiltering;
+            o.authorizedSessionTagValueLists = authorizedSessionTagValueLists;
             o.catalogId = catalogId;
             o.createDatabaseDefaultPermissions = createDatabaseDefaultPermissions;
             o.createTableDefaultPermissions = createTableDefaultPermissions;
+            o.externalDataFilteringAllowLists = externalDataFilteringAllowLists;
             o.id = id;
             o.trustedResourceOwners = trustedResourceOwners;
             return o;

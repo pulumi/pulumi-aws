@@ -834,6 +834,181 @@ func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) DestinationArn() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type EventSourceMappingDocumentDbEventSourceConfig struct {
+	// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+	CollectionName *string `pulumi:"collectionName"`
+	// The name of the database to consume within the DocumentDB cluster.
+	DatabaseName string `pulumi:"databaseName"`
+	// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+	FullDocument *string `pulumi:"fullDocument"`
+}
+
+// EventSourceMappingDocumentDbEventSourceConfigInput is an input type that accepts EventSourceMappingDocumentDbEventSourceConfigArgs and EventSourceMappingDocumentDbEventSourceConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingDocumentDbEventSourceConfigInput` via:
+//
+//	EventSourceMappingDocumentDbEventSourceConfigArgs{...}
+type EventSourceMappingDocumentDbEventSourceConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingDocumentDbEventSourceConfigOutput() EventSourceMappingDocumentDbEventSourceConfigOutput
+	ToEventSourceMappingDocumentDbEventSourceConfigOutputWithContext(context.Context) EventSourceMappingDocumentDbEventSourceConfigOutput
+}
+
+type EventSourceMappingDocumentDbEventSourceConfigArgs struct {
+	// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+	CollectionName pulumi.StringPtrInput `pulumi:"collectionName"`
+	// The name of the database to consume within the DocumentDB cluster.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+	FullDocument pulumi.StringPtrInput `pulumi:"fullDocument"`
+}
+
+func (EventSourceMappingDocumentDbEventSourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingDocumentDbEventSourceConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingDocumentDbEventSourceConfigArgs) ToEventSourceMappingDocumentDbEventSourceConfigOutput() EventSourceMappingDocumentDbEventSourceConfigOutput {
+	return i.ToEventSourceMappingDocumentDbEventSourceConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingDocumentDbEventSourceConfigArgs) ToEventSourceMappingDocumentDbEventSourceConfigOutputWithContext(ctx context.Context) EventSourceMappingDocumentDbEventSourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDocumentDbEventSourceConfigOutput)
+}
+
+func (i EventSourceMappingDocumentDbEventSourceConfigArgs) ToEventSourceMappingDocumentDbEventSourceConfigPtrOutput() EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
+	return i.ToEventSourceMappingDocumentDbEventSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingDocumentDbEventSourceConfigArgs) ToEventSourceMappingDocumentDbEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDocumentDbEventSourceConfigOutput).ToEventSourceMappingDocumentDbEventSourceConfigPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingDocumentDbEventSourceConfigPtrInput is an input type that accepts EventSourceMappingDocumentDbEventSourceConfigArgs, EventSourceMappingDocumentDbEventSourceConfigPtr and EventSourceMappingDocumentDbEventSourceConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingDocumentDbEventSourceConfigPtrInput` via:
+//
+//	        EventSourceMappingDocumentDbEventSourceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceMappingDocumentDbEventSourceConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingDocumentDbEventSourceConfigPtrOutput() EventSourceMappingDocumentDbEventSourceConfigPtrOutput
+	ToEventSourceMappingDocumentDbEventSourceConfigPtrOutputWithContext(context.Context) EventSourceMappingDocumentDbEventSourceConfigPtrOutput
+}
+
+type eventSourceMappingDocumentDbEventSourceConfigPtrType EventSourceMappingDocumentDbEventSourceConfigArgs
+
+func EventSourceMappingDocumentDbEventSourceConfigPtr(v *EventSourceMappingDocumentDbEventSourceConfigArgs) EventSourceMappingDocumentDbEventSourceConfigPtrInput {
+	return (*eventSourceMappingDocumentDbEventSourceConfigPtrType)(v)
+}
+
+func (*eventSourceMappingDocumentDbEventSourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingDocumentDbEventSourceConfig)(nil)).Elem()
+}
+
+func (i *eventSourceMappingDocumentDbEventSourceConfigPtrType) ToEventSourceMappingDocumentDbEventSourceConfigPtrOutput() EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
+	return i.ToEventSourceMappingDocumentDbEventSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingDocumentDbEventSourceConfigPtrType) ToEventSourceMappingDocumentDbEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDocumentDbEventSourceConfigPtrOutput)
+}
+
+type EventSourceMappingDocumentDbEventSourceConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingDocumentDbEventSourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingDocumentDbEventSourceConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingDocumentDbEventSourceConfigOutput) ToEventSourceMappingDocumentDbEventSourceConfigOutput() EventSourceMappingDocumentDbEventSourceConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingDocumentDbEventSourceConfigOutput) ToEventSourceMappingDocumentDbEventSourceConfigOutputWithContext(ctx context.Context) EventSourceMappingDocumentDbEventSourceConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingDocumentDbEventSourceConfigOutput) ToEventSourceMappingDocumentDbEventSourceConfigPtrOutput() EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
+	return o.ToEventSourceMappingDocumentDbEventSourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingDocumentDbEventSourceConfigOutput) ToEventSourceMappingDocumentDbEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingDocumentDbEventSourceConfig) *EventSourceMappingDocumentDbEventSourceConfig {
+		return &v
+	}).(EventSourceMappingDocumentDbEventSourceConfigPtrOutput)
+}
+
+// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+func (o EventSourceMappingDocumentDbEventSourceConfigOutput) CollectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingDocumentDbEventSourceConfig) *string { return v.CollectionName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database to consume within the DocumentDB cluster.
+func (o EventSourceMappingDocumentDbEventSourceConfigOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSourceMappingDocumentDbEventSourceConfig) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+func (o EventSourceMappingDocumentDbEventSourceConfigOutput) FullDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingDocumentDbEventSourceConfig) *string { return v.FullDocument }).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingDocumentDbEventSourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingDocumentDbEventSourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingDocumentDbEventSourceConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) ToEventSourceMappingDocumentDbEventSourceConfigPtrOutput() EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) ToEventSourceMappingDocumentDbEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) Elem() EventSourceMappingDocumentDbEventSourceConfigOutput {
+	return o.ApplyT(func(v *EventSourceMappingDocumentDbEventSourceConfig) EventSourceMappingDocumentDbEventSourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingDocumentDbEventSourceConfig
+		return ret
+	}).(EventSourceMappingDocumentDbEventSourceConfigOutput)
+}
+
+// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) CollectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingDocumentDbEventSourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CollectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the database to consume within the DocumentDB cluster.
+func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingDocumentDbEventSourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) FullDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingDocumentDbEventSourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FullDocument
+	}).(pulumi.StringPtrOutput)
+}
+
 type EventSourceMappingFilterCriteria struct {
 	// A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
 	Filters []EventSourceMappingFilterCriteriaFilter `pulumi:"filters"`
@@ -4189,6 +4364,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDestinationConfigPtrInput)(nil)).Elem(), EventSourceMappingDestinationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDestinationConfigOnFailureInput)(nil)).Elem(), EventSourceMappingDestinationConfigOnFailureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDestinationConfigOnFailurePtrInput)(nil)).Elem(), EventSourceMappingDestinationConfigOnFailureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDocumentDbEventSourceConfigInput)(nil)).Elem(), EventSourceMappingDocumentDbEventSourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDocumentDbEventSourceConfigPtrInput)(nil)).Elem(), EventSourceMappingDocumentDbEventSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaInput)(nil)).Elem(), EventSourceMappingFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaPtrInput)(nil)).Elem(), EventSourceMappingFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaFilterInput)(nil)).Elem(), EventSourceMappingFilterCriteriaFilterArgs{})
@@ -4251,6 +4428,8 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOnFailureOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOnFailurePtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingDocumentDbEventSourceConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingDocumentDbEventSourceConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaFilterOutput{})

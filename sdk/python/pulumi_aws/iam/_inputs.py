@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'RoleInlinePolicyArgs',
+    'RoleRoleLastUsedArgs',
     'GetPolicyDocumentStatementArgs',
     'GetPolicyDocumentStatementConditionArgs',
     'GetPolicyDocumentStatementNotPrincipalArgs',
@@ -55,6 +56,41 @@ class RoleInlinePolicyArgs:
     @policy.setter
     def policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy", value)
+
+
+@pulumi.input_type
+class RoleRoleLastUsedArgs:
+    def __init__(__self__, *,
+                 last_used_date: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] region: The name of the AWS Region in which the role was last used.
+        """
+        if last_used_date is not None:
+            pulumi.set(__self__, "last_used_date", last_used_date)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="lastUsedDate")
+    def last_used_date(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "last_used_date")
+
+    @last_used_date.setter
+    def last_used_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_used_date", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the AWS Region in which the role was last used.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type

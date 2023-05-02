@@ -157,6 +157,13 @@ namespace Pulumi.Aws.Amplify
     ///         Policy = amplifyAppMasterPolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
+    ///     var @this = new Aws.Sns.TopicSubscription("this", new()
+    ///     {
+    ///         Topic = amplifyAppMasterTopic.Arn,
+    ///         Protocol = "email",
+    ///         Endpoint = "user@acme.com",
+    ///     });
+    /// 
     /// });
     /// ```
     /// 

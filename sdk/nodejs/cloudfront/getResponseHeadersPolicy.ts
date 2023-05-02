@@ -71,7 +71,7 @@ export interface GetResponseHeadersPolicyResult {
      */
     readonly corsConfigs: outputs.cloudfront.GetResponseHeadersPolicyCorsConfig[];
     /**
-     * Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+     * Object that contains an attribute `items` that contains a list of Custom Headers. See Custom Header for more information.
      */
     readonly customHeadersConfigs: outputs.cloudfront.GetResponseHeadersPolicyCustomHeadersConfig[];
     /**
@@ -80,6 +80,10 @@ export interface GetResponseHeadersPolicyResult {
     readonly etag: string;
     readonly id: string;
     readonly name: string;
+    /**
+     * Object that contains an attribute `items` that contains a list of Remove Headers. See Remove Header for more information.
+     */
+    readonly removeHeadersConfigs: outputs.cloudfront.GetResponseHeadersPolicyRemoveHeadersConfig[];
     /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */

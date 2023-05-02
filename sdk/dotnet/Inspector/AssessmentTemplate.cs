@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inspector
 {
     /// <summary>
-    /// Provides a Inspector assessment template
+    /// Provides an Inspector Classic Assessment Template
     /// 
     /// ## Example Usage
     /// 

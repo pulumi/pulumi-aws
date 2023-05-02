@@ -9,6 +9,7 @@ from ._enums import *
 from .access_key import *
 from .account_alias import *
 from .account_password_policy import *
+from .get_access_keys import *
 from .get_account_alias import *
 from .get_group import *
 from .get_instance_profile import *

@@ -95,6 +95,18 @@ namespace Pulumi.Aws.Outposts
         [Input("ownerId")]
         public string? OwnerId { get; set; }
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// The Outpost tags.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetOutpostArgs()
         {
         }
@@ -127,6 +139,18 @@ namespace Pulumi.Aws.Outposts
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The Outpost tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public GetOutpostInvokeArgs()
         {
         }
@@ -147,16 +171,32 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public readonly string AvailabilityZoneId;
         /// <summary>
-        /// Description.
+        /// The description of the Outpost.
         /// </summary>
         public readonly string Description;
         public readonly string Id;
-        public readonly string Name;
-        public readonly string OwnerId;
         /// <summary>
-        /// Site identifier.
+        /// The life cycle status.
+        /// </summary>
+        public readonly string LifecycleStatus;
+        public readonly string Name;
+        public readonly string? OwnerId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the site.
+        /// </summary>
+        public readonly string SiteArn;
+        /// <summary>
+        /// The ID of the site.
         /// </summary>
         public readonly string SiteId;
+        /// <summary>
+        /// The hardware type.
+        /// </summary>
+        public readonly string SupportedHardwareType;
+        /// <summary>
+        /// The Outpost tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetOutpostResult(
@@ -170,20 +210,32 @@ namespace Pulumi.Aws.Outposts
 
             string id,
 
+            string lifecycleStatus,
+
             string name,
 
-            string ownerId,
+            string? ownerId,
 
-            string siteId)
+            string siteArn,
+
+            string siteId,
+
+            string supportedHardwareType,
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             AvailabilityZone = availabilityZone;
             AvailabilityZoneId = availabilityZoneId;
             Description = description;
             Id = id;
+            LifecycleStatus = lifecycleStatus;
             Name = name;
             OwnerId = ownerId;
+            SiteArn = siteArn;
             SiteId = siteId;
+            SupportedHardwareType = supportedHardwareType;
+            Tags = tags;
         }
     }
 }

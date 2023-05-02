@@ -6,7 +6,10 @@ package com.pulumi.aws.fsx;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.fsx.inputs.GetOpenZfsSnapshotArgs;
 import com.pulumi.aws.fsx.inputs.GetOpenZfsSnapshotPlainArgs;
+import com.pulumi.aws.fsx.inputs.GetWindowsFileSystemArgs;
+import com.pulumi.aws.fsx.inputs.GetWindowsFileSystemPlainArgs;
 import com.pulumi.aws.fsx.outputs.GetOpenZfsSnapshotResult;
+import com.pulumi.aws.fsx.outputs.GetWindowsFileSystemResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -265,5 +268,157 @@ public final class FsxFunctions {
      */
     public static CompletableFuture<GetOpenZfsSnapshotResult> getOpenZfsSnapshotPlain(GetOpenZfsSnapshotPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", TypeShape.of(GetOpenZfsSnapshotResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information on FSx Windows File System.
+     * 
+     * ## Example Usage
+     * ### Root volume Example
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.fsx.FsxFunctions;
+     * import com.pulumi.aws.fsx.inputs.GetWindowsFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = FsxFunctions.getWindowsFileSystem(GetWindowsFileSystemArgs.builder()
+     *             .id(&#34;fs-12345678&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetWindowsFileSystemResult> getWindowsFileSystem(GetWindowsFileSystemArgs args) {
+        return getWindowsFileSystem(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information on FSx Windows File System.
+     * 
+     * ## Example Usage
+     * ### Root volume Example
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.fsx.FsxFunctions;
+     * import com.pulumi.aws.fsx.inputs.GetWindowsFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = FsxFunctions.getWindowsFileSystem(GetWindowsFileSystemArgs.builder()
+     *             .id(&#34;fs-12345678&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetWindowsFileSystemResult> getWindowsFileSystemPlain(GetWindowsFileSystemPlainArgs args) {
+        return getWindowsFileSystemPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information on FSx Windows File System.
+     * 
+     * ## Example Usage
+     * ### Root volume Example
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.fsx.FsxFunctions;
+     * import com.pulumi.aws.fsx.inputs.GetWindowsFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = FsxFunctions.getWindowsFileSystem(GetWindowsFileSystemArgs.builder()
+     *             .id(&#34;fs-12345678&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetWindowsFileSystemResult> getWindowsFileSystem(GetWindowsFileSystemArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", TypeShape.of(GetWindowsFileSystemResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information on FSx Windows File System.
+     * 
+     * ## Example Usage
+     * ### Root volume Example
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.fsx.FsxFunctions;
+     * import com.pulumi.aws.fsx.inputs.GetWindowsFileSystemArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = FsxFunctions.getWindowsFileSystem(GetWindowsFileSystemArgs.builder()
+     *             .id(&#34;fs-12345678&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetWindowsFileSystemResult> getWindowsFileSystemPlain(GetWindowsFileSystemPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", TypeShape.of(GetWindowsFileSystemResult.class), args, Utilities.withVersion(options));
     }
 }

@@ -45,6 +45,11 @@ public final class GetSubnetResult {
      */
     private Boolean enableDns64;
     /**
+     * @return Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+     * 
+     */
+    private Integer enableLniAtDeviceIndex;
+    /**
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
      * 
      */
@@ -143,6 +148,13 @@ public final class GetSubnetResult {
      */
     public Boolean enableDns64() {
         return this.enableDns64;
+    }
+    /**
+     * @return Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+     * 
+     */
+    public Integer enableLniAtDeviceIndex() {
+        return this.enableLniAtDeviceIndex;
     }
     /**
      * @return Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
@@ -244,6 +256,7 @@ public final class GetSubnetResult {
         private String customerOwnedIpv4Pool;
         private Boolean defaultForAz;
         private Boolean enableDns64;
+        private Integer enableLniAtDeviceIndex;
         private Boolean enableResourceNameDnsARecordOnLaunch;
         private Boolean enableResourceNameDnsAaaaRecordOnLaunch;
         private @Nullable List<GetSubnetFilter> filters;
@@ -271,6 +284,7 @@ public final class GetSubnetResult {
     	      this.customerOwnedIpv4Pool = defaults.customerOwnedIpv4Pool;
     	      this.defaultForAz = defaults.defaultForAz;
     	      this.enableDns64 = defaults.enableDns64;
+    	      this.enableLniAtDeviceIndex = defaults.enableLniAtDeviceIndex;
     	      this.enableResourceNameDnsARecordOnLaunch = defaults.enableResourceNameDnsARecordOnLaunch;
     	      this.enableResourceNameDnsAaaaRecordOnLaunch = defaults.enableResourceNameDnsAaaaRecordOnLaunch;
     	      this.filters = defaults.filters;
@@ -331,6 +345,11 @@ public final class GetSubnetResult {
         @CustomType.Setter
         public Builder enableDns64(Boolean enableDns64) {
             this.enableDns64 = Objects.requireNonNull(enableDns64);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableLniAtDeviceIndex(Integer enableLniAtDeviceIndex) {
+            this.enableLniAtDeviceIndex = Objects.requireNonNull(enableLniAtDeviceIndex);
             return this;
         }
         @CustomType.Setter
@@ -422,6 +441,7 @@ public final class GetSubnetResult {
             o.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
             o.defaultForAz = defaultForAz;
             o.enableDns64 = enableDns64;
+            o.enableLniAtDeviceIndex = enableLniAtDeviceIndex;
             o.enableResourceNameDnsARecordOnLaunch = enableResourceNameDnsARecordOnLaunch;
             o.enableResourceNameDnsAaaaRecordOnLaunch = enableResourceNameDnsAaaaRecordOnLaunch;
             o.filters = filters;

@@ -303,6 +303,121 @@ import * as utilities from "../utilities";
  *     dependsOn: [firehose_elasticsearchRolePolicy],
  * });
  * ```
+ * ### Opensearch Destination
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testCluster = new aws.opensearch.Domain("testCluster", {});
+ * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
+ *     destination: "opensearch",
+ *     s3Configuration: {
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         bucketArn: aws_s3_bucket.bucket.arn,
+ *         bufferSize: 10,
+ *         bufferInterval: 400,
+ *         compressionFormat: "GZIP",
+ *     },
+ *     opensearchConfiguration: {
+ *         domainArn: testCluster.arn,
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         indexName: "test",
+ *         processingConfiguration: {
+ *             enabled: true,
+ *             processors: [{
+ *                 type: "Lambda",
+ *                 parameters: [{
+ *                     parameterName: "LambdaArn",
+ *                     parameterValue: `${aws_lambda_function.lambda_processor.arn}:$LATEST`,
+ *                 }],
+ *             }],
+ *         },
+ *     },
+ * });
+ * ```
+ * ### Opensearch Destination With VPC
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testCluster = new aws.opensearch.Domain("testCluster", {
+ *     clusterConfig: {
+ *         instanceCount: 2,
+ *         zoneAwarenessEnabled: true,
+ *         instanceType: "m4.large.search",
+ *     },
+ *     ebsOptions: {
+ *         ebsEnabled: true,
+ *         volumeSize: 10,
+ *     },
+ *     vpcOptions: {
+ *         securityGroupIds: [aws_security_group.first.id],
+ *         subnetIds: [
+ *             aws_subnet.first.id,
+ *             aws_subnet.second.id,
+ *         ],
+ *     },
+ * });
+ * const firehose_opensearch = new aws.iam.RolePolicy("firehose-opensearch", {
+ *     role: aws_iam_role.firehose.id,
+ *     policy: pulumi.interpolate`{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Action": [
+ *         "es:*"
+ *       ],
+ *       "Resource": [
+ *         "${testCluster.arn}",
+ *         "${testCluster.arn}/*"
+ *       ]
+ *         },
+ *         {
+ *           "Effect": "Allow",
+ *           "Action": [
+ *             "ec2:DescribeVpcs",
+ *             "ec2:DescribeVpcAttribute",
+ *             "ec2:DescribeSubnets",
+ *             "ec2:DescribeSecurityGroups",
+ *             "ec2:DescribeNetworkInterfaces",
+ *             "ec2:CreateNetworkInterface",
+ *             "ec2:CreateNetworkInterfacePermission",
+ *             "ec2:DeleteNetworkInterface"
+ *           ],
+ *           "Resource": [
+ *             "*"
+ *           ]
+ *         }
+ *   ]
+ * }
+ * `,
+ * });
+ * const test = new aws.kinesis.FirehoseDeliveryStream("test", {
+ *     destination: "opensearch",
+ *     s3Configuration: {
+ *         roleArn: aws_iam_role.firehose.arn,
+ *         bucketArn: aws_s3_bucket.bucket.arn,
+ *     },
+ *     opensearchConfiguration: {
+ *         domainArn: testCluster.arn,
+ *         roleArn: aws_iam_role.firehose.arn,
+ *         indexName: "test",
+ *         vpcConfig: {
+ *             subnetIds: [
+ *                 aws_subnet.first.id,
+ *                 aws_subnet.second.id,
+ *             ],
+ *             securityGroupIds: [aws_security_group.first.id],
+ *             roleArn: aws_iam_role.firehose.arn,
+ *         },
+ *     },
+ * }, {
+ *     dependsOn: [firehose_opensearch],
+ * });
+ * ```
  * ### Splunk Destination
  *
  * ```typescript
@@ -410,7 +525,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly arn!: pulumi.Output<string>;
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, and `httpEndpoint`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
      */
     public readonly destination!: pulumi.Output<string>;
     public readonly destinationId!: pulumi.Output<string>;
@@ -434,6 +549,10 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Configuration options if opensearch is the destination. More details are given below.
+     */
+    public readonly opensearchConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamOpensearchConfiguration | undefined>;
     /**
      * Configuration options if redshift is the destination.
      * Using `redshiftConfiguration` requires the user to also specify a
@@ -488,6 +607,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["httpEndpointConfiguration"] = state ? state.httpEndpointConfiguration : undefined;
             resourceInputs["kinesisSourceConfiguration"] = state ? state.kinesisSourceConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["opensearchConfiguration"] = state ? state.opensearchConfiguration : undefined;
             resourceInputs["redshiftConfiguration"] = state ? state.redshiftConfiguration : undefined;
             resourceInputs["s3Configuration"] = state ? state.s3Configuration : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
@@ -508,6 +628,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["httpEndpointConfiguration"] = args ? args.httpEndpointConfiguration : undefined;
             resourceInputs["kinesisSourceConfiguration"] = args ? args.kinesisSourceConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["opensearchConfiguration"] = args ? args.opensearchConfiguration : undefined;
             resourceInputs["redshiftConfiguration"] = args ? args.redshiftConfiguration : undefined;
             resourceInputs["s3Configuration"] = args ? args.s3Configuration : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
@@ -530,7 +651,7 @@ export interface FirehoseDeliveryStreamState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, and `httpEndpoint`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
      */
     destination?: pulumi.Input<string>;
     destinationId?: pulumi.Input<string>;
@@ -554,6 +675,10 @@ export interface FirehoseDeliveryStreamState {
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configuration options if opensearch is the destination. More details are given below.
+     */
+    opensearchConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfiguration>;
     /**
      * Configuration options if redshift is the destination.
      * Using `redshiftConfiguration` requires the user to also specify a
@@ -597,7 +722,7 @@ export interface FirehoseDeliveryStreamArgs {
      */
     arn?: pulumi.Input<string>;
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, and `httpEndpoint`.
+     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
      */
     destination: pulumi.Input<string>;
     destinationId?: pulumi.Input<string>;
@@ -621,6 +746,10 @@ export interface FirehoseDeliveryStreamArgs {
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configuration options if opensearch is the destination. More details are given below.
+     */
+    opensearchConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamOpensearchConfiguration>;
     /**
      * Configuration options if redshift is the destination.
      * Using `redshiftConfiguration` requires the user to also specify a

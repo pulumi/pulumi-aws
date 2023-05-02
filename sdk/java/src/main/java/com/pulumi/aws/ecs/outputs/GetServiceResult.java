@@ -44,7 +44,7 @@ public final class GetServiceResult {
      */
     private Map<String,String> tags;
     /**
-     * @return Family for the latest ACTIVE revision
+     * @return Family for the latest ACTIVE revision or full ARN of the task definition.
      * 
      */
     private String taskDefinition;
@@ -99,7 +99,7 @@ public final class GetServiceResult {
         return this.tags;
     }
     /**
-     * @return Family for the latest ACTIVE revision
+     * @return Family for the latest ACTIVE revision or full ARN of the task definition.
      * 
      */
     public String taskDefinition() {

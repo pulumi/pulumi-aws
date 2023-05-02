@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -137,6 +138,12 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<Boolean>> enableDns64() {
         return Codegen.optional(this.enableDns64);
+    }
+    @Export(name="enableLniAtDeviceIndex", refs={Integer.class}, tree="[0]")
+    private Output<Integer> enableLniAtDeviceIndex;
+
+    public Output<Integer> enableLniAtDeviceIndex() {
+        return this.enableLniAtDeviceIndex;
     }
     @Export(name="enableResourceNameDnsARecordOnLaunch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableResourceNameDnsARecordOnLaunch;

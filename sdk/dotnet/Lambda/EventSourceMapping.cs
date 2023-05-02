@@ -299,13 +299,19 @@ namespace Pulumi.Aws.Lambda
         public Output<Outputs.EventSourceMappingDestinationConfig?> DestinationConfig { get; private set; } = null!;
 
         /// <summary>
+        /// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+        /// </summary>
+        [Output("documentDbEventSourceConfig")]
+        public Output<Outputs.EventSourceMappingDocumentDbEventSourceConfig?> DocumentDbEventSourceConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Determines if the mapping will be enabled on creation. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        /// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         /// </summary>
         [Output("eventSourceArn")]
         public Output<string?> EventSourceArn { get; private set; } = null!;
@@ -513,13 +519,19 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.EventSourceMappingDestinationConfigArgs>? DestinationConfig { get; set; }
 
         /// <summary>
+        /// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+        /// </summary>
+        [Input("documentDbEventSourceConfig")]
+        public Input<Inputs.EventSourceMappingDocumentDbEventSourceConfigArgs>? DocumentDbEventSourceConfig { get; set; }
+
+        /// <summary>
         /// Determines if the mapping will be enabled on creation. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        /// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         /// </summary>
         [Input("eventSourceArn")]
         public Input<string>? EventSourceArn { get; set; }
@@ -677,13 +689,19 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.EventSourceMappingDestinationConfigGetArgs>? DestinationConfig { get; set; }
 
         /// <summary>
+        /// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
+        /// </summary>
+        [Input("documentDbEventSourceConfig")]
+        public Input<Inputs.EventSourceMappingDocumentDbEventSourceConfigGetArgs>? DocumentDbEventSourceConfig { get; set; }
+
+        /// <summary>
         /// Determines if the mapping will be enabled on creation. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        /// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         /// </summary>
         [Input("eventSourceArn")]
         public Input<string>? EventSourceArn { get; set; }

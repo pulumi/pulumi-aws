@@ -19,6 +19,12 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.RuleGroupRuleActionGetArgs> Action { get; set; } = null!;
 
         /// <summary>
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        /// </summary>
+        [Input("captchaConfig")]
+        public Input<Inputs.RuleGroupRuleCaptchaConfigGetArgs>? CaptchaConfig { get; set; }
+
+        /// <summary>
         /// A friendly name of the rule.
         /// </summary>
         [Input("name", required: true)]

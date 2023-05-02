@@ -67,8 +67,6 @@ if typing.TYPE_CHECKING:
     appsync = __appsync
     import pulumi_aws.athena as __athena
     athena = __athena
-    import pulumi_aws.auditmanager as __auditmanager
-    auditmanager = __auditmanager
     import pulumi_aws.autoscaling as __autoscaling
     autoscaling = __autoscaling
     import pulumi_aws.autoscalingplans as __autoscalingplans
@@ -313,8 +311,6 @@ if typing.TYPE_CHECKING:
     redshiftdata = __redshiftdata
     import pulumi_aws.redshiftserverless as __redshiftserverless
     redshiftserverless = __redshiftserverless
-    import pulumi_aws.resourceexplorer as __resourceexplorer
-    resourceexplorer = __resourceexplorer
     import pulumi_aws.resourcegroups as __resourcegroups
     resourcegroups = __resourcegroups
     import pulumi_aws.resourcegroupstaggingapi as __resourcegroupstaggingapi
@@ -389,8 +385,6 @@ if typing.TYPE_CHECKING:
     transcribe = __transcribe
     import pulumi_aws.transfer as __transfer
     transfer = __transfer
-    import pulumi_aws.vpc as __vpc
-    vpc = __vpc
     import pulumi_aws.vpclattice as __vpclattice
     vpclattice = __vpclattice
     import pulumi_aws.waf as __waf
@@ -425,7 +419,6 @@ else:
     appstream = _utilities.lazy_import('pulumi_aws.appstream')
     appsync = _utilities.lazy_import('pulumi_aws.appsync')
     athena = _utilities.lazy_import('pulumi_aws.athena')
-    auditmanager = _utilities.lazy_import('pulumi_aws.auditmanager')
     autoscaling = _utilities.lazy_import('pulumi_aws.autoscaling')
     autoscalingplans = _utilities.lazy_import('pulumi_aws.autoscalingplans')
     backup = _utilities.lazy_import('pulumi_aws.backup')
@@ -548,7 +541,6 @@ else:
     redshift = _utilities.lazy_import('pulumi_aws.redshift')
     redshiftdata = _utilities.lazy_import('pulumi_aws.redshiftdata')
     redshiftserverless = _utilities.lazy_import('pulumi_aws.redshiftserverless')
-    resourceexplorer = _utilities.lazy_import('pulumi_aws.resourceexplorer')
     resourcegroups = _utilities.lazy_import('pulumi_aws.resourcegroups')
     resourcegroupstaggingapi = _utilities.lazy_import('pulumi_aws.resourcegroupstaggingapi')
     rolesanywhere = _utilities.lazy_import('pulumi_aws.rolesanywhere')
@@ -586,7 +578,6 @@ else:
     timestreamwrite = _utilities.lazy_import('pulumi_aws.timestreamwrite')
     transcribe = _utilities.lazy_import('pulumi_aws.transcribe')
     transfer = _utilities.lazy_import('pulumi_aws.transfer')
-    vpc = _utilities.lazy_import('pulumi_aws.vpc')
     vpclattice = _utilities.lazy_import('pulumi_aws.vpclattice')
     waf = _utilities.lazy_import('pulumi_aws.waf')
     wafregional = _utilities.lazy_import('pulumi_aws.wafregional')
@@ -1520,70 +1511,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "auditmanager/accountRegistration",
-  "fqn": "pulumi_aws.auditmanager",
-  "classes": {
-   "aws:auditmanager/accountRegistration:AccountRegistration": "AccountRegistration"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "auditmanager/assessment",
-  "fqn": "pulumi_aws.auditmanager",
-  "classes": {
-   "aws:auditmanager/assessment:Assessment": "Assessment"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "auditmanager/assessmentDelegation",
-  "fqn": "pulumi_aws.auditmanager",
-  "classes": {
-   "aws:auditmanager/assessmentDelegation:AssessmentDelegation": "AssessmentDelegation"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "auditmanager/assessmentReport",
-  "fqn": "pulumi_aws.auditmanager",
-  "classes": {
-   "aws:auditmanager/assessmentReport:AssessmentReport": "AssessmentReport"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "auditmanager/control",
-  "fqn": "pulumi_aws.auditmanager",
-  "classes": {
-   "aws:auditmanager/control:Control": "Control"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "auditmanager/framework",
-  "fqn": "pulumi_aws.auditmanager",
-  "classes": {
-   "aws:auditmanager/framework:Framework": "Framework"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "auditmanager/frameworkShare",
-  "fqn": "pulumi_aws.auditmanager",
-  "classes": {
-   "aws:auditmanager/frameworkShare:FrameworkShare": "FrameworkShare"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "auditmanager/organizationAdminAccountRegistration",
-  "fqn": "pulumi_aws.auditmanager",
-  "classes": {
-   "aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration": "OrganizationAdminAccountRegistration"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "autoscaling/attachment",
   "fqn": "pulumi_aws.autoscaling",
   "classes": {
@@ -2188,6 +2115,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
    "aws:cloudwatch/eventConnection:EventConnection": "EventConnection"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/eventEndpoint",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/eventEndpoint:EventEndpoint": "EventEndpoint"
   }
  },
  {
@@ -6776,14 +6711,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "medialive/multiplexProgram",
-  "fqn": "pulumi_aws.medialive",
-  "classes": {
-   "aws:medialive/multiplexProgram:MultiplexProgram": "MultiplexProgram"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "mediapackage/channel",
   "fqn": "pulumi_aws.mediapackage",
   "classes": {
@@ -7600,22 +7527,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "quicksight/iamPolicyAssignment",
-  "fqn": "pulumi_aws.quicksight",
-  "classes": {
-   "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment": "IamPolicyAssignment"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "quicksight/ingestion",
-  "fqn": "pulumi_aws.quicksight",
-  "classes": {
-   "aws:quicksight/ingestion:Ingestion": "Ingestion"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "quicksight/user",
   "fqn": "pulumi_aws.quicksight",
   "classes": {
@@ -7724,14 +7635,6 @@ _utilities.register(
   "fqn": "pulumi_aws.rds",
   "classes": {
    "aws:rds/eventSubscription:EventSubscription": "EventSubscription"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "rds/exportTask",
-  "fqn": "pulumi_aws.rds",
-  "classes": {
-   "aws:rds/exportTask:ExportTask": "ExportTask"
   }
  },
  {
@@ -8056,22 +7959,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "resourceexplorer/index",
-  "fqn": "pulumi_aws.resourceexplorer",
-  "classes": {
-   "aws:resourceexplorer/index:Index": "Index"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "resourceexplorer/view",
-  "fqn": "pulumi_aws.resourceexplorer",
-  "classes": {
-   "aws:resourceexplorer/view:View": "View"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "resourcegroups/group",
   "fqn": "pulumi_aws.resourcegroups",
   "classes": {
@@ -8092,22 +7979,6 @@ _utilities.register(
   "fqn": "pulumi_aws.rolesanywhere",
   "classes": {
    "aws:rolesanywhere/trustAnchor:TrustAnchor": "TrustAnchor"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "route53/cidrCollection",
-  "fqn": "pulumi_aws.route53",
-  "classes": {
-   "aws:route53/cidrCollection:CidrCollection": "CidrCollection"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "route53/cidrLocation",
-  "fqn": "pulumi_aws.route53",
-  "classes": {
-   "aws:route53/cidrLocation:CidrLocation": "CidrLocation"
   }
  },
  {
@@ -9904,18 +9775,18 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "vpc/securityGroupEgressRule",
-  "fqn": "pulumi_aws.vpc",
+  "mod": "vpclattice/listener",
+  "fqn": "pulumi_aws.vpclattice",
   "classes": {
-   "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule": "SecurityGroupEgressRule"
+   "aws:vpclattice/listener:Listener": "Listener"
   }
  },
  {
   "pkg": "aws",
-  "mod": "vpc/securityGroupIngressRule",
-  "fqn": "pulumi_aws.vpc",
+  "mod": "vpclattice/listenerRule",
+  "fqn": "pulumi_aws.vpclattice",
   "classes": {
-   "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule": "SecurityGroupIngressRule"
+   "aws:vpclattice/listenerRule:ListenerRule": "ListenerRule"
   }
  },
  {

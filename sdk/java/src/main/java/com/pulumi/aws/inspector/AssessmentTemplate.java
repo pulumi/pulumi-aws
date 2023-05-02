@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Inspector assessment template
+ * Provides an Inspector Classic Assessment Template
  * 
  * ## Example Usage
  * ```java

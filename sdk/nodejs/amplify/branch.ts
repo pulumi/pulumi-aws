@@ -87,6 +87,11 @@ import * as utilities from "../utilities";
  *     arn: amplifyAppMasterTopic.arn,
  *     policy: amplifyAppMasterPolicyDocument.apply(amplifyAppMasterPolicyDocument => amplifyAppMasterPolicyDocument.json),
  * });
+ * const _this = new aws.sns.TopicSubscription("this", {
+ *     topic: amplifyAppMasterTopic.arn,
+ *     protocol: "email",
+ *     endpoint: "user@acme.com",
+ * });
  * ```
  *
  * ## Import

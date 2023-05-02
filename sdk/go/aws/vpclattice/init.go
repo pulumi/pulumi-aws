@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:vpclattice/listener:Listener":
+		r = &Listener{}
+	case "aws:vpclattice/listenerRule:ListenerRule":
+		r = &ListenerRule{}
 	case "aws:vpclattice/service:Service":
 		r = &Service{}
 	case "aws:vpclattice/serviceNetwork:ServiceNetwork":
@@ -44,6 +48,16 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpclattice/listener",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpclattice/listenerRule",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"vpclattice/service",

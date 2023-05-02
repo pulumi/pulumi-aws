@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -124,6 +125,21 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> enableDns64() {
         return Optional.ofNullable(this.enableDns64);
+    }
+
+    /**
+     * Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+     * 
+     */
+    @Import(name="enableLniAtDeviceIndex")
+    private @Nullable Output<Integer> enableLniAtDeviceIndex;
+
+    /**
+     * @return Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+     * 
+     */
+    public Optional<Output<Integer>> enableLniAtDeviceIndex() {
+        return Optional.ofNullable(this.enableLniAtDeviceIndex);
     }
 
     /**
@@ -337,6 +353,7 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
         this.cidrBlock = $.cidrBlock;
         this.customerOwnedIpv4Pool = $.customerOwnedIpv4Pool;
         this.enableDns64 = $.enableDns64;
+        this.enableLniAtDeviceIndex = $.enableLniAtDeviceIndex;
         this.enableResourceNameDnsARecordOnLaunch = $.enableResourceNameDnsARecordOnLaunch;
         this.enableResourceNameDnsAaaaRecordOnLaunch = $.enableResourceNameDnsAaaaRecordOnLaunch;
         this.ipv6CidrBlock = $.ipv6CidrBlock;
@@ -519,6 +536,27 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enableDns64(Boolean enableDns64) {
             return enableDns64(Output.of(enableDns64));
+        }
+
+        /**
+         * @param enableLniAtDeviceIndex Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableLniAtDeviceIndex(@Nullable Output<Integer> enableLniAtDeviceIndex) {
+            $.enableLniAtDeviceIndex = enableLniAtDeviceIndex;
+            return this;
+        }
+
+        /**
+         * @param enableLniAtDeviceIndex Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableLniAtDeviceIndex(Integer enableLniAtDeviceIndex) {
+            return enableLniAtDeviceIndex(Output.of(enableLniAtDeviceIndex));
         }
 
         /**

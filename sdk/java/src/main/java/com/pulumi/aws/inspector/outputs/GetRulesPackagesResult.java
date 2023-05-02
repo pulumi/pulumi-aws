@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRulesPackagesResult {
     /**
-     * @return List of the AWS Inspector Rules Packages arns available in the AWS region.
+     * @return List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
      * 
      */
     private List<String> arns;
@@ -23,7 +23,7 @@ public final class GetRulesPackagesResult {
 
     private GetRulesPackagesResult() {}
     /**
-     * @return List of the AWS Inspector Rules Packages arns available in the AWS region.
+     * @return List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
      * 
      */
     public List<String> arns() {

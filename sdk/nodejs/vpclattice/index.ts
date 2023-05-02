@@ -5,10 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetListenerArgs, GetListenerResult, GetListenerOutputArgs } from "./getListener";
+export const getListener: typeof import("./getListener").getListener = null as any;
+export const getListenerOutput: typeof import("./getListener").getListenerOutput = null as any;
+utilities.lazyLoad(exports, ["getListener","getListenerOutput"], () => require("./getListener"));
+
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+
+export { ListenerArgs, ListenerState } from "./listener";
+export type Listener = import("./listener").Listener;
+export const Listener: typeof import("./listener").Listener = null as any;
+utilities.lazyLoad(exports, ["Listener"], () => require("./listener"));
+
+export { ListenerRuleArgs, ListenerRuleState } from "./listenerRule";
+export type ListenerRule = import("./listenerRule").ListenerRule;
+export const ListenerRule: typeof import("./listenerRule").ListenerRule = null as any;
+utilities.lazyLoad(exports, ["ListenerRule"], () => require("./listenerRule"));
 
 export { ServiceArgs, ServiceState } from "./service";
 export type Service = import("./service").Service;
@@ -40,6 +55,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:vpclattice/listener:Listener":
+                return new Listener(name, <any>undefined, { urn })
+            case "aws:vpclattice/listenerRule:ListenerRule":
+                return new ListenerRule(name, <any>undefined, { urn })
             case "aws:vpclattice/service:Service":
                 return new Service(name, <any>undefined, { urn })
             case "aws:vpclattice/serviceNetwork:ServiceNetwork":
@@ -55,6 +74,8 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "vpclattice/listener", _module)
+pulumi.runtime.registerResourceModule("aws", "vpclattice/listenerRule", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/service", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetwork", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetworkServiceAssociation", _module)

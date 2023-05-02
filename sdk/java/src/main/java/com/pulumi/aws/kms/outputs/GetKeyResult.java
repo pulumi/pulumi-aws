@@ -4,8 +4,10 @@
 package com.pulumi.aws.kms.outputs;
 
 import com.pulumi.aws.kms.outputs.GetKeyMultiRegionConfiguration;
+import com.pulumi.aws.kms.outputs.GetKeyXksKeyConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -24,10 +26,20 @@ public final class GetKeyResult {
      */
     private String awsAccountId;
     /**
+     * @return The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
+     * 
+     */
+    private String cloudHsmClusterId;
+    /**
      * @return The date and time when the key was created
      * 
      */
     private String creationDate;
+    /**
+     * @return A unique identifier for the custom key store that contains the KMS key.
+     * 
+     */
+    private String customKeyStoreId;
     /**
      * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
      * 
@@ -66,6 +78,11 @@ public final class GetKeyResult {
      */
     private String keyManager;
     /**
+     * @return Describes the type of key material in the KMS key.
+     * 
+     */
+    private String keySpec;
+    /**
      * @return The state of the key
      * 
      */
@@ -91,10 +108,20 @@ public final class GetKeyResult {
      */
     private String origin;
     /**
+     * @return The waiting period before the primary key in a multi-Region key is deleted.
+     * 
+     */
+    private Integer pendingDeletionWindowInDays;
+    /**
      * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
      * 
      */
     private String validTo;
+    /**
+     * @return Information about the external key that is associated with a KMS key in an external key store.
+     * 
+     */
+    private List<GetKeyXksKeyConfiguration> xksKeyConfigurations;
 
     private GetKeyResult() {}
     /**
@@ -112,11 +139,25 @@ public final class GetKeyResult {
         return this.awsAccountId;
     }
     /**
+     * @return The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
+     * 
+     */
+    public String cloudHsmClusterId() {
+        return this.cloudHsmClusterId;
+    }
+    /**
      * @return The date and time when the key was created
      * 
      */
     public String creationDate() {
         return this.creationDate;
+    }
+    /**
+     * @return A unique identifier for the custom key store that contains the KMS key.
+     * 
+     */
+    public String customKeyStoreId() {
+        return this.customKeyStoreId;
     }
     /**
      * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
@@ -174,6 +215,13 @@ public final class GetKeyResult {
         return this.keyManager;
     }
     /**
+     * @return Describes the type of key material in the KMS key.
+     * 
+     */
+    public String keySpec() {
+        return this.keySpec;
+    }
+    /**
      * @return The state of the key
      * 
      */
@@ -209,11 +257,25 @@ public final class GetKeyResult {
         return this.origin;
     }
     /**
+     * @return The waiting period before the primary key in a multi-Region key is deleted.
+     * 
+     */
+    public Integer pendingDeletionWindowInDays() {
+        return this.pendingDeletionWindowInDays;
+    }
+    /**
      * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
      * 
      */
     public String validTo() {
         return this.validTo;
+    }
+    /**
+     * @return Information about the external key that is associated with a KMS key in an external key store.
+     * 
+     */
+    public List<GetKeyXksKeyConfiguration> xksKeyConfigurations() {
+        return this.xksKeyConfigurations;
     }
 
     public static Builder builder() {
@@ -227,7 +289,9 @@ public final class GetKeyResult {
     public static final class Builder {
         private String arn;
         private String awsAccountId;
+        private String cloudHsmClusterId;
         private String creationDate;
+        private String customKeyStoreId;
         private String customerMasterKeySpec;
         private String deletionDate;
         private String description;
@@ -237,18 +301,23 @@ public final class GetKeyResult {
         private String id;
         private String keyId;
         private String keyManager;
+        private String keySpec;
         private String keyState;
         private String keyUsage;
         private Boolean multiRegion;
         private List<GetKeyMultiRegionConfiguration> multiRegionConfigurations;
         private String origin;
+        private Integer pendingDeletionWindowInDays;
         private String validTo;
+        private List<GetKeyXksKeyConfiguration> xksKeyConfigurations;
         public Builder() {}
         public Builder(GetKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.awsAccountId = defaults.awsAccountId;
+    	      this.cloudHsmClusterId = defaults.cloudHsmClusterId;
     	      this.creationDate = defaults.creationDate;
+    	      this.customKeyStoreId = defaults.customKeyStoreId;
     	      this.customerMasterKeySpec = defaults.customerMasterKeySpec;
     	      this.deletionDate = defaults.deletionDate;
     	      this.description = defaults.description;
@@ -258,12 +327,15 @@ public final class GetKeyResult {
     	      this.id = defaults.id;
     	      this.keyId = defaults.keyId;
     	      this.keyManager = defaults.keyManager;
+    	      this.keySpec = defaults.keySpec;
     	      this.keyState = defaults.keyState;
     	      this.keyUsage = defaults.keyUsage;
     	      this.multiRegion = defaults.multiRegion;
     	      this.multiRegionConfigurations = defaults.multiRegionConfigurations;
     	      this.origin = defaults.origin;
+    	      this.pendingDeletionWindowInDays = defaults.pendingDeletionWindowInDays;
     	      this.validTo = defaults.validTo;
+    	      this.xksKeyConfigurations = defaults.xksKeyConfigurations;
         }
 
         @CustomType.Setter
@@ -277,8 +349,18 @@ public final class GetKeyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder cloudHsmClusterId(String cloudHsmClusterId) {
+            this.cloudHsmClusterId = Objects.requireNonNull(cloudHsmClusterId);
+            return this;
+        }
+        @CustomType.Setter
         public Builder creationDate(String creationDate) {
             this.creationDate = Objects.requireNonNull(creationDate);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customKeyStoreId(String customKeyStoreId) {
+            this.customKeyStoreId = Objects.requireNonNull(customKeyStoreId);
             return this;
         }
         @CustomType.Setter
@@ -330,6 +412,11 @@ public final class GetKeyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder keySpec(String keySpec) {
+            this.keySpec = Objects.requireNonNull(keySpec);
+            return this;
+        }
+        @CustomType.Setter
         public Builder keyState(String keyState) {
             this.keyState = Objects.requireNonNull(keyState);
             return this;
@@ -358,15 +445,30 @@ public final class GetKeyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder pendingDeletionWindowInDays(Integer pendingDeletionWindowInDays) {
+            this.pendingDeletionWindowInDays = Objects.requireNonNull(pendingDeletionWindowInDays);
+            return this;
+        }
+        @CustomType.Setter
         public Builder validTo(String validTo) {
             this.validTo = Objects.requireNonNull(validTo);
             return this;
+        }
+        @CustomType.Setter
+        public Builder xksKeyConfigurations(List<GetKeyXksKeyConfiguration> xksKeyConfigurations) {
+            this.xksKeyConfigurations = Objects.requireNonNull(xksKeyConfigurations);
+            return this;
+        }
+        public Builder xksKeyConfigurations(GetKeyXksKeyConfiguration... xksKeyConfigurations) {
+            return xksKeyConfigurations(List.of(xksKeyConfigurations));
         }
         public GetKeyResult build() {
             final var o = new GetKeyResult();
             o.arn = arn;
             o.awsAccountId = awsAccountId;
+            o.cloudHsmClusterId = cloudHsmClusterId;
             o.creationDate = creationDate;
+            o.customKeyStoreId = customKeyStoreId;
             o.customerMasterKeySpec = customerMasterKeySpec;
             o.deletionDate = deletionDate;
             o.description = description;
@@ -376,12 +478,15 @@ public final class GetKeyResult {
             o.id = id;
             o.keyId = keyId;
             o.keyManager = keyManager;
+            o.keySpec = keySpec;
             o.keyState = keyState;
             o.keyUsage = keyUsage;
             o.multiRegion = multiRegion;
             o.multiRegionConfigurations = multiRegionConfigurations;
             o.origin = origin;
+            o.pendingDeletionWindowInDays = pendingDeletionWindowInDays;
             o.validTo = validTo;
+            o.xksKeyConfigurations = xksKeyConfigurations;
             return o;
         }
     }

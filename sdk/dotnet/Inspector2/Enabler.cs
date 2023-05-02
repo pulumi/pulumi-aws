@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Inspector2
 {
     /// <summary>
-    /// Resource for enabling AWS Inspector V2 resource scans.
+    /// Resource for enabling Amazon Inspector resource scans.
     /// 
     /// &gt; **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
     /// 

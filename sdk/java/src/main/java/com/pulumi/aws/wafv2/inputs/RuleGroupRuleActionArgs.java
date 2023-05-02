@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionAllowArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionBlockArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionCaptchaArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionChallengeArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionCountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -64,6 +65,21 @@ public final class RuleGroupRuleActionArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
+     * 
+     */
+    @Import(name="challenge")
+    private @Nullable Output<RuleGroupRuleActionChallengeArgs> challenge;
+
+    /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
+     * 
+     */
+    public Optional<Output<RuleGroupRuleActionChallengeArgs>> challenge() {
+        return Optional.ofNullable(this.challenge);
+    }
+
+    /**
      * Instructs AWS WAF to count the web request and allow it. See Count below for details.
      * 
      */
@@ -84,6 +100,7 @@ public final class RuleGroupRuleActionArgs extends com.pulumi.resources.Resource
         this.allow = $.allow;
         this.block = $.block;
         this.captcha = $.captcha;
+        this.challenge = $.challenge;
         this.count = $.count;
     }
 
@@ -166,6 +183,27 @@ public final class RuleGroupRuleActionArgs extends com.pulumi.resources.Resource
          */
         public Builder captcha(RuleGroupRuleActionCaptchaArgs captcha) {
             return captcha(Output.of(captcha));
+        }
+
+        /**
+         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder challenge(@Nullable Output<RuleGroupRuleActionChallengeArgs> challenge) {
+            $.challenge = challenge;
+            return this;
+        }
+
+        /**
+         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder challenge(RuleGroupRuleActionChallengeArgs challenge) {
+            return challenge(Output.of(challenge));
         }
 
         /**

@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ServiceQuotaArgs', 'ServiceQuota']
 
@@ -76,6 +78,7 @@ class _ServiceQuotaState:
                  request_status: Optional[pulumi.Input[str]] = None,
                  service_code: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 usage_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricArgs']]]] = None,
                  value: Optional[pulumi.Input[float]] = None):
         """
         Input properties used for looking up and filtering ServiceQuota resources.
@@ -86,6 +89,7 @@ class _ServiceQuotaState:
         :param pulumi.Input[str] quota_name: Name of the quota.
         :param pulumi.Input[str] service_code: Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         :param pulumi.Input[str] service_name: Name of the service.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricArgs']]] usage_metrics: Information about the measurement.
         :param pulumi.Input[float] value: Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         """
         if adjustable is not None:
@@ -106,6 +110,8 @@ class _ServiceQuotaState:
             pulumi.set(__self__, "service_code", service_code)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
+        if usage_metrics is not None:
+            pulumi.set(__self__, "usage_metrics", usage_metrics)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -210,6 +216,18 @@ class _ServiceQuotaState:
     @service_name.setter
     def service_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="usageMetrics")
+    def usage_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricArgs']]]]:
+        """
+        Information about the measurement.
+        """
+        return pulumi.get(self, "usage_metrics")
+
+    @usage_metrics.setter
+    def usage_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricArgs']]]]):
+        pulumi.set(self, "usage_metrics", value)
 
     @property
     @pulumi.getter
@@ -338,6 +356,7 @@ class ServiceQuota(pulumi.CustomResource):
             __props__.__dict__["request_id"] = None
             __props__.__dict__["request_status"] = None
             __props__.__dict__["service_name"] = None
+            __props__.__dict__["usage_metrics"] = None
         super(ServiceQuota, __self__).__init__(
             'aws:servicequotas/serviceQuota:ServiceQuota',
             resource_name,
@@ -357,6 +376,7 @@ class ServiceQuota(pulumi.CustomResource):
             request_status: Optional[pulumi.Input[str]] = None,
             service_code: Optional[pulumi.Input[str]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
+            usage_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceQuotaUsageMetricArgs']]]]] = None,
             value: Optional[pulumi.Input[float]] = None) -> 'ServiceQuota':
         """
         Get an existing ServiceQuota resource's state with the given name, id, and optional extra
@@ -372,6 +392,7 @@ class ServiceQuota(pulumi.CustomResource):
         :param pulumi.Input[str] quota_name: Name of the quota.
         :param pulumi.Input[str] service_code: Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         :param pulumi.Input[str] service_name: Name of the service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceQuotaUsageMetricArgs']]]] usage_metrics: Information about the measurement.
         :param pulumi.Input[float] value: Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -387,6 +408,7 @@ class ServiceQuota(pulumi.CustomResource):
         __props__.__dict__["request_status"] = request_status
         __props__.__dict__["service_code"] = service_code
         __props__.__dict__["service_name"] = service_name
+        __props__.__dict__["usage_metrics"] = usage_metrics
         __props__.__dict__["value"] = value
         return ServiceQuota(resource_name, opts=opts, __props__=__props__)
 
@@ -455,6 +477,14 @@ class ServiceQuota(pulumi.CustomResource):
         Name of the service.
         """
         return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter(name="usageMetrics")
+    def usage_metrics(self) -> pulumi.Output[Sequence['outputs.ServiceQuotaUsageMetric']]:
+        """
+        Information about the measurement.
+        """
+        return pulumi.get(self, "usage_metrics")
 
     @property
     @pulumi.getter

@@ -32,7 +32,7 @@ class GetRulesPackagesResult:
     @pulumi.getter
     def arns(self) -> Sequence[str]:
         """
-        List of the AWS Inspector Rules Packages arns available in the AWS region.
+        List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.
         """
         return pulumi.get(self, "arns")
 
@@ -57,8 +57,8 @@ class AwaitableGetRulesPackagesResult(GetRulesPackagesResult):
 
 def get_rules_packages(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRulesPackagesResult:
     """
-    The AWS Inspector Rules Packages data source allows access to the list of AWS
-    Inspector Rules Packages which can be used by AWS Inspector within the region
+    The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
+    Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
     configured in the provider.
 
     ## Example Usage

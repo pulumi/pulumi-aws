@@ -6,7 +6,10 @@ package com.pulumi.aws.amp;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
 import com.pulumi.aws.amp.inputs.GetWorkspacePlainArgs;
+import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+import com.pulumi.aws.amp.inputs.GetWorkspacesPlainArgs;
 import com.pulumi.aws.amp.outputs.GetWorkspaceResult;
+import com.pulumi.aws.amp.outputs.GetWorkspacesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -165,5 +168,413 @@ public final class AmpFunctions {
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:amp/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
+     * 
+     * ## Example Usage
+     * 
+     * The following example returns all of the workspaces in a region:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getWorkspaces();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * The following example filters the workspaces by alias. Only the workspaces with
+     * aliases that begin with the value of `alias_prefix` will be returned:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .aliasPrefix(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetWorkspacesResult> getWorkspaces() {
+        return getWorkspaces(GetWorkspacesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
+     * 
+     * ## Example Usage
+     * 
+     * The following example returns all of the workspaces in a region:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getWorkspaces();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * The following example filters the workspaces by alias. Only the workspaces with
+     * aliases that begin with the value of `alias_prefix` will be returned:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .aliasPrefix(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetWorkspacesResult> getWorkspacesPlain() {
+        return getWorkspacesPlain(GetWorkspacesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
+     * 
+     * ## Example Usage
+     * 
+     * The following example returns all of the workspaces in a region:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getWorkspaces();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * The following example filters the workspaces by alias. Only the workspaces with
+     * aliases that begin with the value of `alias_prefix` will be returned:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .aliasPrefix(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetWorkspacesResult> getWorkspaces(GetWorkspacesArgs args) {
+        return getWorkspaces(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
+     * 
+     * ## Example Usage
+     * 
+     * The following example returns all of the workspaces in a region:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getWorkspaces();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * The following example filters the workspaces by alias. Only the workspaces with
+     * aliases that begin with the value of `alias_prefix` will be returned:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .aliasPrefix(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetWorkspacesResult> getWorkspacesPlain(GetWorkspacesPlainArgs args) {
+        return getWorkspacesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
+     * 
+     * ## Example Usage
+     * 
+     * The following example returns all of the workspaces in a region:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getWorkspaces();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * The following example filters the workspaces by alias. Only the workspaces with
+     * aliases that begin with the value of `alias_prefix` will be returned:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .aliasPrefix(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetWorkspacesResult> getWorkspaces(GetWorkspacesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:amp/getWorkspaces:getWorkspaces", TypeShape.of(GetWorkspacesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
+     * 
+     * ## Example Usage
+     * 
+     * The following example returns all of the workspaces in a region:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getWorkspaces();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * The following example filters the workspaces by alias. Only the workspaces with
+     * aliases that begin with the value of `alias_prefix` will be returned:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AmpFunctions.getWorkspaces(GetWorkspacesArgs.builder()
+     *             .aliasPrefix(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetWorkspacesResult> getWorkspacesPlain(GetWorkspacesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:amp/getWorkspaces:getWorkspaces", TypeShape.of(GetWorkspacesResult.class), args, Utilities.withVersion(options));
     }
 }

@@ -21,6 +21,11 @@ public final class GetTaskDefinitionResult {
      */
     private String arnWithoutRevision;
     /**
+     * @return ARN of the task execution role that the Amazon ECS container agent and the Docker.
+     * 
+     */
+    private String executionRoleArn;
+    /**
      * @return Family of this task definition.
      * 
      */
@@ -66,6 +71,13 @@ public final class GetTaskDefinitionResult {
      */
     public String arnWithoutRevision() {
         return this.arnWithoutRevision;
+    }
+    /**
+     * @return ARN of the task execution role that the Amazon ECS container agent and the Docker.
+     * 
+     */
+    public String executionRoleArn() {
+        return this.executionRoleArn;
     }
     /**
      * @return Family of this task definition.
@@ -124,6 +136,7 @@ public final class GetTaskDefinitionResult {
     public static final class Builder {
         private String arn;
         private String arnWithoutRevision;
+        private String executionRoleArn;
         private String family;
         private String id;
         private String networkMode;
@@ -136,6 +149,7 @@ public final class GetTaskDefinitionResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.arnWithoutRevision = defaults.arnWithoutRevision;
+    	      this.executionRoleArn = defaults.executionRoleArn;
     	      this.family = defaults.family;
     	      this.id = defaults.id;
     	      this.networkMode = defaults.networkMode;
@@ -153,6 +167,11 @@ public final class GetTaskDefinitionResult {
         @CustomType.Setter
         public Builder arnWithoutRevision(String arnWithoutRevision) {
             this.arnWithoutRevision = Objects.requireNonNull(arnWithoutRevision);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder executionRoleArn(String executionRoleArn) {
+            this.executionRoleArn = Objects.requireNonNull(executionRoleArn);
             return this;
         }
         @CustomType.Setter
@@ -194,6 +213,7 @@ public final class GetTaskDefinitionResult {
             final var o = new GetTaskDefinitionResult();
             o.arn = arn;
             o.arnWithoutRevision = arnWithoutRevision;
+            o.executionRoleArn = executionRoleArn;
             o.family = family;
             o.id = id;
             o.networkMode = networkMode;

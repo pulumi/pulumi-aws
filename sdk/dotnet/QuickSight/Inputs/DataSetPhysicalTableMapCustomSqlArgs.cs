@@ -31,7 +31,7 @@ namespace Pulumi.Aws.QuickSight.Inputs
         public Input<string> DataSourceArn { get; set; } = null!;
 
         /// <summary>
-        /// Display name for the dataset.
+        /// Display name for the SQL query result.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

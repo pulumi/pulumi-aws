@@ -20,6 +20,7 @@ __all__ = [
     'ResolverEndpointIpAddressArgs',
     'ResolverRuleTargetIpArgs',
     'ZoneVpcArgs',
+    'GetQueryLogConfigFilterArgs',
     'GetResolverEndpointFilterArgs',
     'GetTrafficPolicyDocumentEndpointArgs',
     'GetTrafficPolicyDocumentRuleArgs',
@@ -365,6 +366,39 @@ class ZoneVpcArgs:
     @vpc_region.setter
     def vpc_region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_region", value)
+
+
+@pulumi.input_type
+class GetQueryLogConfigFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the query logging configuration.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the query logging configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type

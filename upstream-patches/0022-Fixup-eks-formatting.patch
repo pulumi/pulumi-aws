@@ -1,4 +1,4 @@
-From 78b63f036f490fd63acbfcfc91b7f79373e41ecc Mon Sep 17 00:00:00 2001
+From c96bb039940c3ff32857a286402c61bfe2a79d59 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Thu, 9 Mar 2023 14:50:36 +0000
 Subject: [PATCH 22/27] Fixup eks formatting

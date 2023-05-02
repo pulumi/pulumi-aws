@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleActionAllow;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleActionBlock;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleActionCaptcha;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleActionChallenge;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleActionCount;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -29,6 +30,11 @@ public final class RuleGroupRuleAction {
      * 
      */
     private @Nullable RuleGroupRuleActionCaptcha captcha;
+    /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
+     * 
+     */
+    private @Nullable RuleGroupRuleActionChallenge challenge;
     /**
      * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
      * 
@@ -58,6 +64,13 @@ public final class RuleGroupRuleAction {
         return Optional.ofNullable(this.captcha);
     }
     /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
+     * 
+     */
+    public Optional<RuleGroupRuleActionChallenge> challenge() {
+        return Optional.ofNullable(this.challenge);
+    }
+    /**
      * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
      * 
      */
@@ -77,6 +90,7 @@ public final class RuleGroupRuleAction {
         private @Nullable RuleGroupRuleActionAllow allow;
         private @Nullable RuleGroupRuleActionBlock block;
         private @Nullable RuleGroupRuleActionCaptcha captcha;
+        private @Nullable RuleGroupRuleActionChallenge challenge;
         private @Nullable RuleGroupRuleActionCount count;
         public Builder() {}
         public Builder(RuleGroupRuleAction defaults) {
@@ -84,6 +98,7 @@ public final class RuleGroupRuleAction {
     	      this.allow = defaults.allow;
     	      this.block = defaults.block;
     	      this.captcha = defaults.captcha;
+    	      this.challenge = defaults.challenge;
     	      this.count = defaults.count;
         }
 
@@ -103,6 +118,11 @@ public final class RuleGroupRuleAction {
             return this;
         }
         @CustomType.Setter
+        public Builder challenge(@Nullable RuleGroupRuleActionChallenge challenge) {
+            this.challenge = challenge;
+            return this;
+        }
+        @CustomType.Setter
         public Builder count(@Nullable RuleGroupRuleActionCount count) {
             this.count = count;
             return this;
@@ -112,6 +132,7 @@ public final class RuleGroupRuleAction {
             o.allow = allow;
             o.block = block;
             o.captcha = captcha;
+            o.challenge = challenge;
             o.count = count;
             return o;
         }

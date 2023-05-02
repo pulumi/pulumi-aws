@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// Family for the latest ACTIVE revision
+        /// Family for the latest ACTIVE revision or full ARN of the task definition.
         /// </summary>
         public readonly string TaskDefinition;
 

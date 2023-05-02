@@ -110,6 +110,10 @@ export class Subnet extends pulumi.CustomResource {
      */
     public readonly enableDns64!: pulumi.Output<boolean | undefined>;
     /**
+     * Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+     */
+    public readonly enableLniAtDeviceIndex!: pulumi.Output<number | undefined>;
+    /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
      */
     public readonly enableResourceNameDnsARecordOnLaunch!: pulumi.Output<boolean | undefined>;
@@ -185,6 +189,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             resourceInputs["enableDns64"] = state ? state.enableDns64 : undefined;
+            resourceInputs["enableLniAtDeviceIndex"] = state ? state.enableLniAtDeviceIndex : undefined;
             resourceInputs["enableResourceNameDnsARecordOnLaunch"] = state ? state.enableResourceNameDnsARecordOnLaunch : undefined;
             resourceInputs["enableResourceNameDnsAaaaRecordOnLaunch"] = state ? state.enableResourceNameDnsAaaaRecordOnLaunch : undefined;
             resourceInputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
@@ -209,6 +214,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
             resourceInputs["enableDns64"] = args ? args.enableDns64 : undefined;
+            resourceInputs["enableLniAtDeviceIndex"] = args ? args.enableLniAtDeviceIndex : undefined;
             resourceInputs["enableResourceNameDnsARecordOnLaunch"] = args ? args.enableResourceNameDnsARecordOnLaunch : undefined;
             resourceInputs["enableResourceNameDnsAaaaRecordOnLaunch"] = args ? args.enableResourceNameDnsAaaaRecordOnLaunch : undefined;
             resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
@@ -263,6 +269,10 @@ export interface SubnetState {
      * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
      */
     enableDns64?: pulumi.Input<boolean>;
+    /**
+     * Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+     */
+    enableLniAtDeviceIndex?: pulumi.Input<number>;
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
      */
@@ -350,6 +360,10 @@ export interface SubnetArgs {
      * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
      */
     enableDns64?: pulumi.Input<boolean>;
+    /**
+     * Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
+     */
+    enableLniAtDeviceIndex?: pulumi.Input<number>;
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
      */

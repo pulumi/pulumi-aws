@@ -4,6 +4,8 @@
 package com.pulumi.aws.iam;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.iam.inputs.GetAccessKeysArgs;
+import com.pulumi.aws.iam.inputs.GetAccessKeysPlainArgs;
 import com.pulumi.aws.iam.inputs.GetGroupArgs;
 import com.pulumi.aws.iam.inputs.GetGroupPlainArgs;
 import com.pulumi.aws.iam.inputs.GetInstanceProfileArgs;
@@ -32,6 +34,7 @@ import com.pulumi.aws.iam.inputs.GetUserSshKeyArgs;
 import com.pulumi.aws.iam.inputs.GetUserSshKeyPlainArgs;
 import com.pulumi.aws.iam.inputs.GetUsersArgs;
 import com.pulumi.aws.iam.inputs.GetUsersPlainArgs;
+import com.pulumi.aws.iam.outputs.GetAccessKeysResult;
 import com.pulumi.aws.iam.outputs.GetAccountAliasResult;
 import com.pulumi.aws.iam.outputs.GetGroupResult;
 import com.pulumi.aws.iam.outputs.GetInstanceProfileResult;
@@ -55,6 +58,158 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class IamFunctions {
+    /**
+     * This data source can be used to fetch information about IAM access keys of a
+     * specific IAM user.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetAccessKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getAccessKeys(GetAccessKeysArgs.builder()
+     *             .user(&#34;an_example_user_name&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAccessKeysResult> getAccessKeys(GetAccessKeysArgs args) {
+        return getAccessKeys(args, InvokeOptions.Empty);
+    }
+    /**
+     * This data source can be used to fetch information about IAM access keys of a
+     * specific IAM user.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetAccessKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getAccessKeys(GetAccessKeysArgs.builder()
+     *             .user(&#34;an_example_user_name&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAccessKeysResult> getAccessKeysPlain(GetAccessKeysPlainArgs args) {
+        return getAccessKeysPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * This data source can be used to fetch information about IAM access keys of a
+     * specific IAM user.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetAccessKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getAccessKeys(GetAccessKeysArgs.builder()
+     *             .user(&#34;an_example_user_name&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAccessKeysResult> getAccessKeys(GetAccessKeysArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:iam/getAccessKeys:getAccessKeys", TypeShape.of(GetAccessKeysResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * This data source can be used to fetch information about IAM access keys of a
+     * specific IAM user.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.iam.IamFunctions;
+     * import com.pulumi.aws.iam.inputs.GetAccessKeysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = IamFunctions.getAccessKeys(GetAccessKeysArgs.builder()
+     *             .user(&#34;an_example_user_name&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAccessKeysResult> getAccessKeysPlain(GetAccessKeysPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:iam/getAccessKeys:getAccessKeys", TypeShape.of(GetAccessKeysResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * The IAM Account Alias data source allows access to the account alias
      * for the effective account in which this provider is working.

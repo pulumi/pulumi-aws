@@ -11,13 +11,628 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ListenerDefaultAction',
+    'ListenerDefaultActionFixedResponse',
+    'ListenerDefaultActionForward',
+    'ListenerDefaultActionForwardTargetGroup',
+    'ListenerRuleAction',
+    'ListenerRuleActionFixedResponse',
+    'ListenerRuleActionForward',
+    'ListenerRuleActionForwardTargetGroup',
+    'ListenerRuleMatch',
+    'ListenerRuleMatchHttpMatch',
+    'ListenerRuleMatchHttpMatchHeaderMatch',
+    'ListenerRuleMatchHttpMatchHeaderMatchMatch',
+    'ListenerRuleMatchHttpMatchPathMatch',
+    'ListenerRuleMatchHttpMatchPathMatchMatch',
     'ServiceDnsEntry',
     'ServiceNetworkServiceAssociationDnsEntry',
     'TargetGroupConfig',
     'TargetGroupConfigHealthCheck',
     'TargetGroupConfigHealthCheckMatcher',
+    'GetListenerDefaultActionResult',
+    'GetListenerDefaultActionFixedResponseResult',
+    'GetListenerDefaultActionForwardResult',
+    'GetListenerDefaultActionForwardTargetGroupResult',
     'GetServiceDnsEntryResult',
 ]
+
+@pulumi.output_type
+class ListenerDefaultAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedResponse":
+            suggest = "fixed_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerDefaultAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerDefaultAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerDefaultAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fixed_response: Optional['outputs.ListenerDefaultActionFixedResponse'] = None,
+                 forwards: Optional[Sequence['outputs.ListenerDefaultActionForward']] = None):
+        """
+        :param Sequence['ListenerDefaultActionForwardArgs'] forwards: Route requests to one or more target groups. See Forward blocks below.
+        """
+        if fixed_response is not None:
+            pulumi.set(__self__, "fixed_response", fixed_response)
+        if forwards is not None:
+            pulumi.set(__self__, "forwards", forwards)
+
+    @property
+    @pulumi.getter(name="fixedResponse")
+    def fixed_response(self) -> Optional['outputs.ListenerDefaultActionFixedResponse']:
+        return pulumi.get(self, "fixed_response")
+
+    @property
+    @pulumi.getter
+    def forwards(self) -> Optional[Sequence['outputs.ListenerDefaultActionForward']]:
+        """
+        Route requests to one or more target groups. See Forward blocks below.
+        """
+        return pulumi.get(self, "forwards")
+
+
+@pulumi.output_type
+class ListenerDefaultActionFixedResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerDefaultActionFixedResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerDefaultActionFixedResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerDefaultActionFixedResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status_code: int):
+        """
+        :param int status_code: Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
+        """
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> int:
+        """
+        Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
+        """
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class ListenerDefaultActionForward(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetGroups":
+            suggest = "target_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerDefaultActionForward. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerDefaultActionForward.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerDefaultActionForward.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_groups: Optional[Sequence['outputs.ListenerDefaultActionForwardTargetGroup']] = None):
+        """
+        :param Sequence['ListenerDefaultActionForwardTargetGroupArgs'] target_groups: One or more target group blocks.
+        """
+        if target_groups is not None:
+            pulumi.set(__self__, "target_groups", target_groups)
+
+    @property
+    @pulumi.getter(name="targetGroups")
+    def target_groups(self) -> Optional[Sequence['outputs.ListenerDefaultActionForwardTargetGroup']]:
+        """
+        One or more target group blocks.
+        """
+        return pulumi.get(self, "target_groups")
+
+
+@pulumi.output_type
+class ListenerDefaultActionForwardTargetGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetGroupIdentifier":
+            suggest = "target_group_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerDefaultActionForwardTargetGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerDefaultActionForwardTargetGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerDefaultActionForwardTargetGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_group_identifier: Optional[str] = None,
+                 weight: Optional[int] = None):
+        """
+        :param str target_group_identifier: ID or Amazon Resource Name (ARN) of the target group.
+        :param int weight: Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+               weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        """
+        if target_group_identifier is not None:
+            pulumi.set(__self__, "target_group_identifier", target_group_identifier)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="targetGroupIdentifier")
+    def target_group_identifier(self) -> Optional[str]:
+        """
+        ID or Amazon Resource Name (ARN) of the target group.
+        """
+        return pulumi.get(self, "target_group_identifier")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[int]:
+        """
+        Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+        weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        """
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class ListenerRuleAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedResponse":
+            suggest = "fixed_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fixed_response: Optional['outputs.ListenerRuleActionFixedResponse'] = None,
+                 forward: Optional['outputs.ListenerRuleActionForward'] = None):
+        """
+        :param 'ListenerRuleActionFixedResponseArgs' fixed_response: Describes the rule action that returns a custom HTTP response.
+        :param 'ListenerRuleActionForwardArgs' forward: The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        """
+        if fixed_response is not None:
+            pulumi.set(__self__, "fixed_response", fixed_response)
+        if forward is not None:
+            pulumi.set(__self__, "forward", forward)
+
+    @property
+    @pulumi.getter(name="fixedResponse")
+    def fixed_response(self) -> Optional['outputs.ListenerRuleActionFixedResponse']:
+        """
+        Describes the rule action that returns a custom HTTP response.
+        """
+        return pulumi.get(self, "fixed_response")
+
+    @property
+    @pulumi.getter
+    def forward(self) -> Optional['outputs.ListenerRuleActionForward']:
+        """
+        The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        """
+        return pulumi.get(self, "forward")
+
+
+@pulumi.output_type
+class ListenerRuleActionFixedResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleActionFixedResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleActionFixedResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleActionFixedResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status_code: int):
+        """
+        :param int status_code: The HTTP response code.
+        """
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> int:
+        """
+        The HTTP response code.
+        """
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class ListenerRuleActionForward(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetGroups":
+            suggest = "target_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleActionForward. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleActionForward.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleActionForward.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_groups: Sequence['outputs.ListenerRuleActionForwardTargetGroup']):
+        """
+        :param Sequence['ListenerRuleActionForwardTargetGroupArgs'] target_groups: The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+        """
+        pulumi.set(__self__, "target_groups", target_groups)
+
+    @property
+    @pulumi.getter(name="targetGroups")
+    def target_groups(self) -> Sequence['outputs.ListenerRuleActionForwardTargetGroup']:
+        """
+        The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+        """
+        return pulumi.get(self, "target_groups")
+
+
+@pulumi.output_type
+class ListenerRuleActionForwardTargetGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetGroupIdentifier":
+            suggest = "target_group_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleActionForwardTargetGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleActionForwardTargetGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleActionForwardTargetGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_group_identifier: str,
+                 weight: Optional[int] = None):
+        pulumi.set(__self__, "target_group_identifier", target_group_identifier)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="targetGroupIdentifier")
+    def target_group_identifier(self) -> str:
+        return pulumi.get(self, "target_group_identifier")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[int]:
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class ListenerRuleMatch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpMatch":
+            suggest = "http_match"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleMatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleMatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleMatch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 http_match: Optional['outputs.ListenerRuleMatchHttpMatch'] = None):
+        """
+        :param 'ListenerRuleMatchHttpMatchArgs' http_match: The HTTP criteria that a rule must match.
+        """
+        if http_match is not None:
+            pulumi.set(__self__, "http_match", http_match)
+
+    @property
+    @pulumi.getter(name="httpMatch")
+    def http_match(self) -> Optional['outputs.ListenerRuleMatchHttpMatch']:
+        """
+        The HTTP criteria that a rule must match.
+        """
+        return pulumi.get(self, "http_match")
+
+
+@pulumi.output_type
+class ListenerRuleMatchHttpMatch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerMatches":
+            suggest = "header_matches"
+        elif key == "pathMatch":
+            suggest = "path_match"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleMatchHttpMatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleMatchHttpMatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleMatchHttpMatch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_matches: Optional[Sequence['outputs.ListenerRuleMatchHttpMatchHeaderMatch']] = None,
+                 method: Optional[str] = None,
+                 path_match: Optional['outputs.ListenerRuleMatchHttpMatchPathMatch'] = None):
+        """
+        :param Sequence['ListenerRuleMatchHttpMatchHeaderMatchArgs'] header_matches: The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        :param str method: The HTTP method type.
+        :param 'ListenerRuleMatchHttpMatchPathMatchArgs' path_match: The path match.
+        """
+        if header_matches is not None:
+            pulumi.set(__self__, "header_matches", header_matches)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if path_match is not None:
+            pulumi.set(__self__, "path_match", path_match)
+
+    @property
+    @pulumi.getter(name="headerMatches")
+    def header_matches(self) -> Optional[Sequence['outputs.ListenerRuleMatchHttpMatchHeaderMatch']]:
+        """
+        The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        """
+        return pulumi.get(self, "header_matches")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        The HTTP method type.
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter(name="pathMatch")
+    def path_match(self) -> Optional['outputs.ListenerRuleMatchHttpMatchPathMatch']:
+        """
+        The path match.
+        """
+        return pulumi.get(self, "path_match")
+
+
+@pulumi.output_type
+class ListenerRuleMatchHttpMatchHeaderMatch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caseSensitive":
+            suggest = "case_sensitive"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleMatchHttpMatchHeaderMatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleMatchHttpMatchHeaderMatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleMatchHttpMatchHeaderMatch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match: 'outputs.ListenerRuleMatchHttpMatchHeaderMatchMatch',
+                 name: str,
+                 case_sensitive: Optional[bool] = None):
+        """
+        :param 'ListenerRuleMatchHttpMatchHeaderMatchMatchArgs' match: The header match type.
+        :param str name: The name of the header.
+        :param bool case_sensitive: Indicates whether the match is case sensitive. Defaults to false.
+        """
+        pulumi.set(__self__, "match", match)
+        pulumi.set(__self__, "name", name)
+        if case_sensitive is not None:
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.ListenerRuleMatchHttpMatchHeaderMatchMatch':
+        """
+        The header match type.
+        """
+        return pulumi.get(self, "match")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the header.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="caseSensitive")
+    def case_sensitive(self) -> Optional[bool]:
+        """
+        Indicates whether the match is case sensitive. Defaults to false.
+        """
+        return pulumi.get(self, "case_sensitive")
+
+
+@pulumi.output_type
+class ListenerRuleMatchHttpMatchHeaderMatchMatch(dict):
+    def __init__(__self__, *,
+                 contains: Optional[str] = None,
+                 exact: Optional[str] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param str contains: Specifies a contains type match.
+        :param str exact: Specifies an exact type match.
+        :param str prefix: Specifies a prefix type match. Matches the value with the prefix.
+        """
+        if contains is not None:
+            pulumi.set(__self__, "contains", contains)
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def contains(self) -> Optional[str]:
+        """
+        Specifies a contains type match.
+        """
+        return pulumi.get(self, "contains")
+
+    @property
+    @pulumi.getter
+    def exact(self) -> Optional[str]:
+        """
+        Specifies an exact type match.
+        """
+        return pulumi.get(self, "exact")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        Specifies a prefix type match. Matches the value with the prefix.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class ListenerRuleMatchHttpMatchPathMatch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caseSensitive":
+            suggest = "case_sensitive"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleMatchHttpMatchPathMatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleMatchHttpMatchPathMatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleMatchHttpMatchPathMatch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match: 'outputs.ListenerRuleMatchHttpMatchPathMatchMatch',
+                 case_sensitive: Optional[bool] = None):
+        """
+        :param 'ListenerRuleMatchHttpMatchPathMatchMatchArgs' match: The header match type.
+        :param bool case_sensitive: Indicates whether the match is case sensitive. Defaults to false.
+        """
+        pulumi.set(__self__, "match", match)
+        if case_sensitive is not None:
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
+
+    @property
+    @pulumi.getter
+    def match(self) -> 'outputs.ListenerRuleMatchHttpMatchPathMatchMatch':
+        """
+        The header match type.
+        """
+        return pulumi.get(self, "match")
+
+    @property
+    @pulumi.getter(name="caseSensitive")
+    def case_sensitive(self) -> Optional[bool]:
+        """
+        Indicates whether the match is case sensitive. Defaults to false.
+        """
+        return pulumi.get(self, "case_sensitive")
+
+
+@pulumi.output_type
+class ListenerRuleMatchHttpMatchPathMatchMatch(dict):
+    def __init__(__self__, *,
+                 exact: Optional[str] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param str exact: Specifies an exact type match.
+        :param str prefix: Specifies a prefix type match. Matches the value with the prefix.
+        """
+        if exact is not None:
+            pulumi.set(__self__, "exact", exact)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> Optional[str]:
+        """
+        Specifies an exact type match.
+        """
+        return pulumi.get(self, "exact")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        Specifies a prefix type match. Matches the value with the prefix.
+        """
+        return pulumi.get(self, "prefix")
+
 
 @pulumi.output_type
 class ServiceDnsEntry(dict):
@@ -375,6 +990,68 @@ class TargetGroupConfigHealthCheckMatcher(dict):
         The HTTP codes to use when checking for a successful response from a target.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetListenerDefaultActionResult(dict):
+    def __init__(__self__, *,
+                 fixed_responses: Sequence['outputs.GetListenerDefaultActionFixedResponseResult'],
+                 forwards: Sequence['outputs.GetListenerDefaultActionForwardResult']):
+        pulumi.set(__self__, "fixed_responses", fixed_responses)
+        pulumi.set(__self__, "forwards", forwards)
+
+    @property
+    @pulumi.getter(name="fixedResponses")
+    def fixed_responses(self) -> Sequence['outputs.GetListenerDefaultActionFixedResponseResult']:
+        return pulumi.get(self, "fixed_responses")
+
+    @property
+    @pulumi.getter
+    def forwards(self) -> Sequence['outputs.GetListenerDefaultActionForwardResult']:
+        return pulumi.get(self, "forwards")
+
+
+@pulumi.output_type
+class GetListenerDefaultActionFixedResponseResult(dict):
+    def __init__(__self__, *,
+                 status_code: int):
+        pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> int:
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class GetListenerDefaultActionForwardResult(dict):
+    def __init__(__self__, *,
+                 target_groups: Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']):
+        pulumi.set(__self__, "target_groups", target_groups)
+
+    @property
+    @pulumi.getter(name="targetGroups")
+    def target_groups(self) -> Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']:
+        return pulumi.get(self, "target_groups")
+
+
+@pulumi.output_type
+class GetListenerDefaultActionForwardTargetGroupResult(dict):
+    def __init__(__self__, *,
+                 target_group_identifier: str,
+                 weight: int):
+        pulumi.set(__self__, "target_group_identifier", target_group_identifier)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="targetGroupIdentifier")
+    def target_group_identifier(self) -> str:
+        return pulumi.get(self, "target_group_identifier")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type

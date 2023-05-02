@@ -4,8 +4,11 @@
 package com.pulumi.aws.vpclattice;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.vpclattice.inputs.GetListenerArgs;
+import com.pulumi.aws.vpclattice.inputs.GetListenerPlainArgs;
 import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
 import com.pulumi.aws.vpclattice.inputs.GetServicePlainArgs;
+import com.pulumi.aws.vpclattice.outputs.GetListenerResult;
 import com.pulumi.aws.vpclattice.outputs.GetServiceResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -14,6 +17,150 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class VpclatticeFunctions {
+    /**
+     * Data source for managing an AWS VPC Lattice Listener.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpclatticeFunctions.getListener();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetListenerResult> getListener(GetListenerArgs args) {
+        return getListener(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS VPC Lattice Listener.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpclatticeFunctions.getListener();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args) {
+        return getListenerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS VPC Lattice Listener.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpclatticeFunctions.getListener();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetListenerResult> getListener(GetListenerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:vpclattice/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS VPC Lattice Listener.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpclatticeFunctions.getListener();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:vpclattice/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Data source for managing an AWS VPC Lattice Service.
      * 

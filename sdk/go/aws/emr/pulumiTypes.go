@@ -3689,6 +3689,112 @@ func (o ClusterMasterInstanceGroupEbsConfigArrayOutput) Index(i pulumi.IntInput)
 	}).(ClusterMasterInstanceGroupEbsConfigOutput)
 }
 
+type ClusterPlacementGroupConfig struct {
+	// Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
+	InstanceRole string `pulumi:"instanceRole"`
+	// EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
+	PlacementStrategy *string `pulumi:"placementStrategy"`
+}
+
+// ClusterPlacementGroupConfigInput is an input type that accepts ClusterPlacementGroupConfigArgs and ClusterPlacementGroupConfigOutput values.
+// You can construct a concrete instance of `ClusterPlacementGroupConfigInput` via:
+//
+//	ClusterPlacementGroupConfigArgs{...}
+type ClusterPlacementGroupConfigInput interface {
+	pulumi.Input
+
+	ToClusterPlacementGroupConfigOutput() ClusterPlacementGroupConfigOutput
+	ToClusterPlacementGroupConfigOutputWithContext(context.Context) ClusterPlacementGroupConfigOutput
+}
+
+type ClusterPlacementGroupConfigArgs struct {
+	// Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
+	InstanceRole pulumi.StringInput `pulumi:"instanceRole"`
+	// EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
+	PlacementStrategy pulumi.StringPtrInput `pulumi:"placementStrategy"`
+}
+
+func (ClusterPlacementGroupConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlacementGroupConfig)(nil)).Elem()
+}
+
+func (i ClusterPlacementGroupConfigArgs) ToClusterPlacementGroupConfigOutput() ClusterPlacementGroupConfigOutput {
+	return i.ToClusterPlacementGroupConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterPlacementGroupConfigArgs) ToClusterPlacementGroupConfigOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlacementGroupConfigOutput)
+}
+
+// ClusterPlacementGroupConfigArrayInput is an input type that accepts ClusterPlacementGroupConfigArray and ClusterPlacementGroupConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterPlacementGroupConfigArrayInput` via:
+//
+//	ClusterPlacementGroupConfigArray{ ClusterPlacementGroupConfigArgs{...} }
+type ClusterPlacementGroupConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterPlacementGroupConfigArrayOutput() ClusterPlacementGroupConfigArrayOutput
+	ToClusterPlacementGroupConfigArrayOutputWithContext(context.Context) ClusterPlacementGroupConfigArrayOutput
+}
+
+type ClusterPlacementGroupConfigArray []ClusterPlacementGroupConfigInput
+
+func (ClusterPlacementGroupConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterPlacementGroupConfig)(nil)).Elem()
+}
+
+func (i ClusterPlacementGroupConfigArray) ToClusterPlacementGroupConfigArrayOutput() ClusterPlacementGroupConfigArrayOutput {
+	return i.ToClusterPlacementGroupConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterPlacementGroupConfigArray) ToClusterPlacementGroupConfigArrayOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlacementGroupConfigArrayOutput)
+}
+
+type ClusterPlacementGroupConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlacementGroupConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlacementGroupConfig)(nil)).Elem()
+}
+
+func (o ClusterPlacementGroupConfigOutput) ToClusterPlacementGroupConfigOutput() ClusterPlacementGroupConfigOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigOutput) ToClusterPlacementGroupConfigOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigOutput {
+	return o
+}
+
+// Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
+func (o ClusterPlacementGroupConfigOutput) InstanceRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterPlacementGroupConfig) string { return v.InstanceRole }).(pulumi.StringOutput)
+}
+
+// EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
+func (o ClusterPlacementGroupConfigOutput) PlacementStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterPlacementGroupConfig) *string { return v.PlacementStrategy }).(pulumi.StringPtrOutput)
+}
+
+type ClusterPlacementGroupConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlacementGroupConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterPlacementGroupConfig)(nil)).Elem()
+}
+
+func (o ClusterPlacementGroupConfigArrayOutput) ToClusterPlacementGroupConfigArrayOutput() ClusterPlacementGroupConfigArrayOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigArrayOutput) ToClusterPlacementGroupConfigArrayOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigArrayOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigArrayOutput) Index(i pulumi.IntInput) ClusterPlacementGroupConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterPlacementGroupConfig {
+		return vs[0].([]ClusterPlacementGroupConfig)[vs[1].(int)]
+	}).(ClusterPlacementGroupConfigOutput)
+}
+
 type ClusterStep struct {
 	// Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
 	ActionOnFailure string `pulumi:"actionOnFailure"`
@@ -5100,6 +5206,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMasterInstanceGroupPtrInput)(nil)).Elem(), ClusterMasterInstanceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMasterInstanceGroupEbsConfigInput)(nil)).Elem(), ClusterMasterInstanceGroupEbsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMasterInstanceGroupEbsConfigArrayInput)(nil)).Elem(), ClusterMasterInstanceGroupEbsConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementGroupConfigInput)(nil)).Elem(), ClusterPlacementGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementGroupConfigArrayInput)(nil)).Elem(), ClusterPlacementGroupConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStepInput)(nil)).Elem(), ClusterStepArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStepArrayInput)(nil)).Elem(), ClusterStepArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStepHadoopJarStepInput)(nil)).Elem(), ClusterStepHadoopJarStepArgs{})
@@ -5167,6 +5275,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterMasterInstanceGroupPtrOutput{})
 	pulumi.RegisterOutputType(ClusterMasterInstanceGroupEbsConfigOutput{})
 	pulumi.RegisterOutputType(ClusterMasterInstanceGroupEbsConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterPlacementGroupConfigOutput{})
+	pulumi.RegisterOutputType(ClusterPlacementGroupConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterStepOutput{})
 	pulumi.RegisterOutputType(ClusterStepArrayOutput{})
 	pulumi.RegisterOutputType(ClusterStepHadoopJarStepOutput{})

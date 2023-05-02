@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Iot.Inputs
     public sealed class TopicRuleIotEventArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+        /// </summary>
+        [Input("batchMode")]
+        public Input<bool>? BatchMode { get; set; }
+
+        /// <summary>
         /// The name of the AWS IoT Events input.
         /// </summary>
         [Input("inputName", required: true)]

@@ -8911,6 +8911,238 @@ func (o ResponseHeadersPolicyCustomHeadersConfigItemArrayOutput) Index(i pulumi.
 	}).(ResponseHeadersPolicyCustomHeadersConfigItemOutput)
 }
 
+type ResponseHeadersPolicyRemoveHeadersConfig struct {
+	Items []ResponseHeadersPolicyRemoveHeadersConfigItem `pulumi:"items"`
+}
+
+// ResponseHeadersPolicyRemoveHeadersConfigInput is an input type that accepts ResponseHeadersPolicyRemoveHeadersConfigArgs and ResponseHeadersPolicyRemoveHeadersConfigOutput values.
+// You can construct a concrete instance of `ResponseHeadersPolicyRemoveHeadersConfigInput` via:
+//
+//	ResponseHeadersPolicyRemoveHeadersConfigArgs{...}
+type ResponseHeadersPolicyRemoveHeadersConfigInput interface {
+	pulumi.Input
+
+	ToResponseHeadersPolicyRemoveHeadersConfigOutput() ResponseHeadersPolicyRemoveHeadersConfigOutput
+	ToResponseHeadersPolicyRemoveHeadersConfigOutputWithContext(context.Context) ResponseHeadersPolicyRemoveHeadersConfigOutput
+}
+
+type ResponseHeadersPolicyRemoveHeadersConfigArgs struct {
+	Items ResponseHeadersPolicyRemoveHeadersConfigItemArrayInput `pulumi:"items"`
+}
+
+func (ResponseHeadersPolicyRemoveHeadersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseHeadersPolicyRemoveHeadersConfig)(nil)).Elem()
+}
+
+func (i ResponseHeadersPolicyRemoveHeadersConfigArgs) ToResponseHeadersPolicyRemoveHeadersConfigOutput() ResponseHeadersPolicyRemoveHeadersConfigOutput {
+	return i.ToResponseHeadersPolicyRemoveHeadersConfigOutputWithContext(context.Background())
+}
+
+func (i ResponseHeadersPolicyRemoveHeadersConfigArgs) ToResponseHeadersPolicyRemoveHeadersConfigOutputWithContext(ctx context.Context) ResponseHeadersPolicyRemoveHeadersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyRemoveHeadersConfigOutput)
+}
+
+func (i ResponseHeadersPolicyRemoveHeadersConfigArgs) ToResponseHeadersPolicyRemoveHeadersConfigPtrOutput() ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
+	return i.ToResponseHeadersPolicyRemoveHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ResponseHeadersPolicyRemoveHeadersConfigArgs) ToResponseHeadersPolicyRemoveHeadersConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyRemoveHeadersConfigOutput).ToResponseHeadersPolicyRemoveHeadersConfigPtrOutputWithContext(ctx)
+}
+
+// ResponseHeadersPolicyRemoveHeadersConfigPtrInput is an input type that accepts ResponseHeadersPolicyRemoveHeadersConfigArgs, ResponseHeadersPolicyRemoveHeadersConfigPtr and ResponseHeadersPolicyRemoveHeadersConfigPtrOutput values.
+// You can construct a concrete instance of `ResponseHeadersPolicyRemoveHeadersConfigPtrInput` via:
+//
+//	        ResponseHeadersPolicyRemoveHeadersConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResponseHeadersPolicyRemoveHeadersConfigPtrInput interface {
+	pulumi.Input
+
+	ToResponseHeadersPolicyRemoveHeadersConfigPtrOutput() ResponseHeadersPolicyRemoveHeadersConfigPtrOutput
+	ToResponseHeadersPolicyRemoveHeadersConfigPtrOutputWithContext(context.Context) ResponseHeadersPolicyRemoveHeadersConfigPtrOutput
+}
+
+type responseHeadersPolicyRemoveHeadersConfigPtrType ResponseHeadersPolicyRemoveHeadersConfigArgs
+
+func ResponseHeadersPolicyRemoveHeadersConfigPtr(v *ResponseHeadersPolicyRemoveHeadersConfigArgs) ResponseHeadersPolicyRemoveHeadersConfigPtrInput {
+	return (*responseHeadersPolicyRemoveHeadersConfigPtrType)(v)
+}
+
+func (*responseHeadersPolicyRemoveHeadersConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponseHeadersPolicyRemoveHeadersConfig)(nil)).Elem()
+}
+
+func (i *responseHeadersPolicyRemoveHeadersConfigPtrType) ToResponseHeadersPolicyRemoveHeadersConfigPtrOutput() ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
+	return i.ToResponseHeadersPolicyRemoveHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *responseHeadersPolicyRemoveHeadersConfigPtrType) ToResponseHeadersPolicyRemoveHeadersConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyRemoveHeadersConfigPtrOutput)
+}
+
+type ResponseHeadersPolicyRemoveHeadersConfigOutput struct{ *pulumi.OutputState }
+
+func (ResponseHeadersPolicyRemoveHeadersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseHeadersPolicyRemoveHeadersConfig)(nil)).Elem()
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigOutput) ToResponseHeadersPolicyRemoveHeadersConfigOutput() ResponseHeadersPolicyRemoveHeadersConfigOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigOutput) ToResponseHeadersPolicyRemoveHeadersConfigOutputWithContext(ctx context.Context) ResponseHeadersPolicyRemoveHeadersConfigOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigOutput) ToResponseHeadersPolicyRemoveHeadersConfigPtrOutput() ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
+	return o.ToResponseHeadersPolicyRemoveHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigOutput) ToResponseHeadersPolicyRemoveHeadersConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponseHeadersPolicyRemoveHeadersConfig) *ResponseHeadersPolicyRemoveHeadersConfig {
+		return &v
+	}).(ResponseHeadersPolicyRemoveHeadersConfigPtrOutput)
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigOutput) Items() ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput {
+	return o.ApplyT(func(v ResponseHeadersPolicyRemoveHeadersConfig) []ResponseHeadersPolicyRemoveHeadersConfigItem {
+		return v.Items
+	}).(ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput)
+}
+
+type ResponseHeadersPolicyRemoveHeadersConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ResponseHeadersPolicyRemoveHeadersConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponseHeadersPolicyRemoveHeadersConfig)(nil)).Elem()
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigPtrOutput) ToResponseHeadersPolicyRemoveHeadersConfigPtrOutput() ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigPtrOutput) ToResponseHeadersPolicyRemoveHeadersConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyRemoveHeadersConfigPtrOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigPtrOutput) Elem() ResponseHeadersPolicyRemoveHeadersConfigOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyRemoveHeadersConfig) ResponseHeadersPolicyRemoveHeadersConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ResponseHeadersPolicyRemoveHeadersConfig
+		return ret
+	}).(ResponseHeadersPolicyRemoveHeadersConfigOutput)
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigPtrOutput) Items() ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyRemoveHeadersConfig) []ResponseHeadersPolicyRemoveHeadersConfigItem {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput)
+}
+
+type ResponseHeadersPolicyRemoveHeadersConfigItem struct {
+	// The HTTP response header name.
+	Header string `pulumi:"header"`
+}
+
+// ResponseHeadersPolicyRemoveHeadersConfigItemInput is an input type that accepts ResponseHeadersPolicyRemoveHeadersConfigItemArgs and ResponseHeadersPolicyRemoveHeadersConfigItemOutput values.
+// You can construct a concrete instance of `ResponseHeadersPolicyRemoveHeadersConfigItemInput` via:
+//
+//	ResponseHeadersPolicyRemoveHeadersConfigItemArgs{...}
+type ResponseHeadersPolicyRemoveHeadersConfigItemInput interface {
+	pulumi.Input
+
+	ToResponseHeadersPolicyRemoveHeadersConfigItemOutput() ResponseHeadersPolicyRemoveHeadersConfigItemOutput
+	ToResponseHeadersPolicyRemoveHeadersConfigItemOutputWithContext(context.Context) ResponseHeadersPolicyRemoveHeadersConfigItemOutput
+}
+
+type ResponseHeadersPolicyRemoveHeadersConfigItemArgs struct {
+	// The HTTP response header name.
+	Header pulumi.StringInput `pulumi:"header"`
+}
+
+func (ResponseHeadersPolicyRemoveHeadersConfigItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseHeadersPolicyRemoveHeadersConfigItem)(nil)).Elem()
+}
+
+func (i ResponseHeadersPolicyRemoveHeadersConfigItemArgs) ToResponseHeadersPolicyRemoveHeadersConfigItemOutput() ResponseHeadersPolicyRemoveHeadersConfigItemOutput {
+	return i.ToResponseHeadersPolicyRemoveHeadersConfigItemOutputWithContext(context.Background())
+}
+
+func (i ResponseHeadersPolicyRemoveHeadersConfigItemArgs) ToResponseHeadersPolicyRemoveHeadersConfigItemOutputWithContext(ctx context.Context) ResponseHeadersPolicyRemoveHeadersConfigItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyRemoveHeadersConfigItemOutput)
+}
+
+// ResponseHeadersPolicyRemoveHeadersConfigItemArrayInput is an input type that accepts ResponseHeadersPolicyRemoveHeadersConfigItemArray and ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput values.
+// You can construct a concrete instance of `ResponseHeadersPolicyRemoveHeadersConfigItemArrayInput` via:
+//
+//	ResponseHeadersPolicyRemoveHeadersConfigItemArray{ ResponseHeadersPolicyRemoveHeadersConfigItemArgs{...} }
+type ResponseHeadersPolicyRemoveHeadersConfigItemArrayInput interface {
+	pulumi.Input
+
+	ToResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput() ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput
+	ToResponseHeadersPolicyRemoveHeadersConfigItemArrayOutputWithContext(context.Context) ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput
+}
+
+type ResponseHeadersPolicyRemoveHeadersConfigItemArray []ResponseHeadersPolicyRemoveHeadersConfigItemInput
+
+func (ResponseHeadersPolicyRemoveHeadersConfigItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponseHeadersPolicyRemoveHeadersConfigItem)(nil)).Elem()
+}
+
+func (i ResponseHeadersPolicyRemoveHeadersConfigItemArray) ToResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput() ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput {
+	return i.ToResponseHeadersPolicyRemoveHeadersConfigItemArrayOutputWithContext(context.Background())
+}
+
+func (i ResponseHeadersPolicyRemoveHeadersConfigItemArray) ToResponseHeadersPolicyRemoveHeadersConfigItemArrayOutputWithContext(ctx context.Context) ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput)
+}
+
+type ResponseHeadersPolicyRemoveHeadersConfigItemOutput struct{ *pulumi.OutputState }
+
+func (ResponseHeadersPolicyRemoveHeadersConfigItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseHeadersPolicyRemoveHeadersConfigItem)(nil)).Elem()
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigItemOutput) ToResponseHeadersPolicyRemoveHeadersConfigItemOutput() ResponseHeadersPolicyRemoveHeadersConfigItemOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigItemOutput) ToResponseHeadersPolicyRemoveHeadersConfigItemOutputWithContext(ctx context.Context) ResponseHeadersPolicyRemoveHeadersConfigItemOutput {
+	return o
+}
+
+// The HTTP response header name.
+func (o ResponseHeadersPolicyRemoveHeadersConfigItemOutput) Header() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponseHeadersPolicyRemoveHeadersConfigItem) string { return v.Header }).(pulumi.StringOutput)
+}
+
+type ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput struct{ *pulumi.OutputState }
+
+func (ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponseHeadersPolicyRemoveHeadersConfigItem)(nil)).Elem()
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput) ToResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput() ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput) ToResponseHeadersPolicyRemoveHeadersConfigItemArrayOutputWithContext(ctx context.Context) ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput) Index(i pulumi.IntInput) ResponseHeadersPolicyRemoveHeadersConfigItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponseHeadersPolicyRemoveHeadersConfigItem {
+		return vs[0].([]ResponseHeadersPolicyRemoveHeadersConfigItem)[vs[1].(int)]
+	}).(ResponseHeadersPolicyRemoveHeadersConfigItemOutput)
+}
+
 type ResponseHeadersPolicySecurityHeadersConfig struct {
 	// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
 	ContentSecurityPolicy *ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy `pulumi:"contentSecurityPolicy"`
@@ -12512,7 +12744,7 @@ func (o GetResponseHeadersPolicyCustomHeadersConfigArrayOutput) Index(i pulumi.I
 }
 
 type GetResponseHeadersPolicyCustomHeadersConfigItem struct {
-	// HTTP response header name.
+	// The HTTP header name.
 	Header string `pulumi:"header"`
 	// Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
 	Override bool `pulumi:"override"`
@@ -12532,7 +12764,7 @@ type GetResponseHeadersPolicyCustomHeadersConfigItemInput interface {
 }
 
 type GetResponseHeadersPolicyCustomHeadersConfigItemArgs struct {
-	// HTTP response header name.
+	// The HTTP header name.
 	Header pulumi.StringInput `pulumi:"header"`
 	// Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
 	Override pulumi.BoolInput `pulumi:"override"`
@@ -12591,7 +12823,7 @@ func (o GetResponseHeadersPolicyCustomHeadersConfigItemOutput) ToGetResponseHead
 	return o
 }
 
-// HTTP response header name.
+// The HTTP header name.
 func (o GetResponseHeadersPolicyCustomHeadersConfigItemOutput) Header() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResponseHeadersPolicyCustomHeadersConfigItem) string { return v.Header }).(pulumi.StringOutput)
 }
@@ -12624,6 +12856,199 @@ func (o GetResponseHeadersPolicyCustomHeadersConfigItemArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResponseHeadersPolicyCustomHeadersConfigItem {
 		return vs[0].([]GetResponseHeadersPolicyCustomHeadersConfigItem)[vs[1].(int)]
 	}).(GetResponseHeadersPolicyCustomHeadersConfigItemOutput)
+}
+
+type GetResponseHeadersPolicyRemoveHeadersConfig struct {
+	Items []GetResponseHeadersPolicyRemoveHeadersConfigItem `pulumi:"items"`
+}
+
+// GetResponseHeadersPolicyRemoveHeadersConfigInput is an input type that accepts GetResponseHeadersPolicyRemoveHeadersConfigArgs and GetResponseHeadersPolicyRemoveHeadersConfigOutput values.
+// You can construct a concrete instance of `GetResponseHeadersPolicyRemoveHeadersConfigInput` via:
+//
+//	GetResponseHeadersPolicyRemoveHeadersConfigArgs{...}
+type GetResponseHeadersPolicyRemoveHeadersConfigInput interface {
+	pulumi.Input
+
+	ToGetResponseHeadersPolicyRemoveHeadersConfigOutput() GetResponseHeadersPolicyRemoveHeadersConfigOutput
+	ToGetResponseHeadersPolicyRemoveHeadersConfigOutputWithContext(context.Context) GetResponseHeadersPolicyRemoveHeadersConfigOutput
+}
+
+type GetResponseHeadersPolicyRemoveHeadersConfigArgs struct {
+	Items GetResponseHeadersPolicyRemoveHeadersConfigItemArrayInput `pulumi:"items"`
+}
+
+func (GetResponseHeadersPolicyRemoveHeadersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResponseHeadersPolicyRemoveHeadersConfig)(nil)).Elem()
+}
+
+func (i GetResponseHeadersPolicyRemoveHeadersConfigArgs) ToGetResponseHeadersPolicyRemoveHeadersConfigOutput() GetResponseHeadersPolicyRemoveHeadersConfigOutput {
+	return i.ToGetResponseHeadersPolicyRemoveHeadersConfigOutputWithContext(context.Background())
+}
+
+func (i GetResponseHeadersPolicyRemoveHeadersConfigArgs) ToGetResponseHeadersPolicyRemoveHeadersConfigOutputWithContext(ctx context.Context) GetResponseHeadersPolicyRemoveHeadersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyRemoveHeadersConfigOutput)
+}
+
+// GetResponseHeadersPolicyRemoveHeadersConfigArrayInput is an input type that accepts GetResponseHeadersPolicyRemoveHeadersConfigArray and GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput values.
+// You can construct a concrete instance of `GetResponseHeadersPolicyRemoveHeadersConfigArrayInput` via:
+//
+//	GetResponseHeadersPolicyRemoveHeadersConfigArray{ GetResponseHeadersPolicyRemoveHeadersConfigArgs{...} }
+type GetResponseHeadersPolicyRemoveHeadersConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetResponseHeadersPolicyRemoveHeadersConfigArrayOutput() GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput
+	ToGetResponseHeadersPolicyRemoveHeadersConfigArrayOutputWithContext(context.Context) GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput
+}
+
+type GetResponseHeadersPolicyRemoveHeadersConfigArray []GetResponseHeadersPolicyRemoveHeadersConfigInput
+
+func (GetResponseHeadersPolicyRemoveHeadersConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResponseHeadersPolicyRemoveHeadersConfig)(nil)).Elem()
+}
+
+func (i GetResponseHeadersPolicyRemoveHeadersConfigArray) ToGetResponseHeadersPolicyRemoveHeadersConfigArrayOutput() GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput {
+	return i.ToGetResponseHeadersPolicyRemoveHeadersConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetResponseHeadersPolicyRemoveHeadersConfigArray) ToGetResponseHeadersPolicyRemoveHeadersConfigArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput)
+}
+
+type GetResponseHeadersPolicyRemoveHeadersConfigOutput struct{ *pulumi.OutputState }
+
+func (GetResponseHeadersPolicyRemoveHeadersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResponseHeadersPolicyRemoveHeadersConfig)(nil)).Elem()
+}
+
+func (o GetResponseHeadersPolicyRemoveHeadersConfigOutput) ToGetResponseHeadersPolicyRemoveHeadersConfigOutput() GetResponseHeadersPolicyRemoveHeadersConfigOutput {
+	return o
+}
+
+func (o GetResponseHeadersPolicyRemoveHeadersConfigOutput) ToGetResponseHeadersPolicyRemoveHeadersConfigOutputWithContext(ctx context.Context) GetResponseHeadersPolicyRemoveHeadersConfigOutput {
+	return o
+}
+
+func (o GetResponseHeadersPolicyRemoveHeadersConfigOutput) Items() GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput {
+	return o.ApplyT(func(v GetResponseHeadersPolicyRemoveHeadersConfig) []GetResponseHeadersPolicyRemoveHeadersConfigItem {
+		return v.Items
+	}).(GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput)
+}
+
+type GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResponseHeadersPolicyRemoveHeadersConfig)(nil)).Elem()
+}
+
+func (o GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput) ToGetResponseHeadersPolicyRemoveHeadersConfigArrayOutput() GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput {
+	return o
+}
+
+func (o GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput) ToGetResponseHeadersPolicyRemoveHeadersConfigArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput {
+	return o
+}
+
+func (o GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput) Index(i pulumi.IntInput) GetResponseHeadersPolicyRemoveHeadersConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResponseHeadersPolicyRemoveHeadersConfig {
+		return vs[0].([]GetResponseHeadersPolicyRemoveHeadersConfig)[vs[1].(int)]
+	}).(GetResponseHeadersPolicyRemoveHeadersConfigOutput)
+}
+
+type GetResponseHeadersPolicyRemoveHeadersConfigItem struct {
+	// The HTTP header name.
+	Header string `pulumi:"header"`
+}
+
+// GetResponseHeadersPolicyRemoveHeadersConfigItemInput is an input type that accepts GetResponseHeadersPolicyRemoveHeadersConfigItemArgs and GetResponseHeadersPolicyRemoveHeadersConfigItemOutput values.
+// You can construct a concrete instance of `GetResponseHeadersPolicyRemoveHeadersConfigItemInput` via:
+//
+//	GetResponseHeadersPolicyRemoveHeadersConfigItemArgs{...}
+type GetResponseHeadersPolicyRemoveHeadersConfigItemInput interface {
+	pulumi.Input
+
+	ToGetResponseHeadersPolicyRemoveHeadersConfigItemOutput() GetResponseHeadersPolicyRemoveHeadersConfigItemOutput
+	ToGetResponseHeadersPolicyRemoveHeadersConfigItemOutputWithContext(context.Context) GetResponseHeadersPolicyRemoveHeadersConfigItemOutput
+}
+
+type GetResponseHeadersPolicyRemoveHeadersConfigItemArgs struct {
+	// The HTTP header name.
+	Header pulumi.StringInput `pulumi:"header"`
+}
+
+func (GetResponseHeadersPolicyRemoveHeadersConfigItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResponseHeadersPolicyRemoveHeadersConfigItem)(nil)).Elem()
+}
+
+func (i GetResponseHeadersPolicyRemoveHeadersConfigItemArgs) ToGetResponseHeadersPolicyRemoveHeadersConfigItemOutput() GetResponseHeadersPolicyRemoveHeadersConfigItemOutput {
+	return i.ToGetResponseHeadersPolicyRemoveHeadersConfigItemOutputWithContext(context.Background())
+}
+
+func (i GetResponseHeadersPolicyRemoveHeadersConfigItemArgs) ToGetResponseHeadersPolicyRemoveHeadersConfigItemOutputWithContext(ctx context.Context) GetResponseHeadersPolicyRemoveHeadersConfigItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyRemoveHeadersConfigItemOutput)
+}
+
+// GetResponseHeadersPolicyRemoveHeadersConfigItemArrayInput is an input type that accepts GetResponseHeadersPolicyRemoveHeadersConfigItemArray and GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput values.
+// You can construct a concrete instance of `GetResponseHeadersPolicyRemoveHeadersConfigItemArrayInput` via:
+//
+//	GetResponseHeadersPolicyRemoveHeadersConfigItemArray{ GetResponseHeadersPolicyRemoveHeadersConfigItemArgs{...} }
+type GetResponseHeadersPolicyRemoveHeadersConfigItemArrayInput interface {
+	pulumi.Input
+
+	ToGetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput() GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput
+	ToGetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutputWithContext(context.Context) GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput
+}
+
+type GetResponseHeadersPolicyRemoveHeadersConfigItemArray []GetResponseHeadersPolicyRemoveHeadersConfigItemInput
+
+func (GetResponseHeadersPolicyRemoveHeadersConfigItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResponseHeadersPolicyRemoveHeadersConfigItem)(nil)).Elem()
+}
+
+func (i GetResponseHeadersPolicyRemoveHeadersConfigItemArray) ToGetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput() GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput {
+	return i.ToGetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutputWithContext(context.Background())
+}
+
+func (i GetResponseHeadersPolicyRemoveHeadersConfigItemArray) ToGetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput)
+}
+
+type GetResponseHeadersPolicyRemoveHeadersConfigItemOutput struct{ *pulumi.OutputState }
+
+func (GetResponseHeadersPolicyRemoveHeadersConfigItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResponseHeadersPolicyRemoveHeadersConfigItem)(nil)).Elem()
+}
+
+func (o GetResponseHeadersPolicyRemoveHeadersConfigItemOutput) ToGetResponseHeadersPolicyRemoveHeadersConfigItemOutput() GetResponseHeadersPolicyRemoveHeadersConfigItemOutput {
+	return o
+}
+
+func (o GetResponseHeadersPolicyRemoveHeadersConfigItemOutput) ToGetResponseHeadersPolicyRemoveHeadersConfigItemOutputWithContext(ctx context.Context) GetResponseHeadersPolicyRemoveHeadersConfigItemOutput {
+	return o
+}
+
+// The HTTP header name.
+func (o GetResponseHeadersPolicyRemoveHeadersConfigItemOutput) Header() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResponseHeadersPolicyRemoveHeadersConfigItem) string { return v.Header }).(pulumi.StringOutput)
+}
+
+type GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResponseHeadersPolicyRemoveHeadersConfigItem)(nil)).Elem()
+}
+
+func (o GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput) ToGetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput() GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput {
+	return o
+}
+
+func (o GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput) ToGetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput {
+	return o
+}
+
+func (o GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput) Index(i pulumi.IntInput) GetResponseHeadersPolicyRemoveHeadersConfigItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResponseHeadersPolicyRemoveHeadersConfigItem {
+		return vs[0].([]GetResponseHeadersPolicyRemoveHeadersConfigItem)[vs[1].(int)]
+	}).(GetResponseHeadersPolicyRemoveHeadersConfigItemOutput)
 }
 
 type GetResponseHeadersPolicySecurityHeadersConfig struct {
@@ -13674,6 +14099,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyCustomHeadersConfigPtrInput)(nil)).Elem(), ResponseHeadersPolicyCustomHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyCustomHeadersConfigItemInput)(nil)).Elem(), ResponseHeadersPolicyCustomHeadersConfigItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyCustomHeadersConfigItemArrayInput)(nil)).Elem(), ResponseHeadersPolicyCustomHeadersConfigItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyRemoveHeadersConfigInput)(nil)).Elem(), ResponseHeadersPolicyRemoveHeadersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyRemoveHeadersConfigPtrInput)(nil)).Elem(), ResponseHeadersPolicyRemoveHeadersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyRemoveHeadersConfigItemInput)(nil)).Elem(), ResponseHeadersPolicyRemoveHeadersConfigItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyRemoveHeadersConfigItemArrayInput)(nil)).Elem(), ResponseHeadersPolicyRemoveHeadersConfigItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicySecurityHeadersConfigInput)(nil)).Elem(), ResponseHeadersPolicySecurityHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicySecurityHeadersConfigPtrInput)(nil)).Elem(), ResponseHeadersPolicySecurityHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyInput)(nil)).Elem(), ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs{})
@@ -13734,6 +14163,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCustomHeadersConfigArrayInput)(nil)).Elem(), GetResponseHeadersPolicyCustomHeadersConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCustomHeadersConfigItemInput)(nil)).Elem(), GetResponseHeadersPolicyCustomHeadersConfigItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCustomHeadersConfigItemArrayInput)(nil)).Elem(), GetResponseHeadersPolicyCustomHeadersConfigItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyRemoveHeadersConfigInput)(nil)).Elem(), GetResponseHeadersPolicyRemoveHeadersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyRemoveHeadersConfigArrayInput)(nil)).Elem(), GetResponseHeadersPolicyRemoveHeadersConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyRemoveHeadersConfigItemInput)(nil)).Elem(), GetResponseHeadersPolicyRemoveHeadersConfigItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyRemoveHeadersConfigItemArrayInput)(nil)).Elem(), GetResponseHeadersPolicyRemoveHeadersConfigItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigArrayInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs{})
@@ -13868,6 +14301,10 @@ func init() {
 	pulumi.RegisterOutputType(ResponseHeadersPolicyCustomHeadersConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyCustomHeadersConfigItemOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyCustomHeadersConfigItemArrayOutput{})
+	pulumi.RegisterOutputType(ResponseHeadersPolicyRemoveHeadersConfigOutput{})
+	pulumi.RegisterOutputType(ResponseHeadersPolicyRemoveHeadersConfigPtrOutput{})
+	pulumi.RegisterOutputType(ResponseHeadersPolicyRemoveHeadersConfigItemOutput{})
+	pulumi.RegisterOutputType(ResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicySecurityHeadersConfigOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicySecurityHeadersConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput{})
@@ -13928,6 +14365,10 @@ func init() {
 	pulumi.RegisterOutputType(GetResponseHeadersPolicyCustomHeadersConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetResponseHeadersPolicyCustomHeadersConfigItemOutput{})
 	pulumi.RegisterOutputType(GetResponseHeadersPolicyCustomHeadersConfigItemArrayOutput{})
+	pulumi.RegisterOutputType(GetResponseHeadersPolicyRemoveHeadersConfigOutput{})
+	pulumi.RegisterOutputType(GetResponseHeadersPolicyRemoveHeadersConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetResponseHeadersPolicyRemoveHeadersConfigItemOutput{})
+	pulumi.RegisterOutputType(GetResponseHeadersPolicyRemoveHeadersConfigItemArrayOutput{})
 	pulumi.RegisterOutputType(GetResponseHeadersPolicySecurityHeadersConfigOutput{})
 	pulumi.RegisterOutputType(GetResponseHeadersPolicySecurityHeadersConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput{})

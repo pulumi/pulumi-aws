@@ -160,7 +160,6 @@ class FileSystemPolicy(pulumi.CustomResource):
         )])
         policy_file_system_policy = aws.efs.FileSystemPolicy("policyFileSystemPolicy",
             file_system_id=fs.id,
-            bypass_policy_lockout_safety_check=True,
             policy=policy_policy_document.json)
         ```
 
@@ -214,7 +213,6 @@ class FileSystemPolicy(pulumi.CustomResource):
         )])
         policy_file_system_policy = aws.efs.FileSystemPolicy("policyFileSystemPolicy",
             file_system_id=fs.id,
-            bypass_policy_lockout_safety_check=True,
             policy=policy_policy_document.json)
         ```
 

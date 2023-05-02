@@ -139,6 +139,10 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+     */
+    public readonly removeHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig | undefined>;
+    /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */
     public readonly securityHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig | undefined>;
@@ -165,6 +169,7 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
             resourceInputs["customHeadersConfig"] = state ? state.customHeadersConfig : undefined;
             resourceInputs["etag"] = state ? state.etag : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["removeHeadersConfig"] = state ? state.removeHeadersConfig : undefined;
             resourceInputs["securityHeadersConfig"] = state ? state.securityHeadersConfig : undefined;
             resourceInputs["serverTimingHeadersConfig"] = state ? state.serverTimingHeadersConfig : undefined;
         } else {
@@ -174,6 +179,7 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
             resourceInputs["customHeadersConfig"] = args ? args.customHeadersConfig : undefined;
             resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["removeHeadersConfig"] = args ? args.removeHeadersConfig : undefined;
             resourceInputs["securityHeadersConfig"] = args ? args.securityHeadersConfig : undefined;
             resourceInputs["serverTimingHeadersConfig"] = args ? args.serverTimingHeadersConfig : undefined;
         }
@@ -206,6 +212,10 @@ export interface ResponseHeadersPolicyState {
      * A unique name to identify the response headers policy.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+     */
+    removeHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig>;
     /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */
@@ -240,6 +250,10 @@ export interface ResponseHeadersPolicyArgs {
      * A unique name to identify the response headers policy.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
+     */
+    removeHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig>;
     /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */

@@ -354,6 +354,8 @@ type Role struct {
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrOutput `pulumi:"permissionsBoundary"`
+	// Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
+	RoleLastUseds RoleRoleLastUsedArrayOutput `pulumi:"roleLastUseds"`
 	// Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -417,6 +419,8 @@ type roleState struct {
 	Path *string `pulumi:"path"`
 	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
+	// Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
+	RoleLastUseds []RoleRoleLastUsed `pulumi:"roleLastUseds"`
 	// Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -449,6 +453,8 @@ type RoleState struct {
 	Path pulumi.StringPtrInput
 	// ARN of the policy that is used to set the permissions boundary for the role.
 	PermissionsBoundary pulumi.StringPtrInput
+	// Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
+	RoleLastUseds RoleRoleLastUsedArrayInput
 	// Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -658,6 +664,11 @@ func (o RoleOutput) Path() pulumi.StringPtrOutput {
 // ARN of the policy that is used to set the permissions boundary for the role.
 func (o RoleOutput) PermissionsBoundary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringPtrOutput { return v.PermissionsBoundary }).(pulumi.StringPtrOutput)
+}
+
+// Contains information about the last time that an IAM role was used. See `roleLastUsed` for details.
+func (o RoleOutput) RoleLastUseds() RoleRoleLastUsedArrayOutput {
+	return o.ApplyT(func(v *Role) RoleRoleLastUsedArrayOutput { return v.RoleLastUseds }).(RoleRoleLastUsedArrayOutput)
 }
 
 // Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

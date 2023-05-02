@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.servicequotas.outputs;
 
+import com.pulumi.aws.servicequotas.outputs.GetServiceQuotaUsageMetric;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -44,6 +46,11 @@ public final class GetServiceQuotaResult {
      * 
      */
     private String serviceName;
+    /**
+     * @return Information about the measurement.
+     * 
+     */
+    private List<GetServiceQuotaUsageMetric> usageMetrics;
     /**
      * @return Current value of the service quota.
      * 
@@ -103,6 +110,13 @@ public final class GetServiceQuotaResult {
         return this.serviceName;
     }
     /**
+     * @return Information about the measurement.
+     * 
+     */
+    public List<GetServiceQuotaUsageMetric> usageMetrics() {
+        return this.usageMetrics;
+    }
+    /**
      * @return Current value of the service quota.
      * 
      */
@@ -128,6 +142,7 @@ public final class GetServiceQuotaResult {
         private String quotaName;
         private String serviceCode;
         private String serviceName;
+        private List<GetServiceQuotaUsageMetric> usageMetrics;
         private Double value;
         public Builder() {}
         public Builder(GetServiceQuotaResult defaults) {
@@ -141,6 +156,7 @@ public final class GetServiceQuotaResult {
     	      this.quotaName = defaults.quotaName;
     	      this.serviceCode = defaults.serviceCode;
     	      this.serviceName = defaults.serviceName;
+    	      this.usageMetrics = defaults.usageMetrics;
     	      this.value = defaults.value;
         }
 
@@ -190,6 +206,14 @@ public final class GetServiceQuotaResult {
             return this;
         }
         @CustomType.Setter
+        public Builder usageMetrics(List<GetServiceQuotaUsageMetric> usageMetrics) {
+            this.usageMetrics = Objects.requireNonNull(usageMetrics);
+            return this;
+        }
+        public Builder usageMetrics(GetServiceQuotaUsageMetric... usageMetrics) {
+            return usageMetrics(List.of(usageMetrics));
+        }
+        @CustomType.Setter
         public Builder value(Double value) {
             this.value = Objects.requireNonNull(value);
             return this;
@@ -205,6 +229,7 @@ public final class GetServiceQuotaResult {
             o.quotaName = quotaName;
             o.serviceCode = serviceCode;
             o.serviceName = serviceName;
+            o.usageMetrics = usageMetrics;
             o.value = value;
             return o;
         }

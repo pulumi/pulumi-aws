@@ -41,6 +41,11 @@ export type EventConnection = import("./eventConnection").EventConnection;
 export const EventConnection: typeof import("./eventConnection").EventConnection = null as any;
 utilities.lazyLoad(exports, ["EventConnection"], () => require("./eventConnection"));
 
+export { EventEndpointArgs, EventEndpointState } from "./eventEndpoint";
+export type EventEndpoint = import("./eventEndpoint").EventEndpoint;
+export const EventEndpoint: typeof import("./eventEndpoint").EventEndpoint = null as any;
+utilities.lazyLoad(exports, ["EventEndpoint"], () => require("./eventEndpoint"));
+
 export { EventPermissionArgs, EventPermissionState } from "./eventPermission";
 export type EventPermission = import("./eventPermission").EventPermission;
 export const EventPermission: typeof import("./eventPermission").EventPermission = null as any;
@@ -162,6 +167,8 @@ const _module = {
                 return new EventBusPolicy(name, <any>undefined, { urn })
             case "aws:cloudwatch/eventConnection:EventConnection":
                 return new EventConnection(name, <any>undefined, { urn })
+            case "aws:cloudwatch/eventEndpoint:EventEndpoint":
+                return new EventEndpoint(name, <any>undefined, { urn })
             case "aws:cloudwatch/eventPermission:EventPermission":
                 return new EventPermission(name, <any>undefined, { urn })
             case "aws:cloudwatch/eventRule:EventRule":
@@ -202,6 +209,7 @@ pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventArchive", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventBus", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventBusPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventConnection", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventTarget", _module)

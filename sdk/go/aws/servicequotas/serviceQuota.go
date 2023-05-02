@@ -71,6 +71,8 @@ type ServiceQuota struct {
 	ServiceCode pulumi.StringOutput `pulumi:"serviceCode"`
 	// Name of the service.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
+	// Information about the measurement.
+	UsageMetrics ServiceQuotaUsageMetricArrayOutput `pulumi:"usageMetrics"`
 	// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
 	Value pulumi.Float64Output `pulumi:"value"`
 }
@@ -129,6 +131,8 @@ type serviceQuotaState struct {
 	ServiceCode *string `pulumi:"serviceCode"`
 	// Name of the service.
 	ServiceName *string `pulumi:"serviceName"`
+	// Information about the measurement.
+	UsageMetrics []ServiceQuotaUsageMetric `pulumi:"usageMetrics"`
 	// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
 	Value *float64 `pulumi:"value"`
 }
@@ -150,6 +154,8 @@ type ServiceQuotaState struct {
 	ServiceCode pulumi.StringPtrInput
 	// Name of the service.
 	ServiceName pulumi.StringPtrInput
+	// Information about the measurement.
+	UsageMetrics ServiceQuotaUsageMetricArrayInput
 	// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
 	Value pulumi.Float64PtrInput
 }
@@ -305,6 +311,11 @@ func (o ServiceQuotaOutput) ServiceCode() pulumi.StringOutput {
 // Name of the service.
 func (o ServiceQuotaOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+// Information about the measurement.
+func (o ServiceQuotaOutput) UsageMetrics() ServiceQuotaUsageMetricArrayOutput {
+	return o.ApplyT(func(v *ServiceQuota) ServiceQuotaUsageMetricArrayOutput { return v.UsageMetrics }).(ServiceQuotaUsageMetricArrayOutput)
 }
 
 // Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
