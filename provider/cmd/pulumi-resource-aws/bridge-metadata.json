@@ -200,6 +200,7 @@
             "aws:cloudwatch/eventBus:EventBus": 0,
             "aws:cloudwatch/eventBusPolicy:EventBusPolicy": 0,
             "aws:cloudwatch/eventConnection:EventConnection": 0,
+            "aws:cloudwatch/eventEndpoint:EventEndpoint": 0,
             "aws:cloudwatch/eventPermission:EventPermission": 0,
             "aws:cloudwatch/eventRule:EventRule": 0,
             "aws:cloudwatch/eventTarget:EventTarget": 0,
@@ -1166,6 +1167,8 @@
             "aws:transfer/workflow:Workflow": 0,
             "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule": 1,
             "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule": 1,
+            "aws:vpclattice/listener:Listener": 0,
+            "aws:vpclattice/listenerRule:ListenerRule": 0,
             "aws:vpclattice/service:Service": 0,
             "aws:vpclattice/serviceNetwork:ServiceNetwork": 0,
             "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation": 0,
@@ -1219,6 +1222,7 @@
             "aws:alb/getLoadBalancer:getLoadBalancer": 0,
             "aws:alb/getTargetGroup:getTargetGroup": 0,
             "aws:amp/getWorkspace:getWorkspace": 0,
+            "aws:amp/getWorkspaces:getWorkspaces": 0,
             "aws:apigateway/getDomainName:getDomainName": 0,
             "aws:apigateway/getExport:getExport": 0,
             "aws:apigateway/getKey:getKey": 0,
@@ -1313,6 +1317,7 @@
             "aws:directconnect/getRouterConfiguration:getRouterConfiguration": 0,
             "aws:directoryservice/getDirectory:getDirectory": 0,
             "aws:dms/getCertificate:getCertificate": 0,
+            "aws:dms/getEndpoint:getEndpoint": 0,
             "aws:docdb/getEngineVersion:getEngineVersion": 0,
             "aws:docdb/getOrderableDbInstance:getOrderableDbInstance": 0,
             "aws:dynamodb/getTable:getTable": 0,
@@ -1439,6 +1444,7 @@
             "aws:emr/getReleaseLabels:getReleaseLabels": 0,
             "aws:emrcontainers/getVirtualCluster:getVirtualCluster": 0,
             "aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot": 0,
+            "aws:fsx/getWindowsFileSystem:getWindowsFileSystem": 0,
             "aws:globalaccelerator/getAccelerator:getAccelerator": 0,
             "aws:glue/getCatalogTable:getCatalogTable": 0,
             "aws:glue/getConnection:getConnection": 0,
@@ -1446,6 +1452,7 @@
             "aws:glue/getScript:getScript": 0,
             "aws:grafana/getWorkspace:getWorkspace": 0,
             "aws:guardduty/getDetector:getDetector": 0,
+            "aws:iam/getAccessKeys:getAccessKeys": 0,
             "aws:iam/getAccountAlias:getAccountAlias": 0,
             "aws:iam/getGroup:getGroup": 0,
             "aws:iam/getInstanceProfile:getInstanceProfile": 0,
@@ -1559,6 +1566,7 @@
             "aws:neptune/getOrderableDbInstance:getOrderableDbInstance": 0,
             "aws:networkfirewall/getFirewall:getFirewall": 0,
             "aws:networkfirewall/getFirewallPolicy:getFirewallPolicy": 0,
+            "aws:networkfirewall/getResourcePolicy:getResourcePolicy": 0,
             "aws:networkmanager/getConnection:getConnection": 0,
             "aws:networkmanager/getConnections:getConnections": 0,
             "aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument": 0,
@@ -1615,8 +1623,10 @@
             "aws:redshift/getServiceAccount:getServiceAccount": 0,
             "aws:redshift/getSubnetGroup:getSubnetGroup": 0,
             "aws:redshiftserverless/getCredentials:getCredentials": 0,
+            "aws:redshiftserverless/getWorkgroup:getWorkgroup": 0,
             "aws:resourcegroupstaggingapi/getResources:getResources": 0,
             "aws:route53/getDelegationSet:getDelegationSet": 0,
+            "aws:route53/getQueryLogConfig:getQueryLogConfig": 0,
             "aws:route53/getResolverEndpoint:getResolverEndpoint": 0,
             "aws:route53/getResolverFirewallConfig:getResolverFirewallConfig": 0,
             "aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList": 0,
@@ -1657,6 +1667,7 @@
             "aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet": 0,
             "aws:ses/getDomainIdentity:getDomainIdentity": 0,
             "aws:ses/getEmailIdentity:getEmailIdentity": 0,
+            "aws:sesv2/getConfigurationSet:getConfigurationSet": 0,
             "aws:sesv2/getDedicatedIpPool:getDedicatedIpPool": 0,
             "aws:sfn/getActivity:getActivity": 0,
             "aws:sfn/getStateMachine:getStateMachine": 0,
@@ -1678,6 +1689,7 @@
             "aws:transfer/getServer:getServer": 0,
             "aws:vpc/getSecurityGroupRule:getSecurityGroupRule": 1,
             "aws:vpc/getSecurityGroupRules:getSecurityGroupRules": 1,
+            "aws:vpclattice/getListener:getListener": 0,
             "aws:vpclattice/getService:getService": 0,
             "aws:waf/getIpset:getIpset": 0,
             "aws:waf/getRateBasedRule:getRateBasedRule": 0,
@@ -1900,6 +1912,7 @@
             "aws:cloudwatch/eventBus:EventBus": "aws_cloudwatch_event_bus",
             "aws:cloudwatch/eventBusPolicy:EventBusPolicy": "aws_cloudwatch_event_bus_policy",
             "aws:cloudwatch/eventConnection:EventConnection": "aws_cloudwatch_event_connection",
+            "aws:cloudwatch/eventEndpoint:EventEndpoint": "aws_cloudwatch_event_endpoint",
             "aws:cloudwatch/eventPermission:EventPermission": "aws_cloudwatch_event_permission",
             "aws:cloudwatch/eventRule:EventRule": "aws_cloudwatch_event_rule",
             "aws:cloudwatch/eventTarget:EventTarget": "aws_cloudwatch_event_target",
@@ -2866,6 +2879,8 @@
             "aws:transfer/workflow:Workflow": "aws_transfer_workflow",
             "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule": "aws_vpc_security_group_egress_rule",
             "aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule": "aws_vpc_security_group_ingress_rule",
+            "aws:vpclattice/listener:Listener": "aws_vpclattice_listener",
+            "aws:vpclattice/listenerRule:ListenerRule": "aws_vpclattice_listener_rule",
             "aws:vpclattice/service:Service": "aws_vpclattice_service",
             "aws:vpclattice/serviceNetwork:ServiceNetwork": "aws_vpclattice_service_network",
             "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation": "aws_vpclattice_service_network_service_association",
@@ -2919,6 +2934,7 @@
             "aws:alb/getLoadBalancer:getLoadBalancer": "aws_alb",
             "aws:alb/getTargetGroup:getTargetGroup": "aws_alb_target_group",
             "aws:amp/getWorkspace:getWorkspace": "aws_prometheus_workspace",
+            "aws:amp/getWorkspaces:getWorkspaces": "aws_prometheus_workspaces",
             "aws:apigateway/getDomainName:getDomainName": "aws_api_gateway_domain_name",
             "aws:apigateway/getExport:getExport": "aws_api_gateway_export",
             "aws:apigateway/getKey:getKey": "aws_api_gateway_api_key",
@@ -3013,6 +3029,7 @@
             "aws:directconnect/getRouterConfiguration:getRouterConfiguration": "aws_dx_router_configuration",
             "aws:directoryservice/getDirectory:getDirectory": "aws_directory_service_directory",
             "aws:dms/getCertificate:getCertificate": "aws_dms_certificate",
+            "aws:dms/getEndpoint:getEndpoint": "aws_dms_endpoint",
             "aws:docdb/getEngineVersion:getEngineVersion": "aws_docdb_engine_version",
             "aws:docdb/getOrderableDbInstance:getOrderableDbInstance": "aws_docdb_orderable_db_instance",
             "aws:dynamodb/getTable:getTable": "aws_dynamodb_table",
@@ -3139,6 +3156,7 @@
             "aws:emr/getReleaseLabels:getReleaseLabels": "aws_emr_release_labels",
             "aws:emrcontainers/getVirtualCluster:getVirtualCluster": "aws_emrcontainers_virtual_cluster",
             "aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot": "aws_fsx_openzfs_snapshot",
+            "aws:fsx/getWindowsFileSystem:getWindowsFileSystem": "aws_fsx_windows_file_system",
             "aws:globalaccelerator/getAccelerator:getAccelerator": "aws_globalaccelerator_accelerator",
             "aws:glue/getCatalogTable:getCatalogTable": "aws_glue_catalog_table",
             "aws:glue/getConnection:getConnection": "aws_glue_connection",
@@ -3146,6 +3164,7 @@
             "aws:glue/getScript:getScript": "aws_glue_script",
             "aws:grafana/getWorkspace:getWorkspace": "aws_grafana_workspace",
             "aws:guardduty/getDetector:getDetector": "aws_guardduty_detector",
+            "aws:iam/getAccessKeys:getAccessKeys": "aws_iam_access_keys",
             "aws:iam/getAccountAlias:getAccountAlias": "aws_iam_account_alias",
             "aws:iam/getGroup:getGroup": "aws_iam_group",
             "aws:iam/getInstanceProfile:getInstanceProfile": "aws_iam_instance_profile",
@@ -3259,6 +3278,7 @@
             "aws:neptune/getOrderableDbInstance:getOrderableDbInstance": "aws_neptune_orderable_db_instance",
             "aws:networkfirewall/getFirewall:getFirewall": "aws_networkfirewall_firewall",
             "aws:networkfirewall/getFirewallPolicy:getFirewallPolicy": "aws_networkfirewall_firewall_policy",
+            "aws:networkfirewall/getResourcePolicy:getResourcePolicy": "aws_networkfirewall_resource_policy",
             "aws:networkmanager/getConnection:getConnection": "aws_networkmanager_connection",
             "aws:networkmanager/getConnections:getConnections": "aws_networkmanager_connections",
             "aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument": "aws_networkmanager_core_network_policy_document",
@@ -3315,8 +3335,10 @@
             "aws:redshift/getServiceAccount:getServiceAccount": "aws_redshift_service_account",
             "aws:redshift/getSubnetGroup:getSubnetGroup": "aws_redshift_subnet_group",
             "aws:redshiftserverless/getCredentials:getCredentials": "aws_redshiftserverless_credentials",
+            "aws:redshiftserverless/getWorkgroup:getWorkgroup": "aws_redshiftserverless_workgroup",
             "aws:resourcegroupstaggingapi/getResources:getResources": "aws_resourcegroupstaggingapi_resources",
             "aws:route53/getDelegationSet:getDelegationSet": "aws_route53_delegation_set",
+            "aws:route53/getQueryLogConfig:getQueryLogConfig": "aws_route53_resolver_query_log_config",
             "aws:route53/getResolverEndpoint:getResolverEndpoint": "aws_route53_resolver_endpoint",
             "aws:route53/getResolverFirewallConfig:getResolverFirewallConfig": "aws_route53_resolver_firewall_config",
             "aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList": "aws_route53_resolver_firewall_domain_list",
@@ -3357,6 +3379,7 @@
             "aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet": "aws_ses_active_receipt_rule_set",
             "aws:ses/getDomainIdentity:getDomainIdentity": "aws_ses_domain_identity",
             "aws:ses/getEmailIdentity:getEmailIdentity": "aws_ses_email_identity",
+            "aws:sesv2/getConfigurationSet:getConfigurationSet": "aws_sesv2_configuration_set",
             "aws:sesv2/getDedicatedIpPool:getDedicatedIpPool": "aws_sesv2_dedicated_ip_pool",
             "aws:sfn/getActivity:getActivity": "aws_sfn_activity",
             "aws:sfn/getStateMachine:getStateMachine": "aws_sfn_state_machine",
@@ -3378,6 +3401,7 @@
             "aws:transfer/getServer:getServer": "aws_transfer_server",
             "aws:vpc/getSecurityGroupRule:getSecurityGroupRule": "aws_vpc_security_group_rule",
             "aws:vpc/getSecurityGroupRules:getSecurityGroupRules": "aws_vpc_security_group_rules",
+            "aws:vpclattice/getListener:getListener": "aws_vpclattice_listener",
             "aws:vpclattice/getService:getService": "aws_vpclattice_service",
             "aws:waf/getIpset:getIpset": "aws_waf_ipset",
             "aws:waf/getRateBasedRule:getRateBasedRule": "aws_waf_rate_based_rule",
@@ -3825,6 +3849,10 @@
                 "createdDate": "created_date",
                 "prometheusEndpoint": "prometheus_endpoint",
                 "workspaceId": "workspace_id"
+            },
+            "aws:amp/getWorkspaces:getWorkspaces": {
+                "aliasPrefix": "alias_prefix",
+                "workspaceIds": "workspace_ids"
             },
             "aws:amp/ruleGroupNamespace:RuleGroupNamespace": {
                 "workspaceId": "workspace_id"
@@ -6626,6 +6654,7 @@
                 "eventBridgeConfig": "event_bridge_config",
                 "httpConfig": "http_config",
                 "lambdaConfig": "lambda_config",
+                "opensearchserviceConfig": "opensearchservice_config",
                 "relationalDatabaseConfig": "relational_database_config",
                 "serviceRoleArn": "service_role_arn"
             },
@@ -8190,6 +8219,7 @@
             "aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy": {
                 "corsConfigs": "cors_config",
                 "customHeadersConfigs": "custom_headers_config",
+                "removeHeadersConfigs": "remove_headers_config",
                 "securityHeadersConfigs": "security_headers_config",
                 "serverTimingHeadersConfigs": "server_timing_headers_config"
             },
@@ -8261,6 +8291,7 @@
             "aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy": {
                 "corsConfig": "cors_config",
                 "customHeadersConfig": "custom_headers_config",
+                "removeHeadersConfig": "remove_headers_config",
                 "securityHeadersConfig": "security_headers_config",
                 "serverTimingHeadersConfig": "server_timing_headers_config"
             },
@@ -8434,6 +8465,15 @@
             "aws:cloudwatch/EventConnectionAuthParametersOauthOauthHttpParametersQueryString:EventConnectionAuthParametersOauthOauthHttpParametersQueryString": {
                 "isValueSecret": "is_value_secret"
             },
+            "aws:cloudwatch/EventEndpointEventBus:EventEndpointEventBus": {
+                "eventBusArn": "event_bus_arn"
+            },
+            "aws:cloudwatch/EventEndpointRoutingConfig:EventEndpointRoutingConfig": {
+                "failoverConfig": "failover_config"
+            },
+            "aws:cloudwatch/EventEndpointRoutingConfigFailoverConfigPrimary:EventEndpointRoutingConfigFailoverConfigPrimary": {
+                "healthCheck": "health_check"
+            },
             "aws:cloudwatch/EventTargetBatchTarget:EventTargetBatchTarget": {
                 "arraySize": "array_size",
                 "jobAttempts": "job_attempts",
@@ -8446,6 +8486,7 @@
                 "enableExecuteCommand": "enable_execute_command",
                 "launchType": "launch_type",
                 "networkConfiguration": "network_configuration",
+                "orderedPlacementStrategies": "ordered_placement_strategy",
                 "placementConstraints": "placement_constraint",
                 "platformVersion": "platform_version",
                 "propagateTags": "propagate_tags",
@@ -8538,6 +8579,13 @@
                 "authParameters": "auth_parameters",
                 "authorizationType": "authorization_type",
                 "secretArn": "secret_arn"
+            },
+            "aws:cloudwatch/eventEndpoint:EventEndpoint": {
+                "endpointUrl": "endpoint_url",
+                "eventBuses": "event_bus",
+                "replicationConfig": "replication_config",
+                "roleArn": "role_arn",
+                "routingConfig": "routing_config"
             },
             "aws:cloudwatch/eventPermission:EventPermission": {
                 "eventBusName": "event_bus_name",
@@ -8667,6 +8715,7 @@
                 "excludeFilters": "exclude_filter",
                 "firehoseArn": "firehose_arn",
                 "includeFilters": "include_filter",
+                "includeLinkedAccountsMetrics": "include_linked_accounts_metrics",
                 "lastUpdateDate": "last_update_date",
                 "namePrefix": "name_prefix",
                 "outputFormat": "output_format",
@@ -10998,6 +11047,126 @@
                 "validFromDate": "valid_from_date",
                 "validToDate": "valid_to_date"
             },
+            "aws:dms/getEndpoint:getEndpoint": {
+                "certificateArn": "certificate_arn",
+                "databaseName": "database_name",
+                "elasticsearchSettings": "elasticsearch_settings",
+                "endpointArn": "endpoint_arn",
+                "endpointId": "endpoint_id",
+                "endpointType": "endpoint_type",
+                "engineName": "engine_name",
+                "extraConnectionAttributes": "extra_connection_attributes",
+                "kafkaSettings": "kafka_settings",
+                "kinesisSettings": "kinesis_settings",
+                "kmsKeyArn": "kms_key_arn",
+                "mongodbSettings": "mongodb_settings",
+                "redisSettings": "redis_settings",
+                "redshiftSettings": "redshift_settings",
+                "s3Settings": "s3_settings",
+                "secretsManagerAccessRoleArn": "secrets_manager_access_role_arn",
+                "secretsManagerArn": "secrets_manager_arn",
+                "serverName": "server_name",
+                "serviceAccessRole": "service_access_role",
+                "sslMode": "ssl_mode"
+            },
+            "aws:dms/getEndpointElasticsearchSetting:getEndpointElasticsearchSetting": {
+                "endpointUri": "endpoint_uri",
+                "errorRetryDuration": "error_retry_duration",
+                "fullLoadErrorPercentage": "full_load_error_percentage",
+                "serviceAccessRoleArn": "service_access_role_arn"
+            },
+            "aws:dms/getEndpointKafkaSetting:getEndpointKafkaSetting": {
+                "includeControlDetails": "include_control_details",
+                "includeNullAndEmpty": "include_null_and_empty",
+                "includePartitionValue": "include_partition_value",
+                "includeTableAlterOperations": "include_table_alter_operations",
+                "includeTransactionDetails": "include_transaction_details",
+                "messageFormat": "message_format",
+                "messageMaxBytes": "message_max_bytes",
+                "noHexPrefix": "no_hex_prefix",
+                "partitionIncludeSchemaTable": "partition_include_schema_table",
+                "saslPassword": "sasl_password",
+                "saslUsername": "sasl_username",
+                "securityProtocol": "security_protocol",
+                "sslCaCertificateArn": "ssl_ca_certificate_arn",
+                "sslClientCertificateArn": "ssl_client_certificate_arn",
+                "sslClientKeyArn": "ssl_client_key_arn",
+                "sslClientKeyPassword": "ssl_client_key_password"
+            },
+            "aws:dms/getEndpointKinesisSetting:getEndpointKinesisSetting": {
+                "includeControlDetails": "include_control_details",
+                "includeNullAndEmpty": "include_null_and_empty",
+                "includePartitionValue": "include_partition_value",
+                "includeTableAlterOperations": "include_table_alter_operations",
+                "includeTransactionDetails": "include_transaction_details",
+                "messageFormat": "message_format",
+                "partitionIncludeSchemaTable": "partition_include_schema_table",
+                "serviceAccessRoleArn": "service_access_role_arn",
+                "streamArn": "stream_arn"
+            },
+            "aws:dms/getEndpointMongodbSetting:getEndpointMongodbSetting": {
+                "authMechanism": "auth_mechanism",
+                "authSource": "auth_source",
+                "authType": "auth_type",
+                "docsToInvestigate": "docs_to_investigate",
+                "extractDocId": "extract_doc_id",
+                "nestingLevel": "nesting_level"
+            },
+            "aws:dms/getEndpointRedisSetting:getEndpointRedisSetting": {
+                "authPassword": "auth_password",
+                "authType": "auth_type",
+                "authUserName": "auth_user_name",
+                "serverName": "server_name",
+                "sslCaCertificateArn": "ssl_ca_certificate_arn",
+                "sslSecurityProtocol": "ssl_security_protocol"
+            },
+            "aws:dms/getEndpointRedshiftSetting:getEndpointRedshiftSetting": {
+                "bucketFolder": "bucket_folder",
+                "bucketName": "bucket_name",
+                "encryptionMode": "encryption_mode",
+                "serverSideEncryptionKmsKeyId": "server_side_encryption_kms_key_id",
+                "serviceAccessRoleArn": "service_access_role_arn"
+            },
+            "aws:dms/getEndpointS3Setting:getEndpointS3Setting": {
+                "addColumnName": "add_column_name",
+                "bucketFolder": "bucket_folder",
+                "bucketName": "bucket_name",
+                "cannedAclForObjects": "canned_acl_for_objects",
+                "cdcInsertsAndUpdates": "cdc_inserts_and_updates",
+                "cdcInsertsOnly": "cdc_inserts_only",
+                "cdcMaxBatchInterval": "cdc_max_batch_interval",
+                "cdcMinFileSize": "cdc_min_file_size",
+                "cdcPath": "cdc_path",
+                "compressionType": "compression_type",
+                "csvDelimiter": "csv_delimiter",
+                "csvNoSupValue": "csv_no_sup_value",
+                "csvNullValue": "csv_null_value",
+                "csvRowDelimiter": "csv_row_delimiter",
+                "dataFormat": "data_format",
+                "dataPageSize": "data_page_size",
+                "datePartitionDelimiter": "date_partition_delimiter",
+                "datePartitionEnabled": "date_partition_enabled",
+                "datePartitionSequence": "date_partition_sequence",
+                "dictPageSizeLimit": "dict_page_size_limit",
+                "enableStatistics": "enable_statistics",
+                "encodingType": "encoding_type",
+                "encryptionMode": "encryption_mode",
+                "externalTableDefinition": "external_table_definition",
+                "ignoreHeaderRows": "ignore_header_rows",
+                "ignoreHeadersRow": "ignore_headers_row",
+                "includeOpForFullLoad": "include_op_for_full_load",
+                "maxFileSize": "max_file_size",
+                "parquetTimestampInMillisecond": "parquet_timestamp_in_millisecond",
+                "parquetVersion": "parquet_version",
+                "preserveTransactions": "preserve_transactions",
+                "rfc4180": "rfc_4180",
+                "rowGroupLength": "row_group_length",
+                "serverSideEncryptionKmsKeyId": "server_side_encryption_kms_key_id",
+                "serviceAccessRoleArn": "service_access_role_arn",
+                "timestampColumnName": "timestamp_column_name",
+                "useCsvNoSupValue": "use_csv_no_sup_value",
+                "useTaskStartTimeForFullLoadTimestamp": "use_task_start_time_for_full_load_timestamp"
+            },
             "aws:dms/replicationInstance:ReplicationInstance": {
                 "allocatedStorage": "allocated_storage",
                 "allowMajorVersionUpgrade": "allow_major_version_upgrade",
@@ -12402,6 +12571,7 @@
                 "cidrBlock": "cidr_block",
                 "customerOwnedIpv4Pool": "customer_owned_ipv4_pool",
                 "enableDns64": "enable_dns64",
+                "enableLniAtDeviceIndex": "enable_lni_at_device_index",
                 "enableResourceNameDnsARecordOnLaunch": "enable_resource_name_dns_a_record_on_launch",
                 "enableResourceNameDnsAaaaRecordOnLaunch": "enable_resource_name_dns_aaaa_record_on_launch",
                 "existingDefaultSubnet": "existing_default_subnet",
@@ -13394,6 +13564,7 @@
                 "customerOwnedIpv4Pool": "customer_owned_ipv4_pool",
                 "defaultForAz": "default_for_az",
                 "enableDns64": "enable_dns64",
+                "enableLniAtDeviceIndex": "enable_lni_at_device_index",
                 "enableResourceNameDnsARecordOnLaunch": "enable_resource_name_dns_a_record_on_launch",
                 "enableResourceNameDnsAaaaRecordOnLaunch": "enable_resource_name_dns_aaaa_record_on_launch",
                 "filters": "filter",
@@ -13951,6 +14122,7 @@
                 "cidrBlock": "cidr_block",
                 "customerOwnedIpv4Pool": "customer_owned_ipv4_pool",
                 "enableDns64": "enable_dns64",
+                "enableLniAtDeviceIndex": "enable_lni_at_device_index",
                 "enableResourceNameDnsARecordOnLaunch": "enable_resource_name_dns_a_record_on_launch",
                 "enableResourceNameDnsAaaaRecordOnLaunch": "enable_resource_name_dns_aaaa_record_on_launch",
                 "ipv6CidrBlock": "ipv6_cidr_block",
@@ -14934,6 +15106,7 @@
             },
             "aws:ecs/getTaskDefinition:getTaskDefinition": {
                 "arnWithoutRevision": "arn_without_revision",
+                "executionRoleArn": "execution_role_arn",
                 "networkMode": "network_mode",
                 "taskDefinition": "task_definition",
                 "taskRoleArn": "task_role_arn"
@@ -15314,6 +15487,7 @@
                 "clusterName": "cluster_name",
                 "diskSize": "disk_size",
                 "instanceTypes": "instance_types",
+                "launchTemplates": "launch_template",
                 "nodeGroupName": "node_group_name",
                 "nodeRoleArn": "node_role_arn",
                 "releaseVersion": "release_version",
@@ -16429,6 +16603,10 @@
             "aws:emr/ClusterMasterInstanceGroupEbsConfig:ClusterMasterInstanceGroupEbsConfig": {
                 "volumesPerInstance": "volumes_per_instance"
             },
+            "aws:emr/ClusterPlacementGroupConfig:ClusterPlacementGroupConfig": {
+                "instanceRole": "instance_role",
+                "placementStrategy": "placement_strategy"
+            },
             "aws:emr/ClusterStep:ClusterStep": {
                 "actionOnFailure": "action_on_failure",
                 "hadoopJarStep": "hadoop_jar_step"
@@ -16493,6 +16671,7 @@
                 "masterInstanceFleet": "master_instance_fleet",
                 "masterInstanceGroup": "master_instance_group",
                 "masterPublicDns": "master_public_dns",
+                "placementGroupConfigs": "placement_group_config",
                 "releaseLabel": "release_label",
                 "scaleDownBehavior": "scale_down_behavior",
                 "securityConfiguration": "security_configuration",
@@ -16871,6 +17050,34 @@
                 "snapshotId": "snapshot_id",
                 "snapshotIds": "snapshot_ids",
                 "volumeId": "volume_id"
+            },
+            "aws:fsx/getWindowsFileSystem:getWindowsFileSystem": {
+                "activeDirectoryId": "active_directory_id",
+                "auditLogConfigurations": "audit_log_configuration",
+                "automaticBackupRetentionDays": "automatic_backup_retention_days",
+                "backupId": "backup_id",
+                "copyTagsToBackups": "copy_tags_to_backups",
+                "dailyAutomaticBackupStartTime": "daily_automatic_backup_start_time",
+                "deploymentType": "deployment_type",
+                "dnsName": "dns_name",
+                "kmsKeyId": "kms_key_id",
+                "networkInterfaceIds": "network_interface_ids",
+                "ownerId": "owner_id",
+                "preferredFileServerIp": "preferred_file_server_ip",
+                "preferredSubnetId": "preferred_subnet_id",
+                "securityGroupIds": "security_group_ids",
+                "skipFinalBackup": "skip_final_backup",
+                "storageCapacity": "storage_capacity",
+                "storageType": "storage_type",
+                "subnetIds": "subnet_ids",
+                "throughputCapacity": "throughput_capacity",
+                "vpcId": "vpc_id",
+                "weeklyMaintenanceStartTime": "weekly_maintenance_start_time"
+            },
+            "aws:fsx/getWindowsFileSystemAuditLogConfiguration:getWindowsFileSystemAuditLogConfiguration": {
+                "auditLogDestination": "audit_log_destination",
+                "fileAccessAuditLogLevel": "file_access_audit_log_level",
+                "fileShareAccessAuditLogLevel": "file_share_access_audit_log_level"
             },
             "aws:fsx/lustreFileSystem:LustreFileSystem": {
                 "autoImportPolicy": "auto_import_policy",
@@ -17835,6 +18042,9 @@
                 "detectorId": "detector_id",
                 "tagsAll": "tags_all"
             },
+            "aws:iam/RoleRoleLastUsed:RoleRoleLastUsed": {
+                "lastUsedDate": "last_used_date"
+            },
             "aws:iam/accessKey:AccessKey": {
                 "createDate": "create_date",
                 "encryptedSecret": "encrypted_secret",
@@ -17857,6 +18067,13 @@
                 "requireNumbers": "require_numbers",
                 "requireSymbols": "require_symbols",
                 "requireUppercaseCharacters": "require_uppercase_characters"
+            },
+            "aws:iam/getAccessKeys:getAccessKeys": {
+                "accessKeys": "access_keys"
+            },
+            "aws:iam/getAccessKeysAccessKey:getAccessKeysAccessKey": {
+                "accessKeyId": "access_key_id",
+                "createDate": "create_date"
             },
             "aws:iam/getAccountAlias:getAccountAlias": {
                 "accountAlias": "account_alias"
@@ -17905,7 +18122,11 @@
                 "createDate": "create_date",
                 "maxSessionDuration": "max_session_duration",
                 "permissionsBoundary": "permissions_boundary",
+                "roleLastUseds": "role_last_used",
                 "uniqueId": "unique_id"
+            },
+            "aws:iam/getRoleRoleLastUsed:getRoleRoleLastUsed": {
+                "lastUsedDate": "last_used_date"
             },
             "aws:iam/getRoles:getRoles": {
                 "nameRegex": "name_regex",
@@ -17980,6 +18201,7 @@
                 "maxSessionDuration": "max_session_duration",
                 "namePrefix": "name_prefix",
                 "permissionsBoundary": "permissions_boundary",
+                "roleLastUseds": "role_last_used",
                 "tagsAll": "tags_all",
                 "uniqueId": "unique_id"
             },
@@ -18836,6 +19058,7 @@
                 "roleArn": "role_arn"
             },
             "aws:iot/TopicRuleErrorActionFirehose:TopicRuleErrorActionFirehose": {
+                "batchMode": "batch_mode",
                 "deliveryStreamName": "delivery_stream_name",
                 "roleArn": "role_arn"
             },
@@ -18844,10 +19067,12 @@
                 "httpHeaders": "http_header"
             },
             "aws:iot/TopicRuleErrorActionIotAnalytics:TopicRuleErrorActionIotAnalytics": {
+                "batchMode": "batch_mode",
                 "channelName": "channel_name",
                 "roleArn": "role_arn"
             },
             "aws:iot/TopicRuleErrorActionIotEvents:TopicRuleErrorActionIotEvents": {
+                "batchMode": "batch_mode",
                 "inputName": "input_name",
                 "messageId": "message_id",
                 "roleArn": "role_arn"
@@ -18894,6 +19119,7 @@
                 "tableName": "table_name"
             },
             "aws:iot/TopicRuleFirehose:TopicRuleFirehose": {
+                "batchMode": "batch_mode",
                 "deliveryStreamName": "delivery_stream_name",
                 "roleArn": "role_arn"
             },
@@ -18902,10 +19128,12 @@
                 "httpHeaders": "http_header"
             },
             "aws:iot/TopicRuleIotAnalytic:TopicRuleIotAnalytic": {
+                "batchMode": "batch_mode",
                 "channelName": "channel_name",
                 "roleArn": "role_arn"
             },
             "aws:iot/TopicRuleIotEvent:TopicRuleIotEvent": {
+                "batchMode": "batch_mode",
                 "inputName": "input_name",
                 "messageId": "message_id",
                 "roleArn": "role_arn"
@@ -19671,6 +19899,35 @@
                 "kinesisStreamArn": "kinesis_stream_arn",
                 "roleArn": "role_arn"
             },
+            "aws:kinesis/FirehoseDeliveryStreamOpensearchConfiguration:FirehoseDeliveryStreamOpensearchConfiguration": {
+                "bufferingInterval": "buffering_interval",
+                "bufferingSize": "buffering_size",
+                "cloudwatchLoggingOptions": "cloudwatch_logging_options",
+                "clusterEndpoint": "cluster_endpoint",
+                "domainArn": "domain_arn",
+                "indexName": "index_name",
+                "indexRotationPeriod": "index_rotation_period",
+                "processingConfiguration": "processing_configuration",
+                "retryDuration": "retry_duration",
+                "roleArn": "role_arn",
+                "s3BackupMode": "s3_backup_mode",
+                "typeName": "type_name",
+                "vpcConfig": "vpc_config"
+            },
+            "aws:kinesis/FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions:FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions": {
+                "logGroupName": "log_group_name",
+                "logStreamName": "log_stream_name"
+            },
+            "aws:kinesis/FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter:FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter": {
+                "parameterName": "parameter_name",
+                "parameterValue": "parameter_value"
+            },
+            "aws:kinesis/FirehoseDeliveryStreamOpensearchConfigurationVpcConfig:FirehoseDeliveryStreamOpensearchConfigurationVpcConfig": {
+                "roleArn": "role_arn",
+                "securityGroupIds": "security_group_ids",
+                "subnetIds": "subnet_ids",
+                "vpcId": "vpc_id"
+            },
             "aws:kinesis/FirehoseDeliveryStreamRedshiftConfiguration:FirehoseDeliveryStreamRedshiftConfiguration": {
                 "cloudwatchLoggingOptions": "cloudwatch_logging_options",
                 "clusterJdbcurl": "cluster_jdbcurl",
@@ -19758,6 +20015,7 @@
                 "extendedS3Configuration": "extended_s3_configuration",
                 "httpEndpointConfiguration": "http_endpoint_configuration",
                 "kinesisSourceConfiguration": "kinesis_source_configuration",
+                "opensearchConfiguration": "opensearch_configuration",
                 "redshiftConfiguration": "redshift_configuration",
                 "s3Configuration": "s3_configuration",
                 "serverSideEncryption": "server_side_encryption",
@@ -20047,18 +20305,23 @@
             },
             "aws:kms/getKey:getKey": {
                 "awsAccountId": "aws_account_id",
+                "cloudHsmClusterId": "cloud_hsm_cluster_id",
                 "creationDate": "creation_date",
+                "customKeyStoreId": "custom_key_store_id",
                 "customerMasterKeySpec": "customer_master_key_spec",
                 "deletionDate": "deletion_date",
                 "expirationModel": "expiration_model",
                 "grantTokens": "grant_tokens",
                 "keyId": "key_id",
                 "keyManager": "key_manager",
+                "keySpec": "key_spec",
                 "keyState": "key_state",
                 "keyUsage": "key_usage",
                 "multiRegion": "multi_region",
                 "multiRegionConfigurations": "multi_region_configuration",
-                "validTo": "valid_to"
+                "pendingDeletionWindowInDays": "pending_deletion_window_in_days",
+                "validTo": "valid_to",
+                "xksKeyConfigurations": "xks_key_configuration"
             },
             "aws:kms/getKeyMultiRegionConfiguration:getKeyMultiRegionConfiguration": {
                 "multiRegionKeyType": "multi_region_key_type",
@@ -20177,15 +20440,21 @@
                 "excludedColumnNames": "excluded_column_names"
             },
             "aws:lakeformation/dataLakeSettings:DataLakeSettings": {
+                "allowExternalDataFiltering": "allow_external_data_filtering",
+                "authorizedSessionTagValueLists": "authorized_session_tag_value_list",
                 "catalogId": "catalog_id",
                 "createDatabaseDefaultPermissions": "create_database_default_permissions",
                 "createTableDefaultPermissions": "create_table_default_permissions",
+                "externalDataFilteringAllowLists": "external_data_filtering_allow_list",
                 "trustedResourceOwners": "trusted_resource_owners"
             },
             "aws:lakeformation/getDataLakeSettings:getDataLakeSettings": {
+                "allowExternalDataFiltering": "allow_external_data_filtering",
+                "authorizedSessionTagValueLists": "authorized_session_tag_value_list",
                 "catalogId": "catalog_id",
                 "createDatabaseDefaultPermissions": "create_database_default_permissions",
                 "createTableDefaultPermissions": "create_table_default_permissions",
+                "externalDataFilteringAllowLists": "external_data_filtering_allow_list",
                 "trustedResourceOwners": "trusted_resource_owners"
             },
             "aws:lakeformation/getPermissions:getPermissions": {
@@ -20264,6 +20533,11 @@
             "aws:lambda/EventSourceMappingDestinationConfigOnFailure:EventSourceMappingDestinationConfigOnFailure": {
                 "destinationArn": "destination_arn"
             },
+            "aws:lambda/EventSourceMappingDocumentDbEventSourceConfig:EventSourceMappingDocumentDbEventSourceConfig": {
+                "collectionName": "collection_name",
+                "databaseName": "database_name",
+                "fullDocument": "full_document"
+            },
             "aws:lambda/EventSourceMappingFilterCriteria:EventSourceMappingFilterCriteria": {
                 "filters": "filter"
             },
@@ -20321,6 +20595,7 @@
                 "batchSize": "batch_size",
                 "bisectBatchOnFunctionError": "bisect_batch_on_function_error",
                 "destinationConfig": "destination_config",
+                "documentDbEventSourceConfig": "document_db_event_source_config",
                 "eventSourceArn": "event_source_arn",
                 "filterCriteria": "filter_criteria",
                 "functionArn": "function_arn",
@@ -23269,6 +23544,9 @@
             "aws:networkfirewall/getFirewallSubnetMapping:getFirewallSubnetMapping": {
                 "subnetId": "subnet_id"
             },
+            "aws:networkfirewall/getResourcePolicy:getResourcePolicy": {
+                "resourceArn": "resource_arn"
+            },
             "aws:networkfirewall/loggingConfiguration:LoggingConfiguration": {
                 "firewallArn": "firewall_arn",
                 "loggingConfiguration": "logging_configuration"
@@ -24673,8 +24951,11 @@
             "aws:outposts/getOutpost:getOutpost": {
                 "availabilityZone": "availability_zone",
                 "availabilityZoneId": "availability_zone_id",
+                "lifecycleStatus": "lifecycle_status",
                 "ownerId": "owner_id",
-                "siteId": "site_id"
+                "siteArn": "site_arn",
+                "siteId": "site_id",
+                "supportedHardwareType": "supported_hardware_type"
             },
             "aws:outposts/getOutpostInstanceType:getOutpostInstanceType": {
                 "instanceType": "instance_type",
@@ -26184,6 +26465,30 @@
                 "durationSeconds": "duration_seconds",
                 "workgroupName": "workgroup_name"
             },
+            "aws:redshiftserverless/getWorkgroup:getWorkgroup": {
+                "endpoints": "endpoint",
+                "enhancedVpcRouting": "enhanced_vpc_routing",
+                "namespaceName": "namespace_name",
+                "publiclyAccessible": "publicly_accessible",
+                "securityGroupIds": "security_group_ids",
+                "subnetIds": "subnet_ids",
+                "workgroupId": "workgroup_id",
+                "workgroupName": "workgroup_name"
+            },
+            "aws:redshiftserverless/getWorkgroupEndpoint:getWorkgroupEndpoint": {
+                "vpcEndpoints": "vpc_endpoint"
+            },
+            "aws:redshiftserverless/getWorkgroupEndpointVpcEndpoint:getWorkgroupEndpointVpcEndpoint": {
+                "networkInterfaces": "network_interface",
+                "vpcEndpointId": "vpc_endpoint_id",
+                "vpcId": "vpc_id"
+            },
+            "aws:redshiftserverless/getWorkgroupEndpointVpcEndpointNetworkInterface:getWorkgroupEndpointVpcEndpointNetworkInterface": {
+                "availabilityZone": "availability_zone",
+                "networkInterfaceId": "network_interface_id",
+                "privateIpAddress": "private_ip_address",
+                "subnetId": "subnet_id"
+            },
             "aws:redshiftserverless/namespace:Namespace": {
                 "adminUserPassword": "admin_user_password",
                 "adminUsername": "admin_username",
@@ -26307,6 +26612,13 @@
             "aws:route53/getDelegationSet:getDelegationSet": {
                 "callerReference": "caller_reference",
                 "nameServers": "name_servers"
+            },
+            "aws:route53/getQueryLogConfig:getQueryLogConfig": {
+                "destinationArn": "destination_arn",
+                "filters": "filter",
+                "ownerId": "owner_id",
+                "resolverQueryLogConfigId": "resolver_query_log_config_id",
+                "shareStatus": "share_status"
             },
             "aws:route53/getResolverEndpoint:getResolverEndpoint": {
                 "filters": "filter",
@@ -28456,6 +28768,8 @@
                 "dateRange": "date_range"
             },
             "aws:securityhub/account:Account": {
+                "autoEnableControls": "auto_enable_controls",
+                "controlFindingGenerator": "control_finding_generator",
                 "enableDefaultStandards": "enable_default_standards"
             },
             "aws:securityhub/findingAggregator:FindingAggregator": {
@@ -28716,6 +29030,12 @@
                 "namespaceId": "namespace_id",
                 "tagsAll": "tags_all"
             },
+            "aws:servicequotas/ServiceQuotaUsageMetric:ServiceQuotaUsageMetric": {
+                "metricDimensions": "metric_dimensions",
+                "metricName": "metric_name",
+                "metricNamespace": "metric_namespace",
+                "metricStatisticRecommendation": "metric_statistic_recommendation"
+            },
             "aws:servicequotas/getService:getService": {
                 "serviceCode": "service_code",
                 "serviceName": "service_name"
@@ -28726,7 +29046,14 @@
                 "quotaCode": "quota_code",
                 "quotaName": "quota_name",
                 "serviceCode": "service_code",
-                "serviceName": "service_name"
+                "serviceName": "service_name",
+                "usageMetrics": "usage_metric"
+            },
+            "aws:servicequotas/getServiceQuotaUsageMetric:getServiceQuotaUsageMetric": {
+                "metricDimensions": "metric_dimensions",
+                "metricName": "metric_name",
+                "metricNamespace": "metric_namespace",
+                "metricStatisticRecommendation": "metric_statistic_recommendation"
             },
             "aws:servicequotas/serviceQuota:ServiceQuota": {
                 "defaultValue": "default_value",
@@ -28735,7 +29062,8 @@
                 "requestId": "request_id",
                 "requestStatus": "request_status",
                 "serviceCode": "service_code",
-                "serviceName": "service_name"
+                "serviceName": "service_name",
+                "usageMetrics": "usage_metric"
             },
             "aws:ses/ConfgurationSetDeliveryOptions:ConfgurationSetDeliveryOptions": {
                 "tlsPolicy": "tls_policy"
@@ -28962,6 +29290,42 @@
                 "behaviorOnMxFailure": "behavior_on_mx_failure",
                 "emailIdentity": "email_identity",
                 "mailFromDomain": "mail_from_domain"
+            },
+            "aws:sesv2/getConfigurationSet:getConfigurationSet": {
+                "configurationSetName": "configuration_set_name",
+                "deliveryOptions": "delivery_options",
+                "reputationOptions": "reputation_options",
+                "sendingOptions": "sending_options",
+                "suppressionOptions": "suppression_options",
+                "trackingOptions": "tracking_options",
+                "vdmOptions": "vdm_options"
+            },
+            "aws:sesv2/getConfigurationSetDeliveryOption:getConfigurationSetDeliveryOption": {
+                "sendingPoolName": "sending_pool_name",
+                "tlsPolicy": "tls_policy"
+            },
+            "aws:sesv2/getConfigurationSetReputationOption:getConfigurationSetReputationOption": {
+                "lastFreshStart": "last_fresh_start",
+                "reputationMetricsEnabled": "reputation_metrics_enabled"
+            },
+            "aws:sesv2/getConfigurationSetSendingOption:getConfigurationSetSendingOption": {
+                "sendingEnabled": "sending_enabled"
+            },
+            "aws:sesv2/getConfigurationSetSuppressionOption:getConfigurationSetSuppressionOption": {
+                "suppressedReasons": "suppressed_reasons"
+            },
+            "aws:sesv2/getConfigurationSetTrackingOption:getConfigurationSetTrackingOption": {
+                "customRedirectDomain": "custom_redirect_domain"
+            },
+            "aws:sesv2/getConfigurationSetVdmOption:getConfigurationSetVdmOption": {
+                "dashboardOptions": "dashboard_options",
+                "guardianOptions": "guardian_options"
+            },
+            "aws:sesv2/getConfigurationSetVdmOptionDashboardOption:getConfigurationSetVdmOptionDashboardOption": {
+                "engagementMetrics": "engagement_metrics"
+            },
+            "aws:sesv2/getConfigurationSetVdmOptionGuardianOption:getConfigurationSetVdmOptionGuardianOption": {
+                "optimizedSharedDelivery": "optimized_shared_delivery"
             },
             "aws:sesv2/getDedicatedIpPool:getDedicatedIpPool": {
                 "dedicatedIps": "dedicated_ips",
@@ -29948,6 +30312,44 @@
                 "tagsAll": "tags_all",
                 "toPort": "to_port"
             },
+            "aws:vpclattice/ListenerDefaultAction:ListenerDefaultAction": {
+                "fixedResponse": "fixed_response",
+                "forwards": "forward"
+            },
+            "aws:vpclattice/ListenerDefaultActionFixedResponse:ListenerDefaultActionFixedResponse": {
+                "statusCode": "status_code"
+            },
+            "aws:vpclattice/ListenerDefaultActionForward:ListenerDefaultActionForward": {
+                "targetGroups": "target_groups"
+            },
+            "aws:vpclattice/ListenerDefaultActionForwardTargetGroup:ListenerDefaultActionForwardTargetGroup": {
+                "targetGroupIdentifier": "target_group_identifier"
+            },
+            "aws:vpclattice/ListenerRuleAction:ListenerRuleAction": {
+                "fixedResponse": "fixed_response"
+            },
+            "aws:vpclattice/ListenerRuleActionFixedResponse:ListenerRuleActionFixedResponse": {
+                "statusCode": "status_code"
+            },
+            "aws:vpclattice/ListenerRuleActionForward:ListenerRuleActionForward": {
+                "targetGroups": "target_groups"
+            },
+            "aws:vpclattice/ListenerRuleActionForwardTargetGroup:ListenerRuleActionForwardTargetGroup": {
+                "targetGroupIdentifier": "target_group_identifier"
+            },
+            "aws:vpclattice/ListenerRuleMatch:ListenerRuleMatch": {
+                "httpMatch": "http_match"
+            },
+            "aws:vpclattice/ListenerRuleMatchHttpMatch:ListenerRuleMatchHttpMatch": {
+                "headerMatches": "header_matches",
+                "pathMatch": "path_match"
+            },
+            "aws:vpclattice/ListenerRuleMatchHttpMatchHeaderMatch:ListenerRuleMatchHttpMatchHeaderMatch": {
+                "caseSensitive": "case_sensitive"
+            },
+            "aws:vpclattice/ListenerRuleMatchHttpMatchPathMatch:ListenerRuleMatchHttpMatchPathMatch": {
+                "caseSensitive": "case_sensitive"
+            },
             "aws:vpclattice/ServiceDnsEntry:ServiceDnsEntry": {
                 "domainName": "domain_name",
                 "hostedZoneId": "hosted_zone_id"
@@ -29969,6 +30371,29 @@
                 "protocolVersion": "protocol_version",
                 "unhealthyThresholdCount": "unhealthy_threshold_count"
             },
+            "aws:vpclattice/getListener:getListener": {
+                "createdAt": "created_at",
+                "defaultActions": "default_action",
+                "lastUpdatedAt": "last_updated_at",
+                "listenerId": "listener_id",
+                "listenerIdentifier": "listener_identifier",
+                "serviceArn": "service_arn",
+                "serviceId": "service_id",
+                "serviceIdentifier": "service_identifier"
+            },
+            "aws:vpclattice/getListenerDefaultAction:getListenerDefaultAction": {
+                "fixedResponses": "fixed_response",
+                "forwards": "forward"
+            },
+            "aws:vpclattice/getListenerDefaultActionFixedResponse:getListenerDefaultActionFixedResponse": {
+                "statusCode": "status_code"
+            },
+            "aws:vpclattice/getListenerDefaultActionForward:getListenerDefaultActionForward": {
+                "targetGroups": "target_groups"
+            },
+            "aws:vpclattice/getListenerDefaultActionForwardTargetGroup:getListenerDefaultActionForwardTargetGroup": {
+                "targetGroupIdentifier": "target_group_identifier"
+            },
             "aws:vpclattice/getService:getService": {
                 "authType": "auth_type",
                 "certificateArn": "certificate_arn",
@@ -29979,6 +30404,21 @@
             "aws:vpclattice/getServiceDnsEntry:getServiceDnsEntry": {
                 "domainName": "domain_name",
                 "hostedZoneId": "hosted_zone_id"
+            },
+            "aws:vpclattice/listener:Listener": {
+                "createdAt": "created_at",
+                "defaultAction": "default_action",
+                "lastUpdatedAt": "last_updated_at",
+                "listenerId": "listener_id",
+                "serviceArn": "service_arn",
+                "serviceIdentifier": "service_identifier",
+                "tagsAll": "tags_all"
+            },
+            "aws:vpclattice/listenerRule:ListenerRule": {
+                "listenerIdentifier": "listener_identifier",
+                "ruleId": "rule_id",
+                "serviceIdentifier": "service_identifier",
+                "tagsAll": "tags_all"
             },
             "aws:vpclattice/service:Service": {
                 "authType": "auth_type",
@@ -30207,6 +30647,7 @@
                 "contentType": "content_type"
             },
             "aws:wafv2/RuleGroupRule:RuleGroupRule": {
+                "captchaConfig": "captcha_config",
                 "ruleLabels": "rule_label",
                 "visibilityConfig": "visibility_config"
             },
@@ -30230,11 +30671,23 @@
             "aws:wafv2/RuleGroupRuleActionCaptchaCustomRequestHandling:RuleGroupRuleActionCaptchaCustomRequestHandling": {
                 "insertHeaders": "insert_header"
             },
+            "aws:wafv2/RuleGroupRuleActionChallenge:RuleGroupRuleActionChallenge": {
+                "customRequestHandling": "custom_request_handling"
+            },
+            "aws:wafv2/RuleGroupRuleActionChallengeCustomRequestHandling:RuleGroupRuleActionChallengeCustomRequestHandling": {
+                "insertHeaders": "insert_header"
+            },
             "aws:wafv2/RuleGroupRuleActionCount:RuleGroupRuleActionCount": {
                 "customRequestHandling": "custom_request_handling"
             },
             "aws:wafv2/RuleGroupRuleActionCountCustomRequestHandling:RuleGroupRuleActionCountCustomRequestHandling": {
                 "insertHeaders": "insert_header"
+            },
+            "aws:wafv2/RuleGroupRuleCaptchaConfig:RuleGroupRuleCaptchaConfig": {
+                "immunityTimeProperty": "immunity_time_property"
+            },
+            "aws:wafv2/RuleGroupRuleCaptchaConfigImmunityTimeProperty:RuleGroupRuleCaptchaConfigImmunityTimeProperty": {
+                "immunityTime": "immunity_time"
             },
             "aws:wafv2/RuleGroupRuleStatement:RuleGroupRuleStatement": {
                 "andStatement": "and_statement",
@@ -35110,6 +35563,12 @@
                 "metricName": "metric_name",
                 "sampledRequestsEnabled": "sampled_requests_enabled"
             },
+            "aws:wafv2/WebAclCaptchaConfig:WebAclCaptchaConfig": {
+                "immunityTimeProperty": "immunity_time_property"
+            },
+            "aws:wafv2/WebAclCaptchaConfigImmunityTimeProperty:WebAclCaptchaConfigImmunityTimeProperty": {
+                "immunityTime": "immunity_time"
+            },
             "aws:wafv2/WebAclCustomResponseBody:WebAclCustomResponseBody": {
                 "contentType": "content_type"
             },
@@ -35149,6 +35608,7 @@
                 "uriPath": "uri_path"
             },
             "aws:wafv2/WebAclRule:WebAclRule": {
+                "captchaConfig": "captcha_config",
                 "overrideAction": "override_action",
                 "ruleLabels": "rule_label",
                 "visibilityConfig": "visibility_config"
@@ -35184,6 +35644,12 @@
             },
             "aws:wafv2/WebAclRuleActionCountCustomRequestHandling:WebAclRuleActionCountCustomRequestHandling": {
                 "insertHeaders": "insert_header"
+            },
+            "aws:wafv2/WebAclRuleCaptchaConfig:WebAclRuleCaptchaConfig": {
+                "immunityTimeProperty": "immunity_time_property"
+            },
+            "aws:wafv2/WebAclRuleCaptchaConfigImmunityTimeProperty:WebAclRuleCaptchaConfigImmunityTimeProperty": {
+                "immunityTime": "immunity_time"
             },
             "aws:wafv2/WebAclRuleStatement:WebAclRuleStatement": {
                 "andStatement": "and_statement",
@@ -54178,6 +54644,7 @@
                 "visibilityConfig": "visibility_config"
             },
             "aws:wafv2/webAcl:WebAcl": {
+                "captchaConfig": "captcha_config",
                 "customResponseBodies": "custom_response_body",
                 "defaultAction": "default_action",
                 "lockToken": "lock_token",
