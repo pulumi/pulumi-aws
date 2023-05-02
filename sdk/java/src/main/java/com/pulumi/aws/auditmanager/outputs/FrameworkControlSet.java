@@ -17,7 +17,7 @@ public final class FrameworkControlSet {
      * @return List of controls within the control set. See `controls` below.
      * 
      */
-    private List<FrameworkControlSetControl> controls;
+    private @Nullable List<FrameworkControlSetControl> controls;
     /**
      * @return Unique identifier of the control.
      * 
@@ -35,7 +35,7 @@ public final class FrameworkControlSet {
      * 
      */
     public List<FrameworkControlSetControl> controls() {
-        return this.controls;
+        return this.controls == null ? List.of() : this.controls;
     }
     /**
      * @return Unique identifier of the control.
@@ -61,7 +61,7 @@ public final class FrameworkControlSet {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<FrameworkControlSetControl> controls;
+        private @Nullable List<FrameworkControlSetControl> controls;
         private @Nullable String id;
         private String name;
         public Builder() {}
@@ -73,8 +73,8 @@ public final class FrameworkControlSet {
         }
 
         @CustomType.Setter
-        public Builder controls(List<FrameworkControlSetControl> controls) {
-            this.controls = Objects.requireNonNull(controls);
+        public Builder controls(@Nullable List<FrameworkControlSetControl> controls) {
+            this.controls = controls;
             return this;
         }
         public Builder controls(FrameworkControlSetControl... controls) {

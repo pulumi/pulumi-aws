@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.medialive.MultiplexProgram;
  * import com.pulumi.aws.medialive.MultiplexProgramArgs;
  * import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsArgs;
+ * import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -73,7 +74,7 @@ import javax.annotation.Nullable;
  *             .multiplexProgramSettings(MultiplexProgramMultiplexProgramSettingsArgs.builder()
  *                 .programNumber(1)
  *                 .preferredChannelPipeline(&#34;CURRENTLY_ACTIVE&#34;)
- *                 .videoSettings(MultiplexProgramMultiplexProgramSettingsVideoSettingArgs.builder()
+ *                 .videoSettings(MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs.builder()
  *                     .constantBitrate(100000)
  *                     .build())
  *                 .build())

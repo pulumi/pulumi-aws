@@ -4,13 +4,14 @@
 package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs;
-import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingArgs;
+import com.pulumi.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulumi.resources.ResourceArgs {
@@ -51,30 +52,30 @@ public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulu
      * Service Descriptor. See Service Descriptor for more details.
      * 
      */
-    @Import(name="serviceDescriptors", required=true)
-    private Output<List<MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs>> serviceDescriptors;
+    @Import(name="serviceDescriptor")
+    private @Nullable Output<MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs> serviceDescriptor;
 
     /**
      * @return Service Descriptor. See Service Descriptor for more details.
      * 
      */
-    public Output<List<MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs>> serviceDescriptors() {
-        return this.serviceDescriptors;
+    public Optional<Output<MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs>> serviceDescriptor() {
+        return Optional.ofNullable(this.serviceDescriptor);
     }
 
     /**
      * Video settings. See Video Settings for more details.
      * 
      */
-    @Import(name="videoSettings", required=true)
-    private Output<List<MultiplexProgramMultiplexProgramSettingsVideoSettingArgs>> videoSettings;
+    @Import(name="videoSettings")
+    private @Nullable Output<MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs> videoSettings;
 
     /**
      * @return Video settings. See Video Settings for more details.
      * 
      */
-    public Output<List<MultiplexProgramMultiplexProgramSettingsVideoSettingArgs>> videoSettings() {
-        return this.videoSettings;
+    public Optional<Output<MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs>> videoSettings() {
+        return Optional.ofNullable(this.videoSettings);
     }
 
     private MultiplexProgramMultiplexProgramSettingsArgs() {}
@@ -82,7 +83,7 @@ public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulu
     private MultiplexProgramMultiplexProgramSettingsArgs(MultiplexProgramMultiplexProgramSettingsArgs $) {
         this.preferredChannelPipeline = $.preferredChannelPipeline;
         this.programNumber = $.programNumber;
-        this.serviceDescriptors = $.serviceDescriptors;
+        this.serviceDescriptor = $.serviceDescriptor;
         this.videoSettings = $.videoSettings;
     }
 
@@ -147,34 +148,24 @@ public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulu
         }
 
         /**
-         * @param serviceDescriptors Service Descriptor. See Service Descriptor for more details.
+         * @param serviceDescriptor Service Descriptor. See Service Descriptor for more details.
          * 
          * @return builder
          * 
          */
-        public Builder serviceDescriptors(Output<List<MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs>> serviceDescriptors) {
-            $.serviceDescriptors = serviceDescriptors;
+        public Builder serviceDescriptor(@Nullable Output<MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs> serviceDescriptor) {
+            $.serviceDescriptor = serviceDescriptor;
             return this;
         }
 
         /**
-         * @param serviceDescriptors Service Descriptor. See Service Descriptor for more details.
+         * @param serviceDescriptor Service Descriptor. See Service Descriptor for more details.
          * 
          * @return builder
          * 
          */
-        public Builder serviceDescriptors(List<MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs> serviceDescriptors) {
-            return serviceDescriptors(Output.of(serviceDescriptors));
-        }
-
-        /**
-         * @param serviceDescriptors Service Descriptor. See Service Descriptor for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder serviceDescriptors(MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs... serviceDescriptors) {
-            return serviceDescriptors(List.of(serviceDescriptors));
+        public Builder serviceDescriptor(MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs serviceDescriptor) {
+            return serviceDescriptor(Output.of(serviceDescriptor));
         }
 
         /**
@@ -183,7 +174,7 @@ public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulu
          * @return builder
          * 
          */
-        public Builder videoSettings(Output<List<MultiplexProgramMultiplexProgramSettingsVideoSettingArgs>> videoSettings) {
+        public Builder videoSettings(@Nullable Output<MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs> videoSettings) {
             $.videoSettings = videoSettings;
             return this;
         }
@@ -194,25 +185,13 @@ public final class MultiplexProgramMultiplexProgramSettingsArgs extends com.pulu
          * @return builder
          * 
          */
-        public Builder videoSettings(List<MultiplexProgramMultiplexProgramSettingsVideoSettingArgs> videoSettings) {
+        public Builder videoSettings(MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs videoSettings) {
             return videoSettings(Output.of(videoSettings));
-        }
-
-        /**
-         * @param videoSettings Video settings. See Video Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder videoSettings(MultiplexProgramMultiplexProgramSettingsVideoSettingArgs... videoSettings) {
-            return videoSettings(List.of(videoSettings));
         }
 
         public MultiplexProgramMultiplexProgramSettingsArgs build() {
             $.preferredChannelPipeline = Objects.requireNonNull($.preferredChannelPipeline, "expected parameter 'preferredChannelPipeline' to be non-null");
             $.programNumber = Objects.requireNonNull($.programNumber, "expected parameter 'programNumber' to be non-null");
-            $.serviceDescriptors = Objects.requireNonNull($.serviceDescriptors, "expected parameter 'serviceDescriptors' to be non-null");
-            $.videoSettings = Objects.requireNonNull($.videoSettings, "expected parameter 'videoSettings' to be non-null");
             return $;
         }
     }

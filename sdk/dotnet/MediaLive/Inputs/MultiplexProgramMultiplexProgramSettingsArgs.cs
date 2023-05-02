@@ -24,29 +24,17 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("programNumber", required: true)]
         public Input<int> ProgramNumber { get; set; } = null!;
 
-        [Input("serviceDescriptors", required: true)]
-        private InputList<Inputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs>? _serviceDescriptors;
-
         /// <summary>
         /// Service Descriptor. See Service Descriptor for more details.
         /// </summary>
-        public InputList<Inputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs> ServiceDescriptors
-        {
-            get => _serviceDescriptors ?? (_serviceDescriptors = new InputList<Inputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs>());
-            set => _serviceDescriptors = value;
-        }
-
-        [Input("videoSettings", required: true)]
-        private InputList<Inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingArgs>? _videoSettings;
+        [Input("serviceDescriptor")]
+        public Input<Inputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs>? ServiceDescriptor { get; set; }
 
         /// <summary>
         /// Video settings. See Video Settings for more details.
         /// </summary>
-        public InputList<Inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingArgs> VideoSettings
-        {
-            get => _videoSettings ?? (_videoSettings = new InputList<Inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingArgs>());
-            set => _videoSettings = value;
-        }
+        [Input("videoSettings")]
+        public Input<Inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs>? VideoSettings { get; set; }
 
         public MultiplexProgramMultiplexProgramSettingsArgs()
         {

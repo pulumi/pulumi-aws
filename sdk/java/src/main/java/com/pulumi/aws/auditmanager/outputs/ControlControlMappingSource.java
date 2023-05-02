@@ -6,7 +6,6 @@ package com.pulumi.aws.auditmanager.outputs;
 import com.pulumi.aws.auditmanager.outputs.ControlControlMappingSourceSourceKeyword;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -28,7 +27,7 @@ public final class ControlControlMappingSource {
      * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
      * 
      */
-    private List<ControlControlMappingSourceSourceKeyword> sourceKeywords;
+    private @Nullable ControlControlMappingSourceSourceKeyword sourceKeyword;
     /**
      * @return Name of the source.
      * 
@@ -72,8 +71,8 @@ public final class ControlControlMappingSource {
      * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
      * 
      */
-    public List<ControlControlMappingSourceSourceKeyword> sourceKeywords() {
-        return this.sourceKeywords;
+    public Optional<ControlControlMappingSourceSourceKeyword> sourceKeyword() {
+        return Optional.ofNullable(this.sourceKeyword);
     }
     /**
      * @return Name of the source.
@@ -116,7 +115,7 @@ public final class ControlControlMappingSource {
         private @Nullable String sourceDescription;
         private @Nullable String sourceFrequency;
         private @Nullable String sourceId;
-        private List<ControlControlMappingSourceSourceKeyword> sourceKeywords;
+        private @Nullable ControlControlMappingSourceSourceKeyword sourceKeyword;
         private String sourceName;
         private String sourceSetUpOption;
         private String sourceType;
@@ -127,7 +126,7 @@ public final class ControlControlMappingSource {
     	      this.sourceDescription = defaults.sourceDescription;
     	      this.sourceFrequency = defaults.sourceFrequency;
     	      this.sourceId = defaults.sourceId;
-    	      this.sourceKeywords = defaults.sourceKeywords;
+    	      this.sourceKeyword = defaults.sourceKeyword;
     	      this.sourceName = defaults.sourceName;
     	      this.sourceSetUpOption = defaults.sourceSetUpOption;
     	      this.sourceType = defaults.sourceType;
@@ -150,12 +149,9 @@ public final class ControlControlMappingSource {
             return this;
         }
         @CustomType.Setter
-        public Builder sourceKeywords(List<ControlControlMappingSourceSourceKeyword> sourceKeywords) {
-            this.sourceKeywords = Objects.requireNonNull(sourceKeywords);
+        public Builder sourceKeyword(@Nullable ControlControlMappingSourceSourceKeyword sourceKeyword) {
+            this.sourceKeyword = sourceKeyword;
             return this;
-        }
-        public Builder sourceKeywords(ControlControlMappingSourceSourceKeyword... sourceKeywords) {
-            return sourceKeywords(List.of(sourceKeywords));
         }
         @CustomType.Setter
         public Builder sourceName(String sourceName) {
@@ -182,7 +178,7 @@ public final class ControlControlMappingSource {
             o.sourceDescription = sourceDescription;
             o.sourceFrequency = sourceFrequency;
             o.sourceId = sourceId;
-            o.sourceKeywords = sourceKeywords;
+            o.sourceKeyword = sourceKeyword;
             o.sourceName = sourceName;
             o.sourceSetUpOption = sourceSetUpOption;
             o.sourceType = sourceType;

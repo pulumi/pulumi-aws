@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Auditmanager.Inputs
 
     public sealed class AssessmentScopeArgs : global::Pulumi.ResourceArgs
     {
-        [Input("awsAccounts", required: true)]
+        [Input("awsAccounts")]
         private InputList<Inputs.AssessmentScopeAwsAccountArgs>? _awsAccounts;
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Auditmanager.Inputs
             set => _awsAccounts = value;
         }
 
-        [Input("awsServices", required: true)]
+        [Input("awsServices")]
         private InputList<Inputs.AssessmentScopeAwsServiceArgs>? _awsServices;
 
         /// <summary>

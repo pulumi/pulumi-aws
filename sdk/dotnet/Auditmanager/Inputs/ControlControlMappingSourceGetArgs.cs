@@ -27,17 +27,11 @@ namespace Pulumi.Aws.Auditmanager.Inputs
         [Input("sourceId")]
         public Input<string>? SourceId { get; set; }
 
-        [Input("sourceKeywords", required: true)]
-        private InputList<Inputs.ControlControlMappingSourceSourceKeywordGetArgs>? _sourceKeywords;
-
         /// <summary>
         /// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
         /// </summary>
-        public InputList<Inputs.ControlControlMappingSourceSourceKeywordGetArgs> SourceKeywords
-        {
-            get => _sourceKeywords ?? (_sourceKeywords = new InputList<Inputs.ControlControlMappingSourceSourceKeywordGetArgs>());
-            set => _sourceKeywords = value;
-        }
+        [Input("sourceKeyword")]
+        public Input<Inputs.ControlControlMappingSourceSourceKeywordGetArgs>? SourceKeyword { get; set; }
 
         /// <summary>
         /// Name of the source.

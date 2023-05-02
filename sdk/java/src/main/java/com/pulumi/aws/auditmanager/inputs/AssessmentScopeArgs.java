@@ -9,6 +9,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AssessmentScopeArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,30 +21,30 @@ public final class AssessmentScopeArgs extends com.pulumi.resources.ResourceArgs
      * Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
      * 
      */
-    @Import(name="awsAccounts", required=true)
-    private Output<List<AssessmentScopeAwsAccountArgs>> awsAccounts;
+    @Import(name="awsAccounts")
+    private @Nullable Output<List<AssessmentScopeAwsAccountArgs>> awsAccounts;
 
     /**
      * @return Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
      * 
      */
-    public Output<List<AssessmentScopeAwsAccountArgs>> awsAccounts() {
-        return this.awsAccounts;
+    public Optional<Output<List<AssessmentScopeAwsAccountArgs>>> awsAccounts() {
+        return Optional.ofNullable(this.awsAccounts);
     }
 
     /**
      * Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
      * 
      */
-    @Import(name="awsServices", required=true)
-    private Output<List<AssessmentScopeAwsServiceArgs>> awsServices;
+    @Import(name="awsServices")
+    private @Nullable Output<List<AssessmentScopeAwsServiceArgs>> awsServices;
 
     /**
      * @return Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
      * 
      */
-    public Output<List<AssessmentScopeAwsServiceArgs>> awsServices() {
-        return this.awsServices;
+    public Optional<Output<List<AssessmentScopeAwsServiceArgs>>> awsServices() {
+        return Optional.ofNullable(this.awsServices);
     }
 
     private AssessmentScopeArgs() {}
@@ -76,7 +78,7 @@ public final class AssessmentScopeArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder awsAccounts(Output<List<AssessmentScopeAwsAccountArgs>> awsAccounts) {
+        public Builder awsAccounts(@Nullable Output<List<AssessmentScopeAwsAccountArgs>> awsAccounts) {
             $.awsAccounts = awsAccounts;
             return this;
         }
@@ -107,7 +109,7 @@ public final class AssessmentScopeArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder awsServices(Output<List<AssessmentScopeAwsServiceArgs>> awsServices) {
+        public Builder awsServices(@Nullable Output<List<AssessmentScopeAwsServiceArgs>> awsServices) {
             $.awsServices = awsServices;
             return this;
         }
@@ -133,8 +135,6 @@ public final class AssessmentScopeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public AssessmentScopeArgs build() {
-            $.awsAccounts = Objects.requireNonNull($.awsAccounts, "expected parameter 'awsAccounts' to be non-null");
-            $.awsServices = Objects.requireNonNull($.awsServices, "expected parameter 'awsServices' to be non-null");
             return $;
         }
     }

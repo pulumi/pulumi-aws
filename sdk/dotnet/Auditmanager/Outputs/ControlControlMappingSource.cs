@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
         /// <summary>
         /// The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.ControlControlMappingSourceSourceKeyword> SourceKeywords;
+        public readonly Outputs.ControlControlMappingSourceSourceKeyword? SourceKeyword;
         /// <summary>
         /// Name of the source.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
 
             string? sourceId,
 
-            ImmutableArray<Outputs.ControlControlMappingSourceSourceKeyword> sourceKeywords,
+            Outputs.ControlControlMappingSourceSourceKeyword? sourceKeyword,
 
             string sourceName,
 
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
             SourceDescription = sourceDescription;
             SourceFrequency = sourceFrequency;
             SourceId = sourceId;
-            SourceKeywords = sourceKeywords;
+            SourceKeyword = sourceKeyword;
             SourceName = sourceName;
             SourceSetUpOption = sourceSetUpOption;
             SourceType = sourceType;

@@ -21,15 +21,15 @@ public final class FrameworkControlSetArgs extends com.pulumi.resources.Resource
      * List of controls within the control set. See `controls` below.
      * 
      */
-    @Import(name="controls", required=true)
-    private Output<List<FrameworkControlSetControlArgs>> controls;
+    @Import(name="controls")
+    private @Nullable Output<List<FrameworkControlSetControlArgs>> controls;
 
     /**
      * @return List of controls within the control set. See `controls` below.
      * 
      */
-    public Output<List<FrameworkControlSetControlArgs>> controls() {
-        return this.controls;
+    public Optional<Output<List<FrameworkControlSetControlArgs>>> controls() {
+        return Optional.ofNullable(this.controls);
     }
 
     /**
@@ -94,7 +94,7 @@ public final class FrameworkControlSetArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder controls(Output<List<FrameworkControlSetControlArgs>> controls) {
+        public Builder controls(@Nullable Output<List<FrameworkControlSetControlArgs>> controls) {
             $.controls = controls;
             return this;
         }
@@ -162,7 +162,6 @@ public final class FrameworkControlSetArgs extends com.pulumi.resources.Resource
         }
 
         public FrameworkControlSetArgs build() {
-            $.controls = Objects.requireNonNull($.controls, "expected parameter 'controls' to be non-null");
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }

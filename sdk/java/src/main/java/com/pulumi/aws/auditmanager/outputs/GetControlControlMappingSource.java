@@ -6,15 +6,16 @@ package com.pulumi.aws.auditmanager.outputs;
 import com.pulumi.aws.auditmanager.outputs.GetControlControlMappingSourceSourceKeyword;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetControlControlMappingSource {
     private String sourceDescription;
     private String sourceFrequency;
     private String sourceId;
-    private List<GetControlControlMappingSourceSourceKeyword> sourceKeywords;
+    private @Nullable GetControlControlMappingSourceSourceKeyword sourceKeyword;
     private String sourceName;
     private String sourceSetUpOption;
     private String sourceType;
@@ -30,8 +31,8 @@ public final class GetControlControlMappingSource {
     public String sourceId() {
         return this.sourceId;
     }
-    public List<GetControlControlMappingSourceSourceKeyword> sourceKeywords() {
-        return this.sourceKeywords;
+    public Optional<GetControlControlMappingSourceSourceKeyword> sourceKeyword() {
+        return Optional.ofNullable(this.sourceKeyword);
     }
     public String sourceName() {
         return this.sourceName;
@@ -58,7 +59,7 @@ public final class GetControlControlMappingSource {
         private String sourceDescription;
         private String sourceFrequency;
         private String sourceId;
-        private List<GetControlControlMappingSourceSourceKeyword> sourceKeywords;
+        private @Nullable GetControlControlMappingSourceSourceKeyword sourceKeyword;
         private String sourceName;
         private String sourceSetUpOption;
         private String sourceType;
@@ -69,7 +70,7 @@ public final class GetControlControlMappingSource {
     	      this.sourceDescription = defaults.sourceDescription;
     	      this.sourceFrequency = defaults.sourceFrequency;
     	      this.sourceId = defaults.sourceId;
-    	      this.sourceKeywords = defaults.sourceKeywords;
+    	      this.sourceKeyword = defaults.sourceKeyword;
     	      this.sourceName = defaults.sourceName;
     	      this.sourceSetUpOption = defaults.sourceSetUpOption;
     	      this.sourceType = defaults.sourceType;
@@ -92,12 +93,9 @@ public final class GetControlControlMappingSource {
             return this;
         }
         @CustomType.Setter
-        public Builder sourceKeywords(List<GetControlControlMappingSourceSourceKeyword> sourceKeywords) {
-            this.sourceKeywords = Objects.requireNonNull(sourceKeywords);
+        public Builder sourceKeyword(@Nullable GetControlControlMappingSourceSourceKeyword sourceKeyword) {
+            this.sourceKeyword = sourceKeyword;
             return this;
-        }
-        public Builder sourceKeywords(GetControlControlMappingSourceSourceKeyword... sourceKeywords) {
-            return sourceKeywords(List.of(sourceKeywords));
         }
         @CustomType.Setter
         public Builder sourceName(String sourceName) {
@@ -124,7 +122,7 @@ public final class GetControlControlMappingSource {
             o.sourceDescription = sourceDescription;
             o.sourceFrequency = sourceFrequency;
             o.sourceId = sourceId;
-            o.sourceKeywords = sourceKeywords;
+            o.sourceKeyword = sourceKeyword;
             o.sourceName = sourceName;
             o.sourceSetUpOption = sourceSetUpOption;
             o.sourceType = sourceType;

@@ -191,18 +191,20 @@ class AssessmentScope(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aws_accounts: Sequence['outputs.AssessmentScopeAwsAccount'],
-                 aws_services: Sequence['outputs.AssessmentScopeAwsService']):
+                 aws_accounts: Optional[Sequence['outputs.AssessmentScopeAwsAccount']] = None,
+                 aws_services: Optional[Sequence['outputs.AssessmentScopeAwsService']] = None):
         """
         :param Sequence['AssessmentScopeAwsAccountArgs'] aws_accounts: Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
         :param Sequence['AssessmentScopeAwsServiceArgs'] aws_services: Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
         """
-        pulumi.set(__self__, "aws_accounts", aws_accounts)
-        pulumi.set(__self__, "aws_services", aws_services)
+        if aws_accounts is not None:
+            pulumi.set(__self__, "aws_accounts", aws_accounts)
+        if aws_services is not None:
+            pulumi.set(__self__, "aws_services", aws_services)
 
     @property
     @pulumi.getter(name="awsAccounts")
-    def aws_accounts(self) -> Sequence['outputs.AssessmentScopeAwsAccount']:
+    def aws_accounts(self) -> Optional[Sequence['outputs.AssessmentScopeAwsAccount']]:
         """
         Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
         """
@@ -210,7 +212,7 @@ class AssessmentScope(dict):
 
     @property
     @pulumi.getter(name="awsServices")
-    def aws_services(self) -> Sequence['outputs.AssessmentScopeAwsService']:
+    def aws_services(self) -> Optional[Sequence['outputs.AssessmentScopeAwsService']]:
         """
         Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
         """
@@ -275,9 +277,7 @@ class ControlControlMappingSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sourceKeywords":
-            suggest = "source_keywords"
-        elif key == "sourceName":
+        if key == "sourceName":
             suggest = "source_name"
         elif key == "sourceSetUpOption":
             suggest = "source_set_up_option"
@@ -289,6 +289,8 @@ class ControlControlMappingSource(dict):
             suggest = "source_frequency"
         elif key == "sourceId":
             suggest = "source_id"
+        elif key == "sourceKeyword":
+            suggest = "source_keyword"
         elif key == "troubleshootingText":
             suggest = "troubleshooting_text"
 
@@ -304,24 +306,23 @@ class ControlControlMappingSource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 source_keywords: Sequence['outputs.ControlControlMappingSourceSourceKeyword'],
                  source_name: str,
                  source_set_up_option: str,
                  source_type: str,
                  source_description: Optional[str] = None,
                  source_frequency: Optional[str] = None,
                  source_id: Optional[str] = None,
+                 source_keyword: Optional['outputs.ControlControlMappingSourceSourceKeyword'] = None,
                  troubleshooting_text: Optional[str] = None):
         """
-        :param Sequence['ControlControlMappingSourceSourceKeywordArgs'] source_keywords: The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
         :param str source_name: Name of the source.
         :param str source_set_up_option: The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
         :param str source_type: Type of data source for evidence collection. If `source_set_up_option` is manual, the only valid value is `MANUAL`. If `source_set_up_option` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
         :param str source_description: Description of the source.
         :param str source_frequency: Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
+        :param 'ControlControlMappingSourceSourceKeywordArgs' source_keyword: The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
         :param str troubleshooting_text: Instructions for troubleshooting the control.
         """
-        pulumi.set(__self__, "source_keywords", source_keywords)
         pulumi.set(__self__, "source_name", source_name)
         pulumi.set(__self__, "source_set_up_option", source_set_up_option)
         pulumi.set(__self__, "source_type", source_type)
@@ -331,16 +332,10 @@ class ControlControlMappingSource(dict):
             pulumi.set(__self__, "source_frequency", source_frequency)
         if source_id is not None:
             pulumi.set(__self__, "source_id", source_id)
+        if source_keyword is not None:
+            pulumi.set(__self__, "source_keyword", source_keyword)
         if troubleshooting_text is not None:
             pulumi.set(__self__, "troubleshooting_text", troubleshooting_text)
-
-    @property
-    @pulumi.getter(name="sourceKeywords")
-    def source_keywords(self) -> Sequence['outputs.ControlControlMappingSourceSourceKeyword']:
-        """
-        The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
-        """
-        return pulumi.get(self, "source_keywords")
 
     @property
     @pulumi.getter(name="sourceName")
@@ -386,6 +381,14 @@ class ControlControlMappingSource(dict):
     @pulumi.getter(name="sourceId")
     def source_id(self) -> Optional[str]:
         return pulumi.get(self, "source_id")
+
+    @property
+    @pulumi.getter(name="sourceKeyword")
+    def source_keyword(self) -> Optional['outputs.ControlControlMappingSourceSourceKeyword']:
+        """
+        The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
+        """
+        return pulumi.get(self, "source_keyword")
 
     @property
     @pulumi.getter(name="troubleshootingText")
@@ -447,26 +450,19 @@ class ControlControlMappingSourceSourceKeyword(dict):
 @pulumi.output_type
 class FrameworkControlSet(dict):
     def __init__(__self__, *,
-                 controls: Sequence['outputs.FrameworkControlSetControl'],
                  name: str,
+                 controls: Optional[Sequence['outputs.FrameworkControlSetControl']] = None,
                  id: Optional[str] = None):
         """
-        :param Sequence['FrameworkControlSetControlArgs'] controls: List of controls within the control set. See `controls` below.
         :param str name: Name of the control set.
+        :param Sequence['FrameworkControlSetControlArgs'] controls: List of controls within the control set. See `controls` below.
         :param str id: Unique identifier of the control.
         """
-        pulumi.set(__self__, "controls", controls)
         pulumi.set(__self__, "name", name)
+        if controls is not None:
+            pulumi.set(__self__, "controls", controls)
         if id is not None:
             pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def controls(self) -> Sequence['outputs.FrameworkControlSetControl']:
-        """
-        List of controls within the control set. See `controls` below.
-        """
-        return pulumi.get(self, "controls")
 
     @property
     @pulumi.getter
@@ -475,6 +471,14 @@ class FrameworkControlSet(dict):
         Name of the control set.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def controls(self) -> Optional[Sequence['outputs.FrameworkControlSetControl']]:
+        """
+        List of controls within the control set. See `controls` below.
+        """
+        return pulumi.get(self, "controls")
 
     @property
     @pulumi.getter
@@ -509,19 +513,20 @@ class GetControlControlMappingSourceResult(dict):
                  source_description: str,
                  source_frequency: str,
                  source_id: str,
-                 source_keywords: Sequence['outputs.GetControlControlMappingSourceSourceKeywordResult'],
                  source_name: str,
                  source_set_up_option: str,
                  source_type: str,
-                 troubleshooting_text: str):
+                 troubleshooting_text: str,
+                 source_keyword: Optional['outputs.GetControlControlMappingSourceSourceKeywordResult'] = None):
         pulumi.set(__self__, "source_description", source_description)
         pulumi.set(__self__, "source_frequency", source_frequency)
         pulumi.set(__self__, "source_id", source_id)
-        pulumi.set(__self__, "source_keywords", source_keywords)
         pulumi.set(__self__, "source_name", source_name)
         pulumi.set(__self__, "source_set_up_option", source_set_up_option)
         pulumi.set(__self__, "source_type", source_type)
         pulumi.set(__self__, "troubleshooting_text", troubleshooting_text)
+        if source_keyword is not None:
+            pulumi.set(__self__, "source_keyword", source_keyword)
 
     @property
     @pulumi.getter(name="sourceDescription")
@@ -537,11 +542,6 @@ class GetControlControlMappingSourceResult(dict):
     @pulumi.getter(name="sourceId")
     def source_id(self) -> str:
         return pulumi.get(self, "source_id")
-
-    @property
-    @pulumi.getter(name="sourceKeywords")
-    def source_keywords(self) -> Sequence['outputs.GetControlControlMappingSourceSourceKeywordResult']:
-        return pulumi.get(self, "source_keywords")
 
     @property
     @pulumi.getter(name="sourceName")
@@ -562,6 +562,11 @@ class GetControlControlMappingSourceResult(dict):
     @pulumi.getter(name="troubleshootingText")
     def troubleshooting_text(self) -> str:
         return pulumi.get(self, "troubleshooting_text")
+
+    @property
+    @pulumi.getter(name="sourceKeyword")
+    def source_keyword(self) -> Optional['outputs.GetControlControlMappingSourceSourceKeywordResult']:
+        return pulumi.get(self, "source_keyword")
 
 
 @pulumi.output_type
@@ -586,20 +591,16 @@ class GetControlControlMappingSourceSourceKeywordResult(dict):
 @pulumi.output_type
 class GetFrameworkControlSetResult(dict):
     def __init__(__self__, *,
-                 controls: Sequence['outputs.GetFrameworkControlSetControlResult'],
                  id: str,
-                 name: str):
+                 name: str,
+                 controls: Optional[Sequence['outputs.GetFrameworkControlSetControlResult']] = None):
         """
         :param str name: Name of the framework.
         """
-        pulumi.set(__self__, "controls", controls)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def controls(self) -> Sequence['outputs.GetFrameworkControlSetControlResult']:
-        return pulumi.get(self, "controls")
+        if controls is not None:
+            pulumi.set(__self__, "controls", controls)
 
     @property
     @pulumi.getter
@@ -613,6 +614,11 @@ class GetFrameworkControlSetResult(dict):
         Name of the framework.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def controls(self) -> Optional[Sequence['outputs.GetFrameworkControlSetControlResult']]:
+        return pulumi.get(self, "controls")
 
 
 @pulumi.output_type

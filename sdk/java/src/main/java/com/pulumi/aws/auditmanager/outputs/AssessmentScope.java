@@ -8,6 +8,7 @@ import com.pulumi.aws.auditmanager.outputs.AssessmentScopeAwsService;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AssessmentScope {
@@ -15,12 +16,12 @@ public final class AssessmentScope {
      * @return Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
      * 
      */
-    private List<AssessmentScopeAwsAccount> awsAccounts;
+    private @Nullable List<AssessmentScopeAwsAccount> awsAccounts;
     /**
      * @return Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
      * 
      */
-    private List<AssessmentScopeAwsService> awsServices;
+    private @Nullable List<AssessmentScopeAwsService> awsServices;
 
     private AssessmentScope() {}
     /**
@@ -28,14 +29,14 @@ public final class AssessmentScope {
      * 
      */
     public List<AssessmentScopeAwsAccount> awsAccounts() {
-        return this.awsAccounts;
+        return this.awsAccounts == null ? List.of() : this.awsAccounts;
     }
     /**
      * @return Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
      * 
      */
     public List<AssessmentScopeAwsService> awsServices() {
-        return this.awsServices;
+        return this.awsServices == null ? List.of() : this.awsServices;
     }
 
     public static Builder builder() {
@@ -47,8 +48,8 @@ public final class AssessmentScope {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<AssessmentScopeAwsAccount> awsAccounts;
-        private List<AssessmentScopeAwsService> awsServices;
+        private @Nullable List<AssessmentScopeAwsAccount> awsAccounts;
+        private @Nullable List<AssessmentScopeAwsService> awsServices;
         public Builder() {}
         public Builder(AssessmentScope defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,16 +58,16 @@ public final class AssessmentScope {
         }
 
         @CustomType.Setter
-        public Builder awsAccounts(List<AssessmentScopeAwsAccount> awsAccounts) {
-            this.awsAccounts = Objects.requireNonNull(awsAccounts);
+        public Builder awsAccounts(@Nullable List<AssessmentScopeAwsAccount> awsAccounts) {
+            this.awsAccounts = awsAccounts;
             return this;
         }
         public Builder awsAccounts(AssessmentScopeAwsAccount... awsAccounts) {
             return awsAccounts(List.of(awsAccounts));
         }
         @CustomType.Setter
-        public Builder awsServices(List<AssessmentScopeAwsService> awsServices) {
-            this.awsServices = Objects.requireNonNull(awsServices);
+        public Builder awsServices(@Nullable List<AssessmentScopeAwsService> awsServices) {
+            this.awsServices = awsServices;
             return this;
         }
         public Builder awsServices(AssessmentScopeAwsService... awsServices) {

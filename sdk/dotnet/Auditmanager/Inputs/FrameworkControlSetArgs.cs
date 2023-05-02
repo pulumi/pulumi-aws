@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Auditmanager.Inputs
 
     public sealed class FrameworkControlSetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("controls", required: true)]
+        [Input("controls")]
         private InputList<Inputs.FrameworkControlSetControlArgs>? _controls;
 
         /// <summary>

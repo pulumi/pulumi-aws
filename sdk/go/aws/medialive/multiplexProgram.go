@@ -62,10 +62,8 @@ import (
 //				MultiplexProgramSettings: &medialive.MultiplexProgramMultiplexProgramSettingsArgs{
 //					ProgramNumber:            pulumi.Int(1),
 //					PreferredChannelPipeline: pulumi.String("CURRENTLY_ACTIVE"),
-//					VideoSettings: medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingArray{
-//						&medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingArgs{
-//							ConstantBitrate: pulumi.Int(100000),
-//						},
+//					VideoSettings: &medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{
+//						ConstantBitrate: pulumi.Int(100000),
 //					},
 //				},
 //			})

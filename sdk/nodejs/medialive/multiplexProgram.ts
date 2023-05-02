@@ -44,9 +44,9 @@ import * as utilities from "../utilities";
  *     multiplexProgramSettings: {
  *         programNumber: 1,
  *         preferredChannelPipeline: "CURRENTLY_ACTIVE",
- *         videoSettings: [{
+ *         videoSettings: {
  *             constantBitrate: 100000,
- *         }],
+ *         },
  *     },
  * });
  * ```

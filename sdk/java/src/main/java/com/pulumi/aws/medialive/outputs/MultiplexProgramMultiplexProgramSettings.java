@@ -4,12 +4,13 @@
 package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor;
-import com.pulumi.aws.medialive.outputs.MultiplexProgramMultiplexProgramSettingsVideoSetting;
+import com.pulumi.aws.medialive.outputs.MultiplexProgramMultiplexProgramSettingsVideoSettings;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class MultiplexProgramMultiplexProgramSettings {
@@ -27,12 +28,12 @@ public final class MultiplexProgramMultiplexProgramSettings {
      * @return Service Descriptor. See Service Descriptor for more details.
      * 
      */
-    private List<MultiplexProgramMultiplexProgramSettingsServiceDescriptor> serviceDescriptors;
+    private @Nullable MultiplexProgramMultiplexProgramSettingsServiceDescriptor serviceDescriptor;
     /**
      * @return Video settings. See Video Settings for more details.
      * 
      */
-    private List<MultiplexProgramMultiplexProgramSettingsVideoSetting> videoSettings;
+    private @Nullable MultiplexProgramMultiplexProgramSettingsVideoSettings videoSettings;
 
     private MultiplexProgramMultiplexProgramSettings() {}
     /**
@@ -53,15 +54,15 @@ public final class MultiplexProgramMultiplexProgramSettings {
      * @return Service Descriptor. See Service Descriptor for more details.
      * 
      */
-    public List<MultiplexProgramMultiplexProgramSettingsServiceDescriptor> serviceDescriptors() {
-        return this.serviceDescriptors;
+    public Optional<MultiplexProgramMultiplexProgramSettingsServiceDescriptor> serviceDescriptor() {
+        return Optional.ofNullable(this.serviceDescriptor);
     }
     /**
      * @return Video settings. See Video Settings for more details.
      * 
      */
-    public List<MultiplexProgramMultiplexProgramSettingsVideoSetting> videoSettings() {
-        return this.videoSettings;
+    public Optional<MultiplexProgramMultiplexProgramSettingsVideoSettings> videoSettings() {
+        return Optional.ofNullable(this.videoSettings);
     }
 
     public static Builder builder() {
@@ -75,14 +76,14 @@ public final class MultiplexProgramMultiplexProgramSettings {
     public static final class Builder {
         private String preferredChannelPipeline;
         private Integer programNumber;
-        private List<MultiplexProgramMultiplexProgramSettingsServiceDescriptor> serviceDescriptors;
-        private List<MultiplexProgramMultiplexProgramSettingsVideoSetting> videoSettings;
+        private @Nullable MultiplexProgramMultiplexProgramSettingsServiceDescriptor serviceDescriptor;
+        private @Nullable MultiplexProgramMultiplexProgramSettingsVideoSettings videoSettings;
         public Builder() {}
         public Builder(MultiplexProgramMultiplexProgramSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.preferredChannelPipeline = defaults.preferredChannelPipeline;
     	      this.programNumber = defaults.programNumber;
-    	      this.serviceDescriptors = defaults.serviceDescriptors;
+    	      this.serviceDescriptor = defaults.serviceDescriptor;
     	      this.videoSettings = defaults.videoSettings;
         }
 
@@ -97,26 +98,20 @@ public final class MultiplexProgramMultiplexProgramSettings {
             return this;
         }
         @CustomType.Setter
-        public Builder serviceDescriptors(List<MultiplexProgramMultiplexProgramSettingsServiceDescriptor> serviceDescriptors) {
-            this.serviceDescriptors = Objects.requireNonNull(serviceDescriptors);
+        public Builder serviceDescriptor(@Nullable MultiplexProgramMultiplexProgramSettingsServiceDescriptor serviceDescriptor) {
+            this.serviceDescriptor = serviceDescriptor;
             return this;
-        }
-        public Builder serviceDescriptors(MultiplexProgramMultiplexProgramSettingsServiceDescriptor... serviceDescriptors) {
-            return serviceDescriptors(List.of(serviceDescriptors));
         }
         @CustomType.Setter
-        public Builder videoSettings(List<MultiplexProgramMultiplexProgramSettingsVideoSetting> videoSettings) {
-            this.videoSettings = Objects.requireNonNull(videoSettings);
+        public Builder videoSettings(@Nullable MultiplexProgramMultiplexProgramSettingsVideoSettings videoSettings) {
+            this.videoSettings = videoSettings;
             return this;
-        }
-        public Builder videoSettings(MultiplexProgramMultiplexProgramSettingsVideoSetting... videoSettings) {
-            return videoSettings(List.of(videoSettings));
         }
         public MultiplexProgramMultiplexProgramSettings build() {
             final var o = new MultiplexProgramMultiplexProgramSettings();
             o.preferredChannelPipeline = preferredChannelPipeline;
             o.programNumber = programNumber;
-            o.serviceDescriptors = serviceDescriptors;
+            o.serviceDescriptor = serviceDescriptor;
             o.videoSettings = videoSettings;
             return o;
         }

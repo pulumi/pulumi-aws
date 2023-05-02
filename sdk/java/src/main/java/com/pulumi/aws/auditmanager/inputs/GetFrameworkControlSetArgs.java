@@ -9,17 +9,19 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetFrameworkControlSetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GetFrameworkControlSetArgs Empty = new GetFrameworkControlSetArgs();
 
-    @Import(name="controls", required=true)
-    private Output<List<GetFrameworkControlSetControlArgs>> controls;
+    @Import(name="controls")
+    private @Nullable Output<List<GetFrameworkControlSetControlArgs>> controls;
 
-    public Output<List<GetFrameworkControlSetControlArgs>> controls() {
-        return this.controls;
+    public Optional<Output<List<GetFrameworkControlSetControlArgs>>> controls() {
+        return Optional.ofNullable(this.controls);
     }
 
     @Import(name="id", required=true)
@@ -70,7 +72,7 @@ public final class GetFrameworkControlSetArgs extends com.pulumi.resources.Resou
             $ = new GetFrameworkControlSetArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder controls(Output<List<GetFrameworkControlSetControlArgs>> controls) {
+        public Builder controls(@Nullable Output<List<GetFrameworkControlSetControlArgs>> controls) {
             $.controls = controls;
             return this;
         }
@@ -114,7 +116,6 @@ public final class GetFrameworkControlSetArgs extends com.pulumi.resources.Resou
         }
 
         public GetFrameworkControlSetArgs build() {
-            $.controls = Objects.requireNonNull($.controls, "expected parameter 'controls' to be non-null");
             $.id = Objects.requireNonNull($.id, "expected parameter 'id' to be non-null");
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;

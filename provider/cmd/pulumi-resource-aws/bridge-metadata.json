@@ -6740,7 +6740,7 @@
                 "sourceDescription": "source_description",
                 "sourceFrequency": "source_frequency",
                 "sourceId": "source_id",
-                "sourceKeywords": "source_keyword",
+                "sourceKeyword": "source_keyword",
                 "sourceName": "source_name",
                 "sourceSetUpOption": "source_set_up_option",
                 "sourceType": "source_type",
@@ -6799,7 +6799,7 @@
                 "sourceDescription": "source_description",
                 "sourceFrequency": "source_frequency",
                 "sourceId": "source_id",
-                "sourceKeywords": "source_keyword",
+                "sourceKeyword": "source_keyword",
                 "sourceName": "source_name",
                 "sourceSetUpOption": "source_set_up_option",
                 "sourceType": "source_type",
@@ -22269,23 +22269,23 @@
             "aws:medialive/MultiplexProgramMultiplexProgramSettings:MultiplexProgramMultiplexProgramSettings": {
                 "preferredChannelPipeline": "preferred_channel_pipeline",
                 "programNumber": "program_number",
-                "serviceDescriptors": "service_descriptor",
+                "serviceDescriptor": "service_descriptor",
                 "videoSettings": "video_settings"
             },
             "aws:medialive/MultiplexProgramMultiplexProgramSettingsServiceDescriptor:MultiplexProgramMultiplexProgramSettingsServiceDescriptor": {
                 "providerName": "provider_name",
                 "serviceName": "service_name"
             },
-            "aws:medialive/MultiplexProgramMultiplexProgramSettingsVideoSetting:MultiplexProgramMultiplexProgramSettingsVideoSetting": {
+            "aws:medialive/MultiplexProgramMultiplexProgramSettingsVideoSettings:MultiplexProgramMultiplexProgramSettingsVideoSettings": {
                 "constantBitrate": "constant_bitrate",
                 "statemuxSettings": "statemux_settings",
                 "statmuxSettings": "statmux_settings"
             },
-            "aws:medialive/MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSetting:MultiplexProgramMultiplexProgramSettingsVideoSettingStatemuxSetting": {
+            "aws:medialive/MultiplexProgramMultiplexProgramSettingsVideoSettingsStatemuxSettings:MultiplexProgramMultiplexProgramSettingsVideoSettingsStatemuxSettings": {
                 "maximumBitrate": "maximum_bitrate",
                 "minimumBitrate": "minimum_bitrate"
             },
-            "aws:medialive/MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSetting:MultiplexProgramMultiplexProgramSettingsVideoSettingStatmuxSetting": {
+            "aws:medialive/MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings:MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings": {
                 "maximumBitrate": "maximum_bitrate",
                 "minimumBitrate": "minimum_bitrate"
             },

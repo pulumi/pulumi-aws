@@ -24,11 +24,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// <summary>
         /// Service Descriptor. See Service Descriptor for more details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor> ServiceDescriptors;
+        public readonly Outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor? ServiceDescriptor;
         /// <summary>
         /// Video settings. See Video Settings for more details.
         /// </summary>
-        public readonly ImmutableArray<Outputs.MultiplexProgramMultiplexProgramSettingsVideoSetting> VideoSettings;
+        public readonly Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettings? VideoSettings;
 
         [OutputConstructor]
         private MultiplexProgramMultiplexProgramSettings(
@@ -36,13 +36,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             int programNumber,
 
-            ImmutableArray<Outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor> serviceDescriptors,
+            Outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor? serviceDescriptor,
 
-            ImmutableArray<Outputs.MultiplexProgramMultiplexProgramSettingsVideoSetting> videoSettings)
+            Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettings? videoSettings)
         {
             PreferredChannelPipeline = preferredChannelPipeline;
             ProgramNumber = programNumber;
-            ServiceDescriptors = serviceDescriptors;
+            ServiceDescriptor = serviceDescriptor;
             VideoSettings = videoSettings;
         }
     }

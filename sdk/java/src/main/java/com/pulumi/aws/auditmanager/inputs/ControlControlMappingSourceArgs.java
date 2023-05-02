@@ -7,7 +7,6 @@ import com.pulumi.aws.auditmanager.inputs.ControlControlMappingSourceSourceKeywo
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -58,15 +57,15 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
      * The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
      * 
      */
-    @Import(name="sourceKeywords", required=true)
-    private Output<List<ControlControlMappingSourceSourceKeywordArgs>> sourceKeywords;
+    @Import(name="sourceKeyword")
+    private @Nullable Output<ControlControlMappingSourceSourceKeywordArgs> sourceKeyword;
 
     /**
      * @return The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
      * 
      */
-    public Output<List<ControlControlMappingSourceSourceKeywordArgs>> sourceKeywords() {
-        return this.sourceKeywords;
+    public Optional<Output<ControlControlMappingSourceSourceKeywordArgs>> sourceKeyword() {
+        return Optional.ofNullable(this.sourceKeyword);
     }
 
     /**
@@ -135,7 +134,7 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
         this.sourceDescription = $.sourceDescription;
         this.sourceFrequency = $.sourceFrequency;
         this.sourceId = $.sourceId;
-        this.sourceKeywords = $.sourceKeywords;
+        this.sourceKeyword = $.sourceKeyword;
         this.sourceName = $.sourceName;
         this.sourceSetUpOption = $.sourceSetUpOption;
         this.sourceType = $.sourceType;
@@ -212,34 +211,24 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sourceKeywords The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
+         * @param sourceKeyword The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
          * 
          * @return builder
          * 
          */
-        public Builder sourceKeywords(Output<List<ControlControlMappingSourceSourceKeywordArgs>> sourceKeywords) {
-            $.sourceKeywords = sourceKeywords;
+        public Builder sourceKeyword(@Nullable Output<ControlControlMappingSourceSourceKeywordArgs> sourceKeyword) {
+            $.sourceKeyword = sourceKeyword;
             return this;
         }
 
         /**
-         * @param sourceKeywords The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
+         * @param sourceKeyword The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
          * 
          * @return builder
          * 
          */
-        public Builder sourceKeywords(List<ControlControlMappingSourceSourceKeywordArgs> sourceKeywords) {
-            return sourceKeywords(Output.of(sourceKeywords));
-        }
-
-        /**
-         * @param sourceKeywords The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder sourceKeywords(ControlControlMappingSourceSourceKeywordArgs... sourceKeywords) {
-            return sourceKeywords(List.of(sourceKeywords));
+        public Builder sourceKeyword(ControlControlMappingSourceSourceKeywordArgs sourceKeyword) {
+            return sourceKeyword(Output.of(sourceKeyword));
         }
 
         /**
@@ -327,7 +316,6 @@ public final class ControlControlMappingSourceArgs extends com.pulumi.resources.
         }
 
         public ControlControlMappingSourceArgs build() {
-            $.sourceKeywords = Objects.requireNonNull($.sourceKeywords, "expected parameter 'sourceKeywords' to be non-null");
             $.sourceName = Objects.requireNonNull($.sourceName, "expected parameter 'sourceName' to be non-null");
             $.sourceSetUpOption = Objects.requireNonNull($.sourceSetUpOption, "expected parameter 'sourceSetUpOption' to be non-null");
             $.sourceType = Objects.requireNonNull($.sourceType, "expected parameter 'sourceType' to be non-null");

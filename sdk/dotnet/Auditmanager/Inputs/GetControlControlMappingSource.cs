@@ -21,13 +21,8 @@ namespace Pulumi.Aws.Auditmanager.Inputs
         [Input("sourceId", required: true)]
         public string SourceId { get; set; } = null!;
 
-        [Input("sourceKeywords", required: true)]
-        private List<Inputs.GetControlControlMappingSourceSourceKeywordArgs>? _sourceKeywords;
-        public List<Inputs.GetControlControlMappingSourceSourceKeywordArgs> SourceKeywords
-        {
-            get => _sourceKeywords ?? (_sourceKeywords = new List<Inputs.GetControlControlMappingSourceSourceKeywordArgs>());
-            set => _sourceKeywords = value;
-        }
+        [Input("sourceKeyword")]
+        public Inputs.GetControlControlMappingSourceSourceKeywordArgs? SourceKeyword { get; set; }
 
         [Input("sourceName", required: true)]
         public string SourceName { get; set; } = null!;

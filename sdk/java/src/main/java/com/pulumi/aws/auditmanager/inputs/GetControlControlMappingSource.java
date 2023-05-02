@@ -6,8 +6,9 @@ package com.pulumi.aws.auditmanager.inputs;
 import com.pulumi.aws.auditmanager.inputs.GetControlControlMappingSourceSourceKeyword;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetControlControlMappingSource extends com.pulumi.resources.InvokeArgs {
@@ -35,11 +36,11 @@ public final class GetControlControlMappingSource extends com.pulumi.resources.I
         return this.sourceId;
     }
 
-    @Import(name="sourceKeywords", required=true)
-    private List<GetControlControlMappingSourceSourceKeyword> sourceKeywords;
+    @Import(name="sourceKeyword")
+    private @Nullable GetControlControlMappingSourceSourceKeyword sourceKeyword;
 
-    public List<GetControlControlMappingSourceSourceKeyword> sourceKeywords() {
-        return this.sourceKeywords;
+    public Optional<GetControlControlMappingSourceSourceKeyword> sourceKeyword() {
+        return Optional.ofNullable(this.sourceKeyword);
     }
 
     @Import(name="sourceName", required=true)
@@ -76,7 +77,7 @@ public final class GetControlControlMappingSource extends com.pulumi.resources.I
         this.sourceDescription = $.sourceDescription;
         this.sourceFrequency = $.sourceFrequency;
         this.sourceId = $.sourceId;
-        this.sourceKeywords = $.sourceKeywords;
+        this.sourceKeyword = $.sourceKeyword;
         this.sourceName = $.sourceName;
         this.sourceSetUpOption = $.sourceSetUpOption;
         this.sourceType = $.sourceType;
@@ -116,13 +117,9 @@ public final class GetControlControlMappingSource extends com.pulumi.resources.I
             return this;
         }
 
-        public Builder sourceKeywords(List<GetControlControlMappingSourceSourceKeyword> sourceKeywords) {
-            $.sourceKeywords = sourceKeywords;
+        public Builder sourceKeyword(@Nullable GetControlControlMappingSourceSourceKeyword sourceKeyword) {
+            $.sourceKeyword = sourceKeyword;
             return this;
-        }
-
-        public Builder sourceKeywords(GetControlControlMappingSourceSourceKeyword... sourceKeywords) {
-            return sourceKeywords(List.of(sourceKeywords));
         }
 
         public Builder sourceName(String sourceName) {
@@ -149,7 +146,6 @@ public final class GetControlControlMappingSource extends com.pulumi.resources.I
             $.sourceDescription = Objects.requireNonNull($.sourceDescription, "expected parameter 'sourceDescription' to be non-null");
             $.sourceFrequency = Objects.requireNonNull($.sourceFrequency, "expected parameter 'sourceFrequency' to be non-null");
             $.sourceId = Objects.requireNonNull($.sourceId, "expected parameter 'sourceId' to be non-null");
-            $.sourceKeywords = Objects.requireNonNull($.sourceKeywords, "expected parameter 'sourceKeywords' to be non-null");
             $.sourceName = Objects.requireNonNull($.sourceName, "expected parameter 'sourceName' to be non-null");
             $.sourceSetUpOption = Objects.requireNonNull($.sourceSetUpOption, "expected parameter 'sourceSetUpOption' to be non-null");
             $.sourceType = Objects.requireNonNull($.sourceType, "expected parameter 'sourceType' to be non-null");

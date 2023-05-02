@@ -166,9 +166,9 @@ class MultiplexProgram(pulumi.CustomResource):
             multiplex_program_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsArgs(
                 program_number=1,
                 preferred_channel_pipeline="CURRENTLY_ACTIVE",
-                video_settings=[aws.medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingArgs(
+                video_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs(
                     constant_bitrate=100000,
-                )],
+                ),
             ))
         ```
 
@@ -226,9 +226,9 @@ class MultiplexProgram(pulumi.CustomResource):
             multiplex_program_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsArgs(
                 program_number=1,
                 preferred_channel_pipeline="CURRENTLY_ACTIVE",
-                video_settings=[aws.medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingArgs(
+                video_settings=aws.medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs(
                     constant_bitrate=100000,
-                )],
+                ),
             ))
         ```
 

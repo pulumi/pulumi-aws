@@ -59,12 +59,9 @@ namespace Pulumi.Aws.MediaLive
     ///         {
     ///             ProgramNumber = 1,
     ///             PreferredChannelPipeline = "CURRENTLY_ACTIVE",
-    ///             VideoSettings = new[]
+    ///             VideoSettings = new Aws.MediaLive.Inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs
     ///             {
-    ///                 new Aws.MediaLive.Inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingArgs
-    ///                 {
-    ///                     ConstantBitrate = 100000,
-    ///                 },
+    ///                 ConstantBitrate = 100000,
     ///             },
     ///         },
     ///     });
