@@ -1,4 +1,4 @@
-From 5b25c60a1c1ec134569bec565fca531d1b253077 Mon Sep 17 00:00:00 2001
+From 3b0a35169b6e8b497ec369d35a9568ce4341efe9 Mon Sep 17 00:00:00 2001
 From: Kyle Pitzen <kpitzen@pulumi.com>
 Date: Thu, 9 Mar 2023 09:47:49 -0600
 Subject: [PATCH 04/27] Marks SSE Configuration as Computed for Legacy S3
