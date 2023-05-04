@@ -351,6 +351,7 @@ class Endpoints(dict):
                  inspector: Optional[str] = None,
                  inspector2: Optional[str] = None,
                  inspectorv2: Optional[str] = None,
+                 internetmonitor: Optional[str] = None,
                  iot: Optional[str] = None,
                  iot1clickdevices: Optional[str] = None,
                  iot1clickdevicesservice: Optional[str] = None,
@@ -906,6 +907,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "inspector2", inspector2)
         if inspectorv2 is not None:
             pulumi.set(__self__, "inspectorv2", inspectorv2)
+        if internetmonitor is not None:
+            pulumi.set(__self__, "internetmonitor", internetmonitor)
         if iot is not None:
             pulumi.set(__self__, "iot", iot)
         if iot1clickdevices is not None:
@@ -2188,6 +2191,11 @@ class Endpoints(dict):
     @pulumi.getter
     def inspectorv2(self) -> Optional[str]:
         return pulumi.get(self, "inspectorv2")
+
+    @property
+    @pulumi.getter
+    def internetmonitor(self) -> Optional[str]:
+        return pulumi.get(self, "internetmonitor")
 
     @property
     @pulumi.getter

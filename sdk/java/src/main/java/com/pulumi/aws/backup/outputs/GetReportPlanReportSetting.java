@@ -12,6 +12,11 @@ import java.util.Objects;
 @CustomType
 public final class GetReportPlanReportSetting {
     /**
+     * @return (Optional) Specifies the list of accounts a report covers.
+     * 
+     */
+    private List<String> accounts;
+    /**
      * @return ARNs of the frameworks a report covers.
      * 
      */
@@ -22,12 +27,29 @@ public final class GetReportPlanReportSetting {
      */
     private Integer numberOfFrameworks;
     /**
+     * @return (Optional) Specifies the list of Organizational Units a report covers.
+     * 
+     */
+    private List<String> organizationUnits;
+    /**
+     * @return (Optional) Specifies the list of regions a report covers.
+     * 
+     */
+    private List<String> regions;
+    /**
      * @return Identifies the report template for the report. Reports are built using a report template.
      * 
      */
     private String reportTemplate;
 
     private GetReportPlanReportSetting() {}
+    /**
+     * @return (Optional) Specifies the list of accounts a report covers.
+     * 
+     */
+    public List<String> accounts() {
+        return this.accounts;
+    }
     /**
      * @return ARNs of the frameworks a report covers.
      * 
@@ -41,6 +63,20 @@ public final class GetReportPlanReportSetting {
      */
     public Integer numberOfFrameworks() {
         return this.numberOfFrameworks;
+    }
+    /**
+     * @return (Optional) Specifies the list of Organizational Units a report covers.
+     * 
+     */
+    public List<String> organizationUnits() {
+        return this.organizationUnits;
+    }
+    /**
+     * @return (Optional) Specifies the list of regions a report covers.
+     * 
+     */
+    public List<String> regions() {
+        return this.regions;
     }
     /**
      * @return Identifies the report template for the report. Reports are built using a report template.
@@ -59,17 +95,31 @@ public final class GetReportPlanReportSetting {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<String> accounts;
         private List<String> frameworkArns;
         private Integer numberOfFrameworks;
+        private List<String> organizationUnits;
+        private List<String> regions;
         private String reportTemplate;
         public Builder() {}
         public Builder(GetReportPlanReportSetting defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accounts = defaults.accounts;
     	      this.frameworkArns = defaults.frameworkArns;
     	      this.numberOfFrameworks = defaults.numberOfFrameworks;
+    	      this.organizationUnits = defaults.organizationUnits;
+    	      this.regions = defaults.regions;
     	      this.reportTemplate = defaults.reportTemplate;
         }
 
+        @CustomType.Setter
+        public Builder accounts(List<String> accounts) {
+            this.accounts = Objects.requireNonNull(accounts);
+            return this;
+        }
+        public Builder accounts(String... accounts) {
+            return accounts(List.of(accounts));
+        }
         @CustomType.Setter
         public Builder frameworkArns(List<String> frameworkArns) {
             this.frameworkArns = Objects.requireNonNull(frameworkArns);
@@ -84,14 +134,33 @@ public final class GetReportPlanReportSetting {
             return this;
         }
         @CustomType.Setter
+        public Builder organizationUnits(List<String> organizationUnits) {
+            this.organizationUnits = Objects.requireNonNull(organizationUnits);
+            return this;
+        }
+        public Builder organizationUnits(String... organizationUnits) {
+            return organizationUnits(List.of(organizationUnits));
+        }
+        @CustomType.Setter
+        public Builder regions(List<String> regions) {
+            this.regions = Objects.requireNonNull(regions);
+            return this;
+        }
+        public Builder regions(String... regions) {
+            return regions(List.of(regions));
+        }
+        @CustomType.Setter
         public Builder reportTemplate(String reportTemplate) {
             this.reportTemplate = Objects.requireNonNull(reportTemplate);
             return this;
         }
         public GetReportPlanReportSetting build() {
             final var o = new GetReportPlanReportSetting();
+            o.accounts = accounts;
             o.frameworkArns = frameworkArns;
             o.numberOfFrameworks = numberOfFrameworks;
+            o.organizationUnits = organizationUnits;
+            o.regions = regions;
             o.reportTemplate = reportTemplate;
             return o;
         }

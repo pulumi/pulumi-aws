@@ -79,9 +79,17 @@ class GetLaunchConfigurationResult:
         pulumi.set(__self__, "user_data", user_data)
         if vpc_classic_link_id and not isinstance(vpc_classic_link_id, str):
             raise TypeError("Expected argument 'vpc_classic_link_id' to be a str")
+        if vpc_classic_link_id is not None:
+            warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""vpc_classic_link_id is deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""")
+
         pulumi.set(__self__, "vpc_classic_link_id", vpc_classic_link_id)
         if vpc_classic_link_security_groups and not isinstance(vpc_classic_link_security_groups, list):
             raise TypeError("Expected argument 'vpc_classic_link_security_groups' to be a list")
+        if vpc_classic_link_security_groups is not None:
+            warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""vpc_classic_link_security_groups is deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""")
+
         pulumi.set(__self__, "vpc_classic_link_security_groups", vpc_classic_link_security_groups)
 
     @property

@@ -17,7 +17,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Manages a DocDB database cluster snapshot for DocDB clusters.
+ * Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
  * 
  * ## Example Usage
  * ```java
@@ -62,42 +62,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:docdb/clusterSnapshot:ClusterSnapshot")
 public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
     /**
-     * List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+     * List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
     /**
-     * @return List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+     * @return List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
      * 
      */
     public Output<List<String>> availabilityZones() {
         return this.availabilityZones;
     }
     /**
-     * The DocDB Cluster Identifier from which to take the snapshot.
+     * The DocumentDB Cluster Identifier from which to take the snapshot.
      * 
      */
     @Export(name="dbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbClusterIdentifier;
 
     /**
-     * @return The DocDB Cluster Identifier from which to take the snapshot.
+     * @return The DocumentDB Cluster Identifier from which to take the snapshot.
      * 
      */
     public Output<String> dbClusterIdentifier() {
         return this.dbClusterIdentifier;
     }
     /**
-     * The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+     * The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
      * 
      */
     @Export(name="dbClusterSnapshotArn", refs={String.class}, tree="[0]")
     private Output<String> dbClusterSnapshotArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+     * @return The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
      * 
      */
     public Output<String> dbClusterSnapshotArn() {
@@ -132,42 +132,42 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
         return this.engine;
     }
     /**
-     * Version of the database engine for this DocDB cluster snapshot.
+     * Version of the database engine for this DocumentDB cluster snapshot.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return Version of the database engine for this DocDB cluster snapshot.
+     * @return Version of the database engine for this DocumentDB cluster snapshot.
      * 
      */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
     /**
-     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+     * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
      * 
      */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
     /**
-     * Port that the DocDB cluster was listening on at the time of the snapshot.
+     * Port that the DocumentDB cluster was listening on at the time of the snapshot.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
-     * @return Port that the DocDB cluster was listening on at the time of the snapshot.
+     * @return Port that the DocumentDB cluster was listening on at the time of the snapshot.
      * 
      */
     public Output<Integer> port() {
@@ -186,42 +186,42 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
         return this.sourceDbClusterSnapshotArn;
     }
     /**
-     * The status of this DocDB Cluster Snapshot.
+     * The status of this DocumentDB Cluster Snapshot.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of this DocDB Cluster Snapshot.
+     * @return The status of this DocumentDB Cluster Snapshot.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * Specifies whether the DocDB cluster snapshot is encrypted.
+     * Specifies whether the DocumentDB cluster snapshot is encrypted.
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DocDB cluster snapshot is encrypted.
+     * @return Specifies whether the DocumentDB cluster snapshot is encrypted.
      * 
      */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
     }
     /**
-     * The VPC ID associated with the DocDB cluster snapshot.
+     * The VPC ID associated with the DocumentDB cluster snapshot.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The VPC ID associated with the DocDB cluster snapshot.
+     * @return The VPC ID associated with the DocumentDB cluster snapshot.
      * 
      */
     public Output<String> vpcId() {

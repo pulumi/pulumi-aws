@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Region of the AMI.
+        /// Region of the container image.
         /// </summary>
         public readonly string Region;
 

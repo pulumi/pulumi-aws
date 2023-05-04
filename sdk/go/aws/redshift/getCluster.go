@@ -106,6 +106,8 @@ type LookupClusterResult struct {
 	// The cluster revision number
 	ClusterRevisionNumber string `pulumi:"clusterRevisionNumber"`
 	// The security groups associated with the cluster
+	//
+	// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
 	ClusterSecurityGroups []string `pulumi:"clusterSecurityGroups"`
 	// The name of a cluster subnet group to be associated with this cluster
 	ClusterSubnetGroupName string `pulumi:"clusterSubnetGroupName"`
@@ -263,6 +265,8 @@ func (o LookupClusterResultOutput) ClusterRevisionNumber() pulumi.StringOutput {
 }
 
 // The security groups associated with the cluster
+//
+// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
 func (o LookupClusterResultOutput) ClusterSecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.ClusterSecurityGroups }).(pulumi.StringArrayOutput)
 }

@@ -78,7 +78,11 @@ public final class GetClusterResult {
     /**
      * @return The security groups associated with the cluster
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
     private List<String> clusterSecurityGroups;
     /**
      * @return The name of a cluster subnet group to be associated with this cluster
@@ -300,7 +304,11 @@ public final class GetClusterResult {
     /**
      * @return The security groups associated with the cluster
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
     public List<String> clusterSecurityGroups() {
         return this.clusterSecurityGroups;
     }

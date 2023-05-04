@@ -7,11 +7,43 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EndpointArgs Empty = new EndpointArgs();
+
+    /**
+     * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+     * 
+     */
+    @Import(name="accessType")
+    private @Nullable Output<String> accessType;
+
+    /**
+     * @return Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+     * 
+     */
+    public Optional<Output<String>> accessType() {
+        return Optional.ofNullable(this.accessType);
+    }
+
+    /**
+     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     * 
+     */
+    @Import(name="customerOwnedIpv4Pool")
+    private @Nullable Output<String> customerOwnedIpv4Pool;
+
+    /**
+     * @return The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     * 
+     */
+    public Optional<Output<String>> customerOwnedIpv4Pool() {
+        return Optional.ofNullable(this.customerOwnedIpv4Pool);
+    }
 
     /**
      * Identifier of the Outpost to contain this endpoint.
@@ -61,6 +93,8 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     private EndpointArgs() {}
 
     private EndpointArgs(EndpointArgs $) {
+        this.accessType = $.accessType;
+        this.customerOwnedIpv4Pool = $.customerOwnedIpv4Pool;
         this.outpostId = $.outpostId;
         this.securityGroupId = $.securityGroupId;
         this.subnetId = $.subnetId;
@@ -82,6 +116,48 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(EndpointArgs defaults) {
             $ = new EndpointArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessType Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessType(@Nullable Output<String> accessType) {
+            $.accessType = accessType;
+            return this;
+        }
+
+        /**
+         * @param accessType Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessType(String accessType) {
+            return accessType(Output.of(accessType));
+        }
+
+        /**
+         * @param customerOwnedIpv4Pool The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerOwnedIpv4Pool(@Nullable Output<String> customerOwnedIpv4Pool) {
+            $.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
+            return this;
+        }
+
+        /**
+         * @param customerOwnedIpv4Pool The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerOwnedIpv4Pool(String customerOwnedIpv4Pool) {
+            return customerOwnedIpv4Pool(Output.of(customerOwnedIpv4Pool));
         }
 
         /**

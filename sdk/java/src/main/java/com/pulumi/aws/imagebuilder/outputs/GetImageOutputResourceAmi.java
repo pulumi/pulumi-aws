@@ -30,7 +30,7 @@ public final class GetImageOutputResourceAmi {
      */
     private String name;
     /**
-     * @return Region of the AMI.
+     * @return Region of the container image.
      * 
      */
     private String region;
@@ -65,7 +65,7 @@ public final class GetImageOutputResourceAmi {
         return this.name;
     }
     /**
-     * @return Region of the AMI.
+     * @return Region of the container image.
      * 
      */
     public String region() {

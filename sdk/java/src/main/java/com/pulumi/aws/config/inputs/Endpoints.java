@@ -183,6 +183,7 @@ public final class Endpoints {
     private @Nullable String inspector;
     private @Nullable String inspector2;
     private @Nullable String inspectorv2;
+    private @Nullable String internetmonitor;
     private @Nullable String iot;
     private @Nullable String iot1clickdevices;
     private @Nullable String iot1clickdevicesservice;
@@ -911,6 +912,9 @@ public final class Endpoints {
     }
     public Optional<String> inspectorv2() {
         return Optional.ofNullable(this.inspectorv2);
+    }
+    public Optional<String> internetmonitor() {
+        return Optional.ofNullable(this.internetmonitor);
     }
     public Optional<String> iot() {
         return Optional.ofNullable(this.iot);
@@ -1727,6 +1731,7 @@ public final class Endpoints {
         private @Nullable String inspector;
         private @Nullable String inspector2;
         private @Nullable String inspectorv2;
+        private @Nullable String internetmonitor;
         private @Nullable String iot;
         private @Nullable String iot1clickdevices;
         private @Nullable String iot1clickdevicesservice;
@@ -2113,6 +2118,7 @@ public final class Endpoints {
     	      this.inspector = defaults.inspector;
     	      this.inspector2 = defaults.inspector2;
     	      this.inspectorv2 = defaults.inspectorv2;
+    	      this.internetmonitor = defaults.internetmonitor;
     	      this.iot = defaults.iot;
     	      this.iot1clickdevices = defaults.iot1clickdevices;
     	      this.iot1clickdevicesservice = defaults.iot1clickdevicesservice;
@@ -3184,6 +3190,11 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder inspectorv2(@Nullable String inspectorv2) {
             this.inspectorv2 = inspectorv2;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder internetmonitor(@Nullable String internetmonitor) {
+            this.internetmonitor = internetmonitor;
             return this;
         }
         @CustomType.Setter
@@ -4415,6 +4426,7 @@ public final class Endpoints {
             o.inspector = inspector;
             o.inspector2 = inspector2;
             o.inspectorv2 = inspectorv2;
+            o.internetmonitor = internetmonitor;
             o.iot = iot;
             o.iot1clickdevices = iot1clickdevices;
             o.iot1clickdevicesservice = iot1clickdevicesservice;

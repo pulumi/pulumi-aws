@@ -66,6 +66,12 @@ namespace Pulumi.Aws.GameLift
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Information to be added to all events that are related to this game session queue.
+        /// </summary>
+        [Output("customEventData")]
+        public Output<string?> CustomEventData { get; private set; } = null!;
+
+        /// <summary>
         /// List of fleet/alias ARNs used by session queue for placing game sessions.
         /// </summary>
         [Output("destinations")]
@@ -153,6 +159,12 @@ namespace Pulumi.Aws.GameLift
 
     public sealed class GameSessionQueueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information to be added to all events that are related to this game session queue.
+        /// </summary>
+        [Input("customEventData")]
+        public Input<string>? CustomEventData { get; set; }
+
         [Input("destinations")]
         private InputList<string>? _destinations;
 
@@ -232,6 +244,12 @@ namespace Pulumi.Aws.GameLift
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Information to be added to all events that are related to this game session queue.
+        /// </summary>
+        [Input("customEventData")]
+        public Input<string>? CustomEventData { get; set; }
 
         [Input("destinations")]
         private InputList<string>? _destinations;

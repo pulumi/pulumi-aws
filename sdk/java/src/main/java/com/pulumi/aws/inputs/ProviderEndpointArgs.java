@@ -1219,6 +1219,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.inspectorv2);
     }
 
+    @Import(name="internetmonitor")
+    private @Nullable Output<String> internetmonitor;
+
+    public Optional<Output<String>> internetmonitor() {
+        return Optional.ofNullable(this.internetmonitor);
+    }
+
     @Import(name="iot")
     private @Nullable Output<String> iot;
 
@@ -2871,6 +2878,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.inspector = $.inspector;
         this.inspector2 = $.inspector2;
         this.inspectorv2 = $.inspectorv2;
+        this.internetmonitor = $.internetmonitor;
         this.iot = $.iot;
         this.iot1clickdevices = $.iot1clickdevices;
         this.iot1clickdevicesservice = $.iot1clickdevicesservice;
@@ -4648,6 +4656,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder inspectorv2(String inspectorv2) {
             return inspectorv2(Output.of(inspectorv2));
+        }
+
+        public Builder internetmonitor(@Nullable Output<String> internetmonitor) {
+            $.internetmonitor = internetmonitor;
+            return this;
+        }
+
+        public Builder internetmonitor(String internetmonitor) {
+            return internetmonitor(Output.of(internetmonitor));
         }
 
         public Builder iot(@Nullable Output<String> iot) {

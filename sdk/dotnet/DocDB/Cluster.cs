@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DocDB
 {
     /// <summary>
-    /// Manages a DocDB Cluster.
+    /// Manages a DocumentDB Cluster.
     /// 
-    /// Changes to a DocDB Cluster can occur when you manually change a
+    /// Changes to a DocumentDB Cluster can occur when you manually change a
     /// parameter, such as `port`, and are reflected in the next maintenance
     /// window. Because of this, this provider may report a difference in its planning
     /// phase because a modification has not yet taken place. You can use the
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Import
     /// 
-    /// DocDB Clusters can be imported using the `cluster_identifier`, e.g.,
+    /// DocumentDB Clusters can be imported using the `cluster_identifier`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
@@ -96,13 +96,13 @@ namespace Pulumi.Aws.DocDB
         public Output<string> ClusterIdentifierPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// List of DocDB Instances that are a part of this cluster
+        /// List of DocumentDB Instances that are a part of this cluster
         /// </summary>
         [Output("clusterMembers")]
         public Output<ImmutableArray<string>> ClusterMembers { get; private set; } = null!;
 
         /// <summary>
-        /// The DocDB Cluster Resource ID
+        /// The DocumentDB Cluster Resource ID
         /// </summary>
         [Output("clusterResourceId")]
         public Output<string> ClusterResourceId { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.DocDB
         public Output<ImmutableArray<string>> EnabledCloudwatchLogsExports { get; private set; } = null!;
 
         /// <summary>
-        /// The DNS address of the DocDB instance
+        /// The DNS address of the DocumentDB instance
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
         /// </summary>
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+        /// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
         /// </summary>
         [Output("readerEndpoint")]
         public Output<string> ReaderEndpoint { get; private set; } = null!;
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.DocDB
         private InputList<string>? _clusterMembers;
 
         /// <summary>
-        /// List of DocDB Instances that are a part of this cluster
+        /// List of DocumentDB Instances that are a part of this cluster
         /// </summary>
         public InputList<string> ClusterMembers
         {
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -569,7 +569,7 @@ namespace Pulumi.Aws.DocDB
         private InputList<string>? _clusterMembers;
 
         /// <summary>
-        /// List of DocDB Instances that are a part of this cluster
+        /// List of DocumentDB Instances that are a part of this cluster
         /// </summary>
         public InputList<string> ClusterMembers
         {
@@ -578,7 +578,7 @@ namespace Pulumi.Aws.DocDB
         }
 
         /// <summary>
-        /// The DocDB Cluster Resource ID
+        /// The DocumentDB Cluster Resource ID
         /// </summary>
         [Input("clusterResourceId")]
         public Input<string>? ClusterResourceId { get; set; }
@@ -615,7 +615,7 @@ namespace Pulumi.Aws.DocDB
         }
 
         /// <summary>
-        /// The DNS address of the DocDB instance
+        /// The DNS address of the DocumentDB instance
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
@@ -663,7 +663,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -701,7 +701,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+        /// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
         /// </summary>
         [Input("readerEndpoint")]
         public Input<string>? ReaderEndpoint { get; set; }

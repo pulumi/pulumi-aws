@@ -20,6 +20,21 @@ public final class GameSessionQueueArgs extends com.pulumi.resources.ResourceArg
     public static final GameSessionQueueArgs Empty = new GameSessionQueueArgs();
 
     /**
+     * Information to be added to all events that are related to this game session queue.
+     * 
+     */
+    @Import(name="customEventData")
+    private @Nullable Output<String> customEventData;
+
+    /**
+     * @return Information to be added to all events that are related to this game session queue.
+     * 
+     */
+    public Optional<Output<String>> customEventData() {
+        return Optional.ofNullable(this.customEventData);
+    }
+
+    /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      * 
      */
@@ -127,6 +142,7 @@ public final class GameSessionQueueArgs extends com.pulumi.resources.ResourceArg
     private GameSessionQueueArgs() {}
 
     private GameSessionQueueArgs(GameSessionQueueArgs $) {
+        this.customEventData = $.customEventData;
         this.destinations = $.destinations;
         this.name = $.name;
         this.notificationTarget = $.notificationTarget;
@@ -152,6 +168,27 @@ public final class GameSessionQueueArgs extends com.pulumi.resources.ResourceArg
 
         public Builder(GameSessionQueueArgs defaults) {
             $ = new GameSessionQueueArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param customEventData Information to be added to all events that are related to this game session queue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customEventData(@Nullable Output<String> customEventData) {
+            $.customEventData = customEventData;
+            return this;
+        }
+
+        /**
+         * @param customEventData Information to be added to all events that are related to this game session queue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customEventData(String customEventData) {
+            return customEventData(Output.of(customEventData));
         }
 
         /**

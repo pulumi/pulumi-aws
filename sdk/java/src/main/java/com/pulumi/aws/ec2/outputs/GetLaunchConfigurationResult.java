@@ -108,12 +108,20 @@ public final class GetLaunchConfigurationResult {
     /**
      * @return ID of a ClassicLink-enabled VPC.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version. */
     private String vpcClassicLinkId;
     /**
      * @return The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version. */
     private List<String> vpcClassicLinkSecurityGroups;
 
     private GetLaunchConfigurationResult() {}
@@ -246,14 +254,22 @@ public final class GetLaunchConfigurationResult {
     /**
      * @return ID of a ClassicLink-enabled VPC.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version. */
     public String vpcClassicLinkId() {
         return this.vpcClassicLinkId;
     }
     /**
      * @return The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version. */
     public List<String> vpcClassicLinkSecurityGroups() {
         return this.vpcClassicLinkSecurityGroups;
     }

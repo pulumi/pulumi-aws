@@ -9,6 +9,7 @@ import com.pulumi.aws.appstream.inputs.StackState;
 import com.pulumi.aws.appstream.outputs.StackAccessEndpoint;
 import com.pulumi.aws.appstream.outputs.StackApplicationSettings;
 import com.pulumi.aws.appstream.outputs.StackStorageConnector;
+import com.pulumi.aws.appstream.outputs.StackStreamingExperienceSettings;
 import com.pulumi.aws.appstream.outputs.StackUserSetting;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -266,6 +267,22 @@ public class Stack extends com.pulumi.resources.CustomResource {
      */
     public Output<List<StackStorageConnector>> storageConnectors() {
         return this.storageConnectors;
+    }
+    /**
+     * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+     * See `streaming_experience_settings` below.
+     * 
+     */
+    @Export(name="streamingExperienceSettings", refs={StackStreamingExperienceSettings.class}, tree="[0]")
+    private Output<StackStreamingExperienceSettings> streamingExperienceSettings;
+
+    /**
+     * @return The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+     * See `streaming_experience_settings` below.
+     * 
+     */
+    public Output<StackStreamingExperienceSettings> streamingExperienceSettings() {
+        return this.streamingExperienceSettings;
     }
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

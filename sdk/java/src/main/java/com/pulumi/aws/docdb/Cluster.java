@@ -19,9 +19,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a DocDB Cluster.
+ * Manages a DocumentDB Cluster.
  * 
- * Changes to a DocDB Cluster can occur when you manually change a
+ * Changes to a DocumentDB Cluster can occur when you manually change a
  * parameter, such as `port`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DocDB Clusters can be imported using the `cluster_identifier`, e.g.,
+ * DocumentDB Clusters can be imported using the `cluster_identifier`, e.g.,
  * 
  * ```sh
  *  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
@@ -168,28 +168,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterIdentifierPrefix;
     }
     /**
-     * List of DocDB Instances that are a part of this cluster
+     * List of DocumentDB Instances that are a part of this cluster
      * 
      */
     @Export(name="clusterMembers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> clusterMembers;
 
     /**
-     * @return List of DocDB Instances that are a part of this cluster
+     * @return List of DocumentDB Instances that are a part of this cluster
      * 
      */
     public Output<List<String>> clusterMembers() {
         return this.clusterMembers;
     }
     /**
-     * The DocDB Cluster Resource ID
+     * The DocumentDB Cluster Resource ID
      * 
      */
     @Export(name="clusterResourceId", refs={String.class}, tree="[0]")
     private Output<String> clusterResourceId;
 
     /**
-     * @return The DocDB Cluster Resource ID
+     * @return The DocumentDB Cluster Resource ID
      * 
      */
     public Output<String> clusterResourceId() {
@@ -254,14 +254,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabledCloudwatchLogsExports);
     }
     /**
-     * The DNS address of the DocDB instance
+     * The DNS address of the DocumentDB instance
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return The DNS address of the DocDB instance
+     * @return The DNS address of the DocumentDB instance
      * 
      */
     public Output<String> endpoint() {
@@ -357,7 +357,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
      * 
      */
     @Export(name="masterPassword", refs={String.class}, tree="[0]")
@@ -365,7 +365,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
      * 
      */
     public Output<Optional<String>> masterPassword() {
@@ -430,14 +430,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.preferredMaintenanceWindow;
     }
     /**
-     * A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+     * A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
      * 
      */
     @Export(name="readerEndpoint", refs={String.class}, tree="[0]")
     private Output<String> readerEndpoint;
 
     /**
-     * @return A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+     * @return A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
      * 
      */
     public Output<String> readerEndpoint() {

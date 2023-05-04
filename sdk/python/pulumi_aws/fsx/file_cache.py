@@ -501,6 +501,7 @@ class FileCache(pulumi.CustomResource):
         """
         Resource for managing an Amazon File Cache cache.
         See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
+
         ## Example Usage
 
         ```python
@@ -568,6 +569,7 @@ class FileCache(pulumi.CustomResource):
         """
         Resource for managing an Amazon File Cache cache.
         See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
+
         ## Example Usage
 
         ```python

@@ -76,14 +76,14 @@ public final class ImageOutputResourceAmiArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Region of the AMI.
+     * Region of the container image.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Region of the AMI.
+     * @return Region of the container image.
      * 
      */
     public Optional<Output<String>> region() {
@@ -203,7 +203,7 @@ public final class ImageOutputResourceAmiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param region Region of the AMI.
+         * @param region Region of the container image.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ImageOutputResourceAmiArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param region Region of the AMI.
+         * @param region Region of the container image.
          * 
          * @return builder
          * 

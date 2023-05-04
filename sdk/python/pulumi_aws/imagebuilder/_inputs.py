@@ -28,6 +28,7 @@ __all__ = [
     'ImageImageTestsConfigurationArgs',
     'ImageOutputResourceArgs',
     'ImageOutputResourceAmiArgs',
+    'ImageOutputResourceContainerArgs',
     'ImagePipelineImageTestsConfigurationArgs',
     'ImagePipelineScheduleArgs',
     'ImageRecipeBlockDeviceMappingArgs',
@@ -1029,12 +1030,16 @@ class ImageImageTestsConfigurationArgs:
 @pulumi.input_type
 class ImageOutputResourceArgs:
     def __init__(__self__, *,
-                 amis: Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]]] = None):
+                 amis: Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]]] = None,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceContainerArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]] amis: Set of objects with each Amazon Machine Image (AMI) created.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceContainerArgs']]] containers: Set of objects with each container image created and stored in the output repository.
         """
         if amis is not None:
             pulumi.set(__self__, "amis", amis)
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
 
     @property
     @pulumi.getter
@@ -1047,6 +1052,18 @@ class ImageOutputResourceArgs:
     @amis.setter
     def amis(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]]]):
         pulumi.set(self, "amis", value)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceContainerArgs']]]]:
+        """
+        Set of objects with each container image created and stored in the output repository.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceContainerArgs']]]]):
+        pulumi.set(self, "containers", value)
 
 
 @pulumi.input_type
@@ -1062,7 +1079,7 @@ class ImageOutputResourceAmiArgs:
         :param pulumi.Input[str] description: Description of the AMI.
         :param pulumi.Input[str] image: Identifier of the AMI.
         :param pulumi.Input[str] name: Name of the AMI.
-        :param pulumi.Input[str] region: Region of the AMI.
+        :param pulumi.Input[str] region: Region of the container image.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -1127,7 +1144,46 @@ class ImageOutputResourceAmiArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
         """
-        Region of the AMI.
+        Region of the container image.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+
+@pulumi.input_type
+class ImageOutputResourceContainerArgs:
+    def __init__(__self__, *,
+                 image_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 region: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] image_uris: Set of URIs for created containers.
+        :param pulumi.Input[str] region: Region of the container image.
+        """
+        if image_uris is not None:
+            pulumi.set(__self__, "image_uris", image_uris)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="imageUris")
+    def image_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of URIs for created containers.
+        """
+        return pulumi.get(self, "image_uris")
+
+    @image_uris.setter
+    def image_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "image_uris", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Region of the container image.
         """
         return pulumi.get(self, "region")
 

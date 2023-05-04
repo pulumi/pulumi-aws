@@ -111,14 +111,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+     * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+     * @return The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -126,14 +126,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
      * 
      */
     @Import(name="identifier")
     private @Nullable Output<String> identifier;
 
     /**
-     * @return The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     * @return The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
      * 
      */
     public Optional<Output<String>> identifier() {
@@ -156,8 +156,9 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
-     * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
+     * DocumentDB currently supports the below instance classes.
+     * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      * - db.r5.large
      * - db.r5.xlarge
      * - db.r5.2xlarge
@@ -177,8 +178,9 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     private Output<String> instanceClass;
 
     /**
-     * @return The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
-     * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * @return The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
+     * DocumentDB currently supports the below instance classes.
+     * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      * - db.r5.large
      * - db.r5.xlarge
      * - db.r5.2xlarge
@@ -442,7 +444,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param engine The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+         * @param engine The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
          * 
          * @return builder
          * 
@@ -453,7 +455,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param engine The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+         * @param engine The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
          * 
          * @return builder
          * 
@@ -463,7 +465,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identifier The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+         * @param identifier The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
          * 
          * @return builder
          * 
@@ -474,7 +476,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identifier The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+         * @param identifier The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
          * 
          * @return builder
          * 
@@ -505,8 +507,9 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceClass The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
-         * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+         * @param instanceClass The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
+         * DocumentDB currently supports the below instance classes.
+         * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
          * - db.r5.large
          * - db.r5.xlarge
          * - db.r5.2xlarge
@@ -530,8 +533,9 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceClass The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
-         * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+         * @param instanceClass The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
+         * DocumentDB currently supports the below instance classes.
+         * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
          * - db.r5.large
          * - db.r5.xlarge
          * - db.r5.2xlarge

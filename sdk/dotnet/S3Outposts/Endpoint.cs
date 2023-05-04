@@ -44,6 +44,12 @@ namespace Pulumi.Aws.S3Outposts
     public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+        /// </summary>
+        [Output("accessType")]
+        public Output<string> AccessType { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the endpoint.
         /// </summary>
         [Output("arn")]
@@ -60,6 +66,12 @@ namespace Pulumi.Aws.S3Outposts
         /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        /// </summary>
+        [Output("customerOwnedIpv4Pool")]
+        public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
         /// <summary>
         /// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
@@ -132,6 +144,18 @@ namespace Pulumi.Aws.S3Outposts
     public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+        /// </summary>
+        [Input("accessType")]
+        public Input<string>? AccessType { get; set; }
+
+        /// <summary>
+        /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        public Input<string>? CustomerOwnedIpv4Pool { get; set; }
+
+        /// <summary>
         /// Identifier of the Outpost to contain this endpoint.
         /// </summary>
         [Input("outpostId", required: true)]
@@ -158,6 +182,12 @@ namespace Pulumi.Aws.S3Outposts
     public sealed class EndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+        /// </summary>
+        [Input("accessType")]
+        public Input<string>? AccessType { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the endpoint.
         /// </summary>
         [Input("arn")]
@@ -174,6 +204,12 @@ namespace Pulumi.Aws.S3Outposts
         /// </summary>
         [Input("creationTime")]
         public Input<string>? CreationTime { get; set; }
+
+        /// <summary>
+        /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        /// </summary>
+        [Input("customerOwnedIpv4Pool")]
+        public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         [Input("networkInterfaces")]
         private InputList<Inputs.EndpointNetworkInterfaceGetArgs>? _networkInterfaces;

@@ -19,14 +19,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     public static final ClusterSnapshotState Empty = new ClusterSnapshotState();
 
     /**
-     * List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+     * List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
      * 
      */
     @Import(name="availabilityZones")
     private @Nullable Output<List<String>> availabilityZones;
 
     /**
-     * @return List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+     * @return List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
      * 
      */
     public Optional<Output<List<String>>> availabilityZones() {
@@ -34,14 +34,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The DocDB Cluster Identifier from which to take the snapshot.
+     * The DocumentDB Cluster Identifier from which to take the snapshot.
      * 
      */
     @Import(name="dbClusterIdentifier")
     private @Nullable Output<String> dbClusterIdentifier;
 
     /**
-     * @return The DocDB Cluster Identifier from which to take the snapshot.
+     * @return The DocumentDB Cluster Identifier from which to take the snapshot.
      * 
      */
     public Optional<Output<String>> dbClusterIdentifier() {
@@ -49,14 +49,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+     * The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
      * 
      */
     @Import(name="dbClusterSnapshotArn")
     private @Nullable Output<String> dbClusterSnapshotArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+     * @return The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
      * 
      */
     public Optional<Output<String>> dbClusterSnapshotArn() {
@@ -94,14 +94,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Version of the database engine for this DocDB cluster snapshot.
+     * Version of the database engine for this DocumentDB cluster snapshot.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Version of the database engine for this DocDB cluster snapshot.
+     * @return Version of the database engine for this DocumentDB cluster snapshot.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -109,14 +109,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+     * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -124,14 +124,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Port that the DocDB cluster was listening on at the time of the snapshot.
+     * Port that the DocumentDB cluster was listening on at the time of the snapshot.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Port that the DocDB cluster was listening on at the time of the snapshot.
+     * @return Port that the DocumentDB cluster was listening on at the time of the snapshot.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -153,14 +153,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The status of this DocDB Cluster Snapshot.
+     * The status of this DocumentDB Cluster Snapshot.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of this DocDB Cluster Snapshot.
+     * @return The status of this DocumentDB Cluster Snapshot.
      * 
      */
     public Optional<Output<String>> status() {
@@ -168,14 +168,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies whether the DocDB cluster snapshot is encrypted.
+     * Specifies whether the DocumentDB cluster snapshot is encrypted.
      * 
      */
     @Import(name="storageEncrypted")
     private @Nullable Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DocDB cluster snapshot is encrypted.
+     * @return Specifies whether the DocumentDB cluster snapshot is encrypted.
      * 
      */
     public Optional<Output<Boolean>> storageEncrypted() {
@@ -183,14 +183,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The VPC ID associated with the DocDB cluster snapshot.
+     * The VPC ID associated with the DocumentDB cluster snapshot.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The VPC ID associated with the DocDB cluster snapshot.
+     * @return The VPC ID associated with the DocumentDB cluster snapshot.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -234,7 +234,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param availabilityZones List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+         * @param availabilityZones List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param availabilityZones List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+         * @param availabilityZones List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param availabilityZones List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+         * @param availabilityZones List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dbClusterIdentifier The DocDB Cluster Identifier from which to take the snapshot.
+         * @param dbClusterIdentifier The DocumentDB Cluster Identifier from which to take the snapshot.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dbClusterIdentifier The DocDB Cluster Identifier from which to take the snapshot.
+         * @param dbClusterIdentifier The DocumentDB Cluster Identifier from which to take the snapshot.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param engineVersion Version of the database engine for this DocDB cluster snapshot.
+         * @param engineVersion Version of the database engine for this DocumentDB cluster snapshot.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param engineVersion Version of the database engine for this DocDB cluster snapshot.
+         * @param engineVersion Version of the database engine for this DocumentDB cluster snapshot.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKeyId If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+         * @param kmsKeyId If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKeyId If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+         * @param kmsKeyId If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param port Port that the DocDB cluster was listening on at the time of the snapshot.
+         * @param port Port that the DocumentDB cluster was listening on at the time of the snapshot.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param port Port that the DocDB cluster was listening on at the time of the snapshot.
+         * @param port Port that the DocumentDB cluster was listening on at the time of the snapshot.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status The status of this DocDB Cluster Snapshot.
+         * @param status The status of this DocumentDB Cluster Snapshot.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status The status of this DocDB Cluster Snapshot.
+         * @param status The status of this DocumentDB Cluster Snapshot.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DocDB cluster snapshot is encrypted.
+         * @param storageEncrypted Specifies whether the DocumentDB cluster snapshot is encrypted.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DocDB cluster snapshot is encrypted.
+         * @param storageEncrypted Specifies whether the DocumentDB cluster snapshot is encrypted.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param vpcId The VPC ID associated with the DocDB cluster snapshot.
+         * @param vpcId The VPC ID associated with the DocumentDB cluster snapshot.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param vpcId The VPC ID associated with the DocDB cluster snapshot.
+         * @param vpcId The VPC ID associated with the DocumentDB cluster snapshot.
          * 
          * @return builder
          * 

@@ -30,6 +30,11 @@ export type OrganizationConformancePack = import("./organizationConformancePack"
 export const OrganizationConformancePack: typeof import("./organizationConformancePack").OrganizationConformancePack = null as any;
 utilities.lazyLoad(exports, ["OrganizationConformancePack"], () => require("./organizationConformancePack"));
 
+export { OrganizationCustomPolicyRuleArgs, OrganizationCustomPolicyRuleState } from "./organizationCustomPolicyRule";
+export type OrganizationCustomPolicyRule = import("./organizationCustomPolicyRule").OrganizationCustomPolicyRule;
+export const OrganizationCustomPolicyRule: typeof import("./organizationCustomPolicyRule").OrganizationCustomPolicyRule = null as any;
+utilities.lazyLoad(exports, ["OrganizationCustomPolicyRule"], () => require("./organizationCustomPolicyRule"));
+
 export { OrganizationCustomRuleArgs, OrganizationCustomRuleState } from "./organizationCustomRule";
 export type OrganizationCustomRule = import("./organizationCustomRule").OrganizationCustomRule;
 export const OrganizationCustomRule: typeof import("./organizationCustomRule").OrganizationCustomRule = null as any;
@@ -75,6 +80,8 @@ const _module = {
                 return new DeliveryChannel(name, <any>undefined, { urn })
             case "aws:cfg/organizationConformancePack:OrganizationConformancePack":
                 return new OrganizationConformancePack(name, <any>undefined, { urn })
+            case "aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule":
+                return new OrganizationCustomPolicyRule(name, <any>undefined, { urn })
             case "aws:cfg/organizationCustomRule:OrganizationCustomRule":
                 return new OrganizationCustomRule(name, <any>undefined, { urn })
             case "aws:cfg/organizationManagedRule:OrganizationManagedRule":
@@ -97,6 +104,7 @@ pulumi.runtime.registerResourceModule("aws", "cfg/configurationAggregator", _mod
 pulumi.runtime.registerResourceModule("aws", "cfg/conformancePack", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/deliveryChannel", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/organizationConformancePack", _module)
+pulumi.runtime.registerResourceModule("aws", "cfg/organizationCustomPolicyRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/organizationCustomRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/organizationManagedRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/recorder", _module)

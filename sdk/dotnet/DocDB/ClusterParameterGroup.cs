@@ -51,25 +51,25 @@ namespace Pulumi.Aws.DocDB
     public partial class ClusterParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the documentDB cluster parameter group.
+        /// The ARN of the DocumentDB cluster parameter group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
+        /// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The family of the documentDB cluster parameter group.
+        /// The family of the DocumentDB cluster parameter group.
         /// </summary>
         [Output("family")]
         public Output<string> Family { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the documentDB parameter.
+        /// The name of the DocumentDB parameter.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+        /// A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.ClusterParameterGroupParameter>> Parameters { get; private set; } = null!;
@@ -145,19 +145,19 @@ namespace Pulumi.Aws.DocDB
     public sealed class ClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
+        /// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The family of the documentDB cluster parameter group.
+        /// The family of the DocumentDB cluster parameter group.
         /// </summary>
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
 
         /// <summary>
-        /// The name of the documentDB parameter.
+        /// The name of the DocumentDB parameter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.DocDB
         private InputList<Inputs.ClusterParameterGroupParameterArgs>? _parameters;
 
         /// <summary>
-        /// A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+        /// A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
         /// </summary>
         public InputList<Inputs.ClusterParameterGroupParameterArgs> Parameters
         {
@@ -213,25 +213,25 @@ namespace Pulumi.Aws.DocDB
     public sealed class ClusterParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the documentDB cluster parameter group.
+        /// The ARN of the DocumentDB cluster parameter group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
+        /// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The family of the documentDB cluster parameter group.
+        /// The family of the DocumentDB cluster parameter group.
         /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// The name of the documentDB parameter.
+        /// The name of the DocumentDB parameter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.DocDB
         private InputList<Inputs.ClusterParameterGroupParameterGetArgs>? _parameters;
 
         /// <summary>
-        /// A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+        /// A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
         /// </summary>
         public InputList<Inputs.ClusterParameterGroupParameterGetArgs> Parameters
         {

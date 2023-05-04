@@ -20,6 +20,7 @@ __all__ = [
     'StackAccessEndpoint',
     'StackApplicationSettings',
     'StackStorageConnector',
+    'StackStreamingExperienceSettings',
     'StackUserSetting',
 ]
 
@@ -556,6 +557,44 @@ class StackStorageConnector(dict):
         ARN of the storage connector.
         """
         return pulumi.get(self, "resource_identifier")
+
+
+@pulumi.output_type
+class StackStreamingExperienceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredProtocol":
+            suggest = "preferred_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackStreamingExperienceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackStreamingExperienceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackStreamingExperienceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 preferred_protocol: Optional[str] = None):
+        """
+        :param str preferred_protocol: The preferred protocol that you want to use while streaming your application.
+               Valid values are `TCP` and `UDP`.
+        """
+        if preferred_protocol is not None:
+            pulumi.set(__self__, "preferred_protocol", preferred_protocol)
+
+    @property
+    @pulumi.getter(name="preferredProtocol")
+    def preferred_protocol(self) -> Optional[str]:
+        """
+        The preferred protocol that you want to use while streaming your application.
+        Valid values are `TCP` and `UDP`.
+        """
+        return pulumi.get(self, "preferred_protocol")
 
 
 @pulumi.output_type

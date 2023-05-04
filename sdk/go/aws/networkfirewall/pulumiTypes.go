@@ -2242,7 +2242,7 @@ func (o RuleGroupEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrOutput
 }
 
 type RuleGroupRuleGroup struct {
-	// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+	// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `referenceSets` in a `ruleGroup`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
 	ReferenceSets *RuleGroupRuleGroupReferenceSets `pulumi:"referenceSets"`
 	// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
 	RuleVariables *RuleGroupRuleGroupRuleVariables `pulumi:"ruleVariables"`
@@ -2264,7 +2264,7 @@ type RuleGroupRuleGroupInput interface {
 }
 
 type RuleGroupRuleGroupArgs struct {
-	// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+	// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `referenceSets` in a `ruleGroup`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
 	ReferenceSets RuleGroupRuleGroupReferenceSetsPtrInput `pulumi:"referenceSets"`
 	// A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
 	RuleVariables RuleGroupRuleGroupRuleVariablesPtrInput `pulumi:"ruleVariables"`
@@ -2351,7 +2351,7 @@ func (o RuleGroupRuleGroupOutput) ToRuleGroupRuleGroupPtrOutputWithContext(ctx c
 	}).(RuleGroupRuleGroupPtrOutput)
 }
 
-// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `referenceSets` in a `ruleGroup`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
 func (o RuleGroupRuleGroupOutput) ReferenceSets() RuleGroupRuleGroupReferenceSetsPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroup) *RuleGroupRuleGroupReferenceSets { return v.ReferenceSets }).(RuleGroupRuleGroupReferenceSetsPtrOutput)
 }
@@ -2395,7 +2395,7 @@ func (o RuleGroupRuleGroupPtrOutput) Elem() RuleGroupRuleGroupOutput {
 	}).(RuleGroupRuleGroupOutput)
 }
 
-// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+// A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `referenceSets` in a `ruleGroup`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
 func (o RuleGroupRuleGroupPtrOutput) ReferenceSets() RuleGroupRuleGroupReferenceSetsPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleGroup) *RuleGroupRuleGroupReferenceSets {
 		if v == nil {

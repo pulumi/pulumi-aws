@@ -2602,6 +2602,8 @@ func (o ImageImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOut
 type ImageOutputResource struct {
 	// Set of objects with each Amazon Machine Image (AMI) created.
 	Amis []ImageOutputResourceAmi `pulumi:"amis"`
+	// Set of objects with each container image created and stored in the output repository.
+	Containers []ImageOutputResourceContainer `pulumi:"containers"`
 }
 
 // ImageOutputResourceInput is an input type that accepts ImageOutputResourceArgs and ImageOutputResourceOutput values.
@@ -2618,6 +2620,8 @@ type ImageOutputResourceInput interface {
 type ImageOutputResourceArgs struct {
 	// Set of objects with each Amazon Machine Image (AMI) created.
 	Amis ImageOutputResourceAmiArrayInput `pulumi:"amis"`
+	// Set of objects with each container image created and stored in the output repository.
+	Containers ImageOutputResourceContainerArrayInput `pulumi:"containers"`
 }
 
 func (ImageOutputResourceArgs) ElementType() reflect.Type {
@@ -2676,6 +2680,11 @@ func (o ImageOutputResourceOutput) Amis() ImageOutputResourceAmiArrayOutput {
 	return o.ApplyT(func(v ImageOutputResource) []ImageOutputResourceAmi { return v.Amis }).(ImageOutputResourceAmiArrayOutput)
 }
 
+// Set of objects with each container image created and stored in the output repository.
+func (o ImageOutputResourceOutput) Containers() ImageOutputResourceContainerArrayOutput {
+	return o.ApplyT(func(v ImageOutputResource) []ImageOutputResourceContainer { return v.Containers }).(ImageOutputResourceContainerArrayOutput)
+}
+
 type ImageOutputResourceArrayOutput struct{ *pulumi.OutputState }
 
 func (ImageOutputResourceArrayOutput) ElementType() reflect.Type {
@@ -2705,7 +2714,7 @@ type ImageOutputResourceAmi struct {
 	Image *string `pulumi:"image"`
 	// Name of the AMI.
 	Name *string `pulumi:"name"`
-	// Region of the AMI.
+	// Region of the container image.
 	Region *string `pulumi:"region"`
 }
 
@@ -2729,7 +2738,7 @@ type ImageOutputResourceAmiArgs struct {
 	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Name of the AMI.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region of the AMI.
+	// Region of the container image.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -2804,7 +2813,7 @@ func (o ImageOutputResourceAmiOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Region of the AMI.
+// Region of the container image.
 func (o ImageOutputResourceAmiOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -2827,6 +2836,112 @@ func (o ImageOutputResourceAmiArrayOutput) Index(i pulumi.IntInput) ImageOutputR
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageOutputResourceAmi {
 		return vs[0].([]ImageOutputResourceAmi)[vs[1].(int)]
 	}).(ImageOutputResourceAmiOutput)
+}
+
+type ImageOutputResourceContainer struct {
+	// Set of URIs for created containers.
+	ImageUris []string `pulumi:"imageUris"`
+	// Region of the container image.
+	Region *string `pulumi:"region"`
+}
+
+// ImageOutputResourceContainerInput is an input type that accepts ImageOutputResourceContainerArgs and ImageOutputResourceContainerOutput values.
+// You can construct a concrete instance of `ImageOutputResourceContainerInput` via:
+//
+//	ImageOutputResourceContainerArgs{...}
+type ImageOutputResourceContainerInput interface {
+	pulumi.Input
+
+	ToImageOutputResourceContainerOutput() ImageOutputResourceContainerOutput
+	ToImageOutputResourceContainerOutputWithContext(context.Context) ImageOutputResourceContainerOutput
+}
+
+type ImageOutputResourceContainerArgs struct {
+	// Set of URIs for created containers.
+	ImageUris pulumi.StringArrayInput `pulumi:"imageUris"`
+	// Region of the container image.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (ImageOutputResourceContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageOutputResourceContainer)(nil)).Elem()
+}
+
+func (i ImageOutputResourceContainerArgs) ToImageOutputResourceContainerOutput() ImageOutputResourceContainerOutput {
+	return i.ToImageOutputResourceContainerOutputWithContext(context.Background())
+}
+
+func (i ImageOutputResourceContainerArgs) ToImageOutputResourceContainerOutputWithContext(ctx context.Context) ImageOutputResourceContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceContainerOutput)
+}
+
+// ImageOutputResourceContainerArrayInput is an input type that accepts ImageOutputResourceContainerArray and ImageOutputResourceContainerArrayOutput values.
+// You can construct a concrete instance of `ImageOutputResourceContainerArrayInput` via:
+//
+//	ImageOutputResourceContainerArray{ ImageOutputResourceContainerArgs{...} }
+type ImageOutputResourceContainerArrayInput interface {
+	pulumi.Input
+
+	ToImageOutputResourceContainerArrayOutput() ImageOutputResourceContainerArrayOutput
+	ToImageOutputResourceContainerArrayOutputWithContext(context.Context) ImageOutputResourceContainerArrayOutput
+}
+
+type ImageOutputResourceContainerArray []ImageOutputResourceContainerInput
+
+func (ImageOutputResourceContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageOutputResourceContainer)(nil)).Elem()
+}
+
+func (i ImageOutputResourceContainerArray) ToImageOutputResourceContainerArrayOutput() ImageOutputResourceContainerArrayOutput {
+	return i.ToImageOutputResourceContainerArrayOutputWithContext(context.Background())
+}
+
+func (i ImageOutputResourceContainerArray) ToImageOutputResourceContainerArrayOutputWithContext(ctx context.Context) ImageOutputResourceContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceContainerArrayOutput)
+}
+
+type ImageOutputResourceContainerOutput struct{ *pulumi.OutputState }
+
+func (ImageOutputResourceContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageOutputResourceContainer)(nil)).Elem()
+}
+
+func (o ImageOutputResourceContainerOutput) ToImageOutputResourceContainerOutput() ImageOutputResourceContainerOutput {
+	return o
+}
+
+func (o ImageOutputResourceContainerOutput) ToImageOutputResourceContainerOutputWithContext(ctx context.Context) ImageOutputResourceContainerOutput {
+	return o
+}
+
+// Set of URIs for created containers.
+func (o ImageOutputResourceContainerOutput) ImageUris() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageOutputResourceContainer) []string { return v.ImageUris }).(pulumi.StringArrayOutput)
+}
+
+// Region of the container image.
+func (o ImageOutputResourceContainerOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageOutputResourceContainer) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type ImageOutputResourceContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageOutputResourceContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageOutputResourceContainer)(nil)).Elem()
+}
+
+func (o ImageOutputResourceContainerArrayOutput) ToImageOutputResourceContainerArrayOutput() ImageOutputResourceContainerArrayOutput {
+	return o
+}
+
+func (o ImageOutputResourceContainerArrayOutput) ToImageOutputResourceContainerArrayOutputWithContext(ctx context.Context) ImageOutputResourceContainerArrayOutput {
+	return o
+}
+
+func (o ImageOutputResourceContainerArrayOutput) Index(i pulumi.IntInput) ImageOutputResourceContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageOutputResourceContainer {
+		return vs[0].([]ImageOutputResourceContainer)[vs[1].(int)]
+	}).(ImageOutputResourceContainerOutput)
 }
 
 type ImagePipelineImageTestsConfiguration struct {
@@ -6630,6 +6745,8 @@ func (o GetImageImageTestsConfigurationArrayOutput) Index(i pulumi.IntInput) Get
 type GetImageOutputResource struct {
 	// Set of objects with each Amazon Machine Image (AMI) created.
 	Amis []GetImageOutputResourceAmi `pulumi:"amis"`
+	// Set of objects with each container image created and stored in the output repository.
+	Containers []GetImageOutputResourceContainer `pulumi:"containers"`
 }
 
 // GetImageOutputResourceInput is an input type that accepts GetImageOutputResourceArgs and GetImageOutputResourceOutput values.
@@ -6646,6 +6763,8 @@ type GetImageOutputResourceInput interface {
 type GetImageOutputResourceArgs struct {
 	// Set of objects with each Amazon Machine Image (AMI) created.
 	Amis GetImageOutputResourceAmiArrayInput `pulumi:"amis"`
+	// Set of objects with each container image created and stored in the output repository.
+	Containers GetImageOutputResourceContainerArrayInput `pulumi:"containers"`
 }
 
 func (GetImageOutputResourceArgs) ElementType() reflect.Type {
@@ -6704,6 +6823,11 @@ func (o GetImageOutputResourceOutput) Amis() GetImageOutputResourceAmiArrayOutpu
 	return o.ApplyT(func(v GetImageOutputResource) []GetImageOutputResourceAmi { return v.Amis }).(GetImageOutputResourceAmiArrayOutput)
 }
 
+// Set of objects with each container image created and stored in the output repository.
+func (o GetImageOutputResourceOutput) Containers() GetImageOutputResourceContainerArrayOutput {
+	return o.ApplyT(func(v GetImageOutputResource) []GetImageOutputResourceContainer { return v.Containers }).(GetImageOutputResourceContainerArrayOutput)
+}
+
 type GetImageOutputResourceArrayOutput struct{ *pulumi.OutputState }
 
 func (GetImageOutputResourceArrayOutput) ElementType() reflect.Type {
@@ -6733,7 +6857,7 @@ type GetImageOutputResourceAmi struct {
 	Image string `pulumi:"image"`
 	// Name of the AMI.
 	Name string `pulumi:"name"`
-	// Region of the AMI.
+	// Region of the container image.
 	Region string `pulumi:"region"`
 }
 
@@ -6757,7 +6881,7 @@ type GetImageOutputResourceAmiArgs struct {
 	Image pulumi.StringInput `pulumi:"image"`
 	// Name of the AMI.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Region of the AMI.
+	// Region of the container image.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -6832,7 +6956,7 @@ func (o GetImageOutputResourceAmiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region of the AMI.
+// Region of the container image.
 func (o GetImageOutputResourceAmiOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -6855,6 +6979,112 @@ func (o GetImageOutputResourceAmiArrayOutput) Index(i pulumi.IntInput) GetImageO
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageOutputResourceAmi {
 		return vs[0].([]GetImageOutputResourceAmi)[vs[1].(int)]
 	}).(GetImageOutputResourceAmiOutput)
+}
+
+type GetImageOutputResourceContainer struct {
+	// Set of URIs for created containers.
+	ImageUris []string `pulumi:"imageUris"`
+	// Region of the container image.
+	Region string `pulumi:"region"`
+}
+
+// GetImageOutputResourceContainerInput is an input type that accepts GetImageOutputResourceContainerArgs and GetImageOutputResourceContainerOutput values.
+// You can construct a concrete instance of `GetImageOutputResourceContainerInput` via:
+//
+//	GetImageOutputResourceContainerArgs{...}
+type GetImageOutputResourceContainerInput interface {
+	pulumi.Input
+
+	ToGetImageOutputResourceContainerOutput() GetImageOutputResourceContainerOutput
+	ToGetImageOutputResourceContainerOutputWithContext(context.Context) GetImageOutputResourceContainerOutput
+}
+
+type GetImageOutputResourceContainerArgs struct {
+	// Set of URIs for created containers.
+	ImageUris pulumi.StringArrayInput `pulumi:"imageUris"`
+	// Region of the container image.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetImageOutputResourceContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageOutputResourceContainer)(nil)).Elem()
+}
+
+func (i GetImageOutputResourceContainerArgs) ToGetImageOutputResourceContainerOutput() GetImageOutputResourceContainerOutput {
+	return i.ToGetImageOutputResourceContainerOutputWithContext(context.Background())
+}
+
+func (i GetImageOutputResourceContainerArgs) ToGetImageOutputResourceContainerOutputWithContext(ctx context.Context) GetImageOutputResourceContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceContainerOutput)
+}
+
+// GetImageOutputResourceContainerArrayInput is an input type that accepts GetImageOutputResourceContainerArray and GetImageOutputResourceContainerArrayOutput values.
+// You can construct a concrete instance of `GetImageOutputResourceContainerArrayInput` via:
+//
+//	GetImageOutputResourceContainerArray{ GetImageOutputResourceContainerArgs{...} }
+type GetImageOutputResourceContainerArrayInput interface {
+	pulumi.Input
+
+	ToGetImageOutputResourceContainerArrayOutput() GetImageOutputResourceContainerArrayOutput
+	ToGetImageOutputResourceContainerArrayOutputWithContext(context.Context) GetImageOutputResourceContainerArrayOutput
+}
+
+type GetImageOutputResourceContainerArray []GetImageOutputResourceContainerInput
+
+func (GetImageOutputResourceContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageOutputResourceContainer)(nil)).Elem()
+}
+
+func (i GetImageOutputResourceContainerArray) ToGetImageOutputResourceContainerArrayOutput() GetImageOutputResourceContainerArrayOutput {
+	return i.ToGetImageOutputResourceContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageOutputResourceContainerArray) ToGetImageOutputResourceContainerArrayOutputWithContext(ctx context.Context) GetImageOutputResourceContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceContainerArrayOutput)
+}
+
+type GetImageOutputResourceContainerOutput struct{ *pulumi.OutputState }
+
+func (GetImageOutputResourceContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageOutputResourceContainer)(nil)).Elem()
+}
+
+func (o GetImageOutputResourceContainerOutput) ToGetImageOutputResourceContainerOutput() GetImageOutputResourceContainerOutput {
+	return o
+}
+
+func (o GetImageOutputResourceContainerOutput) ToGetImageOutputResourceContainerOutputWithContext(ctx context.Context) GetImageOutputResourceContainerOutput {
+	return o
+}
+
+// Set of URIs for created containers.
+func (o GetImageOutputResourceContainerOutput) ImageUris() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetImageOutputResourceContainer) []string { return v.ImageUris }).(pulumi.StringArrayOutput)
+}
+
+// Region of the container image.
+func (o GetImageOutputResourceContainerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageOutputResourceContainer) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetImageOutputResourceContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageOutputResourceContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageOutputResourceContainer)(nil)).Elem()
+}
+
+func (o GetImageOutputResourceContainerArrayOutput) ToGetImageOutputResourceContainerArrayOutput() GetImageOutputResourceContainerArrayOutput {
+	return o
+}
+
+func (o GetImageOutputResourceContainerArrayOutput) ToGetImageOutputResourceContainerArrayOutputWithContext(ctx context.Context) GetImageOutputResourceContainerArrayOutput {
+	return o
+}
+
+func (o GetImageOutputResourceContainerArrayOutput) Index(i pulumi.IntInput) GetImageOutputResourceContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageOutputResourceContainer {
+		return vs[0].([]GetImageOutputResourceContainer)[vs[1].(int)]
+	}).(GetImageOutputResourceContainerOutput)
 }
 
 type GetImagePipelineImageTestsConfiguration struct {
@@ -8231,6 +8461,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceArrayInput)(nil)).Elem(), ImageOutputResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceAmiInput)(nil)).Elem(), ImageOutputResourceAmiArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceAmiArrayInput)(nil)).Elem(), ImageOutputResourceAmiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceContainerInput)(nil)).Elem(), ImageOutputResourceContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceContainerArrayInput)(nil)).Elem(), ImageOutputResourceContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScheduleInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
@@ -8293,6 +8525,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceArrayInput)(nil)).Elem(), GetImageOutputResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceAmiInput)(nil)).Elem(), GetImageOutputResourceAmiArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceAmiArrayInput)(nil)).Elem(), GetImageOutputResourceAmiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceContainerInput)(nil)).Elem(), GetImageOutputResourceContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceContainerArrayInput)(nil)).Elem(), GetImageOutputResourceContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageTestsConfigurationInput)(nil)).Elem(), GetImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageTestsConfigurationArrayInput)(nil)).Elem(), GetImagePipelineImageTestsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineScheduleInput)(nil)).Elem(), GetImagePipelineScheduleArgs{})
@@ -8353,6 +8587,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageOutputResourceArrayOutput{})
 	pulumi.RegisterOutputType(ImageOutputResourceAmiOutput{})
 	pulumi.RegisterOutputType(ImageOutputResourceAmiArrayOutput{})
+	pulumi.RegisterOutputType(ImageOutputResourceContainerOutput{})
+	pulumi.RegisterOutputType(ImageOutputResourceContainerArrayOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineScheduleOutput{})
@@ -8415,6 +8651,8 @@ func init() {
 	pulumi.RegisterOutputType(GetImageOutputResourceArrayOutput{})
 	pulumi.RegisterOutputType(GetImageOutputResourceAmiOutput{})
 	pulumi.RegisterOutputType(GetImageOutputResourceAmiArrayOutput{})
+	pulumi.RegisterOutputType(GetImageOutputResourceContainerOutput{})
+	pulumi.RegisterOutputType(GetImageOutputResourceContainerArrayOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineImageTestsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineScheduleOutput{})

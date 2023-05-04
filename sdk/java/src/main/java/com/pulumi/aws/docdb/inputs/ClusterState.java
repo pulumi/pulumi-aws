@@ -116,14 +116,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of DocDB Instances that are a part of this cluster
+     * List of DocumentDB Instances that are a part of this cluster
      * 
      */
     @Import(name="clusterMembers")
     private @Nullable Output<List<String>> clusterMembers;
 
     /**
-     * @return List of DocDB Instances that are a part of this cluster
+     * @return List of DocumentDB Instances that are a part of this cluster
      * 
      */
     public Optional<Output<List<String>>> clusterMembers() {
@@ -131,14 +131,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The DocDB Cluster Resource ID
+     * The DocumentDB Cluster Resource ID
      * 
      */
     @Import(name="clusterResourceId")
     private @Nullable Output<String> clusterResourceId;
 
     /**
-     * @return The DocDB Cluster Resource ID
+     * @return The DocumentDB Cluster Resource ID
      * 
      */
     public Optional<Output<String>> clusterResourceId() {
@@ -208,14 +208,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The DNS address of the DocDB instance
+     * The DNS address of the DocumentDB instance
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return The DNS address of the DocDB instance
+     * @return The DNS address of the DocumentDB instance
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -318,7 +318,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
      * 
      */
     @Import(name="masterPassword")
@@ -326,7 +326,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
      * 
      */
     public Optional<Output<String>> masterPassword() {
@@ -396,14 +396,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+     * A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
      * 
      */
     @Import(name="readerEndpoint")
     private @Nullable Output<String> readerEndpoint;
 
     /**
-     * @return A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+     * @return A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
      * 
      */
     public Optional<Output<String>> readerEndpoint() {
@@ -700,7 +700,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterMembers List of DocDB Instances that are a part of this cluster
+         * @param clusterMembers List of DocumentDB Instances that are a part of this cluster
          * 
          * @return builder
          * 
@@ -711,7 +711,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterMembers List of DocDB Instances that are a part of this cluster
+         * @param clusterMembers List of DocumentDB Instances that are a part of this cluster
          * 
          * @return builder
          * 
@@ -721,7 +721,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterMembers List of DocDB Instances that are a part of this cluster
+         * @param clusterMembers List of DocumentDB Instances that are a part of this cluster
          * 
          * @return builder
          * 
@@ -731,7 +731,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterResourceId The DocDB Cluster Resource ID
+         * @param clusterResourceId The DocumentDB Cluster Resource ID
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterResourceId The DocDB Cluster Resource ID
+         * @param clusterResourceId The DocumentDB Cluster Resource ID
          * 
          * @return builder
          * 
@@ -849,7 +849,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The DNS address of the DocDB instance
+         * @param endpoint The DNS address of the DocumentDB instance
          * 
          * @return builder
          * 
@@ -860,7 +860,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The DNS address of the DocDB instance
+         * @param endpoint The DNS address of the DocumentDB instance
          * 
          * @return builder
          * 
@@ -1001,7 +1001,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPassword Password for the master DB user. Note that this may
-         * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+         * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
          * 
          * @return builder
          * 
@@ -1013,7 +1013,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPassword Password for the master DB user. Note that this may
-         * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+         * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
          * 
          * @return builder
          * 
@@ -1109,7 +1109,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readerEndpoint A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+         * @param readerEndpoint A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
          * 
          * @return builder
          * 
@@ -1120,7 +1120,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readerEndpoint A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+         * @param readerEndpoint A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
          * 
          * @return builder
          * 

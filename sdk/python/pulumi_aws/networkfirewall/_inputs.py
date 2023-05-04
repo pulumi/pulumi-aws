@@ -760,7 +760,7 @@ class RuleGroupRuleGroupArgs:
                  stateful_rule_options: Optional[pulumi.Input['RuleGroupRuleGroupStatefulRuleOptionsArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleGroupRulesSourceArgs'] rules_source: A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
-        :param pulumi.Input['RuleGroupRuleGroupReferenceSetsArgs'] reference_sets: A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+        :param pulumi.Input['RuleGroupRuleGroupReferenceSetsArgs'] reference_sets: A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
         :param pulumi.Input['RuleGroupRuleGroupRuleVariablesArgs'] rule_variables: A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
         :param pulumi.Input['RuleGroupRuleGroupStatefulRuleOptionsArgs'] stateful_rule_options: A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
         """
@@ -788,7 +788,7 @@ class RuleGroupRuleGroupArgs:
     @pulumi.getter(name="referenceSets")
     def reference_sets(self) -> Optional[pulumi.Input['RuleGroupRuleGroupReferenceSetsArgs']]:
         """
-        A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+        A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
         """
         return pulumi.get(self, "reference_sets")
 

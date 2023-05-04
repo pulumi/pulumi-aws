@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -20,6 +23,53 @@ import * as utilities from "../utilities";
  *     voiceConnectorId: defaultVoiceConnector.id,
  *     dataRetention: 7,
  *     streamingNotificationTargets: ["SQS"],
+ * });
+ * ```
+ * ### Example Usage With Media Insights
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["mediapipelines.chime.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const exampleStream = new aws.kinesis.Stream("exampleStream", {shardCount: 2});
+ * const exampleMediaInsightsPipelineConfiguration = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("exampleMediaInsightsPipelineConfiguration", {
+ *     resourceAccessRoleArn: exampleRole.arn,
+ *     elements: [
+ *         {
+ *             type: "AmazonTranscribeCallAnalyticsProcessor",
+ *             amazonTranscribeCallAnalyticsProcessorConfiguration: {
+ *                 languageCode: "en-US",
+ *             },
+ *         },
+ *         {
+ *             type: "KinesisDataStreamSink",
+ *             kinesisDataStreamSinkConfiguration: {
+ *                 insightsTarget: exampleStream.arn,
+ *             },
+ *         },
+ *     ],
+ * });
+ * const defaultVoiceConnectorStreaming = new aws.chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", {
+ *     disabled: false,
+ *     voiceConnectorId: defaultVoiceConnector.id,
+ *     dataRetention: 7,
+ *     streamingNotificationTargets: ["SQS"],
+ *     mediaInsightsConfiguration: {
+ *         disabled: false,
+ *         configurationArn: exampleMediaInsightsPipelineConfiguration.arn,
+ *     },
  * });
  * ```
  *
@@ -68,6 +118,10 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
      */
     public readonly disabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The media insights configuration. See `mediaInsightsConfiguration`.
+     */
+    public readonly mediaInsightsConfiguration!: pulumi.Output<outputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration | undefined>;
+    /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      */
     public readonly streamingNotificationTargets!: pulumi.Output<string[] | undefined>;
@@ -91,6 +145,7 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
             const state = argsOrState as VoiceConnectorStreamingState | undefined;
             resourceInputs["dataRetention"] = state ? state.dataRetention : undefined;
             resourceInputs["disabled"] = state ? state.disabled : undefined;
+            resourceInputs["mediaInsightsConfiguration"] = state ? state.mediaInsightsConfiguration : undefined;
             resourceInputs["streamingNotificationTargets"] = state ? state.streamingNotificationTargets : undefined;
             resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
@@ -103,6 +158,7 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
             }
             resourceInputs["dataRetention"] = args ? args.dataRetention : undefined;
             resourceInputs["disabled"] = args ? args.disabled : undefined;
+            resourceInputs["mediaInsightsConfiguration"] = args ? args.mediaInsightsConfiguration : undefined;
             resourceInputs["streamingNotificationTargets"] = args ? args.streamingNotificationTargets : undefined;
             resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
@@ -123,6 +179,10 @@ export interface VoiceConnectorStreamingState {
      * When true, media streaming to Amazon Kinesis is turned off. Default: `false`
      */
     disabled?: pulumi.Input<boolean>;
+    /**
+     * The media insights configuration. See `mediaInsightsConfiguration`.
+     */
+    mediaInsightsConfiguration?: pulumi.Input<inputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration>;
     /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      */
@@ -145,6 +205,10 @@ export interface VoiceConnectorStreamingArgs {
      * When true, media streaming to Amazon Kinesis is turned off. Default: `false`
      */
     disabled?: pulumi.Input<boolean>;
+    /**
+     * The media insights configuration. See `mediaInsightsConfiguration`.
+     */
+    mediaInsightsConfiguration?: pulumi.Input<inputs.chime.VoiceConnectorStreamingMediaInsightsConfiguration>;
     /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      */

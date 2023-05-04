@@ -126,7 +126,8 @@ class _SubnetGroupState:
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  supported_network_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SubnetGroup resources.
         :param pulumi.Input[str] arn: The ARN of the db subnet group.
@@ -137,6 +138,7 @@ class _SubnetGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_network_types: The network type of the db subnet group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc_id: Provides the VPC ID of the DB subnet group.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -156,6 +158,8 @@ class _SubnetGroupState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter
@@ -252,6 +256,18 @@ class _SubnetGroupState:
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provides the VPC ID of the DB subnet group.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
 
 
 class SubnetGroup(pulumi.CustomResource):
@@ -377,6 +393,7 @@ class SubnetGroup(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["supported_network_types"] = None
+            __props__.__dict__["vpc_id"] = None
         super(SubnetGroup, __self__).__init__(
             'aws:rds/subnetGroup:SubnetGroup',
             resource_name,
@@ -394,7 +411,8 @@ class SubnetGroup(pulumi.CustomResource):
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             supported_network_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'SubnetGroup':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            vpc_id: Optional[pulumi.Input[str]] = None) -> 'SubnetGroup':
         """
         Get an existing SubnetGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -410,6 +428,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_network_types: The network type of the db subnet group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc_id: Provides the VPC ID of the DB subnet group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -423,6 +442,7 @@ class SubnetGroup(pulumi.CustomResource):
         __props__.__dict__["supported_network_types"] = supported_network_types
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["vpc_id"] = vpc_id
         return SubnetGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -488,4 +508,12 @@ class SubnetGroup(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Output[str]:
+        """
+        Provides the VPC ID of the DB subnet group.
+        """
+        return pulumi.get(self, "vpc_id")
 

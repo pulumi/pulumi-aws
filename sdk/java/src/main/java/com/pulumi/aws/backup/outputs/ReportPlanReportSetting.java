@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReportPlanReportSetting {
     /**
+     * @return Specifies the list of accounts a report covers.
+     * 
+     */
+    private @Nullable List<String> accounts;
+    /**
      * @return Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
      * 
      */
@@ -24,12 +29,29 @@ public final class ReportPlanReportSetting {
      */
     private @Nullable Integer numberOfFrameworks;
     /**
+     * @return Specifies the list of Organizational Units a report covers.
+     * 
+     */
+    private @Nullable List<String> organizationUnits;
+    /**
+     * @return Specifies the list of regions a report covers.
+     * 
+     */
+    private @Nullable List<String> regions;
+    /**
      * @return Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
      * 
      */
     private String reportTemplate;
 
     private ReportPlanReportSetting() {}
+    /**
+     * @return Specifies the list of accounts a report covers.
+     * 
+     */
+    public List<String> accounts() {
+        return this.accounts == null ? List.of() : this.accounts;
+    }
     /**
      * @return Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
      * 
@@ -43,6 +65,20 @@ public final class ReportPlanReportSetting {
      */
     public Optional<Integer> numberOfFrameworks() {
         return Optional.ofNullable(this.numberOfFrameworks);
+    }
+    /**
+     * @return Specifies the list of Organizational Units a report covers.
+     * 
+     */
+    public List<String> organizationUnits() {
+        return this.organizationUnits == null ? List.of() : this.organizationUnits;
+    }
+    /**
+     * @return Specifies the list of regions a report covers.
+     * 
+     */
+    public List<String> regions() {
+        return this.regions == null ? List.of() : this.regions;
     }
     /**
      * @return Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
@@ -61,17 +97,31 @@ public final class ReportPlanReportSetting {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> accounts;
         private @Nullable List<String> frameworkArns;
         private @Nullable Integer numberOfFrameworks;
+        private @Nullable List<String> organizationUnits;
+        private @Nullable List<String> regions;
         private String reportTemplate;
         public Builder() {}
         public Builder(ReportPlanReportSetting defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accounts = defaults.accounts;
     	      this.frameworkArns = defaults.frameworkArns;
     	      this.numberOfFrameworks = defaults.numberOfFrameworks;
+    	      this.organizationUnits = defaults.organizationUnits;
+    	      this.regions = defaults.regions;
     	      this.reportTemplate = defaults.reportTemplate;
         }
 
+        @CustomType.Setter
+        public Builder accounts(@Nullable List<String> accounts) {
+            this.accounts = accounts;
+            return this;
+        }
+        public Builder accounts(String... accounts) {
+            return accounts(List.of(accounts));
+        }
         @CustomType.Setter
         public Builder frameworkArns(@Nullable List<String> frameworkArns) {
             this.frameworkArns = frameworkArns;
@@ -86,14 +136,33 @@ public final class ReportPlanReportSetting {
             return this;
         }
         @CustomType.Setter
+        public Builder organizationUnits(@Nullable List<String> organizationUnits) {
+            this.organizationUnits = organizationUnits;
+            return this;
+        }
+        public Builder organizationUnits(String... organizationUnits) {
+            return organizationUnits(List.of(organizationUnits));
+        }
+        @CustomType.Setter
+        public Builder regions(@Nullable List<String> regions) {
+            this.regions = regions;
+            return this;
+        }
+        public Builder regions(String... regions) {
+            return regions(List.of(regions));
+        }
+        @CustomType.Setter
         public Builder reportTemplate(String reportTemplate) {
             this.reportTemplate = Objects.requireNonNull(reportTemplate);
             return this;
         }
         public ReportPlanReportSetting build() {
             final var o = new ReportPlanReportSetting();
+            o.accounts = accounts;
             o.frameworkArns = frameworkArns;
             o.numberOfFrameworks = numberOfFrameworks;
+            o.organizationUnits = organizationUnits;
+            o.regions = regions;
             o.reportTemplate = reportTemplate;
             return o;
         }

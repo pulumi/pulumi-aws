@@ -18,11 +18,11 @@ namespace Pulumi.Aws.DocDB.Outputs
         /// </summary>
         public readonly string? ApplyMethod;
         /// <summary>
-        /// The name of the documentDB parameter.
+        /// The name of the DocumentDB parameter.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The value of the documentDB parameter.
+        /// The value of the DocumentDB parameter.
         /// </summary>
         public readonly string Value;
 

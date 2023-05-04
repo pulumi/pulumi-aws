@@ -627,6 +627,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             acl="private")
         ```
         ### Extended S3 Destination with dynamic partitioning
+
         These examples use built-in Firehose functionality, rather than requiring a lambda.
 
         ```python
@@ -1112,6 +1113,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             acl="private")
         ```
         ### Extended S3 Destination with dynamic partitioning
+
         These examples use built-in Firehose functionality, rather than requiring a lambda.
 
         ```python

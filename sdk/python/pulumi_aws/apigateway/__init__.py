@@ -14,6 +14,8 @@ from .deployment import *
 from .documentation_part import *
 from .documentation_version import *
 from .domain_name import *
+from .get_authorizer import *
+from .get_authorizers import *
 from .get_domain_name import *
 from .get_export import *
 from .get_key import *

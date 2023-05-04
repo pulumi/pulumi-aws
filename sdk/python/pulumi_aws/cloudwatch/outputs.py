@@ -45,6 +45,8 @@ __all__ = [
     'EventTargetRetryPolicy',
     'EventTargetRunCommandTarget',
     'EventTargetSqsTarget',
+    'InternetMonitorInternetMeasurementsLogDelivery',
+    'InternetMonitorInternetMeasurementsLogDeliveryS3Config',
     'LogMetricFilterMetricTransformation',
     'MetricAlarmMetricQuery',
     'MetricAlarmMetricQueryMetric',
@@ -1854,6 +1856,85 @@ class EventTargetSqsTarget(dict):
         The FIFO message group ID to use as the target.
         """
         return pulumi.get(self, "message_group_id")
+
+
+@pulumi.output_type
+class InternetMonitorInternetMeasurementsLogDelivery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Config":
+            suggest = "s3_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InternetMonitorInternetMeasurementsLogDelivery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InternetMonitorInternetMeasurementsLogDelivery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InternetMonitorInternetMeasurementsLogDelivery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_config: Optional['outputs.InternetMonitorInternetMeasurementsLogDeliveryS3Config'] = None):
+        if s3_config is not None:
+            pulumi.set(__self__, "s3_config", s3_config)
+
+    @property
+    @pulumi.getter(name="s3Config")
+    def s3_config(self) -> Optional['outputs.InternetMonitorInternetMeasurementsLogDeliveryS3Config']:
+        return pulumi.get(self, "s3_config")
+
+
+@pulumi.output_type
+class InternetMonitorInternetMeasurementsLogDeliveryS3Config(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "bucketPrefix":
+            suggest = "bucket_prefix"
+        elif key == "logDeliveryStatus":
+            suggest = "log_delivery_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InternetMonitorInternetMeasurementsLogDeliveryS3Config. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InternetMonitorInternetMeasurementsLogDeliveryS3Config.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InternetMonitorInternetMeasurementsLogDeliveryS3Config.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str,
+                 bucket_prefix: Optional[str] = None,
+                 log_delivery_status: Optional[str] = None):
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_prefix is not None:
+            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        if log_delivery_status is not None:
+            pulumi.set(__self__, "log_delivery_status", log_delivery_status)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="bucketPrefix")
+    def bucket_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "bucket_prefix")
+
+    @property
+    @pulumi.getter(name="logDeliveryStatus")
+    def log_delivery_status(self) -> Optional[str]:
+        return pulumi.get(self, "log_delivery_status")
 
 
 @pulumi.output_type

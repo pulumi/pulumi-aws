@@ -33,6 +33,7 @@ export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Pro
     return pulumi.runtime.invoke("aws:index/getAmiIds:getAmiIds", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
+        "includeDeprecated": args.includeDeprecated,
         "nameRegex": args.nameRegex,
         "owners": args.owners,
         "sortAscending": args.sortAscending,
@@ -55,6 +56,11 @@ export interface GetAmiIdsArgs {
      */
     filters?: inputs.GetAmiIdsFilter[];
     /**
+     * If true, all deprecated AMIs are included in the response.
+     * If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+     */
+    includeDeprecated?: boolean;
+    /**
      * Regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API.
      * This filtering is done locally on what AWS returns, and could have a performance
@@ -68,6 +74,7 @@ export interface GetAmiIdsArgs {
     owners: string[];
     /**
      * Used to sort AMIs by creation time.
+     * If no value is specified, the default value is `false`.
      */
     sortAscending?: boolean;
 }
@@ -83,6 +90,7 @@ export interface GetAmiIdsResult {
      */
     readonly id: string;
     readonly ids: string[];
+    readonly includeDeprecated?: boolean;
     readonly nameRegex?: string;
     readonly owners: string[];
     readonly sortAscending?: boolean;
@@ -126,6 +134,11 @@ export interface GetAmiIdsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.GetAmiIdsFilterArgs>[]>;
     /**
+     * If true, all deprecated AMIs are included in the response.
+     * If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+     */
+    includeDeprecated?: pulumi.Input<boolean>;
+    /**
      * Regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API.
      * This filtering is done locally on what AWS returns, and could have a performance
@@ -139,6 +152,7 @@ export interface GetAmiIdsOutputArgs {
     owners: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Used to sort AMIs by creation time.
+     * If no value is specified, the default value is `false`.
      */
     sortAscending?: pulumi.Input<boolean>;
 }

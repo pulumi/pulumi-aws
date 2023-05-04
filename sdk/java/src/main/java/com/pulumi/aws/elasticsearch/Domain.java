@@ -242,7 +242,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var esServiceLinkedRole = new ServiceLinkedRole(&#34;esServiceLinkedRole&#34;, ServiceLinkedRoleArgs.builder()        
- *             .awsServiceName(&#34;es.amazonaws.com&#34;)
+ *             .awsServiceName(&#34;opensearchservice.amazonaws.com&#34;)
  *             .build());
  * 
  *         var esDomain = new Domain(&#34;esDomain&#34;, DomainArgs.builder()        

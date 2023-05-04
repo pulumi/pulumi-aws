@@ -73,6 +73,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * ### Rate Based
+ *
  * Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
  *
  * ```typescript
@@ -314,6 +315,10 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
+     * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+     */
+    public readonly tokenDomains!: pulumi.Output<string[] | undefined>;
+    /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      */
     public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.WebAclVisibilityConfig>;
@@ -343,6 +348,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["scope"] = state ? state.scope : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tokenDomains"] = state ? state.tokenDomains : undefined;
             resourceInputs["visibilityConfig"] = state ? state.visibilityConfig : undefined;
         } else {
             const args = argsOrState as WebAclArgs | undefined;
@@ -364,6 +370,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["tokenDomains"] = args ? args.tokenDomains : undefined;
             resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;
@@ -424,6 +431,10 @@ export interface WebAclState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+     */
+    tokenDomains?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      */
     visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclVisibilityConfig>;
@@ -469,6 +480,10 @@ export interface WebAclArgs {
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+     */
+    tokenDomains?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
      */

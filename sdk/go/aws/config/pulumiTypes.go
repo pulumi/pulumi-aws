@@ -423,6 +423,7 @@ type Endpoints struct {
 	Inspector                            *string `pulumi:"inspector"`
 	Inspector2                           *string `pulumi:"inspector2"`
 	Inspectorv2                          *string `pulumi:"inspectorv2"`
+	Internetmonitor                      *string `pulumi:"internetmonitor"`
 	Iot                                  *string `pulumi:"iot"`
 	Iot1clickdevices                     *string `pulumi:"iot1clickdevices"`
 	Iot1clickdevicesservice              *string `pulumi:"iot1clickdevicesservice"`
@@ -820,6 +821,7 @@ type EndpointsArgs struct {
 	Inspector                            pulumi.StringPtrInput `pulumi:"inspector"`
 	Inspector2                           pulumi.StringPtrInput `pulumi:"inspector2"`
 	Inspectorv2                          pulumi.StringPtrInput `pulumi:"inspectorv2"`
+	Internetmonitor                      pulumi.StringPtrInput `pulumi:"internetmonitor"`
 	Iot                                  pulumi.StringPtrInput `pulumi:"iot"`
 	Iot1clickdevices                     pulumi.StringPtrInput `pulumi:"iot1clickdevices"`
 	Iot1clickdevicesservice              pulumi.StringPtrInput `pulumi:"iot1clickdevicesservice"`
@@ -1770,6 +1772,10 @@ func (o EndpointsOutput) Inspector2() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Inspectorv2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Inspectorv2 }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Internetmonitor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Internetmonitor }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Iot() pulumi.StringPtrOutput {

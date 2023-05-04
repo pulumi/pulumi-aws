@@ -5,12 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an DocDB Cluster Resource Instance. A Cluster Instance Resource defines
- * attributes that are specific to a single instance in a DocDB Cluster.
+ * Provides an DocumentDB Cluster Resource Instance. A Cluster Instance Resource defines
+ * attributes that are specific to a single instance in a [DocumentDB Cluster][1].
  *
- * You do not designate a primary and subsequent replicas. Instead, you simply add DocDB
- * Instances and DocDB manages the replication. You can use the count
- * meta-parameter to make multiple instances and join them all to the same DocDB
+ * You do not designate a primary and subsequent replicas. Instead, you simply add DocumentDB
+ * Instances and DocumentDB manages the replication. You can use the [count][3]
+ * meta-parameter to make multiple instances and join them all to the same DocumentDB
  * Cluster, or you may specify different Cluster Instance resources with various
  * `instanceClass` sizes.
  *
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DocDB Cluster Instances can be imported using the `identifier`, e.g.,
+ * DocumentDB Cluster Instances can be imported using the `identifier`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
@@ -118,7 +118,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+     * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
@@ -126,7 +126,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly engineVersion!: pulumi.Output<string>;
     /**
-     * The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
      */
     public readonly identifier!: pulumi.Output<string>;
     /**
@@ -134,8 +134,9 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly identifierPrefix!: pulumi.Output<string>;
     /**
-     * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
-     * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
+     * DocumentDB currently supports the below instance classes.
+     * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      * - db.r5.large
      * - db.r5.xlarge
      * - db.r5.2xlarge
@@ -319,7 +320,7 @@ export interface ClusterInstanceState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+     * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -327,7 +328,7 @@ export interface ClusterInstanceState {
      */
     engineVersion?: pulumi.Input<string>;
     /**
-     * The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
      */
     identifier?: pulumi.Input<string>;
     /**
@@ -335,8 +336,9 @@ export interface ClusterInstanceState {
      */
     identifierPrefix?: pulumi.Input<string>;
     /**
-     * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
-     * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
+     * DocumentDB currently supports the below instance classes.
+     * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      * - db.r5.large
      * - db.r5.xlarge
      * - db.r5.2xlarge
@@ -426,11 +428,11 @@ export interface ClusterInstanceArgs {
      */
     enablePerformanceInsights?: pulumi.Input<boolean>;
     /**
-     * The name of the database engine to be used for the DocDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+     * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      */
     engine?: pulumi.Input<string>;
     /**
-     * The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier.
+     * The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
      */
     identifier?: pulumi.Input<string>;
     /**
@@ -438,8 +440,9 @@ export interface ClusterInstanceArgs {
      */
     identifierPrefix?: pulumi.Input<string>;
     /**
-     * The instance class to use. For details on CPU and memory, see [Scaling for DocDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). DocDB currently
-     * supports the below instance classes. Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
+     * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
+     * DocumentDB currently supports the below instance classes.
+     * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      * - db.r5.large
      * - db.r5.xlarge
      * - db.r5.2xlarge

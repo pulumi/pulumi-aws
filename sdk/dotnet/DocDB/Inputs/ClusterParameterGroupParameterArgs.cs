@@ -19,13 +19,13 @@ namespace Pulumi.Aws.DocDB.Inputs
         public Input<string>? ApplyMethod { get; set; }
 
         /// <summary>
-        /// The name of the documentDB parameter.
+        /// The name of the DocumentDB parameter.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The value of the documentDB parameter.
+        /// The value of the DocumentDB parameter.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

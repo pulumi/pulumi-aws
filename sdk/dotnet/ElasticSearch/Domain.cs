@@ -202,7 +202,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     ///     var esServiceLinkedRole = new Aws.Iam.ServiceLinkedRole("esServiceLinkedRole", new()
     ///     {
-    ///         AwsServiceName = "es.amazonaws.com",
+    ///         AwsServiceName = "opensearchservice.amazonaws.com",
     ///     });
     /// 
     ///     var esDomain = new Aws.ElasticSearch.Domain("esDomain", new()

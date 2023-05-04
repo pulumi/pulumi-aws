@@ -88,6 +88,10 @@ class GetClusterResult:
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         if security_group_names and not isinstance(security_group_names, list):
             raise TypeError("Expected argument 'security_group_names' to be a list")
+        if security_group_names is not None:
+            warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
+
         pulumi.set(__self__, "security_group_names", security_group_names)
         if snapshot_retention_limit and not isinstance(snapshot_retention_limit, int):
             raise TypeError("Expected argument 'snapshot_retention_limit' to be a int")

@@ -544,6 +544,7 @@ namespace Pulumi.Aws
                 public string? Inspector { get; set; } = null!;
                 public string? Inspector2 { get; set; } = null!;
                 public string? Inspectorv2 { get; set; } = null!;
+                public string? Internetmonitor { get; set; } = null!;
                 public string? Iot { get; set; } = null!;
                 public string? Iot1clickdevices { get; set; } = null!;
                 public string? Iot1clickdevicesservice { get; set; } = null!;

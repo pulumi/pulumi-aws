@@ -44,6 +44,8 @@ __all__ = [
     'EventTargetRetryPolicyArgs',
     'EventTargetRunCommandTargetArgs',
     'EventTargetSqsTargetArgs',
+    'InternetMonitorInternetMeasurementsLogDeliveryArgs',
+    'InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs',
     'LogMetricFilterMetricTransformationArgs',
     'MetricAlarmMetricQueryArgs',
     'MetricAlarmMetricQueryMetricArgs',
@@ -1765,6 +1767,63 @@ class EventTargetSqsTargetArgs:
     @message_group_id.setter
     def message_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message_group_id", value)
+
+
+@pulumi.input_type
+class InternetMonitorInternetMeasurementsLogDeliveryArgs:
+    def __init__(__self__, *,
+                 s3_config: Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs']] = None):
+        if s3_config is not None:
+            pulumi.set(__self__, "s3_config", s3_config)
+
+    @property
+    @pulumi.getter(name="s3Config")
+    def s3_config(self) -> Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs']]:
+        return pulumi.get(self, "s3_config")
+
+    @s3_config.setter
+    def s3_config(self, value: Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs']]):
+        pulumi.set(self, "s3_config", value)
+
+
+@pulumi.input_type
+class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[str],
+                 bucket_prefix: Optional[pulumi.Input[str]] = None,
+                 log_delivery_status: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_prefix is not None:
+            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        if log_delivery_status is not None:
+            pulumi.set(__self__, "log_delivery_status", log_delivery_status)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="bucketPrefix")
+    def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_prefix")
+
+    @bucket_prefix.setter
+    def bucket_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_prefix", value)
+
+    @property
+    @pulumi.getter(name="logDeliveryStatus")
+    def log_delivery_status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "log_delivery_status")
+
+    @log_delivery_status.setter
+    def log_delivery_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_delivery_status", value)
 
 
 @pulumi.input_type

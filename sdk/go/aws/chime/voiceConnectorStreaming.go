@@ -50,6 +50,102 @@ import (
 //	}
 //
 // ```
+// ### Example Usage With Media Insights
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
+//				RequireEncryption: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"mediapipelines.chime.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
+//				ShardCount: pulumi.Int(2),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMediaInsightsPipelineConfiguration, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "exampleMediaInsightsPipelineConfiguration", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
+//				ResourceAccessRoleArn: exampleRole.Arn,
+//				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
+//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
+//						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
+//						AmazonTranscribeCallAnalyticsProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{
+//							LanguageCode: pulumi.String("en-US"),
+//						},
+//					},
+//					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
+//						Type: pulumi.String("KinesisDataStreamSink"),
+//						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
+//							InsightsTarget: exampleStream.Arn,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = chime.NewVoiceConnectorStreaming(ctx, "defaultVoiceConnectorStreaming", &chime.VoiceConnectorStreamingArgs{
+//				Disabled:         pulumi.Bool(false),
+//				VoiceConnectorId: defaultVoiceConnector.ID(),
+//				DataRetention:    pulumi.Int(7),
+//				StreamingNotificationTargets: pulumi.StringArray{
+//					pulumi.String("SQS"),
+//				},
+//				MediaInsightsConfiguration: &chime.VoiceConnectorStreamingMediaInsightsConfigurationArgs{
+//					Disabled:         pulumi.Bool(false),
+//					ConfigurationArn: exampleMediaInsightsPipelineConfiguration.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -67,6 +163,8 @@ type VoiceConnectorStreaming struct {
 	DataRetention pulumi.IntOutput `pulumi:"dataRetention"`
 	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
+	// The media insights configuration. See `mediaInsightsConfiguration`.
+	MediaInsightsConfiguration VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput `pulumi:"mediaInsightsConfiguration"`
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets pulumi.StringArrayOutput `pulumi:"streamingNotificationTargets"`
 	// The Amazon Chime Voice Connector ID.
@@ -112,6 +210,8 @@ type voiceConnectorStreamingState struct {
 	DataRetention *int `pulumi:"dataRetention"`
 	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
 	Disabled *bool `pulumi:"disabled"`
+	// The media insights configuration. See `mediaInsightsConfiguration`.
+	MediaInsightsConfiguration *VoiceConnectorStreamingMediaInsightsConfiguration `pulumi:"mediaInsightsConfiguration"`
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets []string `pulumi:"streamingNotificationTargets"`
 	// The Amazon Chime Voice Connector ID.
@@ -123,6 +223,8 @@ type VoiceConnectorStreamingState struct {
 	DataRetention pulumi.IntPtrInput
 	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
 	Disabled pulumi.BoolPtrInput
+	// The media insights configuration. See `mediaInsightsConfiguration`.
+	MediaInsightsConfiguration VoiceConnectorStreamingMediaInsightsConfigurationPtrInput
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets pulumi.StringArrayInput
 	// The Amazon Chime Voice Connector ID.
@@ -138,6 +240,8 @@ type voiceConnectorStreamingArgs struct {
 	DataRetention int `pulumi:"dataRetention"`
 	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
 	Disabled *bool `pulumi:"disabled"`
+	// The media insights configuration. See `mediaInsightsConfiguration`.
+	MediaInsightsConfiguration *VoiceConnectorStreamingMediaInsightsConfiguration `pulumi:"mediaInsightsConfiguration"`
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets []string `pulumi:"streamingNotificationTargets"`
 	// The Amazon Chime Voice Connector ID.
@@ -150,6 +254,8 @@ type VoiceConnectorStreamingArgs struct {
 	DataRetention pulumi.IntInput
 	// When true, media streaming to Amazon Kinesis is turned off. Default: `false`
 	Disabled pulumi.BoolPtrInput
+	// The media insights configuration. See `mediaInsightsConfiguration`.
+	MediaInsightsConfiguration VoiceConnectorStreamingMediaInsightsConfigurationPtrInput
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets pulumi.StringArrayInput
 	// The Amazon Chime Voice Connector ID.
@@ -251,6 +357,13 @@ func (o VoiceConnectorStreamingOutput) DataRetention() pulumi.IntOutput {
 // When true, media streaming to Amazon Kinesis is turned off. Default: `false`
 func (o VoiceConnectorStreamingOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VoiceConnectorStreaming) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// The media insights configuration. See `mediaInsightsConfiguration`.
+func (o VoiceConnectorStreamingOutput) MediaInsightsConfiguration() VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
+	return o.ApplyT(func(v *VoiceConnectorStreaming) VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
+		return v.MediaInsightsConfiguration
+	}).(VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput)
 }
 
 // The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`

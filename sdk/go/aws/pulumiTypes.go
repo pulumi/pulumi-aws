@@ -811,6 +811,7 @@ type ProviderEndpoint struct {
 	Inspector                            *string `pulumi:"inspector"`
 	Inspector2                           *string `pulumi:"inspector2"`
 	Inspectorv2                          *string `pulumi:"inspectorv2"`
+	Internetmonitor                      *string `pulumi:"internetmonitor"`
 	Iot                                  *string `pulumi:"iot"`
 	Iot1clickdevices                     *string `pulumi:"iot1clickdevices"`
 	Iot1clickdevicesservice              *string `pulumi:"iot1clickdevicesservice"`
@@ -1208,6 +1209,7 @@ type ProviderEndpointArgs struct {
 	Inspector                            pulumi.StringPtrInput `pulumi:"inspector"`
 	Inspector2                           pulumi.StringPtrInput `pulumi:"inspector2"`
 	Inspectorv2                          pulumi.StringPtrInput `pulumi:"inspectorv2"`
+	Internetmonitor                      pulumi.StringPtrInput `pulumi:"internetmonitor"`
 	Iot                                  pulumi.StringPtrInput `pulumi:"iot"`
 	Iot1clickdevices                     pulumi.StringPtrInput `pulumi:"iot1clickdevices"`
 	Iot1clickdevicesservice              pulumi.StringPtrInput `pulumi:"iot1clickdevicesservice"`
@@ -2158,6 +2160,10 @@ func (o ProviderEndpointOutput) Inspector2() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Inspectorv2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Inspectorv2 }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Internetmonitor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Internetmonitor }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Iot() pulumi.StringPtrOutput {

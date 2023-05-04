@@ -69,7 +69,7 @@ export interface GetTableItemResult {
      */
     readonly id: string;
     /**
-     * A map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
+     * JSON representation of a map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
      */
     readonly item: string;
     readonly key: string;

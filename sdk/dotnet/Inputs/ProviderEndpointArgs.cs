@@ -528,6 +528,9 @@ namespace Pulumi.Aws.Inputs
         [Input("inspectorv2")]
         public Input<string>? Inspectorv2 { get; set; }
 
+        [Input("internetmonitor")]
+        public Input<string>? Internetmonitor { get; set; }
+
         [Input("iot")]
         public Input<string>? Iot { get; set; }
 

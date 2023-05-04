@@ -92,6 +92,10 @@ export class SubnetGroup extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Provides the VPC ID of the DB subnet group.
+     */
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
      * Create a SubnetGroup resource with the given unique name, arguments, and options.
@@ -114,6 +118,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["supportedNetworkTypes"] = state ? state.supportedNetworkTypes : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as SubnetGroupArgs | undefined;
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
@@ -127,6 +132,7 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["supportedNetworkTypes"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubnetGroup.__pulumiType, name, resourceInputs, opts);
@@ -169,6 +175,10 @@ export interface SubnetGroupState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Provides the VPC ID of the DB subnet group.
+     */
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
