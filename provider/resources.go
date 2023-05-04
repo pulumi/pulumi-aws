@@ -29,11 +29,13 @@ import (
 	"github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the AWS token components used below.
@@ -50,7 +52,6 @@ const (
 	amplifyMod                  = "Amplify"                  // Amplify
 	appFlowMod                  = "AppFlow"                  // AppFlow
 	appConfigMod                = "AppConfig"                // AppConfig
-	appIntegrationsMod          = "AppIntegrations"          // AppIntegrations
 	applicationInsightsMod      = "ApplicationInsights"      // Cloudwatch Application Insights
 	appStreamMod                = "AppStream"                // AppStream
 	appsyncMod                  = "AppSync"                  // AppSync
@@ -230,6 +231,198 @@ const (
 	legacyAlbMod   = "ApplicationLoadBalancing"
 	legacyElbv2Mod = "ElasticLoadBalancingV2"
 )
+
+var moduleMap = map[string]string{
+	// Ignored: ec2Mod. The ec2Mod includes tokens from:
+	// - "aws_eip"
+	// - "aws_flow_log"
+	// - "aws_ami_copy"
+	//
+	// It's not clear what the auto-token should be.
+
+	// We don't map legacy modules
+
+	"acm":                             acmMod,
+	"acmpca":                          acmpcaMod,
+	"account":                         accountMod,
+	"accessanalyzer":                  accessAnalyzerMod,
+	"prometheus":                      ampMod,
+	"amplify":                         amplifyMod,
+	"appflow":                         appFlowMod,
+	"appconfig":                       appConfigMod,
+	"applicationinsights":             applicationInsightsMod,
+	"appstream":                       appStreamMod,
+	"appsync":                         appsyncMod,
+	"appmesh":                         appmeshMod,
+	"api_gateway":                     apigatewayMod,
+	"apigatewayv2":                    apigatewayv2Mod,
+	"appautoscaling":                  appautoscalingMod,
+	"apprunner":                       appRunnerMod,
+	"athena":                          athenaMod,
+	"autoscaling":                     autoscalingMod,
+	"autoscalingplans":                autoscalingPlansMod,
+	"backup":                          backupMod,
+	"batch":                           batchMod,
+	"budgets":                         budgetsMod,
+	"chime":                           chimeMod,
+	"chimesdkmediapipelines":          chimeSDKMediaPipelinesMod,
+	"cloud9":                          cloud9Mod,
+	"cloudcontrolapi":                 cloudControlMod,
+	"cloudformation":                  cloudformationMod,
+	"cloudhsm_v2":                     cloudhsmv2Mod,
+	"cloudfront":                      cloudfrontMod,
+	"cloudsearch":                     cloudsearchMod,
+	"cloudtrail":                      cloudtrailMod,
+	"cloudwatch":                      cloudwatchMod,
+	"codeartifact":                    codeartifactMod,
+	"codebuild":                       codebuildMod,
+	"codecommit":                      codecommitMod,
+	"codedeploy":                      codedeployMod,
+	"codegurureviewer":                codeguruReviewerMod,
+	"codepipeline":                    codepipelineMod,
+	"codestarconnections":             codestarConnectionsMod,
+	"codestarnotifications":           codestarNotificationsMod,
+	"cognito":                         cognitoMod,
+	"comprehend":                      comprehendMod,
+	"connect":                         connectMod,
+	"controltower":                    controlTowerMod,
+	"ce":                              costExplorerMod,
+	"cur":                             curMod,
+	"config":                          cfgMod,
+	"dataexchange":                    dataexchangeMod,
+	"datapipeline":                    datapipelineMod,
+	"datasync":                        datasyncMod,
+	"dax":                             daxMod,
+	"dlm":                             dlmMod,
+	"detective":                       detectiveMod,
+	"devicefarm":                      devicefarmMod,
+	"directory_service":               directoryserviceMod,
+	"docdb":                           docdbMod,
+	"dynamodb":                        dynamodbMod,
+	"dx":                              dxMod,
+	"dms":                             dmsMod,
+	"ebs":                             ebsMod,
+	"ec2_client_vpn":                  ec2ClientVpnMod,
+	"ec2_transit_gateway":             ec2TransitGatewayMod,
+	"ecr":                             ecrMod,
+	"ecrpublic":                       ecrPublicMod,
+	"ecs":                             ecsMod,
+	"efs":                             efsMod,
+	"eks":                             eksMod,
+	"elasticache":                     elasticacheMod,
+	"elastic_beanstalk":               elasticbeanstalkMod,
+	"elasticsearch":                   elasticsearchMod,
+	"elastictranscoder":               elastictranscoderMod,
+	"elb":                             elbMod,
+	"evidently":                       evidentlyMod,
+	"alb":                             albMod,
+	"lb":                              lbMod,
+	"emr":                             emrMod,
+	"emrcontainers":                   emrContainersMod,
+	"emrserverless":                   emrServerlessMod,
+	"fis":                             fisMod,
+	"fms":                             fmsMod,
+	"fsx":                             fsxMod,
+	"gamelift":                        gameliftMod,
+	"glacier":                         glacierMod,
+	"globalaccelerator":               globalacceleratorMod,
+	"glue":                            glueMod,
+	"grafana":                         grafanaMod,
+	"guardduty":                       guarddutyMod,
+	"iam":                             iamMod,
+	"identitystore":                   identityStoreMod,
+	"imagebuilder":                    imageBuilderMod,
+	"inspector":                       inspectorMod,
+	"inspector2":                      inspector2Mod,
+	"iot":                             iotMod,
+	"ivs":                             ivsMod,
+	"ivschat":                         ivsChatMod,
+	"kendra":                          kendraMod,
+	"keyspaces":                       keyspacesMod,
+	"kinesis":                         kinesisMod,
+	"kinesisanalyticsv2":              kinesisAnalyticsMod,
+	"kms":                             kmsMod,
+	"lakeformation":                   lakeFormationMod,
+	"lambda":                          lambdaMod,
+	"lex":                             lexMod,
+	"licensemanager":                  licensemanagerMod,
+	"lightsail":                       lightsailMod,
+	"location":                        locationMod,
+	"macie":                           macieMod,
+	"macie2":                          macie2Mod,
+	"media_convert":                   mediaconvertMod,
+	"medialive":                       medialiveMod,
+	"media_package":                   mediapackageMod,
+	"media_store":                     mediastoreMod,
+	"memorydb":                        memoryDbMod,
+	"mq":                              mqMod,
+	"msk":                             mskMod,
+	"mskconnect":                      mskConnectMod,
+	"mwaa":                            mwaaMod,
+	"neptune":                         neptuneMod,
+	"networkfirewall":                 networkFirewallMod,
+	"networkmanager":                  networkManagerMod,
+	"oam":                             oamMod,
+	"opensearch":                      opensearchMod,
+	"opsworks":                        opsworksMod,
+	"organizations":                   organizationsMod,
+	"outposts":                        outpostsMod,
+	"pinpoint":                        pinpointMod,
+	"pipes":                           pipesMod,
+	"pricing":                         pricingMod,
+	"qldb":                            qldbMod,
+	"quicksight":                      quicksightMod,
+	"ram":                             ramMod,
+	"rbin":                            rbinMod,
+	"rds":                             rdsMod,
+	"redshift":                        redshiftMod,
+	"redshiftdata":                    redshiftDataMod,
+	"redshiftserverless":              redshiftServerlessMod,
+	"resourcegroups":                  resourcegroupsMod,
+	"resourcegroupstaggingapi":        resourcegroupsTaggingApiMod,
+	"rolesanywhere":                   rolesAnywhereMod,
+	"route53":                         route53Mod,
+	"route53recoverycontrolconfig":    route53RecoveryControlMod,
+	"route53recoveryreadiness":        route53RecoveryReadinessMod,
+	"route53domains":                  route53DomainsMod,
+	"rum":                             rumMod,
+	"sagemaker":                       sagemakerMod,
+	"scheduler":                       schedulerMod,
+	"schemas":                         schemasMod,
+	"securityhub":                     securityhubMod,
+	"serverlessapplicationrepository": serverlessRepositoryMod,
+	"ses":                             sesMod,
+	"sesv2":                           sesV2Mod,
+	"signer":                          signerMod,
+	"s3":                              s3Mod,
+	"s3control":                       s3ControlMod,
+	"s3outposts":                      s3OutpostsMod,
+	"ssm":                             ssmMod,
+	"ssmincidents":                    ssmIncidentsMod,
+	"secretsmanager":                  secretsmanagerMod,
+	"servicecatalog":                  servicecatalogMod,
+	"service_discovery":               servicediscoveryMod,
+	"servicequotas":                   servicequotasMod,
+	"sfn":                             sfnMod,
+	"shield":                          shieldMod,
+	"simpledb":                        simpledbMod,
+	"sns":                             snsMod,
+	"sqs":                             sqsMod,
+	"ssoadmin":                        ssoAdminMod,
+	"storagegateway":                  storagegatewayMod,
+	"swf":                             swfMod,
+	"synthetics":                      syntheticsMod,
+	"timestreamwrite":                 timestreamWriteMod,
+	"transcribe":                      transcribeMod,
+	"transfer":                        transferMod,
+	"vpclattice":                      vpclatticeMod,
+	"waf":                             wafMod,
+	"wafv2":                           wafV2Mod,
+	"wafregional":                     wafregionalMod,
+	"worklink":                        worklinkMod,
+	"workspaces":                      workspacesMod,
+	"xray":                            xrayMod,
+}
 
 var namespaceMap = map[string]string{
 	"aws": "Aws",
@@ -479,7 +672,6 @@ func Provider() tfbridge.ProviderInfo {
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// AWS Certificate Manager
-			"aws_acm_certificate": {Tok: awsResource(acmMod, "Certificate")},
 			"aws_acm_certificate_validation": {
 				Tok: awsResource(acmMod, "CertificateValidation"),
 				Docs: &tfbridge.DocInfo{
@@ -496,9 +688,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_acmpca_certificate_authority_certificate": {
-				Tok: awsResource(acmpcaMod, "CertificateAuthorityCertificate"),
-			},
 			"aws_acmpca_policy": {
 				Tok: awsResource(acmpcaMod, "Policy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -507,7 +696,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_acmpca_permission": {Tok: awsResource(acmpcaMod, "Permission")},
 			// Account
 			"aws_account_alternate_contact": {Tok: awsResource(accountMod, "AlternativeContact")},
 			// AppSync
@@ -552,8 +740,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_appsync_resolver":  {Tok: awsResource(appsyncMod, "Resolver")},
-			"aws_appsync_api_cache": {Tok: awsResource(appsyncMod, "ApiCache")},
 			"aws_appsync_domain_name": {
 				Tok: awsResource(appsyncMod, "DomainName"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -961,7 +1147,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_budgets_budget_action": {Tok: awsResource(budgetsMod, "BudgetAction")},
 			// Chime
 			"aws_chime_voice_connector":                         {Tok: awsResource(chimeMod, "VoiceConnector")},
 			"aws_chime_voice_connector_group":                   {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
@@ -1002,8 +1187,6 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// CloudFront
-			"aws_cloudfront_distribution":           {Tok: awsResource(cloudfrontMod, "Distribution")},
-			"aws_cloudfront_public_key":             {Tok: awsResource(cloudfrontMod, "PublicKey")},
 			"aws_cloudfront_origin_access_identity": {Tok: awsResource(cloudfrontMod, "OriginAccessIdentity")},
 			"aws_cloudfront_origin_request_policy":  {Tok: awsResource(cloudfrontMod, "OriginRequestPolicy")},
 			"aws_cloudfront_cache_policy":           {Tok: awsResource(cloudfrontMod, "CachePolicy")},
@@ -6773,6 +6956,12 @@ func Provider() tfbridge.ProviderInfo {
 		awsDataSource(autoscalingMod, "getAmiIds"), awsMod, autoscalingMod, nil)
 	prov.RenameDataSource("aws_canonical_user_id", awsDataSource(awsMod, "getCanonicalUserId"),
 		awsDataSource(s3Mod, "getCanonicalUserId"), awsMod, s3Mod, nil)
+
+	err := x.ComputeDefaults(&prov, x.TokensMappedModules("aws_", "", moduleMap,
+		func(mod, name string) (string, error) {
+			return awsResource(mod, name).String(), nil
+		}))
+	contract.AssertNoErrorf(err, "failed to apply default token mappings")
 
 	prov.SetAutonaming(255, "-")
 
