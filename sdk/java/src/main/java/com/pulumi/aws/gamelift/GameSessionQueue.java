@@ -90,6 +90,20 @@ public class GameSessionQueue extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * Information to be added to all events that are related to this game session queue.
+     * 
+     */
+    @Export(name="customEventData", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> customEventData;
+
+    /**
+     * @return Information to be added to all events that are related to this game session queue.
+     * 
+     */
+    public Output<Optional<String>> customEventData() {
+        return Codegen.optional(this.customEventData);
+    }
+    /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      * 
      */

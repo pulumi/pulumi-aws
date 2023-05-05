@@ -58,17 +58,17 @@ import (
 type ClusterParameterGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the documentDB cluster parameter group.
+	// The ARN of the DocumentDB cluster parameter group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
+	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The family of the documentDB cluster parameter group.
+	// The family of the DocumentDB cluster parameter group.
 	Family pulumi.StringOutput `pulumi:"family"`
-	// The name of the documentDB parameter.
+	// The name of the DocumentDB parameter.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+	// A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
 	Parameters ClusterParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -108,17 +108,17 @@ func GetClusterParameterGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterParameterGroup resources.
 type clusterParameterGroupState struct {
-	// The ARN of the documentDB cluster parameter group.
+	// The ARN of the DocumentDB cluster parameter group.
 	Arn *string `pulumi:"arn"`
-	// The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
+	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
 	Description *string `pulumi:"description"`
-	// The family of the documentDB cluster parameter group.
+	// The family of the DocumentDB cluster parameter group.
 	Family *string `pulumi:"family"`
-	// The name of the documentDB parameter.
+	// The name of the DocumentDB parameter.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+	// A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
 	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -127,17 +127,17 @@ type clusterParameterGroupState struct {
 }
 
 type ClusterParameterGroupState struct {
-	// The ARN of the documentDB cluster parameter group.
+	// The ARN of the DocumentDB cluster parameter group.
 	Arn pulumi.StringPtrInput
-	// The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
+	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
 	Description pulumi.StringPtrInput
-	// The family of the documentDB cluster parameter group.
+	// The family of the DocumentDB cluster parameter group.
 	Family pulumi.StringPtrInput
-	// The name of the documentDB parameter.
+	// The name of the DocumentDB parameter.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+	// A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
 	Parameters ClusterParameterGroupParameterArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -150,15 +150,15 @@ func (ClusterParameterGroupState) ElementType() reflect.Type {
 }
 
 type clusterParameterGroupArgs struct {
-	// The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
+	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
 	Description *string `pulumi:"description"`
-	// The family of the documentDB cluster parameter group.
+	// The family of the DocumentDB cluster parameter group.
 	Family string `pulumi:"family"`
-	// The name of the documentDB parameter.
+	// The name of the DocumentDB parameter.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+	// A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
 	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -168,15 +168,15 @@ type clusterParameterGroupArgs struct {
 
 // The set of arguments for constructing a ClusterParameterGroup resource.
 type ClusterParameterGroupArgs struct {
-	// The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
+	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
 	Description pulumi.StringPtrInput
-	// The family of the documentDB cluster parameter group.
+	// The family of the DocumentDB cluster parameter group.
 	Family pulumi.StringInput
-	// The name of the documentDB parameter.
+	// The name of the DocumentDB parameter.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+	// A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
 	Parameters ClusterParameterGroupParameterArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -271,22 +271,22 @@ func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutputWithContext(ct
 	return o
 }
 
-// The ARN of the documentDB cluster parameter group.
+// The ARN of the DocumentDB cluster parameter group.
 func (o ClusterParameterGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
+// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
 func (o ClusterParameterGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The family of the documentDB cluster parameter group.
+// The family of the DocumentDB cluster parameter group.
 func (o ClusterParameterGroupOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
-// The name of the documentDB parameter.
+// The name of the DocumentDB parameter.
 func (o ClusterParameterGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -296,7 +296,7 @@ func (o ClusterParameterGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+// A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
 func (o ClusterParameterGroupOutput) Parameters() ClusterParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) ClusterParameterGroupParameterArrayOutput { return v.Parameters }).(ClusterParameterGroupParameterArrayOutput)
 }

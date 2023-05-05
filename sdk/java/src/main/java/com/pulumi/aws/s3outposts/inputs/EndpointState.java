@@ -18,6 +18,21 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     public static final EndpointState Empty = new EndpointState();
 
     /**
+     * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+     * 
+     */
+    @Import(name="accessType")
+    private @Nullable Output<String> accessType;
+
+    /**
+     * @return Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+     * 
+     */
+    public Optional<Output<String>> accessType() {
+        return Optional.ofNullable(this.accessType);
+    }
+
+    /**
      * Amazon Resource Name (ARN) of the endpoint.
      * 
      */
@@ -60,6 +75,21 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> creationTime() {
         return Optional.ofNullable(this.creationTime);
+    }
+
+    /**
+     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     * 
+     */
+    @Import(name="customerOwnedIpv4Pool")
+    private @Nullable Output<String> customerOwnedIpv4Pool;
+
+    /**
+     * @return The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     * 
+     */
+    public Optional<Output<String>> customerOwnedIpv4Pool() {
+        return Optional.ofNullable(this.customerOwnedIpv4Pool);
     }
 
     /**
@@ -125,9 +155,11 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     private EndpointState() {}
 
     private EndpointState(EndpointState $) {
+        this.accessType = $.accessType;
         this.arn = $.arn;
         this.cidrBlock = $.cidrBlock;
         this.creationTime = $.creationTime;
+        this.customerOwnedIpv4Pool = $.customerOwnedIpv4Pool;
         this.networkInterfaces = $.networkInterfaces;
         this.outpostId = $.outpostId;
         this.securityGroupId = $.securityGroupId;
@@ -150,6 +182,27 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(EndpointState defaults) {
             $ = new EndpointState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessType Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessType(@Nullable Output<String> accessType) {
+            $.accessType = accessType;
+            return this;
+        }
+
+        /**
+         * @param accessType Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessType(String accessType) {
+            return accessType(Output.of(accessType));
         }
 
         /**
@@ -213,6 +266,27 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder creationTime(String creationTime) {
             return creationTime(Output.of(creationTime));
+        }
+
+        /**
+         * @param customerOwnedIpv4Pool The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerOwnedIpv4Pool(@Nullable Output<String> customerOwnedIpv4Pool) {
+            $.customerOwnedIpv4Pool = customerOwnedIpv4Pool;
+            return this;
+        }
+
+        /**
+         * @param customerOwnedIpv4Pool The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerOwnedIpv4Pool(String customerOwnedIpv4Pool) {
+            return customerOwnedIpv4Pool(Output.of(customerOwnedIpv4Pool));
         }
 
         /**

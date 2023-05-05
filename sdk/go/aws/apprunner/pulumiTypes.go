@@ -641,11 +641,11 @@ func (o ServiceHealthCheckConfigurationPtrOutput) UnhealthyThreshold() pulumi.In
 }
 
 type ServiceInstanceConfiguration struct {
-	// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+	// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
 	Cpu *string `pulumi:"cpu"`
 	// ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
 	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
-	// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+	// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
 	Memory *string `pulumi:"memory"`
 }
 
@@ -661,11 +661,11 @@ type ServiceInstanceConfigurationInput interface {
 }
 
 type ServiceInstanceConfigurationArgs struct {
-	// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+	// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
 	// ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
 	InstanceRoleArn pulumi.StringPtrInput `pulumi:"instanceRoleArn"`
-	// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+	// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 }
 
@@ -746,7 +746,7 @@ func (o ServiceInstanceConfigurationOutput) ToServiceInstanceConfigurationPtrOut
 	}).(ServiceInstanceConfigurationPtrOutput)
 }
 
-// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
 func (o ServiceInstanceConfigurationOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInstanceConfiguration) *string { return v.Cpu }).(pulumi.StringPtrOutput)
 }
@@ -756,7 +756,7 @@ func (o ServiceInstanceConfigurationOutput) InstanceRoleArn() pulumi.StringPtrOu
 	return o.ApplyT(func(v ServiceInstanceConfiguration) *string { return v.InstanceRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
 func (o ServiceInstanceConfigurationOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInstanceConfiguration) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -785,7 +785,7 @@ func (o ServiceInstanceConfigurationPtrOutput) Elem() ServiceInstanceConfigurati
 	}).(ServiceInstanceConfigurationOutput)
 }
 
-// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
 func (o ServiceInstanceConfigurationPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInstanceConfiguration) *string {
 		if v == nil {
@@ -805,7 +805,7 @@ func (o ServiceInstanceConfigurationPtrOutput) InstanceRoleArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
 func (o ServiceInstanceConfigurationPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInstanceConfiguration) *string {
 		if v == nil {

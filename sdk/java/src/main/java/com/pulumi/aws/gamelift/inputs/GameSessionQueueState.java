@@ -35,6 +35,21 @@ public final class GameSessionQueueState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Information to be added to all events that are related to this game session queue.
+     * 
+     */
+    @Import(name="customEventData")
+    private @Nullable Output<String> customEventData;
+
+    /**
+     * @return Information to be added to all events that are related to this game session queue.
+     * 
+     */
+    public Optional<Output<String>> customEventData() {
+        return Optional.ofNullable(this.customEventData);
+    }
+
+    /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      * 
      */
@@ -143,6 +158,7 @@ public final class GameSessionQueueState extends com.pulumi.resources.ResourceAr
 
     private GameSessionQueueState(GameSessionQueueState $) {
         this.arn = $.arn;
+        this.customEventData = $.customEventData;
         this.destinations = $.destinations;
         this.name = $.name;
         this.notificationTarget = $.notificationTarget;
@@ -189,6 +205,27 @@ public final class GameSessionQueueState extends com.pulumi.resources.ResourceAr
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param customEventData Information to be added to all events that are related to this game session queue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customEventData(@Nullable Output<String> customEventData) {
+            $.customEventData = customEventData;
+            return this;
+        }
+
+        /**
+         * @param customEventData Information to be added to all events that are related to this game session queue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customEventData(String customEventData) {
+            return customEventData(Output.of(customEventData));
         }
 
         /**

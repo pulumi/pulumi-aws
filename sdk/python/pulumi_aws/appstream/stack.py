@@ -25,6 +25,7 @@ class StackArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]]] = None,
+                 streaming_experience_settings: Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]] = None):
@@ -42,6 +43,8 @@ class StackArgs:
         :param pulumi.Input[str] redirect_url: URL that users are redirected to after their streaming session ends.
         :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
+        :param pulumi.Input['StackStreamingExperienceSettingsArgs'] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+               See `streaming_experience_settings` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
                See `user_settings` below.
@@ -64,6 +67,8 @@ class StackArgs:
             pulumi.set(__self__, "redirect_url", redirect_url)
         if storage_connectors is not None:
             pulumi.set(__self__, "storage_connectors", storage_connectors)
+        if streaming_experience_settings is not None:
+            pulumi.set(__self__, "streaming_experience_settings", streaming_experience_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -183,6 +188,19 @@ class StackArgs:
         pulumi.set(self, "storage_connectors", value)
 
     @property
+    @pulumi.getter(name="streamingExperienceSettings")
+    def streaming_experience_settings(self) -> Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']]:
+        """
+        The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+        See `streaming_experience_settings` below.
+        """
+        return pulumi.get(self, "streaming_experience_settings")
+
+    @streaming_experience_settings.setter
+    def streaming_experience_settings(self, value: Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']]):
+        pulumi.set(self, "streaming_experience_settings", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -231,6 +249,7 @@ class _StackState:
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]]] = None,
+                 streaming_experience_settings: Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]]] = None):
@@ -250,6 +269,8 @@ class _StackState:
         :param pulumi.Input[str] redirect_url: URL that users are redirected to after their streaming session ends.
         :param pulumi.Input[Sequence[pulumi.Input['StackStorageConnectorArgs']]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
+        :param pulumi.Input['StackStreamingExperienceSettingsArgs'] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+               See `streaming_experience_settings` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['StackUserSettingArgs']]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
                See `user_settings` below.
@@ -276,6 +297,8 @@ class _StackState:
             pulumi.set(__self__, "redirect_url", redirect_url)
         if storage_connectors is not None:
             pulumi.set(__self__, "storage_connectors", storage_connectors)
+        if streaming_experience_settings is not None:
+            pulumi.set(__self__, "streaming_experience_settings", streaming_experience_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -419,6 +442,19 @@ class _StackState:
         pulumi.set(self, "storage_connectors", value)
 
     @property
+    @pulumi.getter(name="streamingExperienceSettings")
+    def streaming_experience_settings(self) -> Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']]:
+        """
+        The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+        See `streaming_experience_settings` below.
+        """
+        return pulumi.get(self, "streaming_experience_settings")
+
+    @streaming_experience_settings.setter
+    def streaming_experience_settings(self, value: Optional[pulumi.Input['StackStreamingExperienceSettingsArgs']]):
+        pulumi.set(self, "streaming_experience_settings", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -467,6 +503,7 @@ class Stack(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]]] = None,
+                 streaming_experience_settings: Optional[pulumi.Input[pulumi.InputType['StackStreamingExperienceSettingsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]]] = None,
@@ -549,6 +586,8 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] redirect_url: URL that users are redirected to after their streaming session ends.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
+        :param pulumi.Input[pulumi.InputType['StackStreamingExperienceSettingsArgs']] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+               See `streaming_experience_settings` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
                See `user_settings` below.
@@ -647,6 +686,7 @@ class Stack(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
                  storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]]] = None,
+                 streaming_experience_settings: Optional[pulumi.Input[pulumi.InputType['StackStreamingExperienceSettingsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]]] = None,
@@ -668,6 +708,7 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["redirect_url"] = redirect_url
             __props__.__dict__["storage_connectors"] = storage_connectors
+            __props__.__dict__["streaming_experience_settings"] = streaming_experience_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["user_settings"] = user_settings
@@ -694,6 +735,7 @@ class Stack(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             redirect_url: Optional[pulumi.Input[str]] = None,
             storage_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]]] = None,
+            streaming_experience_settings: Optional[pulumi.Input[pulumi.InputType['StackStreamingExperienceSettingsArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             user_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]]] = None) -> 'Stack':
@@ -718,6 +760,8 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] redirect_url: URL that users are redirected to after their streaming session ends.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackStorageConnectorArgs']]]] storage_connectors: Configuration block for the storage connectors to enable.
                See `storage_connectors` below.
+        :param pulumi.Input[pulumi.InputType['StackStreamingExperienceSettingsArgs']] streaming_experience_settings: The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+               See `streaming_experience_settings` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackUserSettingArgs']]]] user_settings: Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
                See `user_settings` below.
@@ -737,6 +781,7 @@ class Stack(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["redirect_url"] = redirect_url
         __props__.__dict__["storage_connectors"] = storage_connectors
+        __props__.__dict__["streaming_experience_settings"] = streaming_experience_settings
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["user_settings"] = user_settings
@@ -832,6 +877,15 @@ class Stack(pulumi.CustomResource):
         See `storage_connectors` below.
         """
         return pulumi.get(self, "storage_connectors")
+
+    @property
+    @pulumi.getter(name="streamingExperienceSettings")
+    def streaming_experience_settings(self) -> pulumi.Output['outputs.StackStreamingExperienceSettings']:
+        """
+        The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+        See `streaming_experience_settings` below.
+        """
+        return pulumi.get(self, "streaming_experience_settings")
 
     @property
     @pulumi.getter

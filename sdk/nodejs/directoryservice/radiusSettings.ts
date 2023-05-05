@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
+ *
  * ## Example Usage
  *
  * ```typescript

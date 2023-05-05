@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Fis.Inputs
     public sealed class ExperimentTemplateActionTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Target type. Valid values are `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets).
+        /// Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets).
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

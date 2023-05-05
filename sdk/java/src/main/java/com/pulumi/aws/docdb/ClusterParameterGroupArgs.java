@@ -19,14 +19,14 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
     public static final ClusterParameterGroupArgs Empty = new ClusterParameterGroupArgs();
 
     /**
-     * The description of the documentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the documentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
      * 
      */
     public Optional<Output<String>> description() {
@@ -34,14 +34,14 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The family of the documentDB cluster parameter group.
+     * The family of the DocumentDB cluster parameter group.
      * 
      */
     @Import(name="family", required=true)
     private Output<String> family;
 
     /**
-     * @return The family of the documentDB cluster parameter group.
+     * @return The family of the DocumentDB cluster parameter group.
      * 
      */
     public Output<String> family() {
@@ -49,14 +49,14 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the documentDB parameter.
+     * The name of the DocumentDB parameter.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the documentDB parameter.
+     * @return The name of the DocumentDB parameter.
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,14 +79,14 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+     * A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<List<ClusterParameterGroupParameterArgs>> parameters;
 
     /**
-     * @return A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+     * @return A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      * 
      */
     public Optional<Output<List<ClusterParameterGroupParameterArgs>>> parameters() {
@@ -154,7 +154,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description The description of the documentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description The description of the documentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param family The family of the documentDB cluster parameter group.
+         * @param family The family of the DocumentDB cluster parameter group.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param family The family of the documentDB cluster parameter group.
+         * @param family The family of the DocumentDB cluster parameter group.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the documentDB parameter.
+         * @param name The name of the DocumentDB parameter.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the documentDB parameter.
+         * @param name The name of the DocumentDB parameter.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param parameters A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+         * @param parameters A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param parameters A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+         * @param parameters A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param parameters A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+         * @param parameters A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
          * 
          * @return builder
          * 

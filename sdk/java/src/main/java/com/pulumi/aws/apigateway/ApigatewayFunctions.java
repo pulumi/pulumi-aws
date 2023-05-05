@@ -4,6 +4,10 @@
 package com.pulumi.aws.apigateway;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.apigateway.inputs.GetAuthorizerArgs;
+import com.pulumi.aws.apigateway.inputs.GetAuthorizerPlainArgs;
+import com.pulumi.aws.apigateway.inputs.GetAuthorizersArgs;
+import com.pulumi.aws.apigateway.inputs.GetAuthorizersPlainArgs;
 import com.pulumi.aws.apigateway.inputs.GetDomainNameArgs;
 import com.pulumi.aws.apigateway.inputs.GetDomainNamePlainArgs;
 import com.pulumi.aws.apigateway.inputs.GetExportArgs;
@@ -18,6 +22,8 @@ import com.pulumi.aws.apigateway.inputs.GetSdkArgs;
 import com.pulumi.aws.apigateway.inputs.GetSdkPlainArgs;
 import com.pulumi.aws.apigateway.inputs.GetVpcLinkArgs;
 import com.pulumi.aws.apigateway.inputs.GetVpcLinkPlainArgs;
+import com.pulumi.aws.apigateway.outputs.GetAuthorizerResult;
+import com.pulumi.aws.apigateway.outputs.GetAuthorizersResult;
 import com.pulumi.aws.apigateway.outputs.GetDomainNameResult;
 import com.pulumi.aws.apigateway.outputs.GetExportResult;
 import com.pulumi.aws.apigateway.outputs.GetKeyResult;
@@ -32,6 +38,306 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ApigatewayFunctions {
+    /**
+     * Provides details about a specific API Gateway Authorizer.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetAuthorizerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
+     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .authorizerId(data.aws_api_gateway_authorizers().example().ids()[0])
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAuthorizerResult> getAuthorizer(GetAuthorizerArgs args) {
+        return getAuthorizer(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific API Gateway Authorizer.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetAuthorizerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
+     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .authorizerId(data.aws_api_gateway_authorizers().example().ids()[0])
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAuthorizerResult> getAuthorizerPlain(GetAuthorizerPlainArgs args) {
+        return getAuthorizerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific API Gateway Authorizer.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetAuthorizerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
+     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .authorizerId(data.aws_api_gateway_authorizers().example().ids()[0])
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAuthorizerResult> getAuthorizer(GetAuthorizerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:apigateway/getAuthorizer:getAuthorizer", TypeShape.of(GetAuthorizerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific API Gateway Authorizer.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetAuthorizerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getAuthorizer(GetAuthorizerArgs.builder()
+     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .authorizerId(data.aws_api_gateway_authorizers().example().ids()[0])
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAuthorizerResult> getAuthorizerPlain(GetAuthorizerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:apigateway/getAuthorizer:getAuthorizer", TypeShape.of(GetAuthorizerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about multiple API Gateway Authorizers.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetAuthorizersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
+     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAuthorizersResult> getAuthorizers(GetAuthorizersArgs args) {
+        return getAuthorizers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about multiple API Gateway Authorizers.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetAuthorizersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
+     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAuthorizersResult> getAuthorizersPlain(GetAuthorizersPlainArgs args) {
+        return getAuthorizersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about multiple API Gateway Authorizers.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetAuthorizersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
+     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAuthorizersResult> getAuthorizers(GetAuthorizersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:apigateway/getAuthorizers:getAuthorizers", TypeShape.of(GetAuthorizersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about multiple API Gateway Authorizers.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetAuthorizersArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ApigatewayFunctions.getAuthorizers(GetAuthorizersArgs.builder()
+     *             .restApiId(aws_api_gateway_rest_api.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAuthorizersResult> getAuthorizersPlain(GetAuthorizersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:apigateway/getAuthorizers:getAuthorizers", TypeShape.of(GetAuthorizersResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to get the custom domain name for use with AWS API Gateway.
      * 

@@ -495,6 +495,7 @@ class Key(pulumi.CustomResource):
         > **NOTE on KMS Key Policy:** KMS Key Policy can be configured in either the standalone resource `kms.KeyPolicy`
         or with the parameter `policy` in this resource.
         Configuring with both will cause inconsistencies and may overwrite configuration.
+
         ## Example Usage
 
         ```python
@@ -548,6 +549,7 @@ class Key(pulumi.CustomResource):
         > **NOTE on KMS Key Policy:** KMS Key Policy can be configured in either the standalone resource `kms.KeyPolicy`
         or with the parameter `policy` in this resource.
         Configuring with both will cause inconsistencies and may overwrite configuration.
+
         ## Example Usage
 
         ```python

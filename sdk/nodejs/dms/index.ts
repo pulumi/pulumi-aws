@@ -30,6 +30,16 @@ export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as a
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
 
+export { GetReplicationSubnetGroupArgs, GetReplicationSubnetGroupResult, GetReplicationSubnetGroupOutputArgs } from "./getReplicationSubnetGroup";
+export const getReplicationSubnetGroup: typeof import("./getReplicationSubnetGroup").getReplicationSubnetGroup = null as any;
+export const getReplicationSubnetGroupOutput: typeof import("./getReplicationSubnetGroup").getReplicationSubnetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationSubnetGroup","getReplicationSubnetGroupOutput"], () => require("./getReplicationSubnetGroup"));
+
+export { GetReplicationTaskArgs, GetReplicationTaskResult, GetReplicationTaskOutputArgs } from "./getReplicationTask";
+export const getReplicationTask: typeof import("./getReplicationTask").getReplicationTask = null as any;
+export const getReplicationTaskOutput: typeof import("./getReplicationTask").getReplicationTaskOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationTask","getReplicationTaskOutput"], () => require("./getReplicationTask"));
+
 export { ReplicationInstanceArgs, ReplicationInstanceState } from "./replicationInstance";
 export type ReplicationInstance = import("./replicationInstance").ReplicationInstance;
 export const ReplicationInstance: typeof import("./replicationInstance").ReplicationInstance = null as any;

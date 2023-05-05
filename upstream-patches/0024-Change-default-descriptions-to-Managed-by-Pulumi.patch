@@ -1,4 +1,4 @@
-From 1a2c4bcf6c74901703dcac9dccf1fe3227563633 Mon Sep 17 00:00:00 2001
+From 99d2fdd3ee5567a6118b6dc9376c02011bc42710 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
 Subject: [PATCH 24/27] Change default descriptions to "Managed by Pulumi"
@@ -34,7 +34,7 @@ Subject: [PATCH 24/27] Change default descriptions to "Managed by Pulumi"
  27 files changed, 30 insertions(+), 30 deletions(-)
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
-index 3ffe08ce1b..2ab1e69a1f 100644
+index 91e801ffab..c6cff958f7 100644
 --- a/internal/service/apigateway/api_key.go
 +++ b/internal/service/apigateway/api_key.go
 @@ -44,7 +44,7 @@ func ResourceAPIKey() *schema.Resource {
@@ -73,7 +73,7 @@ index edf5062876..e41ad22892 100644
  			},
  			"etag": {
 diff --git a/internal/service/docdb/cluster_parameter_group.go b/internal/service/docdb/cluster_parameter_group.go
-index 2625c11331..539a72b86d 100644
+index 9409aee851..b4a1152ffa 100644
 --- a/internal/service/docdb/cluster_parameter_group.go
 +++ b/internal/service/docdb/cluster_parameter_group.go
 @@ -66,7 +66,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -86,7 +86,7 @@ index 2625c11331..539a72b86d 100644
  			"parameter": {
  				Type:     schema.TypeSet,
 diff --git a/internal/service/docdb/subnet_group.go b/internal/service/docdb/subnet_group.go
-index bbc0b19c0d..fecdeb0a8e 100644
+index d9c7a8b511..9dd8bec272 100644
 --- a/internal/service/docdb/subnet_group.go
 +++ b/internal/service/docdb/subnet_group.go
 @@ -60,7 +60,7 @@ func ResourceSubnetGroup() *schema.Resource {
@@ -294,7 +294,7 @@ index c4afc8c981..54d4e61495 100644
  
  			"ingress": {
 diff --git a/internal/service/rds/subnet_group.go b/internal/service/rds/subnet_group.go
-index 8c81fa4c07..c617663c0d 100644
+index a90240c0e2..3aa4b8e7cc 100644
 --- a/internal/service/rds/subnet_group.go
 +++ b/internal/service/rds/subnet_group.go
 @@ -40,7 +40,7 @@ func ResourceSubnetGroup() *schema.Resource {
@@ -377,7 +377,7 @@ index 88172c234e..4918032a1a 100644
  			{
  				Action:            aws.String(route53.ChangeActionDelete),
 diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
-index 7a8383ef79..6143d58366 100644
+index 2e28d31976..7883498190 100644
 --- a/internal/service/route53/zone.go
 +++ b/internal/service/route53/zone.go
 @@ -56,7 +56,7 @@ func ResourceZone() *schema.Resource {

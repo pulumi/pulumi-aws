@@ -13,9 +13,9 @@ import (
 type ClusterParameterGroupParameter struct {
 	// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 	ApplyMethod *string `pulumi:"applyMethod"`
-	// The name of the documentDB parameter.
+	// The name of the DocumentDB parameter.
 	Name string `pulumi:"name"`
-	// The value of the documentDB parameter.
+	// The value of the DocumentDB parameter.
 	Value string `pulumi:"value"`
 }
 
@@ -33,9 +33,9 @@ type ClusterParameterGroupParameterInput interface {
 type ClusterParameterGroupParameterArgs struct {
 	// Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
 	ApplyMethod pulumi.StringPtrInput `pulumi:"applyMethod"`
-	// The name of the documentDB parameter.
+	// The name of the DocumentDB parameter.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the documentDB parameter.
+	// The value of the DocumentDB parameter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -95,12 +95,12 @@ func (o ClusterParameterGroupParameterOutput) ApplyMethod() pulumi.StringPtrOutp
 	return o.ApplyT(func(v ClusterParameterGroupParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
 }
 
-// The name of the documentDB parameter.
+// The name of the DocumentDB parameter.
 func (o ClusterParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the documentDB parameter.
+// The value of the DocumentDB parameter.
 func (o ClusterParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }

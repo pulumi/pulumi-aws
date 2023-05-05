@@ -31,14 +31,14 @@ public final class ClusterParameterGroupParameterArgs extends com.pulumi.resourc
     }
 
     /**
-     * The name of the documentDB parameter.
+     * The name of the DocumentDB parameter.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the documentDB parameter.
+     * @return The name of the DocumentDB parameter.
      * 
      */
     public Output<String> name() {
@@ -46,14 +46,14 @@ public final class ClusterParameterGroupParameterArgs extends com.pulumi.resourc
     }
 
     /**
-     * The value of the documentDB parameter.
+     * The value of the DocumentDB parameter.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the documentDB parameter.
+     * @return The value of the DocumentDB parameter.
      * 
      */
     public Output<String> value() {
@@ -108,7 +108,7 @@ public final class ClusterParameterGroupParameterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of the documentDB parameter.
+         * @param name The name of the DocumentDB parameter.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ClusterParameterGroupParameterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of the documentDB parameter.
+         * @param name The name of the DocumentDB parameter.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ClusterParameterGroupParameterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param value The value of the documentDB parameter.
+         * @param value The value of the DocumentDB parameter.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ClusterParameterGroupParameterArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param value The value of the documentDB parameter.
+         * @param value The value of the DocumentDB parameter.
          * 
          * @return builder
          * 

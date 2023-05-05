@@ -10,6 +10,16 @@ export type Canary = import("./canary").Canary;
 export const Canary: typeof import("./canary").Canary = null as any;
 utilities.lazyLoad(exports, ["Canary"], () => require("./canary"));
 
+export { GroupArgs, GroupState } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
+export { GroupAssociationArgs, GroupAssociationState } from "./groupAssociation";
+export type GroupAssociation = import("./groupAssociation").GroupAssociation;
+export const GroupAssociation: typeof import("./groupAssociation").GroupAssociation = null as any;
+utilities.lazyLoad(exports, ["GroupAssociation"], () => require("./groupAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +27,15 @@ const _module = {
         switch (type) {
             case "aws:synthetics/canary:Canary":
                 return new Canary(name, <any>undefined, { urn })
+            case "aws:synthetics/group:Group":
+                return new Group(name, <any>undefined, { urn })
+            case "aws:synthetics/groupAssociation:GroupAssociation":
+                return new GroupAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "synthetics/canary", _module)
+pulumi.runtime.registerResourceModule("aws", "synthetics/group", _module)
+pulumi.runtime.registerResourceModule("aws", "synthetics/groupAssociation", _module)

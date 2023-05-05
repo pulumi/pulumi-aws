@@ -120,6 +120,9 @@ type Stack struct {
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayOutput `pulumi:"storageConnectors"`
+	// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+	// See `streamingExperienceSettings` below.
+	StreamingExperienceSettings StackStreamingExperienceSettingsOutput `pulumi:"streamingExperienceSettings"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -182,6 +185,9 @@ type stackState struct {
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
+	// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+	// See `streamingExperienceSettings` below.
+	StreamingExperienceSettings *StackStreamingExperienceSettings `pulumi:"streamingExperienceSettings"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -216,6 +222,9 @@ type StackState struct {
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayInput
+	// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+	// See `streamingExperienceSettings` below.
+	StreamingExperienceSettings StackStreamingExperienceSettingsPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -250,6 +259,9 @@ type stackArgs struct {
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
+	// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+	// See `streamingExperienceSettings` below.
+	StreamingExperienceSettings *StackStreamingExperienceSettings `pulumi:"streamingExperienceSettings"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -281,6 +293,9 @@ type StackArgs struct {
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayInput
+	// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+	// See `streamingExperienceSettings` below.
+	StreamingExperienceSettings StackStreamingExperienceSettingsPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -432,6 +447,12 @@ func (o StackOutput) RedirectUrl() pulumi.StringOutput {
 // See `storageConnectors` below.
 func (o StackOutput) StorageConnectors() StackStorageConnectorArrayOutput {
 	return o.ApplyT(func(v *Stack) StackStorageConnectorArrayOutput { return v.StorageConnectors }).(StackStorageConnectorArrayOutput)
+}
+
+// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+// See `streamingExperienceSettings` below.
+func (o StackOutput) StreamingExperienceSettings() StackStreamingExperienceSettingsOutput {
+	return o.ApplyT(func(v *Stack) StackStreamingExperienceSettingsOutput { return v.StreamingExperienceSettings }).(StackStreamingExperienceSettingsOutput)
 }
 
 // Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

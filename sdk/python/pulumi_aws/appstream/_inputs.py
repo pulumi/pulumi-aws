@@ -20,6 +20,7 @@ __all__ = [
     'StackAccessEndpointArgs',
     'StackApplicationSettingsArgs',
     'StackStorageConnectorArgs',
+    'StackStreamingExperienceSettingsArgs',
     'StackUserSettingArgs',
 ]
 
@@ -460,6 +461,31 @@ class StackStorageConnectorArgs:
     @resource_identifier.setter
     def resource_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_identifier", value)
+
+
+@pulumi.input_type
+class StackStreamingExperienceSettingsArgs:
+    def __init__(__self__, *,
+                 preferred_protocol: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] preferred_protocol: The preferred protocol that you want to use while streaming your application.
+               Valid values are `TCP` and `UDP`.
+        """
+        if preferred_protocol is not None:
+            pulumi.set(__self__, "preferred_protocol", preferred_protocol)
+
+    @property
+    @pulumi.getter(name="preferredProtocol")
+    def preferred_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The preferred protocol that you want to use while streaming your application.
+        Valid values are `TCP` and `UDP`.
+        """
+        return pulumi.get(self, "preferred_protocol")
+
+    @preferred_protocol.setter
+    def preferred_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_protocol", value)
 
 
 @pulumi.input_type

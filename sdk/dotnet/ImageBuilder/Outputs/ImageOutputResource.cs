@@ -17,11 +17,19 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// Set of objects with each Amazon Machine Image (AMI) created.
         /// </summary>
         public readonly ImmutableArray<Outputs.ImageOutputResourceAmi> Amis;
+        /// <summary>
+        /// Set of objects with each container image created and stored in the output repository.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ImageOutputResourceContainer> Containers;
 
         [OutputConstructor]
-        private ImageOutputResource(ImmutableArray<Outputs.ImageOutputResourceAmi> amis)
+        private ImageOutputResource(
+            ImmutableArray<Outputs.ImageOutputResourceAmi> amis,
+
+            ImmutableArray<Outputs.ImageOutputResourceContainer> containers)
         {
             Amis = amis;
+            Containers = containers;
         }
     }
 }

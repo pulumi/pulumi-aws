@@ -71,7 +71,7 @@ class S3EndpointArgs:
         :param pulumi.Input[bool] add_column_name: Whether to add column name information to the .csv output file. Default is `false`.
         :param pulumi.Input[bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] bucket_folder: S3 object prefix.
-        :param pulumi.Input[str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+        :param pulumi.Input[str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
         :param pulumi.Input[bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
@@ -294,7 +294,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="cannedAclForObjects")
     def canned_acl_for_objects(self) -> Optional[pulumi.Input[str]]:
         """
-        Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+        Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
         """
         return pulumi.get(self, "canned_acl_for_objects")
 
@@ -844,7 +844,7 @@ class _S3EndpointState:
         :param pulumi.Input[bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] bucket_folder: S3 object prefix.
         :param pulumi.Input[str] bucket_name: S3 bucket name.
-        :param pulumi.Input[str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+        :param pulumi.Input[str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
         :param pulumi.Input[bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
@@ -1050,7 +1050,7 @@ class _S3EndpointState:
     @pulumi.getter(name="cannedAclForObjects")
     def canned_acl_for_objects(self) -> Optional[pulumi.Input[str]]:
         """
-        Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+        Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
         """
         return pulumi.get(self, "canned_acl_for_objects")
 
@@ -1772,7 +1772,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] bucket_folder: S3 object prefix.
         :param pulumi.Input[str] bucket_name: S3 bucket name.
-        :param pulumi.Input[str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+        :param pulumi.Input[str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
         :param pulumi.Input[bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
@@ -2117,7 +2117,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] add_trailing_padding_character: Whether to add padding. Default is `false`. (Ignored for source endpoints.)
         :param pulumi.Input[str] bucket_folder: S3 object prefix.
         :param pulumi.Input[str] bucket_name: S3 bucket name.
-        :param pulumi.Input[str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+        :param pulumi.Input[str] canned_acl_for_objects: Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
         :param pulumi.Input[bool] cdc_inserts_and_updates: Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[bool] cdc_inserts_only: Whether to write insert operations to .csv or .parquet output files. Default is `false`.
         :param pulumi.Input[int] cdc_max_batch_interval: Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. (AWS default is `60`.)
@@ -2260,7 +2260,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="cannedAclForObjects")
     def canned_acl_for_objects(self) -> pulumi.Output[Optional[str]]:
         """
-        Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+        Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
         """
         return pulumi.get(self, "canned_acl_for_objects")
 

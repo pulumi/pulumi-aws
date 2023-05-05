@@ -17,12 +17,12 @@ public final class ClusterParameterGroupParameter {
      */
     private @Nullable String applyMethod;
     /**
-     * @return The name of the documentDB parameter.
+     * @return The name of the DocumentDB parameter.
      * 
      */
     private String name;
     /**
-     * @return The value of the documentDB parameter.
+     * @return The value of the DocumentDB parameter.
      * 
      */
     private String value;
@@ -36,14 +36,14 @@ public final class ClusterParameterGroupParameter {
         return Optional.ofNullable(this.applyMethod);
     }
     /**
-     * @return The name of the documentDB parameter.
+     * @return The name of the DocumentDB parameter.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The value of the documentDB parameter.
+     * @return The value of the DocumentDB parameter.
      * 
      */
     public String value() {

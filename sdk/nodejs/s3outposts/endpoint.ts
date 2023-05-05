@@ -60,6 +60,10 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
+     * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+     */
+    public readonly accessType!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the endpoint.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -71,6 +75,10 @@ export class Endpoint extends pulumi.CustomResource {
      * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     */
+    public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     /**
      * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
      */
@@ -101,9 +109,11 @@ export class Endpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
+            resourceInputs["accessType"] = state ? state.accessType : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
             resourceInputs["creationTime"] = state ? state.creationTime : undefined;
+            resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
             resourceInputs["outpostId"] = state ? state.outpostId : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
@@ -119,6 +129,8 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
+            resourceInputs["accessType"] = args ? args.accessType : undefined;
+            resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
             resourceInputs["outpostId"] = args ? args.outpostId : undefined;
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
@@ -137,6 +149,10 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointState {
     /**
+     * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+     */
+    accessType?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the endpoint.
      */
     arn?: pulumi.Input<string>;
@@ -148,6 +164,10 @@ export interface EndpointState {
      * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
     creationTime?: pulumi.Input<string>;
+    /**
+     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     */
+    customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
      * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
      */
@@ -170,6 +190,14 @@ export interface EndpointState {
  * The set of arguments for constructing a Endpoint resource.
  */
 export interface EndpointArgs {
+    /**
+     * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+     */
+    accessType?: pulumi.Input<string>;
+    /**
+     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     */
+    customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
      * Identifier of the Outpost to contain this endpoint.
      */

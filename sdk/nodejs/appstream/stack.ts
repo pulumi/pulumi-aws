@@ -148,6 +148,11 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly storageConnectors!: pulumi.Output<outputs.appstream.StackStorageConnector[]>;
     /**
+     * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+     * See `streamingExperienceSettings` below.
+     */
+    public readonly streamingExperienceSettings!: pulumi.Output<outputs.appstream.StackStreamingExperienceSettings>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -182,6 +187,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["redirectUrl"] = state ? state.redirectUrl : undefined;
             resourceInputs["storageConnectors"] = state ? state.storageConnectors : undefined;
+            resourceInputs["streamingExperienceSettings"] = state ? state.streamingExperienceSettings : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["userSettings"] = state ? state.userSettings : undefined;
@@ -196,6 +202,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["redirectUrl"] = args ? args.redirectUrl : undefined;
             resourceInputs["storageConnectors"] = args ? args.storageConnectors : undefined;
+            resourceInputs["streamingExperienceSettings"] = args ? args.streamingExperienceSettings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["userSettings"] = args ? args.userSettings : undefined;
@@ -259,6 +266,11 @@ export interface StackState {
      */
     storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnector>[]>;
     /**
+     * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+     * See `streamingExperienceSettings` below.
+     */
+    streamingExperienceSettings?: pulumi.Input<inputs.appstream.StackStreamingExperienceSettings>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -313,6 +325,11 @@ export interface StackArgs {
      * See `storageConnectors` below.
      */
     storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnector>[]>;
+    /**
+     * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+     * See `streamingExperienceSettings` below.
+     */
+    streamingExperienceSettings?: pulumi.Input<inputs.appstream.StackStreamingExperienceSettings>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

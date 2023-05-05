@@ -498,6 +498,7 @@ class Connection(pulumi.CustomResource):
             request_macsec=True)
         ```
         ### Configure encryption mode for MACsec-capable connections
+
         > **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
 
         ```python
@@ -563,6 +564,7 @@ class Connection(pulumi.CustomResource):
             request_macsec=True)
         ```
         ### Configure encryption mode for MACsec-capable connections
+
         > **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
 
         ```python

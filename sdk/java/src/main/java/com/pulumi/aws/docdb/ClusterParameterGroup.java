@@ -68,56 +68,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:docdb/clusterParameterGroup:ClusterParameterGroup")
 public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the documentDB cluster parameter group.
+     * The ARN of the DocumentDB cluster parameter group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the documentDB cluster parameter group.
+     * @return The ARN of the DocumentDB cluster parameter group.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The description of the documentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the documentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The family of the documentDB cluster parameter group.
+     * The family of the DocumentDB cluster parameter group.
      * 
      */
     @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
     /**
-     * @return The family of the documentDB cluster parameter group.
+     * @return The family of the DocumentDB cluster parameter group.
      * 
      */
     public Output<String> family() {
         return this.family;
     }
     /**
-     * The name of the documentDB parameter.
+     * The name of the DocumentDB parameter.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the documentDB parameter.
+     * @return The name of the DocumentDB parameter.
      * 
      */
     public Output<String> name() {
@@ -138,14 +138,14 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
-     * A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+     * A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      * 
      */
     @Export(name="parameters", refs={List.class,ClusterParameterGroupParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ClusterParameterGroupParameter>> parameters;
 
     /**
-     * @return A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+     * @return A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      * 
      */
     public Output<Optional<List<ClusterParameterGroupParameter>>> parameters() {

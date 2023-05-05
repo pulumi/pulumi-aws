@@ -145,7 +145,7 @@ type S3Endpoint struct {
 	BucketFolder pulumi.StringPtrOutput `pulumi:"bucketFolder"`
 	// S3 bucket name.
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
-	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
 	CannedAclForObjects pulumi.StringPtrOutput `pulumi:"cannedAclForObjects"`
 	// Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
 	CdcInsertsAndUpdates pulumi.BoolPtrOutput `pulumi:"cdcInsertsAndUpdates"`
@@ -292,7 +292,7 @@ type s3endpointState struct {
 	BucketFolder *string `pulumi:"bucketFolder"`
 	// S3 bucket name.
 	BucketName *string `pulumi:"bucketName"`
-	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
 	CannedAclForObjects *string `pulumi:"cannedAclForObjects"`
 	// Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
 	CdcInsertsAndUpdates *bool `pulumi:"cdcInsertsAndUpdates"`
@@ -399,7 +399,7 @@ type S3EndpointState struct {
 	BucketFolder pulumi.StringPtrInput
 	// S3 bucket name.
 	BucketName pulumi.StringPtrInput
-	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
 	CannedAclForObjects pulumi.StringPtrInput
 	// Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
 	CdcInsertsAndUpdates pulumi.BoolPtrInput
@@ -510,7 +510,7 @@ type s3endpointArgs struct {
 	BucketFolder *string `pulumi:"bucketFolder"`
 	// S3 bucket name.
 	BucketName string `pulumi:"bucketName"`
-	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
 	CannedAclForObjects *string `pulumi:"cannedAclForObjects"`
 	// Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
 	CdcInsertsAndUpdates *bool `pulumi:"cdcInsertsAndUpdates"`
@@ -610,7 +610,7 @@ type S3EndpointArgs struct {
 	BucketFolder pulumi.StringPtrInput
 	// S3 bucket name.
 	BucketName pulumi.StringInput
-	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+	// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
 	CannedAclForObjects pulumi.StringPtrInput
 	// Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
 	CdcInsertsAndUpdates pulumi.BoolPtrInput
@@ -807,7 +807,7 @@ func (o S3EndpointOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `NONE`, `PRIVATE`, `PUBLIC_READ`, `PUBLIC_READ_WRITE`, `AUTHENTICATED_READ`, `AWS_EXEC_READ`, `BUCKET_OWNER_READ`, and `BUCKET_OWNER_FULL_CONTROL`. (AWS default is `NONE`.)
+// Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
 func (o S3EndpointOutput) CannedAclForObjects() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.CannedAclForObjects }).(pulumi.StringPtrOutput)
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DocDB
 {
     /// <summary>
-    /// Manages a DocDB database cluster snapshot for DocDB clusters.
+    /// Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
     /// 
     /// ## Example Usage
     /// 
@@ -43,19 +43,19 @@ namespace Pulumi.Aws.DocDB
     public partial class ClusterSnapshot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+        /// List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// The DocDB Cluster Identifier from which to take the snapshot.
+        /// The DocumentDB Cluster Identifier from which to take the snapshot.
         /// </summary>
         [Output("dbClusterIdentifier")]
         public Output<string> DbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+        /// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
         /// </summary>
         [Output("dbClusterSnapshotArn")]
         public Output<string> DbClusterSnapshotArn { get; private set; } = null!;
@@ -73,19 +73,19 @@ namespace Pulumi.Aws.DocDB
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the database engine for this DocDB cluster snapshot.
+        /// Version of the database engine for this DocumentDB cluster snapshot.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+        /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Port that the DocDB cluster was listening on at the time of the snapshot.
+        /// Port that the DocumentDB cluster was listening on at the time of the snapshot.
         /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
@@ -97,19 +97,19 @@ namespace Pulumi.Aws.DocDB
         public Output<string> SourceDbClusterSnapshotArn { get; private set; } = null!;
 
         /// <summary>
-        /// The status of this DocDB Cluster Snapshot.
+        /// The status of this DocumentDB Cluster Snapshot.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DocDB cluster snapshot is encrypted.
+        /// Specifies whether the DocumentDB cluster snapshot is encrypted.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC ID associated with the DocDB cluster snapshot.
+        /// The VPC ID associated with the DocumentDB cluster snapshot.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.DocDB
     public sealed class ClusterSnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DocDB Cluster Identifier from which to take the snapshot.
+        /// The DocumentDB Cluster Identifier from which to take the snapshot.
         /// </summary>
         [Input("dbClusterIdentifier", required: true)]
         public Input<string> DbClusterIdentifier { get; set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.DocDB
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+        /// List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -193,13 +193,13 @@ namespace Pulumi.Aws.DocDB
         }
 
         /// <summary>
-        /// The DocDB Cluster Identifier from which to take the snapshot.
+        /// The DocumentDB Cluster Identifier from which to take the snapshot.
         /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+        /// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
         /// </summary>
         [Input("dbClusterSnapshotArn")]
         public Input<string>? DbClusterSnapshotArn { get; set; }
@@ -217,19 +217,19 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// Version of the database engine for this DocDB cluster snapshot.
+        /// Version of the database engine for this DocumentDB cluster snapshot.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+        /// If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Port that the DocDB cluster was listening on at the time of the snapshot.
+        /// Port that the DocumentDB cluster was listening on at the time of the snapshot.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -241,19 +241,19 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? SourceDbClusterSnapshotArn { get; set; }
 
         /// <summary>
-        /// The status of this DocDB Cluster Snapshot.
+        /// The status of this DocumentDB Cluster Snapshot.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// Specifies whether the DocDB cluster snapshot is encrypted.
+        /// Specifies whether the DocumentDB cluster snapshot is encrypted.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// The VPC ID associated with the DocDB cluster snapshot.
+        /// The VPC ID associated with the DocumentDB cluster snapshot.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

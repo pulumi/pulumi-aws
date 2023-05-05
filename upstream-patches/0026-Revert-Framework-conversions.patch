@@ -1,4 +1,4 @@
-From e47a0ea3e8e6179ad99409572b7df7aa5c223e2c Mon Sep 17 00:00:00 2001
+From 1fd9f19c4b5b0af1f7a2e7c7b17babe5aaeffe6e Mon Sep 17 00:00:00 2001
 From: Thomas Kappler <tkappler@pulumi.com>
 Date: Tue, 28 Mar 2023 15:09:00 -0700
 Subject: [PATCH 26/27] Revert Framework conversions
@@ -31,7 +31,7 @@ index 8b79c26538..d19d8406a0 100644
  
  import (
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 42ac0bf029..5b4782eace 100644
+index 12ec3fe625..95ed90469e 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -8,6 +8,7 @@ import (
@@ -73,7 +73,7 @@ index 42ac0bf029..5b4782eace 100644
  	}
  
 diff --git a/internal/provider/service_packages_gen.go b/internal/provider/service_packages_gen.go
-index 301f33a2d6..bd0a0c1bec 100644
+index 5e86dd274e..052b7ed81e 100644
 --- a/internal/provider/service_packages_gen.go
 +++ b/internal/provider/service_packages_gen.go
 @@ -51,7 +51,6 @@ import (
@@ -84,7 +84,7 @@ index 301f33a2d6..bd0a0c1bec 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/comprehend"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/computeoptimizer"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/configservice"
-@@ -256,7 +255,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+@@ -258,7 +257,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		codestarconnections.ServicePackage,
  		codestarnotifications.ServicePackage,
  		cognitoidentity.ServicePackage,

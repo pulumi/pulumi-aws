@@ -1,4 +1,4 @@
-From a244175fd3ff266f0e08066d6e84d0181a034d8a Mon Sep 17 00:00:00 2001
+From 6df816a2a9d4e8a7a136c4264284d5d5044c78f7 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:42:19 +0000
 Subject: [PATCH 12/27] Revert framework conversions
@@ -136,7 +136,7 @@ index 0000000000..9f1b58046f
 +	return a.Unknown
 +}
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 10259afb52..3cbf5123ff 100644
+index 03dc9cea6c..764e4987a4 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -9,7 +9,11 @@ import (
@@ -182,7 +182,7 @@ index 10259afb52..3cbf5123ff 100644
  	}
  
 diff --git a/internal/provider/service_packages_gen.go b/internal/provider/service_packages_gen.go
-index 4c52ebc933..301f33a2d6 100644
+index 68aad25056..5e86dd274e 100644
 --- a/internal/provider/service_packages_gen.go
 +++ b/internal/provider/service_packages_gen.go
 @@ -95,7 +95,7 @@ import (
@@ -194,7 +194,7 @@ index 4c52ebc933..301f33a2d6 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/glue"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/grafana"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/greengrass"
-@@ -135,7 +135,7 @@ import (
+@@ -136,7 +136,7 @@ import (
  	"github.com/hashicorp/terraform-provider-aws/internal/service/mediapackage"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/mediastore"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/memorydb"
@@ -203,7 +203,7 @@ index 4c52ebc933..301f33a2d6 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/mq"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/mwaa"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/neptune"
-@@ -186,14 +186,14 @@ import (
+@@ -187,7 +187,7 @@ import (
  	"github.com/hashicorp/terraform-provider-aws/internal/service/sfn"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/shield"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/signer"
@@ -212,6 +212,7 @@ index 4c52ebc933..301f33a2d6 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/sns"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/sqs"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/ssm"
+@@ -195,7 +195,7 @@ import (
  	"github.com/hashicorp/terraform-provider-aws/internal/service/ssmincidents"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/ssoadmin"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/storagegateway"
@@ -220,7 +221,7 @@ index 4c52ebc933..301f33a2d6 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/swf"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/synthetics"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/timestreamwrite"
-@@ -300,7 +300,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+@@ -302,7 +302,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		fsx.ServicePackage,
  		gamelift.ServicePackage,
  		glacier.ServicePackage,
@@ -229,7 +230,7 @@ index 4c52ebc933..301f33a2d6 100644
  		glue.ServicePackage,
  		grafana.ServicePackage,
  		greengrass.ServicePackage,
-@@ -340,7 +340,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+@@ -343,7 +343,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		mediapackage.ServicePackage,
  		mediastore.ServicePackage,
  		memorydb.ServicePackage,
@@ -238,7 +239,7 @@ index 4c52ebc933..301f33a2d6 100644
  		mq.ServicePackage,
  		mwaa.ServicePackage,
  		neptune.ServicePackage,
-@@ -391,14 +391,14 @@ func servicePackages(context.Context) []conns.ServicePackage {
+@@ -394,7 +394,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		sfn.ServicePackage,
  		shield.ServicePackage,
  		signer.ServicePackage,
@@ -247,6 +248,7 @@ index 4c52ebc933..301f33a2d6 100644
  		sns.ServicePackage,
  		sqs.ServicePackage,
  		ssm.ServicePackage,
+@@ -402,7 +402,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		ssmincidents.ServicePackage,
  		ssoadmin.ServicePackage,
  		storagegateway.ServicePackage,

@@ -233,7 +233,7 @@ class Connection(pulumi.CustomResource):
         """
         Provides a CodeStar Connection.
 
-        > **NOTE:** The `codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console.
+        > **NOTE:** The `codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console. See the [AWS documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html) for details.
 
         ## Example Usage
 
@@ -298,7 +298,7 @@ class Connection(pulumi.CustomResource):
         """
         Provides a CodeStar Connection.
 
-        > **NOTE:** The `codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console.
+        > **NOTE:** The `codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console. See the [AWS documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-update.html) for details.
 
         ## Example Usage
 

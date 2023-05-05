@@ -61,6 +61,10 @@ class GetClusterResult:
         pulumi.set(__self__, "cluster_revision_number", cluster_revision_number)
         if cluster_security_groups and not isinstance(cluster_security_groups, list):
             raise TypeError("Expected argument 'cluster_security_groups' to be a list")
+        if cluster_security_groups is not None:
+            warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
+
         pulumi.set(__self__, "cluster_security_groups", cluster_security_groups)
         if cluster_subnet_group_name and not isinstance(cluster_subnet_group_name, str):
             raise TypeError("Expected argument 'cluster_subnet_group_name' to be a str")

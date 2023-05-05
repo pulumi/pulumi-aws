@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:ssmincidents/replicationSet:ReplicationSet":
 		r = &ReplicationSet{}
+	case "aws:ssmincidents/responsePlan:ResponsePlan":
+		r = &ResponsePlan{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ssmincidents/replicationSet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ssmincidents/responsePlan",
 		&module{version},
 	)
 }

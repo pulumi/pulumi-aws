@@ -16,14 +16,14 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
     public static final ServiceInstanceConfigurationArgs Empty = new ServiceInstanceConfigurationArgs();
 
     /**
-     * Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+     * Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
      * 
      */
     @Import(name="cpu")
     private @Nullable Output<String> cpu;
 
     /**
-     * @return Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+     * @return Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
      * 
      */
     public Optional<Output<String>> cpu() {
@@ -46,14 +46,14 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+     * Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
      * 
      */
     @Import(name="memory")
     private @Nullable Output<String> memory;
 
     /**
-     * @return Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+     * @return Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
      * 
      */
     public Optional<Output<String>> memory() {
@@ -87,7 +87,7 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cpu Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+         * @param cpu Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param cpu Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+         * @param cpu Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param memory Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+         * @param memory Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ServiceInstanceConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param memory Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
+         * @param memory Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
          * 
          * @return builder
          * 

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Region of the AMI.
+        /// Region of the container image.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

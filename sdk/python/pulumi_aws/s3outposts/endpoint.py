@@ -18,16 +18,24 @@ class EndpointArgs:
     def __init__(__self__, *,
                  outpost_id: pulumi.Input[str],
                  security_group_id: pulumi.Input[str],
-                 subnet_id: pulumi.Input[str]):
+                 subnet_id: pulumi.Input[str],
+                 access_type: Optional[pulumi.Input[str]] = None,
+                 customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
         :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this endpoint.
         :param pulumi.Input[str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[str] subnet_id: Identifier of the EC2 Subnet.
+        :param pulumi.Input[str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         """
         pulumi.set(__self__, "outpost_id", outpost_id)
         pulumi.set(__self__, "security_group_id", security_group_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if access_type is not None:
+            pulumi.set(__self__, "access_type", access_type)
+        if customer_owned_ipv4_pool is not None:
+            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
 
     @property
     @pulumi.getter(name="outpostId")
@@ -65,33 +73,65 @@ class EndpointArgs:
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
 
+    @property
+    @pulumi.getter(name="accessType")
+    def access_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+        """
+        return pulumi.get(self, "access_type")
+
+    @access_type.setter
+    def access_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_type", value)
+
+    @property
+    @pulumi.getter(name="customerOwnedIpv4Pool")
+    def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        """
+        return pulumi.get(self, "customer_owned_ipv4_pool")
+
+    @customer_owned_ipv4_pool.setter
+    def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_owned_ipv4_pool", value)
+
 
 @pulumi.input_type
 class _EndpointState:
     def __init__(__self__, *,
+                 access_type: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
+                 customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Endpoint resources.
+        :param pulumi.Input[str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the endpoint.
         :param pulumi.Input[str] cidr_block: VPC CIDR block of the endpoint.
         :param pulumi.Input[str] creation_time: UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         :param pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this endpoint.
         :param pulumi.Input[str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[str] subnet_id: Identifier of the EC2 Subnet.
         """
+        if access_type is not None:
+            pulumi.set(__self__, "access_type", access_type)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
+        if customer_owned_ipv4_pool is not None:
+            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if outpost_id is not None:
@@ -100,6 +140,18 @@ class _EndpointState:
             pulumi.set(__self__, "security_group_id", security_group_id)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="accessType")
+    def access_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+        """
+        return pulumi.get(self, "access_type")
+
+    @access_type.setter
+    def access_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_type", value)
 
     @property
     @pulumi.getter
@@ -136,6 +188,18 @@ class _EndpointState:
     @creation_time.setter
     def creation_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "creation_time", value)
+
+    @property
+    @pulumi.getter(name="customerOwnedIpv4Pool")
+    def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        """
+        return pulumi.get(self, "customer_owned_ipv4_pool")
+
+    @customer_owned_ipv4_pool.setter
+    def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_owned_ipv4_pool", value)
 
     @property
     @pulumi.getter(name="networkInterfaces")
@@ -191,6 +255,8 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_type: Optional[pulumi.Input[str]] = None,
+                 customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -220,6 +286,8 @@ class Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this endpoint.
         :param pulumi.Input[str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[str] subnet_id: Identifier of the EC2 Subnet.
@@ -268,6 +336,8 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_type: Optional[pulumi.Input[str]] = None,
+                 customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -280,6 +350,8 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointArgs.__new__(EndpointArgs)
 
+            __props__.__dict__["access_type"] = access_type
+            __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
             if outpost_id is None and not opts.urn:
                 raise TypeError("Missing required property 'outpost_id'")
             __props__.__dict__["outpost_id"] = outpost_id
@@ -303,9 +375,11 @@ class Endpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            access_type: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             cidr_block: Optional[pulumi.Input[str]] = None,
             creation_time: Optional[pulumi.Input[str]] = None,
+            customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArgs']]]]] = None,
             outpost_id: Optional[pulumi.Input[str]] = None,
             security_group_id: Optional[pulumi.Input[str]] = None,
@@ -317,9 +391,11 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the endpoint.
         :param pulumi.Input[str] cidr_block: VPC CIDR block of the endpoint.
         :param pulumi.Input[str] creation_time: UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArgs']]]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this endpoint.
         :param pulumi.Input[str] security_group_id: Identifier of the EC2 Security Group.
@@ -329,14 +405,24 @@ class Endpoint(pulumi.CustomResource):
 
         __props__ = _EndpointState.__new__(_EndpointState)
 
+        __props__.__dict__["access_type"] = access_type
         __props__.__dict__["arn"] = arn
         __props__.__dict__["cidr_block"] = cidr_block
         __props__.__dict__["creation_time"] = creation_time
+        __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
         __props__.__dict__["network_interfaces"] = network_interfaces
         __props__.__dict__["outpost_id"] = outpost_id
         __props__.__dict__["security_group_id"] = security_group_id
         __props__.__dict__["subnet_id"] = subnet_id
         return Endpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessType")
+    def access_type(self) -> pulumi.Output[str]:
+        """
+        Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+        """
+        return pulumi.get(self, "access_type")
 
     @property
     @pulumi.getter
@@ -361,6 +447,14 @@ class Endpoint(pulumi.CustomResource):
         UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="customerOwnedIpv4Pool")
+    def customer_owned_ipv4_pool(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        """
+        return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @property
     @pulumi.getter(name="networkInterfaces")

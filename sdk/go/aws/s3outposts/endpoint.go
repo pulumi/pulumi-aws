@@ -53,12 +53,16 @@ import (
 type Endpoint struct {
 	pulumi.CustomResourceState
 
+	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+	AccessType pulumi.StringOutput `pulumi:"accessType"`
 	// Amazon Resource Name (ARN) of the endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// VPC CIDR block of the endpoint.
 	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
 	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
 	NetworkInterfaces EndpointNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// Identifier of the Outpost to contain this endpoint.
@@ -107,12 +111,16 @@ func GetEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
+	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+	AccessType *string `pulumi:"accessType"`
 	// Amazon Resource Name (ARN) of the endpoint.
 	Arn *string `pulumi:"arn"`
 	// VPC CIDR block of the endpoint.
 	CidrBlock *string `pulumi:"cidrBlock"`
 	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreationTime *string `pulumi:"creationTime"`
+	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
 	NetworkInterfaces []EndpointNetworkInterface `pulumi:"networkInterfaces"`
 	// Identifier of the Outpost to contain this endpoint.
@@ -124,12 +132,16 @@ type endpointState struct {
 }
 
 type EndpointState struct {
+	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+	AccessType pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the endpoint.
 	Arn pulumi.StringPtrInput
 	// VPC CIDR block of the endpoint.
 	CidrBlock pulumi.StringPtrInput
 	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreationTime pulumi.StringPtrInput
+	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
 	NetworkInterfaces EndpointNetworkInterfaceArrayInput
 	// Identifier of the Outpost to contain this endpoint.
@@ -145,6 +157,10 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
+	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+	AccessType *string `pulumi:"accessType"`
+	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// Identifier of the Outpost to contain this endpoint.
 	OutpostId string `pulumi:"outpostId"`
 	// Identifier of the EC2 Security Group.
@@ -155,6 +171,10 @@ type endpointArgs struct {
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
+	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+	AccessType pulumi.StringPtrInput
+	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// Identifier of the Outpost to contain this endpoint.
 	OutpostId pulumi.StringInput
 	// Identifier of the EC2 Security Group.
@@ -250,6 +270,11 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
+// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+func (o EndpointOutput) AccessType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.AccessType }).(pulumi.StringOutput)
+}
+
 // Amazon Resource Name (ARN) of the endpoint.
 func (o EndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -263,6 +288,11 @@ func (o EndpointOutput) CidrBlock() pulumi.StringOutput {
 // UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 func (o EndpointOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+func (o EndpointOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.CustomerOwnedIpv4Pool }).(pulumi.StringPtrOutput)
 }
 
 // Set of nested attributes for associated Elastic Network Interfaces (ENIs).

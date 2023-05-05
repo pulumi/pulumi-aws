@@ -22,6 +22,7 @@ public final class GetAmiIdsResult {
      */
     private String id;
     private List<String> ids;
+    private @Nullable Boolean includeDeprecated;
     private @Nullable String nameRegex;
     private List<String> owners;
     private @Nullable Boolean sortAscending;
@@ -42,6 +43,9 @@ public final class GetAmiIdsResult {
     }
     public List<String> ids() {
         return this.ids;
+    }
+    public Optional<Boolean> includeDeprecated() {
+        return Optional.ofNullable(this.includeDeprecated);
     }
     public Optional<String> nameRegex() {
         return Optional.ofNullable(this.nameRegex);
@@ -66,6 +70,7 @@ public final class GetAmiIdsResult {
         private @Nullable List<GetAmiIdsFilter> filters;
         private String id;
         private List<String> ids;
+        private @Nullable Boolean includeDeprecated;
         private @Nullable String nameRegex;
         private List<String> owners;
         private @Nullable Boolean sortAscending;
@@ -76,6 +81,7 @@ public final class GetAmiIdsResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.includeDeprecated = defaults.includeDeprecated;
     	      this.nameRegex = defaults.nameRegex;
     	      this.owners = defaults.owners;
     	      this.sortAscending = defaults.sortAscending;
@@ -111,6 +117,11 @@ public final class GetAmiIdsResult {
             return ids(List.of(ids));
         }
         @CustomType.Setter
+        public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
+            this.includeDeprecated = includeDeprecated;
+            return this;
+        }
+        @CustomType.Setter
         public Builder nameRegex(@Nullable String nameRegex) {
             this.nameRegex = nameRegex;
             return this;
@@ -134,6 +145,7 @@ public final class GetAmiIdsResult {
             o.filters = filters;
             o.id = id;
             o.ids = ids;
+            o.includeDeprecated = includeDeprecated;
             o.nameRegex = nameRegex;
             o.owners = owners;
             o.sortAscending = sortAscending;

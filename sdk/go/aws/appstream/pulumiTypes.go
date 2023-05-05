@@ -1481,6 +1481,147 @@ func (o StackStorageConnectorArrayOutput) Index(i pulumi.IntInput) StackStorageC
 	}).(StackStorageConnectorOutput)
 }
 
+type StackStreamingExperienceSettings struct {
+	// The preferred protocol that you want to use while streaming your application.
+	// Valid values are `TCP` and `UDP`.
+	PreferredProtocol *string `pulumi:"preferredProtocol"`
+}
+
+// StackStreamingExperienceSettingsInput is an input type that accepts StackStreamingExperienceSettingsArgs and StackStreamingExperienceSettingsOutput values.
+// You can construct a concrete instance of `StackStreamingExperienceSettingsInput` via:
+//
+//	StackStreamingExperienceSettingsArgs{...}
+type StackStreamingExperienceSettingsInput interface {
+	pulumi.Input
+
+	ToStackStreamingExperienceSettingsOutput() StackStreamingExperienceSettingsOutput
+	ToStackStreamingExperienceSettingsOutputWithContext(context.Context) StackStreamingExperienceSettingsOutput
+}
+
+type StackStreamingExperienceSettingsArgs struct {
+	// The preferred protocol that you want to use while streaming your application.
+	// Valid values are `TCP` and `UDP`.
+	PreferredProtocol pulumi.StringPtrInput `pulumi:"preferredProtocol"`
+}
+
+func (StackStreamingExperienceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackStreamingExperienceSettings)(nil)).Elem()
+}
+
+func (i StackStreamingExperienceSettingsArgs) ToStackStreamingExperienceSettingsOutput() StackStreamingExperienceSettingsOutput {
+	return i.ToStackStreamingExperienceSettingsOutputWithContext(context.Background())
+}
+
+func (i StackStreamingExperienceSettingsArgs) ToStackStreamingExperienceSettingsOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackStreamingExperienceSettingsOutput)
+}
+
+func (i StackStreamingExperienceSettingsArgs) ToStackStreamingExperienceSettingsPtrOutput() StackStreamingExperienceSettingsPtrOutput {
+	return i.ToStackStreamingExperienceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i StackStreamingExperienceSettingsArgs) ToStackStreamingExperienceSettingsPtrOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackStreamingExperienceSettingsOutput).ToStackStreamingExperienceSettingsPtrOutputWithContext(ctx)
+}
+
+// StackStreamingExperienceSettingsPtrInput is an input type that accepts StackStreamingExperienceSettingsArgs, StackStreamingExperienceSettingsPtr and StackStreamingExperienceSettingsPtrOutput values.
+// You can construct a concrete instance of `StackStreamingExperienceSettingsPtrInput` via:
+//
+//	        StackStreamingExperienceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackStreamingExperienceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToStackStreamingExperienceSettingsPtrOutput() StackStreamingExperienceSettingsPtrOutput
+	ToStackStreamingExperienceSettingsPtrOutputWithContext(context.Context) StackStreamingExperienceSettingsPtrOutput
+}
+
+type stackStreamingExperienceSettingsPtrType StackStreamingExperienceSettingsArgs
+
+func StackStreamingExperienceSettingsPtr(v *StackStreamingExperienceSettingsArgs) StackStreamingExperienceSettingsPtrInput {
+	return (*stackStreamingExperienceSettingsPtrType)(v)
+}
+
+func (*stackStreamingExperienceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackStreamingExperienceSettings)(nil)).Elem()
+}
+
+func (i *stackStreamingExperienceSettingsPtrType) ToStackStreamingExperienceSettingsPtrOutput() StackStreamingExperienceSettingsPtrOutput {
+	return i.ToStackStreamingExperienceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *stackStreamingExperienceSettingsPtrType) ToStackStreamingExperienceSettingsPtrOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackStreamingExperienceSettingsPtrOutput)
+}
+
+type StackStreamingExperienceSettingsOutput struct{ *pulumi.OutputState }
+
+func (StackStreamingExperienceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackStreamingExperienceSettings)(nil)).Elem()
+}
+
+func (o StackStreamingExperienceSettingsOutput) ToStackStreamingExperienceSettingsOutput() StackStreamingExperienceSettingsOutput {
+	return o
+}
+
+func (o StackStreamingExperienceSettingsOutput) ToStackStreamingExperienceSettingsOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsOutput {
+	return o
+}
+
+func (o StackStreamingExperienceSettingsOutput) ToStackStreamingExperienceSettingsPtrOutput() StackStreamingExperienceSettingsPtrOutput {
+	return o.ToStackStreamingExperienceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o StackStreamingExperienceSettingsOutput) ToStackStreamingExperienceSettingsPtrOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackStreamingExperienceSettings) *StackStreamingExperienceSettings {
+		return &v
+	}).(StackStreamingExperienceSettingsPtrOutput)
+}
+
+// The preferred protocol that you want to use while streaming your application.
+// Valid values are `TCP` and `UDP`.
+func (o StackStreamingExperienceSettingsOutput) PreferredProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackStreamingExperienceSettings) *string { return v.PreferredProtocol }).(pulumi.StringPtrOutput)
+}
+
+type StackStreamingExperienceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (StackStreamingExperienceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackStreamingExperienceSettings)(nil)).Elem()
+}
+
+func (o StackStreamingExperienceSettingsPtrOutput) ToStackStreamingExperienceSettingsPtrOutput() StackStreamingExperienceSettingsPtrOutput {
+	return o
+}
+
+func (o StackStreamingExperienceSettingsPtrOutput) ToStackStreamingExperienceSettingsPtrOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsPtrOutput {
+	return o
+}
+
+func (o StackStreamingExperienceSettingsPtrOutput) Elem() StackStreamingExperienceSettingsOutput {
+	return o.ApplyT(func(v *StackStreamingExperienceSettings) StackStreamingExperienceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret StackStreamingExperienceSettings
+		return ret
+	}).(StackStreamingExperienceSettingsOutput)
+}
+
+// The preferred protocol that you want to use while streaming your application.
+// Valid values are `TCP` and `UDP`.
+func (o StackStreamingExperienceSettingsPtrOutput) PreferredProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackStreamingExperienceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
 type StackUserSetting struct {
 	// Action that is enabled or disabled.
 	// Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
@@ -1614,6 +1755,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackApplicationSettingsPtrInput)(nil)).Elem(), StackApplicationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackStorageConnectorInput)(nil)).Elem(), StackStorageConnectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackStorageConnectorArrayInput)(nil)).Elem(), StackStorageConnectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackStreamingExperienceSettingsInput)(nil)).Elem(), StackStreamingExperienceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackStreamingExperienceSettingsPtrInput)(nil)).Elem(), StackStreamingExperienceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingInput)(nil)).Elem(), StackUserSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingArrayInput)(nil)).Elem(), StackUserSettingArray{})
 	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsOutput{})
@@ -1636,6 +1779,8 @@ func init() {
 	pulumi.RegisterOutputType(StackApplicationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(StackStorageConnectorOutput{})
 	pulumi.RegisterOutputType(StackStorageConnectorArrayOutput{})
+	pulumi.RegisterOutputType(StackStreamingExperienceSettingsOutput{})
+	pulumi.RegisterOutputType(StackStreamingExperienceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(StackUserSettingOutput{})
 	pulumi.RegisterOutputType(StackUserSettingArrayOutput{})
 }

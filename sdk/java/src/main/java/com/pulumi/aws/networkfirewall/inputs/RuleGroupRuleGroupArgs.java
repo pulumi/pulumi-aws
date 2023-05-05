@@ -19,14 +19,14 @@ public final class RuleGroupRuleGroupArgs extends com.pulumi.resources.ResourceA
     public static final RuleGroupRuleGroupArgs Empty = new RuleGroupRuleGroupArgs();
 
     /**
-     * A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+     * A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
      * 
      */
     @Import(name="referenceSets")
     private @Nullable Output<RuleGroupRuleGroupReferenceSetsArgs> referenceSets;
 
     /**
-     * @return A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+     * @return A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
      * 
      */
     public Optional<Output<RuleGroupRuleGroupReferenceSetsArgs>> referenceSets() {
@@ -106,7 +106,7 @@ public final class RuleGroupRuleGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param referenceSets A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+         * @param referenceSets A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class RuleGroupRuleGroupArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param referenceSets A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details.
+         * @param referenceSets A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
          * 
          * @return builder
          * 

@@ -117,6 +117,8 @@ export interface GetClusterResult {
     readonly clusterRevisionNumber: string;
     /**
      * The security groups associated with the cluster
+     *
+     * @deprecated With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
      */
     readonly clusterSecurityGroups: string[];
     /**

@@ -91,6 +91,9 @@ import javax.annotation.Nullable;
  *                         .vendorName(&#34;AWS&#34;)
  *                         .build())
  *                     .build())
+ *                 .tokenDomains(                
+ *                     &#34;mywebsite.com&#34;,
+ *                     &#34;myotherwebsite.com&#34;)
  *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                     .cloudwatchMetricsEnabled(false)
  *                     .metricName(&#34;friendly-rule-metric-name&#34;)
@@ -198,6 +201,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Rate Based
+ * 
  * Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
  * ```java
  * package generated_program;
@@ -593,6 +597,20 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
+     * 
+     */
+    @Export(name="tokenDomains", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> tokenDomains;
+
+    /**
+     * @return Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
+     * 
+     */
+    public Output<Optional<List<String>>> tokenDomains() {
+        return Codegen.optional(this.tokenDomains);
     }
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.

@@ -76,6 +76,10 @@ export class GameSessionQueue extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Information to be added to all events that are related to this game session queue.
+     */
+    public readonly customEventData!: pulumi.Output<string | undefined>;
+    /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      */
     public readonly destinations!: pulumi.Output<string[] | undefined>;
@@ -118,6 +122,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as GameSessionQueueState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["customEventData"] = state ? state.customEventData : undefined;
             resourceInputs["destinations"] = state ? state.destinations : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notificationTarget"] = state ? state.notificationTarget : undefined;
@@ -127,6 +132,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
             resourceInputs["timeoutInSeconds"] = state ? state.timeoutInSeconds : undefined;
         } else {
             const args = argsOrState as GameSessionQueueArgs | undefined;
+            resourceInputs["customEventData"] = args ? args.customEventData : undefined;
             resourceInputs["destinations"] = args ? args.destinations : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notificationTarget"] = args ? args.notificationTarget : undefined;
@@ -149,6 +155,10 @@ export interface GameSessionQueueState {
      * Game Session Queue ARN.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Information to be added to all events that are related to this game session queue.
+     */
+    customEventData?: pulumi.Input<string>;
     /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      */
@@ -183,6 +193,10 @@ export interface GameSessionQueueState {
  * The set of arguments for constructing a GameSessionQueue resource.
  */
 export interface GameSessionQueueArgs {
+    /**
+     * Information to be added to all events that are related to this game session queue.
+     */
+    customEventData?: pulumi.Input<string>;
     /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      */

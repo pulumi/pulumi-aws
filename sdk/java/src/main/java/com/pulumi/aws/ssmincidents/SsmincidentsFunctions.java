@@ -6,7 +6,10 @@ package com.pulumi.aws.ssmincidents;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetArgs;
 import com.pulumi.aws.ssmincidents.inputs.GetReplicationSetPlainArgs;
+import com.pulumi.aws.ssmincidents.inputs.GetResponsePlanArgs;
+import com.pulumi.aws.ssmincidents.inputs.GetResponsePlanPlainArgs;
 import com.pulumi.aws.ssmincidents.outputs.GetReplicationSetResult;
+import com.pulumi.aws.ssmincidents.outputs.GetResponsePlanResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -241,5 +244,161 @@ public final class SsmincidentsFunctions {
      */
     public static CompletableFuture<GetReplicationSetResult> getReplicationSetPlain(GetReplicationSetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ssmincidents/getReplicationSet:getReplicationSet", TypeShape.of(GetReplicationSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssmincidents.ResponsePlan;
+     * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
+     *             .arn(&#34;exampleARN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResponsePlanResult> getResponsePlan(GetResponsePlanArgs args) {
+        return getResponsePlan(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssmincidents.ResponsePlan;
+     * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
+     *             .arn(&#34;exampleARN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResponsePlanResult> getResponsePlanPlain(GetResponsePlanPlainArgs args) {
+        return getResponsePlanPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssmincidents.ResponsePlan;
+     * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
+     *             .arn(&#34;exampleARN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResponsePlanResult> getResponsePlan(GetResponsePlanArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ssmincidents/getResponsePlan:getResponsePlan", TypeShape.of(GetResponsePlanResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssmincidents.ResponsePlan;
+     * import com.pulumi.aws.ssmincidents.ResponsePlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new ResponsePlan(&#34;example&#34;, ResponsePlanArgs.builder()        
+     *             .arn(&#34;exampleARN&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResponsePlanResult> getResponsePlanPlain(GetResponsePlanPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ssmincidents/getResponsePlan:getResponsePlan", TypeShape.of(GetResponsePlanResult.class), args, Utilities.withVersion(options));
     }
 }

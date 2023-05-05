@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'VoiceConnectorGroupConnector',
     'VoiceConnectorOrganizationRoute',
+    'VoiceConnectorStreamingMediaInsightsConfiguration',
     'VoiceConnectorTerminationCredentialsCredential',
 ]
 
@@ -122,6 +123,54 @@ class VoiceConnectorOrganizationRoute(dict):
         The designated origination route port. Defaults to `5060`.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class VoiceConnectorStreamingMediaInsightsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationArn":
+            suggest = "configuration_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VoiceConnectorStreamingMediaInsightsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VoiceConnectorStreamingMediaInsightsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VoiceConnectorStreamingMediaInsightsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_arn: Optional[str] = None,
+                 disabled: Optional[bool] = None):
+        """
+        :param str configuration_arn: The media insights configuration that will be invoked by the Voice Connector.
+        :param bool disabled: When `true`, the media insights configuration is not enabled. Defaults to `false`.
+        """
+        if configuration_arn is not None:
+            pulumi.set(__self__, "configuration_arn", configuration_arn)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+
+    @property
+    @pulumi.getter(name="configurationArn")
+    def configuration_arn(self) -> Optional[str]:
+        """
+        The media insights configuration that will be invoked by the Voice Connector.
+        """
+        return pulumi.get(self, "configuration_arn")
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[bool]:
+        """
+        When `true`, the media insights configuration is not enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "disabled")
 
 
 @pulumi.output_type

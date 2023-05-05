@@ -32,6 +32,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * ### Configure encryption mode for MACsec-capable connections
+ *
  * > **NOTE:** You can only specify the `encryptionMode` argument once the connection is in an `Available` state.
  *
  * ```typescript

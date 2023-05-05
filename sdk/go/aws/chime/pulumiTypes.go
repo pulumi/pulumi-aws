@@ -249,6 +249,162 @@ func (o VoiceConnectorOrganizationRouteArrayOutput) Index(i pulumi.IntInput) Voi
 	}).(VoiceConnectorOrganizationRouteOutput)
 }
 
+type VoiceConnectorStreamingMediaInsightsConfiguration struct {
+	// The media insights configuration that will be invoked by the Voice Connector.
+	ConfigurationArn *string `pulumi:"configurationArn"`
+	// When `true`, the media insights configuration is not enabled. Defaults to `false`.
+	Disabled *bool `pulumi:"disabled"`
+}
+
+// VoiceConnectorStreamingMediaInsightsConfigurationInput is an input type that accepts VoiceConnectorStreamingMediaInsightsConfigurationArgs and VoiceConnectorStreamingMediaInsightsConfigurationOutput values.
+// You can construct a concrete instance of `VoiceConnectorStreamingMediaInsightsConfigurationInput` via:
+//
+//	VoiceConnectorStreamingMediaInsightsConfigurationArgs{...}
+type VoiceConnectorStreamingMediaInsightsConfigurationInput interface {
+	pulumi.Input
+
+	ToVoiceConnectorStreamingMediaInsightsConfigurationOutput() VoiceConnectorStreamingMediaInsightsConfigurationOutput
+	ToVoiceConnectorStreamingMediaInsightsConfigurationOutputWithContext(context.Context) VoiceConnectorStreamingMediaInsightsConfigurationOutput
+}
+
+type VoiceConnectorStreamingMediaInsightsConfigurationArgs struct {
+	// The media insights configuration that will be invoked by the Voice Connector.
+	ConfigurationArn pulumi.StringPtrInput `pulumi:"configurationArn"`
+	// When `true`, the media insights configuration is not enabled. Defaults to `false`.
+	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
+}
+
+func (VoiceConnectorStreamingMediaInsightsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VoiceConnectorStreamingMediaInsightsConfiguration)(nil)).Elem()
+}
+
+func (i VoiceConnectorStreamingMediaInsightsConfigurationArgs) ToVoiceConnectorStreamingMediaInsightsConfigurationOutput() VoiceConnectorStreamingMediaInsightsConfigurationOutput {
+	return i.ToVoiceConnectorStreamingMediaInsightsConfigurationOutputWithContext(context.Background())
+}
+
+func (i VoiceConnectorStreamingMediaInsightsConfigurationArgs) ToVoiceConnectorStreamingMediaInsightsConfigurationOutputWithContext(ctx context.Context) VoiceConnectorStreamingMediaInsightsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorStreamingMediaInsightsConfigurationOutput)
+}
+
+func (i VoiceConnectorStreamingMediaInsightsConfigurationArgs) ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutput() VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
+	return i.ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VoiceConnectorStreamingMediaInsightsConfigurationArgs) ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutputWithContext(ctx context.Context) VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorStreamingMediaInsightsConfigurationOutput).ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutputWithContext(ctx)
+}
+
+// VoiceConnectorStreamingMediaInsightsConfigurationPtrInput is an input type that accepts VoiceConnectorStreamingMediaInsightsConfigurationArgs, VoiceConnectorStreamingMediaInsightsConfigurationPtr and VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput values.
+// You can construct a concrete instance of `VoiceConnectorStreamingMediaInsightsConfigurationPtrInput` via:
+//
+//	        VoiceConnectorStreamingMediaInsightsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VoiceConnectorStreamingMediaInsightsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutput() VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput
+	ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutputWithContext(context.Context) VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput
+}
+
+type voiceConnectorStreamingMediaInsightsConfigurationPtrType VoiceConnectorStreamingMediaInsightsConfigurationArgs
+
+func VoiceConnectorStreamingMediaInsightsConfigurationPtr(v *VoiceConnectorStreamingMediaInsightsConfigurationArgs) VoiceConnectorStreamingMediaInsightsConfigurationPtrInput {
+	return (*voiceConnectorStreamingMediaInsightsConfigurationPtrType)(v)
+}
+
+func (*voiceConnectorStreamingMediaInsightsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VoiceConnectorStreamingMediaInsightsConfiguration)(nil)).Elem()
+}
+
+func (i *voiceConnectorStreamingMediaInsightsConfigurationPtrType) ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutput() VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
+	return i.ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *voiceConnectorStreamingMediaInsightsConfigurationPtrType) ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutputWithContext(ctx context.Context) VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput)
+}
+
+type VoiceConnectorStreamingMediaInsightsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VoiceConnectorStreamingMediaInsightsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VoiceConnectorStreamingMediaInsightsConfiguration)(nil)).Elem()
+}
+
+func (o VoiceConnectorStreamingMediaInsightsConfigurationOutput) ToVoiceConnectorStreamingMediaInsightsConfigurationOutput() VoiceConnectorStreamingMediaInsightsConfigurationOutput {
+	return o
+}
+
+func (o VoiceConnectorStreamingMediaInsightsConfigurationOutput) ToVoiceConnectorStreamingMediaInsightsConfigurationOutputWithContext(ctx context.Context) VoiceConnectorStreamingMediaInsightsConfigurationOutput {
+	return o
+}
+
+func (o VoiceConnectorStreamingMediaInsightsConfigurationOutput) ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutput() VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
+	return o.ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VoiceConnectorStreamingMediaInsightsConfigurationOutput) ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutputWithContext(ctx context.Context) VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VoiceConnectorStreamingMediaInsightsConfiguration) *VoiceConnectorStreamingMediaInsightsConfiguration {
+		return &v
+	}).(VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput)
+}
+
+// The media insights configuration that will be invoked by the Voice Connector.
+func (o VoiceConnectorStreamingMediaInsightsConfigurationOutput) ConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VoiceConnectorStreamingMediaInsightsConfiguration) *string { return v.ConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+// When `true`, the media insights configuration is not enabled. Defaults to `false`.
+func (o VoiceConnectorStreamingMediaInsightsConfigurationOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VoiceConnectorStreamingMediaInsightsConfiguration) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+type VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VoiceConnectorStreamingMediaInsightsConfiguration)(nil)).Elem()
+}
+
+func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutput() VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
+	return o
+}
+
+func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) ToVoiceConnectorStreamingMediaInsightsConfigurationPtrOutputWithContext(ctx context.Context) VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
+	return o
+}
+
+func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) Elem() VoiceConnectorStreamingMediaInsightsConfigurationOutput {
+	return o.ApplyT(func(v *VoiceConnectorStreamingMediaInsightsConfiguration) VoiceConnectorStreamingMediaInsightsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VoiceConnectorStreamingMediaInsightsConfiguration
+		return ret
+	}).(VoiceConnectorStreamingMediaInsightsConfigurationOutput)
+}
+
+// The media insights configuration that will be invoked by the Voice Connector.
+func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) ConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VoiceConnectorStreamingMediaInsightsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// When `true`, the media insights configuration is not enabled. Defaults to `false`.
+func (o VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VoiceConnectorStreamingMediaInsightsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Disabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type VoiceConnectorTerminationCredentialsCredential struct {
 	// RFC2617 compliant password associated with the SIP credentials.
 	Password string `pulumi:"password"`
@@ -360,12 +516,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupConnectorArrayInput)(nil)).Elem(), VoiceConnectorGroupConnectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationRouteInput)(nil)).Elem(), VoiceConnectorOrganizationRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationRouteArrayInput)(nil)).Elem(), VoiceConnectorOrganizationRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingMediaInsightsConfigurationInput)(nil)).Elem(), VoiceConnectorStreamingMediaInsightsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingMediaInsightsConfigurationPtrInput)(nil)).Elem(), VoiceConnectorStreamingMediaInsightsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredentialInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredentialArrayInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsCredentialArray{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupConnectorOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupConnectorArrayOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorOrganizationRouteOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorOrganizationRouteArrayOutput{})
+	pulumi.RegisterOutputType(VoiceConnectorStreamingMediaInsightsConfigurationOutput{})
+	pulumi.RegisterOutputType(VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorTerminationCredentialsCredentialOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorTerminationCredentialsCredentialArrayOutput{})
 }

@@ -168,6 +168,13 @@ namespace Pulumi.Aws.AppStream
         public Output<ImmutableArray<Outputs.StackStorageConnector>> StorageConnectors { get; private set; } = null!;
 
         /// <summary>
+        /// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+        /// See `streaming_experience_settings` below.
+        /// </summary>
+        [Output("streamingExperienceSettings")]
+        public Output<Outputs.StackStreamingExperienceSettings> StreamingExperienceSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -304,6 +311,13 @@ namespace Pulumi.Aws.AppStream
             set => _storageConnectors = value;
         }
 
+        /// <summary>
+        /// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+        /// See `streaming_experience_settings` below.
+        /// </summary>
+        [Input("streamingExperienceSettings")]
+        public Input<Inputs.StackStreamingExperienceSettingsArgs>? StreamingExperienceSettings { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -431,6 +445,13 @@ namespace Pulumi.Aws.AppStream
             get => _storageConnectors ?? (_storageConnectors = new InputList<Inputs.StackStorageConnectorGetArgs>());
             set => _storageConnectors = value;
         }
+
+        /// <summary>
+        /// The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+        /// See `streaming_experience_settings` below.
+        /// </summary>
+        [Input("streamingExperienceSettings")]
+        public Input<Inputs.StackStreamingExperienceSettingsGetArgs>? StreamingExperienceSettings { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -118,7 +118,11 @@ public final class GetClusterResult {
     /**
      * @return List of security group names associated with this cache cluster.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
     private List<String> securityGroupNames;
     /**
      * @return The number of days for which ElastiCache will
@@ -290,7 +294,11 @@ public final class GetClusterResult {
     /**
      * @return List of security group names associated with this cache cluster.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
     public List<String> securityGroupNames() {
         return this.securityGroupNames;
     }

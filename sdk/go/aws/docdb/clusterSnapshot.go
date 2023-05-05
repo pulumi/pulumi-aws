@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a DocDB database cluster snapshot for DocDB clusters.
+// Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
 //
 // ## Example Usage
 //
@@ -52,29 +52,29 @@ import (
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 
-	// List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+	// List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	// The DocDB Cluster Identifier from which to take the snapshot.
+	// The DocumentDB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier pulumi.StringOutput `pulumi:"dbClusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+	// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
 	DbClusterSnapshotArn pulumi.StringOutput `pulumi:"dbClusterSnapshotArn"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringOutput `pulumi:"dbClusterSnapshotIdentifier"`
 	// Specifies the name of the database engine.
 	Engine pulumi.StringOutput `pulumi:"engine"`
-	// Version of the database engine for this DocDB cluster snapshot.
+	// Version of the database engine for this DocumentDB cluster snapshot.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Port that the DocDB cluster was listening on at the time of the snapshot.
+	// Port that the DocumentDB cluster was listening on at the time of the snapshot.
 	Port                       pulumi.IntOutput    `pulumi:"port"`
 	SnapshotType               pulumi.StringOutput `pulumi:"snapshotType"`
 	SourceDbClusterSnapshotArn pulumi.StringOutput `pulumi:"sourceDbClusterSnapshotArn"`
-	// The status of this DocDB Cluster Snapshot.
+	// The status of this DocumentDB Cluster Snapshot.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Specifies whether the DocDB cluster snapshot is encrypted.
+	// Specifies whether the DocumentDB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// The VPC ID associated with the DocDB cluster snapshot.
+	// The VPC ID associated with the DocumentDB cluster snapshot.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -113,56 +113,56 @@ func GetClusterSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterSnapshot resources.
 type clusterSnapshotState struct {
-	// List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+	// List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The DocDB Cluster Identifier from which to take the snapshot.
+	// The DocumentDB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+	// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
 	DbClusterSnapshotArn *string `pulumi:"dbClusterSnapshotArn"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier *string `pulumi:"dbClusterSnapshotIdentifier"`
 	// Specifies the name of the database engine.
 	Engine *string `pulumi:"engine"`
-	// Version of the database engine for this DocDB cluster snapshot.
+	// Version of the database engine for this DocumentDB cluster snapshot.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Port that the DocDB cluster was listening on at the time of the snapshot.
+	// Port that the DocumentDB cluster was listening on at the time of the snapshot.
 	Port                       *int    `pulumi:"port"`
 	SnapshotType               *string `pulumi:"snapshotType"`
 	SourceDbClusterSnapshotArn *string `pulumi:"sourceDbClusterSnapshotArn"`
-	// The status of this DocDB Cluster Snapshot.
+	// The status of this DocumentDB Cluster Snapshot.
 	Status *string `pulumi:"status"`
-	// Specifies whether the DocDB cluster snapshot is encrypted.
+	// Specifies whether the DocumentDB cluster snapshot is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// The VPC ID associated with the DocDB cluster snapshot.
+	// The VPC ID associated with the DocumentDB cluster snapshot.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type ClusterSnapshotState struct {
-	// List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+	// List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
 	AvailabilityZones pulumi.StringArrayInput
-	// The DocDB Cluster Identifier from which to take the snapshot.
+	// The DocumentDB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+	// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
 	DbClusterSnapshotArn pulumi.StringPtrInput
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringPtrInput
 	// Specifies the name of the database engine.
 	Engine pulumi.StringPtrInput
-	// Version of the database engine for this DocDB cluster snapshot.
+	// Version of the database engine for this DocumentDB cluster snapshot.
 	EngineVersion pulumi.StringPtrInput
-	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
 	KmsKeyId pulumi.StringPtrInput
-	// Port that the DocDB cluster was listening on at the time of the snapshot.
+	// Port that the DocumentDB cluster was listening on at the time of the snapshot.
 	Port                       pulumi.IntPtrInput
 	SnapshotType               pulumi.StringPtrInput
 	SourceDbClusterSnapshotArn pulumi.StringPtrInput
-	// The status of this DocDB Cluster Snapshot.
+	// The status of this DocumentDB Cluster Snapshot.
 	Status pulumi.StringPtrInput
-	// Specifies whether the DocDB cluster snapshot is encrypted.
+	// Specifies whether the DocumentDB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// The VPC ID associated with the DocDB cluster snapshot.
+	// The VPC ID associated with the DocumentDB cluster snapshot.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -171,7 +171,7 @@ func (ClusterSnapshotState) ElementType() reflect.Type {
 }
 
 type clusterSnapshotArgs struct {
-	// The DocDB Cluster Identifier from which to take the snapshot.
+	// The DocumentDB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier string `pulumi:"dbClusterSnapshotIdentifier"`
@@ -179,7 +179,7 @@ type clusterSnapshotArgs struct {
 
 // The set of arguments for constructing a ClusterSnapshot resource.
 type ClusterSnapshotArgs struct {
-	// The DocDB Cluster Identifier from which to take the snapshot.
+	// The DocumentDB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier pulumi.StringInput
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringInput
@@ -272,17 +272,17 @@ func (o ClusterSnapshotOutput) ToClusterSnapshotOutputWithContext(ctx context.Co
 	return o
 }
 
-// List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
+// List of EC2 Availability Zones that instances in the DocumentDB cluster snapshot can be restored in.
 func (o ClusterSnapshotOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// The DocDB Cluster Identifier from which to take the snapshot.
+// The DocumentDB Cluster Identifier from which to take the snapshot.
 func (o ClusterSnapshotOutput) DbClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.DbClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
+// The Amazon Resource Name (ARN) for the DocumentDB Cluster Snapshot.
 func (o ClusterSnapshotOutput) DbClusterSnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.DbClusterSnapshotArn }).(pulumi.StringOutput)
 }
@@ -297,17 +297,17 @@ func (o ClusterSnapshotOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
-// Version of the database engine for this DocDB cluster snapshot.
+// Version of the database engine for this DocumentDB cluster snapshot.
 func (o ClusterSnapshotOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
-// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
+// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
 func (o ClusterSnapshotOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// Port that the DocDB cluster was listening on at the time of the snapshot.
+// Port that the DocumentDB cluster was listening on at the time of the snapshot.
 func (o ClusterSnapshotOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
@@ -320,17 +320,17 @@ func (o ClusterSnapshotOutput) SourceDbClusterSnapshotArn() pulumi.StringOutput 
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.SourceDbClusterSnapshotArn }).(pulumi.StringOutput)
 }
 
-// The status of this DocDB Cluster Snapshot.
+// The status of this DocumentDB Cluster Snapshot.
 func (o ClusterSnapshotOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Specifies whether the DocDB cluster snapshot is encrypted.
+// Specifies whether the DocumentDB cluster snapshot is encrypted.
 func (o ClusterSnapshotOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }
 
-// The VPC ID associated with the DocDB cluster snapshot.
+// The VPC ID associated with the DocumentDB cluster snapshot.
 func (o ClusterSnapshotOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

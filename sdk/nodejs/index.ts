@@ -272,6 +272,7 @@ import * as simpledb from "./simpledb";
 import * as sns from "./sns";
 import * as sqs from "./sqs";
 import * as ssm from "./ssm";
+import * as ssmcontacts from "./ssmcontacts";
 import * as ssmincidents from "./ssmincidents";
 import * as ssoadmin from "./ssoadmin";
 import * as storagegateway from "./storagegateway";
@@ -461,6 +462,7 @@ export {
     sns,
     sqs,
     ssm,
+    ssmcontacts,
     ssmincidents,
     ssoadmin,
     storagegateway,
