@@ -13,7 +13,6 @@ import (
 // Provides an Elastic Container Registry Replication Configuration.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -58,7 +57,6 @@ import (
 //
 // ```
 // ## Multiple Region Usage
-//
 // ```go
 // package main
 //
@@ -108,7 +106,6 @@ import (
 // ```
 //
 // ## Repository Filter Usage
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Eks
     /// Manages an EKS Fargate Profile.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Aws.Eks
     /// });
     /// ```
     /// ### Example IAM Role for EKS Fargate Profile
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

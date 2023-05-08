@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Example Usage
     /// ### Apple Push Notification Service (APNS) using certificate-based authentication
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.Sns
     /// });
     /// ```
     /// ### Apple Push Notification Service (APNS) using token-based authentication
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,7 +52,6 @@ namespace Pulumi.Aws.Sns
     /// });
     /// ```
     /// ### Google Cloud Messaging (GCM)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

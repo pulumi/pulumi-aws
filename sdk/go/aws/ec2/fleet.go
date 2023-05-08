@@ -14,7 +14,6 @@ import (
 // Provides a resource to manage EC2 Fleets.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

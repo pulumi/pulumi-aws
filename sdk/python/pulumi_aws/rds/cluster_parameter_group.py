@@ -292,7 +292,6 @@ class ClusterParameterGroup(pulumi.CustomResource):
         * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,7 +342,6 @@ class ClusterParameterGroup(pulumi.CustomResource):
         * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

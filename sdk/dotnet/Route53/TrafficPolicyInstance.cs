@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Route53
     /// Provides a Route53 traffic policy instance resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

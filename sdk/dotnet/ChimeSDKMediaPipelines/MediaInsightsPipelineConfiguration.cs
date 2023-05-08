@@ -15,7 +15,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,7 +93,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// - The required policies on `call_analytics_role` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
     /// ### Transcribe Call Analytics processor usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -182,7 +180,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// });
     /// ```
     /// ### Real time alerts usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -257,7 +254,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// });
     /// ```
     /// ### Transcribe processor usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -303,7 +299,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// });
     /// ```
     /// ### Voice analytics processor usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -364,7 +359,6 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// });
     /// ```
     /// ### S3 Recording sink usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

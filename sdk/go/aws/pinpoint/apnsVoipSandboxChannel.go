@@ -14,7 +14,6 @@ import (
 // Provides a Pinpoint APNs VoIP Sandbox Channel resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

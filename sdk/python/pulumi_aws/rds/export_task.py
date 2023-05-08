@@ -419,7 +419,6 @@ class ExportTask(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -432,7 +431,6 @@ class ExportTask(pulumi.CustomResource):
             kms_key_id=aws_kms_key["example"]["arn"])
         ```
         ### Complete Usage
-
         ```python
         import pulumi
         import json
@@ -532,7 +530,6 @@ class ExportTask(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -545,7 +542,6 @@ class ExportTask(pulumi.CustomResource):
             kms_key_id=aws_kms_key["example"]["arn"])
         ```
         ### Complete Usage
-
         ```python
         import pulumi
         import json

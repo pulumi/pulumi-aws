@@ -14,7 +14,6 @@ import (
 // Provides an Amazon Inspector Classic Resource Group.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// ## Example Usage
     /// ### Basic configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

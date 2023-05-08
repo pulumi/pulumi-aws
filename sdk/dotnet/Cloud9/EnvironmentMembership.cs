@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Cloud9
     /// Provides an environment member to an AWS Cloud9 development environment.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

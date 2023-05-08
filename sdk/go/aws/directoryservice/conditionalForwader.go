@@ -14,7 +14,6 @@ import (
 // Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

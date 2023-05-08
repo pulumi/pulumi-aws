@@ -145,7 +145,6 @@ def get_policy(arn: Optional[str] = None,
 
     ## Example Usage
     ### By ARN
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -153,7 +152,6 @@ def get_policy(arn: Optional[str] = None,
     example = aws.iam.get_policy(arn="arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
     ```
     ### By Name
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -203,7 +201,6 @@ def get_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
     ### By ARN
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -211,7 +208,6 @@ def get_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     example = aws.iam.get_policy(arn="arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
     ```
     ### By Name
-
     ```python
     import pulumi
     import pulumi_aws as aws

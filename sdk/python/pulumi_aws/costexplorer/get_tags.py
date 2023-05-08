@@ -113,7 +113,6 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
     Provides details about a specific CE Tags.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -161,7 +160,6 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
     Provides details about a specific CE Tags.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

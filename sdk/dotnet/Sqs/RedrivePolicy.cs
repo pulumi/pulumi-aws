@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Sqs
     /// the dead letter queue to exist before setting the redrive policy.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -22,37 +22,6 @@ import (
 //
 // ## Example Usage
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			barSecurityGroup, err := ec2.NewSecurityGroup(ctx, "barSecurityGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewSecurityGroup(ctx, "barElasticache/securityGroupSecurityGroup", &elasticache.SecurityGroupArgs{
-//				SecurityGroupNames: pulumi.StringArray{
-//					barSecurityGroup.Name,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // ElastiCache Security Groups can be imported by name, e.g.,

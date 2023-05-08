@@ -120,7 +120,6 @@ class Cluster(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Control Config Cluster.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,7 +149,6 @@ class Cluster(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Control Config Cluster.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

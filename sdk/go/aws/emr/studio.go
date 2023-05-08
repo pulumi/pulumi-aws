@@ -14,7 +14,6 @@ import (
 // Provides an Elastic MapReduce Studio.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

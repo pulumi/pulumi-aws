@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// Provides a Service Discovery Private DNS Namespace resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

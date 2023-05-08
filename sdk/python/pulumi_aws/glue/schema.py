@@ -377,7 +377,6 @@ class Schema(pulumi.CustomResource):
         Provides a Glue Schema resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,7 +418,6 @@ class Schema(pulumi.CustomResource):
         Provides a Glue Schema resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

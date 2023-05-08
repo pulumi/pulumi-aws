@@ -358,7 +358,6 @@ class HostedConnection(pulumi.CustomResource):
         Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,7 +387,6 @@ class HostedConnection(pulumi.CustomResource):
         Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Pinpoint
     /// Provides a Pinpoint Baidu Channel resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

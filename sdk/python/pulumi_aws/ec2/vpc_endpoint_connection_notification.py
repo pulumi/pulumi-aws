@@ -200,7 +200,6 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         Connection notifications notify subscribers of VPC Endpoint events.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,7 +252,6 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         Connection notifications notify subscribers of VPC Endpoint events.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

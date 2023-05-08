@@ -14,7 +14,6 @@ import (
 // Resource for managing a Roles Anywhere Profile.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

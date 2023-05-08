@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Encrypting with KMS Key
-//
 // ```go
 // package main
 //
@@ -62,7 +61,6 @@ import (
 //
 // ```
 // ### Server Side Encryption with S3 Default Master Key
-//
 // ```go
 // package main
 //
@@ -101,7 +99,6 @@ import (
 //
 // ```
 // ### Server Side Encryption with AWS-Managed Key
-//
 // ```go
 // package main
 //
@@ -140,7 +137,6 @@ import (
 //
 // ```
 // ### S3 Object Lock
-//
 // ```go
 // package main
 //

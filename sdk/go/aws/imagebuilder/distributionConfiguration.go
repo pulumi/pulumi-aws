@@ -14,7 +14,6 @@ import (
 // Manages an Image Builder Distribution Configuration.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

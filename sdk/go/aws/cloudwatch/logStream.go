@@ -14,7 +14,6 @@ import (
 // Provides a CloudWatch Log Stream resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.RedShift
     /// Creates a new Amazon Redshift Partner Integration.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

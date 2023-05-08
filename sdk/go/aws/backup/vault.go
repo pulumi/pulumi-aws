@@ -13,7 +13,6 @@ import (
 // Provides an AWS Backup vault resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

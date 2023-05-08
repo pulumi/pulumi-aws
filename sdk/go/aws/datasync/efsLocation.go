@@ -16,7 +16,6 @@ import (
 // > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

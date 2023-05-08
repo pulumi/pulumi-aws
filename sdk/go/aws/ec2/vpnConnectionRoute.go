@@ -14,7 +14,6 @@ import (
 // Provides a static route between a VPN connection and a customer gateway.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

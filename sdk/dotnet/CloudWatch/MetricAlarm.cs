@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CloudWatch
     /// Provides a CloudWatch Metric Alarm resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ## Example in Conjunction with Scaling Policies
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,7 +77,6 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// 
     /// ## Example with an Expression
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -141,7 +138,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -190,7 +186,6 @@ namespace Pulumi.Aws.CloudWatch
     /// ```
     /// 
     /// ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

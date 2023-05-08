@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Example Usage
     /// ### Basic S3
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Transfer
     /// });
     /// ```
     /// ### Basic EFS
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

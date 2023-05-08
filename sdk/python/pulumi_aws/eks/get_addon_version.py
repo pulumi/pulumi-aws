@@ -91,7 +91,6 @@ def get_addon_version(addon_name: Optional[str] = None,
     Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -139,7 +138,6 @@ def get_addon_version_output(addon_name: Optional[pulumi.Input[str]] = None,
     Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

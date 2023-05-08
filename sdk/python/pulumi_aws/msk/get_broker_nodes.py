@@ -69,7 +69,6 @@ def get_broker_nodes(cluster_arn: Optional[str] = None,
     Get information on an Amazon MSK Broker Nodes.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -98,7 +97,6 @@ def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     Get information on an Amazon MSK Broker Nodes.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

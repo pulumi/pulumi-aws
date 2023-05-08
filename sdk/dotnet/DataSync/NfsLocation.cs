@@ -15,7 +15,6 @@ namespace Pulumi.Aws.DataSync
     /// &gt; **NOTE:** The DataSync Agents must be available before creating this resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

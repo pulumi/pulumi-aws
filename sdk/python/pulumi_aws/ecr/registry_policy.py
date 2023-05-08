@@ -85,7 +85,6 @@ class RegistryPolicy(pulumi.CustomResource):
         Provides an Elastic Container Registry Policy.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -130,7 +129,6 @@ class RegistryPolicy(pulumi.CustomResource):
         Provides an Elastic Container Registry Policy.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

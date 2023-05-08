@@ -134,7 +134,6 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[str] = None,
     ## Example Usage
 
     By `name`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -144,7 +143,6 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[str] = None,
     ```
 
     By `hierarchy_group_id`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -190,7 +188,6 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
     ## Example Usage
 
     By `name`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -200,7 +197,6 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
     ```
 
     By `hierarchy_group_id`
-
     ```python
     import pulumi
     import pulumi_aws as aws

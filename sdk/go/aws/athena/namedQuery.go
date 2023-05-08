@@ -14,7 +14,6 @@ import (
 // Provides an Athena Named Query resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

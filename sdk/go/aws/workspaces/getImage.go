@@ -13,7 +13,6 @@ import (
 // Use this data source to get information about a Workspaces image.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

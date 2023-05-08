@@ -13,7 +13,6 @@ import (
 // Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

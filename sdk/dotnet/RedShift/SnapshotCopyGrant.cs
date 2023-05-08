@@ -15,7 +15,6 @@ namespace Pulumi.Aws.RedShift
     /// Note that the grant must exist in the destination region, and not in the region of the cluster.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -185,7 +185,6 @@ class HumanTaskUI(pulumi.CustomResource):
         Provides a SageMaker Human Task UI resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,7 +221,6 @@ class HumanTaskUI(pulumi.CustomResource):
         Provides a SageMaker Human Task UI resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

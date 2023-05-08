@@ -14,7 +14,6 @@ import (
 // Creates a new Amazon Redshift Serverless Snapshot.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

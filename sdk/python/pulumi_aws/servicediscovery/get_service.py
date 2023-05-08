@@ -158,7 +158,6 @@ def get_service(name: Optional[str] = None,
     Retrieves information about a Service Discovery Service.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -201,7 +200,6 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     Retrieves information about a Service Discovery Service.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

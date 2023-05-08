@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a device.
+ *
+ * ## Example Usage
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
 
@@ -91,6 +93,8 @@ export interface GetDeviceResult {
 }
 /**
  * Retrieve information about a device.
+ *
+ * ## Example Usage
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
     return pulumi.output(args).apply((a: any) => getDevice(a, opts))

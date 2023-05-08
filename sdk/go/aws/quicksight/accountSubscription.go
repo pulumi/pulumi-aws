@@ -14,7 +14,6 @@ import (
 // Resource for managing an AWS QuickSight Account Subscription.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

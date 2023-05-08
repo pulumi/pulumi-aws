@@ -16,7 +16,6 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// ### Basic Usage
     /// ### Email Address Identity
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.SesV2
     /// });
     /// ```
     /// ### Domain Identity
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,7 +48,6 @@ namespace Pulumi.Aws.SesV2
     /// });
     /// ```
     /// ### Configuration Set
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,7 +70,6 @@ namespace Pulumi.Aws.SesV2
     /// });
     /// ```
     /// ### DKIM Signing Attributes (BYODKIM)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

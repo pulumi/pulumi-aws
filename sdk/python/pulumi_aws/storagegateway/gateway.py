@@ -730,7 +730,6 @@ class Gateway(pulumi.CustomResource):
 
         ## Example Usage
         ### Local Cache
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -746,7 +745,6 @@ class Gateway(pulumi.CustomResource):
             gateway_arn=aws_storagegateway_gateway["test"]["arn"])
         ```
         ### FSx File Gateway
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -763,7 +761,6 @@ class Gateway(pulumi.CustomResource):
             ))
         ```
         ### S3 File Gateway
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -775,7 +772,6 @@ class Gateway(pulumi.CustomResource):
             gateway_type="FILE_S3")
         ```
         ### Tape Gateway
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -789,7 +785,6 @@ class Gateway(pulumi.CustomResource):
             tape_drive_type="IBM-ULT3580-TD5")
         ```
         ### Volume Gateway (Cached)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -801,7 +796,6 @@ class Gateway(pulumi.CustomResource):
             gateway_type="CACHED")
         ```
         ### Volume Gateway (Stored)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -869,7 +863,6 @@ class Gateway(pulumi.CustomResource):
 
         ## Example Usage
         ### Local Cache
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -885,7 +878,6 @@ class Gateway(pulumi.CustomResource):
             gateway_arn=aws_storagegateway_gateway["test"]["arn"])
         ```
         ### FSx File Gateway
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -902,7 +894,6 @@ class Gateway(pulumi.CustomResource):
             ))
         ```
         ### S3 File Gateway
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -914,7 +905,6 @@ class Gateway(pulumi.CustomResource):
             gateway_type="FILE_S3")
         ```
         ### Tape Gateway
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -928,7 +918,6 @@ class Gateway(pulumi.CustomResource):
             tape_drive_type="IBM-ULT3580-TD5")
         ```
         ### Volume Gateway (Cached)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -940,7 +929,6 @@ class Gateway(pulumi.CustomResource):
             gateway_type="CACHED")
         ```
         ### Volume Gateway (Stored)
-
         ```python
         import pulumi
         import pulumi_aws as aws

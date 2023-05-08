@@ -144,7 +144,6 @@ def get_data_lake_settings(catalog_id: Optional[str] = None,
     Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -179,7 +178,6 @@ def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[str
     Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -134,7 +134,6 @@ class DocumentationVersion(pulumi.CustomResource):
         Provides a resource to manage an API Gateway Documentation Version.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -177,7 +176,6 @@ class DocumentationVersion(pulumi.CustomResource):
         Provides a resource to manage an API Gateway Documentation Version.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

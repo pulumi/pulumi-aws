@@ -120,7 +120,6 @@ def get_firewall_policy(arn: Optional[str] = None,
 
     ## Example Usage
     ### Find firewall policy by name
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -128,7 +127,6 @@ def get_firewall_policy(arn: Optional[str] = None,
     example = aws.networkfirewall.get_firewall_policy(name=var["firewall_policy_name"])
     ```
     ### Find firewall policy by ARN
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -136,7 +134,6 @@ def get_firewall_policy(arn: Optional[str] = None,
     example = aws.networkfirewall.get_firewall_policy(arn=var["firewall_policy_arn"])
     ```
     ### Find firewall policy by name and ARN
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -181,7 +178,6 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None
 
     ## Example Usage
     ### Find firewall policy by name
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -189,7 +185,6 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     example = aws.networkfirewall.get_firewall_policy(name=var["firewall_policy_name"])
     ```
     ### Find firewall policy by ARN
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -197,7 +192,6 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     example = aws.networkfirewall.get_firewall_policy(arn=var["firewall_policy_arn"])
     ```
     ### Find firewall policy by name and ARN
-
     ```python
     import pulumi
     import pulumi_aws as aws

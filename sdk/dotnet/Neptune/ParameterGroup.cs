@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Neptune
     /// Manages a Neptune Parameter Group
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

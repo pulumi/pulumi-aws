@@ -153,7 +153,6 @@ class Insight(pulumi.CustomResource):
 
         ## Example Usage
         ### Filter by AWS account ID
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -176,7 +175,6 @@ class Insight(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
         ### Filter by date range
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,7 +193,6 @@ class Insight(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
         ### Filter by destination IPv4 address
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -211,7 +208,6 @@ class Insight(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
         ### Filter by finding's confidence
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,7 +223,6 @@ class Insight(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
         ### Filter by resource tags
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -270,7 +265,6 @@ class Insight(pulumi.CustomResource):
 
         ## Example Usage
         ### Filter by AWS account ID
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,7 +287,6 @@ class Insight(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
         ### Filter by date range
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -312,7 +305,6 @@ class Insight(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
         ### Filter by destination IPv4 address
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,7 +320,6 @@ class Insight(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
         ### Filter by finding's confidence
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,7 +335,6 @@ class Insight(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
         ### Filter by resource tags
-
         ```python
         import pulumi
         import pulumi_aws as aws

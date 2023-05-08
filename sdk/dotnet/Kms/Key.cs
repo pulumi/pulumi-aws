@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Kms
     /// Configuring with both will cause inconsistencies and may overwrite configuration.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

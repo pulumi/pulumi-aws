@@ -14,7 +14,6 @@ import (
 // Resource for managing QuickSight Data Source
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -212,7 +212,6 @@ def get_instance(instance_alias: Optional[str] = None,
     ## Example Usage
 
     By instance_alias
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -221,7 +220,6 @@ def get_instance(instance_alias: Optional[str] = None,
     ```
 
     By instance_id
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -267,7 +265,6 @@ def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[str]]] = 
     ## Example Usage
 
     By instance_alias
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -276,7 +273,6 @@ def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[str]]] = 
     ```
 
     By instance_id
-
     ```python
     import pulumi
     import pulumi_aws as aws

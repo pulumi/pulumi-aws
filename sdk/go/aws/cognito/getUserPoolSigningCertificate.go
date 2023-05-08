@@ -13,7 +13,6 @@ import (
 // Use this data source to get the signing certificate for a Cognito IdP user pool.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

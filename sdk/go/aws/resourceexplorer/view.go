@@ -14,7 +14,6 @@ import (
 // Provides a resource to manage a Resource Explorer view.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

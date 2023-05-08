@@ -85,7 +85,6 @@ class ProductSubscription(pulumi.CustomResource):
         Subscribes to a Security Hub product.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -118,7 +117,6 @@ class ProductSubscription(pulumi.CustomResource):
         Subscribes to a Security Hub product.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CodePipeline
     /// Provides a CodePipeline.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

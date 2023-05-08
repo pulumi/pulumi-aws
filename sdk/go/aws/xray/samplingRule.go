@@ -14,7 +14,6 @@ import (
 // Creates and manages an AWS XRay Sampling Rule.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

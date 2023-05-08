@@ -207,7 +207,6 @@ class Classifier(pulumi.CustomResource):
 
         ## Example Usage
         ### Csv Classifier
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,7 +224,6 @@ class Classifier(pulumi.CustomResource):
         ))
         ```
         ### Grok Classifier
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,7 +234,6 @@ class Classifier(pulumi.CustomResource):
         ))
         ```
         ### JSON Classifier
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,7 +243,6 @@ class Classifier(pulumi.CustomResource):
         ))
         ```
         ### XML Classifier
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,7 +282,6 @@ class Classifier(pulumi.CustomResource):
 
         ## Example Usage
         ### Csv Classifier
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -304,7 +299,6 @@ class Classifier(pulumi.CustomResource):
         ))
         ```
         ### Grok Classifier
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -315,7 +309,6 @@ class Classifier(pulumi.CustomResource):
         ))
         ```
         ### JSON Classifier
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,7 +318,6 @@ class Classifier(pulumi.CustomResource):
         ))
         ```
         ### XML Classifier
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -117,7 +117,6 @@ def get_origin_request_policy(id: Optional[str] = None,
     """
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -127,7 +126,6 @@ def get_origin_request_policy(id: Optional[str] = None,
     ### AWS-Managed Policies
 
     AWS managed origin request policy names are prefixed with `Managed-`:
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -162,7 +160,6 @@ def get_origin_request_policy_output(id: Optional[pulumi.Input[Optional[str]]] =
     """
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -172,7 +169,6 @@ def get_origin_request_policy_output(id: Optional[pulumi.Input[Optional[str]]] =
     ### AWS-Managed Policies
 
     AWS managed origin request policy names are prefixed with `Managed-`:
-
     ```python
     import pulumi
     import pulumi_aws as aws

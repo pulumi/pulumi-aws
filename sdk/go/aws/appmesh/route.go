@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### HTTP Routing
-//
 // ```go
 // package main
 //
@@ -60,7 +59,6 @@ import (
 //
 // ```
 // ### HTTP Header Routing
-//
 // ```go
 // package main
 //
@@ -111,7 +109,6 @@ import (
 //
 // ```
 // ### Retry Policy
-//
 // ```go
 // package main
 //
@@ -162,7 +159,6 @@ import (
 //
 // ```
 // ### TCP Routing
-//
 // ```go
 // package main
 //

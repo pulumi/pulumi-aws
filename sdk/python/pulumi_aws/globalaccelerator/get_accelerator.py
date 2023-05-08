@@ -134,7 +134,6 @@ def get_accelerator(arn: Optional[str] = None,
     Provides information about a Global Accelerator accelerator.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -183,7 +182,6 @@ def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     Provides information about a Global Accelerator accelerator.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -14,7 +14,6 @@ import (
 // Resource for managing an AWS VPC Lattice Listener Rule.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -74,7 +73,6 @@ import (
 //
 // ```
 // ### Basic Usage
-//
 // ```go
 // package main
 //

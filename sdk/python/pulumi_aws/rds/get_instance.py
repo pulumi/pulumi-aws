@@ -554,7 +554,6 @@ def get_instance(db_instance_identifier: Optional[str] = None,
     Use this data source to get information about an RDS instance
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -625,7 +624,6 @@ def get_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] = No
     Use this data source to get information about an RDS instance
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

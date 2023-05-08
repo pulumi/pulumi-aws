@@ -13,7 +13,6 @@ import (
 // Parses an ARN into its constituent parts.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

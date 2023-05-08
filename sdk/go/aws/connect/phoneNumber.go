@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 // ### Basic
-//
 // ```go
 // package main
 //
@@ -46,7 +45,6 @@ import (
 //
 // ```
 // ### Description
-//
 // ```go
 // package main
 //
@@ -74,7 +72,6 @@ import (
 //
 // ```
 // ### Prefix to filter phone numbers
-//
 // ```go
 // package main
 //

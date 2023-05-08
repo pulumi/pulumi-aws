@@ -7611,6 +7611,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "quicksight/folderMembership",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/folderMembership:FolderMembership": "FolderMembership"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "quicksight/group",
   "fqn": "pulumi_aws.quicksight",
   "classes": {
@@ -7639,6 +7647,14 @@ _utilities.register(
   "fqn": "pulumi_aws.quicksight",
   "classes": {
    "aws:quicksight/ingestion:Ingestion": "Ingestion"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "quicksight/refreshSchedule",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/refreshSchedule:RefreshSchedule": "RefreshSchedule"
   }
  },
  {

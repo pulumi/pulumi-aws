@@ -16,7 +16,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### Add notification configuration to SNS Topic
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,7 +93,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Add notification configuration to SQS Queue
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -172,7 +170,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Add notification configuration to Lambda Function
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -257,7 +254,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Add multiple notification configurations to SQS Queue
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -347,7 +343,6 @@ namespace Pulumi.Aws.S3
     /// ```
     /// 
     /// For JSON syntax, use an array instead of defining the `queue` key twice.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

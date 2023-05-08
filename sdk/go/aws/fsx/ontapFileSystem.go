@@ -15,7 +15,6 @@ import (
 // See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html) for more information.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

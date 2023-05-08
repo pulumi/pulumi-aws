@@ -283,7 +283,6 @@ class ReportPlan(pulumi.CustomResource):
         Provides an AWS Backup Report Plan resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,7 +331,6 @@ class ReportPlan(pulumi.CustomResource):
         Provides an AWS Backup Report Plan resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

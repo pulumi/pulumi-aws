@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic
-//
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //
 // ```
 // ### With File Format
-//
 // ```go
 // package main
 //
@@ -79,7 +77,6 @@ import (
 //
 // ```
 // ### With Language Code
-//
 // ```go
 // package main
 //

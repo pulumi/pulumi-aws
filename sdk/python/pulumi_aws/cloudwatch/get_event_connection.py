@@ -100,7 +100,6 @@ def get_event_connection(name: Optional[str] = None,
     > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -133,7 +132,6 @@ def get_event_connection_output(name: Optional[pulumi.Input[str]] = None,
     > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -283,7 +283,6 @@ class PlaceIndex(pulumi.CustomResource):
         Provides a Location Service Place Index.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -320,7 +319,6 @@ class PlaceIndex(pulumi.CustomResource):
         Provides a Location Service Place Index.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

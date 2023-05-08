@@ -23,7 +23,6 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,7 +69,6 @@ namespace Pulumi.Aws.Ec2
     /// ### Example Config To Deny All Egress Traffic, Allowing Ingress
     /// 
     /// The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

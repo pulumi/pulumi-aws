@@ -16,65 +16,6 @@ import (
 // > **Note** Attribute `statemuxSettings` has been deprecated and will be removed in a future major release. Please use `statmuxSettings` instead.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/medialive"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleMultiplex, err := medialive.NewMultiplex(ctx, "exampleMultiplex", &medialive.MultiplexArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					*pulumi.String(available.Names[0]),
-//					*pulumi.String(available.Names[1]),
-//				},
-//				MultiplexSettings: &medialive.MultiplexMultiplexSettingsArgs{
-//					TransportStreamBitrate:              pulumi.Int(1000000),
-//					TransportStreamId:                   pulumi.Int(1),
-//					TransportStreamReservedBitrate:      pulumi.Int(1),
-//					MaximumVideoBufferDelayMilliseconds: pulumi.Int(1000),
-//				},
-//				StartMultiplex: pulumi.Bool(true),
-//				Tags: pulumi.StringMap{
-//					"tag1": pulumi.String("value1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = medialive.NewMultiplexProgram(ctx, "exampleMultiplexProgram", &medialive.MultiplexProgramArgs{
-//				ProgramName: pulumi.String("example_program"),
-//				MultiplexId: exampleMultiplex.ID(),
-//				MultiplexProgramSettings: &medialive.MultiplexProgramMultiplexProgramSettingsArgs{
-//					ProgramNumber:            pulumi.Int(1),
-//					PreferredChannelPipeline: pulumi.String("CURRENTLY_ACTIVE"),
-//					VideoSettings: &medialive.MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{
-//						ConstantBitrate: pulumi.Int(100000),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

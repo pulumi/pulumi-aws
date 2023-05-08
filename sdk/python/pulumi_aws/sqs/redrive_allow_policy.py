@@ -101,7 +101,6 @@ class RedriveAllowPolicy(pulumi.CustomResource):
         Provides a SQS Queue Redrive Allow Policy resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -143,7 +142,6 @@ class RedriveAllowPolicy(pulumi.CustomResource):
         Provides a SQS Queue Redrive Allow Policy resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

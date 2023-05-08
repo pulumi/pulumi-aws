@@ -13,7 +13,6 @@ namespace Pulumi.Aws.LightSail
     /// Provides a lightsail bucket.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

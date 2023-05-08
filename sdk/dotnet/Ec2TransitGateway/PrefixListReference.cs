@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// ### Attachment Routing
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// });
     /// ```
     /// ### Blackhole Routing
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

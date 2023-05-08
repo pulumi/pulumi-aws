@@ -19,7 +19,6 @@ import (
 // ### Basic Usage
 //
 // Create a replication set.
-//
 // ```go
 // package main
 //
@@ -52,7 +51,6 @@ import (
 // ```
 //
 // Add a Region to a replication set. (You can add only one Region at a time.)
-//
 // ```go
 // package main
 //
@@ -85,7 +83,6 @@ import (
 // ```
 //
 // Delete a Region from a replication set. (You can delete only one Region at a time.)
-//
 // ```go
 // package main
 //
@@ -116,7 +113,6 @@ import (
 // ## Basic Usage with an AWS Customer Managed Key
 //
 // Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
-//
 // ```go
 // package main
 //

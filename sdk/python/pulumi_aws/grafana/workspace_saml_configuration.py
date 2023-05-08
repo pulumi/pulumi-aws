@@ -481,7 +481,6 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic configuration
-
         ```python
         import pulumi
         import json
@@ -544,7 +543,6 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic configuration
-
         ```python
         import pulumi
         import json

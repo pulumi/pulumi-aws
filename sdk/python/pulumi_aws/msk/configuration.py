@@ -200,7 +200,6 @@ class Configuration(pulumi.CustomResource):
         Manages an Amazon Managed Streaming for Kafka configuration. More information can be found on the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -238,7 +237,6 @@ class Configuration(pulumi.CustomResource):
         Manages an Amazon Managed Streaming for Kafka configuration. More information can be found on the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

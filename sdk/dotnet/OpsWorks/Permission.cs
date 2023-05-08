@@ -13,7 +13,6 @@ namespace Pulumi.Aws.OpsWorks
     /// Provides an OpsWorks permission resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

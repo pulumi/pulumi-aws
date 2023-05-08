@@ -609,7 +609,6 @@ class Fleet(pulumi.CustomResource):
         Provides a GameLift Fleet resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -662,7 +661,6 @@ class Fleet(pulumi.CustomResource):
         Provides a GameLift Fleet resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

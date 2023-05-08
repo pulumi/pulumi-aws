@@ -510,7 +510,6 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
     resources.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -621,7 +620,6 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
     resources.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

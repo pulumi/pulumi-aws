@@ -134,7 +134,6 @@ class FileSystemPolicy(pulumi.CustomResource):
         Provides an Elastic File System (EFS) File System Policy resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,7 +186,6 @@ class FileSystemPolicy(pulumi.CustomResource):
         Provides an Elastic File System (EFS) File System Policy resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

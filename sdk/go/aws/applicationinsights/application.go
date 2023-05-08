@@ -14,7 +14,6 @@ import (
 // Provides a ApplicationInsights Application resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

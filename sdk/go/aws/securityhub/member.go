@@ -14,7 +14,6 @@ import (
 // Provides a Security Hub member resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

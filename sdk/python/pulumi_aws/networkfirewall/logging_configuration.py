@@ -104,7 +104,6 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Logging to S3
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -123,7 +122,6 @@ class LoggingConfiguration(pulumi.CustomResource):
             ))
         ```
         ### Logging to CloudWatch
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -141,7 +139,6 @@ class LoggingConfiguration(pulumi.CustomResource):
             ))
         ```
         ### Logging to Kinesis Data Firehose
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -183,7 +180,6 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Logging to S3
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,7 +198,6 @@ class LoggingConfiguration(pulumi.CustomResource):
             ))
         ```
         ### Logging to CloudWatch
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -220,7 +215,6 @@ class LoggingConfiguration(pulumi.CustomResource):
             ))
         ```
         ### Logging to Kinesis Data Firehose
-
         ```python
         import pulumi
         import pulumi_aws as aws

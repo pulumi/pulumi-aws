@@ -213,7 +213,6 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
     a specific VPC peering connection.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -298,7 +297,6 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
     a specific VPC peering connection.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

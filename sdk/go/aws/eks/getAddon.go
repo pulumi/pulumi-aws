@@ -13,7 +13,6 @@ import (
 // Retrieve information about an EKS add-on.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

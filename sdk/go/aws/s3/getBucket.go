@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 // ### Route53 Record
-//
 // ```go
 // package main
 //
@@ -63,7 +62,6 @@ import (
 //
 // ```
 // ### CloudFront Origin
-//
 // ```go
 // package main
 //

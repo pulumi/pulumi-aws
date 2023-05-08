@@ -9640,6 +9640,529 @@ func (o IamPolicyAssignmentIdentitiesPtrOutput) Users() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+type RefreshScheduleSchedule struct {
+	// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+	RefreshType string `pulumi:"refreshType"`
+	// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+	ScheduleFrequency *RefreshScheduleScheduleScheduleFrequency `pulumi:"scheduleFrequency"`
+	// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
+	StartAfterDateTime *string `pulumi:"startAfterDateTime"`
+}
+
+// RefreshScheduleScheduleInput is an input type that accepts RefreshScheduleScheduleArgs and RefreshScheduleScheduleOutput values.
+// You can construct a concrete instance of `RefreshScheduleScheduleInput` via:
+//
+//	RefreshScheduleScheduleArgs{...}
+type RefreshScheduleScheduleInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleScheduleOutput() RefreshScheduleScheduleOutput
+	ToRefreshScheduleScheduleOutputWithContext(context.Context) RefreshScheduleScheduleOutput
+}
+
+type RefreshScheduleScheduleArgs struct {
+	// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+	RefreshType pulumi.StringInput `pulumi:"refreshType"`
+	// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+	ScheduleFrequency RefreshScheduleScheduleScheduleFrequencyPtrInput `pulumi:"scheduleFrequency"`
+	// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
+	StartAfterDateTime pulumi.StringPtrInput `pulumi:"startAfterDateTime"`
+}
+
+func (RefreshScheduleScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleSchedule)(nil)).Elem()
+}
+
+func (i RefreshScheduleScheduleArgs) ToRefreshScheduleScheduleOutput() RefreshScheduleScheduleOutput {
+	return i.ToRefreshScheduleScheduleOutputWithContext(context.Background())
+}
+
+func (i RefreshScheduleScheduleArgs) ToRefreshScheduleScheduleOutputWithContext(ctx context.Context) RefreshScheduleScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleScheduleOutput)
+}
+
+func (i RefreshScheduleScheduleArgs) ToRefreshScheduleSchedulePtrOutput() RefreshScheduleSchedulePtrOutput {
+	return i.ToRefreshScheduleSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i RefreshScheduleScheduleArgs) ToRefreshScheduleSchedulePtrOutputWithContext(ctx context.Context) RefreshScheduleSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleScheduleOutput).ToRefreshScheduleSchedulePtrOutputWithContext(ctx)
+}
+
+// RefreshScheduleSchedulePtrInput is an input type that accepts RefreshScheduleScheduleArgs, RefreshScheduleSchedulePtr and RefreshScheduleSchedulePtrOutput values.
+// You can construct a concrete instance of `RefreshScheduleSchedulePtrInput` via:
+//
+//	        RefreshScheduleScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type RefreshScheduleSchedulePtrInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleSchedulePtrOutput() RefreshScheduleSchedulePtrOutput
+	ToRefreshScheduleSchedulePtrOutputWithContext(context.Context) RefreshScheduleSchedulePtrOutput
+}
+
+type refreshScheduleSchedulePtrType RefreshScheduleScheduleArgs
+
+func RefreshScheduleSchedulePtr(v *RefreshScheduleScheduleArgs) RefreshScheduleSchedulePtrInput {
+	return (*refreshScheduleSchedulePtrType)(v)
+}
+
+func (*refreshScheduleSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleSchedule)(nil)).Elem()
+}
+
+func (i *refreshScheduleSchedulePtrType) ToRefreshScheduleSchedulePtrOutput() RefreshScheduleSchedulePtrOutput {
+	return i.ToRefreshScheduleSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *refreshScheduleSchedulePtrType) ToRefreshScheduleSchedulePtrOutputWithContext(ctx context.Context) RefreshScheduleSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleSchedulePtrOutput)
+}
+
+type RefreshScheduleScheduleOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleSchedule)(nil)).Elem()
+}
+
+func (o RefreshScheduleScheduleOutput) ToRefreshScheduleScheduleOutput() RefreshScheduleScheduleOutput {
+	return o
+}
+
+func (o RefreshScheduleScheduleOutput) ToRefreshScheduleScheduleOutputWithContext(ctx context.Context) RefreshScheduleScheduleOutput {
+	return o
+}
+
+func (o RefreshScheduleScheduleOutput) ToRefreshScheduleSchedulePtrOutput() RefreshScheduleSchedulePtrOutput {
+	return o.ToRefreshScheduleSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleScheduleOutput) ToRefreshScheduleSchedulePtrOutputWithContext(ctx context.Context) RefreshScheduleSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RefreshScheduleSchedule) *RefreshScheduleSchedule {
+		return &v
+	}).(RefreshScheduleSchedulePtrOutput)
+}
+
+// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+func (o RefreshScheduleScheduleOutput) RefreshType() pulumi.StringOutput {
+	return o.ApplyT(func(v RefreshScheduleSchedule) string { return v.RefreshType }).(pulumi.StringOutput)
+}
+
+// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+func (o RefreshScheduleScheduleOutput) ScheduleFrequency() RefreshScheduleScheduleScheduleFrequencyPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleSchedule) *RefreshScheduleScheduleScheduleFrequency { return v.ScheduleFrequency }).(RefreshScheduleScheduleScheduleFrequencyPtrOutput)
+}
+
+// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
+func (o RefreshScheduleScheduleOutput) StartAfterDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleSchedule) *string { return v.StartAfterDateTime }).(pulumi.StringPtrOutput)
+}
+
+type RefreshScheduleSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleSchedule)(nil)).Elem()
+}
+
+func (o RefreshScheduleSchedulePtrOutput) ToRefreshScheduleSchedulePtrOutput() RefreshScheduleSchedulePtrOutput {
+	return o
+}
+
+func (o RefreshScheduleSchedulePtrOutput) ToRefreshScheduleSchedulePtrOutputWithContext(ctx context.Context) RefreshScheduleSchedulePtrOutput {
+	return o
+}
+
+func (o RefreshScheduleSchedulePtrOutput) Elem() RefreshScheduleScheduleOutput {
+	return o.ApplyT(func(v *RefreshScheduleSchedule) RefreshScheduleSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshScheduleSchedule
+		return ret
+	}).(RefreshScheduleScheduleOutput)
+}
+
+// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+func (o RefreshScheduleSchedulePtrOutput) RefreshType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RefreshType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+func (o RefreshScheduleSchedulePtrOutput) ScheduleFrequency() RefreshScheduleScheduleScheduleFrequencyPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleSchedule) *RefreshScheduleScheduleScheduleFrequency {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleFrequency
+	}).(RefreshScheduleScheduleScheduleFrequencyPtrOutput)
+}
+
+// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
+func (o RefreshScheduleSchedulePtrOutput) StartAfterDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartAfterDateTime
+	}).(pulumi.StringPtrOutput)
+}
+
+type RefreshScheduleScheduleScheduleFrequency struct {
+	// The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+	Interval string `pulumi:"interval"`
+	// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+	RefreshOnDay *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay `pulumi:"refreshOnDay"`
+	TimeOfTheDay *string                                               `pulumi:"timeOfTheDay"`
+	// The timezone that you want the refresh schedule to use.
+	Timezone *string `pulumi:"timezone"`
+}
+
+// RefreshScheduleScheduleScheduleFrequencyInput is an input type that accepts RefreshScheduleScheduleScheduleFrequencyArgs and RefreshScheduleScheduleScheduleFrequencyOutput values.
+// You can construct a concrete instance of `RefreshScheduleScheduleScheduleFrequencyInput` via:
+//
+//	RefreshScheduleScheduleScheduleFrequencyArgs{...}
+type RefreshScheduleScheduleScheduleFrequencyInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleScheduleScheduleFrequencyOutput() RefreshScheduleScheduleScheduleFrequencyOutput
+	ToRefreshScheduleScheduleScheduleFrequencyOutputWithContext(context.Context) RefreshScheduleScheduleScheduleFrequencyOutput
+}
+
+type RefreshScheduleScheduleScheduleFrequencyArgs struct {
+	// The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+	Interval pulumi.StringInput `pulumi:"interval"`
+	// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+	RefreshOnDay RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrInput `pulumi:"refreshOnDay"`
+	TimeOfTheDay pulumi.StringPtrInput                                        `pulumi:"timeOfTheDay"`
+	// The timezone that you want the refresh schedule to use.
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+}
+
+func (RefreshScheduleScheduleScheduleFrequencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleScheduleScheduleFrequency)(nil)).Elem()
+}
+
+func (i RefreshScheduleScheduleScheduleFrequencyArgs) ToRefreshScheduleScheduleScheduleFrequencyOutput() RefreshScheduleScheduleScheduleFrequencyOutput {
+	return i.ToRefreshScheduleScheduleScheduleFrequencyOutputWithContext(context.Background())
+}
+
+func (i RefreshScheduleScheduleScheduleFrequencyArgs) ToRefreshScheduleScheduleScheduleFrequencyOutputWithContext(ctx context.Context) RefreshScheduleScheduleScheduleFrequencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleScheduleScheduleFrequencyOutput)
+}
+
+func (i RefreshScheduleScheduleScheduleFrequencyArgs) ToRefreshScheduleScheduleScheduleFrequencyPtrOutput() RefreshScheduleScheduleScheduleFrequencyPtrOutput {
+	return i.ToRefreshScheduleScheduleScheduleFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (i RefreshScheduleScheduleScheduleFrequencyArgs) ToRefreshScheduleScheduleScheduleFrequencyPtrOutputWithContext(ctx context.Context) RefreshScheduleScheduleScheduleFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleScheduleScheduleFrequencyOutput).ToRefreshScheduleScheduleScheduleFrequencyPtrOutputWithContext(ctx)
+}
+
+// RefreshScheduleScheduleScheduleFrequencyPtrInput is an input type that accepts RefreshScheduleScheduleScheduleFrequencyArgs, RefreshScheduleScheduleScheduleFrequencyPtr and RefreshScheduleScheduleScheduleFrequencyPtrOutput values.
+// You can construct a concrete instance of `RefreshScheduleScheduleScheduleFrequencyPtrInput` via:
+//
+//	        RefreshScheduleScheduleScheduleFrequencyArgs{...}
+//
+//	or:
+//
+//	        nil
+type RefreshScheduleScheduleScheduleFrequencyPtrInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleScheduleScheduleFrequencyPtrOutput() RefreshScheduleScheduleScheduleFrequencyPtrOutput
+	ToRefreshScheduleScheduleScheduleFrequencyPtrOutputWithContext(context.Context) RefreshScheduleScheduleScheduleFrequencyPtrOutput
+}
+
+type refreshScheduleScheduleScheduleFrequencyPtrType RefreshScheduleScheduleScheduleFrequencyArgs
+
+func RefreshScheduleScheduleScheduleFrequencyPtr(v *RefreshScheduleScheduleScheduleFrequencyArgs) RefreshScheduleScheduleScheduleFrequencyPtrInput {
+	return (*refreshScheduleScheduleScheduleFrequencyPtrType)(v)
+}
+
+func (*refreshScheduleScheduleScheduleFrequencyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleScheduleScheduleFrequency)(nil)).Elem()
+}
+
+func (i *refreshScheduleScheduleScheduleFrequencyPtrType) ToRefreshScheduleScheduleScheduleFrequencyPtrOutput() RefreshScheduleScheduleScheduleFrequencyPtrOutput {
+	return i.ToRefreshScheduleScheduleScheduleFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (i *refreshScheduleScheduleScheduleFrequencyPtrType) ToRefreshScheduleScheduleScheduleFrequencyPtrOutputWithContext(ctx context.Context) RefreshScheduleScheduleScheduleFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleScheduleScheduleFrequencyPtrOutput)
+}
+
+type RefreshScheduleScheduleScheduleFrequencyOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleScheduleScheduleFrequencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleScheduleScheduleFrequency)(nil)).Elem()
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyOutput) ToRefreshScheduleScheduleScheduleFrequencyOutput() RefreshScheduleScheduleScheduleFrequencyOutput {
+	return o
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyOutput) ToRefreshScheduleScheduleScheduleFrequencyOutputWithContext(ctx context.Context) RefreshScheduleScheduleScheduleFrequencyOutput {
+	return o
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyOutput) ToRefreshScheduleScheduleScheduleFrequencyPtrOutput() RefreshScheduleScheduleScheduleFrequencyPtrOutput {
+	return o.ToRefreshScheduleScheduleScheduleFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyOutput) ToRefreshScheduleScheduleScheduleFrequencyPtrOutputWithContext(ctx context.Context) RefreshScheduleScheduleScheduleFrequencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RefreshScheduleScheduleScheduleFrequency) *RefreshScheduleScheduleScheduleFrequency {
+		return &v
+	}).(RefreshScheduleScheduleScheduleFrequencyPtrOutput)
+}
+
+// The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+func (o RefreshScheduleScheduleScheduleFrequencyOutput) Interval() pulumi.StringOutput {
+	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequency) string { return v.Interval }).(pulumi.StringOutput)
+}
+
+// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+func (o RefreshScheduleScheduleScheduleFrequencyOutput) RefreshOnDay() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequency) *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay {
+		return v.RefreshOnDay
+	}).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput)
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyOutput) TimeOfTheDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequency) *string { return v.TimeOfTheDay }).(pulumi.StringPtrOutput)
+}
+
+// The timezone that you want the refresh schedule to use.
+func (o RefreshScheduleScheduleScheduleFrequencyOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequency) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+type RefreshScheduleScheduleScheduleFrequencyPtrOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleScheduleScheduleFrequencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleScheduleScheduleFrequency)(nil)).Elem()
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) ToRefreshScheduleScheduleScheduleFrequencyPtrOutput() RefreshScheduleScheduleScheduleFrequencyPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) ToRefreshScheduleScheduleScheduleFrequencyPtrOutputWithContext(ctx context.Context) RefreshScheduleScheduleScheduleFrequencyPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) Elem() RefreshScheduleScheduleScheduleFrequencyOutput {
+	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequency) RefreshScheduleScheduleScheduleFrequency {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshScheduleScheduleScheduleFrequency
+		return ret
+	}).(RefreshScheduleScheduleScheduleFrequencyOutput)
+}
+
+// The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) Interval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequency) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(pulumi.StringPtrOutput)
+}
+
+// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) RefreshOnDay() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequency) *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshOnDay
+	}).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput)
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) TimeOfTheDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequency) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeOfTheDay
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timezone that you want the refresh schedule to use.
+func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequency) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type RefreshScheduleScheduleScheduleFrequencyRefreshOnDay struct {
+	// The day of the month that you want to schedule refresh on.
+	DayOfMonth *string `pulumi:"dayOfMonth"`
+	// The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+	DayOfWeek *string `pulumi:"dayOfWeek"`
+}
+
+// RefreshScheduleScheduleScheduleFrequencyRefreshOnDayInput is an input type that accepts RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs and RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput values.
+// You can construct a concrete instance of `RefreshScheduleScheduleScheduleFrequencyRefreshOnDayInput` via:
+//
+//	RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs{...}
+type RefreshScheduleScheduleScheduleFrequencyRefreshOnDayInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput
+	ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutputWithContext(context.Context) RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput
+}
+
+type RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs struct {
+	// The day of the month that you want to schedule refresh on.
+	DayOfMonth pulumi.StringPtrInput `pulumi:"dayOfMonth"`
+	// The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
+}
+
+func (RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleScheduleScheduleFrequencyRefreshOnDay)(nil)).Elem()
+}
+
+func (i RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs) ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput {
+	return i.ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutputWithContext(context.Background())
+}
+
+func (i RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs) ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutputWithContext(ctx context.Context) RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput)
+}
+
+func (i RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs) ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput {
+	return i.ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutputWithContext(context.Background())
+}
+
+func (i RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs) ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutputWithContext(ctx context.Context) RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput).ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutputWithContext(ctx)
+}
+
+// RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrInput is an input type that accepts RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs, RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtr and RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput values.
+// You can construct a concrete instance of `RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrInput` via:
+//
+//	        RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs{...}
+//
+//	or:
+//
+//	        nil
+type RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrInput interface {
+	pulumi.Input
+
+	ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput
+	ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutputWithContext(context.Context) RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput
+}
+
+type refreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrType RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs
+
+func RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtr(v *RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs) RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrInput {
+	return (*refreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrType)(v)
+}
+
+func (*refreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleScheduleScheduleFrequencyRefreshOnDay)(nil)).Elem()
+}
+
+func (i *refreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrType) ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput {
+	return i.ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutputWithContext(context.Background())
+}
+
+func (i *refreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrType) ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutputWithContext(ctx context.Context) RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput)
+}
+
+type RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshScheduleScheduleScheduleFrequencyRefreshOnDay)(nil)).Elem()
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput) ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput {
+	return o
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput) ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutputWithContext(ctx context.Context) RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput {
+	return o
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput) ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput {
+	return o.ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput) ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutputWithContext(ctx context.Context) RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RefreshScheduleScheduleScheduleFrequencyRefreshOnDay) *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay {
+		return &v
+	}).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput)
+}
+
+// The day of the month that you want to schedule refresh on.
+func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput) DayOfMonth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequencyRefreshOnDay) *string { return v.DayOfMonth }).(pulumi.StringPtrOutput)
+}
+
+// The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequencyRefreshOnDay) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
+}
+
+type RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput struct{ *pulumi.OutputState }
+
+func (RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshScheduleScheduleScheduleFrequencyRefreshOnDay)(nil)).Elem()
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput) ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput) ToRefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutputWithContext(ctx context.Context) RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput {
+	return o
+}
+
+func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput) Elem() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput {
+	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay) RefreshScheduleScheduleScheduleFrequencyRefreshOnDay {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshScheduleScheduleScheduleFrequencyRefreshOnDay
+		return ret
+	}).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput)
+}
+
+// The day of the month that you want to schedule refresh on.
+func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput) DayOfMonth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfMonth
+	}).(pulumi.StringPtrOutput)
+}
+
+// The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput) DayOfWeek() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetDataSetColumnGroup struct {
 	GeoSpatialColumnGroups []GetDataSetColumnGroupGeoSpatialColumnGroup `pulumi:"geoSpatialColumnGroups"`
 }
@@ -13258,6 +13781,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderPermissionArrayInput)(nil)).Elem(), FolderPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IamPolicyAssignmentIdentitiesInput)(nil)).Elem(), IamPolicyAssignmentIdentitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IamPolicyAssignmentIdentitiesPtrInput)(nil)).Elem(), IamPolicyAssignmentIdentitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleScheduleInput)(nil)).Elem(), RefreshScheduleScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleSchedulePtrInput)(nil)).Elem(), RefreshScheduleScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleScheduleScheduleFrequencyInput)(nil)).Elem(), RefreshScheduleScheduleScheduleFrequencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleScheduleScheduleFrequencyPtrInput)(nil)).Elem(), RefreshScheduleScheduleScheduleFrequencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleScheduleScheduleFrequencyRefreshOnDayInput)(nil)).Elem(), RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrInput)(nil)).Elem(), RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupInput)(nil)).Elem(), GetDataSetColumnGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupArrayInput)(nil)).Elem(), GetDataSetColumnGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupGeoSpatialColumnGroupInput)(nil)).Elem(), GetDataSetColumnGroupGeoSpatialColumnGroupArgs{})
@@ -13447,6 +13976,12 @@ func init() {
 	pulumi.RegisterOutputType(FolderPermissionArrayOutput{})
 	pulumi.RegisterOutputType(IamPolicyAssignmentIdentitiesOutput{})
 	pulumi.RegisterOutputType(IamPolicyAssignmentIdentitiesPtrOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleScheduleOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleSchedulePtrOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleScheduleScheduleFrequencyOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleScheduleScheduleFrequencyPtrOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput{})
+	pulumi.RegisterOutputType(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupGeoSpatialColumnGroupOutput{})

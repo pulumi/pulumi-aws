@@ -14,7 +14,6 @@ import (
 // Provides a resource to manage an S3 Object Lambda Access Point resource policy.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

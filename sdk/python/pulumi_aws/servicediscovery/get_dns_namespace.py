@@ -118,7 +118,6 @@ def get_dns_namespace(name: Optional[str] = None,
     Retrieves information about a Service Discovery private or public DNS namespace.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -158,7 +157,6 @@ def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
     Retrieves information about a Service Discovery private or public DNS namespace.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -200,7 +200,6 @@ class Permission(pulumi.CustomResource):
         Provides an OpsWorks permission resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,7 +230,6 @@ class Permission(pulumi.CustomResource):
         Provides an OpsWorks permission resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

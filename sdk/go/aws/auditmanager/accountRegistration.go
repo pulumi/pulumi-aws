@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -37,7 +36,6 @@ import (
 //
 // ```
 // ### Deregister On Destroy
-//
 // ```go
 // package main
 //

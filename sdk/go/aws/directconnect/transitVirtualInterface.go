@@ -15,7 +15,6 @@ import (
 // A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -177,7 +177,6 @@ def get_authorizer(authorizer_id: Optional[str] = None,
     Provides details about a specific API Gateway Authorizer.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -219,7 +218,6 @@ def get_authorizer_output(authorizer_id: Optional[pulumi.Input[str]] = None,
     Provides details about a specific API Gateway Authorizer.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

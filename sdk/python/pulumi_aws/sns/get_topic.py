@@ -73,7 +73,6 @@ def get_topic(name: Optional[str] = None,
     without having to hard code the ARNs as input.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -104,7 +103,6 @@ def get_topic_output(name: Optional[pulumi.Input[str]] = None,
     without having to hard code the ARNs as input.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

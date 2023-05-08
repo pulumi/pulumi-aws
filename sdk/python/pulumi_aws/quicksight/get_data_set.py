@@ -200,7 +200,6 @@ def get_data_set(aws_account_id: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -251,7 +250,6 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = 
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

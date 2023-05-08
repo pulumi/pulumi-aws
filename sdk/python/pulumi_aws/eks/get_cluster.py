@@ -241,7 +241,6 @@ def get_cluster(name: Optional[str] = None,
     Retrieve information about an EKS Cluster.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -290,7 +289,6 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
     Retrieve information about an EKS Cluster.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

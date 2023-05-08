@@ -218,7 +218,6 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
         This resource accepts ownership of a private virtual interface created by another AWS account.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -272,7 +271,6 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
         This resource accepts ownership of a private virtual interface created by another AWS account.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

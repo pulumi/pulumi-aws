@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ssm
     /// Provides a SSM resource data sync.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

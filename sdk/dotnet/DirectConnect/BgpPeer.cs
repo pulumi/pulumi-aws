@@ -13,7 +13,6 @@ namespace Pulumi.Aws.DirectConnect
     /// Provides a Direct Connect BGP peer resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

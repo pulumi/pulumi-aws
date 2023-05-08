@@ -14,7 +14,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### Encrypting with KMS Key
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,7 +47,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Server Side Encryption with S3 Default Master Key
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,7 +74,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Server Side Encryption with AWS-Managed Key
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -104,7 +101,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### S3 Object Lock
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

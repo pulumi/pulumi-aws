@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Attach an Elastic network interface (ENI) resource with EC2 instance.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

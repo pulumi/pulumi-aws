@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Backup
     /// Provides an AWS Backup Region Settings resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

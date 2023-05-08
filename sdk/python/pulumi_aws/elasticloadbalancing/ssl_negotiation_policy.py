@@ -219,7 +219,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,7 +288,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -98,7 +98,6 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[pulumi.InputType
     Provides details about a specific DataPipeline Pipeline Definition.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -132,7 +131,6 @@ def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optio
     Provides details about a specific DataPipeline Pipeline Definition.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

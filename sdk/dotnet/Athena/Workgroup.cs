@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Athena
     /// Provides an Athena Workgroup.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

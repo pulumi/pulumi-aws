@@ -14,7 +14,6 @@ import (
 // Provides a Location Service Tracker.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

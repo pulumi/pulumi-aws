@@ -348,7 +348,6 @@ class ScheduledAction(pulumi.CustomResource):
 
         ## Example Usage
         ### DynamoDB Table Autoscaling
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -370,7 +369,6 @@ class ScheduledAction(pulumi.CustomResource):
             ))
         ```
         ### ECS Service Autoscaling
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -415,7 +413,6 @@ class ScheduledAction(pulumi.CustomResource):
 
         ## Example Usage
         ### DynamoDB Table Autoscaling
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -437,7 +434,6 @@ class ScheduledAction(pulumi.CustomResource):
             ))
         ```
         ### ECS Service Autoscaling
-
         ```python
         import pulumi
         import pulumi_aws as aws

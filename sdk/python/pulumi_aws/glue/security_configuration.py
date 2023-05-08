@@ -104,7 +104,6 @@ class SecurityConfiguration(pulumi.CustomResource):
         Manages a Glue Security Configuration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,7 +145,6 @@ class SecurityConfiguration(pulumi.CustomResource):
         Manages a Glue Security Configuration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

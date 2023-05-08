@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Ebs
     /// &gt; **NOTE:** Removing this resource disables default EBS encryption.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

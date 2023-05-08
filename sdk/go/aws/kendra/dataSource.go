@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -47,7 +46,6 @@ import (
 // ```
 // ### S3 Connector
 // ### With Schedule
-//
 // ```go
 // package main
 //
@@ -80,7 +78,6 @@ import (
 //
 // ```
 // ### With Access Control List
-//
 // ```go
 // package main
 //
@@ -118,7 +115,6 @@ import (
 // ```
 // ### Web Crawler Connector
 // ### With Seed URLs
-//
 // ```go
 // package main
 //
@@ -156,7 +152,6 @@ import (
 //
 // ```
 // ### With Site Maps
-//
 // ```go
 // package main
 //
@@ -194,7 +189,6 @@ import (
 //
 // ```
 // ### With Web Crawler Mode
-//
 // ```go
 // package main
 //
@@ -233,7 +227,6 @@ import (
 //
 // ```
 // ### With Authentication Configuration
-//
 // ```go
 // package main
 //
@@ -282,7 +275,6 @@ import (
 //
 // ```
 // ### With Crawl Depth
-//
 // ```go
 // package main
 //
@@ -321,7 +313,6 @@ import (
 //
 // ```
 // ### With Max Links Per Page
-//
 // ```go
 // package main
 //
@@ -360,7 +351,6 @@ import (
 //
 // ```
 // ### With Max Urls Per Minute Crawl Rate
-//
 // ```go
 // package main
 //
@@ -399,7 +389,6 @@ import (
 //
 // ```
 // ### With Proxy Configuration
-//
 // ```go
 // package main
 //
@@ -444,7 +433,6 @@ import (
 //
 // ```
 // ### With URL Exclusion and Inclusion Patterns
-//
 // ```go
 // package main
 //

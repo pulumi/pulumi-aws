@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Aws.Scheduler
     /// });
     /// ```
     /// ### Universal Target
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

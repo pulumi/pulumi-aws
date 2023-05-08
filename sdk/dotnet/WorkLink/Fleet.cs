@@ -13,7 +13,6 @@ namespace Pulumi.Aws.WorkLink
     /// ## Example Usage
     /// 
     /// Basic usage:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,7 +27,6 @@ namespace Pulumi.Aws.WorkLink
     /// ```
     /// 
     /// Network Configuration Usage:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,7 +55,6 @@ namespace Pulumi.Aws.WorkLink
     /// ```
     /// 
     /// Identity Provider Configuration Usage:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

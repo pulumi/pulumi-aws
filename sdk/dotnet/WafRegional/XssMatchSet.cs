@@ -13,7 +13,6 @@ namespace Pulumi.Aws.WafRegional
     /// Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

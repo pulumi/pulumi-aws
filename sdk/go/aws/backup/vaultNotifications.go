@@ -13,6 +13,8 @@ import (
 
 // Provides an AWS Backup vault notifications resource.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // Backup vault notifications can be imported using the `name`, e.g.,

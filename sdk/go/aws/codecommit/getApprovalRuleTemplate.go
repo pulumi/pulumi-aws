@@ -13,7 +13,6 @@ import (
 // Provides details about a specific CodeCommit Approval Rule Template.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

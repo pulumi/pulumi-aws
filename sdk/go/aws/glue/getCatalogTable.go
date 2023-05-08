@@ -13,7 +13,6 @@ import (
 // This data source can be used to fetch information about an AWS Glue Data Catalog Table.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -27,46 +27,6 @@ import (
 //
 // ## Example Usage
 //
-// # Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewManagedPrefixList(ctx, "example", &ec2.ManagedPrefixListArgs{
-//				AddressFamily: pulumi.String("IPv4"),
-//				MaxEntries:    pulumi.Int(5),
-//				Entries: ec2.ManagedPrefixListEntryTypeArray{
-//					&ec2.ManagedPrefixListEntryTypeArgs{
-//						Cidr:        pulumi.Any(aws_vpc.Example.Cidr_block),
-//						Description: pulumi.String("Primary"),
-//					},
-//					&ec2.ManagedPrefixListEntryTypeArgs{
-//						Cidr:        pulumi.Any(aws_vpc_ipv4_cidr_block_association.Example.Cidr_block),
-//						Description: pulumi.String("Secondary"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Env": pulumi.String("live"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Prefix Lists can be imported using the `id`, e.g.,

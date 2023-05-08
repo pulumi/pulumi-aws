@@ -13,7 +13,6 @@ namespace Pulumi.Aws.RedShift
     /// Provides a Redshift Cluster parameter group resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

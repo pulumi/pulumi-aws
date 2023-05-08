@@ -13,7 +13,6 @@ import (
 // Provides a DataPipeline Pipeline resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

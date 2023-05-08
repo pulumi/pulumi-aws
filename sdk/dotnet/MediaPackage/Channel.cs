@@ -13,7 +13,6 @@ namespace Pulumi.Aws.MediaPackage
     /// Provides an AWS Elemental MediaPackage Channel.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

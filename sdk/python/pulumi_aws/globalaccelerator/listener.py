@@ -168,7 +168,6 @@ class Listener(pulumi.CustomResource):
         Provides a Global Accelerator listener.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,7 +215,6 @@ class Listener(pulumi.CustomResource):
         Provides a Global Accelerator listener.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

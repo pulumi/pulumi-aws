@@ -392,7 +392,6 @@ class SigningJob(pulumi.CustomResource):
         Creates a Signer Signing Job.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -441,7 +440,6 @@ class SigningJob(pulumi.CustomResource):
         Creates a Signer Signing Job.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

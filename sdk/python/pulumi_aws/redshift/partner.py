@@ -197,7 +197,6 @@ class Partner(pulumi.CustomResource):
         Creates a new Amazon Redshift Partner Integration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,7 +233,6 @@ class Partner(pulumi.CustomResource):
         Creates a new Amazon Redshift Partner Integration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

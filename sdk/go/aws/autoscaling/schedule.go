@@ -14,7 +14,6 @@ import (
 // Provides an AutoScaling Schedule resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

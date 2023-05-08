@@ -14,7 +14,6 @@ import (
 // Provides a Glue Registry resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

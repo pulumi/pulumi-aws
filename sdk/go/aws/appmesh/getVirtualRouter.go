@@ -13,7 +13,6 @@ import (
 // The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

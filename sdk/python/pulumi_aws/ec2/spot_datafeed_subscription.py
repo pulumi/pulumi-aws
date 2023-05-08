@@ -105,7 +105,6 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -142,7 +141,6 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

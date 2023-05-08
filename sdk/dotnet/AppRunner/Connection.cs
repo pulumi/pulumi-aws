@@ -15,7 +15,6 @@ namespace Pulumi.Aws.AppRunner
     /// &gt; **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

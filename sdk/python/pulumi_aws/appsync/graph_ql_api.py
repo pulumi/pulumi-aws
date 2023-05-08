@@ -434,7 +434,6 @@ class GraphQLApi(pulumi.CustomResource):
 
         ## Example Usage
         ### API Key Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -442,7 +441,6 @@ class GraphQLApi(pulumi.CustomResource):
         example = aws.appsync.GraphQLApi("example", authentication_type="API_KEY")
         ```
         ### AWS IAM Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -450,7 +448,6 @@ class GraphQLApi(pulumi.CustomResource):
         example = aws.appsync.GraphQLApi("example", authentication_type="AWS_IAM")
         ```
         ### AWS Cognito User Pool Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -464,7 +461,6 @@ class GraphQLApi(pulumi.CustomResource):
             ))
         ```
         ### OpenID Connect Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -476,7 +472,6 @@ class GraphQLApi(pulumi.CustomResource):
             ))
         ```
         ### AWS Lambda Authorizer Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -493,7 +488,6 @@ class GraphQLApi(pulumi.CustomResource):
             source_arn=example.arn)
         ```
         ### With Multiple Authentication Providers
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -505,7 +499,6 @@ class GraphQLApi(pulumi.CustomResource):
             authentication_type="API_KEY")
         ```
         ### With Schema
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -522,7 +515,6 @@ class GraphQLApi(pulumi.CustomResource):
         \"\"\")
         ```
         ### Enabling Logging
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -579,7 +571,6 @@ class GraphQLApi(pulumi.CustomResource):
 
         ## Example Usage
         ### API Key Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -587,7 +578,6 @@ class GraphQLApi(pulumi.CustomResource):
         example = aws.appsync.GraphQLApi("example", authentication_type="API_KEY")
         ```
         ### AWS IAM Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -595,7 +585,6 @@ class GraphQLApi(pulumi.CustomResource):
         example = aws.appsync.GraphQLApi("example", authentication_type="AWS_IAM")
         ```
         ### AWS Cognito User Pool Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -609,7 +598,6 @@ class GraphQLApi(pulumi.CustomResource):
             ))
         ```
         ### OpenID Connect Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -621,7 +609,6 @@ class GraphQLApi(pulumi.CustomResource):
             ))
         ```
         ### AWS Lambda Authorizer Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -638,7 +625,6 @@ class GraphQLApi(pulumi.CustomResource):
             source_arn=example.arn)
         ```
         ### With Multiple Authentication Providers
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -650,7 +636,6 @@ class GraphQLApi(pulumi.CustomResource):
             authentication_type="API_KEY")
         ```
         ### With Schema
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -667,7 +652,6 @@ class GraphQLApi(pulumi.CustomResource):
         \"\"\")
         ```
         ### Enabling Logging
-
         ```python
         import pulumi
         import pulumi_aws as aws

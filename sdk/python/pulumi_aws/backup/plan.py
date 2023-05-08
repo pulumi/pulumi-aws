@@ -235,7 +235,6 @@ class Plan(pulumi.CustomResource):
         Provides an AWS Backup plan resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,7 +282,6 @@ class Plan(pulumi.CustomResource):
         Provides an AWS Backup plan resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

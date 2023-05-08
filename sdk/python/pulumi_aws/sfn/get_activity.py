@@ -81,7 +81,6 @@ def get_activity(arn: Optional[str] = None,
     Provides a Step Functions Activity data source
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -114,7 +113,6 @@ def get_activity_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     Provides a Step Functions Activity data source
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

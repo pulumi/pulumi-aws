@@ -14,7 +14,6 @@ import (
 // Creates a new Amazon Redshift Serverless Workgroup.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

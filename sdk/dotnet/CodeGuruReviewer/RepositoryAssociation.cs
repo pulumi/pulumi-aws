@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CodeGuruReviewer
     /// Resource for managing an AWS CodeGuru Reviewer Repository Association.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

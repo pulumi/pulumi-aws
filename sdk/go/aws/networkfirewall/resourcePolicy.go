@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### For a Firewall Policy resource
-//
 // ```go
 // package main
 //
@@ -65,7 +64,6 @@ import (
 //
 // ```
 // ### For a Rule Group resource
-//
 // ```go
 // package main
 //

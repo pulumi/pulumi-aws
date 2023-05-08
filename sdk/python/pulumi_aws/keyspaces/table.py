@@ -417,7 +417,6 @@ class Table(pulumi.CustomResource):
         More information about Keyspaces tables can be found in the [Keyspaces Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -470,7 +469,6 @@ class Table(pulumi.CustomResource):
         More information about Keyspaces tables can be found in the [Keyspaces Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

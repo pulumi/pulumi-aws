@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Backup
     /// &gt; For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
     /// 
     /// The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,7 +72,6 @@ namespace Pulumi.Aws.Backup
     /// });
     /// ```
     /// ### Selecting Backups By Tag
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -100,7 +98,6 @@ namespace Pulumi.Aws.Backup
     /// });
     /// ```
     /// ### Selecting Backups By Conditions
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -160,7 +157,6 @@ namespace Pulumi.Aws.Backup
     /// });
     /// ```
     /// ### Selecting Backups By Resource
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -184,7 +180,6 @@ namespace Pulumi.Aws.Backup
     /// });
     /// ```
     /// ### Selecting Backups By Not Resource
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

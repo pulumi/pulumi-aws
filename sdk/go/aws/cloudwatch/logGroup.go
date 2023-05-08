@@ -13,7 +13,6 @@ import (
 // Provides a CloudWatch Log Group resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

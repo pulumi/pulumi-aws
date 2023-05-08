@@ -221,7 +221,6 @@ class SubnetGroup(pulumi.CustomResource):
         ElastiCache Security Group resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,7 +270,6 @@ class SubnetGroup(pulumi.CustomResource):
         ElastiCache Security Group resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

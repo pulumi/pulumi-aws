@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Efs
     /// Provides an Elastic File System (EFS) mount target.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

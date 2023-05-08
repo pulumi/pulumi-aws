@@ -92,7 +92,6 @@ def get_assets(arn: Optional[str] = None,
 
     ## Example Usage
     ### Basic
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -100,7 +99,6 @@ def get_assets(arn: Optional[str] = None,
     example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"])
     ```
     ### With Host ID Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -109,7 +107,6 @@ def get_assets(arn: Optional[str] = None,
         host_id_filters=["h-x38g5n0yd2a0ueb61"])
     ```
     ### With Status ID Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -148,7 +145,6 @@ def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Basic
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,7 +152,6 @@ def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
     example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"])
     ```
     ### With Host ID Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -165,7 +160,6 @@ def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
         host_id_filters=["h-x38g5n0yd2a0ueb61"])
     ```
     ### With Status ID Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -13,6 +13,8 @@ import (
 
 // Provides a CodeStar Notifications Rule.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // CodeStar notification rule can be imported using the ARN, e.g.,

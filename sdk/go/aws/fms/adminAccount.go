@@ -13,7 +13,6 @@ import (
 // Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

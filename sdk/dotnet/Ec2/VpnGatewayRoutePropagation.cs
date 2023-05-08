@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Ec2
     /// propagation not explicitly listed in its value will be removed.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

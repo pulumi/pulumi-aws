@@ -133,7 +133,6 @@ class CidrLocation(pulumi.CustomResource):
         Provides a Route53 CIDR location resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -172,7 +171,6 @@ class CidrLocation(pulumi.CustomResource):
         Provides a Route53 CIDR location resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

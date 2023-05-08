@@ -14,7 +14,6 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// ## Example Usage
     /// ### Basic
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

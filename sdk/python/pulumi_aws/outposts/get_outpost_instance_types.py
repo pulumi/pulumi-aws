@@ -71,7 +71,6 @@ def get_outpost_instance_types(arn: Optional[str] = None,
     Information about Outposts Instance Types.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -100,7 +99,6 @@ def get_outpost_instance_types_output(arn: Optional[pulumi.Input[str]] = None,
     Information about Outposts Instance Types.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

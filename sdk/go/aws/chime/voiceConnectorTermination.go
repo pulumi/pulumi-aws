@@ -14,7 +14,6 @@ import (
 // Enable Termination settings to control outbound calling from your SIP infrastructure.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

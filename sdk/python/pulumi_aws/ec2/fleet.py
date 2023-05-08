@@ -647,7 +647,6 @@ class Fleet(pulumi.CustomResource):
         Provides a resource to manage EC2 Fleets.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -704,7 +703,6 @@ class Fleet(pulumi.CustomResource):
         Provides a resource to manage EC2 Fleets.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

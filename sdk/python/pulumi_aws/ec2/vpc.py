@@ -719,7 +719,6 @@ class Vpc(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -728,7 +727,6 @@ class Vpc(pulumi.CustomResource):
         ```
 
         Basic usage with tags:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -742,7 +740,6 @@ class Vpc(pulumi.CustomResource):
         ```
 
         VPC with CIDR from AWS IPAM:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -806,7 +803,6 @@ class Vpc(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -815,7 +811,6 @@ class Vpc(pulumi.CustomResource):
         ```
 
         Basic usage with tags:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -829,7 +824,6 @@ class Vpc(pulumi.CustomResource):
         ```
 
         VPC with CIDR from AWS IPAM:
-
         ```python
         import pulumi
         import pulumi_aws as aws

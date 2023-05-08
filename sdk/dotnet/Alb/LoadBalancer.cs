@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Alb
     /// 
     /// ## Example Usage
     /// ### Specifying Elastic IPs
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.Aws.Alb
     /// });
     /// ```
     /// ### Specifying private IP addresses for an internal-facing load balancer
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

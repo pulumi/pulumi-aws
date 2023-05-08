@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### By name
-//
 // ```go
 // package main
 //

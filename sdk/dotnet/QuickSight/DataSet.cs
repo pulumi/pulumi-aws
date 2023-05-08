@@ -14,7 +14,6 @@ namespace Pulumi.Aws.QuickSight
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,7 +54,6 @@ namespace Pulumi.Aws.QuickSight
     /// });
     /// ```
     /// ### With Column Level Permission Rules
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,7 +108,6 @@ namespace Pulumi.Aws.QuickSight
     /// });
     /// ```
     /// ### With Field Folders
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -163,7 +160,6 @@ namespace Pulumi.Aws.QuickSight
     /// });
     /// ```
     /// ### With Permissions
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -219,7 +215,6 @@ namespace Pulumi.Aws.QuickSight
     /// });
     /// ```
     /// ### With Row Level Permission Tag Configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

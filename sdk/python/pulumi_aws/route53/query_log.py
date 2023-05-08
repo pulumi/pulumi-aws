@@ -123,7 +123,6 @@ class QueryLog(pulumi.CustomResource):
         See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,7 +185,6 @@ class QueryLog(pulumi.CustomResource):
         See [Configuring Logging for DNS Queries](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html?console_help=true#query-logs-configuring) for additional details.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

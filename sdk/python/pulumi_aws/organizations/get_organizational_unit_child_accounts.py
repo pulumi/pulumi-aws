@@ -72,7 +72,6 @@ def get_organizational_unit_child_accounts(parent_id: Optional[str] = None,
     Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,7 +101,6 @@ def get_organizational_unit_child_accounts_output(parent_id: Optional[pulumi.Inp
     Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

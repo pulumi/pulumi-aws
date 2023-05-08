@@ -16,7 +16,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### Private Bucket w/ Tags
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Static Website Hosting
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -71,7 +69,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Using CORS
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -112,7 +109,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Using versioning
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -133,7 +129,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Enable Logging
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -163,7 +158,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Using object lifecycle
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -257,7 +251,6 @@ namespace Pulumi.Aws.S3
     /// ### Using replication configuration
     /// 
     /// &gt; **NOTE:** See the `aws.s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -395,7 +388,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Enable Default Server Side Encryption
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -428,7 +420,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Using ACL policy grants
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

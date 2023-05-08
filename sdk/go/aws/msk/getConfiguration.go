@@ -13,7 +13,6 @@ import (
 // Get information on an Amazon MSK Configuration.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -795,7 +795,6 @@ class HealthCheck(pulumi.CustomResource):
 
         ## Example Usage
         ### Connectivity and HTTP Status Code Check
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -812,7 +811,6 @@ class HealthCheck(pulumi.CustomResource):
             type="HTTP")
         ```
         ### Connectivity and String Matching Check
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -827,7 +825,6 @@ class HealthCheck(pulumi.CustomResource):
             type="HTTPS_STR_MATCH")
         ```
         ### Aggregate Check
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -841,7 +838,6 @@ class HealthCheck(pulumi.CustomResource):
             })
         ```
         ### CloudWatch Alarm Check
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -910,7 +906,6 @@ class HealthCheck(pulumi.CustomResource):
 
         ## Example Usage
         ### Connectivity and HTTP Status Code Check
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -927,7 +922,6 @@ class HealthCheck(pulumi.CustomResource):
             type="HTTP")
         ```
         ### Connectivity and String Matching Check
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -942,7 +936,6 @@ class HealthCheck(pulumi.CustomResource):
             type="HTTPS_STR_MATCH")
         ```
         ### Aggregate Check
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -956,7 +949,6 @@ class HealthCheck(pulumi.CustomResource):
             })
         ```
         ### CloudWatch Alarm Check
-
         ```python
         import pulumi
         import pulumi_aws as aws

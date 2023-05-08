@@ -14,7 +14,6 @@ import (
 // Provides a resource to manage AWS Data Exchange Revisions.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

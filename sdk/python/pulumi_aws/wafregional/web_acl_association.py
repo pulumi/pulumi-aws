@@ -104,7 +104,6 @@ class WebAclAssociation(pulumi.CustomResource):
 
         ## Example Usage
         ### Application Load Balancer Association
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -153,7 +152,6 @@ class WebAclAssociation(pulumi.CustomResource):
             web_acl_id=foo_web_acl.id)
         ```
         ### API Gateway Association
-
         ```python
         import pulumi
         import hashlib
@@ -242,7 +240,6 @@ class WebAclAssociation(pulumi.CustomResource):
 
         ## Example Usage
         ### Application Load Balancer Association
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,7 +288,6 @@ class WebAclAssociation(pulumi.CustomResource):
             web_acl_id=foo_web_acl.id)
         ```
         ### API Gateway Association
-
         ```python
         import pulumi
         import hashlib

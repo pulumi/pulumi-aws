@@ -101,7 +101,6 @@ def get_resource(identifier: Optional[str] = None,
     Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -143,7 +142,6 @@ def get_resource_output(identifier: Optional[pulumi.Input[str]] = None,
     Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

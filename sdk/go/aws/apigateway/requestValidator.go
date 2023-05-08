@@ -14,7 +14,6 @@ import (
 // Manages an API Gateway Request Validator.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

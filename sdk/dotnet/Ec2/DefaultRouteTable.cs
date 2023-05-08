@@ -19,7 +19,6 @@ namespace Pulumi.Aws.Ec2
     /// For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in this provider, see `aws.ec2.RouteTable`.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,7 +53,6 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// 
     /// To subsequently remove all managed routes:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

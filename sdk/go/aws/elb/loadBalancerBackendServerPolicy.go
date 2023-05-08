@@ -14,7 +14,6 @@ import (
 // Attaches a load balancer policy to an ELB backend server.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

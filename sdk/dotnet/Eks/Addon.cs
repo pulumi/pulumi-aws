@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Eks
     /// which is only available in Kubernetes 1.18 and later.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Aws.Eks
     /// `resolve_conflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
     /// 
     /// &gt; **Note:** `resolve_conflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,7 +66,6 @@ namespace Pulumi.Aws.Eks
     /// 
     /// To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
     /// This below is an example for extracting the `configuration_values` schema for `coredns`.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,7 +77,6 @@ namespace Pulumi.Aws.Eks
     /// ```
     /// 
     /// Example to create a `coredns` managed addon with custom `configuration_values`.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

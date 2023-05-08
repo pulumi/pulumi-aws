@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CodeArtifact
     /// Provides a CodeArtifact Domain Resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

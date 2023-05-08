@@ -14,7 +14,6 @@ import (
 // Creates a link for a site.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

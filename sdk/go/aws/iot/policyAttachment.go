@@ -14,7 +14,6 @@ import (
 // Provides an IoT policy attachment.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

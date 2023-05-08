@@ -14,7 +14,6 @@ import (
 // Provides a Pinpoint Email Channel resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

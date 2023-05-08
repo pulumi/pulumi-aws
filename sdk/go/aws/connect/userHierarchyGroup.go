@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 // ### Basic
-//
 // ```go
 // package main
 //
@@ -46,7 +45,6 @@ import (
 //
 // ```
 // ### With a parent group
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Iam
     /// Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,7 +63,6 @@ namespace Pulumi.Aws.Iam
     ///     };
     /// });
     /// ```
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

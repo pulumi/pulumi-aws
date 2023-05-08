@@ -13,7 +13,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// Provides a Global Accelerator endpoint group.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

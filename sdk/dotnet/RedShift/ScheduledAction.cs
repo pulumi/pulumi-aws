@@ -12,7 +12,6 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// ## Example Usage
     /// ### Pause Cluster Action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -100,7 +99,6 @@ namespace Pulumi.Aws.RedShift
     /// });
     /// ```
     /// ### Resize Cluster Action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

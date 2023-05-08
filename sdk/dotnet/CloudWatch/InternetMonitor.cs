@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CloudWatch
     /// Provides a Internet Monitor Monitor resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

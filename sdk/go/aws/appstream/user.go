@@ -14,7 +14,6 @@ import (
 // Provides an AppStream user.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

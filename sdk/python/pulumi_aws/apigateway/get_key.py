@@ -136,7 +136,6 @@ def get_key(id: Optional[str] = None,
     example to supply credentials for a dependency microservice.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -174,7 +173,6 @@ def get_key_output(id: Optional[pulumi.Input[str]] = None,
     example to supply credentials for a dependency microservice.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

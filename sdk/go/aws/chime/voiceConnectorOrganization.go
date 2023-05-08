@@ -14,7 +14,6 @@ import (
 // Enable origination settings to control inbound calling to your SIP infrastructure.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

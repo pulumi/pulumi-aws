@@ -196,6 +196,8 @@ class LicenseGrantAccepter(pulumi.CustomResource):
         """
         Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
 
+        ## Example Usage
+
         ## Import
 
         `aws_licensemanager_grant_accepter` can be imported using the grant arn.
@@ -216,6 +218,8 @@ class LicenseGrantAccepter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
+
+        ## Example Usage
 
         ## Import
 

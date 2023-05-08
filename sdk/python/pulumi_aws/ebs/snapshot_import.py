@@ -505,7 +505,6 @@ class SnapshotImport(pulumi.CustomResource):
         Imports a disk image from S3 as a Snapshot.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -548,7 +547,6 @@ class SnapshotImport(pulumi.CustomResource):
         Imports a disk image from S3 as a Snapshot.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

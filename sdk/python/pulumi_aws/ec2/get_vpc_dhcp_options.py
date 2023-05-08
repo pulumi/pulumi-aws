@@ -172,7 +172,6 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[str] = None,
 
     ## Example Usage
     ### Lookup by DHCP Options ID
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -180,7 +179,6 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[str] = None,
     example = aws.ec2.get_vpc_dhcp_options(dhcp_options_id="dopts-12345678")
     ```
     ### Lookup by Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -233,7 +231,6 @@ def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[
 
     ## Example Usage
     ### Lookup by DHCP Options ID
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -241,7 +238,6 @@ def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[
     example = aws.ec2.get_vpc_dhcp_options(dhcp_options_id="dopts-12345678")
     ```
     ### Lookup by Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws

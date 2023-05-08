@@ -218,7 +218,6 @@ class Hsm(pulumi.CustomResource):
         ## Example Usage
 
         The following example below creates an HSM module in CloudHSM cluster.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,7 +255,6 @@ class Hsm(pulumi.CustomResource):
         ## Example Usage
 
         The following example below creates an HSM module in CloudHSM cluster.
-
         ```python
         import pulumi
         import pulumi_aws as aws

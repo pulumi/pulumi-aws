@@ -248,7 +248,6 @@ class Disk(pulumi.CustomResource):
         Provides a Lightsail Disk resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,7 +288,6 @@ class Disk(pulumi.CustomResource):
         Provides a Lightsail Disk resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

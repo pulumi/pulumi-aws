@@ -13,7 +13,6 @@ import (
 // Provides information about a MemoryDB Parameter Group.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

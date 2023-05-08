@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### By Filter
-//
 // ```go
 // package main
 //
@@ -52,7 +51,6 @@ import (
 //
 // ```
 // ### By Identifier
-//
 // ```go
 // package main
 //

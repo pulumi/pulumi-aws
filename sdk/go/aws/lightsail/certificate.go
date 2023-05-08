@@ -13,7 +13,6 @@ import (
 // Provides a lightsail certificate.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

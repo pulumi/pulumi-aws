@@ -14,7 +14,6 @@ import (
 // Provides a CloudWatch Logs query definition resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

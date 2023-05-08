@@ -13,7 +13,6 @@ namespace Pulumi.Aws.LightSail
     /// Provides a Lightsail Disk resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -18,7 +18,6 @@ import (
 // For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

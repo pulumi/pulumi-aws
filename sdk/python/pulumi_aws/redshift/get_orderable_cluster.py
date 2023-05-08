@@ -101,7 +101,6 @@ def get_orderable_cluster(cluster_type: Optional[str] = None,
     Information about Redshift Orderable Clusters and valid parameter combinations.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -146,7 +145,6 @@ def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[st
     Information about Redshift Orderable Clusters and valid parameter combinations.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

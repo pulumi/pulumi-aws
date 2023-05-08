@@ -119,7 +119,6 @@ class AssessmentTarget(pulumi.CustomResource):
         Provides an Inspector Classic Assessment Target
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,7 +153,6 @@ class AssessmentTarget(pulumi.CustomResource):
         Provides an Inspector Classic Assessment Target
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

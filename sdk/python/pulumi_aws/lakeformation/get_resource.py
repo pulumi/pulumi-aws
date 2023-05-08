@@ -83,7 +83,6 @@ def get_resource(arn: Optional[str] = None,
     Provides details about a Lake Formation resource.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -113,7 +112,6 @@ def get_resource_output(arn: Optional[pulumi.Input[str]] = None,
     Provides details about a Lake Formation resource.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

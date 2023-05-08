@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Kms
     /// Attaches a policy to a KMS Key.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -987,7 +987,6 @@ class HaproxyLayer(pulumi.CustomResource):
         Provides an OpsWorks haproxy layer resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1033,7 +1032,6 @@ class HaproxyLayer(pulumi.CustomResource):
         Provides an OpsWorks haproxy layer resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

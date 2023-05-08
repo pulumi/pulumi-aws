@@ -13,7 +13,6 @@ namespace Pulumi.Aws.DeviceFarm
     /// Provides a resource to manage AWS Device Farm Device Pools.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

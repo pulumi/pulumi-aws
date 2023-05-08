@@ -102,7 +102,6 @@ class VpcEndpointPolicy(pulumi.CustomResource):
         Provides a VPC Endpoint Policy resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -152,7 +151,6 @@ class VpcEndpointPolicy(pulumi.CustomResource):
         Provides a VPC Endpoint Policy resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

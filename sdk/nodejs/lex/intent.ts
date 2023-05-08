@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Provides an Amazon Lex Intent resource. For more information see
  * [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * Intents can be imported using their name.

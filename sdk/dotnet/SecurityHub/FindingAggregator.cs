@@ -16,7 +16,6 @@ namespace Pulumi.Aws.SecurityHub
     /// ### All Regions Usage
     /// 
     /// The following example will enable the aggregator for every region.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.SecurityHub
     /// ### All Regions Except Specified Regions Usage
     /// 
     /// The following example will enable the aggregator for every region except those specified in `specified_regions`.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,7 +73,6 @@ namespace Pulumi.Aws.SecurityHub
     /// ### Specified Regions Usage
     /// 
     /// The following example will enable the aggregator for every region specified in `specified_regions`.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

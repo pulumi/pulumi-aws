@@ -21,7 +21,6 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// ### OpenAPI Specification
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,7 +86,6 @@ namespace Pulumi.Aws.ApiGateway
     /// });
     /// ```
     /// ### Resources
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

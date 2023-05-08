@@ -83,7 +83,6 @@ def get_user_pools(name: Optional[str] = None,
     Use this data source to get a list of cognito user pools.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -118,7 +117,6 @@ def get_user_pools_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to get a list of cognito user pools.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

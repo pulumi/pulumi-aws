@@ -250,7 +250,6 @@ class VpcIngressConnection(pulumi.CustomResource):
         Manages an App Runner VPC Ingress Connection.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -292,7 +291,6 @@ class VpcIngressConnection(pulumi.CustomResource):
         Manages an App Runner VPC Ingress Connection.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

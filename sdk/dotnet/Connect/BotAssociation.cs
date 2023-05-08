@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Example Usage
     /// ### Basic
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### Including a sample Lex bot
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

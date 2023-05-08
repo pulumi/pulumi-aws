@@ -14,6 +14,8 @@ import (
 //
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // EventBridge Rules can be imported using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,

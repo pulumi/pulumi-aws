@@ -503,7 +503,6 @@ class FileCache(pulumi.CustomResource):
         See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -571,7 +570,6 @@ class FileCache(pulumi.CustomResource):
         See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

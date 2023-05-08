@@ -314,7 +314,6 @@ class User(pulumi.CustomResource):
         Resource for managing QuickSight User
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,7 +352,6 @@ class User(pulumi.CustomResource):
         Resource for managing QuickSight User
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

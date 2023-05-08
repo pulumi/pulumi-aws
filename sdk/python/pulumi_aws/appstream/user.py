@@ -265,7 +265,6 @@ class User(pulumi.CustomResource):
         Provides an AppStream user.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -304,7 +303,6 @@ class User(pulumi.CustomResource):
         Provides an AppStream user.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

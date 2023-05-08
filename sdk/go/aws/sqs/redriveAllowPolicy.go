@@ -14,7 +14,6 @@ import (
 // Provides a SQS Queue Redrive Allow Policy resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -16,7 +16,6 @@ import (
 // More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

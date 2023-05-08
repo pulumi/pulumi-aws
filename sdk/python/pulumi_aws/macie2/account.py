@@ -151,7 +151,6 @@ class Account(pulumi.CustomResource):
         Provides a resource to manage an [AWS Macie Account](https://docs.aws.amazon.com/macie/latest/APIReference/macie.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,7 +183,6 @@ class Account(pulumi.CustomResource):
         Provides a resource to manage an [AWS Macie Account](https://docs.aws.amazon.com/macie/latest/APIReference/macie.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

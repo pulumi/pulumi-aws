@@ -439,7 +439,6 @@ class PublicVirtualInterface(pulumi.CustomResource):
         Provides a Direct Connect public virtual interface resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -489,7 +488,6 @@ class PublicVirtualInterface(pulumi.CustomResource):
         Provides a Direct Connect public virtual interface resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

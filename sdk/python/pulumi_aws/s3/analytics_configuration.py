@@ -171,7 +171,6 @@ class AnalyticsConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -191,7 +190,6 @@ class AnalyticsConfiguration(pulumi.CustomResource):
             ))
         ```
         ### Add analytics configuration with S3 object filter
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,7 +232,6 @@ class AnalyticsConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,7 +251,6 @@ class AnalyticsConfiguration(pulumi.CustomResource):
             ))
         ```
         ### Add analytics configuration with S3 object filter
-
         ```python
         import pulumi
         import pulumi_aws as aws

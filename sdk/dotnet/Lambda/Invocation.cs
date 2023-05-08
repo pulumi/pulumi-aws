@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Example Usage
     /// ### Dynamic Invocation Example Using Triggers
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

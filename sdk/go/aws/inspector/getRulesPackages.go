@@ -12,7 +12,6 @@ import (
 // configured in the provider.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

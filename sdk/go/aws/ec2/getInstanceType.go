@@ -13,7 +13,6 @@ import (
 // Get characteristics for a single EC2 Instance Type.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

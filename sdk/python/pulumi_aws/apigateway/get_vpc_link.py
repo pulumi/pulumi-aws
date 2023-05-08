@@ -123,7 +123,6 @@ def get_vpc_link(name: Optional[str] = None,
     error if there is more than one match.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -163,7 +162,6 @@ def get_vpc_link_output(name: Optional[pulumi.Input[str]] = None,
     error if there is more than one match.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

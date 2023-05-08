@@ -13,7 +13,6 @@ import (
 // Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// ### Create a basic user pool client
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.Cognito
     /// });
     /// ```
     /// ### Create a user pool client with no SRP authentication
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,7 +58,6 @@ namespace Pulumi.Aws.Cognito
     /// });
     /// ```
     /// ### Create a user pool client with pinpoint analytics
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -147,7 +144,6 @@ namespace Pulumi.Aws.Cognito
     /// });
     /// ```
     /// ### Create a user pool client with Cognito as the identity provider
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

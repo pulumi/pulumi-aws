@@ -236,7 +236,6 @@ class Acl(pulumi.CustomResource):
         More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,7 +274,6 @@ class Acl(pulumi.CustomResource):
         More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

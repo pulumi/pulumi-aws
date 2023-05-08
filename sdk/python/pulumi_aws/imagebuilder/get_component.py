@@ -216,7 +216,6 @@ def get_component(arn: Optional[str] = None,
     Provides details about an Image Builder Component.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -260,7 +259,6 @@ def get_component_output(arn: Optional[pulumi.Input[str]] = None,
     Provides details about an Image Builder Component.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

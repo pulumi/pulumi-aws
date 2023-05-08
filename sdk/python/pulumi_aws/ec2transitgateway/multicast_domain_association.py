@@ -133,7 +133,6 @@ class MulticastDomainAssociation(pulumi.CustomResource):
         Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,7 +165,6 @@ class MulticastDomainAssociation(pulumi.CustomResource):
         Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

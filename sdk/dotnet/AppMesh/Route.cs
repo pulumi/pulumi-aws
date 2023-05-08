@@ -14,7 +14,6 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ## Example Usage
     /// ### HTTP Routing
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,7 +57,6 @@ namespace Pulumi.Aws.AppMesh
     /// });
     /// ```
     /// ### HTTP Header Routing
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,7 +108,6 @@ namespace Pulumi.Aws.AppMesh
     /// });
     /// ```
     /// ### Retry Policy
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -162,7 +159,6 @@ namespace Pulumi.Aws.AppMesh
     /// });
     /// ```
     /// ### TCP Routing
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -14,7 +14,6 @@ import (
 // Provides a CodePipeline.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

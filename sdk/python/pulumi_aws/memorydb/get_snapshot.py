@@ -136,7 +136,6 @@ def get_snapshot(name: Optional[str] = None,
     Provides information about a MemoryDB Snapshot.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -173,7 +172,6 @@ def get_snapshot_output(name: Optional[pulumi.Input[str]] = None,
     Provides information about a MemoryDB Snapshot.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

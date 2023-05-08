@@ -14,7 +14,6 @@ import (
 // Manages an S3 Location within AWS DataSync.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

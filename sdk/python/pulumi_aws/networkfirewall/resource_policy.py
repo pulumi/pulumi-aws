@@ -102,7 +102,6 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### For a Firewall Policy resource
-
         ```python
         import pulumi
         import json
@@ -128,7 +127,6 @@ class ResourcePolicy(pulumi.CustomResource):
             }))
         ```
         ### For a Rule Group resource
-
         ```python
         import pulumi
         import json
@@ -177,7 +175,6 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### For a Firewall Policy resource
-
         ```python
         import pulumi
         import json
@@ -203,7 +200,6 @@ class ResourcePolicy(pulumi.CustomResource):
             }))
         ```
         ### For a Rule Group resource
-
         ```python
         import pulumi
         import json

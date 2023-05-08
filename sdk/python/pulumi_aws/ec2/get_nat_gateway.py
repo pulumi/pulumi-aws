@@ -171,7 +171,6 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
     Provides details about a specific Nat Gateway.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -180,7 +179,6 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
     ```
 
     Usage with tags:
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -237,7 +235,6 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     Provides details about a specific Nat Gateway.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -246,7 +243,6 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     ```
 
     Usage with tags:
-
     ```python
     import pulumi
     import pulumi_aws as aws

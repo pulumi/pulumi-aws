@@ -182,7 +182,6 @@ class SubnetCidrReservation(pulumi.CustomResource):
         Provides a subnet CIDR reservation resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,7 +217,6 @@ class SubnetCidrReservation(pulumi.CustomResource):
         Provides a subnet CIDR reservation resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

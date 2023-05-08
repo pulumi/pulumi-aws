@@ -351,7 +351,6 @@ class RoutingProfile(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -406,7 +405,6 @@ class RoutingProfile(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

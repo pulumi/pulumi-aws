@@ -309,7 +309,6 @@ class FindingsFilter(pulumi.CustomResource):
         Provides a resource to manage an [Amazon Macie Findings Filter](https://docs.aws.amazon.com/macie/latest/APIReference/findingsfilters-id.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -356,7 +355,6 @@ class FindingsFilter(pulumi.CustomResource):
         Provides a resource to manage an [Amazon Macie Findings Filter](https://docs.aws.amazon.com/macie/latest/APIReference/findingsfilters-id.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

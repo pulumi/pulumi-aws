@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ebs
     /// Creates a Snapshot of an EBS Volume.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

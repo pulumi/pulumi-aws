@@ -15,7 +15,6 @@ import (
 // in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

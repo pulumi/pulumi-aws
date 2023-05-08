@@ -252,7 +252,6 @@ class Table(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -262,7 +261,6 @@ class Table(pulumi.CustomResource):
             table_name="example")
         ```
         ### Full usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,7 +305,6 @@ class Table(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,7 +314,6 @@ class Table(pulumi.CustomResource):
             table_name="example")
         ```
         ### Full usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

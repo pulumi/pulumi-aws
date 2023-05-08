@@ -13,7 +13,6 @@ import (
 // Provides a WAF Byte Match Set Resource
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

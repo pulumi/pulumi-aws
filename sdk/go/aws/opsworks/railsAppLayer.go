@@ -14,7 +14,6 @@ import (
 // Provides an OpsWorks Ruby on Rails application layer resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

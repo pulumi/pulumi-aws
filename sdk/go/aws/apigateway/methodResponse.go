@@ -14,7 +14,6 @@ import (
 // Provides an HTTP Method Response for an API Gateway Resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

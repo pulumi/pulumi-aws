@@ -134,7 +134,6 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,7 +184,6 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

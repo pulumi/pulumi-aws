@@ -168,7 +168,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
         ### Standard usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,7 +178,6 @@ class Route(pulumi.CustomResource):
             transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
         ```
         ### Blackhole route
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,7 +214,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
         ### Standard usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,7 +224,6 @@ class Route(pulumi.CustomResource):
             transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
         ```
         ### Blackhole route
-
         ```python
         import pulumi
         import pulumi_aws as aws

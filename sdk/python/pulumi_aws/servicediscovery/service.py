@@ -385,7 +385,6 @@ class Service(pulumi.CustomResource):
         Provides a Service Discovery Service resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -410,7 +409,6 @@ class Service(pulumi.CustomResource):
                 failure_threshold=1,
             ))
         ```
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -462,7 +460,6 @@ class Service(pulumi.CustomResource):
         Provides a Service Discovery Service resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -487,7 +484,6 @@ class Service(pulumi.CustomResource):
                 failure_threshold=1,
             ))
         ```
-
         ```python
         import pulumi
         import pulumi_aws as aws

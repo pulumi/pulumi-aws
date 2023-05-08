@@ -13,7 +13,6 @@ import (
 // Manages an EC2 Transit Gateway.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

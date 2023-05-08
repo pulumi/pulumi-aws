@@ -154,7 +154,6 @@ def get_workgroup(workgroup_name: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -191,7 +190,6 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

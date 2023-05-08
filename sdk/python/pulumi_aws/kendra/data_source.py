@@ -497,7 +497,6 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -513,7 +512,6 @@ class DataSource(pulumi.CustomResource):
         ```
         ### S3 Connector
         ### With Schedule
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -530,7 +528,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Access Control List
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -550,7 +547,6 @@ class DataSource(pulumi.CustomResource):
         ```
         ### Web Crawler Connector
         ### With Seed URLs
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -570,7 +566,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Site Maps
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -590,7 +585,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Web Crawler Mode
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -611,7 +605,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Authentication Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -639,7 +632,6 @@ class DataSource(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_secretsmanager_secret_version["example"]]))
         ```
         ### With Crawl Depth
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -660,7 +652,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Max Links Per Page
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -681,7 +672,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Max Urls Per Minute Crawl Rate
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -702,7 +692,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Proxy Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -728,7 +717,6 @@ class DataSource(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_secretsmanager_secret_version["example"]]))
         ```
         ### With URL Exclusion and Inclusion Patterns
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -783,7 +771,6 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -799,7 +786,6 @@ class DataSource(pulumi.CustomResource):
         ```
         ### S3 Connector
         ### With Schedule
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -816,7 +802,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Access Control List
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -836,7 +821,6 @@ class DataSource(pulumi.CustomResource):
         ```
         ### Web Crawler Connector
         ### With Seed URLs
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -856,7 +840,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Site Maps
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -876,7 +859,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Web Crawler Mode
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -897,7 +879,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Authentication Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -925,7 +906,6 @@ class DataSource(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_secretsmanager_secret_version["example"]]))
         ```
         ### With Crawl Depth
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -946,7 +926,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Max Links Per Page
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -967,7 +946,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Max Urls Per Minute Crawl Rate
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -988,7 +966,6 @@ class DataSource(pulumi.CustomResource):
             ))
         ```
         ### With Proxy Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1014,7 +991,6 @@ class DataSource(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_secretsmanager_secret_version["example"]]))
         ```
         ### With URL Exclusion and Inclusion Patterns
-
         ```python
         import pulumi
         import pulumi_aws as aws

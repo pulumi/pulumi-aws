@@ -106,7 +106,6 @@ def get_http_namespace(name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHttpNamespaceResult:
     """
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -139,7 +138,6 @@ def get_http_namespace_output(name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHttpNamespaceResult]:
     """
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

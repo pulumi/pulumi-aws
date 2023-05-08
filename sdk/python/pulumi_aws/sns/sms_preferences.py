@@ -235,7 +235,6 @@ class SmsPreferences(pulumi.CustomResource):
         Provides a way to set SNS SMS preferences.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -262,7 +261,6 @@ class SmsPreferences(pulumi.CustomResource):
         Provides a way to set SNS SMS preferences.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

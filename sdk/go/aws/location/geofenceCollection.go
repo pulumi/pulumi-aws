@@ -14,7 +14,6 @@ import (
 // Resource for managing an AWS Location Geofence Collection.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

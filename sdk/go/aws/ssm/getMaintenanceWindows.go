@@ -13,7 +13,6 @@ import (
 // Use this data source to get the window IDs of SSM maintenance windows.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

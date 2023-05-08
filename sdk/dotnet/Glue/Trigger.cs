@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// ### Conditional Trigger
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,7 +48,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### On-Demand Trigger
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,7 +71,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### Scheduled Trigger
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -100,7 +97,6 @@ namespace Pulumi.Aws.Glue
     /// ### Conditional Trigger with Crawler Action
     /// 
     /// **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -137,7 +133,6 @@ namespace Pulumi.Aws.Glue
     /// ### Conditional Trigger with Crawler Condition
     /// 
     /// **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

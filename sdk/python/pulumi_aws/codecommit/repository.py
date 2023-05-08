@@ -265,7 +265,6 @@ class Repository(pulumi.CustomResource):
         Provides a CodeCommit Repository Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,7 +300,6 @@ class Repository(pulumi.CustomResource):
         Provides a CodeCommit Repository Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

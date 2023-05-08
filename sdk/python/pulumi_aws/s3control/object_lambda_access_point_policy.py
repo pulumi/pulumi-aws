@@ -151,7 +151,6 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         Provides a resource to manage an S3 Object Lambda Access Point resource policy.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -207,7 +206,6 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         Provides a resource to manage an S3 Object Lambda Access Point resource policy.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

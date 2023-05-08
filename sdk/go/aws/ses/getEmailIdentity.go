@@ -13,7 +13,6 @@ import (
 // Retrieve the active SES email identity
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

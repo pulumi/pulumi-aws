@@ -135,7 +135,6 @@ def get_image(image_digest: Optional[str] = None,
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -183,7 +182,6 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
     The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

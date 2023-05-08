@@ -231,7 +231,6 @@ class AlternativeContact(pulumi.CustomResource):
         Manages the specified alternate contact attached to an AWS Account.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,7 +275,6 @@ class AlternativeContact(pulumi.CustomResource):
         Manages the specified alternate contact attached to an AWS Account.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -268,7 +268,6 @@ class SubnetGroup(pulumi.CustomResource):
         More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,7 +309,6 @@ class SubnetGroup(pulumi.CustomResource):
         More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

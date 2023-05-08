@@ -13,7 +13,6 @@ import (
 // Provides a way to set SNS SMS preferences.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

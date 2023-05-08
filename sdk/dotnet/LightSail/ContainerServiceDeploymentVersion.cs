@@ -18,7 +18,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

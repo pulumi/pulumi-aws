@@ -166,7 +166,6 @@ class AdmChannel(pulumi.CustomResource):
         Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -204,7 +203,6 @@ class AdmChannel(pulumi.CustomResource):
         Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

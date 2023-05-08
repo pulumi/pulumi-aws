@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### All origin access identities in the account
-//
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 // ### Origin access identities filtered by comment/name
 //
 // Origin access identities whose comments are `example-comment1`, `example-comment2`
-//
 // ```go
 // package main
 //

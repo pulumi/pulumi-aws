@@ -14,7 +14,6 @@ import (
 // Configures Session Stickiness for a Lightsail Load Balancer.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -134,7 +134,6 @@ class IdentityPolicy(pulumi.CustomResource):
         Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +179,6 @@ class IdentityPolicy(pulumi.CustomResource):
         Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

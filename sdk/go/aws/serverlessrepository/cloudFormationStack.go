@@ -14,7 +14,6 @@ import (
 // Deploys an Application CloudFormation Stack from the Serverless Application Repository.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

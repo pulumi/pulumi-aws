@@ -14,7 +14,6 @@ import (
 // Resource for managing a Roles Anywhere Trust Anchor.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

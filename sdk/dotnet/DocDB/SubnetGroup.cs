@@ -13,7 +13,6 @@ namespace Pulumi.Aws.DocDB
     /// Provides an DocumentDB subnet group resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

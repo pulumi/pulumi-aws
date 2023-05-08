@@ -18,31 +18,6 @@ import (
 // resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
 //
 // ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNetworkAclAssociation(ctx, "main", &ec2.NetworkAclAssociationArgs{
-//				NetworkAclId: pulumi.Any(aws_network_acl.Main.Id),
-//				SubnetId:     pulumi.Any(aws_subnet.Main.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type NetworkAclAssociation struct {
 	pulumi.CustomResourceState
 

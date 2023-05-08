@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ebs
     /// Manages a single EBS volume.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

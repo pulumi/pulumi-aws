@@ -327,7 +327,6 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -337,7 +336,6 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         ### Using a Self-Managed Microsoft Active Directory
 
         Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,7 +399,6 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -411,7 +408,6 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         ### Using a Self-Managed Microsoft Active Directory
 
         Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
-
         ```python
         import pulumi
         import pulumi_aws as aws

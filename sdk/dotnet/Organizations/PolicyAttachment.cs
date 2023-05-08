@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Example Usage
     /// ### Organization Account
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.Organizations
     /// });
     /// ```
     /// ### Organization Root
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,7 +48,6 @@ namespace Pulumi.Aws.Organizations
     /// });
     /// ```
     /// ### Organization Unit
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

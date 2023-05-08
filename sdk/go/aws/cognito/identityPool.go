@@ -14,7 +14,6 @@ import (
 // Provides an AWS Cognito Identity Pool.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

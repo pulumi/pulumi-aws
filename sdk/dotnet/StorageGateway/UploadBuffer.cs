@@ -16,7 +16,6 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Example Usage
     /// ### Cached and VTL Gateway Type
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Aws.StorageGateway
     /// });
     /// ```
     /// ### Stored Gateway Type
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

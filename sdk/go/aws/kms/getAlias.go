@@ -15,7 +15,6 @@ import (
 // without having to hard code the ARN as input.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

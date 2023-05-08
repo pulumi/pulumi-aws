@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Athena
     /// &gt; **Tip:** for a more detailed explanation on the usage of `parameters`, see the [DataCatalog API documentation](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html)
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.Athena
     /// });
     /// ```
     /// ### Hive based Data Catalog
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,7 +63,6 @@ namespace Pulumi.Aws.Athena
     /// });
     /// ```
     /// ### Glue based Data Catalog
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,7 +84,6 @@ namespace Pulumi.Aws.Athena
     /// });
     /// ```
     /// ### Lambda based Data Catalog
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -20,7 +20,6 @@ namespace Pulumi.Aws.ElastiCache
     /// !&gt; **WARNING:** With the retirement of EC2-Classic the `aws.elasticache.SecurityGroup` resource has been deprecated and will be removed in a future version.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

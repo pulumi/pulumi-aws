@@ -97,7 +97,6 @@ def get_stream_key(channel_arn: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -132,7 +131,6 @@ def get_stream_key_output(channel_arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ecr
     /// Provides an Elastic Container Registry Repository.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -192,7 +192,6 @@ def get_server(server_id: Optional[str] = None,
     resources.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -232,7 +231,6 @@ def get_server_output(server_id: Optional[pulumi.Input[str]] = None,
     resources.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

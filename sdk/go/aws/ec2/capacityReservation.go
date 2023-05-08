@@ -14,7 +14,6 @@ import (
 // Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

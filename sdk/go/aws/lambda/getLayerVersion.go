@@ -13,7 +13,6 @@ import (
 // Provides information about a Lambda Layer Version.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

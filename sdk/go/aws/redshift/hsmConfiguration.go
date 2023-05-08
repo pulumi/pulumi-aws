@@ -14,7 +14,6 @@ import (
 // Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

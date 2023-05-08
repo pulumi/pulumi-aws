@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### API Key Authentication
-//
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //
 // ```
 // ### AWS IAM Authentication
-//
 // ```go
 // package main
 //
@@ -65,7 +63,6 @@ import (
 //
 // ```
 // ### AWS Cognito User Pool Authentication
-//
 // ```go
 // package main
 //
@@ -95,7 +92,6 @@ import (
 //
 // ```
 // ### OpenID Connect Authentication
-//
 // ```go
 // package main
 //
@@ -123,7 +119,6 @@ import (
 //
 // ```
 // ### AWS Lambda Authorizer Authentication
-//
 // ```go
 // package main
 //
@@ -161,7 +156,6 @@ import (
 //
 // ```
 // ### With Multiple Authentication Providers
-//
 // ```go
 // package main
 //
@@ -191,7 +185,6 @@ import (
 //
 // ```
 // ### With Schema
-//
 // ```go
 // package main
 //
@@ -217,7 +210,6 @@ import (
 //
 // ```
 // ### Enabling Logging
-//
 // ```go
 // package main
 //

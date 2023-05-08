@@ -13,7 +13,6 @@ import (
 // Provides details about a specific Amazon Kendra Experience.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -130,7 +130,6 @@ def get_user(access_string: Optional[str] = None,
     Use this data source to get information about an ElastiCache User.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -178,7 +177,6 @@ def get_user_output(access_string: Optional[pulumi.Input[Optional[str]]] = None,
     Use this data source to get information about an ElastiCache User.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

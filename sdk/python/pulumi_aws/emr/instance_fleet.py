@@ -277,7 +277,6 @@ class InstanceFleet(pulumi.CustomResource):
         the provider will resize any Instance Fleet to zero when destroying the resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -350,7 +349,6 @@ class InstanceFleet(pulumi.CustomResource):
         the provider will resize any Instance Fleet to zero when destroying the resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -72,7 +72,6 @@ def get_delegated_administrators(service_principal: Optional[str] = None,
     Get a list of AWS accounts that are designated as delegated administrators in this organization
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -101,7 +100,6 @@ def get_delegated_administrators_output(service_principal: Optional[pulumi.Input
     Get a list of AWS accounts that are designated as delegated administrators in this organization
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

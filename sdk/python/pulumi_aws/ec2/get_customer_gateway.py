@@ -144,7 +144,6 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
     Get an existing AWS Customer Gateway.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -196,7 +195,6 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
     Get an existing AWS Customer Gateway.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

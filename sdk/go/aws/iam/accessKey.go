@@ -14,7 +14,6 @@ import (
 // Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -69,7 +68,6 @@ import (
 //	}
 //
 // ```
-//
 // ```go
 // package main
 //

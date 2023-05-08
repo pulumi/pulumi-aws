@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Example Usage
     /// ### URI Document
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

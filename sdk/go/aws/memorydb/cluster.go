@@ -16,7 +16,6 @@ import (
 // More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

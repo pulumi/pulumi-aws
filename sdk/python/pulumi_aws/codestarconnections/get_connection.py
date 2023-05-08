@@ -122,7 +122,6 @@ def get_connection(arn: Optional[str] = None,
 
     ## Example Usage
     ### By ARN
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -130,7 +129,6 @@ def get_connection(arn: Optional[str] = None,
     example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
     ```
     ### By Name
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -170,7 +168,6 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
     ### By ARN
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -178,7 +175,6 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
     ```
     ### By Name
-
     ```python
     import pulumi
     import pulumi_aws as aws

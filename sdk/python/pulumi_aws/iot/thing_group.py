@@ -240,7 +240,6 @@ class ThingGroup(pulumi.CustomResource):
         Manages an AWS IoT Thing Group.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,7 +286,6 @@ class ThingGroup(pulumi.CustomResource):
         Manages an AWS IoT Thing Group.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

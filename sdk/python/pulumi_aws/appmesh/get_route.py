@@ -162,6 +162,8 @@ def get_route(mesh_name: Optional[str] = None,
     """
     The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
 
+    ## Example Usage
+
 
     :param str mesh_name: Name of the service mesh in which the virtual router exists.
     :param str mesh_owner: AWS account ID of the service mesh's owner.
@@ -201,6 +203,8 @@ def get_route_output(mesh_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
     """
     The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
+
+    ## Example Usage
 
 
     :param str mesh_name: Name of the service mesh in which the virtual router exists.

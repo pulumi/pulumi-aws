@@ -14,7 +14,6 @@ import (
 // Provides an Inspector Classic Assessment Template
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

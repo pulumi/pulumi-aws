@@ -237,7 +237,6 @@ class ScheduleGroup(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -274,7 +273,6 @@ class ScheduleGroup(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

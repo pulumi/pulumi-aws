@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Get Service DNS Name
-//
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //
 // ```
 // ### Use Service Reverse DNS Name to Get Components
-//
 // ```go
 // package main
 //
@@ -69,7 +67,6 @@ import (
 //
 // ```
 // ### Determine Regional Support for a Service
-//
 // ```go
 // package main
 //

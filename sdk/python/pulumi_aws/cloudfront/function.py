@@ -269,7 +269,6 @@ class Function(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -312,7 +311,6 @@ class Function(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Example
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -15,7 +15,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Example Usage
     /// ### Basic WebSocket API
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// });
     /// ```
     /// ### Basic HTTP API
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

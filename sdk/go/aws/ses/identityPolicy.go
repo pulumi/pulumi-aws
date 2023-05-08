@@ -14,7 +14,6 @@ import (
 // Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

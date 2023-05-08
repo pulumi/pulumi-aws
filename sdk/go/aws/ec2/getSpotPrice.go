@@ -13,7 +13,6 @@ import (
 // Information about most recent Spot Price for a given EC2 instance.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

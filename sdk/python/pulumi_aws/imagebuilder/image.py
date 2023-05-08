@@ -414,7 +414,6 @@ class Image(pulumi.CustomResource):
         Manages an Image Builder Image.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -454,7 +453,6 @@ class Image(pulumi.CustomResource):
         Manages an Image Builder Image.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

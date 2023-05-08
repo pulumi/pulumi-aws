@@ -18,7 +18,6 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Example Usage
     /// ### Basic Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

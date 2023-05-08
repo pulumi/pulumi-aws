@@ -199,7 +199,6 @@ class StudioSessionMapping(pulumi.CustomResource):
         Provides an Elastic MapReduce Studio Session Mapping.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,7 +236,6 @@ class StudioSessionMapping(pulumi.CustomResource):
         Provides an Elastic MapReduce Studio Session Mapping.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

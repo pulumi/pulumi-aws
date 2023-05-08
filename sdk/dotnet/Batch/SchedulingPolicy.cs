@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Batch
     /// Provides a Batch Scheduling Policy resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

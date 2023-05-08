@@ -13,7 +13,6 @@ namespace Pulumi.Aws.AppMesh
     /// Provides an AWS App Mesh gateway route resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

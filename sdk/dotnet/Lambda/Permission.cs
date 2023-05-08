@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Lambda
     /// Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,7 +70,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ## Usage with SNS
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -131,7 +129,6 @@ namespace Pulumi.Aws.Lambda
     /// ```
     /// 
     /// ## Specify Lambda permissions for API Gateway REST API
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -157,7 +154,6 @@ namespace Pulumi.Aws.Lambda
     /// ```
     /// 
     /// ## Usage with CloudWatch log group
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -232,7 +228,6 @@ namespace Pulumi.Aws.Lambda
     /// ```
     /// 
     /// ## Example function URL cross-account invoke policy
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

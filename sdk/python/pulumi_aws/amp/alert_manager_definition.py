@@ -101,7 +101,6 @@ class AlertManagerDefinition(pulumi.CustomResource):
         Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -140,7 +139,6 @@ class AlertManagerDefinition(pulumi.CustomResource):
         Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

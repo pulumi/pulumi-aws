@@ -14,7 +14,6 @@ import (
 // Creates a Signer Signing Job.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -60,7 +60,6 @@ def get_sites(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesR
     Provides details about multiple Outposts Sites.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

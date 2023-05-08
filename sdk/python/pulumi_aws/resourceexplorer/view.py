@@ -235,7 +235,6 @@ class View(pulumi.CustomResource):
         Provides a resource to manage a Resource Explorer view.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,7 +277,6 @@ class View(pulumi.CustomResource):
         Provides a resource to manage a Resource Explorer view.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

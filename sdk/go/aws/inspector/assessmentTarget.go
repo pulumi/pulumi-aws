@@ -13,7 +13,6 @@ import (
 // Provides an Inspector Classic Assessment Target
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

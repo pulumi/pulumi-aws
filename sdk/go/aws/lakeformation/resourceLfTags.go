@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Database Example
-//
 // ```go
 // package main
 //
@@ -64,7 +63,6 @@ import (
 //
 // ```
 // ### Multiple Tags Example
-//
 // ```go
 // package main
 //

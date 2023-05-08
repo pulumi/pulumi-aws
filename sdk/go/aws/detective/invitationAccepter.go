@@ -14,7 +14,6 @@ import (
 // Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

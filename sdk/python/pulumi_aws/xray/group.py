@@ -218,7 +218,6 @@ class Group(pulumi.CustomResource):
         Creates and manages an AWS XRay Group.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,7 +257,6 @@ class Group(pulumi.CustomResource):
         Creates and manages an AWS XRay Group.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

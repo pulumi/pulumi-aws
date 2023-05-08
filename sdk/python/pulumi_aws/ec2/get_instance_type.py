@@ -614,7 +614,6 @@ def get_instance_type(instance_type: Optional[str] = None,
     Get characteristics for a single EC2 Instance Type.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -687,7 +686,6 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[str]] = None,
     Get characteristics for a single EC2 Instance Type.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

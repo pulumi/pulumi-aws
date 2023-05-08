@@ -109,7 +109,6 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -155,7 +154,6 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

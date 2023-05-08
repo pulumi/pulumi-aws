@@ -14,7 +14,6 @@ import (
 // Provides a resource to create a Service Catalog Portfolio.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

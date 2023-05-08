@@ -365,7 +365,6 @@ class TrafficMirrorSession(pulumi.CustomResource):
         ## Example Usage
 
         To create a basic traffic mirror session
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -415,7 +414,6 @@ class TrafficMirrorSession(pulumi.CustomResource):
         ## Example Usage
 
         To create a basic traffic mirror session
-
         ```python
         import pulumi
         import pulumi_aws as aws

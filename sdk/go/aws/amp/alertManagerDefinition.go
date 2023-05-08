@@ -14,7 +14,6 @@ import (
 // Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### ECS Application
-//
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //
 // ```
 // ### Lambda Application
-//
 // ```go
 // package main
 //
@@ -64,7 +62,6 @@ import (
 //
 // ```
 // ### Server Application
-//
 // ```go
 // package main
 //

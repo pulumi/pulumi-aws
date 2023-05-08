@@ -481,7 +481,6 @@ class Volume(pulumi.CustomResource):
         Manages a single EBS volume.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -530,7 +529,6 @@ class Volume(pulumi.CustomResource):
         Manages a single EBS volume.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

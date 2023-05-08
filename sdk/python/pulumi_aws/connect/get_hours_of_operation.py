@@ -168,7 +168,6 @@ def get_hours_of_operation(hours_of_operation_id: Optional[str] = None,
     ## Example Usage
 
     By `name`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -178,7 +177,6 @@ def get_hours_of_operation(hours_of_operation_id: Optional[str] = None,
     ```
 
     By `hours_of_operation_id`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -226,7 +224,6 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
     ## Example Usage
 
     By `name`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -236,7 +233,6 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
     ```
 
     By `hours_of_operation_id`
-
     ```python
     import pulumi
     import pulumi_aws as aws

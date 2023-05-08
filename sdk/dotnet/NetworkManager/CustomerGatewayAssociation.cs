@@ -14,7 +14,6 @@ namespace Pulumi.Aws.NetworkManager
     /// If you specify a link, it must be associated with the specified device.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

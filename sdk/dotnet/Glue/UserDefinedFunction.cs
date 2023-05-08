@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue User Defined Function Resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.NetworkManager
     /// Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -13,7 +13,6 @@ import (
 // Provides details about an Image Builder Component.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

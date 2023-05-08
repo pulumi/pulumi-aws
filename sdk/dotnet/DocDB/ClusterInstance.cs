@@ -20,7 +20,6 @@ namespace Pulumi.Aws.DocDB
     /// `instance_class` sizes.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

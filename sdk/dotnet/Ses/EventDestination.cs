@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// ### CloudWatch Destination
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.Aws.Ses
     /// });
     /// ```
     /// ### Kinesis Destination
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,7 +72,6 @@ namespace Pulumi.Aws.Ses
     /// });
     /// ```
     /// ### SNS Destination
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

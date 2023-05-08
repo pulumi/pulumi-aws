@@ -13,7 +13,6 @@ import (
 // Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

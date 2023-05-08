@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Kendra
     /// Resource for managing an AWS Kendra Thesaurus.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

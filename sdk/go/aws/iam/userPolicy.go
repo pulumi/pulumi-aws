@@ -14,7 +14,6 @@ import (
 // Provides an IAM policy attached to a user.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -95,7 +95,6 @@ def get_image_recipes(filters: Optional[Sequence[pulumi.InputType['GetImageRecip
     Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -133,7 +132,6 @@ def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
     Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

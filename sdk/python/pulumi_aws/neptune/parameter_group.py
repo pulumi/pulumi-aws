@@ -252,7 +252,6 @@ class ParameterGroup(pulumi.CustomResource):
         Manages a Neptune Parameter Group
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -292,7 +291,6 @@ class ParameterGroup(pulumi.CustomResource):
         Manages a Neptune Parameter Group
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

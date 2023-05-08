@@ -13,7 +13,6 @@ import (
 // Provides a CloudFormation Stack resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

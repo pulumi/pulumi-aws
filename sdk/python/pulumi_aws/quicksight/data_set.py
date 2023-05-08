@@ -548,7 +548,6 @@ class DataSet(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -571,7 +570,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Column Level Permission Rules
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -598,7 +596,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Field Folders
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -626,7 +623,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Permissions
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -659,7 +655,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Row Level Permission Tag Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -728,7 +723,6 @@ class DataSet(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -751,7 +745,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Column Level Permission Rules
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -778,7 +771,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Field Folders
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -806,7 +798,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Permissions
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -839,7 +830,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Row Level Permission Tag Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws

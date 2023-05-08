@@ -18,7 +18,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### Private Bucket With Tags
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

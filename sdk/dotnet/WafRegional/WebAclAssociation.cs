@@ -16,7 +16,6 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// ## Example Usage
     /// ### Application Load Balancer Association
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -112,7 +111,6 @@ namespace Pulumi.Aws.WafRegional
     /// });
     /// ```
     /// ### API Gateway Association
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -241,7 +241,6 @@ class GeofenceCollection(pulumi.CustomResource):
         Resource for managing an AWS Location Geofence Collection.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -274,7 +273,6 @@ class GeofenceCollection(pulumi.CustomResource):
         Resource for managing an AWS Location Geofence Collection.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

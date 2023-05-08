@@ -512,7 +512,6 @@ class Component(pulumi.CustomResource):
 
         ## Example Usage
         ### URI Document
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -559,7 +558,6 @@ class Component(pulumi.CustomResource):
 
         ## Example Usage
         ### URI Document
-
         ```python
         import pulumi
         import pulumi_aws as aws

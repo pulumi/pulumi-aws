@@ -13,7 +13,6 @@ import (
 // Provides an Elastic Container Registry Repository.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

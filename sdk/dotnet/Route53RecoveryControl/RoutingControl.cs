@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// Provides an AWS Route 53 Recovery Control Config Routing Control.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,7 +28,6 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// 
     /// });
     /// ```
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

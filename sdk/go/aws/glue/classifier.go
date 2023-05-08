@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 // ### Csv Classifier
-//
 // ```go
 // package main
 //
@@ -51,7 +50,6 @@ import (
 //
 // ```
 // ### Grok Classifier
-//
 // ```go
 // package main
 //
@@ -79,7 +77,6 @@ import (
 //
 // ```
 // ### JSON Classifier
-//
 // ```go
 // package main
 //
@@ -106,7 +103,6 @@ import (
 //
 // ```
 // ### XML Classifier
-//
 // ```go
 // package main
 //

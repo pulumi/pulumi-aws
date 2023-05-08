@@ -13,7 +13,6 @@ namespace Pulumi.Aws.GuardDuty
     /// Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

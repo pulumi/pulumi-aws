@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 // ### Basic
-//
 // ```go
 // package main
 //
@@ -52,7 +51,6 @@ import (
 // ### Creating special IAM role
 //
 // If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
-//
 // ```go
 // package main
 //

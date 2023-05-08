@@ -13,7 +13,6 @@ import (
 // Provides a Route 53 Resolver DNS Firewall domain list resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

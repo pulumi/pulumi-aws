@@ -13,7 +13,6 @@ import (
 // Provides information about multiple Elastic File System (EFS) Access Points.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

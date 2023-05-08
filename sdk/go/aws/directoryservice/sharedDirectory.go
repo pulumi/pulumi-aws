@@ -13,6 +13,8 @@ import (
 
 // Manages a directory in your account (directory owner) shared with another account (directory consumer).
 //
+// ## Example Usage
+//
 // ## Import
 //
 // Directory Service Shared Directories can be imported using the owner directory ID/shared directory ID, e.g.,

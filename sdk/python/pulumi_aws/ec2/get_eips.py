@@ -97,7 +97,6 @@ def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]] 
     ## Example Usage
 
     The following shows outputting all Elastic IPs with the a specific tag value.
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -137,7 +136,6 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
     ## Example Usage
 
     The following shows outputting all Elastic IPs with the a specific tag value.
-
     ```python
     import pulumi
     import pulumi_aws as aws

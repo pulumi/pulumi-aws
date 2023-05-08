@@ -20,7 +20,6 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// &gt; **NOTE:** These examples are referencing the `aws.storagegateway.Cache` resource `gateway_arn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = [aws_storagegateway_cache.example]`) to ensure proper ordering.
     /// ### Create Empty Cached iSCSI Volume
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,7 +40,6 @@ namespace Pulumi.Aws.StorageGateway
     /// });
     /// ```
     /// ### Create Cached iSCSI Volume From Snapshot
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,7 +60,6 @@ namespace Pulumi.Aws.StorageGateway
     /// });
     /// ```
     /// ### Create Cached iSCSI Volume From Source Volume
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// 
     /// ## Example Usage
     /// ### Instance Target Group
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// });
     /// ```
     /// ### IP Target Group
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,7 +63,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// });
     /// ```
     /// ### Lambda Target Group
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,7 +79,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// });
     /// ```
     /// ### ALB Target Group
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

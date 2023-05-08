@@ -14,7 +14,6 @@ import (
 // Manages an EC2 Local Gateway Route Table VPC Association. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#vpc-associations).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

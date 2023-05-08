@@ -14,7 +14,6 @@ import (
 // ## Example Usage
 //
 // The following example below creates a CloudFront cache policy.
-//
 // ```go
 // package main
 //

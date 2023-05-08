@@ -14,7 +14,6 @@ import (
 // Provides an OpsWorks MySQL layer resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

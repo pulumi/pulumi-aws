@@ -16,7 +16,6 @@ import (
 // You cannot register a transit gateway in more than one global network.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

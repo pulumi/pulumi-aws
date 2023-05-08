@@ -11,7 +11,6 @@ namespace Pulumi.Aws.Sqs
 {
     /// <summary>
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,7 +40,6 @@ namespace Pulumi.Aws.Sqs
     /// });
     /// ```
     /// ## FIFO queue
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,7 +58,6 @@ namespace Pulumi.Aws.Sqs
     /// ```
     /// 
     /// ## High-throughput FIFO queue
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,7 +77,6 @@ namespace Pulumi.Aws.Sqs
     /// ```
     /// 
     /// ## Dead-letter queue
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -108,7 +104,6 @@ namespace Pulumi.Aws.Sqs
     /// ## Server-side encryption (SSE)
     /// 
     /// Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -126,7 +121,6 @@ namespace Pulumi.Aws.Sqs
     /// ```
     /// 
     /// Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

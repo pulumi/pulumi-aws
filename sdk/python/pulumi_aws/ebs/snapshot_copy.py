@@ -469,7 +469,6 @@ class SnapshotCopy(pulumi.CustomResource):
         Creates a Snapshot of a snapshot.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -516,7 +515,6 @@ class SnapshotCopy(pulumi.CustomResource):
         Creates a Snapshot of a snapshot.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

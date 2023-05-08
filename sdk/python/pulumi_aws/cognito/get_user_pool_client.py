@@ -316,7 +316,6 @@ def get_user_pool_client(client_id: Optional[str] = None,
     Provides a Cognito User Pool Client resource.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -370,7 +369,6 @@ def get_user_pool_client_output(client_id: Optional[pulumi.Input[str]] = None,
     Provides a Cognito User Pool Client resource.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

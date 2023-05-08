@@ -13,7 +13,6 @@ import (
 // Provides a DAX Parameter Group resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

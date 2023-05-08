@@ -249,7 +249,6 @@ class EndpointAccess(pulumi.CustomResource):
         Creates a new Amazon Redshift endpoint access.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,7 +285,6 @@ class EndpointAccess(pulumi.CustomResource):
         Creates a new Amazon Redshift endpoint access.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

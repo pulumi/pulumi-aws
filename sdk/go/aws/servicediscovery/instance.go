@@ -14,7 +14,6 @@ import (
 // Provides a Service Discovery Instance resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -77,7 +76,6 @@ import (
 //	}
 //
 // ```
-//
 // ```go
 // package main
 //

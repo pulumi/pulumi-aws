@@ -14,7 +14,6 @@ import (
 // Provides an OpsWorks memcached layer resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

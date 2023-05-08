@@ -687,7 +687,6 @@ class AmiFromInstance(pulumi.CustomResource):
         to produce a fresh snapshot.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -737,7 +736,6 @@ class AmiFromInstance(pulumi.CustomResource):
         to produce a fresh snapshot.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

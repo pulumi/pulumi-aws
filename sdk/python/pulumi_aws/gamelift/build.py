@@ -251,7 +251,6 @@ class Build(pulumi.CustomResource):
         Provides an GameLift Build resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -292,7 +291,6 @@ class Build(pulumi.CustomResource):
         Provides an GameLift Build resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Example Usage
     /// ### Forward action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,7 +60,6 @@ namespace Pulumi.Aws.VpcLattice
     /// });
     /// ```
     /// ### Forward action with weighted target groups
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -14,7 +14,6 @@ import (
 // Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

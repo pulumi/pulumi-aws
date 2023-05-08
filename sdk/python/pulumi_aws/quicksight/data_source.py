@@ -415,7 +415,6 @@ class DataSource(pulumi.CustomResource):
         Resource for managing QuickSight Data Source
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -465,7 +464,6 @@ class DataSource(pulumi.CustomResource):
         Resource for managing QuickSight Data Source
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// ### Kinesis Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -78,7 +77,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### SSM Document Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -229,7 +227,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### RunCommand Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -266,7 +263,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### API Gateway target
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -311,7 +307,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### Cross-Account Event Bus target
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -397,7 +392,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### Input Transformer Usage - JSON Object
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -431,7 +425,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### Input Transformer Usage - Simple String
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -461,7 +454,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### Cloudwatch Log Group Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

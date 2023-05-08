@@ -302,7 +302,6 @@ class App(pulumi.CustomResource):
         Provides a Pinpoint App resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -345,7 +344,6 @@ class App(pulumi.CustomResource):
         Provides a Pinpoint App resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

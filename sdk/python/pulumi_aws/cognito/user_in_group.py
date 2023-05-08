@@ -133,7 +133,6 @@ class UserInGroup(pulumi.CustomResource):
         Adds the specified user to the specified group.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -171,7 +170,6 @@ class UserInGroup(pulumi.CustomResource):
         Adds the specified user to the specified group.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

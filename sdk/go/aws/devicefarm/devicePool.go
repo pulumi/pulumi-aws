@@ -14,7 +14,6 @@ import (
 // Provides a resource to manage AWS Device Farm Device Pools.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

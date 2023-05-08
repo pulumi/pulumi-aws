@@ -14,7 +14,6 @@ import (
 // Provides a CE Cost Allocation Tag.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

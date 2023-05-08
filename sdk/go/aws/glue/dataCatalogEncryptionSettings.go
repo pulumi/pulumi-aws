@@ -14,7 +14,6 @@ import (
 // Provides a Glue Data Catalog Encryption Settings resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

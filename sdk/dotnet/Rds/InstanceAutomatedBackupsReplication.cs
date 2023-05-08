@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Rds
     /// &gt; **Note:** This resource has to be created in the destination region.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.Rds
     /// });
     /// ```
     /// ## Encrypting the automated backup with KMS
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,7 +52,6 @@ namespace Pulumi.Aws.Rds
     /// ```
     /// 
     /// ## Example including a RDS DB instance
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

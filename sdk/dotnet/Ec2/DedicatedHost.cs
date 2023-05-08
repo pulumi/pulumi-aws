@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

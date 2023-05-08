@@ -14,7 +14,6 @@ import (
 // Resource for managing SES Identity Notification Topics
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

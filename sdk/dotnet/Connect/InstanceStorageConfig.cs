@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Example Usage
     /// ### Storage Config Kinesis Firehose Config
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,7 +40,6 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### Storage Config Kinesis Stream Config
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,7 +65,6 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### Storage Config Kinesis Video Stream Config
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,7 +96,6 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### Storage Config S3 Config
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -126,7 +122,6 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### Storage Config S3 Config with Encryption Config
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

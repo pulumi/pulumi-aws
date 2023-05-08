@@ -200,7 +200,6 @@ class Model(pulumi.CustomResource):
         Provides a Model for a REST API Gateway.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -242,7 +241,6 @@ class Model(pulumi.CustomResource):
         Provides a Model for a REST API Gateway.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

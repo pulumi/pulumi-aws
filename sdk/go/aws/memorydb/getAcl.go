@@ -13,7 +13,6 @@ import (
 // Provides information about a MemoryDB ACL.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

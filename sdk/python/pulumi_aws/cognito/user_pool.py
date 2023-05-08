@@ -977,7 +977,6 @@ class UserPool(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -985,7 +984,6 @@ class UserPool(pulumi.CustomResource):
         pool = aws.cognito.UserPool("pool")
         ```
         ### Enabling SMS and Software Token Multi-Factor Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1004,7 +1002,6 @@ class UserPool(pulumi.CustomResource):
             ))
         ```
         ### Using Account Recovery Setting
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1070,7 +1067,6 @@ class UserPool(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1078,7 +1074,6 @@ class UserPool(pulumi.CustomResource):
         pool = aws.cognito.UserPool("pool")
         ```
         ### Enabling SMS and Software Token Multi-Factor Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1097,7 +1092,6 @@ class UserPool(pulumi.CustomResource):
             ))
         ```
         ### Using Account Recovery Setting
-
         ```python
         import pulumi
         import pulumi_aws as aws

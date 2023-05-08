@@ -86,7 +86,6 @@ def get_clusters(filters: Optional[Sequence[pulumi.InputType['GetClustersFilterA
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -120,7 +119,6 @@ def get_clusters_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

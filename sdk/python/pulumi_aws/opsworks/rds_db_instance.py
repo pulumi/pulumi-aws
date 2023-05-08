@@ -165,7 +165,6 @@ class RdsDbInstance(pulumi.CustomResource):
         Provides an OpsWorks RDS DB Instance resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -194,7 +193,6 @@ class RdsDbInstance(pulumi.CustomResource):
         Provides an OpsWorks RDS DB Instance resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -252,7 +252,6 @@ class Mesh(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,7 +259,6 @@ class Mesh(pulumi.CustomResource):
         simple = aws.appmesh.Mesh("simple")
         ```
         ### Egress Filter
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,7 +296,6 @@ class Mesh(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -306,7 +303,6 @@ class Mesh(pulumi.CustomResource):
         simple = aws.appmesh.Mesh("simple")
         ```
         ### Egress Filter
-
         ```python
         import pulumi
         import pulumi_aws as aws

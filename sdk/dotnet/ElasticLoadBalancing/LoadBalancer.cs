@@ -22,7 +22,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// conflict and will overwrite attachments.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Location
     /// Provides a Location Service Place Index.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

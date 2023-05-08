@@ -605,7 +605,6 @@ class EventTarget(pulumi.CustomResource):
 
         ## Example Usage
         ### Kinesis Usage
-
         ```python
         import pulumi
         import json
@@ -638,7 +637,6 @@ class EventTarget(pulumi.CustomResource):
             ])
         ```
         ### SSM Document Usage
-
         ```python
         import pulumi
         import json
@@ -701,7 +699,6 @@ class EventTarget(pulumi.CustomResource):
             )])
         ```
         ### RunCommand Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -720,7 +717,6 @@ class EventTarget(pulumi.CustomResource):
             )])
         ```
         ### API Gateway target
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -746,7 +742,6 @@ class EventTarget(pulumi.CustomResource):
             ))
         ```
         ### Cross-Account Event Bus target
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -778,7 +773,6 @@ class EventTarget(pulumi.CustomResource):
             role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
         ### Input Transformer Usage - JSON Object
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -801,7 +795,6 @@ class EventTarget(pulumi.CustomResource):
             ))
         ```
         ### Input Transformer Usage - Simple String
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -820,7 +813,6 @@ class EventTarget(pulumi.CustomResource):
             ))
         ```
         ### Cloudwatch Log Group Usage
-
         ```python
         import pulumi
         import json
@@ -910,7 +902,6 @@ class EventTarget(pulumi.CustomResource):
 
         ## Example Usage
         ### Kinesis Usage
-
         ```python
         import pulumi
         import json
@@ -943,7 +934,6 @@ class EventTarget(pulumi.CustomResource):
             ])
         ```
         ### SSM Document Usage
-
         ```python
         import pulumi
         import json
@@ -1006,7 +996,6 @@ class EventTarget(pulumi.CustomResource):
             )])
         ```
         ### RunCommand Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1025,7 +1014,6 @@ class EventTarget(pulumi.CustomResource):
             )])
         ```
         ### API Gateway target
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1051,7 +1039,6 @@ class EventTarget(pulumi.CustomResource):
             ))
         ```
         ### Cross-Account Event Bus target
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1083,7 +1070,6 @@ class EventTarget(pulumi.CustomResource):
             role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
         ### Input Transformer Usage - JSON Object
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1106,7 +1092,6 @@ class EventTarget(pulumi.CustomResource):
             ))
         ```
         ### Input Transformer Usage - Simple String
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1125,7 +1110,6 @@ class EventTarget(pulumi.CustomResource):
             ))
         ```
         ### Cloudwatch Log Group Usage
-
         ```python
         import pulumi
         import json

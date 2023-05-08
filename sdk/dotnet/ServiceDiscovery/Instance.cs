@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// Provides a Service Discovery Instance resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,7 +68,6 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// });
     /// ```
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

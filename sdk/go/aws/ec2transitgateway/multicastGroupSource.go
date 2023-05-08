@@ -15,7 +15,6 @@ import (
 // A multicast source is a network interface attached to a supported instance that sends multicast traffic.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -103,7 +103,6 @@ class MonitoringSubscription(pulumi.CustomResource):
         Provides a CloudFront real-time log configuration resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -140,7 +139,6 @@ class MonitoringSubscription(pulumi.CustomResource):
         Provides a CloudFront real-time log configuration resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

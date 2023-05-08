@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Alb
     /// &gt; **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Aws.Alb
     /// });
     /// ```
     /// ## Usage with lambda
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

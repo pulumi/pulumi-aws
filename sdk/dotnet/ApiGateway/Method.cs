@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ApiGateway
     /// Provides a HTTP Method for an API Gateway Resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Aws.ApiGateway
     /// });
     /// ```
     /// ## Usage with Cognito User Pool Authorizer
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

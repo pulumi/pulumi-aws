@@ -97,7 +97,6 @@ class DomainDkim(pulumi.CustomResource):
         Domain ownership needs to be confirmed first using ses_domain_identity Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -138,7 +137,6 @@ class DomainDkim(pulumi.CustomResource):
         Domain ownership needs to be confirmed first using ses_domain_identity Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

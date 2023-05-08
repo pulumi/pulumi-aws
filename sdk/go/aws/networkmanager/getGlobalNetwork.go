@@ -13,7 +13,6 @@ import (
 // Retrieve information about a global network.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

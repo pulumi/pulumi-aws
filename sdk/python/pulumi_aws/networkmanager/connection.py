@@ -315,7 +315,6 @@ class Connection(pulumi.CustomResource):
         The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -356,7 +355,6 @@ class Connection(pulumi.CustomResource):
         The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

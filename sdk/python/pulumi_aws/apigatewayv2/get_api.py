@@ -209,7 +209,6 @@ def get_api(api_id: Optional[str] = None,
     Provides details about a specific Amazon API Gateway Version 2 API.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -252,7 +251,6 @@ def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
     Provides details about a specific Amazon API Gateway Version 2 API.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

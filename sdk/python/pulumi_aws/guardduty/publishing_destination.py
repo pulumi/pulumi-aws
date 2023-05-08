@@ -166,7 +166,6 @@ class PublishingDestination(pulumi.CustomResource):
         Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,7 +258,6 @@ class PublishingDestination(pulumi.CustomResource):
         Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

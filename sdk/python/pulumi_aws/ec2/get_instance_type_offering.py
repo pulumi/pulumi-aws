@@ -93,7 +93,6 @@ def get_instance_type_offering(filters: Optional[Sequence[pulumi.InputType['GetI
     Information about single EC2 Instance Type Offering.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -140,7 +139,6 @@ def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Se
     Information about single EC2 Instance Type Offering.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

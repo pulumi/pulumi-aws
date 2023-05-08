@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Find firewall policy by name
-//
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //
 // ```
 // ### Find firewall policy by ARN
-//
 // ```go
 // package main
 //
@@ -64,7 +62,6 @@ import (
 //
 // ```
 // ### Find firewall policy by name and ARN
-//
 // ```go
 // package main
 //

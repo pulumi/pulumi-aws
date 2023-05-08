@@ -17,7 +17,6 @@ import (
 // * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

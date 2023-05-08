@@ -101,7 +101,6 @@ class CidrCollection(pulumi.CustomResource):
         Provides a Route53 CIDR collection resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -131,7 +130,6 @@ class CidrCollection(pulumi.CustomResource):
         Provides a Route53 CIDR collection resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

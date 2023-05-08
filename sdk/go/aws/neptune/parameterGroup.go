@@ -14,7 +14,6 @@ import (
 // Manages a Neptune Parameter Group
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

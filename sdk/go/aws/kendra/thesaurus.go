@@ -14,7 +14,6 @@ import (
 // Resource for managing an AWS Kendra Thesaurus.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

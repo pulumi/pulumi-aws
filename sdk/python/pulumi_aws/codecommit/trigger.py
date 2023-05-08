@@ -111,7 +111,6 @@ class Trigger(pulumi.CustomResource):
         Provides a CodeCommit Trigger Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -140,7 +139,6 @@ class Trigger(pulumi.CustomResource):
         Provides a CodeCommit Trigger Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

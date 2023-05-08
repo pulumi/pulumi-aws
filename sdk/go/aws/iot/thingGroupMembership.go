@@ -14,7 +14,6 @@ import (
 // Adds an IoT Thing to an IoT Thing Group.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -17,7 +17,6 @@ import (
 // ### Destination Configuration
 //
 // > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
-//
 // ```go
 // package main
 //
@@ -50,7 +49,6 @@ import (
 //
 // ```
 // ### Error Handling Configuration
-//
 // ```go
 // package main
 //
@@ -77,7 +75,6 @@ import (
 //
 // ```
 // ### Configuration for Alias Name
-//
 // ```go
 // package main
 //
@@ -103,7 +100,6 @@ import (
 //
 // ```
 // ### Configuration for Function Latest Unpublished Version
-//
 // ```go
 // package main
 //
@@ -129,7 +125,6 @@ import (
 //
 // ```
 // ### Configuration for Function Published Version
-//
 // ```go
 // package main
 //

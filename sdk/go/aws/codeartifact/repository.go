@@ -14,7 +14,6 @@ import (
 // Provides a CodeArtifact Repository Resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -54,7 +53,6 @@ import (
 //
 // ```
 // ### With Upstream Repository
-//
 // ```go
 // package main
 //
@@ -92,7 +90,6 @@ import (
 //
 // ```
 // ### With External Connection
-//
 // ```go
 // package main
 //

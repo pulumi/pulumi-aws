@@ -13,7 +13,6 @@ import (
 // Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

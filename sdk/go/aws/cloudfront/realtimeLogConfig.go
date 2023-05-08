@@ -13,6 +13,8 @@ import (
 
 // Provides a CloudFront real-time log configuration resource.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // CloudFront real-time log configurations can be imported using the ARN, e.g.,

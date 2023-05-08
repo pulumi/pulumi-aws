@@ -218,7 +218,6 @@ class VirtualMfaDevice(pulumi.CustomResource):
         ## Example Usage
 
         **Using certs on file:**
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,7 +252,6 @@ class VirtualMfaDevice(pulumi.CustomResource):
         ## Example Usage
 
         **Using certs on file:**
-
         ```python
         import pulumi
         import pulumi_aws as aws

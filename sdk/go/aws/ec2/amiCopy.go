@@ -24,7 +24,6 @@ import (
 // block until the new AMI is available for use on new instances.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

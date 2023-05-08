@@ -18,7 +18,6 @@ namespace Pulumi.Aws.SsmIncidents
     /// ### Basic Usage
     /// 
     /// Create a replication set.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.Aws.SsmIncidents
     /// ```
     /// 
     /// Add a Region to a replication set. (You can add only one Region at a time.)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,7 +72,6 @@ namespace Pulumi.Aws.SsmIncidents
     /// ```
     /// 
     /// Delete a Region from a replication set. (You can delete only one Region at a time.)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,7 +96,6 @@ namespace Pulumi.Aws.SsmIncidents
     /// ## Basic Usage with an AWS Customer Managed Key
     /// 
     /// Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

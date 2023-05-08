@@ -218,7 +218,6 @@ class VpnGateway(pulumi.CustomResource):
         Provides a resource to create a VPC VPN Gateway.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,7 +255,6 @@ class VpnGateway(pulumi.CustomResource):
         Provides a resource to create a VPC VPN Gateway.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

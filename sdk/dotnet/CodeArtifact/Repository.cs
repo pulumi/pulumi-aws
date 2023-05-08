@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CodeArtifact
     /// Provides a CodeArtifact Repository Resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.CodeArtifact
     /// });
     /// ```
     /// ### With Upstream Repository
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,7 +71,6 @@ namespace Pulumi.Aws.CodeArtifact
     /// });
     /// ```
     /// ### With External Connection
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

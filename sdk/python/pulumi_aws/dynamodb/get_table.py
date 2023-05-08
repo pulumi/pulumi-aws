@@ -243,7 +243,6 @@ def get_table(name: Optional[str] = None,
     Provides information about a DynamoDB table.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -295,7 +294,6 @@ def get_table_output(name: Optional[pulumi.Input[str]] = None,
     Provides information about a DynamoDB table.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

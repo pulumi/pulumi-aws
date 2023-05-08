@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -54,7 +53,6 @@ import (
 //
 // ```
 // ### Public Workteam Usage
-//
 // ```go
 // package main
 //
@@ -99,7 +97,6 @@ import (
 //
 // ```
 // ### Human Loop Activation Config Usage
-//
 // ```go
 // package main
 //

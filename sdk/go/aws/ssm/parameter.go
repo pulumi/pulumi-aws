@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 // ### Basic example
-//
 // ```go
 // package main
 //
@@ -43,7 +42,6 @@ import (
 //
 // ```
 // ### Encrypted string using default SSM KMS key
-//
 // ```go
 // package main
 //

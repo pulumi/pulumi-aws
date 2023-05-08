@@ -333,7 +333,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
         Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -415,7 +414,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
         Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

@@ -239,7 +239,6 @@ class MethodResponse(pulumi.CustomResource):
         Provides an HTTP Method Response for an API Gateway Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,7 +294,6 @@ class MethodResponse(pulumi.CustomResource):
         Provides an HTTP Method Response for an API Gateway Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

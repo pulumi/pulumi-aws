@@ -166,7 +166,6 @@ def get_function_url(function_name: Optional[str] = None,
     Provides information about a Lambda function URL.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -208,7 +207,6 @@ def get_function_url_output(function_name: Optional[pulumi.Input[str]] = None,
     Provides information about a Lambda function URL.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

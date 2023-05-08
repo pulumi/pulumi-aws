@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CloudFormation
     /// Provides a CloudFormation Stack resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

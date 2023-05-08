@@ -345,7 +345,6 @@ class LocationFsxWindows(pulumi.CustomResource):
         Manages an AWS DataSync FSx Windows Location.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -386,7 +385,6 @@ class LocationFsxWindows(pulumi.CustomResource):
         Manages an AWS DataSync FSx Windows Location.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

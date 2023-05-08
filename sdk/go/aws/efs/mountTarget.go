@@ -14,7 +14,6 @@ import (
 // Provides an Elastic File System (EFS) mount target.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

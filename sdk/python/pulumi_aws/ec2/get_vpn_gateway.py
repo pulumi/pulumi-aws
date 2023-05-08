@@ -119,7 +119,6 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
     a specific VPN gateway.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -177,7 +176,6 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]
     a specific VPN gateway.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

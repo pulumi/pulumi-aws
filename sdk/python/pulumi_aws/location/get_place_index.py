@@ -145,7 +145,6 @@ def get_place_index(index_name: Optional[str] = None,
     Retrieve information about a Location Service Place Index.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -183,7 +182,6 @@ def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
     Retrieve information about a Location Service Place Index.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

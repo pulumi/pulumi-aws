@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Freeform
-//
 // ```go
 // package main
 //
@@ -59,7 +58,6 @@ import (
 //
 // ```
 // ### Feature Flags
-//
 // ```go
 // package main
 //

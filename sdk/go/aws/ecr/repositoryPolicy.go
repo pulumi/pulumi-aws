@@ -16,7 +16,6 @@ import (
 // Note that currently only one policy may be applied to a repository.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

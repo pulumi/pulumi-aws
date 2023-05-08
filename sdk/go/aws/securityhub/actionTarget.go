@@ -14,7 +14,6 @@ import (
 // Creates Security Hub custom action.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

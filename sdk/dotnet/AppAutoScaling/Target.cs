@@ -16,7 +16,6 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// ## Example Usage
     /// ### DynamoDB Table Autoscaling
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.AppAutoScaling
     /// });
     /// ```
     /// ### DynamoDB Index Autoscaling
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,7 +56,6 @@ namespace Pulumi.Aws.AppAutoScaling
     /// });
     /// ```
     /// ### ECS Service Autoscaling
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,7 +76,6 @@ namespace Pulumi.Aws.AppAutoScaling
     /// });
     /// ```
     /// ### Aurora Read Replica Autoscaling
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -100,7 +96,6 @@ namespace Pulumi.Aws.AppAutoScaling
     /// });
     /// ```
     /// ### MSK / Kafka Autoscaling
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

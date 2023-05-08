@@ -13,7 +13,6 @@ import (
 // Use this data source to get the name of a elastic beanstalk solution stack.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

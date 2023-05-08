@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// ## Example Usage
     /// ### Basic
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### With JSON object in pattern
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,7 +62,6 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### With Description
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

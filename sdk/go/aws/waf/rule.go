@@ -14,7 +14,6 @@ import (
 // Provides a WAF Rule Resource
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

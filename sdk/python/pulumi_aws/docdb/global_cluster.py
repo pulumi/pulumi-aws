@@ -336,7 +336,6 @@ class GlobalCluster(pulumi.CustomResource):
 
         ## Example Usage
         ### New DocumentDB Global Cluster
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -378,7 +377,6 @@ class GlobalCluster(pulumi.CustomResource):
                 depends_on=[primary_cluster_instance]))
         ```
         ### New Global Cluster From Existing DB Cluster
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -434,7 +432,6 @@ class GlobalCluster(pulumi.CustomResource):
 
         ## Example Usage
         ### New DocumentDB Global Cluster
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -476,7 +473,6 @@ class GlobalCluster(pulumi.CustomResource):
                 depends_on=[primary_cluster_instance]))
         ```
         ### New Global Cluster From Existing DB Cluster
-
         ```python
         import pulumi
         import pulumi_aws as aws

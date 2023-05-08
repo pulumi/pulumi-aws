@@ -133,7 +133,6 @@ class ServiceSetting(pulumi.CustomResource):
         This setting defines how a user interacts with or uses a service or a feature of a service.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,7 +165,6 @@ class ServiceSetting(pulumi.CustomResource):
         This setting defines how a user interacts with or uses a service or a feature of a service.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -13,7 +13,6 @@ import (
 // The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

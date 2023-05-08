@@ -16,7 +16,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// ## Example Usage
     /// ### Forward Action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,7 +51,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// ```
     /// 
     /// To a NLB:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,7 +79,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// });
     /// ```
     /// ### Redirect Action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -116,7 +113,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// });
     /// ```
     /// ### Fixed-response Action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -151,7 +147,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// });
     /// ```
     /// ### Authenticate-cognito Action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -203,7 +198,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// });
     /// ```
     /// ### Authenticate-OIDC Action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -249,7 +243,6 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// });
     /// ```
     /// ### Gateway Load Balancer Listener
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

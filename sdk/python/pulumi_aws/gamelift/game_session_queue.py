@@ -319,7 +319,6 @@ class GameSessionQueue(pulumi.CustomResource):
         Provides an GameLift Game Session Queue resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -371,7 +370,6 @@ class GameSessionQueue(pulumi.CustomResource):
         Provides an GameLift Game Session Queue resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

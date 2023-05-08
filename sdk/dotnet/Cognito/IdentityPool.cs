@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Cognito
     /// Provides an AWS Cognito Identity Pool.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

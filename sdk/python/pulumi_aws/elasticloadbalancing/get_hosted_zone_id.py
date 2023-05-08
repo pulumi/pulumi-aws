@@ -62,7 +62,6 @@ def get_hosted_zone_id(region: Optional[str] = None,
     in a given region for the purpose of using in an AWS Route53 Alias.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,7 +101,6 @@ def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[str]]] = No
     in a given region for the purpose of using in an AWS Route53 Alias.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

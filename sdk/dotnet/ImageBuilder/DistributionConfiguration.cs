@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// Manages an Image Builder Distribution Configuration.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

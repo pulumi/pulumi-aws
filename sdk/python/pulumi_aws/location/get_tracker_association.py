@@ -70,7 +70,6 @@ def get_tracker_association(consumer_arn: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -104,7 +103,6 @@ def get_tracker_association_output(consumer_arn: Optional[pulumi.Input[str]] = N
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

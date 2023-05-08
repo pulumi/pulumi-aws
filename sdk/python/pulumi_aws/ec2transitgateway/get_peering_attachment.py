@@ -118,7 +118,6 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
 
     ## Example Usage
     ### By Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -129,7 +128,6 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
     )])
     ```
     ### By Identifier
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -170,7 +168,6 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
 
     ## Example Usage
     ### By Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -181,7 +178,6 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
     )])
     ```
     ### By Identifier
-
     ```python
     import pulumi
     import pulumi_aws as aws

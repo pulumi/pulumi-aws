@@ -14,7 +14,6 @@ import (
 // Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

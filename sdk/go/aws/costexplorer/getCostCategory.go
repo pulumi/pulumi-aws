@@ -13,7 +13,6 @@ import (
 // Provides details about a specific CostExplorer Cost Category.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ import (
 // Provides details about a specific Nat Gateway.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 // ```
 //
 // Usage with tags:
-//
 // ```go
 // package main
 //

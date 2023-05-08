@@ -16,7 +16,6 @@ import (
 // More information about Keyspaces tables can be found in the [Keyspaces Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

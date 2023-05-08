@@ -14,7 +14,6 @@ import (
 // Provides an DocumentDB subnet group resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

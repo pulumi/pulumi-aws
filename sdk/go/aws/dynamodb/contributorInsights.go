@@ -14,7 +14,6 @@ import (
 // Provides a DynamoDB contributor insights resource
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

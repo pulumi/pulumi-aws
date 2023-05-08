@@ -416,7 +416,6 @@ def get_function(function_name: Optional[str] = None,
     Provides information about a Lambda Function.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -481,7 +480,6 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
     Provides information about a Lambda Function.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -173,7 +173,6 @@ class ListenerPolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### Custom Policy
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -212,7 +211,6 @@ class ListenerPolicy(pulumi.CustomResource):
 
         This example shows how to customize the TLS settings of an HTTPS listener.
         ### AWS Predefined Security Policy
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,7 +261,6 @@ class ListenerPolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### Custom Policy
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -302,7 +299,6 @@ class ListenerPolicy(pulumi.CustomResource):
 
         This example shows how to customize the TLS settings of an HTTPS listener.
         ### AWS Predefined Security Policy
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -13,7 +13,6 @@ import (
 // Use this data source to get a list of AWS Cloudwatch Log Groups
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

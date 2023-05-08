@@ -327,7 +327,6 @@ class Statement(pulumi.CustomResource):
 
         ## Example Usage
         ### cluster_identifier
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -339,7 +338,6 @@ class Statement(pulumi.CustomResource):
             sql="CREATE GROUP group_name;")
         ```
         ### workgroup_name
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -380,7 +378,6 @@ class Statement(pulumi.CustomResource):
 
         ## Example Usage
         ### cluster_identifier
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -392,7 +389,6 @@ class Statement(pulumi.CustomResource):
             sql="CREATE GROUP group_name;")
         ```
         ### workgroup_name
-
         ```python
         import pulumi
         import pulumi_aws as aws

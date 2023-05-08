@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ElasticSearch
     /// Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

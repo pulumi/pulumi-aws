@@ -85,7 +85,6 @@ class EmailIdentity(pulumi.CustomResource):
         Provides an SES email identity resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -115,7 +114,6 @@ class EmailIdentity(pulumi.CustomResource):
         Provides an SES email identity resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -14,7 +14,6 @@ import (
 // Subscribes to a Security Hub standard.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

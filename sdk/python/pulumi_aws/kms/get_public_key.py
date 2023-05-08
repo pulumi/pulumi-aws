@@ -153,7 +153,6 @@ def get_public_key(grant_tokens: Optional[Sequence[str]] = None,
     Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -199,7 +198,6 @@ def get_public_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[
     Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

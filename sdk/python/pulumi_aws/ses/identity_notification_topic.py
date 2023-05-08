@@ -167,7 +167,6 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         Resource for managing SES Identity Notification Topics
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -204,7 +203,6 @@ class IdentityNotificationTopic(pulumi.CustomResource):
         Resource for managing SES Identity Notification Topics
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

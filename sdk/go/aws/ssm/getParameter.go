@@ -13,7 +13,6 @@ import (
 // Provides an SSM Parameter data source.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

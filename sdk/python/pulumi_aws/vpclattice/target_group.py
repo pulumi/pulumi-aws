@@ -236,7 +236,6 @@ class TargetGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,7 +249,6 @@ class TargetGroup(pulumi.CustomResource):
             ))
         ```
         ### Basic usage with Health check
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,7 +279,6 @@ class TargetGroup(pulumi.CustomResource):
         ### Lambda
 
         If the type is Lambda, `config` block is not supported.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,7 +313,6 @@ class TargetGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -330,7 +326,6 @@ class TargetGroup(pulumi.CustomResource):
             ))
         ```
         ### Basic usage with Health check
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -361,7 +356,6 @@ class TargetGroup(pulumi.CustomResource):
         ### Lambda
 
         If the type is Lambda, `config` block is not supported.
-
         ```python
         import pulumi
         import pulumi_aws as aws

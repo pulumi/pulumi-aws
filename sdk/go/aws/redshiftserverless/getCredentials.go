@@ -13,7 +13,6 @@ import (
 // Provides redshift serverless temporary credentials for a workgroup.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -101,7 +101,6 @@ class PatchGroup(pulumi.CustomResource):
         Provides an SSM Patch Group resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -127,7 +126,6 @@ class PatchGroup(pulumi.CustomResource):
         Provides an SSM Patch Group resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

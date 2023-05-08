@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,7 +27,6 @@ namespace Pulumi.Aws.Auditmanager
     /// });
     /// ```
     /// ### Deregister On Destroy
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

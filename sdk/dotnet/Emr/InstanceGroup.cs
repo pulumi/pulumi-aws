@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Emr
     /// this provider will resize any Instance Group to zero when destroying the resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

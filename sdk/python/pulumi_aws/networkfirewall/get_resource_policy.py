@@ -71,7 +71,6 @@ def get_resource_policy(resource_arn: Optional[str] = None,
     Retrieve information about a Network Firewall resource policy.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -100,7 +99,6 @@ def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
     Retrieve information about a Network Firewall resource policy.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

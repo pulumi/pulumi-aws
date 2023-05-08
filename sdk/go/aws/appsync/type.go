@@ -14,7 +14,6 @@ import (
 // Provides an AppSync Type.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

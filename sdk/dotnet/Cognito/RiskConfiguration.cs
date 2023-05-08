@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Cognito
     /// Provides a Cognito Risk Configuration resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

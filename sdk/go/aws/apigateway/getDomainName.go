@@ -13,7 +13,6 @@ import (
 // Use this data source to get the custom domain name for use with AWS API Gateway.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

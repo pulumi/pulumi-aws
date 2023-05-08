@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CostExplorer
     /// Provides a CE Cost Category.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

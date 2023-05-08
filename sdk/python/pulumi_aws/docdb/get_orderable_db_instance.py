@@ -121,7 +121,6 @@ def get_orderable_db_instance(engine: Optional[str] = None,
     Information about DocumentDB orderable DB instances.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -177,7 +176,6 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]
     Information about DocumentDB orderable DB instances.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

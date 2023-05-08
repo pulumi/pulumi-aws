@@ -166,7 +166,6 @@ class UserStackAssociation(pulumi.CustomResource):
         Manages an AppStream User Stack association.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -206,7 +205,6 @@ class UserStackAssociation(pulumi.CustomResource):
         Manages an AppStream User Stack association.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -338,7 +338,6 @@ class Accelerator(pulumi.CustomResource):
         Creates a Global Accelerator accelerator.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -382,7 +381,6 @@ class Accelerator(pulumi.CustomResource):
         Creates a Global Accelerator accelerator.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

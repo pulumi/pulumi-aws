@@ -431,7 +431,6 @@ class Feature(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -450,7 +449,6 @@ class Feature(pulumi.CustomResource):
             })
         ```
         ### With default variation
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -474,7 +472,6 @@ class Feature(pulumi.CustomResource):
             ])
         ```
         ### With entity overrides
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -500,7 +497,6 @@ class Feature(pulumi.CustomResource):
             ])
         ```
         ### With evaluation strategy
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -550,7 +546,6 @@ class Feature(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -569,7 +564,6 @@ class Feature(pulumi.CustomResource):
             })
         ```
         ### With default variation
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -593,7 +587,6 @@ class Feature(pulumi.CustomResource):
             ])
         ```
         ### With entity overrides
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -619,7 +612,6 @@ class Feature(pulumi.CustomResource):
             ])
         ```
         ### With evaluation strategy
-
         ```python
         import pulumi
         import pulumi_aws as aws

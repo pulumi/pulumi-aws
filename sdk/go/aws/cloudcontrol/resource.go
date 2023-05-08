@@ -14,7 +14,6 @@ import (
 // Manages a Cloud Control API Resource. The configuration and lifecycle handling of these resources is proxied through Cloud Control API handlers to the backend service.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

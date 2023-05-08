@@ -13,7 +13,6 @@ import (
 // Get tags attached to the specified AWS Organizations resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

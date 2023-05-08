@@ -15,7 +15,6 @@ namespace Pulumi.Aws.DirectConnect
     /// A hosted virtual interface is a virtual interface that is owned by another AWS account.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// Manages an Image Builder Image Pipeline.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

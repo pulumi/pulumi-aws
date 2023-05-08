@@ -101,7 +101,6 @@ class DataProtectionPolicy(pulumi.CustomResource):
         Provides an SNS data protection topic policy resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -149,7 +148,6 @@ class DataProtectionPolicy(pulumi.CustomResource):
         Provides an SNS data protection topic policy resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

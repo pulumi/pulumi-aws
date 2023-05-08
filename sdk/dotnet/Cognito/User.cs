@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// ### Basic configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Cognito
     /// });
     /// ```
     /// ### Setting user attributes
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

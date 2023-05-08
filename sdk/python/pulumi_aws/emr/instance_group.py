@@ -371,7 +371,6 @@ class InstanceGroup(pulumi.CustomResource):
         this provider will resize any Instance Group to zero when destroying the resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -417,7 +416,6 @@ class InstanceGroup(pulumi.CustomResource):
         this provider will resize any Instance Group to zero when destroying the resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

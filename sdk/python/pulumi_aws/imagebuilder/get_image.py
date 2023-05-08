@@ -230,7 +230,6 @@ def get_image(arn: Optional[str] = None,
 
     ## Example Usage
     ### Latest
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -276,7 +275,6 @@ def get_image_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Latest
-
     ```python
     import pulumi
     import pulumi_aws as aws

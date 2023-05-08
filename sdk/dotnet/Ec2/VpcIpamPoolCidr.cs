@@ -17,6 +17,48 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
     /// either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
     /// 
+    /// ## Example Usage
+    /// 
+    /// Basic usage:
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var exampleVpcIpam = new Aws.Ec2.VpcIpam("exampleVpcIpam", new()
+    ///     {
+    ///         OperatingRegions = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
+    ///             {
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVpcIpamPool = new Aws.Ec2.VpcIpamPool("exampleVpcIpamPool", new()
+    ///     {
+    ///         AddressFamily = "ipv4",
+    ///         IpamScopeId = exampleVpcIpam.PrivateDefaultScopeId,
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///     });
+    /// 
+    ///     var exampleVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", new()
+    ///     {
+    ///         IpamPoolId = exampleVpcIpamPool.Id,
+    ///         Cidr = "172.2.0.0/16",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Provision Public IPv6 Pool CIDRs:
+    /// 
     /// ## Import
     /// 
     /// IPAMs can be imported using the `&lt;cidr&gt;_&lt;ipam-pool-id&gt;`. Please note we **DO NOT** use the ipam pool cidr id as this was introduced after the resource already existed. An import example

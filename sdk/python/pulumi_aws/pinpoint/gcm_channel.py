@@ -134,7 +134,6 @@ class GcmChannel(pulumi.CustomResource):
         Provides a Pinpoint GCM Channel resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -169,7 +168,6 @@ class GcmChannel(pulumi.CustomResource):
         Provides a Pinpoint GCM Channel resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

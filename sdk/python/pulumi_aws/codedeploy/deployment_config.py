@@ -188,7 +188,6 @@ class DeploymentConfig(pulumi.CustomResource):
 
         ## Example Usage
         ### Server Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -224,7 +223,6 @@ class DeploymentConfig(pulumi.CustomResource):
             ))
         ```
         ### Lambda Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,7 +278,6 @@ class DeploymentConfig(pulumi.CustomResource):
 
         ## Example Usage
         ### Server Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,7 +313,6 @@ class DeploymentConfig(pulumi.CustomResource):
             ))
         ```
         ### Lambda Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

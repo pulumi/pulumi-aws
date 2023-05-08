@@ -13,7 +13,6 @@ import (
 // Use this data source to get information about a Network Interface.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

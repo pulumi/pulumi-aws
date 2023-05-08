@@ -154,7 +154,6 @@ def get_connection(id: Optional[str] = None,
     This data source can be used to fetch information about a specific Glue Connection.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -194,7 +193,6 @@ def get_connection_output(id: Optional[pulumi.Input[str]] = None,
     This data source can be used to fetch information about a specific Glue Connection.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

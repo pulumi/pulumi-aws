@@ -134,7 +134,6 @@ class RuleGroupNamespace(pulumi.CustomResource):
         Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -174,7 +173,6 @@ class RuleGroupNamespace(pulumi.CustomResource):
         Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -15,7 +15,6 @@ import (
 // ## Example Usage
 //
 // The following shows getting all license grant ARNs granted to your account.
-//
 // ```go
 // package main
 //

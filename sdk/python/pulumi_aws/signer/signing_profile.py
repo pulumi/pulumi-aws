@@ -332,7 +332,6 @@ class SigningProfile(pulumi.CustomResource):
         Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -378,7 +377,6 @@ class SigningProfile(pulumi.CustomResource):
         Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

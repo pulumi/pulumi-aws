@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Workspaces
     /// Provides an IP access control group in AWS WorkSpaces Service
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

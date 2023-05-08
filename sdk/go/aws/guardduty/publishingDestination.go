@@ -14,7 +14,6 @@ import (
 // Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

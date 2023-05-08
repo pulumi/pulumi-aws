@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Waf
     /// Provides a WAF Regex Match Set Resource
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -81,7 +81,6 @@ def get_site(id: Optional[str] = None,
     Provides details about an Outposts Site.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -114,7 +113,6 @@ def get_site_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     Provides details about an Outposts Site.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

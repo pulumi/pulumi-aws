@@ -13,7 +13,6 @@ namespace Pulumi.Aws.SecurityHub
     /// Creates Security Hub custom action.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

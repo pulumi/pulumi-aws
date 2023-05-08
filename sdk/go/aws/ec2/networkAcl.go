@@ -26,53 +26,6 @@ import (
 //
 // ## Example Usage
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNetworkAcl(ctx, "main", &ec2.NetworkAclArgs{
-//				VpcId: pulumi.Any(aws_vpc.Main.Id),
-//				Egress: ec2.NetworkAclEgressArray{
-//					&ec2.NetworkAclEgressArgs{
-//						Protocol:  pulumi.String("tcp"),
-//						RuleNo:    pulumi.Int(200),
-//						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.String("10.3.0.0/18"),
-//						FromPort:  pulumi.Int(443),
-//						ToPort:    pulumi.Int(443),
-//					},
-//				},
-//				Ingress: ec2.NetworkAclIngressArray{
-//					&ec2.NetworkAclIngressArgs{
-//						Protocol:  pulumi.String("tcp"),
-//						RuleNo:    pulumi.Int(100),
-//						Action:    pulumi.String("allow"),
-//						CidrBlock: pulumi.String("10.3.0.0/18"),
-//						FromPort:  pulumi.Int(80),
-//						ToPort:    pulumi.Int(80),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("main"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Network ACLs can be imported using the `id`, e.g.,

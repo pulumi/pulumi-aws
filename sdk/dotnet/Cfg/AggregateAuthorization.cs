@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Cfg
     /// Manages an AWS Config Aggregate Authorization
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

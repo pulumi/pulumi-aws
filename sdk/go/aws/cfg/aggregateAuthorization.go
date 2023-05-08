@@ -14,7 +14,6 @@ import (
 // Manages an AWS Config Aggregate Authorization
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

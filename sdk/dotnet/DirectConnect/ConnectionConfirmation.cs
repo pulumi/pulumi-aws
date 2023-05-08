@@ -13,7 +13,6 @@ namespace Pulumi.Aws.DirectConnect
     /// Provides a confirmation of the creation of the specified hosted connection on an interconnect.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

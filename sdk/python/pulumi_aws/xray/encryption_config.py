@@ -104,7 +104,6 @@ class EncryptionConfig(pulumi.CustomResource):
         > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -112,7 +111,6 @@ class EncryptionConfig(pulumi.CustomResource):
         example = aws.xray.EncryptionConfig("example", type="NONE")
         ```
         ### With KMS Key
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -162,7 +160,6 @@ class EncryptionConfig(pulumi.CustomResource):
         > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -170,7 +167,6 @@ class EncryptionConfig(pulumi.CustomResource):
         example = aws.xray.EncryptionConfig("example", type="NONE")
         ```
         ### With KMS Key
-
         ```python
         import pulumi
         import pulumi_aws as aws

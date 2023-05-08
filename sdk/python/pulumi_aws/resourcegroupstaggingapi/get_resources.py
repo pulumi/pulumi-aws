@@ -114,7 +114,6 @@ def get_resources(exclude_compliant_resources: Optional[bool] = None,
 
     ## Example Usage
     ### Get All Resource Tag Mappings
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -122,7 +121,6 @@ def get_resources(exclude_compliant_resources: Optional[bool] = None,
     test = aws.resourcegroupstaggingapi.get_resources()
     ```
     ### Filter By Tag Key and Value
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -136,7 +134,6 @@ def get_resources(exclude_compliant_resources: Optional[bool] = None,
     )])
     ```
     ### Filter By Resource Type
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -182,7 +179,6 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
 
     ## Example Usage
     ### Get All Resource Tag Mappings
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -190,7 +186,6 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
     test = aws.resourcegroupstaggingapi.get_resources()
     ```
     ### Filter By Tag Key and Value
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -204,7 +199,6 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
     )])
     ```
     ### Filter By Resource Type
-
     ```python
     import pulumi
     import pulumi_aws as aws

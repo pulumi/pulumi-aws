@@ -14,7 +14,6 @@ import (
 // Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

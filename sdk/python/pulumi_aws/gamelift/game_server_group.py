@@ -469,7 +469,6 @@ class GameServerGroup(pulumi.CustomResource):
         Provides an GameLift Game Server Group resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -494,7 +493,6 @@ class GameServerGroup(pulumi.CustomResource):
         ```
 
         Full usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -536,7 +534,6 @@ class GameServerGroup(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
         ```
         ### Example IAM Role for GameLift Game Server Group
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -598,7 +595,6 @@ class GameServerGroup(pulumi.CustomResource):
         Provides an GameLift Game Server Group resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -623,7 +619,6 @@ class GameServerGroup(pulumi.CustomResource):
         ```
 
         Full usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -665,7 +660,6 @@ class GameServerGroup(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
         ```
         ### Example IAM Role for GameLift Game Server Group
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -206,7 +206,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         ### Destination Configuration
 
         > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,7 +222,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             ))
         ```
         ### Error Handling Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,7 +232,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             maximum_retry_attempts=0)
         ```
         ### Configuration for Alias Name
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +242,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         # ... other configuration ...
         ```
         ### Configuration for Function Latest Unpublished Version
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,7 +252,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         # ... other configuration ...
         ```
         ### Configuration for Function Published Version
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,7 +309,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         ### Destination Configuration
 
         > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,7 +325,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             ))
         ```
         ### Error Handling Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,7 +335,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             maximum_retry_attempts=0)
         ```
         ### Configuration for Alias Name
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,7 +345,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         # ... other configuration ...
         ```
         ### Configuration for Function Latest Unpublished Version
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -364,7 +355,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         # ... other configuration ...
         ```
         ### Configuration for Function Published Version
-
         ```python
         import pulumi
         import pulumi_aws as aws

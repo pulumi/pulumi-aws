@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### With Scheduling
-//
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //
 // ```
 // ### With Filtering
-//
 // ```go
 // package main
 //

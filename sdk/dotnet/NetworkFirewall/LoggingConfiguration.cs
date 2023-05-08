@@ -14,7 +14,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ## Example Usage
     /// ### Logging to S3
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,7 +46,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// ### Logging to CloudWatch
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,7 +77,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// ### Logging to Kinesis Data Firehose
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

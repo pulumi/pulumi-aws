@@ -101,7 +101,6 @@ class ContainerPolicy(pulumi.CustomResource):
         Provides a MediaStore Container Policy.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -152,7 +151,6 @@ class ContainerPolicy(pulumi.CustomResource):
         Provides a MediaStore Container Policy.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

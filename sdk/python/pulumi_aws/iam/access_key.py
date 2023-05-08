@@ -231,7 +231,6 @@ class AccessKey(pulumi.CustomResource):
         Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,7 +249,6 @@ class AccessKey(pulumi.CustomResource):
             policy=lb_ro_policy_document.json)
         pulumi.export("secret", lb_access_key.encrypted_secret)
         ```
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,7 +284,6 @@ class AccessKey(pulumi.CustomResource):
         Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -305,7 +302,6 @@ class AccessKey(pulumi.CustomResource):
             policy=lb_ro_policy_document.json)
         pulumi.export("secret", lb_access_key.encrypted_secret)
         ```
-
         ```python
         import pulumi
         import pulumi_aws as aws

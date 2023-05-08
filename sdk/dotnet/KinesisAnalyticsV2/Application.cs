@@ -17,7 +17,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// ## Example Usage
     /// ### Apache Flink Application
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -106,7 +105,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// });
     /// ```
     /// ### SQL Application
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -251,7 +249,6 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// });
     /// ```
     /// ### VPC Configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

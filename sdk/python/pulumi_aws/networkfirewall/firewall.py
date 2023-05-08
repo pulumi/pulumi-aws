@@ -447,7 +447,6 @@ class Firewall(pulumi.CustomResource):
         Provides an AWS Network Firewall Firewall Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -496,7 +495,6 @@ class Firewall(pulumi.CustomResource):
         Provides an AWS Network Firewall Firewall Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

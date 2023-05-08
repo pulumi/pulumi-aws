@@ -14,7 +14,6 @@ import (
 // Provides a Lightsail Disk resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

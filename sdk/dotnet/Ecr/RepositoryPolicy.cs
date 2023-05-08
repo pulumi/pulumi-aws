@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Ecr
     /// Note that currently only one policy may be applied to a repository.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

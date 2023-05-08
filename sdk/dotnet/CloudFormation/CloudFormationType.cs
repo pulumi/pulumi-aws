@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CloudFormation
     /// Manages a version of a CloudFormation Type.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

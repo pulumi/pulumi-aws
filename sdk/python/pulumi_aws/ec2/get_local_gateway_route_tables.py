@@ -85,7 +85,6 @@ def get_local_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType['
     ## Example Usage
 
     The following shows outputting all Local Gateway Route Table Ids.
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -122,7 +121,6 @@ def get_local_gateway_route_tables_output(filters: Optional[pulumi.Input[Optiona
     ## Example Usage
 
     The following shows outputting all Local Gateway Route Table Ids.
-
     ```python
     import pulumi
     import pulumi_aws as aws

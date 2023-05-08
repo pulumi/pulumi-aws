@@ -14,7 +14,6 @@ namespace Pulumi.Aws.NetworkManager
     /// the location of the site is used for visualization in the Network Manager console.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

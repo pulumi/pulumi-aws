@@ -14,7 +14,6 @@ import (
 // Provides a DAX Subnet Group resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

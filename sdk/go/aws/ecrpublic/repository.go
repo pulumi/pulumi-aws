@@ -16,7 +16,6 @@ import (
 // > **NOTE:** This resource can only be used in the `us-east-1` region.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

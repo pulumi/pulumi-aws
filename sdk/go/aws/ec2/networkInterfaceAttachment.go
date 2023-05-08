@@ -14,7 +14,6 @@ import (
 // Attach an Elastic network interface (ENI) resource with EC2 instance.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

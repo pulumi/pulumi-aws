@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// ## Example Usage
     /// ### Basic
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### Store evaluation events in a CloudWatch Log Group
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,7 +61,6 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### Store evaluation events in an S3 bucket
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

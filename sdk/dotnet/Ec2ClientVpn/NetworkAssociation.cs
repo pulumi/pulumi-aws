@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// ## Example Usage
     /// ### Using default security group
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// });
     /// ```
     /// ### Using custom security groups
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

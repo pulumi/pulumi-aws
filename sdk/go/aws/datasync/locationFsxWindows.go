@@ -14,7 +14,6 @@ import (
 // Manages an AWS DataSync FSx Windows Location.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

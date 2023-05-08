@@ -13,7 +13,6 @@ import (
 // The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

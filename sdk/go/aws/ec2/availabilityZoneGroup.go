@@ -16,7 +16,6 @@ import (
 // > **NOTE:** This is an advanced resource. The provider will automatically assume management of the EC2 Availability Zone Group without import and perform no actions on removal from configuration.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

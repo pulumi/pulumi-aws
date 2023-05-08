@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Elasticsearch Log Publishing
-//
 // ```go
 // package main
 //
@@ -67,7 +66,6 @@ import (
 //
 // ```
 // ### Route53 Query Logging
-//
 // ```go
 // package main
 //

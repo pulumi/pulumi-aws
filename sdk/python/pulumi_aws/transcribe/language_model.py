@@ -244,7 +244,6 @@ class LanguageModel(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import json
@@ -318,7 +317,6 @@ class LanguageModel(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import json

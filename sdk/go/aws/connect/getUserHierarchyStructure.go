@@ -13,7 +13,6 @@ import (
 // Provides details about a specific Amazon Connect User Hierarchy Structure
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

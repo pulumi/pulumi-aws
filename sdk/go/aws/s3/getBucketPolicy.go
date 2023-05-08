@@ -15,7 +15,6 @@ import (
 // ## Example Usage
 //
 // The following example retrieves IAM policy of a specified S3 bucket.
-//
 // ```go
 // package main
 //

@@ -681,7 +681,6 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -691,7 +690,6 @@ class Integration(pulumi.CustomResource):
             integration_type="MOCK")
         ```
         ### Lambda Integration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -712,7 +710,6 @@ class Integration(pulumi.CustomResource):
             passthrough_behavior="WHEN_NO_MATCH")
         ```
         ### AWS Service Integration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -729,7 +726,6 @@ class Integration(pulumi.CustomResource):
             })
         ```
         ### Private Integration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -815,7 +811,6 @@ class Integration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -825,7 +820,6 @@ class Integration(pulumi.CustomResource):
             integration_type="MOCK")
         ```
         ### Lambda Integration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -846,7 +840,6 @@ class Integration(pulumi.CustomResource):
             passthrough_behavior="WHEN_NO_MATCH")
         ```
         ### AWS Service Integration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -863,7 +856,6 @@ class Integration(pulumi.CustomResource):
             })
         ```
         ### Private Integration
-
         ```python
         import pulumi
         import pulumi_aws as aws

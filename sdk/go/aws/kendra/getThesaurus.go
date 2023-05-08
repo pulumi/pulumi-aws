@@ -13,7 +13,6 @@ import (
 // Provides details about a specific Amazon Kendra Thesaurus.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

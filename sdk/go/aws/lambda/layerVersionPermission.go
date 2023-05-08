@@ -16,7 +16,6 @@ import (
 // For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

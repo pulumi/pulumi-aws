@@ -16,7 +16,6 @@ import (
 // ## Example Usage
 //
 // The following example below creates an HSM module in CloudHSM cluster.
-//
 // ```go
 // package main
 //

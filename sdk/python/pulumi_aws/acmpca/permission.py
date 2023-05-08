@@ -183,7 +183,6 @@ class Permission(pulumi.CustomResource):
         Currently, this is only required in order to allow the ACM service to automatically renew certificates issued by a PCA.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,7 +222,6 @@ class Permission(pulumi.CustomResource):
         Currently, this is only required in order to allow the ACM service to automatically renew certificates issued by a PCA.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

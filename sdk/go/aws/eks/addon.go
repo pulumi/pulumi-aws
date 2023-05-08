@@ -19,63 +19,11 @@ import (
 // which is only available in Kubernetes 1.18 and later.
 //
 // ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.NewAddon(ctx, "example", &eks.AddonArgs{
-//				ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
-//				AddonName:   pulumi.String("vpc-cni"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Example Update add-on usage with resolveConflicts and PRESERVE
 //
 // `resolveConflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
 //
 // > **Note:** `resolveConflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.NewAddon(ctx, "example", &eks.AddonArgs{
-//				ClusterName:      pulumi.Any(aws_eks_cluster.Example.Name),
-//				AddonName:        pulumi.String("coredns"),
-//				AddonVersion:     pulumi.String("v1.8.7-eksbuild.3"),
-//				ResolveConflicts: pulumi.String("PRESERVE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Example add-on usage with custom configurationValues
 //
@@ -86,52 +34,7 @@ import (
 // To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
 // This below is an example for extracting the `configurationValues` schema for `coredns`.
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // Example to create a `coredns` managed addon with custom `configurationValues`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.NewAddon(ctx, "example", &eks.AddonArgs{
-//				AddonName:           pulumi.String("coredns"),
-//				AddonVersion:        pulumi.String("v1.8.7-eksbuild.3"),
-//				ClusterName:         pulumi.String("mycluster"),
-//				ConfigurationValues: pulumi.String("{\"replicaCount\":4,\"resources\":{\"limits\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"}}}"),
-//				ResolveConflicts:    pulumi.String("OVERWRITE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

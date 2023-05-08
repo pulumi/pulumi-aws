@@ -25,6 +25,11 @@ export type Folder = import("./folder").Folder;
 export const Folder: typeof import("./folder").Folder = null as any;
 utilities.lazyLoad(exports, ["Folder"], () => require("./folder"));
 
+export { FolderMembershipArgs, FolderMembershipState } from "./folderMembership";
+export type FolderMembership = import("./folderMembership").FolderMembership;
+export const FolderMembership: typeof import("./folderMembership").FolderMembership = null as any;
+utilities.lazyLoad(exports, ["FolderMembership"], () => require("./folderMembership"));
+
 export { GetDataSetArgs, GetDataSetResult, GetDataSetOutputArgs } from "./getDataSet";
 export const getDataSet: typeof import("./getDataSet").getDataSet = null as any;
 export const getDataSetOutput: typeof import("./getDataSet").getDataSetOutput = null as any;
@@ -60,6 +65,11 @@ export type Ingestion = import("./ingestion").Ingestion;
 export const Ingestion: typeof import("./ingestion").Ingestion = null as any;
 utilities.lazyLoad(exports, ["Ingestion"], () => require("./ingestion"));
 
+export { RefreshScheduleArgs, RefreshScheduleState } from "./refreshSchedule";
+export type RefreshSchedule = import("./refreshSchedule").RefreshSchedule;
+export const RefreshSchedule: typeof import("./refreshSchedule").RefreshSchedule = null as any;
+utilities.lazyLoad(exports, ["RefreshSchedule"], () => require("./refreshSchedule"));
+
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -78,6 +88,8 @@ const _module = {
                 return new DataSource(name, <any>undefined, { urn })
             case "aws:quicksight/folder:Folder":
                 return new Folder(name, <any>undefined, { urn })
+            case "aws:quicksight/folderMembership:FolderMembership":
+                return new FolderMembership(name, <any>undefined, { urn })
             case "aws:quicksight/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "aws:quicksight/groupMembership:GroupMembership":
@@ -86,6 +98,8 @@ const _module = {
                 return new IamPolicyAssignment(name, <any>undefined, { urn })
             case "aws:quicksight/ingestion:Ingestion":
                 return new Ingestion(name, <any>undefined, { urn })
+            case "aws:quicksight/refreshSchedule:RefreshSchedule":
+                return new RefreshSchedule(name, <any>undefined, { urn })
             case "aws:quicksight/user:User":
                 return new User(name, <any>undefined, { urn })
             default:
@@ -97,8 +111,10 @@ pulumi.runtime.registerResourceModule("aws", "quicksight/accountSubscription", _
 pulumi.runtime.registerResourceModule("aws", "quicksight/dataSet", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/dataSource", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/folder", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/folderMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/group", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/groupMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/iamPolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/ingestion", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/refreshSchedule", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/user", _module)

@@ -200,7 +200,6 @@ class PublicKey(pulumi.CustomResource):
         ## Example Usage
 
         The following example below creates a CloudFront public key.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,7 +234,6 @@ class PublicKey(pulumi.CustomResource):
         ## Example Usage
 
         The following example below creates a CloudFront public key.
-
         ```python
         import pulumi
         import pulumi_aws as aws

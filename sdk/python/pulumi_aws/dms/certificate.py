@@ -217,7 +217,6 @@ class Certificate(pulumi.CustomResource):
         Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,7 +256,6 @@ class Certificate(pulumi.CustomResource):
         Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

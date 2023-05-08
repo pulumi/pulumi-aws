@@ -13,7 +13,6 @@ import (
 // Retrieve information about a Location Service Map.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

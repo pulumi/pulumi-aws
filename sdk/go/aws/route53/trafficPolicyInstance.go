@@ -14,7 +14,6 @@ import (
 // Provides a Route53 traffic policy instance resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

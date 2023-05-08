@@ -199,7 +199,6 @@ class Route(pulumi.CustomResource):
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,7 +249,6 @@ class Route(pulumi.CustomResource):
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

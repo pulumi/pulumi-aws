@@ -14,7 +14,6 @@ import (
 // Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -86,7 +85,6 @@ import (
 //
 // ```
 // ## Usage with SNS
-//
 // ```go
 // package main
 //
@@ -163,7 +161,6 @@ import (
 // ```
 //
 // ## Specify Lambda permissions for API Gateway REST API
-//
 // ```go
 // package main
 //
@@ -203,7 +200,6 @@ import (
 // ```
 //
 // ## Usage with CloudWatch log group
-//
 // ```go
 // package main
 //
@@ -288,7 +284,6 @@ import (
 // ```
 //
 // ## Example function URL cross-account invoke policy
-//
 // ```go
 // package main
 //

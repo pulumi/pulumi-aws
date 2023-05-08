@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Table
-//
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //
 // ```
 // ### Parquet Table for Athena
-//
 // ```go
 // package main
 //

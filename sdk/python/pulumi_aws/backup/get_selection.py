@@ -105,7 +105,6 @@ def get_selection(plan_id: Optional[str] = None,
     Use this data source to get information on an existing backup selection.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -141,7 +140,6 @@ def get_selection_output(plan_id: Optional[pulumi.Input[str]] = None,
     Use this data source to get information on an existing backup selection.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

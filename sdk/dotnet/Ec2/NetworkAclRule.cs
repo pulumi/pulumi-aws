@@ -19,7 +19,6 @@ namespace Pulumi.Aws.Ec2
     /// a conflict of rule settings and will overwrite rules.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

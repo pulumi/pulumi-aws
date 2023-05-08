@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ApiGateway
     /// Manages an API Gateway Request Validator.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

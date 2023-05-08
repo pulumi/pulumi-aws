@@ -14,7 +14,6 @@ import (
 // Associates a Direct Connect Connection with a LAG.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

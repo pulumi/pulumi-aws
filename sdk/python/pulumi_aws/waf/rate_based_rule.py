@@ -283,7 +283,6 @@ class RateBasedRule(pulumi.CustomResource):
         Provides a WAF Rate Based Rule Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,7 +331,6 @@ class RateBasedRule(pulumi.CustomResource):
         Provides a WAF Rate Based Rule Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

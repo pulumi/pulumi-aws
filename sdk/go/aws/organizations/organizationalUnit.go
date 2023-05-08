@@ -14,7 +14,6 @@ import (
 // Provides a resource to create an organizational unit.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

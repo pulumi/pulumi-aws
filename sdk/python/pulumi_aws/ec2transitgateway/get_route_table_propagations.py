@@ -84,7 +84,6 @@ def get_route_table_propagations(filters: Optional[Sequence[pulumi.InputType['Ge
 
     ## Example Usage
     ### By Transit Gateway Identifier
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -118,7 +117,6 @@ def get_route_table_propagations_output(filters: Optional[pulumi.Input[Optional[
 
     ## Example Usage
     ### By Transit Gateway Identifier
-
     ```python
     import pulumi
     import pulumi_aws as aws

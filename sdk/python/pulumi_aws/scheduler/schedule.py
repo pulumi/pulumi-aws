@@ -453,7 +453,6 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -470,7 +469,6 @@ class Schedule(pulumi.CustomResource):
             ))
         ```
         ### Universal Target
-
         ```python
         import pulumi
         import json
@@ -530,7 +528,6 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -547,7 +544,6 @@ class Schedule(pulumi.CustomResource):
             ))
         ```
         ### Universal Target
-
         ```python
         import pulumi
         import json

@@ -179,7 +179,6 @@ class SchedulingPolicy(pulumi.CustomResource):
         Provides a Batch Scheduling Policy resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,7 +227,6 @@ class SchedulingPolicy(pulumi.CustomResource):
         Provides a Batch Scheduling Policy resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

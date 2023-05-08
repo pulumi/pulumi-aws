@@ -14,7 +14,6 @@ import (
 // Provides a resource to manage AWS EMR Security Configurations
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ import (
 // Exports a definition of an API in a particular output format and specification.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

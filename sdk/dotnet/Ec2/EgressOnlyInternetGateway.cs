@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2
     /// outside of your VPC from initiating an IPv6 connection with your instance.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

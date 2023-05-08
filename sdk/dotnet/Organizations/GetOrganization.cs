@@ -19,6 +19,20 @@ namespace Pulumi.Aws.Organizations
         /// {{% example %}}
         /// ### List all account IDs for the organization
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const example = aws.organizations.getOrganization({});
+        /// export const accountIds = [example.then(example =&gt; example.accounts)].map(__item =&gt; __item?.id);
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example = aws.organizations.get_organization()
+        /// pulumi.export("accountIds", [__item.id for __item in [example.accounts]])
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,10 +52,93 @@ namespace Pulumi.Aws.Organizations
         ///     };
         /// });
         /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.organizations.OrganizationsFunctions;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var example = OrganizationsFunctions.getOrganization();
+        /// 
+        ///         ctx.export("accountIds", example.applyValue(getOrganizationResult -&gt; getOrganizationResult.accounts()).stream().map(element -&gt; element.id()).collect(toList()));
+        ///     }
+        /// }
+        /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### SNS topic that can be interacted by the organization only
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const example = aws.organizations.getOrganization({});
+        /// const snsTopic = new aws.sns.Topic("snsTopic", {});
+        /// const snsTopicPolicyPolicyDocument = pulumi.all([example, snsTopic.arn]).apply(([example, arn]) =&gt; aws.iam.getPolicyDocumentOutput({
+        ///     statements: [{
+        ///         effect: "Allow",
+        ///         actions: [
+        ///             "SNS:Subscribe",
+        ///             "SNS:Publish",
+        ///         ],
+        ///         conditions: [{
+        ///             test: "StringEquals",
+        ///             variable: "aws:PrincipalOrgID",
+        ///             values: [example.id],
+        ///         }],
+        ///         principals: [{
+        ///             type: "AWS",
+        ///             identifiers: ["*"],
+        ///         }],
+        ///         resources: [arn],
+        ///     }],
+        /// }));
+        /// const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("snsTopicPolicyTopicPolicy", {
+        ///     arn: snsTopic.arn,
+        ///     policy: snsTopicPolicyPolicyDocument.apply(snsTopicPolicyPolicyDocument =&gt; snsTopicPolicyPolicyDocument.json),
+        /// });
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example = aws.organizations.get_organization()
+        /// sns_topic = aws.sns.Topic("snsTopic")
+        /// sns_topic_policy_policy_document = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        ///     effect="Allow",
+        ///     actions=[
+        ///         "SNS:Subscribe",
+        ///         "SNS:Publish",
+        ///     ],
+        ///     conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+        ///         test="StringEquals",
+        ///         variable="aws:PrincipalOrgID",
+        ///         values=[example.id],
+        ///     )],
+        ///     principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+        ///         type="AWS",
+        ///         identifiers=["*"],
+        ///     )],
+        ///     resources=[arn],
+        /// )]))
+        /// sns_topic_policy_topic_policy = aws.sns.TopicPolicy("snsTopicPolicyTopicPolicy",
+        ///     arn=sns_topic.arn,
+        ///     policy=sns_topic_policy_policy_document.json)
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -104,6 +201,97 @@ namespace Pulumi.Aws.Organizations
         ///     });
         /// 
         /// });
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.organizations.OrganizationsFunctions;
+        /// import com.pulumi.aws.sns.Topic;
+        /// import com.pulumi.aws.iam.IamFunctions;
+        /// import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+        /// import com.pulumi.aws.sns.TopicPolicy;
+        /// import com.pulumi.aws.sns.TopicPolicyArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var example = OrganizationsFunctions.getOrganization();
+        /// 
+        ///         var snsTopic = new Topic("snsTopic");
+        /// 
+        ///         final var snsTopicPolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+        ///             .statements(GetPolicyDocumentStatementArgs.builder()
+        ///                 .effect("Allow")
+        ///                 .actions(                
+        ///                     "SNS:Subscribe",
+        ///                     "SNS:Publish")
+        ///                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+        ///                     .test("StringEquals")
+        ///                     .variable("aws:PrincipalOrgID")
+        ///                     .values(example.applyValue(getOrganizationResult -&gt; getOrganizationResult.id()))
+        ///                     .build())
+        ///                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+        ///                     .type("AWS")
+        ///                     .identifiers("*")
+        ///                     .build())
+        ///                 .resources(snsTopic.arn())
+        ///                 .build())
+        ///             .build());
+        /// 
+        ///         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()        
+        ///             .arn(snsTopic.arn())
+        ///             .policy(snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicyPolicyDocument -&gt; snsTopicPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// resources:
+        ///   snsTopic:
+        ///     type: aws:sns:Topic
+        ///   snsTopicPolicyTopicPolicy:
+        ///     type: aws:sns:TopicPolicy
+        ///     properties:
+        ///       arn: ${snsTopic.arn}
+        ///       policy: ${snsTopicPolicyPolicyDocument.json}
+        /// variables:
+        ///   example:
+        ///     fn::invoke:
+        ///       Function: aws:organizations:getOrganization
+        ///       Arguments: {}
+        ///   snsTopicPolicyPolicyDocument:
+        ///     fn::invoke:
+        ///       Function: aws:iam:getPolicyDocument
+        ///       Arguments:
+        ///         statements:
+        ///           - effect: Allow
+        ///             actions:
+        ///               - SNS:Subscribe
+        ///               - SNS:Publish
+        ///             conditions:
+        ///               - test: StringEquals
+        ///                 variable: aws:PrincipalOrgID
+        ///                 values:
+        ///                   - ${example.id}
+        ///             principals:
+        ///               - type: AWS
+        ///                 identifiers:
+        ///                   - '*'
+        ///             resources:
+        ///               - ${snsTopic.arn}
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

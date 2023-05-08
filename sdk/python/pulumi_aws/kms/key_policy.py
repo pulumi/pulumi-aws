@@ -142,7 +142,6 @@ class KeyPolicy(pulumi.CustomResource):
         Attaches a policy to a KMS Key.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -192,7 +191,6 @@ class KeyPolicy(pulumi.CustomResource):
         Attaches a policy to a KMS Key.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

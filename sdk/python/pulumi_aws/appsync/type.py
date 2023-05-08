@@ -181,7 +181,6 @@ class Type(pulumi.CustomResource):
         Provides an AppSync Type.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,7 +222,6 @@ class Type(pulumi.CustomResource):
         Provides an AppSync Type.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

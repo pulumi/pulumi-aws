@@ -592,7 +592,6 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         Provides a GameLift Alias resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -668,7 +667,6 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         Provides a GameLift Alias resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

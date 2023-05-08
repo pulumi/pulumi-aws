@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Glue
     /// <summary>
     /// Provides a Glue Partition Resource.
     /// 
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// Glue Partitions can be imported with their catalog ID (usually AWS account ID), database name, table name and partition values e.g.,

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.QuickSight
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,7 +30,6 @@ namespace Pulumi.Aws.QuickSight
     /// });
     /// ```
     /// ### With Permissions
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,7 +64,6 @@ namespace Pulumi.Aws.QuickSight
     /// });
     /// ```
     /// ### With Parent Folder
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

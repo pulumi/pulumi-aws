@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

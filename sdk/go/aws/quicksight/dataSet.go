@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -58,7 +57,6 @@ import (
 //
 // ```
 // ### With Column Level Permission Rules
-//
 // ```go
 // package main
 //
@@ -111,7 +109,6 @@ import (
 //
 // ```
 // ### With Field Folders
-//
 // ```go
 // package main
 //
@@ -163,7 +160,6 @@ import (
 //
 // ```
 // ### With Permissions
-//
 // ```go
 // package main
 //
@@ -218,7 +214,6 @@ import (
 //
 // ```
 // ### With Row Level Permission Tag Configuration
-//
 // ```go
 // package main
 //

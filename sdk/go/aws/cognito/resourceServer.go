@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Create a basic resource server
-//
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //
 // ```
 // ### Create a resource server with sample-scope
-//
 // ```go
 // package main
 //

@@ -154,7 +154,6 @@ def get_contact_flow_module(contact_flow_module_id: Optional[str] = None,
     ## Example Usage
 
     By `name`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -164,7 +163,6 @@ def get_contact_flow_module(contact_flow_module_id: Optional[str] = None,
     ```
 
     By `contact_flow_module_id`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -212,7 +210,6 @@ def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input
     ## Example Usage
 
     By `name`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -222,7 +219,6 @@ def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input
     ```
 
     By `contact_flow_module_id`
-
     ```python
     import pulumi
     import pulumi_aws as aws

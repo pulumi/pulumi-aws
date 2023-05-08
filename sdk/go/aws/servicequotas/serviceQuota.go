@@ -16,7 +16,6 @@ import (
 // > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

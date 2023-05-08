@@ -466,7 +466,6 @@ class Trigger(pulumi.CustomResource):
 
         ## Example Usage
         ### Conditional Trigger
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -484,7 +483,6 @@ class Trigger(pulumi.CustomResource):
             ))
         ```
         ### On-Demand Trigger
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -496,7 +494,6 @@ class Trigger(pulumi.CustomResource):
             )])
         ```
         ### Scheduled Trigger
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -511,7 +508,6 @@ class Trigger(pulumi.CustomResource):
         ### Conditional Trigger with Crawler Action
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -531,7 +527,6 @@ class Trigger(pulumi.CustomResource):
         ### Conditional Trigger with Crawler Condition
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -583,7 +578,6 @@ class Trigger(pulumi.CustomResource):
 
         ## Example Usage
         ### Conditional Trigger
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -601,7 +595,6 @@ class Trigger(pulumi.CustomResource):
             ))
         ```
         ### On-Demand Trigger
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -613,7 +606,6 @@ class Trigger(pulumi.CustomResource):
             )])
         ```
         ### Scheduled Trigger
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -628,7 +620,6 @@ class Trigger(pulumi.CustomResource):
         ### Conditional Trigger with Crawler Action
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -648,7 +639,6 @@ class Trigger(pulumi.CustomResource):
         ### Conditional Trigger with Crawler Condition
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataSource{}
 	case "aws:quicksight/folder:Folder":
 		r = &Folder{}
+	case "aws:quicksight/folderMembership:FolderMembership":
+		r = &FolderMembership{}
 	case "aws:quicksight/group:Group":
 		r = &Group{}
 	case "aws:quicksight/groupMembership:GroupMembership":
@@ -37,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IamPolicyAssignment{}
 	case "aws:quicksight/ingestion:Ingestion":
 		r = &Ingestion{}
+	case "aws:quicksight/refreshSchedule:RefreshSchedule":
+		r = &RefreshSchedule{}
 	case "aws:quicksight/user:User":
 		r = &User{}
 	default:
@@ -74,6 +78,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"quicksight/folderMembership",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"quicksight/group",
 		&module{version},
 	)
@@ -90,6 +99,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"quicksight/ingestion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/refreshSchedule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

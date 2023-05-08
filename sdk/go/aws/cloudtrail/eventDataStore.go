@@ -17,98 +17,11 @@ import (
 // > **Tip:** For an organization event data store you must create this resource in the management account.
 //
 // ## Example Usage
-// ### Basic
-//
-// The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multiRegionEnabled` must be `true`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudtrail.NewEventDataStore(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Data Event Logging
 //
 // CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
 //
 // - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
-// ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			table, err := dynamodb.LookupTable(ctx, &dynamodb.LookupTableArgs{
-//				Name: "not-important-dynamodb-table",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudtrail.NewEventDataStore(ctx, "example", &cloudtrail.EventDataStoreArgs{
-//				AdvancedEventSelectors: cloudtrail.EventDataStoreAdvancedEventSelectorArray{
-//					&cloudtrail.EventDataStoreAdvancedEventSelectorArgs{
-//						Name: pulumi.String("Log all DynamoDB PutEvent actions for a specific DynamoDB table"),
-//						FieldSelectors: cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArray{
-//							&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
-//								Field: pulumi.String("eventCategory"),
-//								Equals: pulumi.StringArray{
-//									pulumi.String("Data"),
-//								},
-//							},
-//							&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
-//								Field: pulumi.String("resources.type"),
-//								Equals: pulumi.StringArray{
-//									pulumi.String("AWS::DynamoDB::Table"),
-//								},
-//							},
-//							&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
-//								Field: pulumi.String("eventName"),
-//								Equals: pulumi.StringArray{
-//									pulumi.String("PutItem"),
-//								},
-//							},
-//							&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
-//								Field: pulumi.String("resources.ARN"),
-//								Equals: pulumi.StringArray{
-//									*pulumi.String(table.Arn),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// **Using certs on file:**
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

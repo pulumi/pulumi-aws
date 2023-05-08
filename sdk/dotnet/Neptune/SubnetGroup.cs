@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Neptune
     /// Provides an Neptune subnet group resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

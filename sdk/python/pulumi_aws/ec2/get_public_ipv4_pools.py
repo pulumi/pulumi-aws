@@ -84,7 +84,6 @@ def get_public_ipv4_pools(filters: Optional[Sequence[pulumi.InputType['GetPublic
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -92,7 +91,6 @@ def get_public_ipv4_pools(filters: Optional[Sequence[pulumi.InputType['GetPublic
     example = aws.ec2.get_public_ipv4_pools()
     ```
     ### Usage with Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -129,7 +127,6 @@ def get_public_ipv4_pools_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -137,7 +134,6 @@ def get_public_ipv4_pools_output(filters: Optional[pulumi.Input[Optional[Sequenc
     example = aws.ec2.get_public_ipv4_pools()
     ```
     ### Usage with Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### DynamoDB Table Autoscaling
-//
 // ```go
 // package main
 //
@@ -59,7 +58,6 @@ import (
 //
 // ```
 // ### ECS Service Autoscaling
-//
 // ```go
 // package main
 //
@@ -108,7 +106,6 @@ import (
 //
 // ```
 // ### Preserve desired count when updating an autoscaled ECS Service
-//
 // ```go
 // package main
 //
@@ -135,7 +132,6 @@ import (
 //
 // ```
 // ### Aurora Read Replica Autoscaling
-//
 // ```go
 // package main
 //
@@ -183,7 +179,6 @@ import (
 //
 // ```
 // ### MSK / Kafka Autoscaling
-//
 // ```go
 // package main
 //

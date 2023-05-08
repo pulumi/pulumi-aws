@@ -16,7 +16,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### With `private` ACL
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,7 +53,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// &gt; This example explicitly disables the default S3 bucket security settings. This
     /// should be done with caution, as all bucket objects become publicly exposed.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,7 +97,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### With Grants
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

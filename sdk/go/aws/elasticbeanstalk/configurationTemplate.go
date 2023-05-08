@@ -16,7 +16,6 @@ import (
 // application with the same configuration settings.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Athena
     /// Provides an Athena Named Query resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

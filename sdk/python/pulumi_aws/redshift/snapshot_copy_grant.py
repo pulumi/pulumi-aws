@@ -186,7 +186,6 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         Note that the grant must exist in the destination region, and not in the region of the cluster.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,7 +224,6 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         Note that the grant must exist in the destination region, and not in the region of the cluster.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

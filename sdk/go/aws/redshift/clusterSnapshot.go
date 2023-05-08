@@ -13,6 +13,8 @@ import (
 
 // Creates a Redshift cluster snapshot
 //
+// ## Example Usage
+//
 // ## Import
 //
 // Redshift Cluster Snapshots support import by `snapshot_identifier`, e.g., console

@@ -13,7 +13,6 @@ import (
 // Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

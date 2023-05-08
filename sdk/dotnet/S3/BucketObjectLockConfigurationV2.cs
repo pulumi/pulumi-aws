@@ -18,7 +18,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### Object Lock configuration for a new bucket
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -83,7 +83,6 @@ def get_log_groups(log_group_name_prefix: Optional[str] = None,
     Use this data source to get a list of AWS Cloudwatch Log Groups
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -113,7 +112,6 @@ def get_log_groups_output(log_group_name_prefix: Optional[pulumi.Input[Optional[
     Use this data source to get a list of AWS Cloudwatch Log Groups
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

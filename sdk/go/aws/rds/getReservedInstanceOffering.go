@@ -13,7 +13,6 @@ import (
 // Information about a single RDS Reserved Instance Offering.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

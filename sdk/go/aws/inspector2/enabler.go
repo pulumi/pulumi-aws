@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -47,7 +46,6 @@ import (
 //
 // ```
 // ### For the Calling Account
-//
 // ```go
 // package main
 //

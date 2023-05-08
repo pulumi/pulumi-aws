@@ -95,7 +95,6 @@ def get_prompt(instance_id: Optional[str] = None,
     ## Example Usage
 
     By `name`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -132,7 +131,6 @@ def get_prompt_output(instance_id: Optional[pulumi.Input[str]] = None,
     ## Example Usage
 
     By `name`
-
     ```python
     import pulumi
     import pulumi_aws as aws

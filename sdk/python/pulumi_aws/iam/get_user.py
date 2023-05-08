@@ -125,7 +125,6 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
     properties without having to hard code ARNs or unique IDs as input.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -163,7 +162,6 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
     properties without having to hard code ARNs or unique IDs as input.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

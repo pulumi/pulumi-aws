@@ -108,7 +108,6 @@ def get_subnet_group(name: Optional[str] = None,
     Provides details about a specific redshift subnet group.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -143,7 +142,6 @@ def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
     Provides details about a specific redshift subnet group.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

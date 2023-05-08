@@ -101,7 +101,6 @@ class LogService(pulumi.CustomResource):
         Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,7 +149,6 @@ class LogService(pulumi.CustomResource):
         Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

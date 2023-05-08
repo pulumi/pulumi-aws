@@ -13,7 +13,6 @@ import (
 // Provides a WAF Regional Geo Match Set Resource
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

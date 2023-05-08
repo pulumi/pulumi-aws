@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Example IAM Role for EKS Fargate Profile
-//
 // ```go
 // package main
 //

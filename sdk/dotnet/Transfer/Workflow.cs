@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Example Usage
     /// ### Basic single step example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.Transfer
     /// });
     /// ```
     /// ### Multistep example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

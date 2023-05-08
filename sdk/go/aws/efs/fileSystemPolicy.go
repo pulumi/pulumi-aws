@@ -14,7 +14,6 @@ import (
 // Provides an Elastic File System (EFS) File System Policy resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

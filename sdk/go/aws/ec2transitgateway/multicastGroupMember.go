@@ -15,7 +15,6 @@ import (
 // A member is a network interface associated with a supported EC2 instance that receives multicast traffic.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

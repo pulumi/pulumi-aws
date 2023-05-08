@@ -298,7 +298,6 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
         Manages an App Runner AutoScaling Configuration Version.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -340,7 +339,6 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
         Manages an App Runner AutoScaling Configuration Version.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

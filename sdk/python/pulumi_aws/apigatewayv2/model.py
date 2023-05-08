@@ -200,7 +200,6 @@ class Model(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import json
@@ -248,7 +247,6 @@ class Model(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import json

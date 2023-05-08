@@ -286,7 +286,6 @@ class Workgroup(pulumi.CustomResource):
         Provides an Athena Workgroup.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,7 +331,6 @@ class Workgroup(pulumi.CustomResource):
         Provides an Athena Workgroup.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -27,7 +27,6 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **Note:** Creating multiple `aws.ec2.VpcPeeringConnection` resources with the same `peer_vpc_id` and `vpc_id` will not produce an error. Instead, AWS will return the connection `id` that already exists, resulting in multiple `aws.ec2.VpcPeeringConnection` resources with the same `id`.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,7 +46,6 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// 
     /// Basic usage with connection options:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,7 +73,6 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// 
     /// Basic usage with tags:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,7 +107,6 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// 
     /// Basic usage with region:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

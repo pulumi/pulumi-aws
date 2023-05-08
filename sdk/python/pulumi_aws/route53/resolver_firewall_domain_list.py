@@ -185,7 +185,6 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
         Provides a Route 53 Resolver DNS Firewall domain list resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,7 +217,6 @@ class ResolverFirewallDomainList(pulumi.CustomResource):
         Provides a Route 53 Resolver DNS Firewall domain list resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

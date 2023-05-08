@@ -505,7 +505,6 @@ class SamplingRule(pulumi.CustomResource):
         Creates and manages an AWS XRay Sampling Rule.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -562,7 +561,6 @@ class SamplingRule(pulumi.CustomResource):
         Creates and manages an AWS XRay Sampling Rule.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

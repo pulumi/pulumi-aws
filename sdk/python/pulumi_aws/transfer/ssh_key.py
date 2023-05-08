@@ -133,7 +133,6 @@ class SshKey(pulumi.CustomResource):
         Provides a AWS Transfer User SSH Key resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -198,7 +197,6 @@ class SshKey(pulumi.CustomResource):
         Provides a AWS Transfer User SSH Key resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

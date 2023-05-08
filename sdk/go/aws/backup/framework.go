@@ -16,7 +16,6 @@ import (
 // > **Note:** For the Deployment Status of the Framework to be successful, please turn on resource tracking to enable AWS Config recording to track configuration changes of your backup resources. This can be done from the AWS Console.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -240,7 +240,6 @@ def get_signing_job(job_id: Optional[str] = None,
     Provides information about a Signer Signing Job.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -283,7 +282,6 @@ def get_signing_job_output(job_id: Optional[pulumi.Input[str]] = None,
     Provides information about a Signer Signing Job.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

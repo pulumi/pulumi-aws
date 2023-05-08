@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Iam
     /// ## Example Usage
     /// 
     /// **Using certs on file:**
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -44,7 +43,6 @@ namespace Pulumi.Aws.Iam
     /// ```
     /// 
     /// **Example with cert in-line:**
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -78,7 +76,6 @@ namespace Pulumi.Aws.Iam
     /// `create_before_destroy`. This will allow this provider
     /// to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
     /// dependant resources before attempting to destroy the old version.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

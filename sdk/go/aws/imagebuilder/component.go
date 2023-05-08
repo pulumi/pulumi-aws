@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### URI Document
-//
 // ```go
 // package main
 //

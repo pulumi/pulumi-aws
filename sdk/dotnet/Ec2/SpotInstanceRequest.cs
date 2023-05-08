@@ -34,7 +34,6 @@ namespace Pulumi.Aws.Ec2
     /// for more information.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -13,7 +13,6 @@ import (
 // Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

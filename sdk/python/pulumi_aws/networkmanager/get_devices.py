@@ -91,7 +91,6 @@ def get_devices(global_network_id: Optional[str] = None,
     Retrieve information about devices.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -131,7 +130,6 @@ def get_devices_output(global_network_id: Optional[pulumi.Input[str]] = None,
     Retrieve information about devices.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

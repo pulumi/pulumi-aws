@@ -13,7 +13,6 @@ namespace Pulumi.Aws.OpsWorks
     /// Provides an OpsWorks Ruby on Rails application layer resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

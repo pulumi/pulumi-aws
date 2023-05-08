@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### EFS File System w/ tags
-//
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //
 // ```
 // ### Using lifecycle policy
-//
 // ```go
 // package main
 //

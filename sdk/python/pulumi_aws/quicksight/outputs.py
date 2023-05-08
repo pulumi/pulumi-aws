@@ -73,6 +73,9 @@ __all__ = [
     'DataSourceVpcConnectionProperties',
     'FolderPermission',
     'IamPolicyAssignmentIdentities',
+    'RefreshScheduleSchedule',
+    'RefreshScheduleScheduleScheduleFrequency',
+    'RefreshScheduleScheduleScheduleFrequencyRefreshOnDay',
     'GetDataSetColumnGroupResult',
     'GetDataSetColumnGroupGeoSpatialColumnGroupResult',
     'GetDataSetColumnLevelPermissionRuleResult',
@@ -3229,6 +3232,188 @@ class IamPolicyAssignmentIdentities(dict):
         Array of Quicksight user names to assign the policy to.
         """
         return pulumi.get(self, "users")
+
+
+@pulumi.output_type
+class RefreshScheduleSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "refreshType":
+            suggest = "refresh_type"
+        elif key == "scheduleFrequency":
+            suggest = "schedule_frequency"
+        elif key == "startAfterDateTime":
+            suggest = "start_after_date_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RefreshScheduleSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RefreshScheduleSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RefreshScheduleSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 refresh_type: str,
+                 schedule_frequency: Optional['outputs.RefreshScheduleScheduleScheduleFrequency'] = None,
+                 start_after_date_time: Optional[str] = None):
+        """
+        :param str refresh_type: The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+        :param 'RefreshScheduleScheduleScheduleFrequencyArgs' schedule_frequency: The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+        :param str start_after_date_time: Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
+        """
+        pulumi.set(__self__, "refresh_type", refresh_type)
+        if schedule_frequency is not None:
+            pulumi.set(__self__, "schedule_frequency", schedule_frequency)
+        if start_after_date_time is not None:
+            pulumi.set(__self__, "start_after_date_time", start_after_date_time)
+
+    @property
+    @pulumi.getter(name="refreshType")
+    def refresh_type(self) -> str:
+        """
+        The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+        """
+        return pulumi.get(self, "refresh_type")
+
+    @property
+    @pulumi.getter(name="scheduleFrequency")
+    def schedule_frequency(self) -> Optional['outputs.RefreshScheduleScheduleScheduleFrequency']:
+        """
+        The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+        """
+        return pulumi.get(self, "schedule_frequency")
+
+    @property
+    @pulumi.getter(name="startAfterDateTime")
+    def start_after_date_time(self) -> Optional[str]:
+        """
+        Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
+        """
+        return pulumi.get(self, "start_after_date_time")
+
+
+@pulumi.output_type
+class RefreshScheduleScheduleScheduleFrequency(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "refreshOnDay":
+            suggest = "refresh_on_day"
+        elif key == "timeOfTheDay":
+            suggest = "time_of_the_day"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RefreshScheduleScheduleScheduleFrequency. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RefreshScheduleScheduleScheduleFrequency.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RefreshScheduleScheduleScheduleFrequency.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval: str,
+                 refresh_on_day: Optional['outputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDay'] = None,
+                 time_of_the_day: Optional[str] = None,
+                 timezone: Optional[str] = None):
+        """
+        :param str interval: The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+        :param 'RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs' refresh_on_day: The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+        :param str timezone: The timezone that you want the refresh schedule to use.
+        """
+        pulumi.set(__self__, "interval", interval)
+        if refresh_on_day is not None:
+            pulumi.set(__self__, "refresh_on_day", refresh_on_day)
+        if time_of_the_day is not None:
+            pulumi.set(__self__, "time_of_the_day", time_of_the_day)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> str:
+        """
+        The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="refreshOnDay")
+    def refresh_on_day(self) -> Optional['outputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDay']:
+        """
+        The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+        """
+        return pulumi.get(self, "refresh_on_day")
+
+    @property
+    @pulumi.getter(name="timeOfTheDay")
+    def time_of_the_day(self) -> Optional[str]:
+        return pulumi.get(self, "time_of_the_day")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        """
+        The timezone that you want the refresh schedule to use.
+        """
+        return pulumi.get(self, "timezone")
+
+
+@pulumi.output_type
+class RefreshScheduleScheduleScheduleFrequencyRefreshOnDay(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfMonth":
+            suggest = "day_of_month"
+        elif key == "dayOfWeek":
+            suggest = "day_of_week"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RefreshScheduleScheduleScheduleFrequencyRefreshOnDay. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RefreshScheduleScheduleScheduleFrequencyRefreshOnDay.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RefreshScheduleScheduleScheduleFrequencyRefreshOnDay.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_month: Optional[str] = None,
+                 day_of_week: Optional[str] = None):
+        """
+        :param str day_of_month: The day of the month that you want to schedule refresh on.
+        :param str day_of_week: The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+        """
+        if day_of_month is not None:
+            pulumi.set(__self__, "day_of_month", day_of_month)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> Optional[str]:
+        """
+        The day of the month that you want to schedule refresh on.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[str]:
+        """
+        The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+        """
+        return pulumi.get(self, "day_of_week")
 
 
 @pulumi.output_type

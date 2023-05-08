@@ -168,7 +168,6 @@ class InternetGateway(pulumi.CustomResource):
         Provides a resource to create a VPC Internet Gateway.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -204,7 +203,6 @@ class InternetGateway(pulumi.CustomResource):
         Provides a resource to create a VPC Internet Gateway.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

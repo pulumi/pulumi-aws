@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Connectivity and HTTP Status Code Check
-//
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //
 // ```
 // ### Connectivity and String Matching Check
-//
 // ```go
 // package main
 //
@@ -79,7 +77,6 @@ import (
 //
 // ```
 // ### Aggregate Check
-//
 // ```go
 // package main
 //
@@ -111,7 +108,6 @@ import (
 //
 // ```
 // ### CloudWatch Alarm Check
-//
 // ```go
 // package main
 //

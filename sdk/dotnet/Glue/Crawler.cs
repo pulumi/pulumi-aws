@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// ### DynamoDB Target Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### JDBC Target Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,7 +63,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### S3 Target Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,7 +87,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### Catalog Target Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -130,7 +126,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### MongoDB Target Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -156,7 +151,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### Configuration Settings Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

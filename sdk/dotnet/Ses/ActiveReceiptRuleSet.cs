@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ses
     /// Provides a resource to designate the active SES receipt rule set
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

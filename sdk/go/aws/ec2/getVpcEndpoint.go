@@ -14,7 +14,6 @@ import (
 // a specific VPC endpoint.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

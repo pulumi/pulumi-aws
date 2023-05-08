@@ -133,7 +133,6 @@ class ConditionalForwader(pulumi.CustomResource):
         Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -171,7 +170,6 @@ class ConditionalForwader(pulumi.CustomResource):
         Provides a conditional forwarder for managed Microsoft AD in AWS Directory Service.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

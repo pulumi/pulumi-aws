@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Lambda
     /// ### Destination Configuration
     /// 
     /// &gt; **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,7 +43,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Error Handling Configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,7 +61,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Configuration for Alias Name
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,7 +79,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Configuration for Function Latest Unpublished Version
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,7 +97,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Configuration for Function Published Version
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Example Usage
     /// ### Basic Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -83,7 +82,6 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// ### With AppMesh Proxy
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -115,7 +113,6 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// ### Example Using `docker_volume_configuration`
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -153,7 +150,6 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// ### Example Using `efs_volume_configuration`
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -191,7 +187,6 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// ### Example Using `fsx_windows_file_server_volume_configuration`
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -238,7 +233,6 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// ### Example Using `container_definitions` and `inference_accelerator`
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -291,7 +285,6 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// ### Example Using `runtime_platform` and `fargate`
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -18,7 +18,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// ### Create New Key Pair
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.LightSail
     /// });
     /// ```
     /// ### Create New Key Pair with PGP Encrypted Private Key
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,7 +48,6 @@ namespace Pulumi.Aws.LightSail
     /// });
     /// ```
     /// ### Existing Public Key Import
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

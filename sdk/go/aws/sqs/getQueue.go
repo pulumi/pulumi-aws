@@ -15,7 +15,6 @@ import (
 // the ARNs as input.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -165,7 +165,6 @@ class UsagePlanKey(pulumi.CustomResource):
         Provides an API Gateway Usage Plan Key.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,7 +206,6 @@ class UsagePlanKey(pulumi.CustomResource):
         Provides an API Gateway Usage Plan Key.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

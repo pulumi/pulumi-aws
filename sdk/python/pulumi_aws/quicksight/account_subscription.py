@@ -544,7 +544,6 @@ class AccountSubscription(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Account Subscription.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -588,7 +587,6 @@ class AccountSubscription(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Account Subscription.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

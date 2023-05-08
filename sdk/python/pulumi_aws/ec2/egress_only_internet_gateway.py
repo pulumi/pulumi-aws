@@ -138,7 +138,6 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         outside of your VPC from initiating an IPv6 connection with your instance.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,7 +179,6 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         outside of your VPC from initiating an IPv6 connection with your instance.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -14,7 +14,6 @@ import (
 // resources.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

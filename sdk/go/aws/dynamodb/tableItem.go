@@ -18,7 +18,6 @@ import (
 //	You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

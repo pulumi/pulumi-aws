@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### Accept cross-account request
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

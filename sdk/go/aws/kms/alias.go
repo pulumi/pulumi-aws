@@ -16,7 +16,6 @@ import (
 // the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

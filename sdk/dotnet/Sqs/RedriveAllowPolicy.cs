@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Sqs
     /// Provides a SQS Queue Redrive Allow Policy resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

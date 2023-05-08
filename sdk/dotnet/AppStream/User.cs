@@ -13,7 +13,6 @@ namespace Pulumi.Aws.AppStream
     /// Provides an AppStream user.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -14,7 +14,6 @@ import (
 // Provides an AWS App Mesh gateway route resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -296,7 +296,6 @@ def get_replication_group(replication_group_id: Optional[str] = None,
     Use this data source to get information about an ElastiCache Replication Group.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -343,7 +342,6 @@ def get_replication_group_output(replication_group_id: Optional[pulumi.Input[str
     Use this data source to get information about an ElastiCache Replication Group.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue resource policy. Only one can exist per region.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

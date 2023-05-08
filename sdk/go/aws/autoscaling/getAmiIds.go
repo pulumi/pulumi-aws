@@ -14,7 +14,6 @@ import (
 // ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

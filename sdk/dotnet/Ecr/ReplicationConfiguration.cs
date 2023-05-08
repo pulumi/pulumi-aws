@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ecr
     /// Provides an Elastic Container Registry Replication Configuration.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,7 +49,6 @@ namespace Pulumi.Aws.Ecr
     /// });
     /// ```
     /// ## Multiple Region Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,7 +91,6 @@ namespace Pulumi.Aws.Ecr
     /// ```
     /// 
     /// ## Repository Filter Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

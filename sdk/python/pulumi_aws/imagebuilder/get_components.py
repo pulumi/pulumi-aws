@@ -95,7 +95,6 @@ def get_components(filters: Optional[Sequence[pulumi.InputType['GetComponentsFil
     Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -133,7 +132,6 @@ def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
     Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

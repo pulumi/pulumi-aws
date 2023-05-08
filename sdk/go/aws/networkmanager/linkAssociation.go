@@ -16,7 +16,6 @@ import (
 // The device and link must be in the same global network and the same site.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

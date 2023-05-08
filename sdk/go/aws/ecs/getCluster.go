@@ -14,7 +14,6 @@ import (
 // cluster within an AWS ECS service.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

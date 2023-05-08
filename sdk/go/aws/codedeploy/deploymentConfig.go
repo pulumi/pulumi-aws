@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Server Usage
-//
 // ```go
 // package main
 //
@@ -80,7 +79,6 @@ import (
 //
 // ```
 // ### Lambda Usage
-//
 // ```go
 // package main
 //

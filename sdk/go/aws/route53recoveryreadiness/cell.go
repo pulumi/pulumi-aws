@@ -14,7 +14,6 @@ import (
 // Provides an AWS Route 53 Recovery Readiness Cell.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Provides a License Manager grant. This allows for sharing licenses with other AWS accounts.
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * `aws_licensemanager_grant` can be imported using the grant arn.

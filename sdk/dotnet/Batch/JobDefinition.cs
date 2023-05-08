@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Batch
     /// Provides a Batch Job Definition resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,7 +89,6 @@ namespace Pulumi.Aws.Batch
     /// });
     /// ```
     /// ### Fargate Platform Capability
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

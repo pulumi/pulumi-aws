@@ -13,7 +13,6 @@ namespace Pulumi.Aws.AppStream
     /// Manages an AppStream Fleet Stack association.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

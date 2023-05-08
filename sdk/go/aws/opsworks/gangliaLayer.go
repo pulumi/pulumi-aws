@@ -14,7 +14,6 @@ import (
 // Provides an OpsWorks Ganglia layer resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

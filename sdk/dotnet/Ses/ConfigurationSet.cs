@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ses
     /// Provides an SES configuration set resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,7 +26,6 @@ namespace Pulumi.Aws.Ses
     /// });
     /// ```
     /// ### Require TLS Connections
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

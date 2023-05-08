@@ -334,7 +334,6 @@ class Fleet(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,7 +342,6 @@ class Fleet(pulumi.CustomResource):
         ```
 
         Network Configuration Usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -356,7 +354,6 @@ class Fleet(pulumi.CustomResource):
         ```
 
         Identity Provider Configuration Usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -395,7 +392,6 @@ class Fleet(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -404,7 +400,6 @@ class Fleet(pulumi.CustomResource):
         ```
 
         Network Configuration Usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -417,7 +412,6 @@ class Fleet(pulumi.CustomResource):
         ```
 
         Identity Provider Configuration Usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws

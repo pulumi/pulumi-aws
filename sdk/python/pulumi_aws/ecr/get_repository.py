@@ -155,7 +155,6 @@ def get_repository(name: Optional[str] = None,
     The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -197,7 +196,6 @@ def get_repository_output(name: Optional[pulumi.Input[str]] = None,
     The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

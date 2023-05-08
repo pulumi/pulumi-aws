@@ -154,7 +154,6 @@ def get_connection(connection_id: Optional[str] = None,
     Retrieve information about a connection.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -197,7 +196,6 @@ def get_connection_output(connection_id: Optional[pulumi.Input[str]] = None,
     Retrieve information about a connection.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -14,7 +14,6 @@ import (
 // Provides a Batch Job Definition resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -91,7 +90,6 @@ import (
 //
 // ```
 // ### Fargate Platform Capability
-//
 // ```go
 // package main
 //

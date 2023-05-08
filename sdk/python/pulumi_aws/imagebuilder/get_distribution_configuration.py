@@ -133,7 +133,6 @@ def get_distribution_configuration(arn: Optional[str] = None,
     Provides details about an Image Builder Distribution Configuration.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -170,7 +169,6 @@ def get_distribution_configuration_output(arn: Optional[pulumi.Input[str]] = Non
     Provides details about an Image Builder Distribution Configuration.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

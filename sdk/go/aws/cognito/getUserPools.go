@@ -13,7 +13,6 @@ import (
 // Use this data source to get a list of cognito user pools.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

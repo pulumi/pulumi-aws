@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Example Usage
     /// ### Cognito Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,7 +49,6 @@ namespace Pulumi.Aws.Sagemaker
     /// });
     /// ```
     /// ### Oidc Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

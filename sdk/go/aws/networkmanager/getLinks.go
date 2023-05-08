@@ -13,7 +13,6 @@ import (
 // Retrieve information about link.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

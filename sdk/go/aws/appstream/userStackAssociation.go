@@ -14,7 +14,6 @@ import (
 // Manages an AppStream User Stack association.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -19,7 +19,6 @@ import (
 //
 // ## Example Usage
 // ### AWS Partition Bucket
-//
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //
 // ```
 // ### S3 on Outposts Bucket
-//
 // ```go
 // package main
 //

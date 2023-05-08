@@ -101,7 +101,6 @@ class DomainPolicy(pulumi.CustomResource):
         Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -141,7 +140,6 @@ class DomainPolicy(pulumi.CustomResource):
         Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

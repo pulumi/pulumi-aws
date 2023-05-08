@@ -121,7 +121,6 @@ class XssMatchSet(pulumi.CustomResource):
         Provides a WAF XSS Match Set Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -165,7 +164,6 @@ class XssMatchSet(pulumi.CustomResource):
         Provides a WAF XSS Match Set Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

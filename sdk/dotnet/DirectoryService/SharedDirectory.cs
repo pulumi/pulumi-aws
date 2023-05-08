@@ -13,7 +13,6 @@ namespace Pulumi.Aws.DirectoryService
     /// Manages a directory in your account (directory owner) shared with another account (directory consumer).
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

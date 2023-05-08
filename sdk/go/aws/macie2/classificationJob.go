@@ -14,7 +14,6 @@ import (
 // Provides a resource to manage an [AWS Macie Classification Job](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

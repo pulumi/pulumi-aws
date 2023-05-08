@@ -265,7 +265,6 @@ class Endpoint(pulumi.CustomResource):
         Provides a resource to manage an S3 Outposts Endpoint.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -302,7 +301,6 @@ class Endpoint(pulumi.CustomResource):
         Provides a resource to manage an S3 Outposts Endpoint.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 // ### Storage Config Kinesis Firehose Config
-//
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //
 // ```
 // ### Storage Config Kinesis Stream Config
-//
 // ```go
 // package main
 //
@@ -80,7 +78,6 @@ import (
 //
 // ```
 // ### Storage Config Kinesis Video Stream Config
-//
 // ```go
 // package main
 //
@@ -117,7 +114,6 @@ import (
 //
 // ```
 // ### Storage Config S3 Config
-//
 // ```go
 // package main
 //
@@ -150,7 +146,6 @@ import (
 //
 // ```
 // ### Storage Config S3 Config with Encryption Config
-//
 // ```go
 // package main
 //

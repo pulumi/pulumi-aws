@@ -16,7 +16,6 @@ import (
 //	> Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

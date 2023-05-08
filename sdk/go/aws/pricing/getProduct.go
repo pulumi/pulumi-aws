@@ -14,7 +14,6 @@ import (
 // This data source is only available in a us-east-1 or ap-south-1 provider.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -68,7 +67,6 @@ import (
 //	}
 //
 // ```
-//
 // ```go
 // package main
 //

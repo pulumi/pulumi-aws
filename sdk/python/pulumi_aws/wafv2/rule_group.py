@@ -362,7 +362,6 @@ class RuleGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Simple
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -428,7 +427,6 @@ class RuleGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Simple
-
         ```python
         import pulumi
         import pulumi_aws as aws

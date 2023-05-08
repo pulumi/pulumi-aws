@@ -13,7 +13,6 @@ import (
 // Provides details about a specific Amazon API Gateway Version 2 API.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

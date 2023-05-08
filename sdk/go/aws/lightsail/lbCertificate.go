@@ -14,7 +14,6 @@ import (
 // Creates a Lightsail load balancer Certificate resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

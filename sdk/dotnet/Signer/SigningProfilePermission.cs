@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Signer
     /// Creates a Signer Signing Profile Permission. That is, a cross-account permission for a signing profile.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

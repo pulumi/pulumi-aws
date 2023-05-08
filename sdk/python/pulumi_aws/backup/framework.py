@@ -269,7 +269,6 @@ class Framework(pulumi.CustomResource):
         > **Note:** For the Deployment Status of the Framework to be successful, please turn on resource tracking to enable AWS Config recording to track configuration changes of your backup resources. This can be done from the AWS Console.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -379,7 +378,6 @@ class Framework(pulumi.CustomResource):
         > **Note:** For the Deployment Status of the Framework to be successful, please turn on resource tracking to enable AWS Config recording to track configuration changes of your backup resources. This can be done from the AWS Console.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

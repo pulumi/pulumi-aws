@@ -14,7 +14,6 @@ import (
 // Provides an OpsWorks Java application layer resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

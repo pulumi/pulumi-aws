@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Manages the accepter's side of an EC2 Transit Gateway Peering Attachment.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

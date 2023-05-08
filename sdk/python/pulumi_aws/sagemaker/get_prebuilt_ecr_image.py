@@ -117,7 +117,6 @@ def get_prebuilt_ecr_image(dns_suffix: Optional[str] = None,
     ## Example Usage
 
     Basic usage:
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -164,7 +163,6 @@ def get_prebuilt_ecr_image_output(dns_suffix: Optional[pulumi.Input[Optional[str
     ## Example Usage
 
     Basic usage:
-
     ```python
     import pulumi
     import pulumi_aws as aws

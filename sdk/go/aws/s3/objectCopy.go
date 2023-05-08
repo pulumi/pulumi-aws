@@ -14,7 +14,6 @@ import (
 // Provides a resource for copying an S3 object.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

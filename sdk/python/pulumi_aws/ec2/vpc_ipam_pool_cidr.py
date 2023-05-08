@@ -190,6 +190,28 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         > **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
         either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
 
+        ## Example Usage
+
+        Basic usage:
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+            region_name=current.name,
+        )])
+        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
+            address_family="ipv4",
+            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
+            locale=current.name)
+        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
+            ipam_pool_id=example_vpc_ipam_pool.id,
+            cidr="172.2.0.0/16")
+        ```
+
+        Provision Public IPv6 Pool CIDRs:
+
         ## Import
 
         IPAMs can be imported using the `<cidr>_<ipam-pool-id>`. Please note we **DO NOT** use the ipam pool cidr id as this was introduced after the resource already existed. An import example
@@ -218,6 +240,28 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
         > **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
         either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
+
+        ## Example Usage
+
+        Basic usage:
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+            region_name=current.name,
+        )])
+        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
+            address_family="ipv4",
+            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
+            locale=current.name)
+        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
+            ipam_pool_id=example_vpc_ipam_pool.id,
+            cidr="172.2.0.0/16")
+        ```
+
+        Provision Public IPv6 Pool CIDRs:
 
         ## Import
 

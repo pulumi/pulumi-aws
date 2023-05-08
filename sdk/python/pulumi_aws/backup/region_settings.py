@@ -102,7 +102,6 @@ class RegionSettings(pulumi.CustomResource):
         Provides an AWS Backup Region Settings resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,7 +149,6 @@ class RegionSettings(pulumi.CustomResource):
         Provides an AWS Backup Region Settings resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

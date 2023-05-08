@@ -180,6 +180,8 @@ def get_stack(name: Optional[str] = None,
     The CloudFormation Stack data source allows access to stack
     outputs and other useful data including the template body.
 
+    ## Example Usage
+
 
     :param str name: Name of the stack
     :param Mapping[str, str] tags: Map of tags associated with this stack.
@@ -212,6 +214,8 @@ def get_stack_output(name: Optional[pulumi.Input[str]] = None,
     """
     The CloudFormation Stack data source allows access to stack
     outputs and other useful data including the template body.
+
+    ## Example Usage
 
 
     :param str name: Name of the stack

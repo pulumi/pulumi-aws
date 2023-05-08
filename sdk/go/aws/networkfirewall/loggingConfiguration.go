@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Logging to S3
-//
 // ```go
 // package main
 //
@@ -52,7 +51,6 @@ import (
 //
 // ```
 // ### Logging to CloudWatch
-//
 // ```go
 // package main
 //
@@ -88,7 +86,6 @@ import (
 //
 // ```
 // ### Logging to Kinesis Data Firehose
-//
 // ```go
 // package main
 //

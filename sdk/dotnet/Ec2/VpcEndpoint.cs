@@ -22,7 +22,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### Basic
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Basic w/ Tags
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,7 +60,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Interface Endpoint Type
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -86,7 +83,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Gateway Load Balancer Endpoint Type
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

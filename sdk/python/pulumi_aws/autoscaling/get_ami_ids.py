@@ -87,7 +87,6 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
     ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -139,7 +138,6 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
     ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

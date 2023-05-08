@@ -14,7 +14,6 @@ import (
 // Provides a Location Service Place Index.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

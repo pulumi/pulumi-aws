@@ -13,7 +13,6 @@ import (
 // Provides information about a Global Accelerator accelerator.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -127,7 +127,6 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -161,7 +160,6 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws

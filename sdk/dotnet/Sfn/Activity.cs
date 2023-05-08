@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Sfn
     /// Provides a Step Function Activity resource
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

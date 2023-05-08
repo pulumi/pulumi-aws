@@ -13,7 +13,6 @@ import (
 // Provides details about a specific CE Tags.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -11,7 +11,6 @@ import (
 // for the effective account in which this provider is working.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

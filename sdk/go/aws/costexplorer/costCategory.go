@@ -14,7 +14,6 @@ import (
 // Provides a CE Cost Category.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

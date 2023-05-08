@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Standard usage
-//
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //
 // ```
 // ### Blackhole route
-//
 // ```go
 // package main
 //

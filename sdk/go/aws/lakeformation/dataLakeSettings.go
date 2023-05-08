@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 // ### Data Lake Admins
-//
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //
 // ```
 // ### Create Default Permissions
-//
 // ```go
 // package main
 //
@@ -90,7 +88,6 @@ import (
 //
 // ```
 // ### Enable EMR access to LakeFormation resources
-//
 // ```go
 // package main
 //

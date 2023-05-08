@@ -1660,7 +1660,6 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic example using AMI lookup
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1685,7 +1684,6 @@ class Instance(pulumi.CustomResource):
             })
         ```
         ### Network and credit specification example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1724,7 +1722,6 @@ class Instance(pulumi.CustomResource):
         A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
 
         > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1803,7 +1800,6 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic example using AMI lookup
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1828,7 +1824,6 @@ class Instance(pulumi.CustomResource):
             })
         ```
         ### Network and credit specification example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1867,7 +1862,6 @@ class Instance(pulumi.CustomResource):
         A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
 
         > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
-
         ```python
         import pulumi
         import pulumi_aws as aws

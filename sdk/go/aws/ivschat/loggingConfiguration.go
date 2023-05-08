@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage - Logging to CloudWatch
-//
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //
 // ```
 // ### Basic Usage - Logging to Kinesis Firehose with Extended S3
-//
 // ```go
 // package main
 //

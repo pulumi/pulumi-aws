@@ -14,7 +14,6 @@ import (
 // Provides an OpsWorks PHP application layer resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

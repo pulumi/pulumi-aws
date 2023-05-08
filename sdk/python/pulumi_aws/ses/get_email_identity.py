@@ -74,7 +74,6 @@ def get_email_identity(email: Optional[str] = None,
     Retrieve the active SES email identity
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -103,7 +102,6 @@ def get_email_identity_output(email: Optional[pulumi.Input[str]] = None,
     Retrieve the active SES email identity
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

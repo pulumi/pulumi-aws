@@ -217,7 +217,6 @@ class Application(pulumi.CustomResource):
         `default`, and no application versions
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -261,7 +260,6 @@ class Application(pulumi.CustomResource):
         `default`, and no application versions
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

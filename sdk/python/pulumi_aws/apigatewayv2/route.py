@@ -447,7 +447,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -460,7 +459,6 @@ class Route(pulumi.CustomResource):
             route_key="$default")
         ```
         ### HTTP Proxy Integration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -515,7 +513,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -528,7 +525,6 @@ class Route(pulumi.CustomResource):
             route_key="$default")
         ```
         ### HTTP Proxy Integration
-
         ```python
         import pulumi
         import pulumi_aws as aws

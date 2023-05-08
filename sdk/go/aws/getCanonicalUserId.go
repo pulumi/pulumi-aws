@@ -13,7 +13,6 @@ import (
 // > **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

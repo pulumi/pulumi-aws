@@ -72,7 +72,6 @@ def get_queues(queue_name_prefix: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,7 +101,6 @@ def get_queues_output(queue_name_prefix: Optional[pulumi.Input[Optional[str]]] =
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

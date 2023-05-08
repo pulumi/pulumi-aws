@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 // ### Cached and VTL Gateway Type
-//
 // ```go
 // package main
 //
@@ -50,7 +49,6 @@ import (
 //
 // ```
 // ### Stored Gateway Type
-//
 // ```go
 // package main
 //

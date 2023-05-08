@@ -252,7 +252,6 @@ class Ledger(pulumi.CustomResource):
         > **NOTE:** Deletion protection is enabled by default. To successfully delete this resource via this provider, `deletion_protection = false` must be applied before attempting deletion.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,7 +288,6 @@ class Ledger(pulumi.CustomResource):
         > **NOTE:** Deletion protection is enabled by default. To successfully delete this resource via this provider, `deletion_protection = false` must be applied before attempting deletion.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

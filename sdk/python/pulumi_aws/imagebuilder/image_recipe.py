@@ -463,7 +463,6 @@ class ImageRecipe(pulumi.CustomResource):
         Manages an Image Builder Image Recipe.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -526,7 +525,6 @@ class ImageRecipe(pulumi.CustomResource):
         Manages an Image Builder Image Recipe.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

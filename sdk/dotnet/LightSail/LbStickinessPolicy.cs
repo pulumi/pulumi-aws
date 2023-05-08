@@ -13,7 +13,6 @@ namespace Pulumi.Aws.LightSail
     /// Configures Session Stickiness for a Lightsail Load Balancer.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

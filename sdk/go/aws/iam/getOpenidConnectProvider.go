@@ -15,7 +15,6 @@ import (
 // the resource information by either its `arn` or `url`.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //	}
 //
 // ```
-//
 // ```go
 // package main
 //

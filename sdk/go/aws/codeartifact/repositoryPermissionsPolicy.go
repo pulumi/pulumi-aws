@@ -14,7 +14,6 @@ import (
 // Provides a CodeArtifact Repostory Permissions Policy Resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

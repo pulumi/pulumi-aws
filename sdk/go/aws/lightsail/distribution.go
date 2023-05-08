@@ -17,7 +17,6 @@ import (
 // ### Basic Usage
 //
 // Below is a basic example with a bucket as an origin.
-//
 // ```go
 // package main
 //
@@ -73,7 +72,6 @@ import (
 // ### instance origin example
 //
 // Below is an example of an instance as the origin.
-//
 // ```go
 // package main
 //
@@ -142,8 +140,7 @@ import (
 // ```
 // ### lb origin example
 //
-// # Below is an example with a load balancer as an origin
-//
+// Below is an example with a load balancer as an origin
 // ```go
 // package main
 //

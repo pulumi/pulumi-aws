@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Amplify
     /// Provides an Amplify Domain Association resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

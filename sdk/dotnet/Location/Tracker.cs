@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Location
     /// Provides a Location Service Tracker.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
