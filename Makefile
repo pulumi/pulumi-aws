@@ -13,7 +13,7 @@ JAVA_GEN_VERSION := v0.9.2
 TESTPARALLELISM := 10
 WORKING_DIR := $(shell pwd)
 SCHEMA_TOOLS_VERSION := $(shell cat .schema-tools.version)
-PULUMI_PROVIDER_BUILD_PARALLELISM ?= -p 2
+PULUMI_PROVIDER_BUILD_PARALLELISM ?= -p 1
 
 # Override repo path discovery because we're using a local checkout instead of the go mod
 export PULUMI_REPO_PATHS=github.com/hashicorp/terraform-provider-aws=$(WORKING_DIR)/upstream
