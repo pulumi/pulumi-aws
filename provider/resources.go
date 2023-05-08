@@ -6890,6 +6890,12 @@ func Provider() *tfbridge.ProviderInfo {
 		// "aws_quicksight_namespace": {
 		// 	Tok: awsResource("QuickSight", "Namespace"),
 		// },
+		"aws_quicksight_folder_membership": {
+			Tok: awsResource("QuickSight", "FolderMembership"),
+		},
+		"aws_quicksight_refresh_schedule": {
+			Tok: awsResource("QuickSight", "RefreshSchedule"),
+		},
 	}
 
 	for k, v := range pluginFrameworkResoures {

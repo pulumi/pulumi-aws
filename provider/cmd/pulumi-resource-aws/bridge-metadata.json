@@ -153,6 +153,7 @@
             "aws:cfg/conformancePack:ConformancePack": 0,
             "aws:cfg/deliveryChannel:DeliveryChannel": 0,
             "aws:cfg/organizationConformancePack:OrganizationConformancePack": 0,
+            "aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule": 0,
             "aws:cfg/organizationCustomRule:OrganizationCustomRule": 0,
             "aws:cfg/organizationManagedRule:OrganizationManagedRule": 0,
             "aws:cfg/recorder:Recorder": 0,
@@ -204,6 +205,7 @@
             "aws:cloudwatch/eventPermission:EventPermission": 0,
             "aws:cloudwatch/eventRule:EventRule": 0,
             "aws:cloudwatch/eventTarget:EventTarget": 0,
+            "aws:cloudwatch/internetMonitor:InternetMonitor": 0,
             "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy": 0,
             "aws:cloudwatch/logDestination:LogDestination": 0,
             "aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy": 0,
@@ -875,10 +877,12 @@
             "aws:quicksight/dataSet:DataSet": 0,
             "aws:quicksight/dataSource:DataSource": 0,
             "aws:quicksight/folder:Folder": 0,
+            "aws:quicksight/folderMembership:FolderMembership": 1,
             "aws:quicksight/group:Group": 0,
             "aws:quicksight/groupMembership:GroupMembership": 0,
             "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment": 1,
             "aws:quicksight/ingestion:Ingestion": 1,
+            "aws:quicksight/refreshSchedule:RefreshSchedule": 1,
             "aws:quicksight/user:User": 0,
             "aws:ram/principalAssociation:PrincipalAssociation": 0,
             "aws:ram/resourceAssociation:ResourceAssociation": 0,
@@ -1133,7 +1137,11 @@
             "aws:ssm/patchGroup:PatchGroup": 0,
             "aws:ssm/resourceDataSync:ResourceDataSync": 0,
             "aws:ssm/serviceSetting:ServiceSetting": 0,
+            "aws:ssmcontacts/contact:Contact": 0,
+            "aws:ssmcontacts/contactChannel:ContactChannel": 0,
+            "aws:ssmcontacts/plan:Plan": 0,
             "aws:ssmincidents/replicationSet:ReplicationSet": 0,
+            "aws:ssmincidents/responsePlan:ResponsePlan": 0,
             "aws:ssoadmin/accountAssignment:AccountAssignment": 0,
             "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment": 0,
             "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes": 0,
@@ -1153,6 +1161,8 @@
             "aws:storagegateway/workingStorage:WorkingStorage": 0,
             "aws:swf/domain:Domain": 0,
             "aws:synthetics/canary:Canary": 0,
+            "aws:synthetics/group:Group": 0,
+            "aws:synthetics/groupAssociation:GroupAssociation": 0,
             "aws:timestreamwrite/database:Database": 0,
             "aws:timestreamwrite/table:Table": 0,
             "aws:transcribe/languageModel:LanguageModel": 0,
@@ -1223,6 +1233,8 @@
             "aws:alb/getTargetGroup:getTargetGroup": 0,
             "aws:amp/getWorkspace:getWorkspace": 0,
             "aws:amp/getWorkspaces:getWorkspaces": 0,
+            "aws:apigateway/getAuthorizer:getAuthorizer": 0,
+            "aws:apigateway/getAuthorizers:getAuthorizers": 0,
             "aws:apigateway/getDomainName:getDomainName": 0,
             "aws:apigateway/getExport:getExport": 0,
             "aws:apigateway/getKey:getKey": 0,
@@ -1318,6 +1330,8 @@
             "aws:directoryservice/getDirectory:getDirectory": 0,
             "aws:dms/getCertificate:getCertificate": 0,
             "aws:dms/getEndpoint:getEndpoint": 0,
+            "aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup": 0,
+            "aws:dms/getReplicationTask:getReplicationTask": 0,
             "aws:docdb/getEngineVersion:getEngineVersion": 0,
             "aws:docdb/getOrderableDbInstance:getOrderableDbInstance": 0,
             "aws:dynamodb/getTable:getTable": 0,
@@ -1682,7 +1696,11 @@
             "aws:ssm/getParameter:getParameter": 0,
             "aws:ssm/getParametersByPath:getParametersByPath": 0,
             "aws:ssm/getPatchBaseline:getPatchBaseline": 0,
+            "aws:ssmcontacts/getContact:getContact": 0,
+            "aws:ssmcontacts/getContactChannel:getContactChannel": 0,
+            "aws:ssmcontacts/getPlan:getPlan": 0,
             "aws:ssmincidents/getReplicationSet:getReplicationSet": 0,
+            "aws:ssmincidents/getResponsePlan:getResponsePlan": 0,
             "aws:ssoadmin/getInstances:getInstances": 0,
             "aws:ssoadmin/getPermissionSet:getPermissionSet": 0,
             "aws:storagegateway/getLocalDisk:getLocalDisk": 0,
@@ -1865,6 +1883,7 @@
             "aws:cfg/conformancePack:ConformancePack": "aws_config_conformance_pack",
             "aws:cfg/deliveryChannel:DeliveryChannel": "aws_config_delivery_channel",
             "aws:cfg/organizationConformancePack:OrganizationConformancePack": "aws_config_organization_conformance_pack",
+            "aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule": "aws_config_organization_custom_policy_rule",
             "aws:cfg/organizationCustomRule:OrganizationCustomRule": "aws_config_organization_custom_rule",
             "aws:cfg/organizationManagedRule:OrganizationManagedRule": "aws_config_organization_managed_rule",
             "aws:cfg/recorder:Recorder": "aws_config_configuration_recorder",
@@ -1916,6 +1935,7 @@
             "aws:cloudwatch/eventPermission:EventPermission": "aws_cloudwatch_event_permission",
             "aws:cloudwatch/eventRule:EventRule": "aws_cloudwatch_event_rule",
             "aws:cloudwatch/eventTarget:EventTarget": "aws_cloudwatch_event_target",
+            "aws:cloudwatch/internetMonitor:InternetMonitor": "aws_internetmonitor_monitor",
             "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy": "aws_cloudwatch_log_data_protection_policy",
             "aws:cloudwatch/logDestination:LogDestination": "aws_cloudwatch_log_destination",
             "aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy": "aws_cloudwatch_log_destination_policy",
@@ -2587,10 +2607,12 @@
             "aws:quicksight/dataSet:DataSet": "aws_quicksight_data_set",
             "aws:quicksight/dataSource:DataSource": "aws_quicksight_data_source",
             "aws:quicksight/folder:Folder": "aws_quicksight_folder",
+            "aws:quicksight/folderMembership:FolderMembership": "aws_quicksight_folder_membership",
             "aws:quicksight/group:Group": "aws_quicksight_group",
             "aws:quicksight/groupMembership:GroupMembership": "aws_quicksight_group_membership",
             "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment": "aws_quicksight_iam_policy_assignment",
             "aws:quicksight/ingestion:Ingestion": "aws_quicksight_ingestion",
+            "aws:quicksight/refreshSchedule:RefreshSchedule": "aws_quicksight_refresh_schedule",
             "aws:quicksight/user:User": "aws_quicksight_user",
             "aws:ram/principalAssociation:PrincipalAssociation": "aws_ram_principal_association",
             "aws:ram/resourceAssociation:ResourceAssociation": "aws_ram_resource_association",
@@ -2845,7 +2867,11 @@
             "aws:ssm/patchGroup:PatchGroup": "aws_ssm_patch_group",
             "aws:ssm/resourceDataSync:ResourceDataSync": "aws_ssm_resource_data_sync",
             "aws:ssm/serviceSetting:ServiceSetting": "aws_ssm_service_setting",
+            "aws:ssmcontacts/contact:Contact": "aws_ssmcontacts_contact",
+            "aws:ssmcontacts/contactChannel:ContactChannel": "aws_ssmcontacts_contact_channel",
+            "aws:ssmcontacts/plan:Plan": "aws_ssmcontacts_plan",
             "aws:ssmincidents/replicationSet:ReplicationSet": "aws_ssmincidents_replication_set",
+            "aws:ssmincidents/responsePlan:ResponsePlan": "aws_ssmincidents_response_plan",
             "aws:ssoadmin/accountAssignment:AccountAssignment": "aws_ssoadmin_account_assignment",
             "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment": "aws_ssoadmin_customer_managed_policy_attachment",
             "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes": "aws_ssoadmin_instance_access_control_attributes",
@@ -2865,6 +2891,8 @@
             "aws:storagegateway/workingStorage:WorkingStorage": "aws_storagegateway_working_storage",
             "aws:swf/domain:Domain": "aws_swf_domain",
             "aws:synthetics/canary:Canary": "aws_synthetics_canary",
+            "aws:synthetics/group:Group": "aws_synthetics_group",
+            "aws:synthetics/groupAssociation:GroupAssociation": "aws_synthetics_group_association",
             "aws:timestreamwrite/database:Database": "aws_timestreamwrite_database",
             "aws:timestreamwrite/table:Table": "aws_timestreamwrite_table",
             "aws:transcribe/languageModel:LanguageModel": "aws_transcribe_language_model",
@@ -2935,6 +2963,8 @@
             "aws:alb/getTargetGroup:getTargetGroup": "aws_alb_target_group",
             "aws:amp/getWorkspace:getWorkspace": "aws_prometheus_workspace",
             "aws:amp/getWorkspaces:getWorkspaces": "aws_prometheus_workspaces",
+            "aws:apigateway/getAuthorizer:getAuthorizer": "aws_api_gateway_authorizer",
+            "aws:apigateway/getAuthorizers:getAuthorizers": "aws_api_gateway_authorizers",
             "aws:apigateway/getDomainName:getDomainName": "aws_api_gateway_domain_name",
             "aws:apigateway/getExport:getExport": "aws_api_gateway_export",
             "aws:apigateway/getKey:getKey": "aws_api_gateway_api_key",
@@ -3030,6 +3060,8 @@
             "aws:directoryservice/getDirectory:getDirectory": "aws_directory_service_directory",
             "aws:dms/getCertificate:getCertificate": "aws_dms_certificate",
             "aws:dms/getEndpoint:getEndpoint": "aws_dms_endpoint",
+            "aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup": "aws_dms_replication_subnet_group",
+            "aws:dms/getReplicationTask:getReplicationTask": "aws_dms_replication_task",
             "aws:docdb/getEngineVersion:getEngineVersion": "aws_docdb_engine_version",
             "aws:docdb/getOrderableDbInstance:getOrderableDbInstance": "aws_docdb_orderable_db_instance",
             "aws:dynamodb/getTable:getTable": "aws_dynamodb_table",
@@ -3394,7 +3426,11 @@
             "aws:ssm/getParameter:getParameter": "aws_ssm_parameter",
             "aws:ssm/getParametersByPath:getParametersByPath": "aws_ssm_parameters_by_path",
             "aws:ssm/getPatchBaseline:getPatchBaseline": "aws_ssm_patch_baseline",
+            "aws:ssmcontacts/getContact:getContact": "aws_ssmcontacts_contact",
+            "aws:ssmcontacts/getContactChannel:getContactChannel": "aws_ssmcontacts_contact_channel",
+            "aws:ssmcontacts/getPlan:getPlan": "aws_ssmcontacts_plan",
             "aws:ssmincidents/getReplicationSet:getReplicationSet": "aws_ssmincidents_replication_set",
+            "aws:ssmincidents/getResponsePlan:getResponsePlan": "aws_ssmincidents_response_plan",
             "aws:ssoadmin/getInstances:getInstances": "aws_ssoadmin_instances",
             "aws:ssoadmin/getPermissionSet:getPermissionSet": "aws_ssoadmin_permission_set",
             "aws:storagegateway/getLocalDisk:getLocalDisk": "aws_storagegateway_local_disk",
@@ -4048,6 +4084,19 @@
                 "regionalZoneId": "regional_zone_id",
                 "securityPolicy": "security_policy",
                 "tagsAll": "tags_all"
+            },
+            "aws:apigateway/getAuthorizer:getAuthorizer": {
+                "authorizerCredentials": "authorizer_credentials",
+                "authorizerId": "authorizer_id",
+                "authorizerResultTtlInSeconds": "authorizer_result_ttl_in_seconds",
+                "authorizerUri": "authorizer_uri",
+                "identitySource": "identity_source",
+                "identityValidationExpression": "identity_validation_expression",
+                "providerArns": "provider_arns",
+                "restApiId": "rest_api_id"
+            },
+            "aws:apigateway/getAuthorizers:getAuthorizers": {
+                "restApiId": "rest_api_id"
             },
             "aws:apigateway/getDomainName:getDomainName": {
                 "certificateArn": "certificate_arn",
@@ -6467,6 +6516,9 @@
                 "connectorType": "connector_type",
                 "resourceIdentifier": "resource_identifier"
             },
+            "aws:appstream/StackStreamingExperienceSettings:StackStreamingExperienceSettings": {
+                "preferredProtocol": "preferred_protocol"
+            },
             "aws:appstream/directoryConfig:DirectoryConfig": {
                 "createdTime": "created_time",
                 "directoryName": "directory_name",
@@ -6518,6 +6570,7 @@
                 "feedbackUrl": "feedback_url",
                 "redirectUrl": "redirect_url",
                 "storageConnectors": "storage_connectors",
+                "streamingExperienceSettings": "streaming_experience_settings",
                 "tagsAll": "tags_all",
                 "userSettings": "user_settings"
             },
@@ -7205,6 +7258,7 @@
             "aws:backup/ReportPlanReportSetting:ReportPlanReportSetting": {
                 "frameworkArns": "framework_arns",
                 "numberOfFrameworks": "number_of_frameworks",
+                "organizationUnits": "organization_units",
                 "reportTemplate": "report_template"
             },
             "aws:backup/SelectionCondition:SelectionCondition": {
@@ -7248,6 +7302,7 @@
             "aws:backup/getReportPlanReportSetting:getReportPlanReportSetting": {
                 "frameworkArns": "framework_arns",
                 "numberOfFrameworks": "number_of_frameworks",
+                "organizationUnits": "organization_units",
                 "reportTemplate": "report_template"
             },
             "aws:backup/getSelection:getSelection": {
@@ -7577,6 +7632,19 @@
                 "templateBody": "template_body",
                 "templateS3Uri": "template_s3_uri"
             },
+            "aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule": {
+                "debugLogDeliveryAccounts": "debug_log_delivery_accounts",
+                "excludedAccounts": "excluded_accounts",
+                "inputParameters": "input_parameters",
+                "maximumExecutionFrequency": "maximum_execution_frequency",
+                "policyRuntime": "policy_runtime",
+                "policyText": "policy_text",
+                "resourceIdScope": "resource_id_scope",
+                "resourceTypesScopes": "resource_types_scope",
+                "tagKeyScope": "tag_key_scope",
+                "tagValueScope": "tag_value_scope",
+                "triggerTypes": "trigger_types"
+            },
             "aws:cfg/organizationCustomRule:OrganizationCustomRule": {
                 "excludedAccounts": "excluded_accounts",
                 "inputParameters": "input_parameters",
@@ -7625,6 +7693,9 @@
             "aws:chime/VoiceConnectorGroupConnector:VoiceConnectorGroupConnector": {
                 "voiceConnectorId": "voice_connector_id"
             },
+            "aws:chime/VoiceConnectorStreamingMediaInsightsConfiguration:VoiceConnectorStreamingMediaInsightsConfiguration": {
+                "configurationArn": "configuration_arn"
+            },
             "aws:chime/voiceConnector:VoiceConnector": {
                 "awsRegion": "aws_region",
                 "outboundHostName": "outbound_host_name",
@@ -7644,6 +7715,7 @@
             },
             "aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming": {
                 "dataRetention": "data_retention",
+                "mediaInsightsConfiguration": "media_insights_configuration",
                 "streamingNotificationTargets": "streaming_notification_targets",
                 "voiceConnectorId": "voice_connector_id"
             },
@@ -8525,6 +8597,14 @@
             "aws:cloudwatch/EventTargetSqsTarget:EventTargetSqsTarget": {
                 "messageGroupId": "message_group_id"
             },
+            "aws:cloudwatch/InternetMonitorInternetMeasurementsLogDelivery:InternetMonitorInternetMeasurementsLogDelivery": {
+                "s3Config": "s3_config"
+            },
+            "aws:cloudwatch/InternetMonitorInternetMeasurementsLogDeliveryS3Config:InternetMonitorInternetMeasurementsLogDeliveryS3Config": {
+                "bucketName": "bucket_name",
+                "bucketPrefix": "bucket_prefix",
+                "logDeliveryStatus": "log_delivery_status"
+            },
             "aws:cloudwatch/LogMetricFilterMetricTransformation:LogMetricFilterMetricTransformation": {
                 "defaultValue": "default_value"
             },
@@ -8653,6 +8733,13 @@
             "aws:cloudwatch/getLogGroups:getLogGroups": {
                 "logGroupNamePrefix": "log_group_name_prefix",
                 "logGroupNames": "log_group_names"
+            },
+            "aws:cloudwatch/internetMonitor:InternetMonitor": {
+                "internetMeasurementsLogDelivery": "internet_measurements_log_delivery",
+                "maxCityNetworksToMonitor": "max_city_networks_to_monitor",
+                "monitorName": "monitor_name",
+                "tagsAll": "tags_all",
+                "trafficPercentageToMonitor": "traffic_percentage_to_monitor"
             },
             "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy": {
                 "logGroupName": "log_group_name",
@@ -11167,6 +11254,27 @@
                 "useCsvNoSupValue": "use_csv_no_sup_value",
                 "useTaskStartTimeForFullLoadTimestamp": "use_task_start_time_for_full_load_timestamp"
             },
+            "aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup": {
+                "replicationSubnetGroupArn": "replication_subnet_group_arn",
+                "replicationSubnetGroupDescription": "replication_subnet_group_description",
+                "replicationSubnetGroupId": "replication_subnet_group_id",
+                "subnetGroupStatus": "subnet_group_status",
+                "subnetIds": "subnet_ids",
+                "vpcId": "vpc_id"
+            },
+            "aws:dms/getReplicationTask:getReplicationTask": {
+                "cdcStartPosition": "cdc_start_position",
+                "cdcStartTime": "cdc_start_time",
+                "migrationType": "migration_type",
+                "replicationInstanceArn": "replication_instance_arn",
+                "replicationTaskArn": "replication_task_arn",
+                "replicationTaskId": "replication_task_id",
+                "replicationTaskSettings": "replication_task_settings",
+                "sourceEndpointArn": "source_endpoint_arn",
+                "startReplicationTask": "start_replication_task",
+                "tableMappings": "table_mappings",
+                "targetEndpointArn": "target_endpoint_arn"
+            },
             "aws:dms/replicationInstance:ReplicationInstance": {
                 "allocatedStorage": "allocated_storage",
                 "allowMajorVersionUpgrade": "allow_major_version_upgrade",
@@ -12720,6 +12828,7 @@
             "aws:ec2/getAmiIds:getAmiIds": {
                 "executableUsers": "executable_users",
                 "filters": "filter",
+                "includeDeprecated": "include_deprecated",
                 "nameRegex": "name_regex",
                 "sortAscending": "sort_ascending"
             },
@@ -17306,6 +17415,7 @@
                 "vpcSubnets": "vpc_subnets"
             },
             "aws:gamelift/gameSessionQueue:GameSessionQueue": {
+                "customEventData": "custom_event_data",
                 "notificationTarget": "notification_target",
                 "playerLatencyPolicies": "player_latency_policy",
                 "tagsAll": "tags_all",
@@ -18434,6 +18544,9 @@
             "aws:imagebuilder/ImageOutputResourceAmi:ImageOutputResourceAmi": {
                 "accountId": "account_id"
             },
+            "aws:imagebuilder/ImageOutputResourceContainer:ImageOutputResourceContainer": {
+                "imageUris": "image_uris"
+            },
             "aws:imagebuilder/ImagePipelineImageTestsConfiguration:ImagePipelineImageTestsConfiguration": {
                 "imageTestsEnabled": "image_tests_enabled",
                 "timeoutMinutes": "timeout_minutes"
@@ -18615,6 +18728,9 @@
             },
             "aws:imagebuilder/getImageOutputResourceAmi:getImageOutputResourceAmi": {
                 "accountId": "account_id"
+            },
+            "aws:imagebuilder/getImageOutputResourceContainer:getImageOutputResourceContainer": {
+                "imageUris": "image_uris"
             },
             "aws:imagebuilder/getImagePipeline:getImagePipeline": {
                 "containerRecipeArn": "container_recipe_arn",
@@ -18801,6 +18917,7 @@
             "aws:index/getAmiIds:getAmiIds": {
                 "executableUsers": "executable_users",
                 "filters": "filter",
+                "includeDeprecated": "include_deprecated",
                 "nameRegex": "name_regex",
                 "sortAscending": "sort_ascending"
             },
@@ -25260,6 +25377,19 @@
                 "groups": "group",
                 "users": "user"
             },
+            "aws:quicksight/RefreshScheduleSchedule:RefreshScheduleSchedule": {
+                "refreshType": "refresh_type",
+                "scheduleFrequency": "schedule_frequency",
+                "startAfterDateTime": "start_after_date_time"
+            },
+            "aws:quicksight/RefreshScheduleScheduleScheduleFrequency:RefreshScheduleScheduleScheduleFrequency": {
+                "refreshOnDay": "refresh_on_day",
+                "timeOfTheDay": "time_of_the_day"
+            },
+            "aws:quicksight/RefreshScheduleScheduleScheduleFrequencyRefreshOnDay:RefreshScheduleScheduleScheduleFrequencyRefreshOnDay": {
+                "dayOfMonth": "day_of_month",
+                "dayOfWeek": "day_of_week"
+            },
             "aws:quicksight/accountSubscription:AccountSubscription": {
                 "accountName": "account_name",
                 "accountSubscriptionStatus": "account_subscription_status",
@@ -25307,6 +25437,12 @@
                 "lastUpdatedTime": "last_updated_time",
                 "parentFolderArn": "parent_folder_arn",
                 "tagsAll": "tags_all"
+            },
+            "aws:quicksight/folderMembership:FolderMembership": {
+                "awsAccountId": "aws_account_id",
+                "folderId": "folder_id",
+                "memberId": "member_id",
+                "memberType": "member_type"
             },
             "aws:quicksight/getDataSet:getDataSet": {
                 "awsAccountId": "aws_account_id",
@@ -25470,6 +25606,11 @@
                 "ingestionId": "ingestion_id",
                 "ingestionStatus": "ingestion_status",
                 "ingestionType": "ingestion_type"
+            },
+            "aws:quicksight/refreshSchedule:RefreshSchedule": {
+                "awsAccountId": "aws_account_id",
+                "dataSetId": "data_set_id",
+                "scheduleId": "schedule_id"
             },
             "aws:quicksight/user:User": {
                 "awsAccountId": "aws_account_id",
@@ -26169,7 +26310,8 @@
                 "namePrefix": "name_prefix",
                 "subnetIds": "subnet_ids",
                 "supportedNetworkTypes": "supported_network_types",
-                "tagsAll": "tags_all"
+                "tagsAll": "tags_all",
+                "vpcId": "vpc_id"
             },
             "aws:redshift/ClusterClusterNode:ClusterClusterNode": {
                 "nodeRole": "node_role",
@@ -27725,8 +27867,10 @@
                 "networkInterfaceId": "network_interface_id"
             },
             "aws:s3outposts/endpoint:Endpoint": {
+                "accessType": "access_type",
                 "cidrBlock": "cidr_block",
                 "creationTime": "creation_time",
+                "customerOwnedIpv4Pool": "customer_owned_ipv4_pool",
                 "networkInterfaces": "network_interfaces",
                 "outpostId": "outpost_id",
                 "securityGroupId": "security_group_id",
@@ -29737,9 +29881,98 @@
                 "settingId": "setting_id",
                 "settingValue": "setting_value"
             },
+            "aws:ssmcontacts/ContactChannelDeliveryAddress:ContactChannelDeliveryAddress": {
+                "simpleAddress": "simple_address"
+            },
+            "aws:ssmcontacts/PlanStage:PlanStage": {
+                "durationInMinutes": "duration_in_minutes",
+                "targets": "target"
+            },
+            "aws:ssmcontacts/PlanStageTarget:PlanStageTarget": {
+                "channelTargetInfo": "channel_target_info",
+                "contactTargetInfo": "contact_target_info"
+            },
+            "aws:ssmcontacts/PlanStageTargetChannelTargetInfo:PlanStageTargetChannelTargetInfo": {
+                "contactChannelId": "contact_channel_id",
+                "retryIntervalInMinutes": "retry_interval_in_minutes"
+            },
+            "aws:ssmcontacts/PlanStageTargetContactTargetInfo:PlanStageTargetContactTargetInfo": {
+                "contactId": "contact_id",
+                "isEssential": "is_essential"
+            },
+            "aws:ssmcontacts/contact:Contact": {
+                "displayName": "display_name",
+                "tagsAll": "tags_all"
+            },
+            "aws:ssmcontacts/contactChannel:ContactChannel": {
+                "activationStatus": "activation_status",
+                "contactId": "contact_id",
+                "deliveryAddress": "delivery_address"
+            },
+            "aws:ssmcontacts/getContact:getContact": {
+                "displayName": "display_name"
+            },
+            "aws:ssmcontacts/getContactChannel:getContactChannel": {
+                "activationStatus": "activation_status",
+                "contactId": "contact_id",
+                "deliveryAddresses": "delivery_address"
+            },
+            "aws:ssmcontacts/getContactChannelDeliveryAddress:getContactChannelDeliveryAddress": {
+                "simpleAddress": "simple_address"
+            },
+            "aws:ssmcontacts/getPlan:getPlan": {
+                "contactId": "contact_id",
+                "stages": "stage"
+            },
+            "aws:ssmcontacts/getPlanStage:getPlanStage": {
+                "durationInMinutes": "duration_in_minutes",
+                "targets": "target"
+            },
+            "aws:ssmcontacts/getPlanStageTarget:getPlanStageTarget": {
+                "channelTargetInfos": "channel_target_info",
+                "contactTargetInfos": "contact_target_info"
+            },
+            "aws:ssmcontacts/getPlanStageTargetChannelTargetInfo:getPlanStageTargetChannelTargetInfo": {
+                "contactChannelId": "contact_channel_id",
+                "retryIntervalInMinutes": "retry_interval_in_minutes"
+            },
+            "aws:ssmcontacts/getPlanStageTargetContactTargetInfo:getPlanStageTargetContactTargetInfo": {
+                "contactId": "contact_id",
+                "isEssential": "is_essential"
+            },
+            "aws:ssmcontacts/plan:Plan": {
+                "contactId": "contact_id",
+                "stages": "stage"
+            },
             "aws:ssmincidents/ReplicationSetRegion:ReplicationSetRegion": {
                 "kmsKeyArn": "kms_key_arn",
                 "statusMessage": "status_message"
+            },
+            "aws:ssmincidents/ResponsePlanAction:ResponsePlanAction": {
+                "ssmAutomations": "ssm_automation"
+            },
+            "aws:ssmincidents/ResponsePlanActionSsmAutomation:ResponsePlanActionSsmAutomation": {
+                "documentName": "document_name",
+                "documentVersion": "document_version",
+                "dynamicParameters": "dynamic_parameters",
+                "parameters": "parameter",
+                "roleArn": "role_arn",
+                "targetAccount": "target_account"
+            },
+            "aws:ssmincidents/ResponsePlanIncidentTemplate:ResponsePlanIncidentTemplate": {
+                "dedupeString": "dedupe_string",
+                "incidentTags": "incident_tags",
+                "notificationTargets": "notification_target"
+            },
+            "aws:ssmincidents/ResponsePlanIncidentTemplateNotificationTarget:ResponsePlanIncidentTemplateNotificationTarget": {
+                "snsTopicArn": "sns_topic_arn"
+            },
+            "aws:ssmincidents/ResponsePlanIntegration:ResponsePlanIntegration": {
+                "pagerduties": "pagerduty"
+            },
+            "aws:ssmincidents/ResponsePlanIntegrationPagerduty:ResponsePlanIntegrationPagerduty": {
+                "secretId": "secret_id",
+                "serviceId": "service_id"
             },
             "aws:ssmincidents/getReplicationSet:getReplicationSet": {
                 "createdBy": "created_by",
@@ -29751,11 +29984,50 @@
                 "kmsKeyArn": "kms_key_arn",
                 "statusMessage": "status_message"
             },
+            "aws:ssmincidents/getResponsePlan:getResponsePlan": {
+                "actions": "action",
+                "chatChannels": "chat_channel",
+                "displayName": "display_name",
+                "incidentTemplates": "incident_template",
+                "integrations": "integration"
+            },
+            "aws:ssmincidents/getResponsePlanAction:getResponsePlanAction": {
+                "ssmAutomations": "ssm_automation"
+            },
+            "aws:ssmincidents/getResponsePlanActionSsmAutomation:getResponsePlanActionSsmAutomation": {
+                "documentName": "document_name",
+                "documentVersion": "document_version",
+                "dynamicParameters": "dynamic_parameters",
+                "parameters": "parameter",
+                "roleArn": "role_arn",
+                "targetAccount": "target_account"
+            },
+            "aws:ssmincidents/getResponsePlanIncidentTemplate:getResponsePlanIncidentTemplate": {
+                "dedupeString": "dedupe_string",
+                "incidentTags": "incident_tags",
+                "notificationTargets": "notification_target"
+            },
+            "aws:ssmincidents/getResponsePlanIncidentTemplateNotificationTarget:getResponsePlanIncidentTemplateNotificationTarget": {
+                "snsTopicArn": "sns_topic_arn"
+            },
+            "aws:ssmincidents/getResponsePlanIntegration:getResponsePlanIntegration": {
+                "pagerduties": "pagerduty"
+            },
+            "aws:ssmincidents/getResponsePlanIntegrationPagerduty:getResponsePlanIntegrationPagerduty": {
+                "secretId": "secret_id",
+                "serviceId": "service_id"
+            },
             "aws:ssmincidents/replicationSet:ReplicationSet": {
                 "createdBy": "created_by",
                 "deletionProtected": "deletion_protected",
                 "lastModifiedBy": "last_modified_by",
                 "regions": "region",
+                "tagsAll": "tags_all"
+            },
+            "aws:ssmincidents/responsePlan:ResponsePlan": {
+                "chatChannels": "chat_channel",
+                "displayName": "display_name",
+                "incidentTemplate": "incident_template",
                 "tagsAll": "tags_all"
             },
             "aws:ssoadmin/InstanceAccessControlAttributesAttribute:InstanceAccessControlAttributesAttribute": {
@@ -30042,6 +30314,16 @@
                 "timelines": "timeline",
                 "vpcConfig": "vpc_config",
                 "zipFile": "zip_file"
+            },
+            "aws:synthetics/group:Group": {
+                "groupId": "group_id",
+                "tagsAll": "tags_all"
+            },
+            "aws:synthetics/groupAssociation:GroupAssociation": {
+                "canaryArn": "canary_arn",
+                "groupArn": "group_arn",
+                "groupId": "group_id",
+                "groupName": "group_name"
             },
             "aws:timestreamwrite/TableMagneticStoreWriteProperties:TableMagneticStoreWriteProperties": {
                 "enableMagneticStoreWrites": "enable_magnetic_store_writes",
@@ -54650,6 +54932,7 @@
                 "lockToken": "lock_token",
                 "rules": "rule",
                 "tagsAll": "tags_all",
+                "tokenDomains": "token_domains",
                 "visibilityConfig": "visibility_config"
             },
             "aws:wafv2/webAclAssociation:WebAclAssociation": {
