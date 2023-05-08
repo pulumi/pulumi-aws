@@ -21,9 +21,9 @@ replace (
 )
 
 replace (
-	github.com/pulumi/pulumi-terraform-bridge/pf => github.com/pulumi/pulumi-terraform-bridge/pf v0.8.2-0.20230502192240-dcbad69422c3
-	github.com/pulumi/pulumi-terraform-bridge/v3 => github.com/pulumi/pulumi-terraform-bridge/v3 v3.45.4-0.20230502192240-dcbad69422c3
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer => github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4-0.20230502192240-dcbad69422c3
+	github.com/pulumi/pulumi-terraform-bridge/pf => github.com/pulumi/pulumi-terraform-bridge/pf v0.8.2-0.20230508141749-cbbfcd572a06
+	github.com/pulumi/pulumi-terraform-bridge/v3 => github.com/pulumi/pulumi-terraform-bridge/v3 v3.46.2-0.20230508141749-cbbfcd572a06
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer => github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4-0.20230508141749-cbbfcd572a06
 )
 
 require (
