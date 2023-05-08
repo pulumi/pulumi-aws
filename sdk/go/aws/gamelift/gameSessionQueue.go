@@ -66,6 +66,8 @@ type GameSessionQueue struct {
 
 	// Game Session Queue ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Information to be added to all events that are related to this game session queue.
+	CustomEventData pulumi.StringPtrOutput `pulumi:"customEventData"`
 	// List of fleet/alias ARNs used by session queue for placing game sessions.
 	Destinations pulumi.StringArrayOutput `pulumi:"destinations"`
 	// Name of the session queue.
@@ -113,6 +115,8 @@ func GetGameSessionQueue(ctx *pulumi.Context,
 type gameSessionQueueState struct {
 	// Game Session Queue ARN.
 	Arn *string `pulumi:"arn"`
+	// Information to be added to all events that are related to this game session queue.
+	CustomEventData *string `pulumi:"customEventData"`
 	// List of fleet/alias ARNs used by session queue for placing game sessions.
 	Destinations []string `pulumi:"destinations"`
 	// Name of the session queue.
@@ -132,6 +136,8 @@ type gameSessionQueueState struct {
 type GameSessionQueueState struct {
 	// Game Session Queue ARN.
 	Arn pulumi.StringPtrInput
+	// Information to be added to all events that are related to this game session queue.
+	CustomEventData pulumi.StringPtrInput
 	// List of fleet/alias ARNs used by session queue for placing game sessions.
 	Destinations pulumi.StringArrayInput
 	// Name of the session queue.
@@ -153,6 +159,8 @@ func (GameSessionQueueState) ElementType() reflect.Type {
 }
 
 type gameSessionQueueArgs struct {
+	// Information to be added to all events that are related to this game session queue.
+	CustomEventData *string `pulumi:"customEventData"`
 	// List of fleet/alias ARNs used by session queue for placing game sessions.
 	Destinations []string `pulumi:"destinations"`
 	// Name of the session queue.
@@ -171,6 +179,8 @@ type gameSessionQueueArgs struct {
 
 // The set of arguments for constructing a GameSessionQueue resource.
 type GameSessionQueueArgs struct {
+	// Information to be added to all events that are related to this game session queue.
+	CustomEventData pulumi.StringPtrInput
 	// List of fleet/alias ARNs used by session queue for placing game sessions.
 	Destinations pulumi.StringArrayInput
 	// Name of the session queue.
@@ -277,6 +287,11 @@ func (o GameSessionQueueOutput) ToGameSessionQueueOutputWithContext(ctx context.
 // Game Session Queue ARN.
 func (o GameSessionQueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Information to be added to all events that are related to this game session queue.
+func (o GameSessionQueueOutput) CustomEventData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringPtrOutput { return v.CustomEventData }).(pulumi.StringPtrOutput)
 }
 
 // List of fleet/alias ARNs used by session queue for placing game sessions.

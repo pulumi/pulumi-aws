@@ -10,9 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a DocDB Cluster.
+// Manages a DocumentDB Cluster.
 //
-// Changes to a DocDB Cluster can occur when you manually change a
+// Changes to a DocumentDB Cluster can occur when you manually change a
 // parameter, such as `port`, and are reflected in the next maintenance
 // window. Because of this, this provider may report a difference in its planning
 // phase because a modification has not yet taken place. You can use the
@@ -55,7 +55,7 @@ import (
 //
 // ## Import
 //
-// DocDB Clusters can be imported using the `cluster_identifier`, e.g.,
+// DocumentDB Clusters can be imported using the `cluster_identifier`, e.g.,
 //
 // ```sh
 //
@@ -80,9 +80,9 @@ type Cluster struct {
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringOutput `pulumi:"clusterIdentifierPrefix"`
-	// List of DocDB Instances that are a part of this cluster
+	// List of DocumentDB Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayOutput `pulumi:"clusterMembers"`
-	// The DocDB Cluster Resource ID
+	// The DocumentDB Cluster Resource ID
 	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName pulumi.StringOutput `pulumi:"dbClusterParameterGroupName"`
@@ -93,7 +93,7 @@ type Cluster struct {
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
-	// The DNS address of the DocDB instance
+	// The DNS address of the DocumentDB instance
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
@@ -110,7 +110,7 @@ type Cluster struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
 	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
 	// Username for the master DB user.
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
@@ -121,7 +121,7 @@ type Cluster struct {
 	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
-	// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+	// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
 	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrOutput `pulumi:"skipFinalSnapshot"`
@@ -189,9 +189,9 @@ type clusterState struct {
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
-	// List of DocDB Instances that are a part of this cluster
+	// List of DocumentDB Instances that are a part of this cluster
 	ClusterMembers []string `pulumi:"clusterMembers"`
-	// The DocDB Cluster Resource ID
+	// The DocumentDB Cluster Resource ID
 	ClusterResourceId *string `pulumi:"clusterResourceId"`
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
@@ -202,7 +202,7 @@ type clusterState struct {
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
-	// The DNS address of the DocDB instance
+	// The DNS address of the DocumentDB instance
 	Endpoint *string `pulumi:"endpoint"`
 	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
 	Engine *string `pulumi:"engine"`
@@ -219,7 +219,7 @@ type clusterState struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
 	MasterPassword *string `pulumi:"masterPassword"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
@@ -230,7 +230,7 @@ type clusterState struct {
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+	// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
 	ReaderEndpoint *string `pulumi:"readerEndpoint"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
@@ -263,9 +263,9 @@ type ClusterState struct {
 	ClusterIdentifier pulumi.StringPtrInput
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringPtrInput
-	// List of DocDB Instances that are a part of this cluster
+	// List of DocumentDB Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayInput
-	// The DocDB Cluster Resource ID
+	// The DocumentDB Cluster Resource ID
 	ClusterResourceId pulumi.StringPtrInput
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName pulumi.StringPtrInput
@@ -276,7 +276,7 @@ type ClusterState struct {
 	// List of log types to export to cloudwatch. If omitted, no logs will be exported.
 	// The following log types are supported: `audit`, `profiler`.
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
-	// The DNS address of the DocDB instance
+	// The DNS address of the DocumentDB instance
 	Endpoint pulumi.StringPtrInput
 	// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid Values: `docdb`
 	Engine pulumi.StringPtrInput
@@ -293,7 +293,7 @@ type ClusterState struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
 	MasterPassword pulumi.StringPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
@@ -304,7 +304,7 @@ type ClusterState struct {
 	PreferredBackupWindow pulumi.StringPtrInput
 	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringPtrInput
-	// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+	// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
 	ReaderEndpoint pulumi.StringPtrInput
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrInput
@@ -339,7 +339,7 @@ type clusterArgs struct {
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
-	// List of DocDB Instances that are a part of this cluster
+	// List of DocumentDB Instances that are a part of this cluster
 	ClusterMembers []string `pulumi:"clusterMembers"`
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
@@ -363,7 +363,7 @@ type clusterArgs struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
 	MasterPassword *string `pulumi:"masterPassword"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
@@ -404,7 +404,7 @@ type ClusterArgs struct {
 	ClusterIdentifier pulumi.StringPtrInput
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringPtrInput
-	// List of DocDB Instances that are a part of this cluster
+	// List of DocumentDB Instances that are a part of this cluster
 	ClusterMembers pulumi.StringArrayInput
 	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName pulumi.StringPtrInput
@@ -428,7 +428,7 @@ type ClusterArgs struct {
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
 	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
 	MasterPassword pulumi.StringPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
@@ -574,12 +574,12 @@ func (o ClusterOutput) ClusterIdentifierPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifierPrefix }).(pulumi.StringOutput)
 }
 
-// List of DocDB Instances that are a part of this cluster
+// List of DocumentDB Instances that are a part of this cluster
 func (o ClusterOutput) ClusterMembers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.ClusterMembers }).(pulumi.StringArrayOutput)
 }
 
-// The DocDB Cluster Resource ID
+// The DocumentDB Cluster Resource ID
 func (o ClusterOutput) ClusterResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterResourceId }).(pulumi.StringOutput)
 }
@@ -605,7 +605,7 @@ func (o ClusterOutput) EnabledCloudwatchLogsExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.EnabledCloudwatchLogsExports }).(pulumi.StringArrayOutput)
 }
 
-// The DNS address of the DocDB instance
+// The DNS address of the DocumentDB instance
 func (o ClusterOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -643,7 +643,7 @@ func (o ClusterOutput) KmsKeyId() pulumi.StringOutput {
 }
 
 // Password for the master DB user. Note that this may
-// show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
 func (o ClusterOutput) MasterPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPassword }).(pulumi.StringPtrOutput)
 }
@@ -669,7 +669,7 @@ func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }
 
-// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
 func (o ClusterOutput) ReaderEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ReaderEndpoint }).(pulumi.StringOutput)
 }

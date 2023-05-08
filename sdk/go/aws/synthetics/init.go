@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:synthetics/canary:Canary":
 		r = &Canary{}
+	case "aws:synthetics/group:Group":
+		r = &Group{}
+	case "aws:synthetics/groupAssociation:GroupAssociation":
+		r = &GroupAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +43,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"synthetics/canary",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"synthetics/group",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"synthetics/groupAssociation",
 		&module{version},
 	)
 }

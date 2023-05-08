@@ -70,7 +70,7 @@ type LookupTableItemResult struct {
 	ExpressionAttributeNames map[string]string `pulumi:"expressionAttributeNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
+	// JSON representation of a map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
 	Item                 string  `pulumi:"item"`
 	Key                  string  `pulumi:"key"`
 	ProjectionExpression *string `pulumi:"projectionExpression"`
@@ -131,7 +131,7 @@ func (o LookupTableItemResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableItemResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
+// JSON representation of a map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
 func (o LookupTableItemResultOutput) Item() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableItemResult) string { return v.Item }).(pulumi.StringOutput)
 }

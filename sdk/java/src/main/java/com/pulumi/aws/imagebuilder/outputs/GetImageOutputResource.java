@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetImageOutputResourceAmi;
+import com.pulumi.aws.imagebuilder.outputs.GetImageOutputResourceContainer;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +16,11 @@ public final class GetImageOutputResource {
      * 
      */
     private List<GetImageOutputResourceAmi> amis;
+    /**
+     * @return Set of objects with each container image created and stored in the output repository.
+     * 
+     */
+    private List<GetImageOutputResourceContainer> containers;
 
     private GetImageOutputResource() {}
     /**
@@ -23,6 +29,13 @@ public final class GetImageOutputResource {
      */
     public List<GetImageOutputResourceAmi> amis() {
         return this.amis;
+    }
+    /**
+     * @return Set of objects with each container image created and stored in the output repository.
+     * 
+     */
+    public List<GetImageOutputResourceContainer> containers() {
+        return this.containers;
     }
 
     public static Builder builder() {
@@ -35,10 +48,12 @@ public final class GetImageOutputResource {
     @CustomType.Builder
     public static final class Builder {
         private List<GetImageOutputResourceAmi> amis;
+        private List<GetImageOutputResourceContainer> containers;
         public Builder() {}
         public Builder(GetImageOutputResource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amis = defaults.amis;
+    	      this.containers = defaults.containers;
         }
 
         @CustomType.Setter
@@ -49,9 +64,18 @@ public final class GetImageOutputResource {
         public Builder amis(GetImageOutputResourceAmi... amis) {
             return amis(List.of(amis));
         }
+        @CustomType.Setter
+        public Builder containers(List<GetImageOutputResourceContainer> containers) {
+            this.containers = Objects.requireNonNull(containers);
+            return this;
+        }
+        public Builder containers(GetImageOutputResourceContainer... containers) {
+            return containers(List.of(containers));
+        }
         public GetImageOutputResource build() {
             final var o = new GetImageOutputResource();
             o.amis = amis;
+            o.containers = containers;
             return o;
         }
     }

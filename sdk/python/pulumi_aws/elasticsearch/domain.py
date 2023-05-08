@@ -775,7 +775,7 @@ class Domain(pulumi.CustomResource):
                 protocol="tcp",
                 cidr_blocks=[selected_vpc.cidr_block],
             )])
-        es_service_linked_role = aws.iam.ServiceLinkedRole("esServiceLinkedRole", aws_service_name="es.amazonaws.com")
+        es_service_linked_role = aws.iam.ServiceLinkedRole("esServiceLinkedRole", aws_service_name="opensearchservice.amazonaws.com")
         es_domain = aws.elasticsearch.Domain("esDomain",
             elasticsearch_version="6.3",
             cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
@@ -953,7 +953,7 @@ class Domain(pulumi.CustomResource):
                 protocol="tcp",
                 cidr_blocks=[selected_vpc.cidr_block],
             )])
-        es_service_linked_role = aws.iam.ServiceLinkedRole("esServiceLinkedRole", aws_service_name="es.amazonaws.com")
+        es_service_linked_role = aws.iam.ServiceLinkedRole("esServiceLinkedRole", aws_service_name="opensearchservice.amazonaws.com")
         es_domain = aws.elasticsearch.Domain("esDomain",
             elasticsearch_version="6.3",
             cluster_config=aws.elasticsearch.DomainClusterConfigArgs(

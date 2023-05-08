@@ -14,14 +14,14 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.ResourceArgs
     public static final ClusterSnapshotArgs Empty = new ClusterSnapshotArgs();
 
     /**
-     * The DocDB Cluster Identifier from which to take the snapshot.
+     * The DocumentDB Cluster Identifier from which to take the snapshot.
      * 
      */
     @Import(name="dbClusterIdentifier", required=true)
     private Output<String> dbClusterIdentifier;
 
     /**
-     * @return The DocDB Cluster Identifier from which to take the snapshot.
+     * @return The DocumentDB Cluster Identifier from which to take the snapshot.
      * 
      */
     public Output<String> dbClusterIdentifier() {
@@ -69,7 +69,7 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dbClusterIdentifier The DocDB Cluster Identifier from which to take the snapshot.
+         * @param dbClusterIdentifier The DocumentDB Cluster Identifier from which to take the snapshot.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dbClusterIdentifier The DocDB Cluster Identifier from which to take the snapshot.
+         * @param dbClusterIdentifier The DocumentDB Cluster Identifier from which to take the snapshot.
          * 
          * @return builder
          * 

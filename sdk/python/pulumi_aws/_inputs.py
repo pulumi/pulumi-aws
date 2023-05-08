@@ -435,6 +435,7 @@ class ProviderEndpointArgs:
                  inspector: Optional[pulumi.Input[str]] = None,
                  inspector2: Optional[pulumi.Input[str]] = None,
                  inspectorv2: Optional[pulumi.Input[str]] = None,
+                 internetmonitor: Optional[pulumi.Input[str]] = None,
                  iot: Optional[pulumi.Input[str]] = None,
                  iot1clickdevices: Optional[pulumi.Input[str]] = None,
                  iot1clickdevicesservice: Optional[pulumi.Input[str]] = None,
@@ -990,6 +991,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "inspector2", inspector2)
         if inspectorv2 is not None:
             pulumi.set(__self__, "inspectorv2", inspectorv2)
+        if internetmonitor is not None:
+            pulumi.set(__self__, "internetmonitor", internetmonitor)
         if iot is not None:
             pulumi.set(__self__, "iot", iot)
         if iot1clickdevices is not None:
@@ -2960,6 +2963,15 @@ class ProviderEndpointArgs:
     @inspectorv2.setter
     def inspectorv2(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "inspectorv2", value)
+
+    @property
+    @pulumi.getter
+    def internetmonitor(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "internetmonitor")
+
+    @internetmonitor.setter
+    def internetmonitor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "internetmonitor", value)
 
     @property
     @pulumi.getter

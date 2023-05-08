@@ -1,4 +1,4 @@
-From 7ec15e2bbde01c45075d419c048d13da26863eab Mon Sep 17 00:00:00 2001
+From 7147d4f0a7fd7733a35cddb7ae5d0878117efeae Mon Sep 17 00:00:00 2001
 From: Lee Briggs <jaxxstorm@users.noreply.github.com>
 Date: Wed, 21 Dec 2022 12:23:59 -0800
 Subject: [PATCH 18/27] add matchmaking configuration (#72)
@@ -25,7 +25,7 @@ Subject: [PATCH 18/27] add matchmaking configuration (#72)
  create mode 100644 website/docs/r/gamelift_matchmaking_rule_set.html.markdown
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 3cbf5123ff..42ac0bf029 100644
+index 764e4987a4..12ec3fe625 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -9,6 +9,7 @@ import (

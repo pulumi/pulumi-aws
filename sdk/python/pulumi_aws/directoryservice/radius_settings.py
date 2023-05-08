@@ -324,6 +324,7 @@ class RadiusSettings(pulumi.CustomResource):
                  __props__=None):
         """
         Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
+
         ## Example Usage
 
         ```python
@@ -369,6 +370,7 @@ class RadiusSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
+
         ## Example Usage
 
         ```python

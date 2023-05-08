@@ -99,6 +99,7 @@ import (
 //
 // ```
 // ### Rate Based
+//
 // Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
 //
 // ```go
@@ -336,6 +337,8 @@ type WebAcl struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+	TokenDomains pulumi.StringArrayOutput `pulumi:"tokenDomains"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
 	VisibilityConfig WebAclVisibilityConfigOutput `pulumi:"visibilityConfig"`
 }
@@ -401,6 +404,8 @@ type webAclState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+	TokenDomains []string `pulumi:"tokenDomains"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
 	VisibilityConfig *WebAclVisibilityConfig `pulumi:"visibilityConfig"`
 }
@@ -429,6 +434,8 @@ type WebAclState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+	TokenDomains pulumi.StringArrayInput
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
 	VisibilityConfig WebAclVisibilityConfigPtrInput
 }
@@ -456,6 +463,8 @@ type webAclArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+	TokenDomains []string `pulumi:"tokenDomains"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
 	VisibilityConfig WebAclVisibilityConfig `pulumi:"visibilityConfig"`
 }
@@ -480,6 +489,8 @@ type WebAclArgs struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+	TokenDomains pulumi.StringArrayInput
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
 	VisibilityConfig WebAclVisibilityConfigInput
 }
@@ -628,6 +639,11 @@ func (o WebAclOutput) Tags() pulumi.StringMapOutput {
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o WebAclOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+func (o WebAclOutput) TokenDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebAcl) pulumi.StringArrayOutput { return v.TokenDomains }).(pulumi.StringArrayOutput)
 }
 
 // Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.

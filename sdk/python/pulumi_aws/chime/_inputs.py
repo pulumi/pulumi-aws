@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'VoiceConnectorGroupConnectorArgs',
     'VoiceConnectorOrganizationRouteArgs',
+    'VoiceConnectorStreamingMediaInsightsConfigurationArgs',
     'VoiceConnectorTerminationCredentialsCredentialArgs',
 ]
 
@@ -133,6 +134,45 @@ class VoiceConnectorOrganizationRouteArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class VoiceConnectorStreamingMediaInsightsConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration_arn: Optional[pulumi.Input[str]] = None,
+                 disabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] configuration_arn: The media insights configuration that will be invoked by the Voice Connector.
+        :param pulumi.Input[bool] disabled: When `true`, the media insights configuration is not enabled. Defaults to `false`.
+        """
+        if configuration_arn is not None:
+            pulumi.set(__self__, "configuration_arn", configuration_arn)
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+
+    @property
+    @pulumi.getter(name="configurationArn")
+    def configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The media insights configuration that will be invoked by the Voice Connector.
+        """
+        return pulumi.get(self, "configuration_arn")
+
+    @configuration_arn.setter
+    def configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_arn", value)
+
+    @property
+    @pulumi.getter
+    def disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When `true`, the media insights configuration is not enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "disabled")
+
+    @disabled.setter
+    def disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disabled", value)
 
 
 @pulumi.input_type

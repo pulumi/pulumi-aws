@@ -29,6 +29,7 @@ __all__ = [
     'ImageImageTestsConfiguration',
     'ImageOutputResource',
     'ImageOutputResourceAmi',
+    'ImageOutputResourceContainer',
     'ImagePipelineImageTestsConfiguration',
     'ImagePipelineSchedule',
     'ImageRecipeBlockDeviceMapping',
@@ -60,6 +61,7 @@ __all__ = [
     'GetImageImageTestsConfigurationResult',
     'GetImageOutputResourceResult',
     'GetImageOutputResourceAmiResult',
+    'GetImageOutputResourceContainerResult',
     'GetImagePipelineImageTestsConfigurationResult',
     'GetImagePipelineScheduleResult',
     'GetImagePipelinesFilterResult',
@@ -1140,12 +1142,16 @@ class ImageImageTestsConfiguration(dict):
 @pulumi.output_type
 class ImageOutputResource(dict):
     def __init__(__self__, *,
-                 amis: Optional[Sequence['outputs.ImageOutputResourceAmi']] = None):
+                 amis: Optional[Sequence['outputs.ImageOutputResourceAmi']] = None,
+                 containers: Optional[Sequence['outputs.ImageOutputResourceContainer']] = None):
         """
         :param Sequence['ImageOutputResourceAmiArgs'] amis: Set of objects with each Amazon Machine Image (AMI) created.
+        :param Sequence['ImageOutputResourceContainerArgs'] containers: Set of objects with each container image created and stored in the output repository.
         """
         if amis is not None:
             pulumi.set(__self__, "amis", amis)
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
 
     @property
     @pulumi.getter
@@ -1154,6 +1160,14 @@ class ImageOutputResource(dict):
         Set of objects with each Amazon Machine Image (AMI) created.
         """
         return pulumi.get(self, "amis")
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[Sequence['outputs.ImageOutputResourceContainer']]:
+        """
+        Set of objects with each container image created and stored in the output repository.
+        """
+        return pulumi.get(self, "containers")
 
 
 @pulumi.output_type
@@ -1186,7 +1200,7 @@ class ImageOutputResourceAmi(dict):
         :param str description: Description of the AMI.
         :param str image: Identifier of the AMI.
         :param str name: Name of the AMI.
-        :param str region: Region of the AMI.
+        :param str region: Region of the container image.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -1235,7 +1249,55 @@ class ImageOutputResourceAmi(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        Region of the AMI.
+        Region of the container image.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class ImageOutputResourceContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUris":
+            suggest = "image_uris"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageOutputResourceContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageOutputResourceContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageOutputResourceContainer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_uris: Optional[Sequence[str]] = None,
+                 region: Optional[str] = None):
+        """
+        :param Sequence[str] image_uris: Set of URIs for created containers.
+        :param str region: Region of the container image.
+        """
+        if image_uris is not None:
+            pulumi.set(__self__, "image_uris", image_uris)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="imageUris")
+    def image_uris(self) -> Optional[Sequence[str]]:
+        """
+        Set of URIs for created containers.
+        """
+        return pulumi.get(self, "image_uris")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Region of the container image.
         """
         return pulumi.get(self, "region")
 
@@ -2607,11 +2669,14 @@ class GetImageImageTestsConfigurationResult(dict):
 @pulumi.output_type
 class GetImageOutputResourceResult(dict):
     def __init__(__self__, *,
-                 amis: Sequence['outputs.GetImageOutputResourceAmiResult']):
+                 amis: Sequence['outputs.GetImageOutputResourceAmiResult'],
+                 containers: Sequence['outputs.GetImageOutputResourceContainerResult']):
         """
         :param Sequence['GetImageOutputResourceAmiArgs'] amis: Set of objects with each Amazon Machine Image (AMI) created.
+        :param Sequence['GetImageOutputResourceContainerArgs'] containers: Set of objects with each container image created and stored in the output repository.
         """
         pulumi.set(__self__, "amis", amis)
+        pulumi.set(__self__, "containers", containers)
 
     @property
     @pulumi.getter
@@ -2620,6 +2685,14 @@ class GetImageOutputResourceResult(dict):
         Set of objects with each Amazon Machine Image (AMI) created.
         """
         return pulumi.get(self, "amis")
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Sequence['outputs.GetImageOutputResourceContainerResult']:
+        """
+        Set of objects with each container image created and stored in the output repository.
+        """
+        return pulumi.get(self, "containers")
 
 
 @pulumi.output_type
@@ -2635,7 +2708,7 @@ class GetImageOutputResourceAmiResult(dict):
         :param str description: Description of the AMI.
         :param str image: Identifier of the AMI.
         :param str name: Name of the AMI.
-        :param str region: Region of the AMI.
+        :param str region: Region of the container image.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "description", description)
@@ -2679,7 +2752,36 @@ class GetImageOutputResourceAmiResult(dict):
     @pulumi.getter
     def region(self) -> str:
         """
-        Region of the AMI.
+        Region of the container image.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetImageOutputResourceContainerResult(dict):
+    def __init__(__self__, *,
+                 image_uris: Sequence[str],
+                 region: str):
+        """
+        :param Sequence[str] image_uris: Set of URIs for created containers.
+        :param str region: Region of the container image.
+        """
+        pulumi.set(__self__, "image_uris", image_uris)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="imageUris")
+    def image_uris(self) -> Sequence[str]:
+        """
+        Set of URIs for created containers.
+        """
+        return pulumi.get(self, "image_uris")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        Region of the container image.
         """
         return pulumi.get(self, "region")
 

@@ -25,7 +25,8 @@ class WebAclArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a WebAcl resource.
         :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
@@ -38,6 +39,7 @@ class WebAclArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         """
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "scope", scope)
@@ -56,6 +58,8 @@ class WebAclArgs:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if token_domains is not None:
+            pulumi.set(__self__, "token_domains", token_domains)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -177,6 +181,18 @@ class WebAclArgs:
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
 
+    @property
+    @pulumi.getter(name="tokenDomains")
+    def token_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        """
+        return pulumi.get(self, "token_domains")
+
+    @token_domains.setter
+    def token_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "token_domains", value)
+
 
 @pulumi.input_type
 class _WebAclState:
@@ -193,6 +209,7 @@ class _WebAclState:
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility_config: Optional[pulumi.Input['WebAclVisibilityConfigArgs']] = None):
         """
         Input properties used for looking up and filtering WebAcl resources.
@@ -207,6 +224,7 @@ class _WebAclState:
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         :param pulumi.Input['WebAclVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         """
         if arn is not None:
@@ -233,6 +251,8 @@ class _WebAclState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if token_domains is not None:
+            pulumi.set(__self__, "token_domains", token_domains)
         if visibility_config is not None:
             pulumi.set(__self__, "visibility_config", visibility_config)
 
@@ -378,6 +398,18 @@ class _WebAclState:
         pulumi.set(self, "tags_all", value)
 
     @property
+    @pulumi.getter(name="tokenDomains")
+    def token_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        """
+        return pulumi.get(self, "token_domains")
+
+    @token_domains.setter
+    def token_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "token_domains", value)
+
+    @property
     @pulumi.getter(name="visibilityConfig")
     def visibility_config(self) -> Optional[pulumi.Input['WebAclVisibilityConfigArgs']]:
         """
@@ -404,6 +436,7 @@ class WebAcl(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None,
                  __props__=None):
         """
@@ -471,6 +504,7 @@ class WebAcl(pulumi.CustomResource):
             ))
         ```
         ### Rate Based
+
         Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
 
         ```python
@@ -646,6 +680,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         :param pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         """
         ...
@@ -719,6 +754,7 @@ class WebAcl(pulumi.CustomResource):
             ))
         ```
         ### Rate Based
+
         Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
 
         ```python
@@ -907,6 +943,7 @@ class WebAcl(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -930,6 +967,7 @@ class WebAcl(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
+            __props__.__dict__["token_domains"] = token_domains
             if visibility_config is None and not opts.urn:
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config
@@ -958,6 +996,7 @@ class WebAcl(pulumi.CustomResource):
             scope: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None) -> 'WebAcl':
         """
         Get an existing WebAcl resource's state with the given name, id, and optional extra
@@ -977,6 +1016,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         :param pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -995,6 +1035,7 @@ class WebAcl(pulumi.CustomResource):
         __props__.__dict__["scope"] = scope
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["token_domains"] = token_domains
         __props__.__dict__["visibility_config"] = visibility_config
         return WebAcl(resource_name, opts=opts, __props__=__props__)
 
@@ -1090,6 +1131,14 @@ class WebAcl(pulumi.CustomResource):
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="tokenDomains")
+    def token_domains(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        """
+        return pulumi.get(self, "token_domains")
 
     @property
     @pulumi.getter(name="visibilityConfig")

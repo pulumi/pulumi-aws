@@ -132,6 +132,8 @@ export interface GetClusterResult {
     readonly securityGroupIds: string[];
     /**
      * List of security group names associated with this cache cluster.
+     *
+     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
      */
     readonly securityGroupNames: string[];
     /**

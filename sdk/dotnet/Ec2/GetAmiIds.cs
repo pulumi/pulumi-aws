@@ -127,6 +127,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// If true, all deprecated AMIs are included in the response.
+        /// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+        /// </summary>
+        [Input("includeDeprecated")]
+        public bool? IncludeDeprecated { get; set; }
+
+        /// <summary>
         /// Regex string to apply to the AMI list returned
         /// by AWS. This allows more advanced filtering not supported from the AWS API.
         /// This filtering is done locally on what AWS returns, and could have a performance
@@ -150,6 +157,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Used to sort AMIs by creation time.
+        /// If no value is specified, the default value is `false`.
         /// </summary>
         [Input("sortAscending")]
         public bool? SortAscending { get; set; }
@@ -190,6 +198,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// If true, all deprecated AMIs are included in the response.
+        /// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+        /// </summary>
+        [Input("includeDeprecated")]
+        public Input<bool>? IncludeDeprecated { get; set; }
+
+        /// <summary>
         /// Regex string to apply to the AMI list returned
         /// by AWS. This allows more advanced filtering not supported from the AWS API.
         /// This filtering is done locally on what AWS returns, and could have a performance
@@ -213,6 +228,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Used to sort AMIs by creation time.
+        /// If no value is specified, the default value is `false`.
         /// </summary>
         [Input("sortAscending")]
         public Input<bool>? SortAscending { get; set; }
@@ -234,6 +250,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<string> Ids;
+        public readonly bool? IncludeDeprecated;
         public readonly string? NameRegex;
         public readonly ImmutableArray<string> Owners;
         public readonly bool? SortAscending;
@@ -248,6 +265,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> ids,
 
+            bool? includeDeprecated,
+
             string? nameRegex,
 
             ImmutableArray<string> owners,
@@ -258,6 +277,7 @@ namespace Pulumi.Aws.Ec2
             Filters = filters;
             Id = id;
             Ids = ids;
+            IncludeDeprecated = includeDeprecated;
             NameRegex = nameRegex;
             Owners = owners;
             SortAscending = sortAscending;

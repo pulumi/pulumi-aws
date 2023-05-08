@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.chime.inputs;
 
+import com.pulumi.aws.chime.inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -49,6 +50,21 @@ public final class VoiceConnectorStreamingState extends com.pulumi.resources.Res
     }
 
     /**
+     * The media insights configuration. See `media_insights_configuration`.
+     * 
+     */
+    @Import(name="mediaInsightsConfiguration")
+    private @Nullable Output<VoiceConnectorStreamingMediaInsightsConfigurationArgs> mediaInsightsConfiguration;
+
+    /**
+     * @return The media insights configuration. See `media_insights_configuration`.
+     * 
+     */
+    public Optional<Output<VoiceConnectorStreamingMediaInsightsConfigurationArgs>> mediaInsightsConfiguration() {
+        return Optional.ofNullable(this.mediaInsightsConfiguration);
+    }
+
+    /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      * 
      */
@@ -83,6 +99,7 @@ public final class VoiceConnectorStreamingState extends com.pulumi.resources.Res
     private VoiceConnectorStreamingState(VoiceConnectorStreamingState $) {
         this.dataRetention = $.dataRetention;
         this.disabled = $.disabled;
+        this.mediaInsightsConfiguration = $.mediaInsightsConfiguration;
         this.streamingNotificationTargets = $.streamingNotificationTargets;
         this.voiceConnectorId = $.voiceConnectorId;
     }
@@ -145,6 +162,27 @@ public final class VoiceConnectorStreamingState extends com.pulumi.resources.Res
          */
         public Builder disabled(Boolean disabled) {
             return disabled(Output.of(disabled));
+        }
+
+        /**
+         * @param mediaInsightsConfiguration The media insights configuration. See `media_insights_configuration`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mediaInsightsConfiguration(@Nullable Output<VoiceConnectorStreamingMediaInsightsConfigurationArgs> mediaInsightsConfiguration) {
+            $.mediaInsightsConfiguration = mediaInsightsConfiguration;
+            return this;
+        }
+
+        /**
+         * @param mediaInsightsConfiguration The media insights configuration. See `media_insights_configuration`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mediaInsightsConfiguration(VoiceConnectorStreamingMediaInsightsConfigurationArgs mediaInsightsConfiguration) {
+            return mediaInsightsConfiguration(Output.of(mediaInsightsConfiguration));
         }
 
         /**

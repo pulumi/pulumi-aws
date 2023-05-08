@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -62,6 +63,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3outposts/endpoint:Endpoint")
 public class Endpoint extends com.pulumi.resources.CustomResource {
     /**
+     * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+     * 
+     */
+    @Export(name="accessType", refs={String.class}, tree="[0]")
+    private Output<String> accessType;
+
+    /**
+     * @return Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
+     * 
+     */
+    public Output<String> accessType() {
+        return this.accessType;
+    }
+    /**
      * Amazon Resource Name (ARN) of the endpoint.
      * 
      */
@@ -102,6 +117,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<String> creationTime() {
         return this.creationTime;
+    }
+    /**
+     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     * 
+     */
+    @Export(name="customerOwnedIpv4Pool", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> customerOwnedIpv4Pool;
+
+    /**
+     * @return The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     * 
+     */
+    public Output<Optional<String>> customerOwnedIpv4Pool() {
+        return Codegen.optional(this.customerOwnedIpv4Pool);
     }
     /**
      * Set of nested attributes for associated Elastic Network Interfaces (ENIs).

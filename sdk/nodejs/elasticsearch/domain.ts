@@ -121,7 +121,7 @@ import {PolicyDocument} from "../iam";
  *         cidrBlocks: [selectedVpc.then(selectedVpc => selectedVpc.cidrBlock)],
  *     }],
  * });
- * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("esServiceLinkedRole", {awsServiceName: "es.amazonaws.com"});
+ * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("esServiceLinkedRole", {awsServiceName: "opensearchservice.amazonaws.com"});
  * const esDomain = new aws.elasticsearch.Domain("esDomain", {
  *     elasticsearchVersion: "6.3",
  *     clusterConfig: {

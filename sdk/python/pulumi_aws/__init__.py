@@ -373,6 +373,8 @@ if typing.TYPE_CHECKING:
     sqs = __sqs
     import pulumi_aws.ssm as __ssm
     ssm = __ssm
+    import pulumi_aws.ssmcontacts as __ssmcontacts
+    ssmcontacts = __ssmcontacts
     import pulumi_aws.ssmincidents as __ssmincidents
     ssmincidents = __ssmincidents
     import pulumi_aws.ssoadmin as __ssoadmin
@@ -578,6 +580,7 @@ else:
     sns = _utilities.lazy_import('pulumi_aws.sns')
     sqs = _utilities.lazy_import('pulumi_aws.sqs')
     ssm = _utilities.lazy_import('pulumi_aws.ssm')
+    ssmcontacts = _utilities.lazy_import('pulumi_aws.ssmcontacts')
     ssmincidents = _utilities.lazy_import('pulumi_aws.ssmincidents')
     ssoadmin = _utilities.lazy_import('pulumi_aws.ssoadmin')
     storagegateway = _utilities.lazy_import('pulumi_aws.storagegateway')
@@ -1816,6 +1819,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cfg/organizationCustomPolicyRule",
+  "fqn": "pulumi_aws.cfg",
+  "classes": {
+   "aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule": "OrganizationCustomPolicyRule"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cfg/organizationCustomRule",
   "fqn": "pulumi_aws.cfg",
   "classes": {
@@ -2220,6 +2231,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
    "aws:cloudwatch/eventTarget:EventTarget": "EventTarget"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/internetMonitor",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/internetMonitor:InternetMonitor": "InternetMonitor"
   }
  },
  {
@@ -9656,10 +9675,42 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ssmcontacts/contact",
+  "fqn": "pulumi_aws.ssmcontacts",
+  "classes": {
+   "aws:ssmcontacts/contact:Contact": "Contact"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssmcontacts/contactChannel",
+  "fqn": "pulumi_aws.ssmcontacts",
+  "classes": {
+   "aws:ssmcontacts/contactChannel:ContactChannel": "ContactChannel"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssmcontacts/plan",
+  "fqn": "pulumi_aws.ssmcontacts",
+  "classes": {
+   "aws:ssmcontacts/plan:Plan": "Plan"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ssmincidents/replicationSet",
   "fqn": "pulumi_aws.ssmincidents",
   "classes": {
    "aws:ssmincidents/replicationSet:ReplicationSet": "ReplicationSet"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssmincidents/responsePlan",
+  "fqn": "pulumi_aws.ssmincidents",
+  "classes": {
+   "aws:ssmincidents/responsePlan:ResponsePlan": "ResponsePlan"
   }
  },
  {
@@ -9812,6 +9863,22 @@ _utilities.register(
   "fqn": "pulumi_aws.synthetics",
   "classes": {
    "aws:synthetics/canary:Canary": "Canary"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "synthetics/group",
+  "fqn": "pulumi_aws.synthetics",
+  "classes": {
+   "aws:synthetics/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "synthetics/groupAssociation",
+  "fqn": "pulumi_aws.synthetics",
+  "classes": {
+   "aws:synthetics/groupAssociation:GroupAssociation": "GroupAssociation"
   }
  },
  {

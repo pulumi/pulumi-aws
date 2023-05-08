@@ -16,6 +16,7 @@ __all__ = ['GameSessionQueueArgs', 'GameSessionQueue']
 @pulumi.input_type
 class GameSessionQueueArgs:
     def __init__(__self__, *,
+                 custom_event_data: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None,
@@ -25,6 +26,7 @@ class GameSessionQueueArgs:
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a GameSessionQueue resource.
+        :param pulumi.Input[str] custom_event_data: Information to be added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[str] name: Name of the session queue.
         :param pulumi.Input[str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
@@ -33,6 +35,8 @@ class GameSessionQueueArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] timeout_in_seconds: Maximum time a game session request can remain in the queue.
         """
+        if custom_event_data is not None:
+            pulumi.set(__self__, "custom_event_data", custom_event_data)
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
         if name is not None:
@@ -47,6 +51,18 @@ class GameSessionQueueArgs:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeout_in_seconds is not None:
             pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="customEventData")
+    def custom_event_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Information to be added to all events that are related to this game session queue.
+        """
+        return pulumi.get(self, "custom_event_data")
+
+    @custom_event_data.setter
+    def custom_event_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_event_data", value)
 
     @property
     @pulumi.getter
@@ -137,6 +153,7 @@ class GameSessionQueueArgs:
 class _GameSessionQueueState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 custom_event_data: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None,
@@ -147,6 +164,7 @@ class _GameSessionQueueState:
         """
         Input properties used for looking up and filtering GameSessionQueue resources.
         :param pulumi.Input[str] arn: Game Session Queue ARN.
+        :param pulumi.Input[str] custom_event_data: Information to be added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[str] name: Name of the session queue.
         :param pulumi.Input[str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
@@ -157,6 +175,8 @@ class _GameSessionQueueState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if custom_event_data is not None:
+            pulumi.set(__self__, "custom_event_data", custom_event_data)
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
         if name is not None:
@@ -183,6 +203,18 @@ class _GameSessionQueueState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="customEventData")
+    def custom_event_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Information to be added to all events that are related to this game session queue.
+        """
+        return pulumi.get(self, "custom_event_data")
+
+    @custom_event_data.setter
+    def custom_event_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_event_data", value)
 
     @property
     @pulumi.getter
@@ -274,6 +306,7 @@ class GameSessionQueue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_event_data: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None,
@@ -319,6 +352,7 @@ class GameSessionQueue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] custom_event_data: Information to be added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[str] name: Name of the session queue.
         :param pulumi.Input[str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
@@ -383,6 +417,7 @@ class GameSessionQueue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_event_data: Optional[pulumi.Input[str]] = None,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None,
@@ -399,6 +434,7 @@ class GameSessionQueue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GameSessionQueueArgs.__new__(GameSessionQueueArgs)
 
+            __props__.__dict__["custom_event_data"] = custom_event_data
             __props__.__dict__["destinations"] = destinations
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_target"] = notification_target
@@ -418,6 +454,7 @@ class GameSessionQueue(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            custom_event_data: Optional[pulumi.Input[str]] = None,
             destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notification_target: Optional[pulumi.Input[str]] = None,
@@ -433,6 +470,7 @@ class GameSessionQueue(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Game Session Queue ARN.
+        :param pulumi.Input[str] custom_event_data: Information to be added to all events that are related to this game session queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destinations: List of fleet/alias ARNs used by session queue for placing game sessions.
         :param pulumi.Input[str] name: Name of the session queue.
         :param pulumi.Input[str] notification_target: An SNS topic ARN that is set up to receive game session placement notifications.
@@ -446,6 +484,7 @@ class GameSessionQueue(pulumi.CustomResource):
         __props__ = _GameSessionQueueState.__new__(_GameSessionQueueState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["custom_event_data"] = custom_event_data
         __props__.__dict__["destinations"] = destinations
         __props__.__dict__["name"] = name
         __props__.__dict__["notification_target"] = notification_target
@@ -462,6 +501,14 @@ class GameSessionQueue(pulumi.CustomResource):
         Game Session Queue ARN.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="customEventData")
+    def custom_event_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        Information to be added to all events that are related to this game session queue.
+        """
+        return pulumi.get(self, "custom_event_data")
 
     @property
     @pulumi.getter

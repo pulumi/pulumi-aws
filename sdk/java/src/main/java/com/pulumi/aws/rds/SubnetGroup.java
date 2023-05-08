@@ -175,6 +175,20 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Provides the VPC ID of the DB subnet group.
+     * 
+     */
+    @Export(name="vpcId", refs={String.class}, tree="[0]")
+    private Output<String> vpcId;
+
+    /**
+     * @return Provides the VPC ID of the DB subnet group.
+     * 
+     */
+    public Output<String> vpcId() {
+        return this.vpcId;
+    }
 
     /**
      *

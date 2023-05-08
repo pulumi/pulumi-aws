@@ -65,6 +65,9 @@ type GetAmiIdsArgs struct {
 	// are several valid keys, for a full reference, check out
 	// [describe-images in the AWS CLI reference][1].
 	Filters []GetAmiIdsFilter `pulumi:"filters"`
+	// If true, all deprecated AMIs are included in the response.
+	// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
 	// Regex string to apply to the AMI list returned
 	// by AWS. This allows more advanced filtering not supported from the AWS API.
 	// This filtering is done locally on what AWS returns, and could have a performance
@@ -74,6 +77,7 @@ type GetAmiIdsArgs struct {
 	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners []string `pulumi:"owners"`
 	// Used to sort AMIs by creation time.
+	// If no value is specified, the default value is `false`.
 	SortAscending *bool `pulumi:"sortAscending"`
 }
 
@@ -82,11 +86,12 @@ type GetAmiIdsResult struct {
 	ExecutableUsers []string          `pulumi:"executableUsers"`
 	Filters         []GetAmiIdsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string   `pulumi:"id"`
-	Ids           []string `pulumi:"ids"`
-	NameRegex     *string  `pulumi:"nameRegex"`
-	Owners        []string `pulumi:"owners"`
-	SortAscending *bool    `pulumi:"sortAscending"`
+	Id                string   `pulumi:"id"`
+	Ids               []string `pulumi:"ids"`
+	IncludeDeprecated *bool    `pulumi:"includeDeprecated"`
+	NameRegex         *string  `pulumi:"nameRegex"`
+	Owners            []string `pulumi:"owners"`
+	SortAscending     *bool    `pulumi:"sortAscending"`
 }
 
 func GetAmiIdsOutput(ctx *pulumi.Context, args GetAmiIdsOutputArgs, opts ...pulumi.InvokeOption) GetAmiIdsResultOutput {
@@ -111,6 +116,9 @@ type GetAmiIdsOutputArgs struct {
 	// are several valid keys, for a full reference, check out
 	// [describe-images in the AWS CLI reference][1].
 	Filters GetAmiIdsFilterArrayInput `pulumi:"filters"`
+	// If true, all deprecated AMIs are included in the response.
+	// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+	IncludeDeprecated pulumi.BoolPtrInput `pulumi:"includeDeprecated"`
 	// Regex string to apply to the AMI list returned
 	// by AWS. This allows more advanced filtering not supported from the AWS API.
 	// This filtering is done locally on what AWS returns, and could have a performance
@@ -120,6 +128,7 @@ type GetAmiIdsOutputArgs struct {
 	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
 	// Used to sort AMIs by creation time.
+	// If no value is specified, the default value is `false`.
 	SortAscending pulumi.BoolPtrInput `pulumi:"sortAscending"`
 }
 
@@ -157,6 +166,10 @@ func (o GetAmiIdsResultOutput) Id() pulumi.StringOutput {
 
 func (o GetAmiIdsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAmiIdsResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) *bool { return v.IncludeDeprecated }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetAmiIdsResultOutput) NameRegex() pulumi.StringPtrOutput {

@@ -24,6 +24,18 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
             set => _amis = value;
         }
 
+        [Input("containers")]
+        private InputList<Inputs.ImageOutputResourceContainerArgs>? _containers;
+
+        /// <summary>
+        /// Set of objects with each container image created and stored in the output repository.
+        /// </summary>
+        public InputList<Inputs.ImageOutputResourceContainerArgs> Containers
+        {
+            get => _containers ?? (_containers = new InputList<Inputs.ImageOutputResourceContainerArgs>());
+            set => _containers = value;
+        }
+
         public ImageOutputResourceArgs()
         {
         }

@@ -64,6 +64,10 @@ class GetInstanceResult:
         pulumi.set(__self__, "db_parameter_groups", db_parameter_groups)
         if db_security_groups and not isinstance(db_security_groups, list):
             raise TypeError("Expected argument 'db_security_groups' to be a list")
+        if db_security_groups is not None:
+            warnings.warn("""With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+            pulumi.log.warn("""db_security_groups is deprecated: With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.""")
+
         pulumi.set(__self__, "db_security_groups", db_security_groups)
         if db_subnet_group and not isinstance(db_subnet_group, str):
             raise TypeError("Expected argument 'db_subnet_group' to be a str")

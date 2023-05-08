@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a DocDB Cluster.
+ * Manages a DocumentDB Cluster.
  *
- * Changes to a DocDB Cluster can occur when you manually change a
+ * Changes to a DocumentDB Cluster can occur when you manually change a
  * parameter, such as `port`, and are reflected in the next maintenance
  * window. Because of this, this provider may report a difference in its planning
  * phase because a modification has not yet taken place. You can use the
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DocDB Clusters can be imported using the `cluster_identifier`, e.g.,
+ * DocumentDB Clusters can be imported using the `cluster_identifier`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
@@ -97,11 +97,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterIdentifierPrefix!: pulumi.Output<string>;
     /**
-     * List of DocDB Instances that are a part of this cluster
+     * List of DocumentDB Instances that are a part of this cluster
      */
     public readonly clusterMembers!: pulumi.Output<string[]>;
     /**
-     * The DocDB Cluster Resource ID
+     * The DocumentDB Cluster Resource ID
      */
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
     /**
@@ -122,7 +122,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enabledCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
-     * The DNS address of the DocDB instance
+     * The DNS address of the DocumentDB instance
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
@@ -153,7 +153,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
      */
     public readonly masterPassword!: pulumi.Output<string | undefined>;
     /**
@@ -174,7 +174,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
-     * A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+     * A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
      */
     public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
     /**
@@ -320,11 +320,11 @@ export interface ClusterState {
      */
     clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
-     * List of DocDB Instances that are a part of this cluster
+     * List of DocumentDB Instances that are a part of this cluster
      */
     clusterMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The DocDB Cluster Resource ID
+     * The DocumentDB Cluster Resource ID
      */
     clusterResourceId?: pulumi.Input<string>;
     /**
@@ -345,7 +345,7 @@ export interface ClusterState {
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The DNS address of the DocDB instance
+     * The DNS address of the DocumentDB instance
      */
     endpoint?: pulumi.Input<string>;
     /**
@@ -376,7 +376,7 @@ export interface ClusterState {
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
      */
     masterPassword?: pulumi.Input<string>;
     /**
@@ -397,7 +397,7 @@ export interface ClusterState {
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
+     * A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
      */
     readerEndpoint?: pulumi.Input<string>;
     /**
@@ -455,7 +455,7 @@ export interface ClusterArgs {
      */
     clusterIdentifierPrefix?: pulumi.Input<string>;
     /**
-     * List of DocDB Instances that are a part of this cluster
+     * List of DocumentDB Instances that are a part of this cluster
      */
     clusterMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -499,7 +499,7 @@ export interface ClusterArgs {
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
+     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints.
      */
     masterPassword?: pulumi.Input<string>;
     /**

@@ -82,6 +82,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Configure encryption mode for MACsec-capable connections
+ * 
  * &gt; **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
  * ```java
  * package generated_program;

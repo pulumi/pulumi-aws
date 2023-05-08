@@ -50,6 +50,16 @@ export type DomainName = import("./domainName").DomainName;
 export const DomainName: typeof import("./domainName").DomainName = null as any;
 utilities.lazyLoad(exports, ["DomainName"], () => require("./domainName"));
 
+export { GetAuthorizerArgs, GetAuthorizerResult, GetAuthorizerOutputArgs } from "./getAuthorizer";
+export const getAuthorizer: typeof import("./getAuthorizer").getAuthorizer = null as any;
+export const getAuthorizerOutput: typeof import("./getAuthorizer").getAuthorizerOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizer","getAuthorizerOutput"], () => require("./getAuthorizer"));
+
+export { GetAuthorizersArgs, GetAuthorizersResult, GetAuthorizersOutputArgs } from "./getAuthorizers";
+export const getAuthorizers: typeof import("./getAuthorizers").getAuthorizers = null as any;
+export const getAuthorizersOutput: typeof import("./getAuthorizers").getAuthorizersOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizers","getAuthorizersOutput"], () => require("./getAuthorizers"));
+
 export { GetDomainNameArgs, GetDomainNameResult, GetDomainNameOutputArgs } from "./getDomainName";
 export const getDomainName: typeof import("./getDomainName").getDomainName = null as any;
 export const getDomainNameOutput: typeof import("./getDomainName").getDomainNameOutput = null as any;

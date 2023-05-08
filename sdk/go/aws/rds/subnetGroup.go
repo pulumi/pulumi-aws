@@ -73,6 +73,8 @@ type SubnetGroup struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Provides the VPC ID of the DB subnet group.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -126,6 +128,8 @@ type subnetGroupState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Provides the VPC ID of the DB subnet group.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 type SubnetGroupState struct {
@@ -145,6 +149,8 @@ type SubnetGroupState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Provides the VPC ID of the DB subnet group.
+	VpcId pulumi.StringPtrInput
 }
 
 func (SubnetGroupState) ElementType() reflect.Type {
@@ -307,6 +313,11 @@ func (o SubnetGroupOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SubnetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Provides the VPC ID of the DB subnet group.
+func (o SubnetGroupOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
 type SubnetGroupArrayOutput struct{ *pulumi.OutputState }

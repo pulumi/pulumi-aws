@@ -536,18 +536,30 @@ class ReportPlanReportDeliveryChannelArgs:
 class ReportPlanReportSettingArgs:
     def __init__(__self__, *,
                  report_template: pulumi.Input[str],
+                 accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  framework_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 number_of_frameworks: Optional[pulumi.Input[int]] = None):
+                 number_of_frameworks: Optional[pulumi.Input[int]] = None,
+                 organization_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] report_template: Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: Specifies the list of accounts a report covers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] framework_arns: Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
         :param pulumi.Input[int] number_of_frameworks: Specifies the number of frameworks a report covers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] organization_units: Specifies the list of Organizational Units a report covers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: Specifies the list of regions a report covers.
         """
         pulumi.set(__self__, "report_template", report_template)
+        if accounts is not None:
+            pulumi.set(__self__, "accounts", accounts)
         if framework_arns is not None:
             pulumi.set(__self__, "framework_arns", framework_arns)
         if number_of_frameworks is not None:
             pulumi.set(__self__, "number_of_frameworks", number_of_frameworks)
+        if organization_units is not None:
+            pulumi.set(__self__, "organization_units", organization_units)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
 
     @property
     @pulumi.getter(name="reportTemplate")
@@ -560,6 +572,18 @@ class ReportPlanReportSettingArgs:
     @report_template.setter
     def report_template(self, value: pulumi.Input[str]):
         pulumi.set(self, "report_template", value)
+
+    @property
+    @pulumi.getter
+    def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the list of accounts a report covers.
+        """
+        return pulumi.get(self, "accounts")
+
+    @accounts.setter
+    def accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accounts", value)
 
     @property
     @pulumi.getter(name="frameworkArns")
@@ -584,6 +608,30 @@ class ReportPlanReportSettingArgs:
     @number_of_frameworks.setter
     def number_of_frameworks(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_frameworks", value)
+
+    @property
+    @pulumi.getter(name="organizationUnits")
+    def organization_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the list of Organizational Units a report covers.
+        """
+        return pulumi.get(self, "organization_units")
+
+    @organization_units.setter
+    def organization_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "organization_units", value)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the list of regions a report covers.
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "regions", value)
 
 
 @pulumi.input_type

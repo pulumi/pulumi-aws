@@ -41,6 +41,99 @@ namespace Pulumi.Aws.Chime
     /// 
     /// });
     /// ```
+    /// ### Example Usage With Media Insights
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var defaultVoiceConnector = new Aws.Chime.VoiceConnector("defaultVoiceConnector", new()
+    ///     {
+    ///         RequireEncryption = true,
+    ///     });
+    /// 
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "mediapipelines.chime.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
+    ///     {
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var exampleStream = new Aws.Kinesis.Stream("exampleStream", new()
+    ///     {
+    ///         ShardCount = 2,
+    ///     });
+    /// 
+    ///     var exampleMediaInsightsPipelineConfiguration = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("exampleMediaInsightsPipelineConfiguration", new()
+    ///     {
+    ///         ResourceAccessRoleArn = exampleRole.Arn,
+    ///         Elements = new[]
+    ///         {
+    ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
+    ///             {
+    ///                 Type = "AmazonTranscribeCallAnalyticsProcessor",
+    ///                 AmazonTranscribeCallAnalyticsProcessorConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs
+    ///                 {
+    ///                     LanguageCode = "en-US",
+    ///                 },
+    ///             },
+    ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
+    ///             {
+    ///                 Type = "KinesisDataStreamSink",
+    ///                 KinesisDataStreamSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs
+    ///                 {
+    ///                     InsightsTarget = exampleStream.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var defaultVoiceConnectorStreaming = new Aws.Chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", new()
+    ///     {
+    ///         Disabled = false,
+    ///         VoiceConnectorId = defaultVoiceConnector.Id,
+    ///         DataRetention = 7,
+    ///         StreamingNotificationTargets = new[]
+    ///         {
+    ///             "SQS",
+    ///         },
+    ///         MediaInsightsConfiguration = new Aws.Chime.Inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs
+    ///         {
+    ///             Disabled = false,
+    ///             ConfigurationArn = exampleMediaInsightsPipelineConfiguration.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -64,6 +157,12 @@ namespace Pulumi.Aws.Chime
         /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The media insights configuration. See `media_insights_configuration`.
+        /// </summary>
+        [Output("mediaInsightsConfiguration")]
+        public Output<Outputs.VoiceConnectorStreamingMediaInsightsConfiguration?> MediaInsightsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
@@ -135,6 +234,12 @@ namespace Pulumi.Aws.Chime
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
 
+        /// <summary>
+        /// The media insights configuration. See `media_insights_configuration`.
+        /// </summary>
+        [Input("mediaInsightsConfiguration")]
+        public Input<Inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs>? MediaInsightsConfiguration { get; set; }
+
         [Input("streamingNotificationTargets")]
         private InputList<string>? _streamingNotificationTargets;
 
@@ -172,6 +277,12 @@ namespace Pulumi.Aws.Chime
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
+
+        /// <summary>
+        /// The media insights configuration. See `media_insights_configuration`.
+        /// </summary>
+        [Input("mediaInsightsConfiguration")]
+        public Input<Inputs.VoiceConnectorStreamingMediaInsightsConfigurationGetArgs>? MediaInsightsConfiguration { get; set; }
 
         [Input("streamingNotificationTargets")]
         private InputList<string>? _streamingNotificationTargets;

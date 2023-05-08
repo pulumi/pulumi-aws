@@ -132,6 +132,26 @@
       "new": "Data source for managing an AWS DMS (Database Migration) Endpoint."
     }
   ],
+  "website/docs/d/dms_replication_subnet_group.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS DMS (Database Migration) Replication Subnet Group.",
+      "new": "  TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group."
+    },
+    {
+      "old": "Terraform data source for managing an AWS DMS (Database Migration) Replication Subnet Group.",
+      "new": "TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group."
+    }
+  ],
+  "website/docs/d/dms_replication_task.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS DMS (Database Migration) Replication Task.",
+      "new": "  TODO data source for managing an AWS DMS (Database Migration) Replication Task."
+    },
+    {
+      "old": "Terraform data source for managing an AWS DMS (Database Migration) Replication Task.",
+      "new": "TODO data source for managing an AWS DMS (Database Migration) Replication Task."
+    }
+  ],
   "website/docs/d/dx_router_configuration.html.markdown": [
     {
       "old": "  Terraform data source for managing an AWS Direct Connect Router Configuration.",
@@ -256,9 +276,6 @@
     }
   ],
   "website/docs/d/networkfirewall_resource_policy.html.markdown": [
-    {
-      "old": "[1]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_resource_policy"
-    },
     {
       "old": "[1]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/networkfirewall_resource_policy"
     }
@@ -405,6 +422,36 @@
       "old": "~> **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.\nRead more about sensitive data in state.\n"
     }
   ],
+  "website/docs/d/ssmcontacts_contact.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS SSM Contact.",
+      "new": "  TODO data source for managing an AWS SSM Contact."
+    },
+    {
+      "old": "Terraform data source for managing an AWS SSM Contact.",
+      "new": "TODO data source for managing an AWS SSM Contact."
+    }
+  ],
+  "website/docs/d/ssmcontacts_contact_channel.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS SSM Contacts Contact Channel.",
+      "new": "  TODO data source for managing an AWS SSM Contacts Contact Channel."
+    },
+    {
+      "old": "Terraform data source for managing an AWS SSM Contacts Contact Channel.",
+      "new": "TODO data source for managing an AWS SSM Contacts Contact Channel."
+    }
+  ],
+  "website/docs/d/ssmcontacts_plan.html.markdown": [
+    {
+      "old": "  Terraform data source for managing an AWS SSM Contact Plan.",
+      "new": "  TODO data source for managing an AWS SSM Contact Plan."
+    },
+    {
+      "old": "Terraform data source for managing a Plan of an AWS SSM Contact.",
+      "new": "TODO data source for managing a Plan of an AWS SSM Contact."
+    }
+  ],
   "website/docs/d/ssmincidents_replication_set.html.markdown": [
     {
       "old": "Terraform data source for managing an incident replication set in AWS Systems Manager Incident Manager.",
@@ -417,6 +464,16 @@
     {
       "old": "~> **NOTE:** The AWS Region specified by a Terraform provider must always be one of the Regions specified for the replication set.",
       "new": "~> **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set."
+    }
+  ],
+  "website/docs/d/ssmincidents_response_plan.html.markdown": [
+    {
+      "old": "  Terraform data source for managing a response plan in AWS Systems Manager Incident Manager.",
+      "new": "  TODO data source for managing a response plan in AWS Systems Manager Incident Manager."
+    },
+    {
+      "old": "Use this Terraform data source to manage a response plan in AWS Systems Manager Incident Manager.",
+      "new": "Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager."
     }
   ],
   "website/docs/d/vpc_ipam_preview_next_cidr.html.markdown": [
@@ -925,6 +982,12 @@
       "new": "Resource for managing an AWS Comprehend Entity Recognizer."
     }
   ],
+  "website/docs/r/config_organization_custom_policy_rule.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS Config Organization Custom Policy.",
+      "new": "  TODO resource for managing an AWS Config Organization Custom Policy."
+    }
+  ],
   "website/docs/r/connect_contact_flow.html.markdown": [
     {
       "old": "    \"Application\" = \"Terraform\"",
@@ -1020,24 +1083,30 @@
   ],
   "website/docs/r/docdb_cluster_instance.html.markdown": [
     {
-      "old": "Instances and DocDB manages the replication. You can use the [count][3]",
-      "new": "Instances and DocDB manages the replication. You can use the count"
+      "old": "* `identifier` - (Optional, Forces new resource) The identifier for the DocumentDB instance, if omitted, Terraform will assign a random, unique identifier.",
+      "new": "* `identifier` - (Optional, Forces new resource) The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier."
     },
     {
       "old": "[1]: /docs/providers/aws/r/docdb_cluster.html"
     },
     {
       "old": "[3]: https://www.terraform.io/docs/configuration/meta-arguments/count.html"
+    }
+  ],
+  "website/docs/r/docdb_cluster_parameter_group.html.markdown": [
+    {
+      "old": "* `description` - (Optional, Forces new resource) The description of the DocumentDB cluster parameter group. Defaults to \"Managed by Terraform\".",
+      "new": "* `description` - (Optional, Forces new resource) The description of the DocumentDB cluster parameter group. Defaults to \"Managed by TODO\"."
     },
     {
-      "old": "attributes that are specific to a single instance in a [DocDB Cluster][1].",
-      "new": "attributes that are specific to a single instance in a DocDB Cluster."
+      "old": "* `name` - (Optional, Forces new resource) The name of the DocumentDB cluster parameter group. If omitted, Terraform will assign a random, unique name.",
+      "new": "* `name` - (Optional, Forces new resource) The name of the DocumentDB cluster parameter group. If omitted, TODO will assign a random, unique name."
     }
   ],
   "website/docs/r/docdb_event_subscription.html.markdown": [
     {
-      "old": "* `name` - (Optional) The name of the DocDB event subscription. By default generated by Terraform.",
-      "new": "* `name` - (Optional) The name of the DocDB event subscription. By default generated by the provider."
+      "old": "* `name` - (Optional) The name of the DocumentDB event subscription. By default generated by Terraform.",
+      "new": "* `name` - (Optional) The name of the DocumentDB event subscription. By default generated by TODO."
     }
   ],
   "website/docs/r/docdb_global_cluster.html.markdown": [
@@ -1578,16 +1647,8 @@
   ],
   "website/docs/r/inspector2_delegated_admin_account.html.markdown": [
     {
-      "old": "  Terraform resource for managing an AWS Inspector V2 Delegated Admin Account.",
-      "new": "  Resource for managing an AWS Inspector V2 Delegated Admin Account."
-    },
-    {
       "old": "  Terraform resource for managing an Amazon Inspector Delegated Admin Account.",
       "new": "  Resource for managing an Amazon Inspector Delegated Admin Account."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Inspector V2 Delegated Admin Account.",
-      "new": "Resource for managing an AWS Inspector V2 Delegated Admin Account."
     },
     {
       "old": "Terraform resource for managing an Amazon Inspector Delegated Admin Account.",
@@ -1604,19 +1665,11 @@
       "new": ", the provider will ignore the status of the other type."
     },
     {
-      "old": "Terraform resource for enabling AWS Inspector V2 resource scans.",
-      "new": "Resource for enabling AWS Inspector V2 resource scans."
-    },
-    {
       "old": "Terraform resource for enabling Amazon Inspector resource scans.",
       "new": "Resource for enabling Amazon Inspector resource scans."
     }
   ],
   "website/docs/r/inspector2_member_association.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Inspector V2 Member Association.",
-      "new": "  Resource for managing an AWS Inspector V2 Member Association."
-    },
     {
       "old": "  Terraform resource for managing an Amazon Inspector Member Association.",
       "new": "  Resource for managing an Amazon Inspector Member Association."
@@ -1624,24 +1677,12 @@
     {
       "old": "Terraform resource for associating accounts to existing Inspector instances.",
       "new": "Resource for associating accounts to existing Inspector instances."
-    },
-    {
-      "old": "Terraform resource for associating accounts to existing Inspector2 instances.",
-      "new": "Resource for associating accounts to existing Inspector2 instances."
     }
   ],
   "website/docs/r/inspector2_organization_configuration.html.markdown": [
     {
-      "old": "  Terraform resource for managing an AWS Inspector V2 Organization Configuration.",
-      "new": "  Resource for managing an AWS Inspector V2 Organization Configuration."
-    },
-    {
       "old": "  Terraform resource for managing an Amazon Inspector Organization Configuration.",
       "new": "  Resource for managing an Amazon Inspector Organization Configuration."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Inspector V2 Organization Configuration.",
-      "new": "Resource for managing an AWS Inspector V2 Organization Configuration."
     },
     {
       "old": "Terraform resource for managing an Amazon Inspector Organization Configuration.",
@@ -2425,6 +2466,16 @@
       "new": "Resource for managing an AWS QuickSight Account Subscription."
     }
   ],
+  "website/docs/r/quicksight_folder_membership.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS QuickSight Folder Membership.",
+      "new": "  TODO resource for managing an AWS QuickSight Folder Membership."
+    },
+    {
+      "old": "Terraform resource for managing an AWS QuickSight Folder Membership.",
+      "new": "TODO resource for managing an AWS QuickSight Folder Membership."
+    }
+  ],
   "website/docs/r/quicksight_iam_policy_assignment.html.markdown": [
     {
       "old": "  Terraform resource for managing an AWS QuickSight IAM Policy Assignment.",
@@ -3151,6 +3202,40 @@
       "new": "~> **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before."
     }
   ],
+  "website/docs/r/ssmcontacts_contact.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS SSM Contact.",
+      "new": "  TODO resource for managing an AWS SSM Contact."
+    },
+    {
+      "old": "Terraform resource for managing an AWS SSM Contact.",
+      "new": "TODO resource for managing an AWS SSM Contact."
+    },
+    {
+      "old": "~> **NOTE:** A contact implicitly depends on a replication set. If you configured your replication set in Terraform, we recommend you add it to the `depends_on` argument for the Terraform Contact Resource.",
+      "new": "~> **NOTE:** A contact implicitly depends on a replication set. If you configured your replication set in TODO, we recommend you add it to the `depends_on` argument for the TODO Contact Resource."
+    }
+  ],
+  "website/docs/r/ssmcontacts_contact_channel.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS SSM Contacts Contact Channel.",
+      "new": "  TODO resource for managing an AWS SSM Contacts Contact Channel."
+    },
+    {
+      "old": "Terraform resource for managing an AWS SSM Contacts Contact Channel.",
+      "new": "TODO resource for managing an AWS SSM Contacts Contact Channel."
+    }
+  ],
+  "website/docs/r/ssmcontacts_plan.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an AWS SSM Contact Plan.",
+      "new": "  TODO resource for managing an AWS SSM Contact Plan."
+    },
+    {
+      "old": "Terraform resource for managing an AWS SSM Contact Plan.",
+      "new": "TODO resource for managing an AWS SSM Contact Plan."
+    }
+  ],
   "website/docs/r/ssmincidents_replication_set.html.markdown": [
     {
       "old": "  Terraform resource for managing an incident replication set for AWS Systems Manager Incident Manager.",
@@ -3167,6 +3252,24 @@
     {
       "old": "~> **NOTE:** The Region specified by a Terraform provider must always be one of the Regions specified for the replication set. This is especially important when you perform complex update operations.",
       "new": "~> **NOTE:** The Region specified by a provider must always be one of the Regions specified for the replication set. This is especially important when you perform complex update operations."
+    }
+  ],
+  "website/docs/r/ssmincidents_response_plan.html.markdown": [
+    {
+      "old": "  Terraform resource for managing an incident response plan in AWS Systems Manager Incident Manager.",
+      "new": "  TODO resource for managing an incident response plan in AWS Systems Manager Incident Manager."
+    },
+    {
+      "old": "Provides a Terraform resource to manage response plans in AWS Systems Manager Incident Manager.",
+      "new": "Provides a TODO resource to manage response plans in AWS Systems Manager Incident Manager."
+    },
+    {
+      "old": "we recommend you add it to the `depends_on` argument for the Terraform ResponsePlan Resource.",
+      "new": "we recommend you add it to the `depends_on` argument for the TODO ResponsePlan Resource."
+    },
+    {
+      "old": "~> NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Terraform,",
+      "new": "~> NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in TODO,"
     }
   ],
   "website/docs/r/transcribe_language_model.html.markdown": [

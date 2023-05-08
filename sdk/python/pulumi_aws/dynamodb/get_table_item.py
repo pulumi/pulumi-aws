@@ -58,7 +58,7 @@ class GetTableItemResult:
     @pulumi.getter
     def item(self) -> str:
         """
-        A map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
+        JSON representation of a map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
         """
         return pulumi.get(self, "item")
 

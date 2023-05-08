@@ -108,6 +108,7 @@ namespace Pulumi.Aws.WafV2
     /// });
     /// ```
     /// ### Rate Based
+    /// 
     /// Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
     /// 
     /// ```csharp
@@ -418,6 +419,12 @@ namespace Pulumi.Aws.WafV2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        /// </summary>
+        [Output("tokenDomains")]
+        public Output<ImmutableArray<string>> TokenDomains { get; private set; } = null!;
+
+        /// <summary>
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         /// </summary>
         [Output("visibilityConfig")]
@@ -547,6 +554,18 @@ namespace Pulumi.Aws.WafV2
             set => _tagsAll = value;
         }
 
+        [Input("tokenDomains")]
+        private InputList<string>? _tokenDomains;
+
+        /// <summary>
+        /// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        /// </summary>
+        public InputList<string> TokenDomains
+        {
+            get => _tokenDomains ?? (_tokenDomains = new InputList<string>());
+            set => _tokenDomains = value;
+        }
+
         /// <summary>
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         /// </summary>
@@ -652,6 +671,18 @@ namespace Pulumi.Aws.WafV2
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
+        }
+
+        [Input("tokenDomains")]
+        private InputList<string>? _tokenDomains;
+
+        /// <summary>
+        /// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        /// </summary>
+        public InputList<string> TokenDomains
+        {
+            get => _tokenDomains ?? (_tokenDomains = new InputList<string>());
+            set => _tokenDomains = value;
         }
 
         /// <summary>

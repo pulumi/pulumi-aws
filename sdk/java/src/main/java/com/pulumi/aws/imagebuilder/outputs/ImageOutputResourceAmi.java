@@ -32,7 +32,7 @@ public final class ImageOutputResourceAmi {
      */
     private @Nullable String name;
     /**
-     * @return Region of the AMI.
+     * @return Region of the container image.
      * 
      */
     private @Nullable String region;
@@ -67,7 +67,7 @@ public final class ImageOutputResourceAmi {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Region of the AMI.
+     * @return Region of the container image.
      * 
      */
     public Optional<String> region() {

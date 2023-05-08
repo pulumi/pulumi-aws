@@ -32,14 +32,14 @@ public final class PolicyIncludeMapArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+     * A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
      * 
      */
     @Import(name="orgunits")
     private @Nullable Output<List<String>> orgunits;
 
     /**
-     * @return A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+     * @return A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
      * 
      */
     public Optional<Output<List<String>>> orgunits() {
@@ -103,7 +103,7 @@ public final class PolicyIncludeMapArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param orgunits A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+         * @param orgunits A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class PolicyIncludeMapArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param orgunits A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+         * @param orgunits A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class PolicyIncludeMapArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param orgunits A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+         * @param orgunits A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
          * 
          * @return builder
          * 

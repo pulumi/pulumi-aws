@@ -1806,10 +1806,6 @@
   ],
   "website/docs/r/docdb_cluster_instance.html.markdown": [
     {
-      "old": "* `identifier` - (Optional, Forces new resource) The identifier for the DocDB instance, if omitted, Terraform will assign a random, unique identifier.",
-      "new": "* `identifier` - (Optional, Forces new resource) The identifier for the DocDB instance, if omitted, this provider will assign a random, unique identifier."
-    },
-    {
       "old": "* `tags` - (Optional) A map of tags to assign to the instance. If configured with a provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
       "new": "* `tags` - (Optional) A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level."
     },
@@ -1819,14 +1815,6 @@
     }
   ],
   "website/docs/r/docdb_cluster_parameter_group.html.markdown": [
-    {
-      "old": "* `name` - (Optional, Forces new resource) The name of the documentDB cluster parameter group. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional, Forces new resource) The name of the documentDB cluster parameter group. If omitted, this provider will assign a random, unique name."
-    },
-    {
-      "old": "* `description` - (Optional, Forces new resource) The description of the documentDB cluster parameter group. Defaults to \"Managed by Terraform\".",
-      "new": "* `description` - (Optional, Forces new resource) The description of the documentDB cluster parameter group. Defaults to \"Managed by Pulumi\"."
-    },
     {
       "old": "* `tags` - (Optional) A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.",
       "new": "* `tags` - (Optional) A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level."
@@ -2548,10 +2536,6 @@
     }
   ],
   "website/docs/r/emr_cluster.html.markdown": [
-    {
-      "old": "The `aws_emr_cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service, and another to place on your Cluster Instances to interact with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`, and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html) guide for more information on these IAM roles. There is also a fully-bootable example Terraform configuration at the bottom of this page.",
-      "new": "The `aws_emr_cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service, and another to place on your Cluster Instances to interact with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`, and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html) guide for more information on these IAM roles."
-    },
     {
       "old": "[Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the [lifecycle configuration block](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html) with `ignore_changes` if other steps are being managed outside of Terraform.",
       "new": "[Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider."

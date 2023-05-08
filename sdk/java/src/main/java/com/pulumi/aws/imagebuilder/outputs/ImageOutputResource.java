@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.ImageOutputResourceAmi;
+import com.pulumi.aws.imagebuilder.outputs.ImageOutputResourceContainer;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -16,6 +17,11 @@ public final class ImageOutputResource {
      * 
      */
     private @Nullable List<ImageOutputResourceAmi> amis;
+    /**
+     * @return Set of objects with each container image created and stored in the output repository.
+     * 
+     */
+    private @Nullable List<ImageOutputResourceContainer> containers;
 
     private ImageOutputResource() {}
     /**
@@ -24,6 +30,13 @@ public final class ImageOutputResource {
      */
     public List<ImageOutputResourceAmi> amis() {
         return this.amis == null ? List.of() : this.amis;
+    }
+    /**
+     * @return Set of objects with each container image created and stored in the output repository.
+     * 
+     */
+    public List<ImageOutputResourceContainer> containers() {
+        return this.containers == null ? List.of() : this.containers;
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class ImageOutputResource {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ImageOutputResourceAmi> amis;
+        private @Nullable List<ImageOutputResourceContainer> containers;
         public Builder() {}
         public Builder(ImageOutputResource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amis = defaults.amis;
+    	      this.containers = defaults.containers;
         }
 
         @CustomType.Setter
@@ -50,9 +65,18 @@ public final class ImageOutputResource {
         public Builder amis(ImageOutputResourceAmi... amis) {
             return amis(List.of(amis));
         }
+        @CustomType.Setter
+        public Builder containers(@Nullable List<ImageOutputResourceContainer> containers) {
+            this.containers = containers;
+            return this;
+        }
+        public Builder containers(ImageOutputResourceContainer... containers) {
+            return containers(List.of(containers));
+        }
         public ImageOutputResource build() {
             final var o = new ImageOutputResource();
             o.amis = amis;
+            o.containers = containers;
             return o;
         }
     }

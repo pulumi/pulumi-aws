@@ -18,6 +18,21 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
     public static final ReportPlanReportSettingArgs Empty = new ReportPlanReportSettingArgs();
 
     /**
+     * Specifies the list of accounts a report covers.
+     * 
+     */
+    @Import(name="accounts")
+    private @Nullable Output<List<String>> accounts;
+
+    /**
+     * @return Specifies the list of accounts a report covers.
+     * 
+     */
+    public Optional<Output<List<String>>> accounts() {
+        return Optional.ofNullable(this.accounts);
+    }
+
+    /**
      * Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
      * 
      */
@@ -48,6 +63,36 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * Specifies the list of Organizational Units a report covers.
+     * 
+     */
+    @Import(name="organizationUnits")
+    private @Nullable Output<List<String>> organizationUnits;
+
+    /**
+     * @return Specifies the list of Organizational Units a report covers.
+     * 
+     */
+    public Optional<Output<List<String>>> organizationUnits() {
+        return Optional.ofNullable(this.organizationUnits);
+    }
+
+    /**
+     * Specifies the list of regions a report covers.
+     * 
+     */
+    @Import(name="regions")
+    private @Nullable Output<List<String>> regions;
+
+    /**
+     * @return Specifies the list of regions a report covers.
+     * 
+     */
+    public Optional<Output<List<String>>> regions() {
+        return Optional.ofNullable(this.regions);
+    }
+
+    /**
      * Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
      * 
      */
@@ -65,8 +110,11 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
     private ReportPlanReportSettingArgs() {}
 
     private ReportPlanReportSettingArgs(ReportPlanReportSettingArgs $) {
+        this.accounts = $.accounts;
         this.frameworkArns = $.frameworkArns;
         this.numberOfFrameworks = $.numberOfFrameworks;
+        this.organizationUnits = $.organizationUnits;
+        this.regions = $.regions;
         this.reportTemplate = $.reportTemplate;
     }
 
@@ -86,6 +134,37 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
 
         public Builder(ReportPlanReportSettingArgs defaults) {
             $ = new ReportPlanReportSettingArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accounts Specifies the list of accounts a report covers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accounts(@Nullable Output<List<String>> accounts) {
+            $.accounts = accounts;
+            return this;
+        }
+
+        /**
+         * @param accounts Specifies the list of accounts a report covers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accounts(List<String> accounts) {
+            return accounts(Output.of(accounts));
+        }
+
+        /**
+         * @param accounts Specifies the list of accounts a report covers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accounts(String... accounts) {
+            return accounts(List.of(accounts));
         }
 
         /**
@@ -138,6 +217,68 @@ public final class ReportPlanReportSettingArgs extends com.pulumi.resources.Reso
          */
         public Builder numberOfFrameworks(Integer numberOfFrameworks) {
             return numberOfFrameworks(Output.of(numberOfFrameworks));
+        }
+
+        /**
+         * @param organizationUnits Specifies the list of Organizational Units a report covers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationUnits(@Nullable Output<List<String>> organizationUnits) {
+            $.organizationUnits = organizationUnits;
+            return this;
+        }
+
+        /**
+         * @param organizationUnits Specifies the list of Organizational Units a report covers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationUnits(List<String> organizationUnits) {
+            return organizationUnits(Output.of(organizationUnits));
+        }
+
+        /**
+         * @param organizationUnits Specifies the list of Organizational Units a report covers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationUnits(String... organizationUnits) {
+            return organizationUnits(List.of(organizationUnits));
+        }
+
+        /**
+         * @param regions Specifies the list of regions a report covers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regions(@Nullable Output<List<String>> regions) {
+            $.regions = regions;
+            return this;
+        }
+
+        /**
+         * @param regions Specifies the list of regions a report covers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regions(List<String> regions) {
+            return regions(Output.of(regions));
+        }
+
+        /**
+         * @param regions Specifies the list of regions a report covers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regions(String... regions) {
+            return regions(List.of(regions));
         }
 
         /**

@@ -6,6 +6,7 @@ package com.pulumi.aws.appstream.inputs;
 import com.pulumi.aws.appstream.inputs.StackAccessEndpointArgs;
 import com.pulumi.aws.appstream.inputs.StackApplicationSettingsArgs;
 import com.pulumi.aws.appstream.inputs.StackStorageConnectorArgs;
+import com.pulumi.aws.appstream.inputs.StackStreamingExperienceSettingsArgs;
 import com.pulumi.aws.appstream.inputs.StackUserSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -193,6 +194,23 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+     * See `streaming_experience_settings` below.
+     * 
+     */
+    @Import(name="streamingExperienceSettings")
+    private @Nullable Output<StackStreamingExperienceSettingsArgs> streamingExperienceSettings;
+
+    /**
+     * @return The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+     * See `streaming_experience_settings` below.
+     * 
+     */
+    public Optional<Output<StackStreamingExperienceSettingsArgs>> streamingExperienceSettings() {
+        return Optional.ofNullable(this.streamingExperienceSettings);
+    }
+
+    /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -245,6 +263,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.redirectUrl = $.redirectUrl;
         this.storageConnectors = $.storageConnectors;
+        this.streamingExperienceSettings = $.streamingExperienceSettings;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.userSettings = $.userSettings;
@@ -535,6 +554,29 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder storageConnectors(StackStorageConnectorArgs... storageConnectors) {
             return storageConnectors(List.of(storageConnectors));
+        }
+
+        /**
+         * @param streamingExperienceSettings The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+         * See `streaming_experience_settings` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamingExperienceSettings(@Nullable Output<StackStreamingExperienceSettingsArgs> streamingExperienceSettings) {
+            $.streamingExperienceSettings = streamingExperienceSettings;
+            return this;
+        }
+
+        /**
+         * @param streamingExperienceSettings The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
+         * See `streaming_experience_settings` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamingExperienceSettings(StackStreamingExperienceSettingsArgs streamingExperienceSettings) {
+            return streamingExperienceSettings(Output.of(streamingExperienceSettings));
         }
 
         /**

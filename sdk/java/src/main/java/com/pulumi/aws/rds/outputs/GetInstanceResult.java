@@ -78,7 +78,11 @@ public final class GetInstanceResult {
     /**
      * @return Provides List of DB security groups associated to this DB instance.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version. */
     private List<String> dbSecurityGroups;
     /**
      * @return Name of the subnet group associated with the DB instance.
@@ -313,7 +317,11 @@ public final class GetInstanceResult {
     /**
      * @return Provides List of DB security groups associated to this DB instance.
      * 
+     * @deprecated
+     * With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.
+     * 
      */
+    @Deprecated /* With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version. */
     public List<String> dbSecurityGroups() {
         return this.dbSecurityGroups;
     }

@@ -54,6 +54,23 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * If true, all deprecated AMIs are included in the response.
+     * If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+     * 
+     */
+    @Import(name="includeDeprecated")
+    private @Nullable Boolean includeDeprecated;
+
+    /**
+     * @return If true, all deprecated AMIs are included in the response.
+     * If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+     * 
+     */
+    public Optional<Boolean> includeDeprecated() {
+        return Optional.ofNullable(this.includeDeprecated);
+    }
+
+    /**
      * Regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API.
      * This filtering is done locally on what AWS returns, and could have a performance
@@ -93,6 +110,7 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * Used to sort AMIs by creation time.
+     * If no value is specified, the default value is `false`.
      * 
      */
     @Import(name="sortAscending")
@@ -100,6 +118,7 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return Used to sort AMIs by creation time.
+     * If no value is specified, the default value is `false`.
      * 
      */
     public Optional<Boolean> sortAscending() {
@@ -111,6 +130,7 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetAmiIdsPlainArgs(GetAmiIdsPlainArgs $) {
         this.executableUsers = $.executableUsers;
         this.filters = $.filters;
+        this.includeDeprecated = $.includeDeprecated;
         this.nameRegex = $.nameRegex;
         this.owners = $.owners;
         this.sortAscending = $.sortAscending;
@@ -183,6 +203,18 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
+         * @param includeDeprecated If true, all deprecated AMIs are included in the response.
+         * If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
+            $.includeDeprecated = includeDeprecated;
+            return this;
+        }
+
+        /**
          * @param nameRegex Regex string to apply to the AMI list returned
          * by AWS. This allows more advanced filtering not supported from the AWS API.
          * This filtering is done locally on what AWS returns, and could have a performance
@@ -220,6 +252,7 @@ public final class GetAmiIdsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param sortAscending Used to sort AMIs by creation time.
+         * If no value is specified, the default value is `false`.
          * 
          * @return builder
          * 

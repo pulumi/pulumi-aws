@@ -135,6 +135,7 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// ### Extended S3 Destination with dynamic partitioning
+    /// 
     /// These examples use built-in Firehose functionality, rather than requiring a lambda.
     /// 
     /// ```csharp

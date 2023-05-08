@@ -8,8 +8,14 @@ import com.pulumi.aws.dms.inputs.GetCertificateArgs;
 import com.pulumi.aws.dms.inputs.GetCertificatePlainArgs;
 import com.pulumi.aws.dms.inputs.GetEndpointArgs;
 import com.pulumi.aws.dms.inputs.GetEndpointPlainArgs;
+import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupArgs;
+import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupPlainArgs;
+import com.pulumi.aws.dms.inputs.GetReplicationTaskArgs;
+import com.pulumi.aws.dms.inputs.GetReplicationTaskPlainArgs;
 import com.pulumi.aws.dms.outputs.GetCertificateResult;
 import com.pulumi.aws.dms.outputs.GetEndpointResult;
+import com.pulumi.aws.dms.outputs.GetReplicationSubnetGroupResult;
+import com.pulumi.aws.dms.outputs.GetReplicationTaskResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -320,5 +326,309 @@ public final class DmsFunctions {
      */
     public static CompletableFuture<GetEndpointResult> getEndpointPlain(GetEndpointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:dms/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
+     *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test().replication_subnet_group_id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetReplicationSubnetGroupResult> getReplicationSubnetGroup(GetReplicationSubnetGroupArgs args) {
+        return getReplicationSubnetGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
+     *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test().replication_subnet_group_id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetReplicationSubnetGroupResult> getReplicationSubnetGroupPlain(GetReplicationSubnetGroupPlainArgs args) {
+        return getReplicationSubnetGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
+     *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test().replication_subnet_group_id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetReplicationSubnetGroupResult> getReplicationSubnetGroup(GetReplicationSubnetGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", TypeShape.of(GetReplicationSubnetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationSubnetGroup(GetReplicationSubnetGroupArgs.builder()
+     *             .replicationSubnetGroupId(aws_dms_replication_subnet_group.test().replication_subnet_group_id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetReplicationSubnetGroupResult> getReplicationSubnetGroupPlain(GetReplicationSubnetGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", TypeShape.of(GetReplicationSubnetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationTaskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
+     *             .replicationTaskId(aws_dms_replication_task.test().replication_task_id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetReplicationTaskResult> getReplicationTask(GetReplicationTaskArgs args) {
+        return getReplicationTask(args, InvokeOptions.Empty);
+    }
+    /**
+     * TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationTaskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
+     *             .replicationTaskId(aws_dms_replication_task.test().replication_task_id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetReplicationTaskResult> getReplicationTaskPlain(GetReplicationTaskPlainArgs args) {
+        return getReplicationTaskPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationTaskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
+     *             .replicationTaskId(aws_dms_replication_task.test().replication_task_id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetReplicationTaskResult> getReplicationTask(GetReplicationTaskArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:dms/getReplicationTask:getReplicationTask", TypeShape.of(GetReplicationTaskResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationTaskArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationTask(GetReplicationTaskArgs.builder()
+     *             .replicationTaskId(aws_dms_replication_task.test().replication_task_id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetReplicationTaskResult> getReplicationTaskPlain(GetReplicationTaskPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:dms/getReplicationTask:getReplicationTask", TypeShape.of(GetReplicationTaskResult.class), args, Utilities.withVersion(options));
     }
 }

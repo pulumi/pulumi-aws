@@ -10,10 +10,20 @@ export const getReplicationSet: typeof import("./getReplicationSet").getReplicat
 export const getReplicationSetOutput: typeof import("./getReplicationSet").getReplicationSetOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationSet","getReplicationSetOutput"], () => require("./getReplicationSet"));
 
+export { GetResponsePlanArgs, GetResponsePlanResult, GetResponsePlanOutputArgs } from "./getResponsePlan";
+export const getResponsePlan: typeof import("./getResponsePlan").getResponsePlan = null as any;
+export const getResponsePlanOutput: typeof import("./getResponsePlan").getResponsePlanOutput = null as any;
+utilities.lazyLoad(exports, ["getResponsePlan","getResponsePlanOutput"], () => require("./getResponsePlan"));
+
 export { ReplicationSetArgs, ReplicationSetState } from "./replicationSet";
 export type ReplicationSet = import("./replicationSet").ReplicationSet;
 export const ReplicationSet: typeof import("./replicationSet").ReplicationSet = null as any;
 utilities.lazyLoad(exports, ["ReplicationSet"], () => require("./replicationSet"));
+
+export { ResponsePlanArgs, ResponsePlanState } from "./responsePlan";
+export type ResponsePlan = import("./responsePlan").ResponsePlan;
+export const ResponsePlan: typeof import("./responsePlan").ResponsePlan = null as any;
+utilities.lazyLoad(exports, ["ResponsePlan"], () => require("./responsePlan"));
 
 
 const _module = {
@@ -22,9 +32,12 @@ const _module = {
         switch (type) {
             case "aws:ssmincidents/replicationSet:ReplicationSet":
                 return new ReplicationSet(name, <any>undefined, { urn })
+            case "aws:ssmincidents/responsePlan:ResponsePlan":
+                return new ResponsePlan(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "ssmincidents/replicationSet", _module)
+pulumi.runtime.registerResourceModule("aws", "ssmincidents/responsePlan", _module)

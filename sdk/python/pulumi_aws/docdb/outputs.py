@@ -38,8 +38,8 @@ class ClusterParameterGroupParameter(dict):
                  value: str,
                  apply_method: Optional[str] = None):
         """
-        :param str name: The name of the documentDB parameter.
-        :param str value: The value of the documentDB parameter.
+        :param str name: The name of the DocumentDB parameter.
+        :param str value: The value of the DocumentDB parameter.
         :param str apply_method: Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         """
         pulumi.set(__self__, "name", name)
@@ -51,7 +51,7 @@ class ClusterParameterGroupParameter(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the documentDB parameter.
+        The name of the DocumentDB parameter.
         """
         return pulumi.get(self, "name")
 
@@ -59,7 +59,7 @@ class ClusterParameterGroupParameter(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value of the documentDB parameter.
+        The value of the DocumentDB parameter.
         """
         return pulumi.get(self, "value")
 

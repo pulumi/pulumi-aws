@@ -206,6 +206,7 @@ const (
 	s3ControlMod                = "S3Control"                // S3 Control
 	s3OutpostsMod               = "S3Outposts"               // S3 Outposts
 	ssmMod                      = "Ssm"                      // System Manager
+	ssmContactsMod              = "SsmContacts"              // Systems Manager Incident Manager Contacts
 	ssmIncidentsMod             = "SsmIncidents"             // Systems Manager Incident Manager
 	secretsmanagerMod           = "SecretsManager"           // Secrets Manager
 	servicecatalogMod           = "ServiceCatalog"           // Service Catalog
@@ -1126,6 +1127,9 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_cloudwatch_event_connection":           {Tok: awsResource(cloudwatchMod, "EventConnection")},
 			"aws_cloudwatch_event_bus_policy":           {Tok: awsResource(cloudwatchMod, "EventBusPolicy")},
 			"aws_cloudwatch_log_data_protection_policy": {Tok: awsResource(cloudwatchMod, "LogDataProtectionPolicy")},
+			// https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-amazon-cloudwatch-internet-monitor/
+			"aws_internetmonitor_monitor": {Tok: awsResource(cloudwatchMod, "InternetMonitor")},
+
 			// CodeBuild
 			"aws_codebuild_project":           {Tok: awsResource(codebuildMod, "Project")},
 			"aws_codebuild_webhook":           {Tok: awsResource(codebuildMod, "Webhook")},
@@ -1220,17 +1224,18 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_connect_vocabulary":               {Tok: awsResource(connectMod, "Vocabulary")},
 
 			// Config
-			"aws_config_aggregate_authorization":       {Tok: awsResource(cfgMod, "AggregateAuthorization")},
-			"aws_config_config_rule":                   {Tok: awsResource(cfgMod, "Rule")},
-			"aws_config_configuration_aggregator":      {Tok: awsResource(cfgMod, "ConfigurationAggregator")},
-			"aws_config_configuration_recorder":        {Tok: awsResource(cfgMod, "Recorder")},
-			"aws_config_configuration_recorder_status": {Tok: awsResource(cfgMod, "RecorderStatus")},
-			"aws_config_delivery_channel":              {Tok: awsResource(cfgMod, "DeliveryChannel")},
-			"aws_config_organization_custom_rule":      {Tok: awsResource(cfgMod, "OrganizationCustomRule")},
-			"aws_config_organization_managed_rule":     {Tok: awsResource(cfgMod, "OrganizationManagedRule")},
-			"aws_config_remediation_configuration":     {Tok: awsResource(cfgMod, "RemediationConfiguration")},
-			"aws_config_conformance_pack":              {Tok: awsResource(cfgMod, "ConformancePack")},
-			"aws_config_organization_conformance_pack": {Tok: awsResource(cfgMod, "OrganizationConformancePack")},
+			"aws_config_aggregate_authorization":         {Tok: awsResource(cfgMod, "AggregateAuthorization")},
+			"aws_config_config_rule":                     {Tok: awsResource(cfgMod, "Rule")},
+			"aws_config_configuration_aggregator":        {Tok: awsResource(cfgMod, "ConfigurationAggregator")},
+			"aws_config_configuration_recorder":          {Tok: awsResource(cfgMod, "Recorder")},
+			"aws_config_configuration_recorder_status":   {Tok: awsResource(cfgMod, "RecorderStatus")},
+			"aws_config_delivery_channel":                {Tok: awsResource(cfgMod, "DeliveryChannel")},
+			"aws_config_organization_custom_rule":        {Tok: awsResource(cfgMod, "OrganizationCustomRule")},
+			"aws_config_organization_managed_rule":       {Tok: awsResource(cfgMod, "OrganizationManagedRule")},
+			"aws_config_remediation_configuration":       {Tok: awsResource(cfgMod, "RemediationConfiguration")},
+			"aws_config_conformance_pack":                {Tok: awsResource(cfgMod, "ConformancePack")},
+			"aws_config_organization_conformance_pack":   {Tok: awsResource(cfgMod, "OrganizationConformancePack")},
+			"aws_config_organization_custom_policy_rule": {Tok: awsResource(cfgMod, "OrganizationCustomPolicyRule")},
 
 			// Cost and Usage Report
 			"aws_cur_report_definition": {Tok: awsResource(curMod, "ReportDefinition")},
@@ -3355,6 +3360,13 @@ func Provider() *tfbridge.ProviderInfo {
 
 			// SSM Incidents
 			"aws_ssmincidents_replication_set": {Tok: awsResource(ssmIncidentsMod, "ReplicationSet")},
+			"aws_ssmincidents_response_plan":   {Tok: awsResource(ssmIncidentsMod, "ResponsePlan")},
+
+			// SSM Contacts
+			"aws_ssmcontacts_contact":         {Tok: awsResource(ssmContactsMod, "Contact")},
+			"aws_ssmcontacts_contact_channel": {Tok: awsResource(ssmContactsMod, "ContactChannel")},
+			"aws_ssmcontacts_plan":            {Tok: awsResource(ssmContactsMod, "Plan")},
+
 			// SimpleDB
 			"aws_simpledb_domain": {Tok: awsResource(simpledbMod, "Domain")},
 			// Simple Queuing Service (SQS)
@@ -3469,7 +3481,9 @@ func Provider() *tfbridge.ProviderInfo {
 			// Simple Workflow Service (SWF)
 			"aws_swf_domain": {Tok: awsResource(swfMod, "Domain")},
 			// Synthetics
-			"aws_synthetics_canary": {Tok: awsResource(syntheticsMod, "Canary")},
+			"aws_synthetics_canary":            {Tok: awsResource(syntheticsMod, "Canary")},
+			"aws_synthetics_group":             {Tok: awsResource(syntheticsMod, "Group")},
+			"aws_synthetics_group_association": {Tok: awsResource(syntheticsMod, "GroupAssociation")},
 			// Transcribe
 			"aws_transcribe_medical_vocabulary": {Tok: awsResource(transcribeMod, "MedicalVocabulary")},
 			"aws_transcribe_vocabulary":         {Tok: awsResource(transcribeMod, "Vocabulary")},
@@ -5796,6 +5810,8 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_api_gateway_domain_name": {Tok: awsDataSource(apigatewayMod, "getDomainName")},
 			"aws_api_gateway_export":      {Tok: awsDataSource(apigatewayMod, "getExport")},
 			"aws_api_gateway_sdk":         {Tok: awsDataSource(apigatewayMod, "getSdk")},
+			"aws_api_gateway_authorizer":  {Tok: awsDataSource(apigatewayMod, "getAuthorizer")},
+			"aws_api_gateway_authorizers": {Tok: awsDataSource(apigatewayMod, "getAuthorizers")},
 
 			// API Gateway v2
 			"aws_apigatewayv2_export": {Tok: awsDataSource(apigatewayv2Mod, "getExport")},
@@ -5858,8 +5874,10 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_datapipeline_pipeline_definition": {Tok: awsDataSource(datapipelineMod, "getPipelineDefinition")},
 
 			// Data Migration Service
-			"aws_dms_certificate": {Tok: awsDataSource(dmsMod, "getCertificate")},
-			"aws_dms_endpoint":    {Tok: awsDataSource(dmsMod, "getEndpoint")},
+			"aws_dms_certificate":              {Tok: awsDataSource(dmsMod, "getCertificate")},
+			"aws_dms_endpoint":                 {Tok: awsDataSource(dmsMod, "getEndpoint")},
+			"aws_dms_replication_subnet_group": {Tok: awsDataSource(dmsMod, "getReplicationSubnetGroup")},
+			"aws_dms_replication_task":         {Tok: awsDataSource(dmsMod, "getReplicationTask")},
 
 			// DynamoDB
 			"aws_dynamodb_table": {
@@ -6269,7 +6287,11 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_ssm_maintenance_windows": {Tok: awsDataSource(ssmMod, "getMaintenanceWindows")},
 			// SSM Incidents
 			"aws_ssmincidents_replication_set": {Tok: awsDataSource(ssmIncidentsMod, "getReplicationSet")},
-
+			"aws_ssmincidents_response_plan":   {Tok: awsDataSource(ssmIncidentsMod, "getResponsePlan")},
+			// SSM Contacts
+			"aws_ssmcontacts_contact":         {Tok: awsDataSource(ssmContactsMod, "getContact")},
+			"aws_ssmcontacts_contact_channel": {Tok: awsDataSource(ssmContactsMod, "getContactChannel")},
+			"aws_ssmcontacts_plan":            {Tok: awsDataSource(ssmContactsMod, "getPlan")},
 			// Storage Gateway
 			"aws_storagegateway_local_disk": {Tok: awsDataSource(storagegatewayMod, "getLocalDisk")},
 			// Transfer

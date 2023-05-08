@@ -63,19 +63,19 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the documentDB cluster parameter group.
+     * The ARN of the DocumentDB cluster parameter group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
+     * The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The family of the documentDB cluster parameter group.
+     * The family of the DocumentDB cluster parameter group.
      */
     public readonly family!: pulumi.Output<string>;
     /**
-     * The name of the documentDB parameter.
+     * The name of the DocumentDB parameter.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -83,7 +83,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
-     * A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+     * A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      */
     public readonly parameters!: pulumi.Output<outputs.docdb.ClusterParameterGroupParameter[] | undefined>;
     /**
@@ -140,19 +140,19 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
  */
 export interface ClusterParameterGroupState {
     /**
-     * The ARN of the documentDB cluster parameter group.
+     * The ARN of the DocumentDB cluster parameter group.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
+     * The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
      */
     description?: pulumi.Input<string>;
     /**
-     * The family of the documentDB cluster parameter group.
+     * The family of the DocumentDB cluster parameter group.
      */
     family?: pulumi.Input<string>;
     /**
-     * The name of the documentDB parameter.
+     * The name of the DocumentDB parameter.
      */
     name?: pulumi.Input<string>;
     /**
@@ -160,7 +160,7 @@ export interface ClusterParameterGroupState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+     * A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.docdb.ClusterParameterGroupParameter>[]>;
     /**
@@ -178,15 +178,15 @@ export interface ClusterParameterGroupState {
  */
 export interface ClusterParameterGroupArgs {
     /**
-     * The description of the documentDB cluster parameter group. Defaults to "Managed by Pulumi".
+     * The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
      */
     description?: pulumi.Input<string>;
     /**
-     * The family of the documentDB cluster parameter group.
+     * The family of the DocumentDB cluster parameter group.
      */
     family: pulumi.Input<string>;
     /**
-     * The name of the documentDB parameter.
+     * The name of the DocumentDB parameter.
      */
     name?: pulumi.Input<string>;
     /**
@@ -194,7 +194,7 @@ export interface ClusterParameterGroupArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * A list of documentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
+     * A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.docdb.ClusterParameterGroupParameter>[]>;
     /**

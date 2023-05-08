@@ -4,6 +4,7 @@
 package com.pulumi.aws.imagebuilder.inputs;
 
 import com.pulumi.aws.imagebuilder.inputs.ImageOutputResourceAmiArgs;
+import com.pulumi.aws.imagebuilder.inputs.ImageOutputResourceContainerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
@@ -31,10 +32,26 @@ public final class ImageOutputResourceArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.amis);
     }
 
+    /**
+     * Set of objects with each container image created and stored in the output repository.
+     * 
+     */
+    @Import(name="containers")
+    private @Nullable Output<List<ImageOutputResourceContainerArgs>> containers;
+
+    /**
+     * @return Set of objects with each container image created and stored in the output repository.
+     * 
+     */
+    public Optional<Output<List<ImageOutputResourceContainerArgs>>> containers() {
+        return Optional.ofNullable(this.containers);
+    }
+
     private ImageOutputResourceArgs() {}
 
     private ImageOutputResourceArgs(ImageOutputResourceArgs $) {
         this.amis = $.amis;
+        this.containers = $.containers;
     }
 
     public static Builder builder() {
@@ -84,6 +101,37 @@ public final class ImageOutputResourceArgs extends com.pulumi.resources.Resource
          */
         public Builder amis(ImageOutputResourceAmiArgs... amis) {
             return amis(List.of(amis));
+        }
+
+        /**
+         * @param containers Set of objects with each container image created and stored in the output repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containers(@Nullable Output<List<ImageOutputResourceContainerArgs>> containers) {
+            $.containers = containers;
+            return this;
+        }
+
+        /**
+         * @param containers Set of objects with each container image created and stored in the output repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containers(List<ImageOutputResourceContainerArgs> containers) {
+            return containers(Output.of(containers));
+        }
+
+        /**
+         * @param containers Set of objects with each container image created and stored in the output repository.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containers(ImageOutputResourceContainerArgs... containers) {
+            return containers(List.of(containers));
         }
 
         public ImageOutputResourceArgs build() {
