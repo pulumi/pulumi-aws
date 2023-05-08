@@ -21,5 +21,5 @@ import (
 
 func main() {
 	info := aws.Provider()
-	pftfgen.MainWithMuxer(*info)
+	pftfgen.MainWithMuxer("aws", *info)
 }
