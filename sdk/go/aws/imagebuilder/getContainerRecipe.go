@@ -13,6 +13,7 @@ import (
 // Provides details about an Image builder Container Recipe.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

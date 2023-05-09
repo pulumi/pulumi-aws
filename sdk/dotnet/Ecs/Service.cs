@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ecs
     /// See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,6 +70,7 @@ namespace Pulumi.Aws.Ecs
     /// ### Ignoring Changes to Desired Count
     /// 
     /// You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -86,6 +88,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// ### Daemon Scheduling Strategy
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -104,6 +107,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// ### CloudWatch Deployment Alarms
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -129,6 +133,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// ### External Deployment Controller
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

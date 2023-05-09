@@ -526,6 +526,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
         A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -575,6 +576,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
         A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

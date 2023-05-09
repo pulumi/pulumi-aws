@@ -14,6 +14,7 @@ import (
 // Provides an IAM SAML provider.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

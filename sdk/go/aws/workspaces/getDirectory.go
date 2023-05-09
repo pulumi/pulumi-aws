@@ -13,6 +13,7 @@ import (
 // Retrieve information about an AWS WorkSpaces directory.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

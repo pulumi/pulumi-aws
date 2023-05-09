@@ -71,6 +71,7 @@ def get_authorizers(rest_api_id: Optional[str] = None,
     Provides details about multiple API Gateway Authorizers.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -99,6 +100,7 @@ def get_authorizers_output(rest_api_id: Optional[pulumi.Input[str]] = None,
     Provides details about multiple API Gateway Authorizers.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

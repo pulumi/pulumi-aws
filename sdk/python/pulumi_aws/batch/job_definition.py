@@ -408,6 +408,7 @@ class JobDefinition(pulumi.CustomResource):
         Provides a Batch Job Definition resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -454,6 +455,7 @@ class JobDefinition(pulumi.CustomResource):
             }))
         ```
         ### Fargate Platform Capability
+
         ```python
         import pulumi
         import json
@@ -530,6 +532,7 @@ class JobDefinition(pulumi.CustomResource):
         Provides a Batch Job Definition resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -576,6 +579,7 @@ class JobDefinition(pulumi.CustomResource):
             }))
         ```
         ### Fargate Platform Capability
+
         ```python
         import pulumi
         import json

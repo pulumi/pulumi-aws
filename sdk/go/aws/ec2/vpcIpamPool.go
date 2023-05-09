@@ -16,6 +16,7 @@ import (
 // ## Example Usage
 //
 // Basic usage:
+//
 // ```go
 // package main
 //
@@ -58,6 +59,7 @@ import (
 // ```
 //
 // Nested Pools:
+//
 // ```go
 // package main
 //

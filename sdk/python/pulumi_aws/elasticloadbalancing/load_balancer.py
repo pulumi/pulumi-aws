@@ -730,6 +730,7 @@ class LoadBalancer(pulumi.CustomResource):
         conflict and will overwrite attachments.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -837,6 +838,7 @@ class LoadBalancer(pulumi.CustomResource):
         conflict and will overwrite attachments.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

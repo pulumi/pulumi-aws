@@ -14,6 +14,7 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -27,6 +28,7 @@ namespace Pulumi.Aws.IvsChat
     /// });
     /// ```
     /// ## Usage with Logging Configuration to S3 Bucket
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

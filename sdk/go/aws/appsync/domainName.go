@@ -14,6 +14,7 @@ import (
 // Provides an AppSync Domain Name.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,6 +48,7 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Add analytics configuration with S3 object filter
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

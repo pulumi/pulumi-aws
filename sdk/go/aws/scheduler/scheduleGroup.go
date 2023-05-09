@@ -17,6 +17,7 @@ import (
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

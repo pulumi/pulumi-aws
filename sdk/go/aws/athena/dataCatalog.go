@@ -18,6 +18,7 @@ import (
 // > **Tip:** for a more detailed explanation on the usage of `parameters`, see the [DataCatalog API documentation](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html)
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -49,6 +50,7 @@ import (
 //
 // ```
 // ### Hive based Data Catalog
+//
 // ```go
 // package main
 //
@@ -77,6 +79,7 @@ import (
 //
 // ```
 // ### Glue based Data Catalog
+//
 // ```go
 // package main
 //
@@ -105,6 +108,7 @@ import (
 //
 // ```
 // ### Lambda based Data Catalog
+//
 // ```go
 // package main
 //

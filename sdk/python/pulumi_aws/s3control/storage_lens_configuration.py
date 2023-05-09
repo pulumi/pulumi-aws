@@ -218,6 +218,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
         Provides a resource to manage an S3 Storage Lens configuration.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,6 +288,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
         Provides a resource to manage an S3 Storage Lens configuration.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

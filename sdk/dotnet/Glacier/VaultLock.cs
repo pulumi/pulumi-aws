@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// ## Example Usage
     /// ### Testing Glacier Vault Lock Policy
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,6 +70,7 @@ namespace Pulumi.Aws.Glacier
     /// });
     /// ```
     /// ### Permanently Applying Glacier Vault Lock Policy
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

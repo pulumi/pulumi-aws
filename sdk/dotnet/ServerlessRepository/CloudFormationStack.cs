@@ -13,6 +13,7 @@ namespace Pulumi.Aws.ServerlessRepository
     /// Deploys an Application CloudFormation Stack from the Serverless Application Repository.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

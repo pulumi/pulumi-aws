@@ -17,6 +17,52 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Id": "testBucketPolicy",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": "s3-outposts:PutBucketLifecycleConfiguration",
+//						"Effect": "Deny",
+//						"Principal": map[string]interface{}{
+//							"AWS": "*",
+//						},
+//						"Resource": aws_s3control_bucket.Example.Arn,
+//						"Sid":      "statement1",
+//					},
+//				},
+//				"Version": "2012-10-17",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = s3control.NewBucketPolicy(ctx, "example", &s3control.BucketPolicyArgs{
+//				Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
+//				Policy: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // S3 Control Bucket Policies can be imported using the Amazon Resource Name (ARN), e.g.,

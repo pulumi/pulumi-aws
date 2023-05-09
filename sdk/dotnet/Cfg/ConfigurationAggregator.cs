@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Example Usage
     /// ### Account Based Aggregation
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,6 +41,7 @@ namespace Pulumi.Aws.Cfg
     /// });
     /// ```
     /// ### Organization Based Aggregation
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

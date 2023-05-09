@@ -22,6 +22,53 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/docdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := docdb.NewCluster(ctx, "default", &docdb.ClusterArgs{
+//				ClusterIdentifier: pulumi.String("docdb-cluster-demo"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-west-2a"),
+//					pulumi.String("us-west-2b"),
+//					pulumi.String("us-west-2c"),
+//				},
+//				MasterUsername: pulumi.String("foo"),
+//				MasterPassword: pulumi.String("barbut8chars"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			var clusterInstances []*docdb.ClusterInstance
+//			for index := 0; index < 2; index++ {
+//				key0 := index
+//				val0 := index
+//				__res, err := docdb.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &docdb.ClusterInstanceArgs{
+//					Identifier:        pulumi.String(fmt.Sprintf("docdb-cluster-demo-%v", val0)),
+//					ClusterIdentifier: _default.ID(),
+//					InstanceClass:     pulumi.String("db.r5.large"),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				clusterInstances = append(clusterInstances, __res)
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // DocumentDB Cluster Instances can be imported using the `identifier`, e.g.,

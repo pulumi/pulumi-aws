@@ -20,6 +20,41 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			lbTgArn := ""
+//			if param := cfg.Get("lbTgArn"); param != "" {
+//				lbTgArn = param
+//			}
+//			lbTgName := ""
+//			if param := cfg.Get("lbTgName"); param != "" {
+//				lbTgName = param
+//			}
+//			_, err := lb.LookupTargetGroup(ctx, &lb.LookupTargetGroupArgs{
+//				Arn:  pulumi.StringRef(lbTgArn),
+//				Name: pulumi.StringRef(lbTgName),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // Deprecated: aws.elasticloadbalancingv2.getTargetGroup has been deprecated in favor of aws.lb.getTargetGroup
 func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupTargetGroupResult, error) {
 	var rv LookupTargetGroupResult

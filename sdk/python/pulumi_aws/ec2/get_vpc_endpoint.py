@@ -274,6 +274,7 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
     a specific VPC endpoint.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -341,6 +342,7 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     a specific VPC endpoint.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

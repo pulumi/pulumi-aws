@@ -14,6 +14,7 @@ import (
 // Provides a Pinpoint Baidu Channel resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

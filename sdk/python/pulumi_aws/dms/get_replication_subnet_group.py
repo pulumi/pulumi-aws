@@ -124,6 +124,7 @@ def get_replication_subnet_group(replication_subnet_group_id: Optional[str] = No
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -160,6 +161,7 @@ def get_replication_subnet_group_output(replication_subnet_group_id: Optional[pu
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

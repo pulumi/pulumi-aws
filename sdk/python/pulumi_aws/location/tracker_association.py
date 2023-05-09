@@ -101,6 +101,7 @@ class TrackerAssociation(pulumi.CustomResource):
         Resource for managing an AWS Location Tracker Association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -135,6 +136,7 @@ class TrackerAssociation(pulumi.CustomResource):
         Resource for managing an AWS Location Tracker Association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

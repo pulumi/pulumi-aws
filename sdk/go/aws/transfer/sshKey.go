@@ -14,6 +14,7 @@ import (
 // Provides a AWS Transfer User SSH Key resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

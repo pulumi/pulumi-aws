@@ -14,6 +14,7 @@ import (
 // Provides an IAM Service Specific Credential.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

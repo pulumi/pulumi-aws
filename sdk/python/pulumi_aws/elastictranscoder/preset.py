@@ -376,6 +376,7 @@ class Preset(pulumi.CustomResource):
         Provides an Elastic Transcoder preset resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -465,6 +466,7 @@ class Preset(pulumi.CustomResource):
         Provides an Elastic Transcoder preset resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

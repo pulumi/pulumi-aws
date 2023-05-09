@@ -167,6 +167,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
         If you specify a link, it must be associated with the specified device.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,6 +224,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
         If you specify a link, it must be associated with the specified device.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

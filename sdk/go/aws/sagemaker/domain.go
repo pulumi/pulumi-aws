@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Basic usage
+//
 // ```go
 // package main
 //
@@ -75,6 +76,7 @@ import (
 //
 // ```
 // ### Using Custom Images
+//
 // ```go
 // package main
 //

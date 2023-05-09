@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Chime
     /// It also sets the retention period, in hours, for the Amazon Kinesis data.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,6 +42,7 @@ namespace Pulumi.Aws.Chime
     /// });
     /// ```
     /// ### Example Usage With Media Insights
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

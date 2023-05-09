@@ -252,6 +252,7 @@ class FunctionUrl(pulumi.CustomResource):
         See the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) for more information.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,6 +308,7 @@ class FunctionUrl(pulumi.CustomResource):
         See the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) for more information.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -11,8 +11,6 @@ import (
 )
 
 // This resource can be useful for getting back a set of security group rule IDs.
-//
-// ## Example Usage
 func GetSecurityGroupRules(ctx *pulumi.Context, args *GetSecurityGroupRulesArgs, opts ...pulumi.InvokeOption) (*GetSecurityGroupRulesResult, error) {
 	var rv GetSecurityGroupRulesResult
 	err := ctx.Invoke("aws:vpc/getSecurityGroupRules:getSecurityGroupRules", args, &rv, opts...)

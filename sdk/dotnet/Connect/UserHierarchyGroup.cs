@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Example Usage
     /// ### Basic
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,6 +38,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### With a parent group
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

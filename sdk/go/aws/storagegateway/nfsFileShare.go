@@ -14,6 +14,7 @@ import (
 // Manages an AWS Storage Gateway NFS File Share.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

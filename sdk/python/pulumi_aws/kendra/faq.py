@@ -430,6 +430,7 @@ class Faq(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -446,6 +447,7 @@ class Faq(pulumi.CustomResource):
             })
         ```
         ### With File Format
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -460,6 +462,7 @@ class Faq(pulumi.CustomResource):
             ))
         ```
         ### With Language Code
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -505,6 +508,7 @@ class Faq(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -521,6 +525,7 @@ class Faq(pulumi.CustomResource):
             })
         ```
         ### With File Format
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -535,6 +540,7 @@ class Faq(pulumi.CustomResource):
             ))
         ```
         ### With Language Code
+
         ```python
         import pulumi
         import pulumi_aws as aws

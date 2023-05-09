@@ -413,6 +413,7 @@ class Permission(pulumi.CustomResource):
         Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -446,6 +447,7 @@ class Permission(pulumi.CustomResource):
             qualifier=test_alias.name)
         ```
         ## Usage with SNS
+
         ```python
         import pulumi
         import json
@@ -480,6 +482,7 @@ class Permission(pulumi.CustomResource):
         ```
 
         ## Specify Lambda permissions for API Gateway REST API
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -493,6 +496,7 @@ class Permission(pulumi.CustomResource):
         ```
 
         ## Usage with CloudWatch log group
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -525,6 +529,7 @@ class Permission(pulumi.CustomResource):
         ```
 
         ## Example function URL cross-account invoke policy
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -580,6 +585,7 @@ class Permission(pulumi.CustomResource):
         Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -613,6 +619,7 @@ class Permission(pulumi.CustomResource):
             qualifier=test_alias.name)
         ```
         ## Usage with SNS
+
         ```python
         import pulumi
         import json
@@ -647,6 +654,7 @@ class Permission(pulumi.CustomResource):
         ```
 
         ## Specify Lambda permissions for API Gateway REST API
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -660,6 +668,7 @@ class Permission(pulumi.CustomResource):
         ```
 
         ## Usage with CloudWatch log group
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -692,6 +701,7 @@ class Permission(pulumi.CustomResource):
         ```
 
         ## Example function URL cross-account invoke policy
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -15,6 +15,7 @@ namespace Pulumi.Aws.NetworkManager
     /// You cannot register a transit gateway in more than one global network.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// ## Example Usage
     /// ### Cloud Watch Destination
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,6 +57,7 @@ namespace Pulumi.Aws.SesV2
     /// });
     /// ```
     /// ### Kinesis Firehose Destination
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -91,6 +93,7 @@ namespace Pulumi.Aws.SesV2
     /// });
     /// ```
     /// ### Pinpoint Destination
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -125,6 +128,7 @@ namespace Pulumi.Aws.SesV2
     /// });
     /// ```
     /// ### SNS Destination
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Pinpoint
     /// Provides a Pinpoint Email Channel resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

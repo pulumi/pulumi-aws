@@ -214,6 +214,7 @@ def get_dedicated_host(filters: Optional[Sequence[pulumi.InputType['GetDedicated
 
     ## Example Usage
     ### Filter Example
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -263,6 +264,7 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
     ## Example Usage
     ### Filter Example
+
     ```python
     import pulumi
     import pulumi_aws as aws

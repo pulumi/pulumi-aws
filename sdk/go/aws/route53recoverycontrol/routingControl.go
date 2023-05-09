@@ -14,6 +14,7 @@ import (
 // Provides an AWS Route 53 Recovery Control Config Routing Control.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -37,6 +38,7 @@ import (
 //	}
 //
 // ```
+//
 // ```go
 // package main
 //

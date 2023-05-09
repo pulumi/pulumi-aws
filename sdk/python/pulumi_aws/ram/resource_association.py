@@ -103,6 +103,7 @@ class ResourceAssociation(pulumi.CustomResource):
         > *NOTE:* Certain AWS resources (e.g., EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -137,6 +138,7 @@ class ResourceAssociation(pulumi.CustomResource):
         > *NOTE:* Certain AWS resources (e.g., EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

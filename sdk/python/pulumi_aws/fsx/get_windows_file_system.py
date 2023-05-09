@@ -329,6 +329,7 @@ def get_windows_file_system(id: Optional[str] = None,
 
     ## Example Usage
     ### Root volume Example
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -383,6 +384,7 @@ def get_windows_file_system_output(id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Root volume Example
+
     ```python
     import pulumi
     import pulumi_aws as aws

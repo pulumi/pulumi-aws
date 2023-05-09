@@ -20,6 +20,7 @@ namespace Pulumi.Aws.CloudFront
     /// ## Example Usage
     /// 
     /// The following example below creates a CloudFront origin access identity.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,6 +43,7 @@ namespace Pulumi.Aws.CloudFront
     /// The `cloudfront_access_identity_path` allows this to be circumvented.
     /// The below snippet demonstrates use with the `s3_origin_config` structure for the
     /// `aws.cloudfront.Distribution` resource:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,6 +76,7 @@ namespace Pulumi.Aws.CloudFront
     /// principal into an `AWS` IAM ARN principal when supplied in an
     /// `aws.s3.BucketV2` bucket policy, causing spurious diffs. If
     /// you see this behaviour, use the `iam_arn` instead:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

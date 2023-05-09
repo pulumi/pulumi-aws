@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -42,6 +43,7 @@ import (
 // ### Using a Self-Managed Microsoft Active Directory
 //
 // Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
+//
 // ```go
 // package main
 //

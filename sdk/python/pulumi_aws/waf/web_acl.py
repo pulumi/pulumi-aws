@@ -286,6 +286,7 @@ class WebAcl(pulumi.CustomResource):
         ## Example Usage
 
         This example blocks requests coming from `192.0.7.0/24` and allows everything else.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,6 +324,7 @@ class WebAcl(pulumi.CustomResource):
         ### Logging
 
         > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -373,6 +375,7 @@ class WebAcl(pulumi.CustomResource):
         ## Example Usage
 
         This example blocks requests coming from `192.0.7.0/24` and allows everything else.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -410,6 +413,7 @@ class WebAcl(pulumi.CustomResource):
         ### Logging
 
         > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
+
         ```python
         import pulumi
         import pulumi_aws as aws

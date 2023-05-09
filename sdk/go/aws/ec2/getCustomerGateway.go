@@ -13,6 +13,7 @@ import (
 // Get an existing AWS Customer Gateway.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

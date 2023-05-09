@@ -13,6 +13,7 @@ import (
 // Provides an API Gateway Client Certificate.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

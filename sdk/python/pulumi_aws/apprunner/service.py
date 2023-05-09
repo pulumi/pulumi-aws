@@ -432,6 +432,7 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
         ### Service with a Code Repository Source
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -470,6 +471,7 @@ class Service(pulumi.CustomResource):
             })
         ```
         ### Service with an Image Repository Source
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -491,6 +493,7 @@ class Service(pulumi.CustomResource):
             })
         ```
         ### Service with Observability Configuration
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -553,6 +556,7 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
         ### Service with a Code Repository Source
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -591,6 +595,7 @@ class Service(pulumi.CustomResource):
             })
         ```
         ### Service with an Image Repository Source
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -612,6 +617,7 @@ class Service(pulumi.CustomResource):
             })
         ```
         ### Service with Observability Configuration
+
         ```python
         import pulumi
         import pulumi_aws as aws

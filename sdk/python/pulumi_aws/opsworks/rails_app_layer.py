@@ -988,6 +988,7 @@ class RailsAppLayer(pulumi.CustomResource):
         Provides an OpsWorks Ruby on Rails application layer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1031,6 +1032,7 @@ class RailsAppLayer(pulumi.CustomResource):
         Provides an OpsWorks Ruby on Rails application layer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

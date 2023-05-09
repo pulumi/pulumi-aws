@@ -13,6 +13,7 @@ namespace Pulumi.Aws.RedShift
     /// Creates a new Amazon Redshift Usage Limit.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

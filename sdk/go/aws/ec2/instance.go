@@ -13,6 +13,157 @@ import (
 // Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
 //
 // ## Example Usage
+// ### Basic example using AMI lookup
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Filters: []ec2.GetAmiFilter{
+//					{
+//						Name: "name",
+//						Values: []string{
+//							"ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
+//						},
+//					},
+//					{
+//						Name: "virtualization-type",
+//						Values: []string{
+//							"hvm",
+//						},
+//					},
+//				},
+//				Owners: []string{
+//					"099720109477",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
+//				Ami:          *pulumi.String(ubuntu.Id),
+//				InstanceType: pulumi.String("t3.micro"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("HelloWorld"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Network and credit specification example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			myVpc, err := ec2.NewVpc(ctx, "myVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("172.16.0.0/16"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("tf-example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mySubnet, err := ec2.NewSubnet(ctx, "mySubnet", &ec2.SubnetArgs{
+//				VpcId:            myVpc.ID(),
+//				CidrBlock:        pulumi.String("172.16.10.0/24"),
+//				AvailabilityZone: pulumi.String("us-west-2a"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("tf-example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fooNetworkInterface, err := ec2.NewNetworkInterface(ctx, "fooNetworkInterface", &ec2.NetworkInterfaceArgs{
+//				SubnetId: mySubnet.ID(),
+//				PrivateIps: pulumi.StringArray{
+//					pulumi.String("172.16.10.100"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("primary_network_interface"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewInstance(ctx, "fooInstance", &ec2.InstanceArgs{
+//				Ami:          pulumi.String("ami-005e54dee72cc1d00"),
+//				InstanceType: pulumi.String("t2.micro"),
+//				NetworkInterfaces: ec2.InstanceNetworkInterfaceArray{
+//					&ec2.InstanceNetworkInterfaceArgs{
+//						NetworkInterfaceId: fooNetworkInterface.ID(),
+//						DeviceIndex:        pulumi.Int(0),
+//					},
+//				},
+//				CreditSpecification: &ec2.InstanceCreditSpecificationArgs{
+//					CpuCredits: pulumi.String("unlimited"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Host resource group or Licence Manager registered AMI example
+//
+// A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
+//
+// > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `hostResourceGroupArn` argument to explicitly associate the instance with the host resource group.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewInstance(ctx, "this", &ec2.InstanceArgs{
+//				Ami:                  pulumi.String("ami-0dcc1e21636832c5d"),
+//				HostResourceGroupArn: pulumi.String("arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost"),
+//				InstanceType:         pulumi.String("m5.large"),
+//				Tenancy:              pulumi.String("host"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

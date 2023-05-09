@@ -13,6 +13,7 @@ namespace Pulumi.Aws.ResourceExplorer
     /// Provides a resource to manage a Resource Explorer index in the current AWS Region.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

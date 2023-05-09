@@ -282,6 +282,7 @@ class Segment(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,6 +294,7 @@ class Segment(pulumi.CustomResource):
             })
         ```
         ### With JSON object in pattern
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -312,6 +314,7 @@ class Segment(pulumi.CustomResource):
             })
         ```
         ### With Description
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -348,6 +351,7 @@ class Segment(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,6 +363,7 @@ class Segment(pulumi.CustomResource):
             })
         ```
         ### With JSON object in pattern
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -378,6 +383,7 @@ class Segment(pulumi.CustomResource):
             })
         ```
         ### With Description
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Glue
     /// See the example below for creating a graph with four nodes (two triggers and two jobs).
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

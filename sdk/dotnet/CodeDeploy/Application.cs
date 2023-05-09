@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// ## Example Usage
     /// ### ECS Application
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,6 +31,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// });
     /// ```
     /// ### Lambda Application
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,6 +48,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// });
     /// ```
     /// ### Server Application
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

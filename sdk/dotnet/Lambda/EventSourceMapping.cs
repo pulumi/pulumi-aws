@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Example Usage
     /// ### DynamoDB
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,6 +36,7 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Kinesis
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,6 +55,7 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Managed Streaming for Apache Kafka (MSK)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,6 +78,7 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Self Managed Apache Kafka
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,6 +125,7 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### SQS
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -138,6 +143,7 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### SQS with event filter
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -188,6 +194,7 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Amazon MQ (ActiveMQ)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -219,6 +226,7 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Amazon MQ (RabbitMQ)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -14,6 +14,7 @@ import (
 // Manages a Route53 Traffic Policy.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

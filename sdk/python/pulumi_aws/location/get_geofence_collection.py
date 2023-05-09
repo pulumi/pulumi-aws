@@ -134,6 +134,7 @@ def get_geofence_collection(collection_name: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -174,6 +175,7 @@ def get_geofence_collection_output(collection_name: Optional[pulumi.Input[str]] 
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

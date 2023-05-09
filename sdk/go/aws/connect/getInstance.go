@@ -13,6 +13,58 @@ import (
 // Provides details about a specific Amazon Connect Instance.
 //
 // ## Example Usage
+//
+// # By instanceAlias
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.LookupInstance(ctx, &connect.LookupInstanceArgs{
+//				InstanceAlias: pulumi.StringRef("foo"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # By instanceId
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.LookupInstance(ctx, &connect.LookupInstanceArgs{
+//				InstanceId: pulumi.StringRef("97afc98d-101a-ba98-ab97-ae114fc115ec"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupInstanceResult, error) {
 	var rv LookupInstanceResult
 	err := ctx.Invoke("aws:connect/getInstance:getInstance", args, &rv, opts...)

@@ -224,6 +224,7 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
         Provides a Route 53 Resolver query logging configuration resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -261,6 +262,7 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
         Provides a Route 53 Resolver query logging configuration resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

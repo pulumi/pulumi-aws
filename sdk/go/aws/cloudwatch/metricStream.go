@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Filters
+//
 // ```go
 // package main
 //
@@ -182,6 +183,7 @@ import (
 //
 // ```
 // ### Additional Statistics
+//
 // ```go
 // package main
 //

@@ -27,7 +27,8 @@ import (
 //
 // ## Example Usage
 //
-// Basic usage
+// # Basic usage
+//
 // ```go
 // package main
 //

@@ -14,6 +14,7 @@ import (
 // Provides an HTTP Method Integration for an API Gateway Integration.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -75,6 +76,7 @@ import (
 //
 // ```
 // ## Lambda integration
+//
 // ```go
 // package main
 //
@@ -182,8 +184,6 @@ import (
 //	}
 //
 // ```
-//
-// ## VPC Link
 //
 // ## Import
 //

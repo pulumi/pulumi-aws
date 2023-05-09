@@ -13,6 +13,7 @@ import (
 // Provides a CloudFront real-time log configuration resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

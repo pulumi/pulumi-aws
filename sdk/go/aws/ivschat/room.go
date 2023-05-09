@@ -14,6 +14,7 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -36,6 +37,7 @@ import (
 //
 // ```
 // ## Usage with Logging Configuration to S3 Bucket
+//
 // ```go
 // package main
 //

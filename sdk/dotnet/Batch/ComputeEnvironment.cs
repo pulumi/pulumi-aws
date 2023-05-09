@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ## Example Usage
     /// ### EC2 Type
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -170,6 +171,7 @@ namespace Pulumi.Aws.Batch
     /// });
     /// ```
     /// ### Fargate Type
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

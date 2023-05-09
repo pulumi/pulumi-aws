@@ -408,6 +408,7 @@ class Method(pulumi.CustomResource):
         Provides a HTTP Method for an API Gateway Resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -424,6 +425,7 @@ class Method(pulumi.CustomResource):
             authorization="NONE")
         ```
         ## Usage with Cognito User Pool Authorizer
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -486,6 +488,7 @@ class Method(pulumi.CustomResource):
         Provides a HTTP Method for an API Gateway Resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -502,6 +505,7 @@ class Method(pulumi.CustomResource):
             authorization="NONE")
         ```
         ## Usage with Cognito User Pool Authorizer
+
         ```python
         import pulumi
         import pulumi_aws as aws

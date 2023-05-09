@@ -19,6 +19,7 @@ namespace Pulumi.Aws.AutoScaling
     /// (policy-based) scaling.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,6 +53,7 @@ namespace Pulumi.Aws.AutoScaling
     /// });
     /// ```
     /// ### Create target tarcking scaling policy using metric math
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -132,6 +134,7 @@ namespace Pulumi.Aws.AutoScaling
     /// });
     /// ```
     /// ### Create predictive scaling policy using customized metrics
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -201,6 +204,7 @@ namespace Pulumi.Aws.AutoScaling
     /// });
     /// ```
     /// ### Create predictive scaling policy using customized scaling and predefined load metric
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

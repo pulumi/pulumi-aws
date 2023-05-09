@@ -13,6 +13,7 @@ import (
 // Provides details about a Lake Formation resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

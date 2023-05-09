@@ -13,6 +13,7 @@ namespace Pulumi.Aws.SimpleDB
     /// Provides a SimpleDB domain resource
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

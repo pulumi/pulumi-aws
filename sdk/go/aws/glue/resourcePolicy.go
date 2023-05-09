@@ -14,6 +14,7 @@ import (
 // Provides a Glue resource policy. Only one can exist per region.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

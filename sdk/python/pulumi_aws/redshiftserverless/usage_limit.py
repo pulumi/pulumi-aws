@@ -215,6 +215,7 @@ class UsageLimit(pulumi.CustomResource):
         Creates a new Amazon Redshift Serverless Usage Limit.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,6 +255,7 @@ class UsageLimit(pulumi.CustomResource):
         Creates a new Amazon Redshift Serverless Usage Limit.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

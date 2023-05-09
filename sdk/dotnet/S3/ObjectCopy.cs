@@ -13,6 +13,7 @@ namespace Pulumi.Aws.S3
     /// Provides a resource for copying an S3 object.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

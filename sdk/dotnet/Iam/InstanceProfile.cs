@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Iam
     /// Provides an IAM instance profile.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

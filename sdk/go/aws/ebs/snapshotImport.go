@@ -14,6 +14,7 @@ import (
 // Imports a disk image from S3 as a Snapshot.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

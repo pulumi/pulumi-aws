@@ -11,8 +11,6 @@ import (
 )
 
 // Get information on an EC2 Transit Gateway's attachment to a resource.
-//
-// ## Example Usage
 func GetAttachment(ctx *pulumi.Context, args *GetAttachmentArgs, opts ...pulumi.InvokeOption) (*GetAttachmentResult, error) {
 	var rv GetAttachmentResult
 	err := ctx.Invoke("aws:ec2transitgateway/getAttachment:getAttachment", args, &rv, opts...)

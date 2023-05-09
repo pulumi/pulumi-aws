@@ -13,6 +13,7 @@ import (
 // Use this data source to get information about a DB Proxy.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

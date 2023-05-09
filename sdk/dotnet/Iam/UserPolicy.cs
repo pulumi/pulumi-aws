@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Iam
     /// Provides an IAM policy attached to a user.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

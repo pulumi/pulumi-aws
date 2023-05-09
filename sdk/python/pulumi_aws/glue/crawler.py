@@ -731,6 +731,7 @@ class Crawler(pulumi.CustomResource):
 
         ## Example Usage
         ### DynamoDB Target Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -743,6 +744,7 @@ class Crawler(pulumi.CustomResource):
             )])
         ```
         ### JDBC Target Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -756,6 +758,7 @@ class Crawler(pulumi.CustomResource):
             )])
         ```
         ### S3 Target Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -768,6 +771,7 @@ class Crawler(pulumi.CustomResource):
             )])
         ```
         ### Catalog Target Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -791,6 +795,7 @@ class Crawler(pulumi.CustomResource):
         \"\"\")
         ```
         ### MongoDB Target Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -804,6 +809,7 @@ class Crawler(pulumi.CustomResource):
             )])
         ```
         ### Configuration Settings Example
+
         ```python
         import pulumi
         import json
@@ -871,6 +877,7 @@ class Crawler(pulumi.CustomResource):
 
         ## Example Usage
         ### DynamoDB Target Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -883,6 +890,7 @@ class Crawler(pulumi.CustomResource):
             )])
         ```
         ### JDBC Target Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -896,6 +904,7 @@ class Crawler(pulumi.CustomResource):
             )])
         ```
         ### S3 Target Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -908,6 +917,7 @@ class Crawler(pulumi.CustomResource):
             )])
         ```
         ### Catalog Target Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -931,6 +941,7 @@ class Crawler(pulumi.CustomResource):
         \"\"\")
         ```
         ### MongoDB Target Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -944,6 +955,7 @@ class Crawler(pulumi.CustomResource):
             )])
         ```
         ### Configuration Settings Example
+
         ```python
         import pulumi
         import json

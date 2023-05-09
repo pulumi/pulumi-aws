@@ -107,6 +107,7 @@ def get_router_configuration(router_type_identifier: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -143,6 +144,7 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

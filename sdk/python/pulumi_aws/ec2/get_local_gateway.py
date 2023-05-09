@@ -108,6 +108,7 @@ def get_local_gateway(filters: Optional[Sequence[pulumi.InputType['GetLocalGatew
     ## Example Usage
 
     The following example shows how one might accept a local gateway id as a variable.
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -154,6 +155,7 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
     ## Example Usage
 
     The following example shows how one might accept a local gateway id as a variable.
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -536,6 +536,7 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -560,6 +561,7 @@ class Domain(pulumi.CustomResource):
             ))
         ```
         ### Using Custom Images
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -627,6 +629,7 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -651,6 +654,7 @@ class Domain(pulumi.CustomResource):
             ))
         ```
         ### Using Custom Images
+
         ```python
         import pulumi
         import pulumi_aws as aws

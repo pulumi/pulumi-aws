@@ -14,6 +14,7 @@ import (
 // Provides a Internet Monitor Monitor resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

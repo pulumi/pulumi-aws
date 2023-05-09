@@ -137,6 +137,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Example
+
         ```python
         import pulumi
         import json
@@ -195,6 +196,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Example
+
         ```python
         import pulumi
         import json

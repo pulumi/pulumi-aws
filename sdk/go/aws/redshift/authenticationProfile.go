@@ -14,6 +14,7 @@ import (
 // Creates a Redshift authentication profile
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

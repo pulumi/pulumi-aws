@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
- *
- * ## Example Usage
  */
 export class DomainPolicy extends pulumi.CustomResource {
     /**

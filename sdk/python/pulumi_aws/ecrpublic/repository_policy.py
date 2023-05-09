@@ -121,6 +121,7 @@ class RepositoryPolicy(pulumi.CustomResource):
         > **NOTE:** This resource can only be used in the `us-east-1` region.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,6 +183,7 @@ class RepositoryPolicy(pulumi.CustomResource):
         > **NOTE:** This resource can only be used in the `us-east-1` region.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

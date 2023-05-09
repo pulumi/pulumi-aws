@@ -15,6 +15,7 @@ import (
 // an event bus, given the name of the bus.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -13,31 +13,6 @@ import (
 // Data source for managing an AWS App Mesh Virtual Gateway.
 //
 // ## Example Usage
-// ### Basic Usage
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.LookupVirtualGateway(ctx, &appmesh.LookupVirtualGatewayArgs{
-//				MeshName: "mesh-gateway",
-//				Name:     "example-mesh",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupVirtualGateway(ctx *pulumi.Context, args *LookupVirtualGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVirtualGatewayResult, error) {
 	var rv LookupVirtualGatewayResult
 	err := ctx.Invoke("aws:appmesh/getVirtualGateway:getVirtualGateway", args, &rv, opts...)

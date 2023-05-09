@@ -102,6 +102,7 @@ class QueuePolicy(pulumi.CustomResource):
         while referencing ARN of the queue within the policy.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -151,6 +152,7 @@ class QueuePolicy(pulumi.CustomResource):
         while referencing ARN of the queue within the policy.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

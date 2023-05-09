@@ -105,6 +105,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -140,6 +141,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

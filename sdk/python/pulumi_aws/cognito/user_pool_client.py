@@ -808,6 +808,7 @@ class UserPoolClient(pulumi.CustomResource):
 
         ## Example Usage
         ### Create a basic user pool client
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -816,6 +817,7 @@ class UserPoolClient(pulumi.CustomResource):
         client = aws.cognito.UserPoolClient("client", user_pool_id=pool.id)
         ```
         ### Create a user pool client with no SRP authentication
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -827,6 +829,7 @@ class UserPoolClient(pulumi.CustomResource):
             explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         ```
         ### Create a user pool client with pinpoint analytics
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -864,6 +867,7 @@ class UserPoolClient(pulumi.CustomResource):
             policy=test_policy_document.json)
         ```
         ### Create a user pool client with Cognito as the identity provider
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -937,6 +941,7 @@ class UserPoolClient(pulumi.CustomResource):
 
         ## Example Usage
         ### Create a basic user pool client
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -945,6 +950,7 @@ class UserPoolClient(pulumi.CustomResource):
         client = aws.cognito.UserPoolClient("client", user_pool_id=pool.id)
         ```
         ### Create a user pool client with no SRP authentication
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -956,6 +962,7 @@ class UserPoolClient(pulumi.CustomResource):
             explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         ```
         ### Create a user pool client with pinpoint analytics
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -993,6 +1000,7 @@ class UserPoolClient(pulumi.CustomResource):
             policy=test_policy_document.json)
         ```
         ### Create a user pool client with Cognito as the identity provider
+
         ```python
         import pulumi
         import pulumi_aws as aws

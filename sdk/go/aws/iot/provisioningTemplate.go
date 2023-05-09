@@ -14,6 +14,7 @@ import (
 // Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

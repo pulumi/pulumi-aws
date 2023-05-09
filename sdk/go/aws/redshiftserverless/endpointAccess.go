@@ -14,6 +14,7 @@ import (
 // Creates a new Amazon Redshift Serverless Endpoint Access.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

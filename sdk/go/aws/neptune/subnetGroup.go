@@ -14,6 +14,7 @@ import (
 // Provides an Neptune subnet group resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

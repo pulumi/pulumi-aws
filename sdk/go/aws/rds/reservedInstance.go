@@ -19,6 +19,42 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := rds.GetReservedInstanceOffering(ctx, &rds.GetReservedInstanceOfferingArgs{
+//				DbInstanceClass:    "db.t2.micro",
+//				Duration:           31536000,
+//				MultiAz:            false,
+//				OfferingType:       "All Upfront",
+//				ProductDescription: "mysql",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = rds.NewReservedInstance(ctx, "example", &rds.ReservedInstanceArgs{
+//				OfferingId:    *pulumi.String(test.OfferingId),
+//				ReservationId: pulumi.String("optionalCustomReservationID"),
+//				InstanceCount: pulumi.Int(3),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // RDS DB Instance Reservations can be imported using the `instance_id`, e.g.,

@@ -13,6 +13,7 @@ import (
 // Provides an AppStream stack.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

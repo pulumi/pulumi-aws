@@ -232,6 +232,7 @@ def get_transit_gateway(filters: Optional[Sequence[pulumi.InputType['GetTransitG
 
     ## Example Usage
     ### By Filter
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -242,6 +243,7 @@ def get_transit_gateway(filters: Optional[Sequence[pulumi.InputType['GetTransitG
     )])
     ```
     ### By Identifier
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -290,6 +292,7 @@ def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[
 
     ## Example Usage
     ### By Filter
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -300,6 +303,7 @@ def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[
     )])
     ```
     ### By Identifier
+
     ```python
     import pulumi
     import pulumi_aws as aws

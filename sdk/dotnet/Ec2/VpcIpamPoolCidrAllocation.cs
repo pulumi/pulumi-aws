@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// Basic usage:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,6 +66,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// 
     /// With the `disallowed_cidrs` attribute:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

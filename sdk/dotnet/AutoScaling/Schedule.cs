@@ -13,6 +13,7 @@ namespace Pulumi.Aws.AutoScaling
     /// Provides an AutoScaling Schedule resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

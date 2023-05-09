@@ -363,6 +363,7 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
     Information about RDS orderable DB instances and valid parameter combinations.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -379,6 +380,7 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
     ```
 
     Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -493,6 +495,7 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
     Information about RDS orderable DB instances and valid parameter combinations.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -509,6 +512,7 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
     ```
 
     Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+
     ```python
     import pulumi
     import pulumi_aws as aws

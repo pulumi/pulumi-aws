@@ -756,6 +756,7 @@ class Broker(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -777,6 +778,7 @@ class Broker(pulumi.CustomResource):
         ### High-throughput Optimized Example
 
         This example shows the use of EBS storage for high-throughput optimized performance.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -845,6 +847,7 @@ class Broker(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -866,6 +869,7 @@ class Broker(pulumi.CustomResource):
         ### High-throughput Optimized Example
 
         This example shows the use of EBS storage for high-throughput optimized performance.
+
         ```python
         import pulumi
         import pulumi_aws as aws

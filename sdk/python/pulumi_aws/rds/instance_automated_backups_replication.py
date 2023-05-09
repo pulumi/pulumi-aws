@@ -172,6 +172,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         > **Note:** This resource has to be created in the destination region.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -181,6 +182,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             source_db_instance_arn="arn:aws:rds:us-west-2:123456789012:db:mydatabase")
         ```
         ## Encrypting the automated backup with KMS
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -191,6 +193,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         ```
 
         ## Example including a RDS DB instance
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,6 +248,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         > **Note:** This resource has to be created in the destination region.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,6 +258,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             source_db_instance_arn="arn:aws:rds:us-west-2:123456789012:db:mydatabase")
         ```
         ## Encrypting the automated backup with KMS
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,6 +269,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         ```
 
         ## Example including a RDS DB instance
+
         ```python
         import pulumi
         import pulumi_aws as aws

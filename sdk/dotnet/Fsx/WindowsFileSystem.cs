@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Fsx
     /// ### Using AWS Directory Service
     /// 
     /// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,6 +44,7 @@ namespace Pulumi.Aws.Fsx
     /// ### Using a Self-Managed Microsoft Active Directory
     /// 
     /// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -15,6 +15,7 @@ import (
 // The provider waits for the domain to become `Active` when applying a configuration.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

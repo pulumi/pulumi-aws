@@ -318,6 +318,7 @@ class InternetMonitor(pulumi.CustomResource):
         Provides a Internet Monitor Monitor resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,6 +355,7 @@ class InternetMonitor(pulumi.CustomResource):
         Provides a Internet Monitor Monitor resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

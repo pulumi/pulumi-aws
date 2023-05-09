@@ -105,6 +105,7 @@ class ByteMatchSet(pulumi.CustomResource):
         Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,6 +144,7 @@ class ByteMatchSet(pulumi.CustomResource):
         Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

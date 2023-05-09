@@ -1411,6 +1411,7 @@ class ObjectCopy(pulumi.CustomResource):
         Provides a resource for copying an S3 object.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1477,6 +1478,7 @@ class ObjectCopy(pulumi.CustomResource):
         Provides a resource for copying an S3 object.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

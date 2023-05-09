@@ -233,6 +233,7 @@ class Backup(pulumi.CustomResource):
         Provides a FSx Backup resource.
 
         ## Lustre Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,6 +247,7 @@ class Backup(pulumi.CustomResource):
         ```
 
         ## Windows Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,6 +262,7 @@ class Backup(pulumi.CustomResource):
         ```
 
         ## ONTAP Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -273,6 +276,7 @@ class Backup(pulumi.CustomResource):
         ```
 
         ## OpenZFS Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,6 +314,7 @@ class Backup(pulumi.CustomResource):
         Provides a FSx Backup resource.
 
         ## Lustre Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,6 +328,7 @@ class Backup(pulumi.CustomResource):
         ```
 
         ## Windows Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -337,6 +343,7 @@ class Backup(pulumi.CustomResource):
         ```
 
         ## ONTAP Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -350,6 +357,7 @@ class Backup(pulumi.CustomResource):
         ```
 
         ## OpenZFS Example
+
         ```python
         import pulumi
         import pulumi_aws as aws

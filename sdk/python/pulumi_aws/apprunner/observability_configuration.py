@@ -234,6 +234,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         Manages an App Runner Observability Configuration.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -273,6 +274,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         Manages an App Runner Observability Configuration.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

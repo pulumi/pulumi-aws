@@ -134,6 +134,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
 
         ## Example Usage
         ### Alias Name
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,6 +145,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
             qualifier=aws_lambda_alias["example"]["name"])
         ```
         ### Function Version
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,6 +181,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
 
         ## Example Usage
         ### Alias Name
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,6 +192,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
             qualifier=aws_lambda_alias["example"]["name"])
         ```
         ### Function Version
+
         ```python
         import pulumi
         import pulumi_aws as aws

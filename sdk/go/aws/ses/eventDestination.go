@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### CloudWatch Destination
+//
 // ```go
 // package main
 //
@@ -51,6 +52,7 @@ import (
 //
 // ```
 // ### Kinesis Destination
+//
 // ```go
 // package main
 //
@@ -84,6 +86,7 @@ import (
 //
 // ```
 // ### SNS Destination
+//
 // ```go
 // package main
 //

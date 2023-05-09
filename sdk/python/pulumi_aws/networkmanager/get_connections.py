@@ -91,6 +91,7 @@ def get_connections(device_id: Optional[str] = None,
     Retrieve information about connections.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -130,6 +131,7 @@ def get_connections_output(device_id: Optional[pulumi.Input[Optional[str]]] = No
     Retrieve information about connections.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -15,6 +15,7 @@ import (
 // ## Example Usage
 //
 // The following shows getting the received license data using and ARN.
+//
 // ```go
 // package main
 //

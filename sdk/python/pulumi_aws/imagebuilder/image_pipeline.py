@@ -530,6 +530,7 @@ class ImagePipeline(pulumi.CustomResource):
         Manages an Image Builder Image Pipeline.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -575,6 +576,7 @@ class ImagePipeline(pulumi.CustomResource):
         Manages an Image Builder Image Pipeline.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

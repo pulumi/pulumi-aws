@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Sns
     /// Provides an SNS topic resource
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,6 +27,7 @@ namespace Pulumi.Aws.Sns
     /// });
     /// ```
     /// ## Example with Delivery Policy
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,6 +63,7 @@ namespace Pulumi.Aws.Sns
     /// ```
     /// 
     /// ## Example with Server-side encryption (SSE)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -78,6 +81,7 @@ namespace Pulumi.Aws.Sns
     /// ```
     /// 
     /// ## Example with First-In-First-Out (FIFO)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

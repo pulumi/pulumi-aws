@@ -14,6 +14,7 @@ namespace Pulumi.Aws.EmrServerless
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.EmrServerless
     /// });
     /// ```
     /// ### Initial Capacity Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,6 +66,7 @@ namespace Pulumi.Aws.EmrServerless
     /// });
     /// ```
     /// ### Maximum Capacity Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

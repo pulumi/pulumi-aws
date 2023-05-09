@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Basic configuration
+//
 // ```go
 // package main
 //

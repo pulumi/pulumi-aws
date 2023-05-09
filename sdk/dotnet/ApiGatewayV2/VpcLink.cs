@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// To enable private integration for REST APIs, use the Amazon API Gateway Version 1 VPC Link resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

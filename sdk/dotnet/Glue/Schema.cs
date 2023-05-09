@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue Schema resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

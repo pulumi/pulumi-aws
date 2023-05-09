@@ -153,6 +153,7 @@ def get_virtual_router(mesh_name: Optional[str] = None,
     The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -197,6 +198,7 @@ def get_virtual_router_output(mesh_name: Optional[pulumi.Input[str]] = None,
     The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

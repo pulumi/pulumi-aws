@@ -14,6 +14,7 @@ import (
 // Provides a Direct Connect Gateway.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

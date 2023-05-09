@@ -17,6 +17,7 @@ import (
 //
 // ### Basic Usage
 // ### Email Address Identity
+//
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //
 // ```
 // ### Domain Identity
+//
 // ```go
 // package main
 //
@@ -65,6 +67,7 @@ import (
 //
 // ```
 // ### Configuration Set
+//
 // ```go
 // package main
 //
@@ -96,6 +99,7 @@ import (
 //
 // ```
 // ### DKIM Signing Attributes (BYODKIM)
+//
 // ```go
 // package main
 //

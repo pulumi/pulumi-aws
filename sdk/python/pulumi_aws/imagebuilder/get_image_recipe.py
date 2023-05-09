@@ -205,6 +205,7 @@ def get_image_recipe(arn: Optional[str] = None,
     Provides details about an Image Builder Image Recipe.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -247,6 +248,7 @@ def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
     Provides details about an Image Builder Image Recipe.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -13,6 +13,7 @@ import (
 // Use this data source to retrieve information about a CloudFront distribution.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

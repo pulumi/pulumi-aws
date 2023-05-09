@@ -14,6 +14,7 @@ import (
 // Provides a CodeArtifact Domains Permissions Policy Resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

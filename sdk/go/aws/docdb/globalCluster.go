@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 // ### New DocumentDB Global Cluster
+//
 // ```go
 // package main
 //
@@ -98,6 +99,7 @@ import (
 //
 // ```
 // ### New Global Cluster From Existing DB Cluster
+//
 // ```go
 // package main
 //

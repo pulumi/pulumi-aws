@@ -13,6 +13,7 @@ import (
 // Retrieve the SES domain identity
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

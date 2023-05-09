@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **NOTE:** Removing this resource disables serial console access.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DirectConnect
     /// A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

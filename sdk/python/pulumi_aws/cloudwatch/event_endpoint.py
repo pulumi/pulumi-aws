@@ -269,6 +269,7 @@ class EventEndpoint(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,6 +328,7 @@ class EventEndpoint(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

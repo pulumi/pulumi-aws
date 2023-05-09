@@ -485,6 +485,7 @@ class Parameter(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -494,6 +495,7 @@ class Parameter(pulumi.CustomResource):
             value="bar")
         ```
         ### Encrypted string using default SSM KMS key
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -555,6 +557,7 @@ class Parameter(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -564,6 +567,7 @@ class Parameter(pulumi.CustomResource):
             value="bar")
         ```
         ### Encrypted string using default SSM KMS key
+
         ```python
         import pulumi
         import pulumi_aws as aws

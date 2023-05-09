@@ -92,6 +92,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -122,6 +123,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -200,6 +200,7 @@ class Cell(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Readiness Cell.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,6 +233,7 @@ class Cell(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Readiness Cell.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

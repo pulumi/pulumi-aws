@@ -169,6 +169,7 @@ class PipelineDefinition(pulumi.CustomResource):
         Provides a DataPipeline Pipeline Definition resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,6 +258,7 @@ class PipelineDefinition(pulumi.CustomResource):
         Provides a DataPipeline Pipeline Definition resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -14,6 +14,7 @@ import (
 // Subscribes to a Security Hub product.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

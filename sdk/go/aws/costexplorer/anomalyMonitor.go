@@ -17,6 +17,7 @@ import (
 //
 // There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
 // ### Dimensional Example
+//
 // ```go
 // package main
 //
@@ -42,6 +43,7 @@ import (
 //
 // ```
 // ### Custom Example
+//
 // ```go
 // package main
 //

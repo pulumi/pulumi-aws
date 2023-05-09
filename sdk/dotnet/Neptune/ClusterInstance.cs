@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Neptune
     /// ## Example Usage
     /// 
     /// The following example will create a neptune cluster with two neptune instances(one writer and one reader).
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

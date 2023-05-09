@@ -96,6 +96,7 @@ def get_pipeline(pipeline_id: Optional[str] = None,
     Provides details about a specific DataPipeline Pipeline.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -129,6 +130,7 @@ def get_pipeline_output(pipeline_id: Optional[pulumi.Input[str]] = None,
     Provides details about a specific DataPipeline Pipeline.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

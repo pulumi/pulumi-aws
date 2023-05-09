@@ -13,6 +13,7 @@ import (
 // The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

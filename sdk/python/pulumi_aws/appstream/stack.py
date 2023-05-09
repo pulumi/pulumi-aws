@@ -512,6 +512,7 @@ class Stack(pulumi.CustomResource):
         Provides an AppStream stack.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -601,6 +602,7 @@ class Stack(pulumi.CustomResource):
         Provides an AppStream stack.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

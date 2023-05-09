@@ -14,6 +14,7 @@ import (
 // Provides an AppStream Directory Config.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

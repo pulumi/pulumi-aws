@@ -16,7 +16,8 @@ import (
 //
 // ## Example Usage
 //
-// To create a basic traffic mirror session
+// # To create a basic traffic mirror session
+//
 // ```go
 // package main
 //

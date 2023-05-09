@@ -18,33 +18,6 @@ namespace Pulumi.Aws.Eks
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// export = async () =&gt; {
-        ///     const example = await aws.eks.getCluster({
-        ///         name: "example",
-        ///     });
-        ///     const endpoint = example.endpoint;
-        ///     const kubeconfig_certificate_authority_data = example.certificateAuthorities?.[0]?.data;
-        ///     const identity_oidc_issuer = example.identities?.[0]?.oidcs?.[0]?.issuer;
-        ///     return {
-        ///         endpoint: endpoint,
-        ///         "kubeconfig-certificate-authority-data": kubeconfig_certificate_authority_data,
-        ///         "identity-oidc-issuer": identity_oidc_issuer,
-        ///     };
-        /// }
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// example = aws.eks.get_cluster(name="example")
-        /// pulumi.export("endpoint", example.endpoint)
-        /// pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
-        /// pulumi.export("identity-oidc-issuer", example.identities[0].oidcs[0].issuer)
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,73 +38,6 @@ namespace Pulumi.Aws.Eks
         ///         ["identity-oidc-issuer"] = example.Apply(getClusterResult =&gt; getClusterResult.Identities[0]?.Oidcs[0]?.Issuer),
         ///     };
         /// });
-        /// ```
-        /// ```go
-        /// package main
-        /// 
-        /// import (
-        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        /// )
-        /// 
-        /// func main() {
-        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
-        /// 		example, err := eks.LookupCluster(ctx, &amp;eks.LookupClusterArgs{
-        /// 			Name: "example",
-        /// 		}, nil)
-        /// 		if err != nil {
-        /// 			return err
-        /// 		}
-        /// 		ctx.Export("endpoint", example.Endpoint)
-        /// 		ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthorities[0].Data)
-        /// 		ctx.Export("identity-oidc-issuer", example.Identities[0].Oidcs[0].Issuer)
-        /// 		return nil
-        /// 	})
-        /// }
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.eks.EksFunctions;
-        /// import com.pulumi.aws.eks.inputs.GetClusterArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         final var example = EksFunctions.getCluster(GetClusterArgs.builder()
-        ///             .name("example")
-        ///             .build());
-        /// 
-        ///         ctx.export("endpoint", example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()));
-        ///         ctx.export("kubeconfig-certificate-authority-data", example.applyValue(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
-        ///         ctx.export("identity-oidc-issuer", example.applyValue(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// variables:
-        ///   example:
-        ///     fn::invoke:
-        ///       Function: aws:eks:getCluster
-        ///       Arguments:
-        ///         name: example
-        /// outputs:
-        ///   endpoint: ${example.endpoint}
-        ///   kubeconfig-certificate-authority-data: ${example.certificateAuthorities[0].data}
-        ///   # Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
-        ///   identity-oidc-issuer: ${example.identities[0].oidcs[0].issuer}
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -146,33 +52,6 @@ namespace Pulumi.Aws.Eks
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// export = async () =&gt; {
-        ///     const example = await aws.eks.getCluster({
-        ///         name: "example",
-        ///     });
-        ///     const endpoint = example.endpoint;
-        ///     const kubeconfig_certificate_authority_data = example.certificateAuthorities?.[0]?.data;
-        ///     const identity_oidc_issuer = example.identities?.[0]?.oidcs?.[0]?.issuer;
-        ///     return {
-        ///         endpoint: endpoint,
-        ///         "kubeconfig-certificate-authority-data": kubeconfig_certificate_authority_data,
-        ///         "identity-oidc-issuer": identity_oidc_issuer,
-        ///     };
-        /// }
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// example = aws.eks.get_cluster(name="example")
-        /// pulumi.export("endpoint", example.endpoint)
-        /// pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
-        /// pulumi.export("identity-oidc-issuer", example.identities[0].oidcs[0].issuer)
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -193,73 +72,6 @@ namespace Pulumi.Aws.Eks
         ///         ["identity-oidc-issuer"] = example.Apply(getClusterResult =&gt; getClusterResult.Identities[0]?.Oidcs[0]?.Issuer),
         ///     };
         /// });
-        /// ```
-        /// ```go
-        /// package main
-        /// 
-        /// import (
-        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        /// )
-        /// 
-        /// func main() {
-        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
-        /// 		example, err := eks.LookupCluster(ctx, &amp;eks.LookupClusterArgs{
-        /// 			Name: "example",
-        /// 		}, nil)
-        /// 		if err != nil {
-        /// 			return err
-        /// 		}
-        /// 		ctx.Export("endpoint", example.Endpoint)
-        /// 		ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthorities[0].Data)
-        /// 		ctx.Export("identity-oidc-issuer", example.Identities[0].Oidcs[0].Issuer)
-        /// 		return nil
-        /// 	})
-        /// }
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.eks.EksFunctions;
-        /// import com.pulumi.aws.eks.inputs.GetClusterArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         final var example = EksFunctions.getCluster(GetClusterArgs.builder()
-        ///             .name("example")
-        ///             .build());
-        /// 
-        ///         ctx.export("endpoint", example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()));
-        ///         ctx.export("kubeconfig-certificate-authority-data", example.applyValue(getClusterResult -&gt; getClusterResult.certificateAuthorities()[0].data()));
-        ///         ctx.export("identity-oidc-issuer", example.applyValue(getClusterResult -&gt; getClusterResult.identities()[0].oidcs()[0].issuer()));
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// variables:
-        ///   example:
-        ///     fn::invoke:
-        ///       Function: aws:eks:getCluster
-        ///       Arguments:
-        ///         name: example
-        /// outputs:
-        ///   endpoint: ${example.endpoint}
-        ///   kubeconfig-certificate-authority-data: ${example.certificateAuthorities[0].data}
-        ///   # Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019.
-        ///   identity-oidc-issuer: ${example.identities[0].oidcs[0].issuer}
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

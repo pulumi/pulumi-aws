@@ -135,6 +135,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
         Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -170,6 +171,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
         Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

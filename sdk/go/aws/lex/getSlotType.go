@@ -13,6 +13,7 @@ import (
 // Provides details about a specific Amazon Lex Slot Type.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

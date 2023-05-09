@@ -13,6 +13,7 @@ import (
 // Get information on an Amazon MSK Connect custom plugin.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

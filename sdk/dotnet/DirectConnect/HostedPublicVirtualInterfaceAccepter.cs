@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DirectConnect
     /// This resource accepts ownership of a public virtual interface created by another AWS account.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

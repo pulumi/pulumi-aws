@@ -396,6 +396,7 @@ class ReplicaKey(pulumi.CustomResource):
         Manages a KMS multi-Region replica key.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,6 +446,7 @@ class ReplicaKey(pulumi.CustomResource):
         Manages a KMS multi-Region replica key.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

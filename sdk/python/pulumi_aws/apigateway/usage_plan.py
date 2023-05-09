@@ -319,6 +319,7 @@ class UsagePlan(pulumi.CustomResource):
         Provides an API Gateway Usage Plan.
 
         ## Example Usage
+
         ```python
         import pulumi
         import hashlib
@@ -410,6 +411,7 @@ class UsagePlan(pulumi.CustomResource):
         Provides an API Gateway Usage Plan.
 
         ## Example Usage
+
         ```python
         import pulumi
         import hashlib

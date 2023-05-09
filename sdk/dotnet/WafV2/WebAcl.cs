@@ -18,6 +18,7 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// This resource is based on `aws.wafv2.RuleGroup`, check the documentation of the `aws.wafv2.RuleGroup` resource to see examples of the various available statements.
     /// ### Account Takeover Protection
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -109,6 +110,7 @@ namespace Pulumi.Aws.WafV2
     /// ### Rate Based
     /// 
     /// Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -178,6 +180,7 @@ namespace Pulumi.Aws.WafV2
     /// });
     /// ```
     /// ### Rule Group Reference
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Example Usage
     /// ### Using Template Body
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,6 +68,7 @@ namespace Pulumi.Aws.Cfg
     /// });
     /// ```
     /// ### Using Template S3 URI
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

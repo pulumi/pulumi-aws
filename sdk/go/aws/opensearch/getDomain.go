@@ -13,6 +13,7 @@ import (
 // Use this data source to get information about an OpenSearch Domain
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

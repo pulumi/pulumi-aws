@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// ## Example Usage
     /// ### Basic
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,6 +47,7 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### With default variation
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,6 +84,7 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### With entity overrides
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,6 +124,7 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### With evaluation strategy
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

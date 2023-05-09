@@ -13,6 +13,7 @@ import (
 // Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

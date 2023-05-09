@@ -168,6 +168,7 @@ class Container(pulumi.CustomResource):
         Provides a MediaStore Container.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,6 +200,7 @@ class Container(pulumi.CustomResource):
         Provides a MediaStore Container.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -15,6 +15,7 @@ namespace Pulumi.Aws.SecurityHub
     /// &gt; **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -377,6 +377,7 @@ class EventSubscription(pulumi.CustomResource):
         Provides a Redshift event subscription resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -432,6 +433,7 @@ class EventSubscription(pulumi.CustomResource):
         Provides a Redshift event subscription resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

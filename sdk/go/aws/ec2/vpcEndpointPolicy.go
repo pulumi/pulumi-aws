@@ -14,6 +14,7 @@ import (
 // Provides a VPC Endpoint Policy resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

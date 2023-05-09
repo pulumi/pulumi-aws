@@ -19,18 +19,6 @@ namespace Pulumi.Aws.VpcLattice
         /// {{% example %}}
         /// ### Basic Usage
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// const example = aws.vpclattice.getService({});
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// example = aws.vpclattice.get_service()
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,57 +30,6 @@ namespace Pulumi.Aws.VpcLattice
         ///     var example = Aws.VpcLattice.GetService.Invoke();
         /// 
         /// });
-        /// ```
-        /// ```go
-        /// package main
-        /// 
-        /// import (
-        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        /// )
-        /// 
-        /// func main() {
-        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
-        /// 		_, err := vpclattice.LookupService(ctx, nil, nil)
-        /// 		if err != nil {
-        /// 			return err
-        /// 		}
-        /// 		return nil
-        /// 	})
-        /// }
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.vpclattice.VpclatticeFunctions;
-        /// import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         final var example = VpclatticeFunctions.getService();
-        /// 
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// variables:
-        ///   example:
-        ///     fn::invoke:
-        ///       Function: aws:vpclattice:getService
-        ///       Arguments: {}
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -108,18 +45,6 @@ namespace Pulumi.Aws.VpcLattice
         /// {{% example %}}
         /// ### Basic Usage
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// const example = aws.vpclattice.getService({});
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// example = aws.vpclattice.get_service()
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -131,57 +56,6 @@ namespace Pulumi.Aws.VpcLattice
         ///     var example = Aws.VpcLattice.GetService.Invoke();
         /// 
         /// });
-        /// ```
-        /// ```go
-        /// package main
-        /// 
-        /// import (
-        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        /// )
-        /// 
-        /// func main() {
-        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
-        /// 		_, err := vpclattice.LookupService(ctx, nil, nil)
-        /// 		if err != nil {
-        /// 			return err
-        /// 		}
-        /// 		return nil
-        /// 	})
-        /// }
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.vpclattice.VpclatticeFunctions;
-        /// import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         final var example = VpclatticeFunctions.getService();
-        /// 
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// variables:
-        ///   example:
-        ///     fn::invoke:
-        ///       Function: aws:vpclattice:getService
-        ///       Arguments: {}
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

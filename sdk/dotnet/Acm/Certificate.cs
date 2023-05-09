@@ -50,6 +50,7 @@ namespace Pulumi.Aws.Acm
     /// 
     /// ## Example Usage
     /// ### Create Certificate
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,6 +72,7 @@ namespace Pulumi.Aws.Acm
     /// });
     /// ```
     /// ### Custom Domain Validation Options
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,6 +98,7 @@ namespace Pulumi.Aws.Acm
     /// });
     /// ```
     /// ### Existing Certificate Body Import
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

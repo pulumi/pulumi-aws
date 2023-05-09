@@ -554,6 +554,7 @@ class Budget(pulumi.CustomResource):
         Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -579,6 +580,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a budget for *$100*.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -590,6 +592,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a budget with planned budget limits.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -609,6 +612,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a budget for s3 with a limit of *3 GB* of storage.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -620,6 +624,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a Savings Plan Utilization Budget
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -643,6 +648,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a RI Utilization Budget
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -670,6 +676,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a Cost Filter using Resource Tags
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -681,6 +688,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a cost_filter using resource tags, obtaining the tag value from a variable
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -727,6 +735,7 @@ class Budget(pulumi.CustomResource):
         Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -752,6 +761,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a budget for *$100*.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -763,6 +773,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a budget with planned budget limits.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -782,6 +793,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a budget for s3 with a limit of *3 GB* of storage.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -793,6 +805,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a Savings Plan Utilization Budget
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -816,6 +829,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a RI Utilization Budget
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -843,6 +857,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a Cost Filter using Resource Tags
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -854,6 +869,7 @@ class Budget(pulumi.CustomResource):
         ```
 
         Create a cost_filter using resource tags, obtaining the tag value from a variable
+
         ```python
         import pulumi
         import pulumi_aws as aws

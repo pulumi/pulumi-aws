@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Cognito
     /// Adds the specified user to the specified group.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

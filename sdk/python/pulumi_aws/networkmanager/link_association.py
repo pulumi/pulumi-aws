@@ -135,6 +135,7 @@ class LinkAssociation(pulumi.CustomResource):
         The device and link must be in the same global network and the same site.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -171,6 +172,7 @@ class LinkAssociation(pulumi.CustomResource):
         The device and link must be in the same global network and the same site.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

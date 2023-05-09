@@ -73,6 +73,7 @@ def get_bucket_policy(bucket: Optional[str] = None,
     ## Example Usage
 
     The following example retrieves IAM policy of a specified S3 bucket.
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -104,6 +105,7 @@ def get_bucket_policy_output(bucket: Optional[pulumi.Input[str]] = None,
     ## Example Usage
 
     The following example retrieves IAM policy of a specified S3 bucket.
+
     ```python
     import pulumi
     import pulumi_aws as aws

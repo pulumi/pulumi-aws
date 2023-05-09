@@ -221,6 +221,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         ## Example Usage
         ### Account Based Aggregation
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,6 +232,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         ))
         ```
         ### Organization Based Aggregation
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,6 +283,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         ## Example Usage
         ### Account Based Aggregation
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,6 +294,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
         ))
         ```
         ### Organization Based Aggregation
+
         ```python
         import pulumi
         import pulumi_aws as aws

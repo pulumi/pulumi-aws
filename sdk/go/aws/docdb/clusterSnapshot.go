@@ -14,6 +14,7 @@ import (
 // Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

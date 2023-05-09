@@ -215,6 +215,7 @@ def get_faq(faq_id: Optional[str] = None,
     Provides details about a specific Amazon Kendra Faq.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -262,6 +263,7 @@ def get_faq_output(faq_id: Optional[pulumi.Input[str]] = None,
     Provides details about a specific Amazon Kendra Faq.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

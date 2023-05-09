@@ -14,6 +14,7 @@ import (
 // Provides a CodeArtifact Domain Resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

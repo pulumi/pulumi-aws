@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Location
     /// Resource for managing an AWS Location Tracker Association.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -101,6 +101,7 @@ def get_instance_type_offerings(engine_type: Optional[str] = None,
     Provides information about a MQ Broker Instance Offerings.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -143,6 +144,7 @@ def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Option
     Provides information about a MQ Broker Instance Offerings.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

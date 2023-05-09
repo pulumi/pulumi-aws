@@ -17,6 +17,288 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
+//				ReleaseLabel: pulumi.String("emr-4.6.0"),
+//				Applications: pulumi.StringArray{
+//					pulumi.String("Spark"),
+//				},
+//				AdditionalInfo:              pulumi.String("{\n  \"instanceAwsClientConfiguration\": {\n    \"proxyPort\": 8099,\n    \"proxyHost\": \"myproxy.example.com\"\n  }\n}\n"),
+//				TerminationProtection:       pulumi.Bool(false),
+//				KeepJobFlowAliveWhenNoSteps: pulumi.Bool(true),
+//				Ec2Attributes: &emr.ClusterEc2AttributesArgs{
+//					SubnetId:                      pulumi.Any(aws_subnet.Main.Id),
+//					EmrManagedMasterSecurityGroup: pulumi.Any(aws_security_group.Sg.Id),
+//					EmrManagedSlaveSecurityGroup:  pulumi.Any(aws_security_group.Sg.Id),
+//					InstanceProfile:               pulumi.Any(aws_iam_instance_profile.Emr_profile.Arn),
+//				},
+//				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
+//					InstanceType: pulumi.String("m4.large"),
+//				},
+//				CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
+//					InstanceType:  pulumi.String("c4.large"),
+//					InstanceCount: pulumi.Int(1),
+//					EbsConfigs: emr.ClusterCoreInstanceGroupEbsConfigArray{
+//						&emr.ClusterCoreInstanceGroupEbsConfigArgs{
+//							Size:               pulumi.Int(40),
+//							Type:               pulumi.String("gp2"),
+//							VolumesPerInstance: pulumi.Int(1),
+//						},
+//					},
+//					BidPrice:          pulumi.String("0.30"),
+//					AutoscalingPolicy: pulumi.String("{\n\"Constraints\": {\n  \"MinCapacity\": 1,\n  \"MaxCapacity\": 2\n},\n\"Rules\": [\n  {\n    \"Name\": \"ScaleOutMemoryPercentage\",\n    \"Description\": \"Scale out if YARNMemoryAvailablePercentage is less than 15\",\n    \"Action\": {\n      \"SimpleScalingPolicyConfiguration\": {\n        \"AdjustmentType\": \"CHANGE_IN_CAPACITY\",\n        \"ScalingAdjustment\": 1,\n        \"CoolDown\": 300\n      }\n    },\n    \"Trigger\": {\n      \"CloudWatchAlarmDefinition\": {\n        \"ComparisonOperator\": \"LESS_THAN\",\n        \"EvaluationPeriods\": 1,\n        \"MetricName\": \"YARNMemoryAvailablePercentage\",\n        \"Namespace\": \"AWS/ElasticMapReduce\",\n        \"Period\": 300,\n        \"Statistic\": \"AVERAGE\",\n        \"Threshold\": 15.0,\n        \"Unit\": \"PERCENT\"\n      }\n    }\n  }\n]\n}\n"),
+//				},
+//				EbsRootVolumeSize: pulumi.Int(100),
+//				Tags: pulumi.StringMap{
+//					"role": pulumi.String("rolename"),
+//					"env":  pulumi.String("env"),
+//				},
+//				BootstrapActions: emr.ClusterBootstrapActionArray{
+//					&emr.ClusterBootstrapActionArgs{
+//						Path: pulumi.String("s3://elasticmapreduce/bootstrap-actions/run-if"),
+//						Name: pulumi.String("runif"),
+//						Args: pulumi.StringArray{
+//							pulumi.String("instance.isMaster=true"),
+//							pulumi.String("echo running on master node"),
+//						},
+//					},
+//				},
+//				ConfigurationsJson: pulumi.String("  [\n    {\n      \"Classification\": \"hadoop-env\",\n      \"Configurations\": [\n        {\n          \"Classification\": \"export\",\n          \"Properties\": {\n            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n          }\n        }\n      ],\n      \"Properties\": {}\n    },\n    {\n      \"Classification\": \"spark-env\",\n      \"Configurations\": [\n        {\n          \"Classification\": \"export\",\n          \"Properties\": {\n            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n          }\n        }\n      ],\n      \"Properties\": {}\n    }\n  ]\n"),
+//				ServiceRole:        pulumi.Any(aws_iam_role.Iam_emr_service_role.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The `emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service role, and another is assigned to every EC2 instance in a cluster and each application process that runs on a cluster assumes this role for permissions to interact with other AWS services. An additional role, the Auto Scaling role, is required if your cluster uses automatic scaling in Amazon EMR.
+//
+// The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page.
+// ### Instance Fleet
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := emr.NewCluster(ctx, "example", &emr.ClusterArgs{
+//				MasterInstanceFleet: &emr.ClusterMasterInstanceFleetArgs{
+//					InstanceTypeConfigs: emr.ClusterMasterInstanceFleetInstanceTypeConfigArray{
+//						&emr.ClusterMasterInstanceFleetInstanceTypeConfigArgs{
+//							InstanceType: pulumi.String("m4.xlarge"),
+//						},
+//					},
+//					TargetOnDemandCapacity: pulumi.Int(1),
+//				},
+//				CoreInstanceFleet: &emr.ClusterCoreInstanceFleetArgs{
+//					InstanceTypeConfigs: emr.ClusterCoreInstanceFleetInstanceTypeConfigArray{
+//						&emr.ClusterCoreInstanceFleetInstanceTypeConfigArgs{
+//							BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(80),
+//							EbsConfigs: emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray{
+//								&emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{
+//									Size:               pulumi.Int(100),
+//									Type:               pulumi.String("gp2"),
+//									VolumesPerInstance: pulumi.Int(1),
+//								},
+//							},
+//							InstanceType:     pulumi.String("m3.xlarge"),
+//							WeightedCapacity: pulumi.Int(1),
+//						},
+//						&emr.ClusterCoreInstanceFleetInstanceTypeConfigArgs{
+//							BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+//							EbsConfigs: emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray{
+//								&emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{
+//									Size:               pulumi.Int(100),
+//									Type:               pulumi.String("gp2"),
+//									VolumesPerInstance: pulumi.Int(1),
+//								},
+//							},
+//							InstanceType:     pulumi.String("m4.xlarge"),
+//							WeightedCapacity: pulumi.Int(1),
+//						},
+//						&emr.ClusterCoreInstanceFleetInstanceTypeConfigArgs{
+//							BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+//							EbsConfigs: emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray{
+//								&emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs{
+//									Size:               pulumi.Int(100),
+//									Type:               pulumi.String("gp2"),
+//									VolumesPerInstance: pulumi.Int(1),
+//								},
+//							},
+//							InstanceType:     pulumi.String("m4.2xlarge"),
+//							WeightedCapacity: pulumi.Int(2),
+//						},
+//					},
+//					LaunchSpecifications: &emr.ClusterCoreInstanceFleetLaunchSpecificationsArgs{
+//						SpotSpecifications: emr.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray{
+//							&emr.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs{
+//								AllocationStrategy:     pulumi.String("capacity-optimized"),
+//								BlockDurationMinutes:   pulumi.Int(0),
+//								TimeoutAction:          pulumi.String("SWITCH_TO_ON_DEMAND"),
+//								TimeoutDurationMinutes: pulumi.Int(10),
+//							},
+//						},
+//					},
+//					Name:                   pulumi.String("core fleet"),
+//					TargetOnDemandCapacity: pulumi.Int(2),
+//					TargetSpotCapacity:     pulumi.Int(2),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = emr.NewInstanceFleet(ctx, "task", &emr.InstanceFleetArgs{
+//				ClusterId: example.ID(),
+//				InstanceTypeConfigs: emr.InstanceFleetInstanceTypeConfigArray{
+//					&emr.InstanceFleetInstanceTypeConfigArgs{
+//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
+//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
+//								Size:               pulumi.Int(100),
+//								Type:               pulumi.String("gp2"),
+//								VolumesPerInstance: pulumi.Int(1),
+//							},
+//						},
+//						InstanceType:     pulumi.String("m4.xlarge"),
+//						WeightedCapacity: pulumi.Int(1),
+//					},
+//					&emr.InstanceFleetInstanceTypeConfigArgs{
+//						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
+//						EbsConfigs: emr.InstanceFleetInstanceTypeConfigEbsConfigArray{
+//							&emr.InstanceFleetInstanceTypeConfigEbsConfigArgs{
+//								Size:               pulumi.Int(100),
+//								Type:               pulumi.String("gp2"),
+//								VolumesPerInstance: pulumi.Int(1),
+//							},
+//						},
+//						InstanceType:     pulumi.String("m4.2xlarge"),
+//						WeightedCapacity: pulumi.Int(2),
+//					},
+//				},
+//				LaunchSpecifications: &emr.InstanceFleetLaunchSpecificationsArgs{
+//					SpotSpecifications: emr.InstanceFleetLaunchSpecificationsSpotSpecificationArray{
+//						&emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs{
+//							AllocationStrategy:     pulumi.String("capacity-optimized"),
+//							BlockDurationMinutes:   pulumi.Int(0),
+//							TimeoutAction:          pulumi.String("TERMINATE_CLUSTER"),
+//							TimeoutDurationMinutes: pulumi.Int(10),
+//						},
+//					},
+//				},
+//				TargetOnDemandCapacity: pulumi.Int(1),
+//				TargetSpotCapacity:     pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Enable Debug Logging
+//
+// [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emr.NewCluster(ctx, "example", &emr.ClusterArgs{
+//				Steps: emr.ClusterStepArray{
+//					&emr.ClusterStepArgs{
+//						ActionOnFailure: pulumi.String("TERMINATE_CLUSTER"),
+//						Name:            pulumi.String("Setup Hadoop Debugging"),
+//						HadoopJarStep: &emr.ClusterStepHadoopJarStepArgs{
+//							Jar: pulumi.String("command-runner.jar"),
+//							Args: pulumi.StringArray{
+//								pulumi.String("state-pusher-script"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Multiple Node Master Instance Group
+//
+// Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleSubnet, err := ec2.NewSubnet(ctx, "exampleSubnet", &ec2.SubnetArgs{
+//				MapPublicIpOnLaunch: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = emr.NewCluster(ctx, "exampleCluster", &emr.ClusterArgs{
+//				ReleaseLabel:          pulumi.String("emr-5.24.1"),
+//				TerminationProtection: pulumi.Bool(true),
+//				Ec2Attributes: &emr.ClusterEc2AttributesArgs{
+//					SubnetId: exampleSubnet.ID(),
+//				},
+//				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
+//					InstanceCount: pulumi.Int(3),
+//				},
+//				CoreInstanceGroup: nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // EMR clusters can be imported using the `id`, e.g.,

@@ -464,6 +464,7 @@ class TransitGateway(pulumi.CustomResource):
         Manages an EC2 Transit Gateway.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -503,6 +504,7 @@ class TransitGateway(pulumi.CustomResource):
         Manages an EC2 Transit Gateway.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

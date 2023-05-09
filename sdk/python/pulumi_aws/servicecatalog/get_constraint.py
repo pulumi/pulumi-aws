@@ -143,6 +143,7 @@ def get_constraint(accept_language: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -185,6 +186,7 @@ def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[str]]]
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

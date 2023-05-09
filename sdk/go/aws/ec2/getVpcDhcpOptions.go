@@ -14,6 +14,7 @@ import (
 //
 // ## Example Usage
 // ### Lookup by DHCP Options ID
+//
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //
 // ```
 // ### Lookup by Filter
+//
 // ```go
 // package main
 //

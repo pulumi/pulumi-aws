@@ -150,6 +150,7 @@ class ActionTarget(pulumi.CustomResource):
         Creates Security Hub custom action.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,6 +186,7 @@ class ActionTarget(pulumi.CustomResource):
         Creates Security Hub custom action.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

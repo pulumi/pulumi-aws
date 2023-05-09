@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### With CSR
+//
 // ```go
 // package main
 //
@@ -50,6 +51,7 @@ import (
 //
 // ```
 // ### Without CSR
+//
 // ```go
 // package main
 //
@@ -74,6 +76,7 @@ import (
 //
 // ```
 // ### From existing certificate without a CA
+//
 // ```go
 // package main
 //

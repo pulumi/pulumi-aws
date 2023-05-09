@@ -14,6 +14,7 @@ import (
 // Provides a DataPipeline Pipeline Definition resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

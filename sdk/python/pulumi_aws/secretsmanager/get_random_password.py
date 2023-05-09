@@ -142,6 +142,7 @@ def get_random_password(exclude_characters: Optional[str] = None,
     Generate a random password.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -202,6 +203,7 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
     Generate a random password.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

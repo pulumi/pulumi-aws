@@ -202,6 +202,7 @@ class OrganizationalUnit(pulumi.CustomResource):
         Provides a resource to create an organizational unit.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,6 +235,7 @@ class OrganizationalUnit(pulumi.CustomResource):
         Provides a resource to create an organizational unit.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

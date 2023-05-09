@@ -14,6 +14,7 @@ import (
 // Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

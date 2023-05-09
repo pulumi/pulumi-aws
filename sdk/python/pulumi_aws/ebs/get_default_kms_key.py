@@ -60,6 +60,7 @@ def get_default_kms_key(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     Use this data source to get the default EBS encryption KMS key in the current region.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

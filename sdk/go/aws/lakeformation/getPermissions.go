@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 // ### Permissions For A Lake Formation S3 Resource
+//
 // ```go
 // package main
 //
@@ -43,6 +44,7 @@ import (
 //
 // ```
 // ### Permissions For A Glue Catalog Database
+//
 // ```go
 // package main
 //
@@ -71,6 +73,7 @@ import (
 //
 // ```
 // ### Permissions For Tag-Based Access Control
+//
 // ```go
 // package main
 //

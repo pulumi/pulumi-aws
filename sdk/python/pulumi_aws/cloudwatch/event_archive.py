@@ -219,6 +219,7 @@ class EventArchive(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,6 +228,7 @@ class EventArchive(pulumi.CustomResource):
         order_event_archive = aws.cloudwatch.EventArchive("orderEventArchive", event_source_arn=order_event_bus.arn)
         ```
         ## Example all optional arguments
+
         ```python
         import pulumi
         import json
@@ -270,6 +272,7 @@ class EventArchive(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,6 +281,7 @@ class EventArchive(pulumi.CustomResource):
         order_event_archive = aws.cloudwatch.EventArchive("orderEventArchive", event_source_arn=order_event_bus.arn)
         ```
         ## Example all optional arguments
+
         ```python
         import pulumi
         import json

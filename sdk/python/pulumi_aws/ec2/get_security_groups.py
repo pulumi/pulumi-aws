@@ -107,6 +107,7 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
     Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -116,6 +117,7 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
         "Environment": "dev",
     })
     ```
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -159,6 +161,7 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
     Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -168,6 +171,7 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
         "Environment": "dev",
     })
     ```
+
     ```python
     import pulumi
     import pulumi_aws as aws

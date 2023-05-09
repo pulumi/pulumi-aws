@@ -39,6 +39,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// ### Edge Optimized (ACM Certificate)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,6 +75,7 @@ namespace Pulumi.Aws.ApiGateway
     /// });
     /// ```
     /// ### Edge Optimized (IAM Certificate)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

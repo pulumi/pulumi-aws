@@ -138,6 +138,7 @@ class BucketMetric(pulumi.CustomResource):
 
         ## Example Usage
         ### Add metrics configuration for entire S3 bucket
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,6 +147,7 @@ class BucketMetric(pulumi.CustomResource):
         example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket", bucket=example.id)
         ```
         ### Add metrics configuration with S3 object filter
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,6 +189,7 @@ class BucketMetric(pulumi.CustomResource):
 
         ## Example Usage
         ### Add metrics configuration for entire S3 bucket
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,6 +198,7 @@ class BucketMetric(pulumi.CustomResource):
         example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket", bucket=example.id)
         ```
         ### Add metrics configuration with S3 object filter
+
         ```python
         import pulumi
         import pulumi_aws as aws

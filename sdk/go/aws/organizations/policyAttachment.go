@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Organization Account
+//
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //
 // ```
 // ### Organization Root
+//
 // ```go
 // package main
 //
@@ -65,6 +67,7 @@ import (
 //
 // ```
 // ### Organization Unit
+//
 // ```go
 // package main
 //

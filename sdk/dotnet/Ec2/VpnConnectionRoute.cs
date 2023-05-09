@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ec2
     /// Provides a static route between a VPN connection and a customer gateway.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

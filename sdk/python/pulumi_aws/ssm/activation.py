@@ -315,6 +315,7 @@ class Activation(pulumi.CustomResource):
         Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -366,6 +367,7 @@ class Activation(pulumi.CustomResource):
         Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -266,6 +266,7 @@ class Connect(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Connect.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,6 +308,7 @@ class Connect(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Connect.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

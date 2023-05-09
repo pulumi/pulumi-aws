@@ -17,6 +17,7 @@ import (
 // * [Importing Amazon S3 Data into an RDS PostgreSQL DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

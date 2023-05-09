@@ -14,6 +14,7 @@ import (
 //
 // ## Example Usage
 // ### Basic
+//
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //
 // ```
 // ### Store evaluation events in a CloudWatch Log Group
+//
 // ```go
 // package main
 //
@@ -73,6 +75,7 @@ import (
 //
 // ```
 // ### Store evaluation events in an S3 bucket
+//
 // ```go
 // package main
 //

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Apple Push Notification Service (APNS) using certificate-based authentication
+//
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //
 // ```
 // ### Apple Push Notification Service (APNS) using token-based authentication
+//
 // ```go
 // package main
 //
@@ -69,6 +71,7 @@ import (
 //
 // ```
 // ### Google Cloud Messaging (GCM)
+//
 // ```go
 // package main
 //

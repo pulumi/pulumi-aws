@@ -14,6 +14,7 @@ import (
 //
 // ## Example Usage
 // ### Generate Python Script
+//
 // ```go
 // package main
 //
@@ -127,6 +128,7 @@ import (
 //
 // ```
 // ### Generate Scala Code
+//
 // ```go
 // package main
 //

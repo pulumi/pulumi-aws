@@ -279,6 +279,7 @@ class NetworkAcl(pulumi.CustomResource):
         resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,6 +345,7 @@ class NetworkAcl(pulumi.CustomResource):
         resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

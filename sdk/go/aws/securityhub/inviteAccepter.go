@@ -16,6 +16,7 @@ import (
 // Accepts a Security Hub invitation.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -14,6 +14,7 @@ import (
 // Provides an RDS DB proxy target resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

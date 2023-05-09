@@ -249,6 +249,7 @@ class TapePool(pulumi.CustomResource):
         Manages an AWS Storage Gateway Tape Pool.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,6 +286,7 @@ class TapePool(pulumi.CustomResource):
         Manages an AWS Storage Gateway Tape Pool.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

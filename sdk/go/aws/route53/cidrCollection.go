@@ -14,6 +14,7 @@ import (
 // Provides a Route53 CIDR collection resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

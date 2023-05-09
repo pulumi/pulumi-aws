@@ -24,6 +24,7 @@ namespace Pulumi.Aws.Ram
     /// 
     /// ## Example Usage
     /// ### AWS Account ID
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,6 +47,7 @@ namespace Pulumi.Aws.Ram
     /// });
     /// ```
     /// ### AWS Organization
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

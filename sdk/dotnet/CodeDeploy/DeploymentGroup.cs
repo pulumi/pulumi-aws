@@ -15,6 +15,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// &gt; **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -123,6 +124,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// });
     /// ```
     /// ### Blue Green Deployments with ECS
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -201,6 +203,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// });
     /// ```
     /// ### Blue Green Deployments with Servers and Classic ELB
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

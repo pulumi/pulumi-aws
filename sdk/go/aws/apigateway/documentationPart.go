@@ -14,6 +14,7 @@ import (
 // Provides a settings of an API Gateway Documentation Part.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -229,6 +229,7 @@ def get_directory(directory_id: Optional[str] = None,
     Retrieve information about an AWS WorkSpaces directory.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -273,6 +274,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
     Retrieve information about an AWS WorkSpaces directory.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

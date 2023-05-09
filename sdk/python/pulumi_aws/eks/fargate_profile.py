@@ -299,6 +299,7 @@ class FargateProfile(pulumi.CustomResource):
         Manages an EKS Fargate Profile.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -312,6 +313,7 @@ class FargateProfile(pulumi.CustomResource):
             )])
         ```
         ### Example IAM Role for EKS Fargate Profile
+
         ```python
         import pulumi
         import json
@@ -360,6 +362,7 @@ class FargateProfile(pulumi.CustomResource):
         Manages an EKS Fargate Profile.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -373,6 +376,7 @@ class FargateProfile(pulumi.CustomResource):
             )])
         ```
         ### Example IAM Role for EKS Fargate Profile
+
         ```python
         import pulumi
         import json

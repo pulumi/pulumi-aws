@@ -13,6 +13,7 @@ import (
 // Information about Redshift Orderable Clusters and valid parameter combinations.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

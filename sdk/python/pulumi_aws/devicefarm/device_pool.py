@@ -296,6 +296,7 @@ class DevicePool(pulumi.CustomResource):
         Provides a resource to manage AWS Device Farm Device Pools.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -337,6 +338,7 @@ class DevicePool(pulumi.CustomResource):
         Provides a resource to manage AWS Device Farm Device Pools.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

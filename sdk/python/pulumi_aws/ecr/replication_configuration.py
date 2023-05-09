@@ -88,6 +88,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         Provides an Elastic Container Registry Replication Configuration.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -104,6 +105,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         ))
         ```
         ## Multiple Region Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -127,6 +129,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         ```
 
         ## Repository Filter Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -169,6 +172,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         Provides an Elastic Container Registry Replication Configuration.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,6 +189,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         ))
         ```
         ## Multiple Region Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -208,6 +213,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         ```
 
         ## Repository Filter Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

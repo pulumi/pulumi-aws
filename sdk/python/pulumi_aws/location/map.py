@@ -250,6 +250,7 @@ class Map(pulumi.CustomResource):
         Provides a Location Service Map.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,6 +288,7 @@ class Map(pulumi.CustomResource):
         Provides a Location Service Map.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

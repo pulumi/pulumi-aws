@@ -13,6 +13,7 @@ namespace Pulumi.Aws.NetworkManager
     /// Provides a global network resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

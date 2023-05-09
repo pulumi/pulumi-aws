@@ -15,6 +15,7 @@ import (
 // ## Example Usage
 //
 // The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
+//
 // ```go
 // package main
 //

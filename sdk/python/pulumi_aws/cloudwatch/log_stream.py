@@ -118,6 +118,7 @@ class LogStream(pulumi.CustomResource):
         Provides a CloudWatch Log Stream resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -149,6 +150,7 @@ class LogStream(pulumi.CustomResource):
         Provides a CloudWatch Log Stream resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

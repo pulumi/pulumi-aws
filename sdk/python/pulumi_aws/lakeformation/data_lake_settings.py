@@ -306,6 +306,7 @@ class DataLakeSettings(pulumi.CustomResource):
 
         ## Example Usage
         ### Data Lake Admins
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,6 +317,7 @@ class DataLakeSettings(pulumi.CustomResource):
         ])
         ```
         ### Create Default Permissions
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -339,6 +341,7 @@ class DataLakeSettings(pulumi.CustomResource):
             )])
         ```
         ### Enable EMR access to LakeFormation resources
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -392,6 +395,7 @@ class DataLakeSettings(pulumi.CustomResource):
 
         ## Example Usage
         ### Data Lake Admins
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -402,6 +406,7 @@ class DataLakeSettings(pulumi.CustomResource):
         ])
         ```
         ### Create Default Permissions
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -425,6 +430,7 @@ class DataLakeSettings(pulumi.CustomResource):
             )])
         ```
         ### Enable EMR access to LakeFormation resources
+
         ```python
         import pulumi
         import pulumi_aws as aws

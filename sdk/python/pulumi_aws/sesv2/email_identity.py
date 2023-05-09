@@ -246,6 +246,7 @@ class EmailIdentity(pulumi.CustomResource):
 
         ### Basic Usage
         ### Email Address Identity
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,6 +254,7 @@ class EmailIdentity(pulumi.CustomResource):
         example = aws.sesv2.EmailIdentity("example", email_identity="testing@example.com")
         ```
         ### Domain Identity
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,6 +262,7 @@ class EmailIdentity(pulumi.CustomResource):
         example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
         ```
         ### Configuration Set
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -270,6 +273,7 @@ class EmailIdentity(pulumi.CustomResource):
             configuration_set_name=example_configuration_set.configuration_set_name)
         ```
         ### DKIM Signing Attributes (BYODKIM)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,6 +314,7 @@ class EmailIdentity(pulumi.CustomResource):
 
         ### Basic Usage
         ### Email Address Identity
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,6 +322,7 @@ class EmailIdentity(pulumi.CustomResource):
         example = aws.sesv2.EmailIdentity("example", email_identity="testing@example.com")
         ```
         ### Domain Identity
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -324,6 +330,7 @@ class EmailIdentity(pulumi.CustomResource):
         example = aws.sesv2.EmailIdentity("example", email_identity="example.com")
         ```
         ### Configuration Set
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -334,6 +341,7 @@ class EmailIdentity(pulumi.CustomResource):
             configuration_set_name=example_configuration_set.configuration_set_name)
         ```
         ### DKIM Signing Attributes (BYODKIM)
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Emr
     /// the provider will resize any Instance Fleet to zero when destroying the resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

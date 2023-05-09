@@ -151,6 +151,7 @@ def get_intent(name: Optional[str] = None,
     Provides details about a specific Amazon Lex Intent.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -189,6 +190,7 @@ def get_intent_output(name: Optional[pulumi.Input[str]] = None,
     Provides details about a specific Amazon Lex Intent.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

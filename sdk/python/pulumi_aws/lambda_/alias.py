@@ -237,6 +237,7 @@ class Alias(pulumi.CustomResource):
         For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,6 +282,7 @@ class Alias(pulumi.CustomResource):
         For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

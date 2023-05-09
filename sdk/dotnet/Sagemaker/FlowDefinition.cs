@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,6 +45,7 @@ namespace Pulumi.Aws.Sagemaker
     /// });
     /// ```
     /// ### Public Workteam Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,6 +84,7 @@ namespace Pulumi.Aws.Sagemaker
     /// });
     /// ```
     /// ### Human Loop Activation Config Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

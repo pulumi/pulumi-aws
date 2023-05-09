@@ -17,7 +17,8 @@ import (
 //
 // ## Example Usage
 //
-// The following example returns a specific local gateway route table ID
+// # The following example returns a specific local gateway route table ID
+//
 // ```go
 // package main
 //

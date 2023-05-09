@@ -14,6 +14,7 @@ import (
 // Provides a resource to manage an S3 Storage Lens configuration.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

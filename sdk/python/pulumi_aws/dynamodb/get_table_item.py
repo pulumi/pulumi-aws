@@ -102,6 +102,7 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -152,6 +153,7 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

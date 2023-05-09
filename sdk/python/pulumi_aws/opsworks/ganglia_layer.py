@@ -888,6 +888,7 @@ class GangliaLayer(pulumi.CustomResource):
         Provides an OpsWorks Ganglia layer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -930,6 +931,7 @@ class GangliaLayer(pulumi.CustomResource):
         Provides an OpsWorks Ganglia layer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

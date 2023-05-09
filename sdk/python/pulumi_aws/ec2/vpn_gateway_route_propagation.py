@@ -105,6 +105,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         propagation not explicitly listed in its value will be removed.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -133,6 +134,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         propagation not explicitly listed in its value will be removed.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

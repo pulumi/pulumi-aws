@@ -14,6 +14,7 @@ import (
 // Provides a resource to manage an [Amazon Macie Findings Filter](https://docs.aws.amazon.com/macie/latest/APIReference/findingsfilters-id.html).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

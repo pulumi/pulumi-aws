@@ -14,6 +14,7 @@ import (
 //
 // ## Example Usage
 // ### Basic configuration
+//
 // ```go
 // package main
 //
@@ -36,6 +37,7 @@ import (
 //
 // ```
 // ### Enabling SMS and Software Token Multi-Factor Authentication
+//
 // ```go
 // package main
 //
@@ -69,6 +71,7 @@ import (
 //
 // ```
 // ### Using Account Recovery Setting
+//
 // ```go
 // package main
 //

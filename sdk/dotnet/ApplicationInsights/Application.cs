@@ -13,6 +13,7 @@ namespace Pulumi.Aws.ApplicationInsights
     /// Provides a ApplicationInsights Application resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

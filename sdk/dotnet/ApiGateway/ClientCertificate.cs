@@ -13,6 +13,7 @@ namespace Pulumi.Aws.ApiGateway
     /// Provides an API Gateway Client Certificate.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -97,6 +97,7 @@ def get_instance_profiles(role_name: Optional[str] = None,
     instance profile properties without having to hard code ARNs as input.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -129,6 +130,7 @@ def get_instance_profiles_output(role_name: Optional[pulumi.Input[str]] = None,
     instance profile properties without having to hard code ARNs as input.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

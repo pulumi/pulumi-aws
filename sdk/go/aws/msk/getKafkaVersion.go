@@ -13,6 +13,7 @@ import (
 // Get information on a Amazon MSK Kafka Version
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

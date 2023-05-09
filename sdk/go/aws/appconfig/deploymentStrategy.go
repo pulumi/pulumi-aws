@@ -14,6 +14,7 @@ import (
 // Provides an AppConfig Deployment Strategy resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -384,6 +384,7 @@ class Task(pulumi.CustomResource):
 
         ## Example Usage
         ### With Scheduling
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -396,6 +397,7 @@ class Task(pulumi.CustomResource):
             ))
         ```
         ### With Filtering
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,6 +447,7 @@ class Task(pulumi.CustomResource):
 
         ## Example Usage
         ### With Scheduling
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -457,6 +460,7 @@ class Task(pulumi.CustomResource):
             ))
         ```
         ### With Filtering
+
         ```python
         import pulumi
         import pulumi_aws as aws

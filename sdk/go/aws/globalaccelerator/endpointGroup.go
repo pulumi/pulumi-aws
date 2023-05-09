@@ -14,6 +14,7 @@ import (
 // Provides a Global Accelerator endpoint group.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -184,6 +184,7 @@ class Group(pulumi.CustomResource):
         Resource for managing QuickSight Group
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,6 +217,7 @@ class Group(pulumi.CustomResource):
         Resource for managing QuickSight Group
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

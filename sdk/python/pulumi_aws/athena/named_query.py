@@ -200,6 +200,7 @@ class NamedQuery(pulumi.CustomResource):
         Provides an Athena Named Query resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,6 +252,7 @@ class NamedQuery(pulumi.CustomResource):
         Provides an Athena Named Query resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

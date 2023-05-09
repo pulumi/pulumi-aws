@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Shield
     /// 
     /// ## Example Usage
     /// ### Create an association between a protected EIP and a Route53 Health Check
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

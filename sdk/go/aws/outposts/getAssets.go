@@ -14,6 +14,7 @@ import (
 //
 // ## Example Usage
 // ### Basic
+//
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //
 // ```
 // ### With Host ID Filter
+//
 // ```go
 // package main
 //
@@ -65,6 +67,7 @@ import (
 //
 // ```
 // ### With Status ID Filter
+//
 // ```go
 // package main
 //

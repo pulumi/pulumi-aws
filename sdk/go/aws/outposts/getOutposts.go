@@ -13,6 +13,7 @@ import (
 // Provides details about multiple Outposts.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

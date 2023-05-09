@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Instance Target
+//
 // ```go
 // package main
 //
@@ -57,6 +58,7 @@ import (
 //
 // ```
 // ### Resource Group Target
+//
 // ```go
 // package main
 //

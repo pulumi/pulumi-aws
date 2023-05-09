@@ -16,6 +16,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Example Usage
     /// ### Local Cache
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,6 +47,7 @@ namespace Pulumi.Aws.StorageGateway
     /// });
     /// ```
     /// ### FSx File Gateway
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,6 +73,7 @@ namespace Pulumi.Aws.StorageGateway
     /// });
     /// ```
     /// ### S3 File Gateway
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,6 +93,7 @@ namespace Pulumi.Aws.StorageGateway
     /// });
     /// ```
     /// ### Tape Gateway
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -111,6 +115,7 @@ namespace Pulumi.Aws.StorageGateway
     /// });
     /// ```
     /// ### Volume Gateway (Cached)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -130,6 +135,7 @@ namespace Pulumi.Aws.StorageGateway
     /// });
     /// ```
     /// ### Volume Gateway (Stored)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

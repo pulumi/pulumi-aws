@@ -15,6 +15,7 @@ import (
 // Snapshots are the AWS implementation of [Flink Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

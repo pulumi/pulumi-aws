@@ -101,6 +101,7 @@ class FleetStackAssociation(pulumi.CustomResource):
         Manages an AppStream Fleet Stack association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -140,6 +141,7 @@ class FleetStackAssociation(pulumi.CustomResource):
         Manages an AppStream Fleet Stack association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

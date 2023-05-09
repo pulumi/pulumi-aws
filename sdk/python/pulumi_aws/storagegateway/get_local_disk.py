@@ -91,6 +91,7 @@ def get_local_disk(disk_node: Optional[str] = None,
     Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -128,6 +129,7 @@ def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[str]]] = Non
     Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

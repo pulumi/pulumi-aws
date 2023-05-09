@@ -128,6 +128,7 @@ def get_origin_access_identity(id: Optional[str] = None,
     ## Example Usage
 
     The following example below creates a CloudFront origin access identity.
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -162,6 +163,7 @@ def get_origin_access_identity_output(id: Optional[pulumi.Input[str]] = None,
     ## Example Usage
 
     The following example below creates a CloudFront origin access identity.
+
     ```python
     import pulumi
     import pulumi_aws as aws

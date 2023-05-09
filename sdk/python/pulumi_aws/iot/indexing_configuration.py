@@ -105,6 +105,7 @@ class IndexingConfiguration(pulumi.CustomResource):
         Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,6 +151,7 @@ class IndexingConfiguration(pulumi.CustomResource):
         Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

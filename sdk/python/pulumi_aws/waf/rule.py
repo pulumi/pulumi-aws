@@ -219,6 +219,7 @@ class Rule(pulumi.CustomResource):
         Provides a WAF Rule Resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,6 +264,7 @@ class Rule(pulumi.CustomResource):
         Provides a WAF Rule Resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

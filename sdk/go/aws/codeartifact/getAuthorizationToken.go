@@ -13,6 +13,7 @@ import (
 // The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

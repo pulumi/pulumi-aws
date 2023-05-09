@@ -93,6 +93,7 @@ def get_rule_group(name: Optional[str] = None,
     Retrieves the summary of a WAFv2 Rule Group.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -127,6 +128,7 @@ def get_rule_group_output(name: Optional[pulumi.Input[str]] = None,
     Retrieves the summary of a WAFv2 Rule Group.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -13,6 +13,7 @@ namespace Pulumi.Aws.ApiGateway
     /// Provides a Model for a REST API Gateway.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

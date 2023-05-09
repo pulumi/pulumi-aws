@@ -134,6 +134,7 @@ class ThingGroupMembership(pulumi.CustomResource):
         Adds an IoT Thing to an IoT Thing Group.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,6 +169,7 @@ class ThingGroupMembership(pulumi.CustomResource):
         Adds an IoT Thing to an IoT Thing Group.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

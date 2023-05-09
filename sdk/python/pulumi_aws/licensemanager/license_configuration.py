@@ -334,6 +334,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,6 +392,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

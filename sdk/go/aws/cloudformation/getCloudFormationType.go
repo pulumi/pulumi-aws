@@ -13,6 +13,7 @@ import (
 // Provides details about a CloudFormation Type.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

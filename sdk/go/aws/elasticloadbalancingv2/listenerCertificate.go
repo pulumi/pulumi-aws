@@ -19,6 +19,44 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleCertificate, err := acm.NewCertificate(ctx, "exampleCertificate", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewLoadBalancer(ctx, "frontEndLoadBalancer", nil)
+//			if err != nil {
+//				return err
+//			}
+//			frontEndListener, err := lb.NewListener(ctx, "frontEndListener", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewListenerCertificate(ctx, "exampleListenerCertificate", &lb.ListenerCertificateArgs{
+//				ListenerArn:    frontEndListener.Arn,
+//				CertificateArn: exampleCertificate.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Listener Certificates can be imported by using the listener arn and certificate arn, separated by an underscore (`_`), e.g.,

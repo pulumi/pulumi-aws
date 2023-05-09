@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Route53
     /// Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

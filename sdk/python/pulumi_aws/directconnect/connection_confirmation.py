@@ -69,6 +69,7 @@ class ConnectionConfirmation(pulumi.CustomResource):
         Provides a confirmation of the creation of the specified hosted connection on an interconnect.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -90,6 +91,7 @@ class ConnectionConfirmation(pulumi.CustomResource):
         Provides a confirmation of the creation of the specified hosted connection on an interconnect.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

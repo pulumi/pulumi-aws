@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Account Analyzer
+//
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //
 // ```
 // ### Organization Analyzer
+//
 // ```go
 // package main
 //

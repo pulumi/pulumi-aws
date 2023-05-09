@@ -287,6 +287,7 @@ class MountTarget(pulumi.CustomResource):
         Provides an Elastic File System (EFS) mount target.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,6 +329,7 @@ class MountTarget(pulumi.CustomResource):
         Provides an Elastic File System (EFS) mount target.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

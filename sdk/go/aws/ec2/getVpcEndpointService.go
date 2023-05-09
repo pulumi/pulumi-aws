@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### AWS Service
+//
 // ```go
 // package main
 //
@@ -53,6 +54,7 @@ import (
 //
 // ```
 // ### Non-AWS Service
+//
 // ```go
 // package main
 //
@@ -77,6 +79,7 @@ import (
 //
 // ```
 // ### Filter
+//
 // ```go
 // package main
 //

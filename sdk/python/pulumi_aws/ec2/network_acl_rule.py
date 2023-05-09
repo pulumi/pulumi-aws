@@ -402,6 +402,7 @@ class NetworkAclRule(pulumi.CustomResource):
         a conflict of rule settings and will overwrite rules.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -464,6 +465,7 @@ class NetworkAclRule(pulumi.CustomResource):
         a conflict of rule settings and will overwrite rules.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

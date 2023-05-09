@@ -85,6 +85,7 @@ def get_distribution_configurations(filters: Optional[Sequence[pulumi.InputType[
     Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -117,6 +118,7 @@ def get_distribution_configurations_output(filters: Optional[pulumi.Input[Option
     Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

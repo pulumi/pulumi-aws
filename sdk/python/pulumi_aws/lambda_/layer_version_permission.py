@@ -264,6 +264,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,6 +308,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

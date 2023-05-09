@@ -14,6 +14,7 @@ import (
 // Manages an Image Builder Image Recipe.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

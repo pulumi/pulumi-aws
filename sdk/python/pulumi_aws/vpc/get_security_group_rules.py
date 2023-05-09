@@ -80,6 +80,7 @@ def get_security_group_rules(filters: Optional[Sequence[pulumi.InputType['GetSec
     This resource can be useful for getting back a set of security group rule IDs.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -116,6 +117,7 @@ def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequ
     This resource can be useful for getting back a set of security group rule IDs.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

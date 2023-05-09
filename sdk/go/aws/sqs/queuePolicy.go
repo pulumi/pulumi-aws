@@ -14,8 +14,6 @@ import (
 // Allows you to set a policy of an SQS Queue
 // while referencing ARN of the queue within the policy.
 //
-// ## Example Usage
-//
 // ## Import
 //
 // SQS Queue Policies can be imported using the queue URL, e.g.,

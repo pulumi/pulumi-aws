@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Ec2
     /// * SSH public key file format as specified in RFC4716
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

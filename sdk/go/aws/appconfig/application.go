@@ -13,6 +13,7 @@ import (
 // Provides an AppConfig Application resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -15,6 +15,7 @@ import (
 // ## Example Usage
 //
 // The following example shows how to get a EC2 Key Pair including the public key material from its name.
+//
 // ```go
 // package main
 //

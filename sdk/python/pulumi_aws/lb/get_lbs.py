@@ -73,6 +73,7 @@ def get_lbs(tags: Optional[Mapping[str, str]] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -106,6 +107,7 @@ def get_lbs_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = N
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

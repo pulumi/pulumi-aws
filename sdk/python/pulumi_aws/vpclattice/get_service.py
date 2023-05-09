@@ -155,6 +155,7 @@ def get_service(service_identifier: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -194,6 +195,7 @@ def get_service_output(service_identifier: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

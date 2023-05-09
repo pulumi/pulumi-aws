@@ -630,6 +630,7 @@ class TaskSet(pulumi.CustomResource):
         See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -684,6 +685,7 @@ class TaskSet(pulumi.CustomResource):
         See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

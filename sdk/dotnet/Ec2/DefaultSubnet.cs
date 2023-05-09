@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
     /// Set the `force_destroy` argument to `true` to delete the default subnet.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

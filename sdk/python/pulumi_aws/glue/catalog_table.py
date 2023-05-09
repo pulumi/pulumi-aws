@@ -517,6 +517,7 @@ class CatalogTable(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Table
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -526,6 +527,7 @@ class CatalogTable(pulumi.CustomResource):
             name="MyCatalogTable")
         ```
         ### Parquet Table for Athena
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -613,6 +615,7 @@ class CatalogTable(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Table
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -622,6 +625,7 @@ class CatalogTable(pulumi.CustomResource):
             name="MyCatalogTable")
         ```
         ### Parquet Table for Athena
+
         ```python
         import pulumi
         import pulumi_aws as aws

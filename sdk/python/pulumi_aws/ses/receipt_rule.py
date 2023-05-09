@@ -516,6 +516,7 @@ class ReceiptRule(pulumi.CustomResource):
         Provides an SES receipt rule resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -572,6 +573,7 @@ class ReceiptRule(pulumi.CustomResource):
         Provides an SES receipt rule resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

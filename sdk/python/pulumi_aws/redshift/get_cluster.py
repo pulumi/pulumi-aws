@@ -521,6 +521,7 @@ def get_cluster(cluster_identifier: Optional[str] = None,
     Provides details about a specific redshift cluster.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -607,6 +608,7 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
     Provides details about a specific redshift cluster.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

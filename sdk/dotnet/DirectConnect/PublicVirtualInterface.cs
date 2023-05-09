@@ -13,6 +13,7 @@ namespace Pulumi.Aws.DirectConnect
     /// Provides a Direct Connect public virtual interface resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

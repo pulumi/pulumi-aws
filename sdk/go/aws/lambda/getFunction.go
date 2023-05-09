@@ -13,6 +13,7 @@ import (
 // Provides information about a Lambda Function.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

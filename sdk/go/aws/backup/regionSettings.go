@@ -14,6 +14,7 @@ import (
 // Provides an AWS Backup Region Settings resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

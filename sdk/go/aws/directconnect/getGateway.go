@@ -13,6 +13,7 @@ import (
 // Retrieve information about a Direct Connect Gateway.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

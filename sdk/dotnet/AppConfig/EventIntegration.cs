@@ -13,6 +13,7 @@ namespace Pulumi.Aws.AppConfig
     /// Provides an Amazon AppIntegrations Event Integration resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

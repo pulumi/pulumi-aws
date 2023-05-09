@@ -245,6 +245,7 @@ class Repository(pulumi.CustomResource):
         > **NOTE:** This resource can only be used in the `us-east-1` region.
 
         ## Example Usage
+
         ```python
         import pulumi
         import base64
@@ -294,6 +295,7 @@ class Repository(pulumi.CustomResource):
         > **NOTE:** This resource can only be used in the `us-east-1` region.
 
         ## Example Usage
+
         ```python
         import pulumi
         import base64

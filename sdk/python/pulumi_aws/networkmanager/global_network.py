@@ -152,6 +152,7 @@ class GlobalNetwork(pulumi.CustomResource):
         Provides a global network resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -183,6 +184,7 @@ class GlobalNetwork(pulumi.CustomResource):
         Provides a global network resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

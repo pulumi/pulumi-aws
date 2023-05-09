@@ -13,6 +13,7 @@ namespace Pulumi.Aws.QuickSight
     /// Resource for managing QuickSight Data Source
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -245,6 +245,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,6 +284,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         - The required policies on `call_analytics_role` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
         ### Transcribe Call Analytics processor usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -333,6 +335,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             ])
         ```
         ### Real time alerts usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -385,6 +388,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             ))
         ```
         ### Transcribe processor usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -417,6 +421,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             ])
         ```
         ### Voice analytics processor usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -458,6 +463,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             ])
         ```
         ### S3 Recording sink usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -500,6 +506,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -538,6 +545,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         - The required policies on `call_analytics_role` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
         ### Transcribe Call Analytics processor usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -588,6 +596,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             ])
         ```
         ### Real time alerts usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -640,6 +649,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             ))
         ```
         ### Transcribe processor usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -672,6 +682,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             ])
         ```
         ### Voice analytics processor usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -713,6 +724,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             ])
         ```
         ### S3 Recording sink usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

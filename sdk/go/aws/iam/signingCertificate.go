@@ -16,6 +16,7 @@ import (
 // ## Example Usage
 //
 // **Using certs on file:**
+//
 // ```go
 // package main
 //
@@ -52,6 +53,7 @@ import (
 // ```
 //
 // **Example with cert in-line:**
+//
 // ```go
 // package main
 //

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Example Usage
     /// ### Basic example
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,6 +46,7 @@ namespace Pulumi.Aws.Ecr
     /// });
     /// ```
     /// ### Multiple rules
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

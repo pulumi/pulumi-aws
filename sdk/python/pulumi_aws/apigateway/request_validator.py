@@ -168,6 +168,7 @@ class RequestValidator(pulumi.CustomResource):
         Manages an API Gateway Request Validator.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,6 +204,7 @@ class RequestValidator(pulumi.CustomResource):
         Manages an API Gateway Request Validator.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

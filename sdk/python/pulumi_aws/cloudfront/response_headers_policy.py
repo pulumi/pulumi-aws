@@ -308,6 +308,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         ## Example Usage
 
         The example below creates a CloudFront response headers policy.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -330,6 +331,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         ```
 
         The example below creates a CloudFront response headers policy with a custom headers config.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -351,6 +353,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         ```
 
         The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,6 +406,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         ## Example Usage
 
         The example below creates a CloudFront response headers policy.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -425,6 +429,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         ```
 
         The example below creates a CloudFront response headers policy with a custom headers config.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -446,6 +451,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         ```
 
         The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+
         ```python
         import pulumi
         import pulumi_aws as aws

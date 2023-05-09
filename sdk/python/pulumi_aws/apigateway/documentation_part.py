@@ -135,6 +135,7 @@ class DocumentationPart(pulumi.CustomResource):
         Provides a settings of an API Gateway Documentation Part.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -174,6 +175,7 @@ class DocumentationPart(pulumi.CustomResource):
         Provides a settings of an API Gateway Documentation Part.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

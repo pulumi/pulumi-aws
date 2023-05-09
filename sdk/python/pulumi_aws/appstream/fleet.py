@@ -671,6 +671,7 @@ class Fleet(pulumi.CustomResource):
         Provides an AppStream fleet.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -733,6 +734,7 @@ class Fleet(pulumi.CustomResource):
         Provides an AppStream fleet.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

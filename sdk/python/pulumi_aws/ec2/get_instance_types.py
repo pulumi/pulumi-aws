@@ -73,6 +73,7 @@ def get_instance_types(filters: Optional[Sequence[pulumi.InputType['GetInstanceT
     Information about EC2 Instance Types.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -121,6 +122,7 @@ def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     Information about EC2 Instance Types.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

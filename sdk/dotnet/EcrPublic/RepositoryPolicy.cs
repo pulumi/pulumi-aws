@@ -17,6 +17,7 @@ namespace Pulumi.Aws.EcrPublic
     /// &gt; **NOTE:** This resource can only be used in the `us-east-1` region.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

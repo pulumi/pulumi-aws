@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Amplify
     /// Provides an Amplify Branch resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,6 +41,7 @@ namespace Pulumi.Aws.Amplify
     /// ### Notifications
     /// 
     /// Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

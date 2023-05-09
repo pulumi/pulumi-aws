@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
 // ## Import
 //
 // IoT Topic Rules can be imported using the `name`, e.g.,

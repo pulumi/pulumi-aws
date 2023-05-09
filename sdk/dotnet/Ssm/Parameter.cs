@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// ### Basic example
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,6 +34,7 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// ### Encrypted string using default SSM KMS key
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

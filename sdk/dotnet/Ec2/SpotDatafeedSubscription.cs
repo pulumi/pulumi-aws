@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ec2
     /// This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

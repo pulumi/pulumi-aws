@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Dms
     /// ## Example Usage
     /// 
     /// Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

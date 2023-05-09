@@ -105,6 +105,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -118,6 +119,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
         ```
         ### With Five Levels
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,6 +170,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -181,6 +184,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
             instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
         ```
         ### With Five Levels
+
         ```python
         import pulumi
         import pulumi_aws as aws

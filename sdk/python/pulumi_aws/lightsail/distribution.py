@@ -558,6 +558,7 @@ class Distribution(pulumi.CustomResource):
         ### Basic Usage
 
         Below is a basic example with a bucket as an origin.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -592,6 +593,7 @@ class Distribution(pulumi.CustomResource):
         ### instance origin example
 
         Below is an example of an instance as the origin.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -623,6 +625,7 @@ class Distribution(pulumi.CustomResource):
         ### lb origin example
 
         Below is an example with a load balancer as an origin
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -695,6 +698,7 @@ class Distribution(pulumi.CustomResource):
         ### Basic Usage
 
         Below is a basic example with a bucket as an origin.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -729,6 +733,7 @@ class Distribution(pulumi.CustomResource):
         ### instance origin example
 
         Below is an example of an instance as the origin.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -760,6 +765,7 @@ class Distribution(pulumi.CustomResource):
         ### lb origin example
 
         Below is an example with a load balancer as an origin
+
         ```python
         import pulumi
         import pulumi_aws as aws

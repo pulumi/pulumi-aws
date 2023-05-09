@@ -12,8 +12,6 @@ import (
 )
 
 // Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
-//
-// ## Example Usage
 type DomainPolicy struct {
 	pulumi.CustomResourceState
 

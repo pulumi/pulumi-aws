@@ -14,6 +14,7 @@ import (
 // Provides an SES receipt filter resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -279,6 +279,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
         Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,6 +314,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
         Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

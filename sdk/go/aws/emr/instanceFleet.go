@@ -19,6 +19,7 @@ import (
 // the provider will resize any Instance Fleet to zero when destroying the resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -216,6 +216,7 @@ class ReplicationSet(pulumi.CustomResource):
         ### Basic Usage
 
         Create a replication set.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,6 +231,7 @@ class ReplicationSet(pulumi.CustomResource):
         ```
 
         Add a Region to a replication set. (You can add only one Region at a time.)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,6 +247,7 @@ class ReplicationSet(pulumi.CustomResource):
         ```
 
         Delete a Region from a replication set. (You can delete only one Region at a time.)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,6 +259,7 @@ class ReplicationSet(pulumi.CustomResource):
         ## Basic Usage with an AWS Customer Managed Key
 
         Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,6 +303,7 @@ class ReplicationSet(pulumi.CustomResource):
         ### Basic Usage
 
         Create a replication set.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,6 +318,7 @@ class ReplicationSet(pulumi.CustomResource):
         ```
 
         Add a Region to a replication set. (You can add only one Region at a time.)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,6 +334,7 @@ class ReplicationSet(pulumi.CustomResource):
         ```
 
         Delete a Region from a replication set. (You can delete only one Region at a time.)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -339,6 +346,7 @@ class ReplicationSet(pulumi.CustomResource):
         ## Basic Usage with an AWS Customer Managed Key
 
         Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
+
         ```python
         import pulumi
         import pulumi_aws as aws

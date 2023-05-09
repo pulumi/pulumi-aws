@@ -299,6 +299,7 @@ class Workteam(pulumi.CustomResource):
 
         ## Example Usage
         ### Cognito Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,6 +317,7 @@ class Workteam(pulumi.CustomResource):
             )])
         ```
         ### Oidc Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -360,6 +362,7 @@ class Workteam(pulumi.CustomResource):
 
         ## Example Usage
         ### Cognito Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -377,6 +380,7 @@ class Workteam(pulumi.CustomResource):
             )])
         ```
         ### Oidc Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

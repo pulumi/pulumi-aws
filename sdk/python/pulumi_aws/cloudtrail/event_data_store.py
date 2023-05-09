@@ -359,6 +359,7 @@ class EventDataStore(pulumi.CustomResource):
         ### Basic
 
         The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -371,6 +372,7 @@ class EventDataStore(pulumi.CustomResource):
 
         - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
         ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -437,6 +439,7 @@ class EventDataStore(pulumi.CustomResource):
         ### Basic
 
         The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -449,6 +452,7 @@ class EventDataStore(pulumi.CustomResource):
 
         - [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html)
         ### Log all DynamoDB PutEvent actions for a specific DynamoDB table
+
         ```python
         import pulumi
         import pulumi_aws as aws

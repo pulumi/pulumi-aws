@@ -206,6 +206,7 @@ class Channel(pulumi.CustomResource):
         Provides an AWS Elemental MediaPackage Channel.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,6 +241,7 @@ class Channel(pulumi.CustomResource):
         Provides an AWS Elemental MediaPackage Channel.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

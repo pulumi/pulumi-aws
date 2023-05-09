@@ -13,6 +13,7 @@ import (
 // Provides details about a specific Amazon Connect Instance Storage Config.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

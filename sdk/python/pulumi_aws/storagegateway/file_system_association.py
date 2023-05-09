@@ -317,6 +317,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         [FSx File Gateway requirements](https://docs.aws.amazon.com/filegateway/latest/filefsxw/Requirements.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -329,6 +330,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             audit_destination_arn=aws_s3_bucket["example"]["arn"])
         ```
         ## Required Services Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,6 +405,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         [FSx File Gateway requirements](https://docs.aws.amazon.com/filegateway/latest/filefsxw/Requirements.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -415,6 +418,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             audit_destination_arn=aws_s3_bucket["example"]["arn"])
         ```
         ## Required Services Example
+
         ```python
         import pulumi
         import pulumi_aws as aws

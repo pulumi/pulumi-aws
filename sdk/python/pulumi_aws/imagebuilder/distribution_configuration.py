@@ -251,6 +251,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         Manages an Image Builder Distribution Configuration.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,6 +299,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         Manages an Image Builder Distribution Configuration.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

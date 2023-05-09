@@ -13,6 +13,166 @@ import (
 // Manages an AWS Elasticsearch Domain.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
+//				ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
+//					InstanceType: pulumi.String("r4.large.elasticsearch"),
+//				},
+//				ElasticsearchVersion: pulumi.String("7.10"),
+//				Tags: pulumi.StringMap{
+//					"Domain": pulumi.String("TestDomain"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Access Policy
+//
+// > See also: `elasticsearch.DomainPolicy` resource
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			domain := "tf-test"
+//			if param := cfg.Get("domain"); param != "" {
+//				domain = param
+//			}
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
+//				AccessPolicies: pulumi.Any(fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "es:*",
+//	      "Principal": "*",
+//	      "Effect": "Allow",
+//	      "Resource": "arn:aws:es:%v:%v:domain/%v/*",
+//	      "Condition": {
+//	        "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
+//	      }
+//	    }
+//	  ]
+//	}
+//
+// `, currentRegion.Name, currentCallerIdentity.AccountId, domain)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Log Publishing to CloudWatch Logs
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"es.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"logs:PutLogEvents",
+//							"logs:PutLogEventsBatch",
+//							"logs:CreateLogStream",
+//						},
+//						Resources: []string{
+//							"arn:aws:logs:*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+//				PolicyName:     pulumi.String("example"),
+//				PolicyDocument: *pulumi.String(examplePolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = elasticsearch.NewDomain(ctx, "exampleDomain", &elasticsearch.DomainArgs{
+//				LogPublishingOptions: elasticsearch.DomainLogPublishingOptionArray{
+//					&elasticsearch.DomainLogPublishingOptionArgs{
+//						CloudwatchLogGroupArn: exampleLogGroup.Arn,
+//						LogType:               pulumi.String("INDEX_SLOW_LOGS"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

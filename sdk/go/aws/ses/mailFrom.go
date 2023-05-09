@@ -16,6 +16,99 @@ import (
 // > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
 //
 // ## Example Usage
+// ### Domain Identity MAIL FROM
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDomainIdentity, err := ses.NewDomainIdentity(ctx, "exampleDomainIdentity", &ses.DomainIdentityArgs{
+//				Domain: pulumi.String("example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleMailFrom, err := ses.NewMailFrom(ctx, "exampleMailFrom", &ses.MailFromArgs{
+//				Domain: exampleDomainIdentity.Domain,
+//				MailFromDomain: exampleDomainIdentity.Domain.ApplyT(func(domain string) (string, error) {
+//					return fmt.Sprintf("bounce.%v", domain), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewRecord(ctx, "exampleSesDomainMailFromMx", &route53.RecordArgs{
+//				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
+//				Name:   exampleMailFrom.MailFromDomain,
+//				Type:   pulumi.String("MX"),
+//				Ttl:    pulumi.Int(600),
+//				Records: pulumi.StringArray{
+//					pulumi.String("10 feedback-smtp.us-east-1.amazonses.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewRecord(ctx, "exampleSesDomainMailFromTxt", &route53.RecordArgs{
+//				ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
+//				Name:   exampleMailFrom.MailFromDomain,
+//				Type:   pulumi.String("TXT"),
+//				Ttl:    pulumi.Int(600),
+//				Records: pulumi.StringArray{
+//					pulumi.String("v=spf1 include:amazonses.com -all"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Email Identity MAIL FROM
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleEmailIdentity, err := ses.NewEmailIdentity(ctx, "exampleEmailIdentity", &ses.EmailIdentityArgs{
+//				Email: pulumi.String("user@example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ses.NewMailFrom(ctx, "exampleMailFrom", &ses.MailFromArgs{
+//				Domain:         exampleEmailIdentity.Email,
+//				MailFromDomain: pulumi.String("mail.example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

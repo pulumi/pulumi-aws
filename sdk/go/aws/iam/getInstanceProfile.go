@@ -15,6 +15,7 @@ import (
 // instance profile properties without having to hard code ARNs as input.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

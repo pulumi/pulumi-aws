@@ -115,6 +115,7 @@ def get_framework(control_sets: Optional[Sequence[pulumi.InputType['GetFramework
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -154,6 +155,7 @@ def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[p
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

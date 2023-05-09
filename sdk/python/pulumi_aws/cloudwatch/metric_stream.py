@@ -464,6 +464,7 @@ class MetricStream(pulumi.CustomResource):
 
         ## Example Usage
         ### Filters
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -539,6 +540,7 @@ class MetricStream(pulumi.CustomResource):
             policy=firehose_to_s3_policy_document.json)
         ```
         ### Additional Statistics
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -601,6 +603,7 @@ class MetricStream(pulumi.CustomResource):
 
         ## Example Usage
         ### Filters
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -676,6 +679,7 @@ class MetricStream(pulumi.CustomResource):
             policy=firehose_to_s3_policy_document.json)
         ```
         ### Additional Statistics
+
         ```python
         import pulumi
         import pulumi_aws as aws

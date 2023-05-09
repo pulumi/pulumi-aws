@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// ### Instance Target
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,6 +51,7 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// ### Resource Group Target
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

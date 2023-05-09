@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// ## Example Usage
     /// ### Basic configuration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

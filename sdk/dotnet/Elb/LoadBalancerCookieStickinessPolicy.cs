@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Elb
     /// Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// ## Example Usage
     /// ### Extended S3 Destination
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -136,6 +137,7 @@ namespace Pulumi.Aws.Kinesis
     /// ### Extended S3 Destination with dynamic partitioning
     /// 
     /// These examples use built-in Firehose functionality, rather than requiring a lambda.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -204,6 +206,7 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// ### S3 Destination (deprecated)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -264,6 +267,7 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// ### Redshift Destination
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -322,6 +326,7 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// ### Elasticsearch Destination
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -374,6 +379,7 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// ### Elasticsearch Destination With VPC
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -493,6 +499,7 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// ### Opensearch Destination
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -544,6 +551,7 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// ### Opensearch Destination With VPC
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -659,6 +667,7 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// ### Splunk Destination
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -691,6 +700,7 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// ### HTTP Endpoint (e.g., New Relic) Destination
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

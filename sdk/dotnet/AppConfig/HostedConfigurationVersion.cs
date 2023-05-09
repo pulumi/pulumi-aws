@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Example Usage
     /// ### Freeform
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,6 +46,7 @@ namespace Pulumi.Aws.AppConfig
     /// });
     /// ```
     /// ### Feature Flags
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

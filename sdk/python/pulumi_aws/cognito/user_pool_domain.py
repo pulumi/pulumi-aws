@@ -231,6 +231,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
         ## Example Usage
         ### Amazon Cognito domain
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,6 +242,7 @@ class UserPoolDomain(pulumi.CustomResource):
             user_pool_id=example.id)
         ```
         ### Custom Cognito domain
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,6 +289,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
         ## Example Usage
         ### Amazon Cognito domain
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,6 +300,7 @@ class UserPoolDomain(pulumi.CustomResource):
             user_pool_id=example.id)
         ```
         ### Custom Cognito domain
+
         ```python
         import pulumi
         import pulumi_aws as aws

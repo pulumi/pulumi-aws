@@ -13,6 +13,7 @@ import (
 // Provides information about a MemoryDB User.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

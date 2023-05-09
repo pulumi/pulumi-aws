@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 // ### Pause Cluster Action
+//
 // ```go
 // package main
 //
@@ -102,6 +103,7 @@ import (
 //
 // ```
 // ### Resize Cluster Action
+//
 // ```go
 // package main
 //

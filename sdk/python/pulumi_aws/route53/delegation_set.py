@@ -108,6 +108,7 @@ class DelegationSet(pulumi.CustomResource):
         Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -140,6 +141,7 @@ class DelegationSet(pulumi.CustomResource):
         Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

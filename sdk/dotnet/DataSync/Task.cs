@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Example Usage
     /// ### With Scheduling
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,6 +36,7 @@ namespace Pulumi.Aws.DataSync
     /// });
     /// ```
     /// ### With Filtering
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

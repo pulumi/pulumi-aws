@@ -332,6 +332,7 @@ class DedicatedHost(pulumi.CustomResource):
         Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -374,6 +375,7 @@ class DedicatedHost(pulumi.CustomResource):
         Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

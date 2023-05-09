@@ -230,6 +230,7 @@ class AttachmentAccepter(pulumi.CustomResource):
 
         ## Example Usage
         ### Example with VPC attachment
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -239,6 +240,7 @@ class AttachmentAccepter(pulumi.CustomResource):
             attachment_type=aws_networkmanager_vpc_attachment["vpc"]["attachment_type"])
         ```
         ### Example with site-to-site VPN attachment
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,6 +266,7 @@ class AttachmentAccepter(pulumi.CustomResource):
 
         ## Example Usage
         ### Example with VPC attachment
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -273,6 +276,7 @@ class AttachmentAccepter(pulumi.CustomResource):
             attachment_type=aws_networkmanager_vpc_attachment["vpc"]["attachment_type"])
         ```
         ### Example with site-to-site VPN attachment
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,6 +39,7 @@ namespace Pulumi.Aws.Kendra
     /// ```
     /// ### S3 Connector
     /// ### With Schedule
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,6 +66,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Access Control List
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,6 +97,7 @@ namespace Pulumi.Aws.Kendra
     /// ```
     /// ### Web Crawler Connector
     /// ### With Seed URLs
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -128,6 +132,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Site Maps
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -162,6 +167,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Web Crawler Mode
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -197,6 +203,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Authentication Configuration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -249,6 +256,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Crawl Depth
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -284,6 +292,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Max Links Per Page
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -319,6 +328,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Max Urls Per Minute Crawl Rate
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -354,6 +364,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Proxy Configuration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -400,6 +411,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With URL Exclusion and Inclusion Patterns
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

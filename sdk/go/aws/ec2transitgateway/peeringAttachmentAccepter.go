@@ -14,6 +14,7 @@ import (
 // Manages the accepter's side of an EC2 Transit Gateway Peering Attachment.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

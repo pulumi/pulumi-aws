@@ -2063,6 +2063,7 @@ class VpnConnection(pulumi.CustomResource):
 
         ## Example Usage
         ### EC2 Transit Gateway
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2078,6 +2079,7 @@ class VpnConnection(pulumi.CustomResource):
             type=example_customer_gateway.type)
         ```
         ### Virtual Private Gateway
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2095,6 +2097,7 @@ class VpnConnection(pulumi.CustomResource):
             static_routes_only=True)
         ```
         ### AWS Site to Site Private VPN
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2207,6 +2210,7 @@ class VpnConnection(pulumi.CustomResource):
 
         ## Example Usage
         ### EC2 Transit Gateway
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2222,6 +2226,7 @@ class VpnConnection(pulumi.CustomResource):
             type=example_customer_gateway.type)
         ```
         ### Virtual Private Gateway
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2239,6 +2244,7 @@ class VpnConnection(pulumi.CustomResource):
             static_routes_only=True)
         ```
         ### AWS Site to Site Private VPN
+
         ```python
         import pulumi
         import pulumi_aws as aws

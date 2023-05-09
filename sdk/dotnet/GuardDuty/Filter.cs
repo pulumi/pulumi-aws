@@ -13,6 +13,7 @@ namespace Pulumi.Aws.GuardDuty
     /// Provides a resource to manage a GuardDuty filter.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

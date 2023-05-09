@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// ### Domain Identity MAIL FROM
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,6 +67,7 @@ namespace Pulumi.Aws.Ses
     /// });
     /// ```
     /// ### Email Identity MAIL FROM
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

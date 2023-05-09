@@ -13,6 +13,7 @@ namespace Pulumi.Aws.LightSail
     /// Attaches a Lightsail disk to a Lightsail Instance
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

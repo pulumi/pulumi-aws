@@ -215,6 +215,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         Provides a CodeCommit Approval Rule Template Resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -257,6 +258,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         Provides a CodeCommit Approval Rule Template Resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json

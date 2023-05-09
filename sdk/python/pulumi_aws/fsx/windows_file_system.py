@@ -814,6 +814,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         ### Using AWS Directory Service
 
         Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -828,6 +829,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         ### Using a Self-Managed Microsoft Active Directory
 
         Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -908,6 +910,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         ### Using AWS Directory Service
 
         Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -922,6 +925,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         ### Using a Self-Managed Microsoft Active Directory
 
         Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
+
         ```python
         import pulumi
         import pulumi_aws as aws

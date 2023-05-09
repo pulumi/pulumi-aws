@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 // ### Basic
+//
 // ```go
 // package main
 //
@@ -46,6 +47,7 @@ import (
 //
 // ```
 // ### Including a sample Lex bot
+//
 // ```go
 // package main
 //

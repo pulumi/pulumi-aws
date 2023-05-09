@@ -322,6 +322,7 @@ class Lb(pulumi.CustomResource):
         Creates a Lightsail load balancer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -360,6 +361,7 @@ class Lb(pulumi.CustomResource):
         Creates a Lightsail load balancer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

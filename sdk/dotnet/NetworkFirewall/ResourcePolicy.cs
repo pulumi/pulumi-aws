@@ -14,6 +14,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ## Example Usage
     /// ### For a Firewall Policy resource
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,6 +55,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// ### For a Rule Group resource
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

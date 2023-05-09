@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,6 +37,7 @@ namespace Pulumi.Aws.Fsx
     /// ### Using Tiering Policy
     /// 
     /// Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

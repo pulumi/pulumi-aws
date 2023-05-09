@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Neptune
     /// Provides an Neptune Cluster Endpoint Resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Mq
     /// 
     /// ## Example Usage
     /// ### Basic Example
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,6 +58,7 @@ namespace Pulumi.Aws.Mq
     /// ### High-throughput Optimized Example
     /// 
     /// This example shows the use of EBS storage for high-throughput optimized performance.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

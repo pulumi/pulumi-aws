@@ -133,6 +133,7 @@ class RouteTablePropagation(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Route Table propagation.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -165,6 +166,7 @@ class RouteTablePropagation(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Route Table propagation.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

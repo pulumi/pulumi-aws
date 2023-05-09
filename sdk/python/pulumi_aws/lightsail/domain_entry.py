@@ -199,6 +199,7 @@ class DomainEntry(pulumi.CustomResource):
         Creates a domain entry resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,6 +237,7 @@ class DomainEntry(pulumi.CustomResource):
         Creates a domain entry resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

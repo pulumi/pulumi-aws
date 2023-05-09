@@ -203,6 +203,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         It also sets the retention period, in hours, for the Amazon Kinesis data.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,6 +216,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             streaming_notification_targets=["SQS"])
         ```
         ### Example Usage With Media Insights
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -284,6 +286,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         It also sets the retention period, in hours, for the Amazon Kinesis data.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,6 +299,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             streaming_notification_targets=["SQS"])
         ```
         ### Example Usage With Media Insights
+
         ```python
         import pulumi
         import pulumi_aws as aws

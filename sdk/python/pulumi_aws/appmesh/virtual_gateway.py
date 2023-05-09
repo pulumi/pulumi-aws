@@ -300,6 +300,7 @@ class VirtualGateway(pulumi.CustomResource):
 
         ## Example Usage
         ### Access Logs and TLS
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,6 +360,7 @@ class VirtualGateway(pulumi.CustomResource):
 
         ## Example Usage
         ### Access Logs and TLS
+
         ```python
         import pulumi
         import pulumi_aws as aws

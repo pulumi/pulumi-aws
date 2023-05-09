@@ -481,6 +481,7 @@ class PlatformApplication(pulumi.CustomResource):
 
         ## Example Usage
         ### Apple Push Notification Service (APNS) using certificate-based authentication
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -491,6 +492,7 @@ class PlatformApplication(pulumi.CustomResource):
             platform_principal="<APNS CERTIFICATE>")
         ```
         ### Apple Push Notification Service (APNS) using token-based authentication
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -503,6 +505,7 @@ class PlatformApplication(pulumi.CustomResource):
             platform_principal="<APNS SIGNING KEY ID>")
         ```
         ### Google Cloud Messaging (GCM)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -547,6 +550,7 @@ class PlatformApplication(pulumi.CustomResource):
 
         ## Example Usage
         ### Apple Push Notification Service (APNS) using certificate-based authentication
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -557,6 +561,7 @@ class PlatformApplication(pulumi.CustomResource):
             platform_principal="<APNS CERTIFICATE>")
         ```
         ### Apple Push Notification Service (APNS) using token-based authentication
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -569,6 +574,7 @@ class PlatformApplication(pulumi.CustomResource):
             platform_principal="<APNS SIGNING KEY ID>")
         ```
         ### Google Cloud Messaging (GCM)
+
         ```python
         import pulumi
         import pulumi_aws as aws

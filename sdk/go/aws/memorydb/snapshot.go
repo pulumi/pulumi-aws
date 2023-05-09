@@ -16,6 +16,7 @@ import (
 // More information about snapshot and restore can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/snapshots.html).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

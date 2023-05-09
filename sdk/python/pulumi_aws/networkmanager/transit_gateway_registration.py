@@ -103,6 +103,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         You cannot register a transit gateway in more than one global network.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -139,6 +140,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         You cannot register a transit gateway in more than one global network.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

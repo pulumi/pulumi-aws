@@ -18,6 +18,46 @@ import (
 // into management. When you _delete_ this resource configuration, the provider "abandons" resource as is and just removes it from the state.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := securityhub.NewAccount(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			cisAwsFoundationsBenchmark, err := securityhub.NewStandardsSubscription(ctx, "cisAwsFoundationsBenchmark", &securityhub.StandardsSubscriptionArgs{
+//				StandardsArn: pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewStandardsControl(ctx, "ensureIamPasswordPolicyPreventsPasswordReuse", &securityhub.StandardsControlArgs{
+//				StandardsControlArn: pulumi.String("arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10"),
+//				ControlStatus:       pulumi.String("DISABLED"),
+//				DisabledReason:      pulumi.String("We handle password policies within Okta"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				cisAwsFoundationsBenchmark,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type StandardsControl struct {
 	pulumi.CustomResourceState
 

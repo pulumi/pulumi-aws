@@ -14,6 +14,7 @@ import (
 // Provides an RDS DB subnet group resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

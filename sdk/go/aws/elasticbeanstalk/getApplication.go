@@ -13,6 +13,7 @@ import (
 // Retrieve information about an Elastic Beanstalk Application.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -14,6 +14,7 @@ import (
 // example to supply credentials for a dependency microservice.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

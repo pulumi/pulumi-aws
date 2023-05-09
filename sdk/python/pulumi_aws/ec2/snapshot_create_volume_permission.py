@@ -101,6 +101,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         Adds permission to create volumes off of a given EBS Snapshot.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -129,6 +130,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         Adds permission to create volumes off of a given EBS Snapshot.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

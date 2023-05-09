@@ -363,6 +363,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         Provides a Network Insights Analysis resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -400,6 +401,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         Provides a Network Insights Analysis resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -105,6 +105,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
         > **Note:** Voice Connector Termination Credentials requires a Voice Connector Termination to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -153,6 +154,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
         > **Note:** Voice Connector Termination Credentials requires a Voice Connector Termination to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

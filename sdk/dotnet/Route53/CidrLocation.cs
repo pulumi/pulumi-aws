@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Route53
     /// Provides a Route53 CIDR location resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

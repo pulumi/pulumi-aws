@@ -14,6 +14,7 @@ import (
 // Provides an IAM policy attached to a group.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

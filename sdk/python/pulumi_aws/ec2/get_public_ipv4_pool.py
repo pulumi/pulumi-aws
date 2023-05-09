@@ -132,6 +132,7 @@ def get_public_ipv4_pool(pool_id: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -169,6 +170,7 @@ def get_public_ipv4_pool_output(pool_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

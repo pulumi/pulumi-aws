@@ -13,6 +13,7 @@ namespace Pulumi.Aws.ElastiCache
     /// Provides an ElastiCache user resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,6 +36,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,6 +59,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

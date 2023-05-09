@@ -216,6 +216,7 @@ class DataSet(pulumi.CustomResource):
         Provides a resource to manage AWS Data Exchange DataSets.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,6 +252,7 @@ class DataSet(pulumi.CustomResource):
         Provides a resource to manage AWS Data Exchange DataSets.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

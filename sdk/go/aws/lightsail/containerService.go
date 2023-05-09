@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -50,6 +51,7 @@ import (
 //
 // ```
 // ### Public Domain Names
+//
 // ```go
 // package main
 //

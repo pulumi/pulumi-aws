@@ -13,6 +13,7 @@ import (
 // Provides a SimpleDB domain resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

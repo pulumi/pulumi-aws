@@ -383,6 +383,7 @@ class Workspace(pulumi.CustomResource):
         > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -439,6 +440,7 @@ class Workspace(pulumi.CustomResource):
         > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

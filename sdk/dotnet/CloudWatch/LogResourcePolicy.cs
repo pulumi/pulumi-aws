@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// ### Elasticsearch Log Publishing
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,6 +63,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### Route53 Query Logging
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

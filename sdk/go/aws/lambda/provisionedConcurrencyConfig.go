@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Alias Name
+//
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //
 // ```
 // ### Function Version
+//
 // ```go
 // package main
 //

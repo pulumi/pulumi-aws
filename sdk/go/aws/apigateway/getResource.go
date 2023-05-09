@@ -14,6 +14,7 @@ import (
 // To fetch the Resource, you must provide the REST API id as well as the full path.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

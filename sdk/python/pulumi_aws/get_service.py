@@ -121,6 +121,7 @@ def get_service(dns_name: Optional[str] = None,
 
     ## Example Usage
     ### Get Service DNS Name
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -130,6 +131,7 @@ def get_service(dns_name: Optional[str] = None,
         service_id="ec2")
     ```
     ### Use Service Reverse DNS Name to Get Components
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -137,6 +139,7 @@ def get_service(dns_name: Optional[str] = None,
     s3 = aws.get_service(reverse_dns_name="cn.com.amazonaws.cn-north-1.s3")
     ```
     ### Determine Regional Support for a Service
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -183,6 +186,7 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
     ### Get Service DNS Name
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -192,6 +196,7 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[str]]] = None,
         service_id="ec2")
     ```
     ### Use Service Reverse DNS Name to Get Components
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -199,6 +204,7 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[str]]] = None,
     s3 = aws.get_service(reverse_dns_name="cn.com.amazonaws.cn-north-1.s3")
     ```
     ### Determine Regional Support for a Service
+
     ```python
     import pulumi
     import pulumi_aws as aws

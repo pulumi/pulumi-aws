@@ -302,6 +302,7 @@ class Access(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic S3
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,6 +314,7 @@ class Access(pulumi.CustomResource):
             home_directory=f"/{aws_s3_bucket['example']['id']}/")
         ```
         ### Basic EFS
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,6 +360,7 @@ class Access(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic S3
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -369,6 +372,7 @@ class Access(pulumi.CustomResource):
             home_directory=f"/{aws_s3_bucket['example']['id']}/")
         ```
         ### Basic EFS
+
         ```python
         import pulumi
         import pulumi_aws as aws

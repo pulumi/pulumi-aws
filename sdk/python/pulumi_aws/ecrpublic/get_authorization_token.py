@@ -98,6 +98,7 @@ def get_authorization_token(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
     > **NOTE:** This data source can only be used in the `us-east-1` region.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

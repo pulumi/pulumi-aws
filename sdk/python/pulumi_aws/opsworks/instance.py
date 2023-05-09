@@ -1267,6 +1267,7 @@ class Instance(pulumi.CustomResource):
         Provides an OpsWorks instance resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1373,6 +1374,7 @@ class Instance(pulumi.CustomResource):
         Provides an OpsWorks instance resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

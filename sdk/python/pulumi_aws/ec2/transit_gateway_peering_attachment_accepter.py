@@ -200,6 +200,7 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
         Manages the accepter's side of an EC2 Transit Gateway Peering Attachment.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,6 +236,7 @@ class TransitGatewayPeeringAttachmentAccepter(pulumi.CustomResource):
         Manages the accepter's side of an EC2 Transit Gateway Peering Attachment.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

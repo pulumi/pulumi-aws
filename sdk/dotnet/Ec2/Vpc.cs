@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// Basic usage:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// 
     /// Basic usage with tags:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,6 +56,7 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// 
     /// VPC with CIDR from AWS IPAM:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -101,6 +101,7 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         Provides a resource to create a VPC Internet Gateway Attachment.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -135,6 +136,7 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         Provides a resource to create a VPC Internet Gateway Attachment.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

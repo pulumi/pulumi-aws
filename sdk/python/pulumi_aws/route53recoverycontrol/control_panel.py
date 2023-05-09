@@ -166,6 +166,7 @@ class ControlPanel(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Control Config Control Panel.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,6 +197,7 @@ class ControlPanel(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Control Config Control Panel.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

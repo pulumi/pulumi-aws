@@ -16,6 +16,7 @@ import (
 // > **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

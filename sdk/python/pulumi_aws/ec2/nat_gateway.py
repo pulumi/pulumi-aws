@@ -283,6 +283,7 @@ class NatGateway(pulumi.CustomResource):
 
         ## Example Usage
         ### Public NAT
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,6 +297,7 @@ class NatGateway(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_internet_gateway["example"]]))
         ```
         ### Private NAT
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -333,6 +335,7 @@ class NatGateway(pulumi.CustomResource):
 
         ## Example Usage
         ### Public NAT
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -346,6 +349,7 @@ class NatGateway(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_internet_gateway["example"]]))
         ```
         ### Private NAT
+
         ```python
         import pulumi
         import pulumi_aws as aws

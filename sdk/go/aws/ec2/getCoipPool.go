@@ -15,8 +15,6 @@ import (
 // This data source can prove useful when a module accepts a coip pool id as
 // an input variable and needs to, for example, determine the CIDR block of that
 // COIP Pool.
-//
-// ## Example Usage
 func GetCoipPool(ctx *pulumi.Context, args *GetCoipPoolArgs, opts ...pulumi.InvokeOption) (*GetCoipPoolResult, error) {
 	var rv GetCoipPoolResult
 	err := ctx.Invoke("aws:ec2/getCoipPool:getCoipPool", args, &rv, opts...)

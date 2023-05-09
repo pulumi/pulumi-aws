@@ -94,6 +94,7 @@ def get_resource(path: Optional[str] = None,
     To fetch the Resource, you must provide the REST API id as well as the full path.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -130,6 +131,7 @@ def get_resource_output(path: Optional[pulumi.Input[str]] = None,
     To fetch the Resource, you must provide the REST API id as well as the full path.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

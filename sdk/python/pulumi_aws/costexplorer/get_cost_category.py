@@ -154,6 +154,7 @@ def get_cost_category(cost_category_arn: Optional[str] = None,
     Provides details about a specific CostExplorer Cost Category.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -192,6 +193,7 @@ def get_cost_category_output(cost_category_arn: Optional[pulumi.Input[str]] = No
     Provides details about a specific CostExplorer Cost Category.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

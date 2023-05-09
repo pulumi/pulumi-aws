@@ -13,6 +13,7 @@ import (
 // Provides an AWS Elemental MediaConvert Queue.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

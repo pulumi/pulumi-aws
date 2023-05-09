@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// internet gateway or virtual private gateway.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,6 +31,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

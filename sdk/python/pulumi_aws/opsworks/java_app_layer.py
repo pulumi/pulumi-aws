@@ -955,6 +955,7 @@ class JavaAppLayer(pulumi.CustomResource):
         Provides an OpsWorks Java application layer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -997,6 +998,7 @@ class JavaAppLayer(pulumi.CustomResource):
         Provides an OpsWorks Java application layer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

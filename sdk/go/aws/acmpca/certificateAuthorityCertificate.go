@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Self-Signed Root Certificate Authority Certificate
+//
 // ```go
 // package main
 //
@@ -76,6 +77,7 @@ import (
 // ### Certificate for Subordinate Certificate Authority
 //
 // Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
+//
 // ```go
 // package main
 //

@@ -13,6 +13,7 @@ import (
 // Provides a Cognito User Pool Client resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

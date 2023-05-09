@@ -840,6 +840,7 @@ class MetricAlarm(pulumi.CustomResource):
         Provides a CloudWatch Metric Alarm resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -856,6 +857,7 @@ class MetricAlarm(pulumi.CustomResource):
             threshold=80)
         ```
         ## Example in Conjunction with Scaling Policies
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -881,6 +883,7 @@ class MetricAlarm(pulumi.CustomResource):
         ```
 
         ## Example with an Expression
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -926,6 +929,7 @@ class MetricAlarm(pulumi.CustomResource):
             ],
             threshold=10)
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -961,6 +965,7 @@ class MetricAlarm(pulumi.CustomResource):
         ```
 
         ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1037,6 +1042,7 @@ class MetricAlarm(pulumi.CustomResource):
         Provides a CloudWatch Metric Alarm resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1053,6 +1059,7 @@ class MetricAlarm(pulumi.CustomResource):
             threshold=80)
         ```
         ## Example in Conjunction with Scaling Policies
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1078,6 +1085,7 @@ class MetricAlarm(pulumi.CustomResource):
         ```
 
         ## Example with an Expression
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1123,6 +1131,7 @@ class MetricAlarm(pulumi.CustomResource):
             ],
             threshold=10)
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1158,6 +1167,7 @@ class MetricAlarm(pulumi.CustomResource):
         ```
 
         ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
+
         ```python
         import pulumi
         import pulumi_aws as aws

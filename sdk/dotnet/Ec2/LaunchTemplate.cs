@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ec2
     /// Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System;
     /// using System.Collections.Generic;

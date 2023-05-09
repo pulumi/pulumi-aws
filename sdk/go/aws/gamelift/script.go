@@ -13,6 +13,7 @@ import (
 // Provides an GameLift Script resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

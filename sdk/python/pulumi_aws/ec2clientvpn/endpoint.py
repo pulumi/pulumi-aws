@@ -650,6 +650,7 @@ class Endpoint(pulumi.CustomResource):
         > **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -710,6 +711,7 @@ class Endpoint(pulumi.CustomResource):
         > **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

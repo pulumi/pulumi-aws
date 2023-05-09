@@ -298,6 +298,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         Provides a Glue User Defined Function Resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,6 +344,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         Provides a Glue User Defined Function Resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

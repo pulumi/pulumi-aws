@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //
 // ```
 // ### Initial Capacity Usage
+//
 // ```go
 // package main
 //
@@ -77,6 +79,7 @@ import (
 //
 // ```
 // ### Maximum Capacity Usage
+//
 // ```go
 // package main
 //

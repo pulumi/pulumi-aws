@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Forward action
+//
 // ```go
 // package main
 //
@@ -66,6 +67,7 @@ import (
 //
 // ```
 // ### Forward action with weighted target groups
+//
 // ```go
 // package main
 //

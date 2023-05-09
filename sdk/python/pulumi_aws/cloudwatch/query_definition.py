@@ -151,6 +151,7 @@ class QueryDefinition(pulumi.CustomResource):
         Provides a CloudWatch Logs query definition resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -191,6 +192,7 @@ class QueryDefinition(pulumi.CustomResource):
         Provides a CloudWatch Logs query definition resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

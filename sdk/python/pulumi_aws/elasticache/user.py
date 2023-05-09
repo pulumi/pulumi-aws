@@ -340,6 +340,7 @@ class User(pulumi.CustomResource):
         Provides an ElastiCache user resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -351,6 +352,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName")
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -364,6 +366,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName")
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -411,6 +414,7 @@ class User(pulumi.CustomResource):
         Provides an ElastiCache user resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -422,6 +426,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName")
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,6 +440,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName")
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws

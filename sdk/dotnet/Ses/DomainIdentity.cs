@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,6 +31,7 @@ namespace Pulumi.Aws.Ses
     /// });
     /// ```
     /// ### With Route53 Record
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

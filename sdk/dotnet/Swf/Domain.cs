@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Swf
     /// ## Example Usage
     /// 
     /// To register a basic SWF domain:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

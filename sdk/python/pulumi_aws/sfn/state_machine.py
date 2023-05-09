@@ -383,6 +383,7 @@ class StateMachine(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic (Standard Workflow)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -404,6 +405,7 @@ class StateMachine(pulumi.CustomResource):
         \"\"\")
         ```
         ### Basic (Express Workflow)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -428,6 +430,7 @@ class StateMachine(pulumi.CustomResource):
         ### Logging
 
         > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -485,6 +488,7 @@ class StateMachine(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic (Standard Workflow)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -506,6 +510,7 @@ class StateMachine(pulumi.CustomResource):
         \"\"\")
         ```
         ### Basic (Express Workflow)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -530,6 +535,7 @@ class StateMachine(pulumi.CustomResource):
         ### Logging
 
         > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
+
         ```python
         import pulumi
         import pulumi_aws as aws

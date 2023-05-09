@@ -136,6 +136,7 @@ class InstanceState(pulumi.CustomResource):
         > **NOTE on Instance State Management:** AWS does not currently have an EC2 API operation to determine an instance has finished processing user data. As a result, this resource can interfere with user data processing. For example, this resource may stop an instance while the user data script is in mid run.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,6 +190,7 @@ class InstanceState(pulumi.CustomResource):
         > **NOTE on Instance State Management:** AWS does not currently have an EC2 API operation to determine an instance has finished processing user data. As a result, this resource can interfere with user data processing. For example, this resource may stop an instance while the user data script is in mid run.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

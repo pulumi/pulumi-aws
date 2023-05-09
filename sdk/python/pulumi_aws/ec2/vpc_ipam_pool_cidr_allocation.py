@@ -263,6 +263,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,6 +286,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         ```
 
         With the `disallowed_cidrs` attribute:
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -335,6 +337,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,6 +360,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         ```
 
         With the `disallowed_cidrs` attribute:
+
         ```python
         import pulumi
         import pulumi_aws as aws

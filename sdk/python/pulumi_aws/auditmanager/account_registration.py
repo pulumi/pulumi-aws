@@ -153,6 +153,7 @@ class AccountRegistration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,6 +161,7 @@ class AccountRegistration(pulumi.CustomResource):
         example = aws.auditmanager.AccountRegistration("example")
         ```
         ### Deregister On Destroy
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -192,6 +194,7 @@ class AccountRegistration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,6 +202,7 @@ class AccountRegistration(pulumi.CustomResource):
         example = aws.auditmanager.AccountRegistration("example")
         ```
         ### Deregister On Destroy
+
         ```python
         import pulumi
         import pulumi_aws as aws

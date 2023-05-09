@@ -13,6 +13,7 @@ import (
 // Retrieves the summary of a WAFv2 Regex Pattern Set.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

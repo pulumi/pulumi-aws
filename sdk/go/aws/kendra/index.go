@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Basic
+//
 // ```go
 // package main
 //
@@ -44,6 +45,7 @@ import (
 //
 // ```
 // ### With capacity units
+//
 // ```go
 // package main
 //
@@ -73,6 +75,7 @@ import (
 //
 // ```
 // ### With server side encryption configuration
+//
 // ```go
 // package main
 //
@@ -101,6 +104,7 @@ import (
 // ```
 // ### With Document Metadata Configuration Updates
 // ### Specifying the predefined elements
+//
 // ```go
 // package main
 //
@@ -314,6 +318,7 @@ import (
 // ### Appending additional elements
 //
 // The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
+//
 // ```go
 // package main
 //
@@ -582,6 +587,7 @@ import (
 //
 // ```
 // ### With JSON token type configuration
+//
 // ```go
 // package main
 //

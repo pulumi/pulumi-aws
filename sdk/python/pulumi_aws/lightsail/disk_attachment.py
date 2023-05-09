@@ -133,6 +133,7 @@ class Disk_attachment(pulumi.CustomResource):
         Attaches a Lightsail disk to a Lightsail Instance
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,6 +180,7 @@ class Disk_attachment(pulumi.CustomResource):
         Attaches a Lightsail disk to a Lightsail Instance
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

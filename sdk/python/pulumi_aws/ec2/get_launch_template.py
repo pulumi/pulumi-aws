@@ -397,6 +397,7 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
     Provides information about a Launch Template.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -404,6 +405,7 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
     default = aws.ec2.get_launch_template(name="my-launch-template")
     ```
     ### Filter
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -480,6 +482,7 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
     Provides information about a Launch Template.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -487,6 +490,7 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
     default = aws.ec2.get_launch_template(name="my-launch-template")
     ```
     ### Filter
+
     ```python
     import pulumi
     import pulumi_aws as aws

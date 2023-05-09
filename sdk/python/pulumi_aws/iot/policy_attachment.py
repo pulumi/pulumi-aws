@@ -101,6 +101,7 @@ class PolicyAttachment(pulumi.CustomResource):
         Provides an IoT policy attachment.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -134,6 +135,7 @@ class PolicyAttachment(pulumi.CustomResource):
         Provides an IoT policy attachment.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

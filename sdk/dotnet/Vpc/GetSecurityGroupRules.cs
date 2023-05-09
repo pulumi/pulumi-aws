@@ -18,26 +18,6 @@ namespace Pulumi.Aws.Vpc
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// const example = aws.vpc.getSecurityGroupRules({
-        ///     filters: [{
-        ///         name: "group-id",
-        ///         values: [_var.security_group_id],
-        ///     }],
-        /// });
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// example = aws.vpc.get_security_group_rules(filters=[aws.vpc.GetSecurityGroupRulesFilterArgs(
-        ///     name="group-id",
-        ///     values=[var["security_group_id"]],
-        /// )])
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,48 +42,6 @@ namespace Pulumi.Aws.Vpc
         ///     });
         /// 
         /// });
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.vpc.VpcFunctions;
-        /// import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
-        ///             .filters(GetSecurityGroupRulesFilterArgs.builder()
-        ///                 .name("group-id")
-        ///                 .values(var_.security_group_id())
-        ///                 .build())
-        ///             .build());
-        /// 
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// variables:
-        ///   example:
-        ///     fn::invoke:
-        ///       Function: aws:vpc:getSecurityGroupRules
-        ///       Arguments:
-        ///         filters:
-        ///           - name: group-id
-        ///             values:
-        ///               - ${var.security_group_id}
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -118,26 +56,6 @@ namespace Pulumi.Aws.Vpc
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// const example = aws.vpc.getSecurityGroupRules({
-        ///     filters: [{
-        ///         name: "group-id",
-        ///         values: [_var.security_group_id],
-        ///     }],
-        /// });
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// example = aws.vpc.get_security_group_rules(filters=[aws.vpc.GetSecurityGroupRulesFilterArgs(
-        ///     name="group-id",
-        ///     values=[var["security_group_id"]],
-        /// )])
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -162,48 +80,6 @@ namespace Pulumi.Aws.Vpc
         ///     });
         /// 
         /// });
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.vpc.VpcFunctions;
-        /// import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         final var example = VpcFunctions.getSecurityGroupRules(GetSecurityGroupRulesArgs.builder()
-        ///             .filters(GetSecurityGroupRulesFilterArgs.builder()
-        ///                 .name("group-id")
-        ///                 .values(var_.security_group_id())
-        ///                 .build())
-        ///             .build());
-        /// 
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// variables:
-        ///   example:
-        ///     fn::invoke:
-        ///       Function: aws:vpc:getSecurityGroupRules
-        ///       Arguments:
-        ///         filters:
-        ///           - name: group-id
-        ///             values:
-        ///               - ${var.security_group_id}
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

@@ -14,6 +14,7 @@ import (
 // Creates a domain entry resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

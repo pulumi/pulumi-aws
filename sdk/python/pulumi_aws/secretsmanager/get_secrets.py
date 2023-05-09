@@ -85,6 +85,7 @@ def get_secrets(filters: Optional[Sequence[pulumi.InputType['GetSecretsFilterArg
     Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -117,6 +118,7 @@ def get_secrets_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
     Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

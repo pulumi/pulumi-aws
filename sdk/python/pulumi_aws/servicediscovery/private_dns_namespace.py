@@ -233,6 +233,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         Provides a Service Discovery Private DNS Namespace resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,6 +270,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
         Provides a Service Discovery Private DNS Namespace resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

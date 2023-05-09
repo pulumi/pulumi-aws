@@ -14,6 +14,7 @@ import (
 //
 // ## Example Usage
 // ### Create an association for a specific instance
+//
 // ```go
 // package main
 //
@@ -47,6 +48,7 @@ import (
 // ### Create an association for all managed instances in an AWS account
 //
 // To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
+//
 // ```go
 // package main
 //
@@ -80,6 +82,7 @@ import (
 // ### Create an association for a specific tag
 //
 // This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
+//
 // ```go
 // package main
 //
@@ -113,6 +116,7 @@ import (
 // ### Create an association with a specific schedule
 //
 // This example shows how to schedule an association in various ways.
+//
 // ```go
 // package main
 //

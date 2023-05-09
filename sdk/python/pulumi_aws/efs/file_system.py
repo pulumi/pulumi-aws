@@ -478,6 +478,7 @@ class FileSystem(pulumi.CustomResource):
 
         ## Example Usage
         ### EFS File System w/ tags
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -487,6 +488,7 @@ class FileSystem(pulumi.CustomResource):
         })
         ```
         ### Using lifecycle policy
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -531,6 +533,7 @@ class FileSystem(pulumi.CustomResource):
 
         ## Example Usage
         ### EFS File System w/ tags
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -540,6 +543,7 @@ class FileSystem(pulumi.CustomResource):
         })
         ```
         ### Using lifecycle policy
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -398,6 +398,7 @@ class Namespace(pulumi.CustomResource):
         Creates a new Amazon Redshift Serverless Namespace.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -436,6 +437,7 @@ class Namespace(pulumi.CustomResource):
         Creates a new Amazon Redshift Serverless Namespace.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

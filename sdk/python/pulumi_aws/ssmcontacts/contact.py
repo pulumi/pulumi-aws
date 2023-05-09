@@ -221,6 +221,7 @@ class Contact(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,6 +232,7 @@ class Contact(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
         ```
         ### Usage With All Fields
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -273,6 +275,7 @@ class Contact(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,6 +286,7 @@ class Contact(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
         ```
         ### Usage With All Fields
+
         ```python
         import pulumi
         import pulumi_aws as aws

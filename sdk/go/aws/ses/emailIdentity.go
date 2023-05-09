@@ -14,6 +14,7 @@ import (
 // Provides an SES email identity resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

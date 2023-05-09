@@ -13,6 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// Provides an AWS Network Firewall Firewall Resource
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

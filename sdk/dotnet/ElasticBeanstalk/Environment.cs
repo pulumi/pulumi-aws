@@ -18,6 +18,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// `production`.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,6 +53,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
     /// 
     /// ### Example With Options
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

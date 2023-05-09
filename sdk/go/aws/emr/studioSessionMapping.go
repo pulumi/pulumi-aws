@@ -14,6 +14,7 @@ import (
 // Provides an Elastic MapReduce Studio Session Mapping.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

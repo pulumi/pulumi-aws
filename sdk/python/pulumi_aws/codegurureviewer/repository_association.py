@@ -294,6 +294,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         Resource for managing an AWS CodeGuru Reviewer Repository Association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,6 +328,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         Resource for managing an AWS CodeGuru Reviewer Repository Association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -311,6 +311,7 @@ class Thesaurus(pulumi.CustomResource):
         Resource for managing an AWS Kendra Thesaurus.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -355,6 +356,7 @@ class Thesaurus(pulumi.CustomResource):
         Resource for managing an AWS Kendra Thesaurus.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

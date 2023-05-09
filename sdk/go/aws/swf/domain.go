@@ -16,6 +16,7 @@ import (
 // ## Example Usage
 //
 // To register a basic SWF domain:
+//
 // ```go
 // package main
 //

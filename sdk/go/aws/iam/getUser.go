@@ -15,6 +15,7 @@ import (
 // properties without having to hard code ARNs or unique IDs as input.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

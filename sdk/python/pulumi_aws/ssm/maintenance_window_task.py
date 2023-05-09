@@ -465,6 +465,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         ## Example Usage
         ### Automation Tasks
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -491,6 +492,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             ))
         ```
         ### Run Command Tasks
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -525,6 +527,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             ))
         ```
         ### Step Function Tasks
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -582,6 +585,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         ## Example Usage
         ### Automation Tasks
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -608,6 +612,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             ))
         ```
         ### Run Command Tasks
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -642,6 +647,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             ))
         ```
         ### Step Function Tasks
+
         ```python
         import pulumi
         import pulumi_aws as aws

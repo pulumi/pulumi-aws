@@ -136,6 +136,7 @@ class RouteTableAssociation(pulumi.CustomResource):
         internet gateway or virtual private gateway.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,6 +145,7 @@ class RouteTableAssociation(pulumi.CustomResource):
             subnet_id=aws_subnet["foo"]["id"],
             route_table_id=aws_route_table["bar"]["id"])
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,6 +186,7 @@ class RouteTableAssociation(pulumi.CustomResource):
         internet gateway or virtual private gateway.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -192,6 +195,7 @@ class RouteTableAssociation(pulumi.CustomResource):
             subnet_id=aws_subnet["foo"]["id"],
             route_table_id=aws_route_table["bar"]["id"])
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws

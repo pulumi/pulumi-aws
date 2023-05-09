@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// ## Example Usage
     /// ### DynamoDB Table Autoscaling
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,6 +48,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// });
     /// ```
     /// ### ECS Service Autoscaling
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

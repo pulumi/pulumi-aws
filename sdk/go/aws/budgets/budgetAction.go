@@ -14,6 +14,7 @@ import (
 // Provides a budget action resource. Budget actions are cost savings controls that run either automatically on your behalf or by using a workflow approval process.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

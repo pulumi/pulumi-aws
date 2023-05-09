@@ -177,6 +177,7 @@ class DedicatedIpPool(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,6 +185,7 @@ class DedicatedIpPool(pulumi.CustomResource):
         example = aws.sesv2.DedicatedIpPool("example", pool_name="my-pool")
         ```
         ### Managed Pool
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,6 +220,7 @@ class DedicatedIpPool(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,6 +228,7 @@ class DedicatedIpPool(pulumi.CustomResource):
         example = aws.sesv2.DedicatedIpPool("example", pool_name="my-pool")
         ```
         ### Managed Pool
+
         ```python
         import pulumi
         import pulumi_aws as aws

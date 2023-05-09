@@ -345,6 +345,7 @@ class ApnsVoipChannel(pulumi.CustomResource):
         Provides a Pinpoint APNs VoIP Channel resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,6 +390,7 @@ class ApnsVoipChannel(pulumi.CustomResource):
         Provides a Pinpoint APNs VoIP Channel resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

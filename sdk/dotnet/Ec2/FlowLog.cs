@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### CloudWatch Logging
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,6 +97,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### S3 Logging
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -117,6 +119,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### S3 Logging in Apache Parquet format with per-hour partitions
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

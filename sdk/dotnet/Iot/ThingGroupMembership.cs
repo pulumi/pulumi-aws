@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Iot
     /// Adds an IoT Thing to an IoT Thing Group.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

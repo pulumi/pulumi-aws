@@ -13,6 +13,7 @@ import (
 // Provides details about a specific API Gateway Authorizer.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

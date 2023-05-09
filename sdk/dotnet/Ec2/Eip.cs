@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### Single EIP associated with an instance
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,6 +36,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Multiple EIPs associated with a single network interface
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,6 +72,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -126,6 +129,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Allocating EIP from the BYOIP pool
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

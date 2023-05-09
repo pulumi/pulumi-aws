@@ -14,6 +14,7 @@ import (
 // Resource for managing an AWS CodeGuru Reviewer Repository Association.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

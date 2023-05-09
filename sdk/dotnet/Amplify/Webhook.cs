@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Amplify
     /// Provides an Amplify Webhook resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

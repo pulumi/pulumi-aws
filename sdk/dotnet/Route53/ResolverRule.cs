@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// ### System rule
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// ### Forward rule
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -253,6 +253,7 @@ class Script(pulumi.CustomResource):
         Provides an GameLift Script resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,6 +292,7 @@ class Script(pulumi.CustomResource):
         Provides an GameLift Script resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

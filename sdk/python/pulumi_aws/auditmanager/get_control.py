@@ -133,6 +133,7 @@ def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['Get
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -141,6 +142,7 @@ def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['Get
         type="Standard")
     ```
     ### With Framework Resource
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -201,6 +203,7 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -209,6 +212,7 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
         type="Standard")
     ```
     ### With Framework Resource
+
     ```python
     import pulumi
     import pulumi_aws as aws

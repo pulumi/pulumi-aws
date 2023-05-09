@@ -286,6 +286,7 @@ class Queue(pulumi.CustomResource):
         Provides an AWS Elemental MediaConvert Queue.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -321,6 +322,7 @@ class Queue(pulumi.CustomResource):
         Provides an AWS Elemental MediaConvert Queue.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

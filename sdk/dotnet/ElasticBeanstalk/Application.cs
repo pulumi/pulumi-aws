@@ -18,6 +18,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// `default`, and no application versions
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

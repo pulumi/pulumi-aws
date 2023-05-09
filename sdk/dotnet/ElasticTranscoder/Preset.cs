@@ -13,6 +13,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// Provides an Elastic Transcoder preset resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

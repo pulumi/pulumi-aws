@@ -10,6 +10,7 @@ import (
 // Provides details about multiple Outposts Sites.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -14,6 +14,7 @@ import (
 // Provides a resource to manage an [Amazon Macie Organization Admin Account](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

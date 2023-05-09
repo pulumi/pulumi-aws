@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Rds
     /// !&gt; **WARNING:** With the retirement of EC2-Classic the `aws.rds.SecurityGroup` resource has been deprecated and will be removed in a future version.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

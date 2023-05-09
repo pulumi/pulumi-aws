@@ -22,6 +22,34 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpc"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := vpc.NewSecurityGroupIngressRule(ctx, "example", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: pulumi.Any(aws_security_group.Example.Id),
+//				CidrIpv4:        pulumi.String("10.0.0.0/8"),
+//				FromPort:        pulumi.Int(80),
+//				IpProtocol:      pulumi.String("tcp"),
+//				ToPort:          pulumi.Int(8080),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Security group ingress rules can be imported using the `security_group_rule_id`, e.g.,

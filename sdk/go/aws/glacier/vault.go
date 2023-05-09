@@ -15,6 +15,7 @@ import (
 // > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

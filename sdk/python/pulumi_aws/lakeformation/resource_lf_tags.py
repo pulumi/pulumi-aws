@@ -204,6 +204,7 @@ class ResourceLfTags(pulumi.CustomResource):
 
         ## Example Usage
         ### Database Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,6 +231,7 @@ class ResourceLfTags(pulumi.CustomResource):
             )])
         ```
         ### Multiple Tags Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -292,6 +294,7 @@ class ResourceLfTags(pulumi.CustomResource):
 
         ## Example Usage
         ### Database Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -318,6 +321,7 @@ class ResourceLfTags(pulumi.CustomResource):
             )])
         ```
         ### Multiple Tags Example
+
         ```python
         import pulumi
         import pulumi_aws as aws

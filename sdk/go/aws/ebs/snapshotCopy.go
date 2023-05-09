@@ -14,6 +14,7 @@ import (
 // Creates a Snapshot of a snapshot.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

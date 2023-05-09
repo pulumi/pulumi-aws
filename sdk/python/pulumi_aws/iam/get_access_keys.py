@@ -73,6 +73,7 @@ def get_access_keys(user: Optional[str] = None,
     specific IAM user.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,6 +103,7 @@ def get_access_keys_output(user: Optional[pulumi.Input[str]] = None,
     specific IAM user.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

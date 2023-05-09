@@ -535,6 +535,7 @@ class Stack(pulumi.CustomResource):
         Provides a CloudFormation Stack resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -609,6 +610,7 @@ class Stack(pulumi.CustomResource):
         Provides a CloudFormation Stack resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json

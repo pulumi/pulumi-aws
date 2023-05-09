@@ -179,6 +179,7 @@ class GroupMembership(pulumi.CustomResource):
         Resource for managing QuickSight Group Membership
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -213,6 +214,7 @@ class GroupMembership(pulumi.CustomResource):
         Resource for managing QuickSight Group Membership
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

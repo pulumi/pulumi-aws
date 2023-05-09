@@ -799,6 +799,7 @@ class NetworkInterface(pulumi.CustomResource):
         Provides an Elastic network interface (ENI) resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -870,6 +871,7 @@ class NetworkInterface(pulumi.CustomResource):
         Provides an Elastic network interface (ENI) resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

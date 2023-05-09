@@ -270,6 +270,7 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
     Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -343,6 +344,7 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
     Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

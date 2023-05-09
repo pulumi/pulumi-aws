@@ -535,6 +535,7 @@ class Index(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -548,6 +549,7 @@ class Index(pulumi.CustomResource):
             })
         ```
         ### With capacity units
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -561,6 +563,7 @@ class Index(pulumi.CustomResource):
             ))
         ```
         ### With server side encryption configuration
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -573,6 +576,7 @@ class Index(pulumi.CustomResource):
         ```
         ### With Document Metadata Configuration Updates
         ### Specifying the predefined elements
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -770,6 +774,7 @@ class Index(pulumi.CustomResource):
         ### Appending additional elements
 
         The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1022,6 +1027,7 @@ class Index(pulumi.CustomResource):
             ])
         ```
         ### With JSON token type configuration
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1071,6 +1077,7 @@ class Index(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1084,6 +1091,7 @@ class Index(pulumi.CustomResource):
             })
         ```
         ### With capacity units
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1097,6 +1105,7 @@ class Index(pulumi.CustomResource):
             ))
         ```
         ### With server side encryption configuration
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1109,6 +1118,7 @@ class Index(pulumi.CustomResource):
         ```
         ### With Document Metadata Configuration Updates
         ### Specifying the predefined elements
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1306,6 +1316,7 @@ class Index(pulumi.CustomResource):
         ### Appending additional elements
 
         The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1558,6 +1569,7 @@ class Index(pulumi.CustomResource):
             ])
         ```
         ### With JSON token type configuration
+
         ```python
         import pulumi
         import pulumi_aws as aws

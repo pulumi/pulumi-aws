@@ -299,6 +299,7 @@ class SafetyRule(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Control Config Safety Rule
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,6 +314,7 @@ class SafetyRule(pulumi.CustomResource):
                 type="ATLEAST",
             ))
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,6 +359,7 @@ class SafetyRule(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Control Config Safety Rule
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -371,6 +374,7 @@ class SafetyRule(pulumi.CustomResource):
                 type="ATLEAST",
             ))
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws

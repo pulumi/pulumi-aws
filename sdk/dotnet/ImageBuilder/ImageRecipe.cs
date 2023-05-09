@@ -13,6 +13,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// Manages an Image Builder Image Recipe.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

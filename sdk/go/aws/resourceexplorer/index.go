@@ -14,6 +14,7 @@ import (
 // Provides a resource to manage a Resource Explorer index in the current AWS Region.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

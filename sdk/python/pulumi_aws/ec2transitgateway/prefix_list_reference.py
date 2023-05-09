@@ -180,6 +180,7 @@ class PrefixListReference(pulumi.CustomResource):
 
         ## Example Usage
         ### Attachment Routing
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -190,6 +191,7 @@ class PrefixListReference(pulumi.CustomResource):
             transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
         ```
         ### Blackhole Routing
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,6 +228,7 @@ class PrefixListReference(pulumi.CustomResource):
 
         ## Example Usage
         ### Attachment Routing
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,6 +239,7 @@ class PrefixListReference(pulumi.CustomResource):
             transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
         ```
         ### Blackhole Routing
+
         ```python
         import pulumi
         import pulumi_aws as aws

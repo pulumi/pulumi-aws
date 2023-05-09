@@ -25,6 +25,7 @@ namespace Pulumi.Aws.AutoScaling
     /// but take care to not duplicate those hooks with this resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

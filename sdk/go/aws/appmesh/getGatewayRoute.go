@@ -13,6 +13,7 @@ import (
 // The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

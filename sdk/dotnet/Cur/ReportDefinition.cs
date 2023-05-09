@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Cur
     /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

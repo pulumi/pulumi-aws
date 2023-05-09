@@ -14,6 +14,7 @@ import (
 // Provides an AppSync API Association.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

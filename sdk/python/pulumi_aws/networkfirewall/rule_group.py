@@ -367,6 +367,7 @@ class RuleGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Stateful Inspection for denying access to a domain
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,6 +390,7 @@ class RuleGroup(pulumi.CustomResource):
             type="STATEFUL")
         ```
         ### Stateful Inspection from rules specifications defined in Suricata flat format
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,6 +405,7 @@ class RuleGroup(pulumi.CustomResource):
             })
         ```
         ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -450,6 +453,7 @@ class RuleGroup(pulumi.CustomResource):
             })
         ```
         ### IP Set References to the Rule Group
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -511,6 +515,7 @@ class RuleGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Stateful Inspection for denying access to a domain
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -533,6 +538,7 @@ class RuleGroup(pulumi.CustomResource):
             type="STATEFUL")
         ```
         ### Stateful Inspection from rules specifications defined in Suricata flat format
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -547,6 +553,7 @@ class RuleGroup(pulumi.CustomResource):
             })
         ```
         ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -594,6 +601,7 @@ class RuleGroup(pulumi.CustomResource):
             })
         ```
         ### IP Set References to the Rule Group
+
         ```python
         import pulumi
         import pulumi_aws as aws

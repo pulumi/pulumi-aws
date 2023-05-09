@@ -503,6 +503,7 @@ class ContainerService(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -517,6 +518,7 @@ class ContainerService(pulumi.CustomResource):
             })
         ```
         ### Public Domain Names
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -529,6 +531,7 @@ class ContainerService(pulumi.CustomResource):
         ))
         ```
         ### Private Registry Access
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -602,6 +605,7 @@ class ContainerService(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -616,6 +620,7 @@ class ContainerService(pulumi.CustomResource):
             })
         ```
         ### Public Domain Names
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -628,6 +633,7 @@ class ContainerService(pulumi.CustomResource):
         ))
         ```
         ### Private Registry Access
+
         ```python
         import pulumi
         import pulumi_aws as aws

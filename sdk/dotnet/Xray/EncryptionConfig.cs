@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Xray
     /// &gt; **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.Xray
     /// });
     /// ```
     /// ### With KMS Key
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

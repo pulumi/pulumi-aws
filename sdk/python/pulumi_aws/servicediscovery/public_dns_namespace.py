@@ -201,6 +201,7 @@ class PublicDnsNamespace(pulumi.CustomResource):
         Provides a Service Discovery Public DNS Namespace resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,6 +234,7 @@ class PublicDnsNamespace(pulumi.CustomResource):
         Provides a Service Discovery Public DNS Namespace resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

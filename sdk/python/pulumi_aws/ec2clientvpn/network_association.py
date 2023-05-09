@@ -195,6 +195,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
         ## Example Usage
         ### Using default security group
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -204,6 +205,7 @@ class NetworkAssociation(pulumi.CustomResource):
             subnet_id=aws_subnet["example"]["id"])
         ```
         ### Using custom security groups
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,6 +247,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
         ## Example Usage
         ### Using default security group
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,6 +257,7 @@ class NetworkAssociation(pulumi.CustomResource):
             subnet_id=aws_subnet["example"]["id"])
         ```
         ### Using custom security groups
+
         ```python
         import pulumi
         import pulumi_aws as aws

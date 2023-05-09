@@ -107,6 +107,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
         You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This creates a fault tolerant mechanism for fallback in case of availability events.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,6 +155,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
         You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This creates a fault tolerant mechanism for fallback in case of availability events.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

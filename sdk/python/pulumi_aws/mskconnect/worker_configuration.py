@@ -168,6 +168,7 @@ class WorkerConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic configuration
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,6 +204,7 @@ class WorkerConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic configuration
+
         ```python
         import pulumi
         import pulumi_aws as aws

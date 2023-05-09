@@ -980,6 +980,7 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         ## Example Usage
         ### Using launch specifications
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1019,6 +1020,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             ])
         ```
         ### Using launch templates
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1043,34 +1045,8 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
         launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
-        ### Using multiple launch specifications
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ec2.SpotFleetRequest("foo",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            launch_specifications=[
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    ami="ami-d06a90b0",
-                    availability_zone="us-west-2a",
-                    instance_type="m1.small",
-                    key_name="my-key",
-                ),
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    ami="ami-d06a90b0",
-                    availability_zone="us-west-2a",
-                    instance_type="m5.large",
-                    key_name="my-key",
-                ),
-            ],
-            spot_price="0.005",
-            target_capacity=2,
-            valid_until="2019-11-04T20:44:20Z")
-        ```
-
-        > In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
         ### Using multiple launch configurations
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1175,6 +1151,7 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         ## Example Usage
         ### Using launch specifications
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1214,6 +1191,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             ])
         ```
         ### Using launch templates
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1238,34 +1216,8 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
         launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
-        ### Using multiple launch specifications
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ec2.SpotFleetRequest("foo",
-            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
-            launch_specifications=[
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    ami="ami-d06a90b0",
-                    availability_zone="us-west-2a",
-                    instance_type="m1.small",
-                    key_name="my-key",
-                ),
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    ami="ami-d06a90b0",
-                    availability_zone="us-west-2a",
-                    instance_type="m5.large",
-                    key_name="my-key",
-                ),
-            ],
-            spot_price="0.005",
-            target_capacity=2,
-            valid_until="2019-11-04T20:44:20Z")
-        ```
-
-        > In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
         ### Using multiple launch configurations
+
         ```python
         import pulumi
         import pulumi_aws as aws

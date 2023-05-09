@@ -17,6 +17,39 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewTaskSet(ctx, "example", &ecs.TaskSetArgs{
+//				Service:        pulumi.Any(aws_ecs_service.Example.Id),
+//				Cluster:        pulumi.Any(aws_ecs_cluster.Example.Id),
+//				TaskDefinition: pulumi.Any(aws_ecs_task_definition.Example.Arn),
+//				LoadBalancers: ecs.TaskSetLoadBalancerArray{
+//					&ecs.TaskSetLoadBalancerArgs{
+//						TargetGroupArn: pulumi.Any(aws_lb_target_group.Example.Arn),
+//						ContainerName:  pulumi.String("mongo"),
+//						ContainerPort:  pulumi.Int(8080),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.

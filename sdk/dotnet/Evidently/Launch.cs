@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// ## Example Usage
     /// ### Basic
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,6 +54,7 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### With description
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,6 +95,7 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### With multiple groups
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -141,6 +144,7 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### With metric_monitors
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -205,6 +209,7 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### With randomization_salt
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -245,6 +250,7 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### With multiple steps
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -300,6 +306,7 @@ namespace Pulumi.Aws.Evidently
     /// });
     /// ```
     /// ### With segment overrides
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

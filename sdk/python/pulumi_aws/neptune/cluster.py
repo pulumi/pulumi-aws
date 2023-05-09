@@ -1133,6 +1133,7 @@ class Cluster(pulumi.CustomResource):
         (see documentation below).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1209,6 +1210,7 @@ class Cluster(pulumi.CustomResource):
         (see documentation below).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -133,6 +133,7 @@ class PolicyTableAssociation(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Policy Table association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -165,6 +166,7 @@ class PolicyTableAssociation(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Policy Table association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

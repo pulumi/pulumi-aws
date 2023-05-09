@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Inspector
     /// Provides an Inspector Classic Assessment Template
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -186,6 +186,7 @@ class Protection(pulumi.CustomResource):
 
         ## Example Usage
         ### Create protection
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,6 +229,7 @@ class Protection(pulumi.CustomResource):
 
         ## Example Usage
         ### Create protection
+
         ```python
         import pulumi
         import pulumi_aws as aws

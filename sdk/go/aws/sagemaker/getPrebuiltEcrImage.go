@@ -15,6 +15,33 @@ import (
 // > **NOTE:** The AWS provider creates a validly constructed `registryPath` but does not verify that the `registryPath` corresponds to an existing image. For example, using a `registryPath` containing an `imageTag` that does not correspond to a Docker image in the ECR repository, will result in an error.
 //
 // ## Example Usage
+//
+// Basic usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sagemaker.GetPrebuiltEcrImage(ctx, &sagemaker.GetPrebuiltEcrImageArgs{
+//				ImageTag:       pulumi.StringRef("2.2-1.0.11.0"),
+//				RepositoryName: "sagemaker-scikit-learn",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetPrebuiltEcrImage(ctx *pulumi.Context, args *GetPrebuiltEcrImageArgs, opts ...pulumi.InvokeOption) (*GetPrebuiltEcrImageResult, error) {
 	var rv GetPrebuiltEcrImageResult
 	err := ctx.Invoke("aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage", args, &rv, opts...)

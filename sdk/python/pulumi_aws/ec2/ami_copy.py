@@ -779,6 +779,7 @@ class AmiCopy(pulumi.CustomResource):
         block until the new AMI is available for use on new instances.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -831,6 +832,7 @@ class AmiCopy(pulumi.CustomResource):
         block until the new AMI is available for use on new instances.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

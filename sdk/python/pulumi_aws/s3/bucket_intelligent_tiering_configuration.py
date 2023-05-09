@@ -203,6 +203,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Add intelligent tiering configuration for entire S3 bucket
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,6 +223,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
             ])
         ```
         ### Add intelligent tiering configuration with S3 object filter
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -270,6 +272,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Add intelligent tiering configuration for entire S3 bucket
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,6 +292,7 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
             ])
         ```
         ### Add intelligent tiering configuration with S3 object filter
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -13,6 +13,7 @@ import (
 // Use this data source to get information about a SSH public key associated with the specified IAM user.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

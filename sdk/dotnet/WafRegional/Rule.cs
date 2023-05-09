@@ -13,6 +13,7 @@ namespace Pulumi.Aws.WafRegional
     /// Provides an WAF Regional Rule Resource for use with Application Load Balancer.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

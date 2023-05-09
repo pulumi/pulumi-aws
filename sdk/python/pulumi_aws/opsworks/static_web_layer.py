@@ -782,6 +782,7 @@ class StaticWebLayer(pulumi.CustomResource):
         Provides an OpsWorks static web server layer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -826,6 +827,7 @@ class StaticWebLayer(pulumi.CustomResource):
         Provides an OpsWorks static web server layer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

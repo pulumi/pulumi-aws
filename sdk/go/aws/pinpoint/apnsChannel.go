@@ -14,6 +14,7 @@ import (
 // Provides a Pinpoint APNs Channel resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

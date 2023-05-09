@@ -14,6 +14,7 @@ import (
 // Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

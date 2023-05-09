@@ -383,6 +383,7 @@ class Member(pulumi.CustomResource):
         Provides a resource to manage an [Amazon Macie Member](https://docs.aws.amazon.com/macie/latest/APIReference/members-id.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -425,6 +426,7 @@ class Member(pulumi.CustomResource):
         Provides a resource to manage an [Amazon Macie Member](https://docs.aws.amazon.com/macie/latest/APIReference/members-id.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -133,6 +133,7 @@ def get_virtual_cluster(tags: Optional[Mapping[str, str]] = None,
     Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -171,6 +172,7 @@ def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
     Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

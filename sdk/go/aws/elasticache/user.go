@@ -14,6 +14,7 @@ import (
 // Provides an ElastiCache user resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -43,6 +44,7 @@ import (
 //	}
 //
 // ```
+//
 // ```go
 // package main
 //
@@ -72,6 +74,7 @@ import (
 //	}
 //
 // ```
+//
 // ```go
 // package main
 //

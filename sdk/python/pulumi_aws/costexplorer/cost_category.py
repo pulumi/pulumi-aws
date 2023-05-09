@@ -333,6 +333,7 @@ class CostCategory(pulumi.CustomResource):
         Provides a CE Cost Category.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -402,6 +403,7 @@ class CostCategory(pulumi.CustomResource):
         Provides a CE Cost Category.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

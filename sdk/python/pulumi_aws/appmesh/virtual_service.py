@@ -300,6 +300,7 @@ class VirtualService(pulumi.CustomResource):
 
         ## Example Usage
         ### Virtual Node Provider
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -315,6 +316,7 @@ class VirtualService(pulumi.CustomResource):
             ))
         ```
         ### Virtual Router Provider
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,6 +360,7 @@ class VirtualService(pulumi.CustomResource):
 
         ## Example Usage
         ### Virtual Node Provider
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -373,6 +376,7 @@ class VirtualService(pulumi.CustomResource):
             ))
         ```
         ### Virtual Router Provider
+
         ```python
         import pulumi
         import pulumi_aws as aws

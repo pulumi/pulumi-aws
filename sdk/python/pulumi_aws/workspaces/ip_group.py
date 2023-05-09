@@ -204,6 +204,7 @@ class IpGroup(pulumi.CustomResource):
         Provides an IP access control group in AWS WorkSpaces Service
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -252,6 +253,7 @@ class IpGroup(pulumi.CustomResource):
         Provides an IP access control group in AWS WorkSpaces Service
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

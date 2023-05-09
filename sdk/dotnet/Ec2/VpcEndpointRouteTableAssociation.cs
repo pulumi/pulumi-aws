@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ec2
     /// Manages a VPC Endpoint Route Table Association
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -30,6 +30,7 @@ import (
 // to produce a fresh snapshot.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

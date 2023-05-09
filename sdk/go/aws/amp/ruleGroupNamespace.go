@@ -14,6 +14,7 @@ import (
 // Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

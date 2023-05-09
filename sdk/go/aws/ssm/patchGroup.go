@@ -14,6 +14,7 @@ import (
 // Provides an SSM Patch Group resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

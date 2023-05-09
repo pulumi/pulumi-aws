@@ -101,6 +101,7 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -145,6 +146,7 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

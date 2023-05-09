@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

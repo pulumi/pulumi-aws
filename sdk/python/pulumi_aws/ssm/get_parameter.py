@@ -105,6 +105,7 @@ def get_parameter(name: Optional[str] = None,
     Provides an SSM Parameter data source.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -140,6 +141,7 @@ def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
     Provides an SSM Parameter data source.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -13,6 +13,7 @@ namespace Pulumi.Aws.SecurityHub
     /// Subscribes to a Security Hub standard.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

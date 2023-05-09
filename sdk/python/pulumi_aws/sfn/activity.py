@@ -152,6 +152,7 @@ class Activity(pulumi.CustomResource):
         Provides a Step Function Activity resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -183,6 +184,7 @@ class Activity(pulumi.CustomResource):
         Provides a Step Function Activity resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

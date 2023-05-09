@@ -253,6 +253,7 @@ def get_image_pipeline(arn: Optional[str] = None,
     Provides details about an Image Builder Image Pipeline.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -299,6 +300,7 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
     Provides details about an Image Builder Image Pipeline.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

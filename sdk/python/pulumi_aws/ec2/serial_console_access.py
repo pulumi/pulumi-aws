@@ -72,6 +72,7 @@ class SerialConsoleAccess(pulumi.CustomResource):
         > **NOTE:** Removing this resource disables serial console access.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -103,6 +104,7 @@ class SerialConsoleAccess(pulumi.CustomResource):
         > **NOTE:** Removing this resource disables serial console access.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

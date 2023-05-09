@@ -117,6 +117,7 @@ def get_ip_set(name: Optional[str] = None,
     Retrieves the summary of a WAFv2 IP Set.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -153,6 +154,7 @@ def get_ip_set_output(name: Optional[pulumi.Input[str]] = None,
     Retrieves the summary of a WAFv2 IP Set.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

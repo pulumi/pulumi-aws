@@ -96,6 +96,7 @@ def get_global_network(global_network_id: Optional[str] = None,
     Retrieve information about a global network.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -129,6 +130,7 @@ def get_global_network_output(global_network_id: Optional[pulumi.Input[str]] = N
     Retrieve information about a global network.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

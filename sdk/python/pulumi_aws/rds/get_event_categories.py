@@ -71,6 +71,7 @@ def get_event_categories(source_type: Optional[str] = None,
     ## Example Usage
 
     List the event categories of all the RDS resources.
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -80,6 +81,7 @@ def get_event_categories(source_type: Optional[str] = None,
     ```
 
     List the event categories specific to the RDS resource `db-snapshot`.
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -109,6 +111,7 @@ def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]
     ## Example Usage
 
     List the event categories of all the RDS resources.
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -118,6 +121,7 @@ def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]
     ```
 
     List the event categories specific to the RDS resource `db-snapshot`.
+
     ```python
     import pulumi
     import pulumi_aws as aws

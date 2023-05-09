@@ -13,6 +13,7 @@ import (
 // Information about an RDS Certificate.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

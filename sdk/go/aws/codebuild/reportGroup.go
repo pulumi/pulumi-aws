@@ -14,6 +14,7 @@ import (
 // Provides a CodeBuild Report Groups Resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

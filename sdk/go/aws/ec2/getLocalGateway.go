@@ -15,6 +15,7 @@ import (
 // ## Example Usage
 //
 // The following example shows how one might accept a local gateway id as a variable.
+//
 // ```go
 // package main
 //

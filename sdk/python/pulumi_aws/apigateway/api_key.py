@@ -289,6 +289,7 @@ class ApiKey(pulumi.CustomResource):
         > **NOTE:** Since the API Gateway usage plans feature was launched on August 11, 2016, usage plans are now **required** to associate an API key with an API stage.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,6 +326,7 @@ class ApiKey(pulumi.CustomResource):
         > **NOTE:** Since the API Gateway usage plans feature was launched on August 11, 2016, usage plans are now **required** to associate an API key with an API stage.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

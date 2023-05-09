@@ -135,6 +135,7 @@ def get_reserved_instance_offering(db_instance_class: Optional[str] = None,
     Information about a single RDS Reserved Instance Offering.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -185,6 +186,7 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
     Information about a single RDS Reserved Instance Offering.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

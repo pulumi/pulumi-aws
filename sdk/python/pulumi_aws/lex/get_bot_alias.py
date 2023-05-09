@@ -147,6 +147,7 @@ def get_bot_alias(bot_name: Optional[str] = None,
     Provides details about a specific Amazon Lex Bot Alias.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -185,6 +186,7 @@ def get_bot_alias_output(bot_name: Optional[pulumi.Input[str]] = None,
     Provides details about a specific Amazon Lex Bot Alias.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

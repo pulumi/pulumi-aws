@@ -120,6 +120,7 @@ class StaticIp(pulumi.CustomResource):
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,6 +144,7 @@ class StaticIp(pulumi.CustomResource):
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

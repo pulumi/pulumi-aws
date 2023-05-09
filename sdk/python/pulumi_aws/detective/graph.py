@@ -127,6 +127,7 @@ class Graph(pulumi.CustomResource):
         Provides a resource to manage an [AWS Detective Graph](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateGraph.html). As an AWS account may own only one Detective graph per region, provisioning multiple Detective graphs requires a separate provider configuration for each graph.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -158,6 +159,7 @@ class Graph(pulumi.CustomResource):
         Provides a resource to manage an [AWS Detective Graph](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateGraph.html). As an AWS account may own only one Detective graph per region, provisioning multiple Detective graphs requires a separate provider configuration for each graph.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

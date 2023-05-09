@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 // ### With `private` ACL
+//
 // ```go
 // package main
 //
@@ -60,6 +61,7 @@ import (
 //
 // > This example explicitly disables the default S3 bucket security settings. This
 // should be done with caution, as all bucket objects become publicly exposed.
+//
 // ```go
 // package main
 //
@@ -111,6 +113,7 @@ import (
 //
 // ```
 // ### With Grants
+//
 // ```go
 // package main
 //

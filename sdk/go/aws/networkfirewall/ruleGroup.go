@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Stateful Inspection for denying access to a domain
+//
 // ```go
 // package main
 //
@@ -57,6 +58,7 @@ import (
 //
 // ```
 // ### Stateful Inspection from rules specifications defined in Suricata flat format
+//
 // ```go
 // package main
 //
@@ -97,6 +99,7 @@ import (
 //
 // ```
 // ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
+//
 // ```go
 // package main
 //
@@ -174,6 +177,7 @@ import (
 //
 // ```
 // ### IP Set References to the Rule Group
+//
 // ```go
 // package main
 //

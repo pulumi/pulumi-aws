@@ -311,6 +311,7 @@ class HsmConfiguration(pulumi.CustomResource):
         Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,6 +354,7 @@ class HsmConfiguration(pulumi.CustomResource):
         Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

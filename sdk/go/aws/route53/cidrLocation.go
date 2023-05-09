@@ -14,6 +14,7 @@ import (
 // Provides a Route53 CIDR location resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

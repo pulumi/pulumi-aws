@@ -239,6 +239,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
 
         ## Example Usage
         ### Instance Target
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,6 +258,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
             )])
         ```
         ### Resource Group Target
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -304,6 +306,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
 
         ## Example Usage
         ### Instance Target
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,6 +325,7 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
             )])
         ```
         ### Resource Group Target
+
         ```python
         import pulumi
         import pulumi_aws as aws

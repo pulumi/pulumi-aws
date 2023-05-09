@@ -15,6 +15,7 @@ import (
 // ## Example Usage
 //
 // The following example below creates a CloudFront origin access identity.
+//
 // ```go
 // package main
 //

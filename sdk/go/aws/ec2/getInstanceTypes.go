@@ -13,6 +13,7 @@ import (
 // Information about EC2 Instance Types.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -95,6 +95,7 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[str]] = None,
     ## Example Usage
 
     Basic usage:
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -139,6 +140,7 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Op
     ## Example Usage
 
     Basic usage:
+
     ```python
     import pulumi
     import pulumi_aws as aws

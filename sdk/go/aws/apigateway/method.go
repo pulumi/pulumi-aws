@@ -14,6 +14,7 @@ import (
 // Provides a HTTP Method for an API Gateway Resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -55,6 +56,7 @@ import (
 //
 // ```
 // ## Usage with Cognito User Pool Authorizer
+//
 // ```go
 // package main
 //

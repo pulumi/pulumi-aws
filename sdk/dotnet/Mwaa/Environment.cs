@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Mwaa
     /// 
     /// A MWAA Environment requires an IAM role (`aws.iam.Role`), two subnets in the private zone (`aws.ec2.Subnet`) and a versioned S3 bucket (`aws.s3.BucketV2`).
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,6 +43,7 @@ namespace Pulumi.Aws.Mwaa
     /// });
     /// ```
     /// ### Example with Airflow configuration options
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,6 +77,7 @@ namespace Pulumi.Aws.Mwaa
     /// ### Example with logging configurations
     /// 
     /// Note that Airflow task logs are enabled by default with the `INFO` log level.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -129,6 +132,7 @@ namespace Pulumi.Aws.Mwaa
     /// });
     /// ```
     /// ### Example with tags
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

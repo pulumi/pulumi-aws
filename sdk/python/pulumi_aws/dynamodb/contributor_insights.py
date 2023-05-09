@@ -102,6 +102,7 @@ class ContributorInsights(pulumi.CustomResource):
         Provides a DynamoDB contributor insights resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -132,6 +133,7 @@ class ContributorInsights(pulumi.CustomResource):
         Provides a DynamoDB contributor insights resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -776,6 +776,7 @@ class NfsFileShare(pulumi.CustomResource):
         Manages an AWS Storage Gateway NFS File Share.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -829,6 +830,7 @@ class NfsFileShare(pulumi.CustomResource):
         Manages an AWS Storage Gateway NFS File Share.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

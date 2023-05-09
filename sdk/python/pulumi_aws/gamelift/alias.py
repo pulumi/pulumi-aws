@@ -219,6 +219,7 @@ class Alias(pulumi.CustomResource):
         Provides a GameLift Alias resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,6 +258,7 @@ class Alias(pulumi.CustomResource):
         Provides a GameLift Alias resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

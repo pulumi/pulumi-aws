@@ -281,6 +281,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
         Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,6 +315,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
         Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

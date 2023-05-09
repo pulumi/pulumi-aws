@@ -13,6 +13,7 @@ import (
 // Provides an GameLift Game Session Queue resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

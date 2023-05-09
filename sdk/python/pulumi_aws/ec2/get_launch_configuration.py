@@ -287,6 +287,7 @@ def get_launch_configuration(name: Optional[str] = None,
     Provides information about a Launch Configuration.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -332,6 +333,7 @@ def get_launch_configuration_output(name: Optional[pulumi.Input[str]] = None,
     Provides information about a Launch Configuration.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

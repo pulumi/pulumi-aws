@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ApiGateway
     /// you might need to add an explicit `depends_on` for clean runs.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

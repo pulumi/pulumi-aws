@@ -15,6 +15,7 @@ import (
 // Connection notifications notify subscribers of VPC Endpoint events.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

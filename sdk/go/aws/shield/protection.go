@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 // ### Create protection
+//
 // ```go
 // package main
 //

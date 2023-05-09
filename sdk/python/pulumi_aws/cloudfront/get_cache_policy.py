@@ -131,6 +131,7 @@ def get_cache_policy(id: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -140,6 +141,7 @@ def get_cache_policy(id: Optional[str] = None,
     ### AWS-Managed Policies
 
     AWS managed cache policy names are prefixed with `Managed-`:
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -177,6 +179,7 @@ def get_cache_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -186,6 +189,7 @@ def get_cache_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     ### AWS-Managed Policies
 
     AWS managed cache policy names are prefixed with `Managed-`:
+
     ```python
     import pulumi
     import pulumi_aws as aws

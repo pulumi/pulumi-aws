@@ -16,6 +16,74 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleConnection, err := codestarconnections.NewConnection(ctx, "exampleConnection", &codestarconnections.ConnectionArgs{
+//				ProviderType: pulumi.String("Bitbucket"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codepipeline.NewPipeline(ctx, "examplePipeline", &codepipeline.PipelineArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.Codepipeline_role.Arn),
+//				ArtifactStores: codepipeline.PipelineArtifactStoreArray{
+//					nil,
+//				},
+//				Stages: codepipeline.PipelineStageArray{
+//					&codepipeline.PipelineStageArgs{
+//						Name: pulumi.String("Source"),
+//						Actions: codepipeline.PipelineStageActionArray{
+//							&codepipeline.PipelineStageActionArgs{
+//								Name:     pulumi.String("Source"),
+//								Category: pulumi.String("Source"),
+//								Owner:    pulumi.String("AWS"),
+//								Provider: pulumi.String("CodeStarSourceConnection"),
+//								Version:  pulumi.String("1"),
+//								OutputArtifacts: pulumi.StringArray{
+//									pulumi.String("source_output"),
+//								},
+//								Configuration: pulumi.StringMap{
+//									"ConnectionArn":    exampleConnection.Arn,
+//									"FullRepositoryId": pulumi.String("my-organization/test"),
+//									"BranchName":       pulumi.String("main"),
+//								},
+//							},
+//						},
+//					},
+//					&codepipeline.PipelineStageArgs{
+//						Name: pulumi.String("Build"),
+//						Actions: codepipeline.PipelineStageActionArray{
+//							nil,
+//						},
+//					},
+//					&codepipeline.PipelineStageArgs{
+//						Name: pulumi.String("Deploy"),
+//						Actions: codepipeline.PipelineStageActionArray{
+//							nil,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // CodeStar connections can be imported using the ARN, e.g.,

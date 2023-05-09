@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// ### Standard usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// });
     /// ```
     /// ### Blackhole route
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

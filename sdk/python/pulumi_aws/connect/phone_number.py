@@ -317,6 +317,7 @@ class PhoneNumber(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -330,6 +331,7 @@ class PhoneNumber(pulumi.CustomResource):
             })
         ```
         ### Description
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,6 +343,7 @@ class PhoneNumber(pulumi.CustomResource):
             description="example description")
         ```
         ### Prefix to filter phone numbers
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -382,6 +385,7 @@ class PhoneNumber(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -395,6 +399,7 @@ class PhoneNumber(pulumi.CustomResource):
             })
         ```
         ### Description
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -406,6 +411,7 @@ class PhoneNumber(pulumi.CustomResource):
             description="example description")
         ```
         ### Prefix to filter phone numbers
+
         ```python
         import pulumi
         import pulumi_aws as aws

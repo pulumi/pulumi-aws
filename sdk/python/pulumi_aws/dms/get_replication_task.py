@@ -202,6 +202,7 @@ def get_replication_task(replication_task_id: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -244,6 +245,7 @@ def get_replication_task_output(replication_task_id: Optional[pulumi.Input[str]]
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

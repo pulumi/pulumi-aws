@@ -83,6 +83,7 @@ def get_launch_paths(accept_language: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -116,6 +117,7 @@ def get_launch_paths_output(accept_language: Optional[pulumi.Input[Optional[str]
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

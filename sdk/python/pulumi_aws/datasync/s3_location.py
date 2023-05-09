@@ -295,6 +295,7 @@ class S3Location(pulumi.CustomResource):
         Manages an S3 Location within AWS DataSync.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -335,6 +336,7 @@ class S3Location(pulumi.CustomResource):
         Manages an S3 Location within AWS DataSync.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -302,6 +302,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,6 +327,7 @@ class ParameterGroup(pulumi.CustomResource):
         in-use parameter group. This includes common situations like changing the group `name` or
         bumping the `family` version during a major version upgrade. This configuration will prevent destruction
         of the deposed parameter group while still in use by the database during upgrade.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -382,6 +384,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -406,6 +409,7 @@ class ParameterGroup(pulumi.CustomResource):
         in-use parameter group. This includes common situations like changing the group `name` or
         bumping the `family` version during a major version upgrade. This configuration will prevent destruction
         of the deposed parameter group while still in use by the database during upgrade.
+
         ```python
         import pulumi
         import pulumi_aws as aws

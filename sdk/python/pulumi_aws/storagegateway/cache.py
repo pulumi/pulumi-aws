@@ -103,6 +103,7 @@ class Cache(pulumi.CustomResource):
         > **NOTE:** The Storage Gateway API provides no method to remove a cache disk. Destroying this resource does not perform any Storage Gateway actions.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -137,6 +138,7 @@ class Cache(pulumi.CustomResource):
         > **NOTE:** The Storage Gateway API provides no method to remove a cache disk. Destroying this resource does not perform any Storage Gateway actions.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

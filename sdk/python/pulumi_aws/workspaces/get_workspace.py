@@ -172,6 +172,7 @@ def get_workspace(directory_id: Optional[str] = None,
 
     ## Example Usage
     ### Filter By Workspace ID
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -179,6 +180,7 @@ def get_workspace(directory_id: Optional[str] = None,
     example = aws.workspaces.get_workspace(workspace_id="ws-cj5xcxsz5")
     ```
     ### Filter By Directory ID & User Name
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -228,6 +230,7 @@ def get_workspace_output(directory_id: Optional[pulumi.Input[Optional[str]]] = N
 
     ## Example Usage
     ### Filter By Workspace ID
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -235,6 +238,7 @@ def get_workspace_output(directory_id: Optional[pulumi.Input[Optional[str]]] = N
     example = aws.workspaces.get_workspace(workspace_id="ws-cj5xcxsz5")
     ```
     ### Filter By Directory ID & User Name
+
     ```python
     import pulumi
     import pulumi_aws as aws

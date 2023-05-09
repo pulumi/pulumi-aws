@@ -314,6 +314,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
         Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,6 +354,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
         Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

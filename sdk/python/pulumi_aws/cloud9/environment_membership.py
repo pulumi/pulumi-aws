@@ -149,6 +149,7 @@ class EnvironmentMembership(pulumi.CustomResource):
         Provides an environment member to an AWS Cloud9 development environment.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,6 +186,7 @@ class EnvironmentMembership(pulumi.CustomResource):
         Provides an environment member to an AWS Cloud9 development environment.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

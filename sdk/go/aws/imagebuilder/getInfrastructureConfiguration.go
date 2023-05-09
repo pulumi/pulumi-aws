@@ -13,6 +13,7 @@ import (
 // Provides details about an Image Builder Infrastructure Configuration.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -14,6 +14,7 @@ import (
 // Provides an Elastic Transcoder preset resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

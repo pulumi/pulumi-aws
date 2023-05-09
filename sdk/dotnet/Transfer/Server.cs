@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Example Usage
     /// ### Basic
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,6 +38,7 @@ namespace Pulumi.Aws.Transfer
     /// });
     /// ```
     /// ### Security Policy Name
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,6 +55,7 @@ namespace Pulumi.Aws.Transfer
     /// });
     /// ```
     /// ### VPC Endpoint
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,6 +84,7 @@ namespace Pulumi.Aws.Transfer
     /// });
     /// ```
     /// ### AWS Directory authentication
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -98,6 +102,7 @@ namespace Pulumi.Aws.Transfer
     /// });
     /// ```
     /// ### AWS Lambda authentication
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -115,6 +120,7 @@ namespace Pulumi.Aws.Transfer
     /// });
     /// ```
     /// ### Protocols
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

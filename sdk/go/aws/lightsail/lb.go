@@ -14,6 +14,7 @@ import (
 // Creates a Lightsail load balancer resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

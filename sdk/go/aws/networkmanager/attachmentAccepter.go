@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Example with VPC attachment
+//
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //
 // ```
 // ### Example with site-to-site VPN attachment
+//
 // ```go
 // package main
 //

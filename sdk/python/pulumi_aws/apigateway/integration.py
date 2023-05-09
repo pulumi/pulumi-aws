@@ -628,6 +628,7 @@ class Integration(pulumi.CustomResource):
         Provides an HTTP Method Integration for an API Gateway Integration.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -661,6 +662,7 @@ class Integration(pulumi.CustomResource):
             })
         ```
         ## Lambda integration
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -707,8 +709,6 @@ class Integration(pulumi.CustomResource):
             principal="apigateway.amazonaws.com",
             source_arn=pulumi.Output.all(api.id, method.http_method, resource.path).apply(lambda id, http_method, path: f"arn:aws:execute-api:{myregion}:{account_id}:{id}/*/{http_method}{path}"))
         ```
-
-        ## VPC Link
 
         ## Import
 
@@ -756,6 +756,7 @@ class Integration(pulumi.CustomResource):
         Provides an HTTP Method Integration for an API Gateway Integration.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -789,6 +790,7 @@ class Integration(pulumi.CustomResource):
             })
         ```
         ## Lambda integration
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -835,8 +837,6 @@ class Integration(pulumi.CustomResource):
             principal="apigateway.amazonaws.com",
             source_arn=pulumi.Output.all(api.id, method.http_method, resource.path).apply(lambda id, http_method, path: f"arn:aws:execute-api:{myregion}:{account_id}:{id}/*/{http_method}{path}"))
         ```
-
-        ## VPC Link
 
         ## Import
 

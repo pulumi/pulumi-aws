@@ -14,6 +14,7 @@ import (
 // Provides an Amazon AppIntegrations Event Integration resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

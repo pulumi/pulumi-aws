@@ -16,6 +16,7 @@ import (
 // More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

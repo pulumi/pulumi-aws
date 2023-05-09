@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// ### UI customization settings for a single client
+    /// 
     /// ```csharp
     /// using System;
     /// using System.Collections.Generic;
@@ -54,6 +55,7 @@ namespace Pulumi.Aws.Cognito
     /// });
     /// ```
     /// ### UI customization settings for all clients
+    /// 
     /// ```csharp
     /// using System;
     /// using System.Collections.Generic;

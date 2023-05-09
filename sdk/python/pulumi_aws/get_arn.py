@@ -121,6 +121,7 @@ def get_arn(arn: Optional[str] = None,
     Parses an ARN into its constituent parts.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -153,6 +154,7 @@ def get_arn_output(arn: Optional[pulumi.Input[str]] = None,
     Parses an ARN into its constituent parts.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

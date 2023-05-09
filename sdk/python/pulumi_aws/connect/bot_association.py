@@ -107,6 +107,7 @@ class BotAssociation(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -119,6 +120,7 @@ class BotAssociation(pulumi.CustomResource):
             ))
         ```
         ### Including a sample Lex bot
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,6 +189,7 @@ class BotAssociation(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,6 +202,7 @@ class BotAssociation(pulumi.CustomResource):
             ))
         ```
         ### Including a sample Lex bot
+
         ```python
         import pulumi
         import pulumi_aws as aws

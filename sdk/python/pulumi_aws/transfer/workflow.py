@@ -220,6 +220,7 @@ class Workflow(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic single step example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,6 +234,7 @@ class Workflow(pulumi.CustomResource):
         )])
         ```
         ### Multistep example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,6 +290,7 @@ class Workflow(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic single step example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,6 +304,7 @@ class Workflow(pulumi.CustomResource):
         )])
         ```
         ### Multistep example
+
         ```python
         import pulumi
         import pulumi_aws as aws

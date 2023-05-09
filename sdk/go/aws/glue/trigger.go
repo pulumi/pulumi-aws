@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Conditional Trigger
+//
 // ```go
 // package main
 //
@@ -52,6 +53,7 @@ import (
 //
 // ```
 // ### On-Demand Trigger
+//
 // ```go
 // package main
 //
@@ -81,6 +83,7 @@ import (
 //
 // ```
 // ### Scheduled Trigger
+//
 // ```go
 // package main
 //
@@ -113,6 +116,7 @@ import (
 // ### Conditional Trigger with Crawler Action
 //
 // **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
+//
 // ```go
 // package main
 //
@@ -152,6 +156,7 @@ import (
 // ### Conditional Trigger with Crawler Condition
 //
 // **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
+//
 // ```go
 // package main
 //

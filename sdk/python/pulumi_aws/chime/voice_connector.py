@@ -151,6 +151,7 @@ class VoiceConnector(pulumi.CustomResource):
         Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,6 +185,7 @@ class VoiceConnector(pulumi.CustomResource):
         Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

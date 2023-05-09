@@ -13,6 +13,7 @@ import (
 // Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

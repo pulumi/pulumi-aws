@@ -183,6 +183,7 @@ class DomainPermissions(pulumi.CustomResource):
         Provides a CodeArtifact Domains Permissions Policy Resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,6 +231,7 @@ class DomainPermissions(pulumi.CustomResource):
         Provides a CodeArtifact Domains Permissions Policy Resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

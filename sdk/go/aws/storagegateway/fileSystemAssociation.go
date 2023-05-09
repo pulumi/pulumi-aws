@@ -16,6 +16,7 @@ import (
 // [FSx File Gateway requirements](https://docs.aws.amazon.com/filegateway/latest/filefsxw/Requirements.html).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -44,6 +45,7 @@ import (
 //
 // ```
 // ## Required Services Example
+//
 // ```go
 // package main
 //

@@ -13,6 +13,7 @@ import (
 // Provides information about a Signer Signing Job.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

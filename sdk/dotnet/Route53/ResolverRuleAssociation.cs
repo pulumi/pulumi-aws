@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Route53
     /// Provides a Route53 Resolver rule association.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

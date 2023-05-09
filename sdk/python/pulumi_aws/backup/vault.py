@@ -234,6 +234,7 @@ class Vault(pulumi.CustomResource):
         Provides an AWS Backup vault resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -267,6 +268,7 @@ class Vault(pulumi.CustomResource):
         Provides an AWS Backup vault resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

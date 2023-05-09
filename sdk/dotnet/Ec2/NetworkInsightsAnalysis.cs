@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ec2
     /// Provides a Network Insights Analysis resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

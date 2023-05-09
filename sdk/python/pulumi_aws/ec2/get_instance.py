@@ -594,6 +594,7 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
     Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -694,6 +695,7 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
     Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

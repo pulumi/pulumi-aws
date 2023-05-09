@@ -262,6 +262,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         for more information.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,6 +323,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         for more information.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

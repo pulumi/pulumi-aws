@@ -415,6 +415,7 @@ class Workgroup(pulumi.CustomResource):
         Creates a new Amazon Redshift Serverless Workgroup.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -455,6 +456,7 @@ class Workgroup(pulumi.CustomResource):
         Creates a new Amazon Redshift Serverless Workgroup.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

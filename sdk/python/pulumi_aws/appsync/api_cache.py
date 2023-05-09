@@ -231,6 +231,7 @@ class ApiCache(pulumi.CustomResource):
         Provides an AppSync API Cache.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -270,6 +271,7 @@ class ApiCache(pulumi.CustomResource):
         Provides an AppSync API Cache.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

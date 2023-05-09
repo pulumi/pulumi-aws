@@ -13,6 +13,7 @@ import (
 // Provides a WAF IPSet Resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -185,6 +185,7 @@ class SharedDirectory(pulumi.CustomResource):
         Manages a directory in your account (directory owner) shared with another account (directory consumer).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,6 +232,7 @@ class SharedDirectory(pulumi.CustomResource):
         Manages a directory in your account (directory owner) shared with another account (directory consumer).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -13,6 +13,7 @@ import (
 // Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

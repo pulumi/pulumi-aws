@@ -121,6 +121,7 @@ class SizeConstraintSet(pulumi.CustomResource):
         Provides a WAF Size Constraint Set Resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -158,6 +159,7 @@ class SizeConstraintSet(pulumi.CustomResource):
         Provides a WAF Size Constraint Set Resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

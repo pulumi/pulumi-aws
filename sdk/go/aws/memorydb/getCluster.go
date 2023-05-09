@@ -13,6 +13,7 @@ import (
 // Provides information about a MemoryDB Cluster.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -123,6 +123,7 @@ def get_sdk(parameters: Optional[Mapping[str, str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSdkResult:
     """
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -171,6 +172,7 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSdkResult]:
     """
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

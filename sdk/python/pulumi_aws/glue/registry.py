@@ -184,6 +184,7 @@ class Registry(pulumi.CustomResource):
         Provides a Glue Registry resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,6 +217,7 @@ class Registry(pulumi.CustomResource):
         Provides a Glue Registry resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

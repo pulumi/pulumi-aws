@@ -260,6 +260,7 @@ class Extension(pulumi.CustomResource):
         Provides an AppConfig Extension resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,6 +315,7 @@ class Extension(pulumi.CustomResource):
         Provides an AppConfig Extension resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

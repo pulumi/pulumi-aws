@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Sqs
     /// while referencing ARN of the queue within the policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

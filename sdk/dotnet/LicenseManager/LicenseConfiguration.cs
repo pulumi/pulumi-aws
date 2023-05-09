@@ -15,6 +15,7 @@ namespace Pulumi.Aws.LicenseManager
     /// &gt; **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

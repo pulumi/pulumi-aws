@@ -13,6 +13,7 @@ import (
 // Provides an SNS topic resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -35,6 +36,7 @@ import (
 //
 // ```
 // ## Example with Delivery Policy
+//
 // ```go
 // package main
 //
@@ -60,6 +62,7 @@ import (
 // ```
 //
 // ## Example with Server-side encryption (SSE)
+//
 // ```go
 // package main
 //
@@ -85,6 +88,7 @@ import (
 // ```
 //
 // ## Example with First-In-First-Out (FIFO)
+//
 // ```go
 // package main
 //

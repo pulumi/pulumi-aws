@@ -294,6 +294,7 @@ class IpSet(pulumi.CustomResource):
         Provides a WAFv2 IP Set Resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -340,6 +341,7 @@ class IpSet(pulumi.CustomResource):
         Provides a WAFv2 IP Set Resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

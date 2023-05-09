@@ -162,6 +162,7 @@ def get_certificate(domain: Optional[str] = None,
     it by domain without having to hard code the ARNs as input.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -223,6 +224,7 @@ def get_certificate_output(domain: Optional[pulumi.Input[str]] = None,
     it by domain without having to hard code the ARNs as input.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

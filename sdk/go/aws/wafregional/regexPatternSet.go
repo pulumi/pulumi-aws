@@ -13,6 +13,7 @@ import (
 // Provides a WAF Regional Regex Pattern Set Resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

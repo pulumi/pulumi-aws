@@ -13,6 +13,7 @@ namespace Pulumi.Aws.AppStream
     /// Provides an AppStream image builder.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

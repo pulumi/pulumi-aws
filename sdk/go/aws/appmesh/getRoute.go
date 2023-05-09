@@ -11,8 +11,6 @@ import (
 )
 
 // The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
-//
-// ## Example Usage
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	var rv LookupRouteResult
 	err := ctx.Invoke("aws:appmesh/getRoute:getRoute", args, &rv, opts...)

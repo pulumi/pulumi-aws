@@ -103,6 +103,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         Read more about protecting sensitive user data in the [User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -167,6 +168,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         Read more about protecting sensitive user data in the [User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import json

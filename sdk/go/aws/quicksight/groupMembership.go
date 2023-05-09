@@ -14,6 +14,7 @@ import (
 // Resource for managing QuickSight Group Membership
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Multiple AWS Buckets in Different Regions
+//
 // ```go
 // package main
 //

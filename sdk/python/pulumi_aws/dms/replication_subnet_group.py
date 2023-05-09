@@ -230,6 +230,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -249,6 +250,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         ### Creating special IAM role
 
         If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
+
         ```python
         import pulumi
         import json
@@ -311,6 +313,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -330,6 +333,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         ### Creating special IAM role
 
         If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
+
         ```python
         import pulumi
         import json

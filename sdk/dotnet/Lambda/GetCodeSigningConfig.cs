@@ -20,20 +20,6 @@ namespace Pulumi.Aws.Lambda
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// const existingCsc = aws.lambda.getCodeSigningConfig({
-        ///     arn: `arn:aws:lambda:${_var.aws_region}:${_var.aws_account}:code-signing-config:csc-0f6c334abcdea4d8b`,
-        /// });
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// existing_csc = aws.lambda.get_code_signing_config(arn=f"arn:aws:lambda:{var['aws_region']}:{var['aws_account']}:code-signing-config:csc-0f6c334abcdea4d8b")
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -48,64 +34,6 @@ namespace Pulumi.Aws.Lambda
         ///     });
         /// 
         /// });
-        /// ```
-        /// ```go
-        /// package main
-        /// 
-        /// import (
-        /// 	"fmt"
-        /// 
-        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        /// )
-        /// 
-        /// func main() {
-        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
-        /// 		_, err := lambda.LookupCodeSigningConfig(ctx, &amp;lambda.LookupCodeSigningConfigArgs{
-        /// 			Arn: fmt.Sprintf("arn:aws:lambda:%v:%v:code-signing-config:csc-0f6c334abcdea4d8b", _var.Aws_region, _var.Aws_account),
-        /// 		}, nil)
-        /// 		if err != nil {
-        /// 			return err
-        /// 		}
-        /// 		return nil
-        /// 	})
-        /// }
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.lambda.LambdaFunctions;
-        /// import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-        ///             .arn(String.format("arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b", var_.aws_region(),var_.aws_account()))
-        ///             .build());
-        /// 
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// variables:
-        ///   existingCsc:
-        ///     fn::invoke:
-        ///       Function: aws:lambda:getCodeSigningConfig
-        ///       Arguments:
-        ///         arn: arn:aws:lambda:${var.aws_region}:${var.aws_account}:code-signing-config:csc-0f6c334abcdea4d8b
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -122,20 +50,6 @@ namespace Pulumi.Aws.Lambda
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// const existingCsc = aws.lambda.getCodeSigningConfig({
-        ///     arn: `arn:aws:lambda:${_var.aws_region}:${_var.aws_account}:code-signing-config:csc-0f6c334abcdea4d8b`,
-        /// });
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// existing_csc = aws.lambda.get_code_signing_config(arn=f"arn:aws:lambda:{var['aws_region']}:{var['aws_account']}:code-signing-config:csc-0f6c334abcdea4d8b")
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -150,64 +64,6 @@ namespace Pulumi.Aws.Lambda
         ///     });
         /// 
         /// });
-        /// ```
-        /// ```go
-        /// package main
-        /// 
-        /// import (
-        /// 	"fmt"
-        /// 
-        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        /// )
-        /// 
-        /// func main() {
-        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
-        /// 		_, err := lambda.LookupCodeSigningConfig(ctx, &amp;lambda.LookupCodeSigningConfigArgs{
-        /// 			Arn: fmt.Sprintf("arn:aws:lambda:%v:%v:code-signing-config:csc-0f6c334abcdea4d8b", _var.Aws_region, _var.Aws_account),
-        /// 		}, nil)
-        /// 		if err != nil {
-        /// 			return err
-        /// 		}
-        /// 		return nil
-        /// 	})
-        /// }
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.lambda.LambdaFunctions;
-        /// import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-        ///             .arn(String.format("arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b", var_.aws_region(),var_.aws_account()))
-        ///             .build());
-        /// 
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// variables:
-        ///   existingCsc:
-        ///     fn::invoke:
-        ///       Function: aws:lambda:getCodeSigningConfig
-        ///       Arguments:
-        ///         arn: arn:aws:lambda:${var.aws_region}:${var.aws_account}:code-signing-config:csc-0f6c334abcdea4d8b
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

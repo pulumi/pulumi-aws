@@ -516,6 +516,7 @@ class Studio(pulumi.CustomResource):
         Provides an Elastic MapReduce Studio.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -565,6 +566,7 @@ class Studio(pulumi.CustomResource):
         Provides an Elastic MapReduce Studio.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

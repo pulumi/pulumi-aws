@@ -15,6 +15,7 @@ import (
 // ## Example Usage
 //
 // The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
+//
 // ```go
 // package main
 //

@@ -234,6 +234,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
         ### ECS Application
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,6 +242,7 @@ class Application(pulumi.CustomResource):
         example = aws.codedeploy.Application("example", compute_platform="ECS")
         ```
         ### Lambda Application
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -248,6 +250,7 @@ class Application(pulumi.CustomResource):
         example = aws.codedeploy.Application("example", compute_platform="Lambda")
         ```
         ### Server Application
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,6 +284,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
         ### ECS Application
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,6 +292,7 @@ class Application(pulumi.CustomResource):
         example = aws.codedeploy.Application("example", compute_platform="ECS")
         ```
         ### Lambda Application
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,6 +300,7 @@ class Application(pulumi.CustomResource):
         example = aws.codedeploy.Application("example", compute_platform="Lambda")
         ```
         ### Server Application
+
         ```python
         import pulumi
         import pulumi_aws as aws

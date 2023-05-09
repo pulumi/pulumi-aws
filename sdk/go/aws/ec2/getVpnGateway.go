@@ -14,6 +14,7 @@ import (
 // a specific VPN gateway.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

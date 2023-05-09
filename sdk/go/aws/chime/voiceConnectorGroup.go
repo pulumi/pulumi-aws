@@ -15,6 +15,7 @@ import (
 // You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This creates a fault tolerant mechanism for fallback in case of availability events.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

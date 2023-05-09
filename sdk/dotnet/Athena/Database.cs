@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Athena
     /// Provides an Athena database.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

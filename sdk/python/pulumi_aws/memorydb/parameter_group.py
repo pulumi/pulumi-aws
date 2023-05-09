@@ -287,6 +287,7 @@ class ParameterGroup(pulumi.CustomResource):
         More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -329,6 +330,7 @@ class ParameterGroup(pulumi.CustomResource):
         More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

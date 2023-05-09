@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Xray
     /// Creates and manages an AWS XRay Group.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

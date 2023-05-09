@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### Network Load Balancers
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,6 +42,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Gateway Load Balancers
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -231,6 +231,7 @@ def get_received_license(license_arn: Optional[str] = None,
     ## Example Usage
 
     The following shows getting the received license data using and ARN.
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -274,6 +275,7 @@ def get_received_license_output(license_arn: Optional[pulumi.Input[str]] = None,
     ## Example Usage
 
     The following shows getting the received license data using and ARN.
+
     ```python
     import pulumi
     import pulumi_aws as aws

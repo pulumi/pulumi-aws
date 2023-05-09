@@ -349,6 +349,7 @@ class Profile(pulumi.CustomResource):
         Resource for managing a Roles Anywhere Profile.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -404,6 +405,7 @@ class Profile(pulumi.CustomResource):
         Resource for managing a Roles Anywhere Profile.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json

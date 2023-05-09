@@ -14,6 +14,7 @@ import (
 // Provides a CloudWatch RUM App Monitor resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

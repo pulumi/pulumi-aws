@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Public NAT
+//
 // ```go
 // package main
 //
@@ -45,6 +46,7 @@ import (
 //
 // ```
 // ### Private NAT
+//
 // ```go
 // package main
 //

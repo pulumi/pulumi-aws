@@ -18,6 +18,41 @@ import (
 // The `route53domains.RegisteredDomain` resource behaves differently from normal resources in that if a domain has been registered, the provider does not _register_ this domain, but instead "adopts" it into management. A destroy does not delete the domain but does remove the resource from state.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53domains"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := route53domains.NewRegisteredDomain(ctx, "example", &route53domains.RegisteredDomainArgs{
+//				DomainName: pulumi.String("example.com"),
+//				NameServers: route53domains.RegisteredDomainNameServerArray{
+//					&route53domains.RegisteredDomainNameServerArgs{
+//						Name: pulumi.String("ns-195.awsdns-24.com"),
+//					},
+//					&route53domains.RegisteredDomainNameServerArgs{
+//						Name: pulumi.String("ns-874.awsdns-45.net"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type RegisteredDomain struct {
 	pulumi.CustomResourceState
 

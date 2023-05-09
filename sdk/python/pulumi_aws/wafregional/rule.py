@@ -219,6 +219,7 @@ class Rule(pulumi.CustomResource):
         Provides an WAF Regional Rule Resource for use with Application Load Balancer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -273,6 +274,7 @@ class Rule(pulumi.CustomResource):
         Provides an WAF Regional Rule Resource for use with Application Load Balancer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

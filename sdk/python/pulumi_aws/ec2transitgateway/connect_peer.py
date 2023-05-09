@@ -281,6 +281,7 @@ class ConnectPeer(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Connect Peer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,6 +323,7 @@ class ConnectPeer(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Connect Peer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

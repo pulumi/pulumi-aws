@@ -282,6 +282,7 @@ class Tracker(pulumi.CustomResource):
         Provides a Location Service Tracker.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,6 +317,7 @@ class Tracker(pulumi.CustomResource):
         Provides a Location Service Tracker.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -367,6 +367,7 @@ class Folder(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -374,6 +375,7 @@ class Folder(pulumi.CustomResource):
         example = aws.quicksight.Folder("example", folder_id="example-id")
         ```
         ### With Permissions
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -395,6 +397,7 @@ class Folder(pulumi.CustomResource):
             )])
         ```
         ### With Parent Folder
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,6 +438,7 @@ class Folder(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -442,6 +446,7 @@ class Folder(pulumi.CustomResource):
         example = aws.quicksight.Folder("example", folder_id="example-id")
         ```
         ### With Permissions
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -463,6 +468,7 @@ class Folder(pulumi.CustomResource):
             )])
         ```
         ### With Parent Folder
+
         ```python
         import pulumi
         import pulumi_aws as aws

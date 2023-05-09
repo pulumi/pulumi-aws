@@ -424,6 +424,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -432,6 +433,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         ```
 
         Get the URL of the Cloud9 environment after creation:
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,6 +447,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         ```
 
         Allocate a static IP to the Cloud9 environment:
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -491,6 +494,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -499,6 +503,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         ```
 
         Get the URL of the Cloud9 environment after creation:
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -512,6 +517,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         ```
 
         Allocate a static IP to the Cloud9 environment:
+
         ```python
         import pulumi
         import pulumi_aws as aws

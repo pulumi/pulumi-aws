@@ -14,6 +14,7 @@ import (
 // Provides an AppStream image builder.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

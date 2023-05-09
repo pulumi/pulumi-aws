@@ -231,6 +231,7 @@ def get_cloud_formation_type(arn: Optional[str] = None,
     Provides details about a CloudFormation Type.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -283,6 +284,7 @@ def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[str]]] =
     Provides details about a CloudFormation Type.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

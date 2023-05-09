@@ -283,6 +283,7 @@ class Policy(pulumi.CustomResource):
         Provides a resource to manage an [AWS Organizations policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,6 +324,7 @@ class Policy(pulumi.CustomResource):
         Provides a resource to manage an [AWS Organizations policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

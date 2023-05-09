@@ -14,6 +14,7 @@ import (
 // Provides a SSM resource data sync.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

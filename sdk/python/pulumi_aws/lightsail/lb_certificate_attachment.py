@@ -101,6 +101,7 @@ class LbCertificateAttachment(pulumi.CustomResource):
         Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -142,6 +143,7 @@ class LbCertificateAttachment(pulumi.CustomResource):
         Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
