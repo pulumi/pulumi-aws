@@ -7009,12 +7009,6 @@ func Provider() *tfbridge.ProviderInfo {
 	prov.RenameDataSource("aws_canonical_user_id", awsDataSource(awsMod, "getCanonicalUserId"),
 		awsDataSource(s3Mod, "getCanonicalUserId"), awsMod, s3Mod, nil)
 
-	err := x.ComputeDefaults(&prov, x.TokensMappedModules("aws_", "", moduleMap,
-		func(mod, name string) (string, error) {
-			return awsResource(mod, name).String(), nil
-		}))
-	contract.AssertNoErrorf(err, "failed to apply default token mappings")
-
 	prov.SetAutonaming(255, "-")
 
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
@@ -7098,6 +7092,13 @@ func Provider() *tfbridge.ProviderInfo {
 	// 9 Warning(s)
 	// 1 Error(s)
 	prov.IgnoreMappings = append(prov.IgnoreMappings, "aws_quicksight_namespace")
+
+	if err := x.ComputeDefaults(&prov, x.TokensMappedModules("aws_", "", moduleMap,
+		func(mod, name string) (string, error) {
+			return awsResource(mod, name).String(), nil
+		})); err != nil {
+		contract.AssertNoErrorf(err, "failed to apply default token mappings")
+	}
 
 	return &prov
 }
