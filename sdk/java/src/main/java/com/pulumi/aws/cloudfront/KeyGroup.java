@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  *         var examplePublicKey = new PublicKey(&#34;examplePublicKey&#34;, PublicKeyArgs.builder()        
  *             .comment(&#34;example public key&#34;)
  *             .encodedKey(Files.readString(Paths.get(&#34;public_key.pem&#34;)))
+ *             .name(&#34;example-key&#34;)
  *             .build());
  * 
  *         var exampleKeyGroup = new KeyGroup(&#34;exampleKeyGroup&#34;, KeyGroupArgs.builder()        
