@@ -45,8 +45,7 @@ func getYamlBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	if !usingProfiles {
 		envRegion := getEnvRegion(t)
 		config = map[string]string{
-			"aws:region":    "INVALID_REGION",
-			"aws:envRegion": envRegion,
+			"aws:region": envRegion,
 		}
 	}
 	// Do not use baseOptions here for now as those disable refresh checking. Be extra conservative.
