@@ -4,8 +4,13 @@
     "replacements": [
       {
         "regExp": true,
-        "old": "\"tags_all\":(\\s+)tftags.TagsSchemaComputed()",
+        "old": "\"tags_all\":(\\s+)tftags.TagsSchemaComputed\\(\\)",
         "new": "\"tags_all\":$1tftags.TagsSchemaTrulyComputed()"
+      },
+      {
+        "regExp": true,
+        "old": "names.AttrTagsAll:(\\s+)tftags.TagsSchemaComputed\\(\\)",
+        "new": "names.AttrTagsAll:$1tftags.TagsSchemaTrulyComputed()"
       }
     ]
   },
@@ -26,6 +31,10 @@
       },
       {
         "old": "Read more about sensitive data in state.\n"
+      },
+      {
+        "old": "If omitted, Terraform will assign a random, unique name.",
+        "new": "If omitted, the provider will assign a random, unique name."
       }
     ]
   }

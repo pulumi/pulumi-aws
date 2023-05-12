@@ -77,6 +77,16 @@
       "new": "That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly."
     }
   ],
+  "website/docs/d/lambda_functions.html.markdown": [
+    {
+      "old": "  Terraform data resource to get a list of Lambda Functions.",
+      "new": "  Data resource to get a list of Lambda Functions."
+    },
+    {
+      "old": "Terraform data resource to get a list of Lambda Functions.",
+      "new": "Data resource to get a list of Lambda Functions."
+    }
+  ],
   "website/docs/d/lambda_invocation.html.markdown": [
     {
       "old": "~> **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws_lambda_function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Terraform to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)",
@@ -174,7 +184,7 @@
   "website/docs/d/ssmincidents_response_plan.html.markdown": [
     {
       "old": "Use this Terraform data source to manage a response plan in AWS Systems Manager Incident Manager.",
-      "new": "Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager."
+      "new": "Use this data source to manage a response plan in AWS Systems Manager Incident Manager."
     }
   ],
   "website/docs/d/vpc_ipam_preview_next_cidr.html.markdown": [
@@ -264,7 +274,7 @@
   "website/docs/r/appautoscaling_target.html.markdown": [
     {
       "old": "~> **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `arn`. These resource cannot use `tags` or participate in `default_tags`. To prevent `terraform plan` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below.",
-      "new": "~> **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `arn`. These resource cannot use `tags` or participate in `default_tags`. To prevent `TODO plan` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below."
+      "new": "~> **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `arn`. These resource cannot use `tags` or participate in `default_tags`. To prevent `pulumi preview` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below."
     }
   ],
   "website/docs/r/appmesh_gateway_route.html.markdown": [
@@ -409,12 +419,6 @@
       "new": "  name         = \"my_example_backup_selection\""
     }
   ],
-  "website/docs/r/batch_compute_environment.html.markdown": [
-    {
-      "old": "* `compute_environment_name` - (Optional, Forces new resource) The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `compute_environment_name` - (Optional, Forces new resource) The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name."
-    }
-  ],
   "website/docs/r/batch_job_definition.html.markdown": [
     {
       "old": "  name               = \"tf_test_batch_exec_role\"",
@@ -522,12 +526,6 @@
       "new": "* `skip_destroy` - (Optional) Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state."
     }
   ],
-  "website/docs/r/cloudwatch_metric_stream.html.markdown": [
-    {
-      "old": "* `name` - (Optional, Forces new resource) Friendly name of the metric stream. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
   "website/docs/r/codebuild_project.html.markdown": [
     {
       "old": "* `id` - Name (if imported via `name`) or ARN (if created via Terraform or imported via ARN) of the CodeBuild project.",
@@ -631,10 +629,6 @@
     {
       "old": "* `description` - (Optional) The description of the DB subnet group. Defaults to \"Managed by Terraform\".",
       "new": "* `description` - (Optional) The description of the DB subnet group. Defaults to \"Managed by Pulumi\"."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) The name of the DB subnet group. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional, Forces new resource) The name of the DB subnet group. If omitted, this provider will assign a random, unique name."
     }
   ],
   "website/docs/r/default_route_table.html.markdown": [
@@ -667,7 +661,7 @@
   "website/docs/r/docdb_cluster_instance.html.markdown": [
     {
       "old": "* `identifier` - (Optional, Forces new resource) The identifier for the DocumentDB instance, if omitted, Terraform will assign a random, unique identifier.",
-      "new": "* `identifier` - (Optional, Forces new resource) The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier."
+      "new": "* `identifier` - (Optional, Forces new resource) The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier."
     },
     {
       "old": "[1]: /docs/providers/aws/r/docdb_cluster.html"
@@ -679,17 +673,13 @@
   "website/docs/r/docdb_cluster_parameter_group.html.markdown": [
     {
       "old": "* `description` - (Optional, Forces new resource) The description of the DocumentDB cluster parameter group. Defaults to \"Managed by Terraform\".",
-      "new": "* `description` - (Optional, Forces new resource) The description of the DocumentDB cluster parameter group. Defaults to \"Managed by TODO\"."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) The name of the DocumentDB cluster parameter group. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional, Forces new resource) The name of the DocumentDB cluster parameter group. If omitted, TODO will assign a random, unique name."
+      "new": "* `description` - (Optional, Forces new resource) The description of the DocumentDB cluster parameter group. Defaults to \"Managed by Pulumi\"."
     }
   ],
   "website/docs/r/docdb_event_subscription.html.markdown": [
     {
       "old": "* `name` - (Optional) The name of the DocumentDB event subscription. By default generated by Terraform.",
-      "new": "* `name` - (Optional) The name of the DocumentDB event subscription. By default generated by TODO."
+      "new": "* `name` - (Optional) The name of the DocumentDB event subscription. By default generated by this provider."
     }
   ],
   "website/docs/r/docdb_global_cluster.html.markdown": [
@@ -872,10 +862,6 @@
     {
       "old": "* `instance_types` - (Optional) List of instance types associated with the EKS Node Group. Defaults to `[\"t3.medium\"]`. Terraform will only perform drift detection if a configuration value is provided.",
       "new": "* `instance_types` - (Optional) List of instance types associated with the EKS Node Group. Defaults to `[\"t3.medium\"]`. The provider will only perform drift detection if a configuration value is provided."
-    },
-    {
-      "old": "* `node_group_name` – (Optional) Name of the EKS Node Group. If omitted, Terraform will assign a random, unique name. Conflicts with `node_group_name_prefix`.",
-      "new": "* `node_group_name` – (Optional) Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`."
     },
     {
       "old": "* `version` - (Required) EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and Terraform will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws_launch_template` resource or data source is recommended for this argument.",
@@ -1069,10 +1055,6 @@
   ],
   "website/docs/r/iam_policy.html.markdown": [
     {
-      "old": "* `name` - (Optional, Forces new resource) The name of the policy. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional, Forces new resource) The name of the policy. If omitted, this provider will assign a random, unique name."
-    },
-    {
       "old": "* `policy` - (Required) The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide",
       "new": "* `policy` - (Required) The policy document. This is a JSON formatted string."
     }
@@ -1081,10 +1063,6 @@
     {
       "old": "* `inline_policy` - (Optional) Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Terraform will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Terraform to remove _all_ inline policies added out of band on `apply`.",
       "new": "* `inline_policy` - (Optional) Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) Friendly name of the role. If omitted, Terraform will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.",
-      "new": "* `name` - (Optional, Forces new resource) Friendly name of the role. If omitted, this provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information."
     },
     {
       "old": "* `policy` - (Required) Policy document as a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.",
@@ -1122,10 +1100,6 @@
     }
   ],
   "website/docs/r/iam_server_certificate.html.markdown": [
-    {
-      "old": "  path in this value. If omitted, Terraform will assign a random, unique name.",
-      "new": "  path in this value. If omitted, this provider will assign a random, unique name."
-    },
     {
       "old": "[lifecycle]: /docs/configuration/resources.html"
     },
@@ -1173,10 +1147,6 @@
   "website/docs/r/iam_user_policy.html.markdown": [
     {
       "old": "  # Terraform expression result to valid JSON syntax."
-    },
-    {
-      "old": "* `name` - (Optional) The name of the policy. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional) The name of the policy. If omitted, the provider will assign a random, unique name."
     },
     {
       "old": "* `policy` - (Required) The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.",
@@ -1397,24 +1367,6 @@
       "new": "* `triggers` - (Optional) Map of arbitrary keys and values that, when changed, will trigger an update."
     }
   ],
-  "website/docs/r/macie2_classification_job.html.markdown": [
-    {
-      "old": "* `name` -  (Optional) A custom name for the job. The name can contain as many as 500 characters. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` -  (Optional) A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
-  "website/docs/r/macie2_custom_data_identifier.html.markdown": [
-    {
-      "old": "* `name` - (Optional) A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional) A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
-  "website/docs/r/macie2_findings_filter.html.markdown": [
-    {
-      "old": "* `name` - (Optional) A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional) A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
   "website/docs/r/main_route_table_association.html.markdown": [
     {
       "old": "\n[aws-route-tables]: http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table\n[tf-route-tables]: /docs/providers/aws/r/route_table.html\n[tf-default-route-table]: /docs/providers/aws/r/default_route_table.html"
@@ -1432,46 +1384,22 @@
       "new": "~> **NOTE:** **Do not** use both `aws_default_route_table` to manage a default route table **and** `aws_main_route_table_association` with the same VPC due to possible route conflicts. See aws_default_route_table documentation for more details."
     }
   ],
-  "website/docs/r/memorydb_acl.html.markdown": [
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the ACL. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
   "website/docs/r/memorydb_cluster.html.markdown": [
     {
       "old": "* `description` - (Optional) Description for the cluster. Defaults to `\"Managed by Terraform\"`.",
       "new": "* `description` - (Optional) Description for the cluster."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the cluster. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
     }
   ],
   "website/docs/r/memorydb_parameter_group.html.markdown": [
     {
       "old": "* `description` - (Optional, Forces new resource) Description for the parameter group. Defaults to `\"Managed by Terraform\"`.",
       "new": "* `description` - (Optional, Forces new resource) Description for the parameter group."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the parameter group. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
-  "website/docs/r/memorydb_snapshot.html.markdown": [
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the snapshot. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
     }
   ],
   "website/docs/r/memorydb_subnet_group.html.markdown": [
     {
       "old": "* `description` - (Optional) Description for the subnet group. Defaults to `\"Managed by Terraform\"`.",
       "new": "* `description` - (Optional) Description for the subnet group."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the subnet group. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
     }
   ],
   "website/docs/r/memorydb_user.html.markdown": [
@@ -1606,12 +1534,6 @@
       "new": "* `create_govcloud` - (Optional) Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource."
     }
   ],
-  "website/docs/r/pipes_pipe.html.markdown": [
-    {
-      "old": "* `name` - (Optional) Name of the pipe. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional) Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
   "website/docs/r/qldb_ledger.html.markdown": [
     {
       "old": "* `deletion_protection` - (Optional) The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via Terraform, this value must be configured to `false` and applied first before attempting deletion.",
@@ -1714,16 +1636,20 @@
   ],
   "website/docs/r/s3_bucket.html.markdown": [
     {
+      "old": "  Terraform wil only perform drift detection if a configuration value is provided.",
+      "new": "  The provider wil only perform drift detection if a configuration value is provided."
+    },
+    {
+      "old": "  Terraform will only perform drift detection if a configuration value is provided.",
+      "new": "  The provider will only perform drift detection if a configuration value is provided."
+    },
+    {
       "old": "* `acceleration_status` - (Optional, **Deprecated**) Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. Terraform will only perform drift detection if a configuration value is provided.",
       "new": "* `acceleration_status` - (Optional, **Deprecated**) Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided."
     },
     {
       "old": "* `acl` - (Optional, **Deprecated**) The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws_s3_bucket_acl` instead.",
       "new": "* `acl` - (Optional, **Deprecated**) The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws_s3_bucket_acl` instead."
-    },
-    {
-      "old": "* `bucket` - (Optional, Forces new resource) Name of the bucket. If omitted, Terraform will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).",
-      "new": "* `bucket` - (Optional, Forces new resource) Name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)."
     },
     {
       "old": "* `cors_rule` - (Optional, **Deprecated**) Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See [CORS rule](#cors-rule) below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws_s3_bucket_cors_configuration` instead.",
@@ -2018,40 +1944,10 @@
       "new": "    repository_url = \"https://github.com/github/docs.git\""
     }
   ],
-  "website/docs/r/sagemaker_data_quality_job_definition.html.markdown": [
-    {
-      "old": "* `name` - (Optional) The name of the data quality job definition. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional) The name of the data quality job definition. If omitted, the provider will assign a random, unique name."
-    }
-  ],
-  "website/docs/r/sagemaker_endpoint.html.markdown": [
-    {
-      "old": "* `name` - (Optional) The name of the endpoint. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional) The name of the endpoint. If omitted, the provider will assign a random, unique name."
-    }
-  ],
-  "website/docs/r/sagemaker_monitoring_schedule.html.markdown": [
-    {
-      "old": "* `name` - (Optional) The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional) The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name."
-    }
-  ],
   "website/docs/r/sagemaker_notebook_instance.html.markdown": [
     {
       "old": "    repository_url = \"https://github.com/hashicorp/terraform-provider-aws.git\"",
       "new": "    repository_url = \"https://github.com/github/docs.git\""
-    }
-  ],
-  "website/docs/r/scheduler_schedule.html.markdown": [
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the schedule. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
-  "website/docs/r/scheduler_schedule_group.html.markdown": [
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the schedule group. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
     }
   ],
   "website/docs/r/secretsmanager_secret_version.html.markdown": [
@@ -2068,10 +1964,6 @@
     {
       "old": "* `description` - (Optional, Forces new resource) Security group description. Defaults to `Managed by Terraform`. Cannot be `\"\"`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.",
       "new": "* `description` - (Optional, Forces new resource) Security group description. Defaults to `Managed by Pulumi`. Cannot be `\"\"`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the security group. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the security group. If omitted, this provider will assign a random, unique name."
     },
     {
       "old": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using Terraform 0.12.x and above. Please make sure that the value of the protocol is specified as lowercase when used with older version of Terraform to avoid issues during upgrade.",
@@ -2130,17 +2022,7 @@
       "new": "  name        = \"example.domain.local\""
     }
   ],
-  "website/docs/r/sfn_state_machine.html.markdown": [
-    {
-      "old": "* `name` - (Optional) The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional) The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name."
-    }
-  ],
   "website/docs/r/sns_topic.html.markdown": [
-    {
-      "old": "* `name` - (Optional) The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`",
-      "new": "* `name` - (Optional) The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`"
-    },
     {
       "old": "* `policy` - (Optional) The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.",
       "new": "* `policy` - (Optional) The fully-formed AWS policy as JSON."
@@ -2199,7 +2081,7 @@
   "website/docs/r/ssmcontacts_contact.html.markdown": [
     {
       "old": "~> **NOTE:** A contact implicitly depends on a replication set. If you configured your replication set in Terraform, we recommend you add it to the `depends_on` argument for the Terraform Contact Resource.",
-      "new": "~> **NOTE:** A contact implicitly depends on a replication set. If you configured your replication set in TODO, we recommend you add it to the `depends_on` argument for the TODO Contact Resource."
+      "new": "~> **NOTE:** A contact implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `depends_on` argument for the Contact Resource."
     }
   ],
   "website/docs/r/ssmincidents_replication_set.html.markdown": [
@@ -2219,15 +2101,15 @@
   "website/docs/r/ssmincidents_response_plan.html.markdown": [
     {
       "old": "Provides a Terraform resource to manage response plans in AWS Systems Manager Incident Manager.",
-      "new": "Provides a TODO resource to manage response plans in AWS Systems Manager Incident Manager."
+      "new": "Provides a resource to manage response plans in AWS Systems Manager Incident Manager."
     },
     {
       "old": "we recommend you add it to the `depends_on` argument for the Terraform ResponsePlan Resource.",
-      "new": "we recommend you add it to the `depends_on` argument for the TODO ResponsePlan Resource."
+      "new": "we recommend you add it to the `depends_on` argument for the ResponsePlan Resource."
     },
     {
       "old": "~> NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Terraform,",
-      "new": "~> NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in TODO,"
+      "new": "~> NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Pulumi,"
     }
   ],
   "website/docs/r/transfer_access.html.markdown": [
