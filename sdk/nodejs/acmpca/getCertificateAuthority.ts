@@ -65,6 +65,7 @@ export interface GetCertificateAuthorityResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly keyStorageSecurityStandard: string;
     /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */

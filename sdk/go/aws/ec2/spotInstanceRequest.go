@@ -80,8 +80,14 @@ type SpotInstanceRequest struct {
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
 	CapacityReservationSpecification SpotInstanceRequestCapacityReservationSpecificationOutput `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	//
+	// Deprecated: use 'cpu_options' argument instead
 	CpuCoreCount pulumi.IntOutput `pulumi:"cpuCoreCount"`
+	// The CPU options for the instance. See CPU Options below for more details.
+	CpuOptions SpotInstanceRequestCpuOptionsOutput `pulumi:"cpuOptions"`
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	//
+	// Deprecated: use 'cpu_options' argument instead
 	CpuThreadsPerCore pulumi.IntOutput `pulumi:"cpuThreadsPerCore"`
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification SpotInstanceRequestCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
@@ -248,8 +254,14 @@ type spotInstanceRequestState struct {
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
 	CapacityReservationSpecification *SpotInstanceRequestCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	//
+	// Deprecated: use 'cpu_options' argument instead
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
+	// The CPU options for the instance. See CPU Options below for more details.
+	CpuOptions *SpotInstanceRequestCpuOptions `pulumi:"cpuOptions"`
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	//
+	// Deprecated: use 'cpu_options' argument instead
 	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification *SpotInstanceRequestCreditSpecification `pulumi:"creditSpecification"`
@@ -388,8 +400,14 @@ type SpotInstanceRequestState struct {
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
 	CapacityReservationSpecification SpotInstanceRequestCapacityReservationSpecificationPtrInput
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	//
+	// Deprecated: use 'cpu_options' argument instead
 	CpuCoreCount pulumi.IntPtrInput
+	// The CPU options for the instance. See CPU Options below for more details.
+	CpuOptions SpotInstanceRequestCpuOptionsPtrInput
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	//
+	// Deprecated: use 'cpu_options' argument instead
 	CpuThreadsPerCore pulumi.IntPtrInput
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification SpotInstanceRequestCreditSpecificationPtrInput
@@ -531,8 +549,14 @@ type spotInstanceRequestArgs struct {
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
 	CapacityReservationSpecification *SpotInstanceRequestCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	//
+	// Deprecated: use 'cpu_options' argument instead
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
+	// The CPU options for the instance. See CPU Options below for more details.
+	CpuOptions *SpotInstanceRequestCpuOptions `pulumi:"cpuOptions"`
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	//
+	// Deprecated: use 'cpu_options' argument instead
 	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification *SpotInstanceRequestCreditSpecification `pulumi:"creditSpecification"`
@@ -608,8 +632,6 @@ type spotInstanceRequestArgs struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
 	Tenancy *string `pulumi:"tenancy"`
 	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
@@ -647,8 +669,14 @@ type SpotInstanceRequestArgs struct {
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
 	CapacityReservationSpecification SpotInstanceRequestCapacityReservationSpecificationPtrInput
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	//
+	// Deprecated: use 'cpu_options' argument instead
 	CpuCoreCount pulumi.IntPtrInput
+	// The CPU options for the instance. See CPU Options below for more details.
+	CpuOptions SpotInstanceRequestCpuOptionsPtrInput
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	//
+	// Deprecated: use 'cpu_options' argument instead
 	CpuThreadsPerCore pulumi.IntPtrInput
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification SpotInstanceRequestCreditSpecificationPtrInput
@@ -724,8 +752,6 @@ type SpotInstanceRequestArgs struct {
 	SubnetId pulumi.StringPtrInput
 	// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
 	Tenancy pulumi.StringPtrInput
 	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
@@ -869,11 +895,20 @@ func (o SpotInstanceRequestOutput) CapacityReservationSpecification() SpotInstan
 }
 
 // Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+//
+// Deprecated: use 'cpu_options' argument instead
 func (o SpotInstanceRequestOutput) CpuCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.IntOutput { return v.CpuCoreCount }).(pulumi.IntOutput)
 }
 
+// The CPU options for the instance. See CPU Options below for more details.
+func (o SpotInstanceRequestOutput) CpuOptions() SpotInstanceRequestCpuOptionsOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestCpuOptionsOutput { return v.CpuOptions }).(SpotInstanceRequestCpuOptionsOutput)
+}
+
 // If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+//
+// Deprecated: use 'cpu_options' argument instead
 func (o SpotInstanceRequestOutput) CpuThreadsPerCore() pulumi.IntOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.IntOutput { return v.CpuThreadsPerCore }).(pulumi.IntOutput)
 }

@@ -6378,8 +6378,9 @@ func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput) Index(i 
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference struct {
-	Priority    int    `pulumi:"priority"`
-	ResourceArn string `pulumi:"resourceArn"`
+	Overrides   []GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride `pulumi:"overrides"`
+	Priority    int                                                                 `pulumi:"priority"`
+	ResourceArn string                                                              `pulumi:"resourceArn"`
 }
 
 // GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs and GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput values.
@@ -6394,8 +6395,9 @@ type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput interface {
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs struct {
-	Priority    pulumi.IntInput    `pulumi:"priority"`
-	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	Overrides   GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayInput `pulumi:"overrides"`
+	Priority    pulumi.IntInput                                                             `pulumi:"priority"`
+	ResourceArn pulumi.StringInput                                                          `pulumi:"resourceArn"`
 }
 
 func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs) ElementType() reflect.Type {
@@ -6449,6 +6451,12 @@ func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToGetFi
 	return o
 }
 
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) Overrides() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference) []GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride {
+		return v.Overrides
+	}).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput)
+}
+
 func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference) int { return v.Priority }).(pulumi.IntOutput)
 }
@@ -6475,6 +6483,100 @@ func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput) In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
 		return vs[0].([]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference)[vs[1].(int)]
 	}).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride struct {
+	Action *string `pulumi:"action"`
+}
+
+// GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs and GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideInput` via:
+//
+//	GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs{...}
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput
+	ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs struct {
+	Action pulumi.StringPtrInput `pulumi:"action"`
+}
+
+func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput)
+}
+
+// GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArray and GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput values.
+// You can construct a concrete instance of `GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayInput` via:
+//
+//	GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArray{ GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs{...} }
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayInput interface {
+	pulumi.Input
+
+	ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput
+	ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutputWithContext(context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArray []GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideInput
+
+func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride)(nil)).Elem()
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArray) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput {
+	return i.ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArray) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride)(nil)).Elem()
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput {
+	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput) Index(i pulumi.IntInput) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride {
+		return vs[0].([]GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride)[vs[1].(int)]
+	}).(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput)
 }
 
 type GetFirewallPolicyFirewallPolicyStatelessCustomAction struct {
@@ -7168,6 +7270,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulEngineOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessCustomActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessCustomActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionInput)(nil)).Elem(), GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs{})
@@ -7283,6 +7387,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideOutput{})
+	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessCustomActionOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput{})
 	pulumi.RegisterOutputType(GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionOutput{})

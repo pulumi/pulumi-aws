@@ -21,10 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:vpclattice/accessLogSubscription:AccessLogSubscription":
+		r = &AccessLogSubscription{}
+	case "aws:vpclattice/authPolicy:AuthPolicy":
+		r = &AuthPolicy{}
 	case "aws:vpclattice/listener:Listener":
 		r = &Listener{}
 	case "aws:vpclattice/listenerRule:ListenerRule":
 		r = &ListenerRule{}
+	case "aws:vpclattice/resourcePolicy:ResourcePolicy":
+		r = &ResourcePolicy{}
 	case "aws:vpclattice/service:Service":
 		r = &Service{}
 	case "aws:vpclattice/serviceNetwork:ServiceNetwork":
@@ -35,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceNetworkVpcAssociation{}
 	case "aws:vpclattice/targetGroup:TargetGroup":
 		r = &TargetGroup{}
+	case "aws:vpclattice/targetGroupAttachment:TargetGroupAttachment":
+		r = &TargetGroupAttachment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -50,12 +58,27 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"vpclattice/accessLogSubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpclattice/authPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"vpclattice/listener",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"vpclattice/listenerRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpclattice/resourcePolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -81,6 +104,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"vpclattice/targetGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"vpclattice/targetGroupAttachment",
 		&module{version},
 	)
 }

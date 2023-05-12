@@ -179,7 +179,6 @@ type repositoryAssociationArgs struct {
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
 	Repository RepositoryAssociationRepository `pulumi:"repository"`
 	Tags       map[string]string               `pulumi:"tags"`
-	TagsAll    map[string]string               `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a RepositoryAssociation resource.
@@ -189,7 +188,6 @@ type RepositoryAssociationArgs struct {
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
 	Repository RepositoryAssociationRepositoryInput
 	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
 }
 
 func (RepositoryAssociationArgs) ElementType() reflect.Type {

@@ -16,6 +16,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.inspector2.MemberAssociation("example", {accountId: "123456789012"});
  * ```
+ *
+ * ## Import
+ *
+ * Amazon Inspector Member Association can be imported using the `account_id`, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
+ * ```
  */
 export class MemberAssociation extends pulumi.CustomResource {
     /**
@@ -49,6 +57,18 @@ export class MemberAssociation extends pulumi.CustomResource {
      * ID of the account to associate
      */
     public readonly accountId!: pulumi.Output<string>;
+    /**
+     * Account ID of the delegated administrator account
+     */
+    public /*out*/ readonly delegatedAdminAccountId!: pulumi.Output<string>;
+    /**
+     * Status of the member relationship
+     */
+    public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
+    /**
+     * Date and time of the last update of the relationship
+     */
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a MemberAssociation resource with the given unique name, arguments, and options.
@@ -64,12 +84,18 @@ export class MemberAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as MemberAssociationState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["delegatedAdminAccountId"] = state ? state.delegatedAdminAccountId : undefined;
+            resourceInputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as MemberAssociationArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["delegatedAdminAccountId"] = undefined /*out*/;
+            resourceInputs["relationshipStatus"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MemberAssociation.__pulumiType, name, resourceInputs, opts);
@@ -84,6 +110,18 @@ export interface MemberAssociationState {
      * ID of the account to associate
      */
     accountId?: pulumi.Input<string>;
+    /**
+     * Account ID of the delegated administrator account
+     */
+    delegatedAdminAccountId?: pulumi.Input<string>;
+    /**
+     * Status of the member relationship
+     */
+    relationshipStatus?: pulumi.Input<string>;
+    /**
+     * Date and time of the last update of the relationship
+     */
+    updatedAt?: pulumi.Input<string>;
 }
 
 /**

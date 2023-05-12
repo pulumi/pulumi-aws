@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Creates a domain entry resource
  *
+ * > **NOTE on `id`:** In an effort to simplify imports, this resource `id` field has been updated to the standard resource id separator, a comma (`,`). For backward compatibility, the previous separator (underscore `_`) can still be used to read and import existing resources. When state is refreshed, the `id` will be updated to use the new standard separator. The previous separator will be deprecated in a future major release.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -26,7 +28,7 @@ import * as utilities from "../utilities";
  * `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:lightsail/domainEntry:DomainEntry example www_mydomain.com_A_127.0.0.1
+ *  $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
  * ```
  */
 export class DomainEntry extends pulumi.CustomResource {

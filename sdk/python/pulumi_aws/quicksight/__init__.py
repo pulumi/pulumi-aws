@@ -14,6 +14,7 @@ from .get_quicksight_group import *
 from .get_quicksight_user import *
 from .group import *
 from .group_membership import *
+from .template import *
 from .user import *
 from ._inputs import *
 from . import outputs

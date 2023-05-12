@@ -108,9 +108,14 @@ import (
 //				IncludeFilters: cloudwatch.MetricStreamIncludeFilterArray{
 //					&cloudwatch.MetricStreamIncludeFilterArgs{
 //						Namespace: pulumi.String("AWS/EC2"),
+//						MetricNames: pulumi.StringArray{
+//							pulumi.String("CPUUtilization"),
+//							pulumi.String("NetworkOut"),
+//						},
 //					},
 //					&cloudwatch.MetricStreamIncludeFilterArgs{
-//						Namespace: pulumi.String("AWS/EBS"),
+//						Namespace:   pulumi.String("AWS/EBS"),
+//						MetricNames: pulumi.StringArray{},
 //					},
 //				},
 //			})
@@ -251,11 +256,11 @@ type MetricStream struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
+	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
 	ExcludeFilters MetricStreamExcludeFilterArrayOutput `pulumi:"excludeFilters"`
 	// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
 	FirehoseArn pulumi.StringOutput `pulumi:"firehoseArn"`
-	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
+	// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
 	IncludeFilters MetricStreamIncludeFilterArrayOutput `pulumi:"includeFilters"`
 	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
 	IncludeLinkedAccountsMetrics pulumi.BoolPtrOutput `pulumi:"includeLinkedAccountsMetrics"`
@@ -321,11 +326,11 @@ type metricStreamState struct {
 	Arn *string `pulumi:"arn"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
 	CreationDate *string `pulumi:"creationDate"`
-	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
+	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
 	ExcludeFilters []MetricStreamExcludeFilter `pulumi:"excludeFilters"`
 	// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
 	FirehoseArn *string `pulumi:"firehoseArn"`
-	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
+	// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
 	IncludeFilters []MetricStreamIncludeFilter `pulumi:"includeFilters"`
 	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
 	IncludeLinkedAccountsMetrics *bool `pulumi:"includeLinkedAccountsMetrics"`
@@ -354,11 +359,11 @@ type MetricStreamState struct {
 	Arn pulumi.StringPtrInput
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
 	CreationDate pulumi.StringPtrInput
-	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
+	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
 	ExcludeFilters MetricStreamExcludeFilterArrayInput
 	// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
 	FirehoseArn pulumi.StringPtrInput
-	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
+	// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
 	IncludeFilters MetricStreamIncludeFilterArrayInput
 	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
 	IncludeLinkedAccountsMetrics pulumi.BoolPtrInput
@@ -387,11 +392,11 @@ func (MetricStreamState) ElementType() reflect.Type {
 }
 
 type metricStreamArgs struct {
-	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
+	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
 	ExcludeFilters []MetricStreamExcludeFilter `pulumi:"excludeFilters"`
 	// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
 	FirehoseArn string `pulumi:"firehoseArn"`
-	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
+	// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
 	IncludeFilters []MetricStreamIncludeFilter `pulumi:"includeFilters"`
 	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
 	IncludeLinkedAccountsMetrics *bool `pulumi:"includeLinkedAccountsMetrics"`
@@ -407,17 +412,15 @@ type metricStreamArgs struct {
 	StatisticsConfigurations []MetricStreamStatisticsConfiguration `pulumi:"statisticsConfigurations"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a MetricStream resource.
 type MetricStreamArgs struct {
-	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
+	// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
 	ExcludeFilters MetricStreamExcludeFilterArrayInput
 	// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
 	FirehoseArn pulumi.StringInput
-	// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
+	// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
 	IncludeFilters MetricStreamIncludeFilterArrayInput
 	// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
 	IncludeLinkedAccountsMetrics pulumi.BoolPtrInput
@@ -433,8 +436,6 @@ type MetricStreamArgs struct {
 	StatisticsConfigurations MetricStreamStatisticsConfigurationArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (MetricStreamArgs) ElementType() reflect.Type {
@@ -534,7 +535,7 @@ func (o MetricStreamOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
-// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
+// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
 func (o MetricStreamOutput) ExcludeFilters() MetricStreamExcludeFilterArrayOutput {
 	return o.ApplyT(func(v *MetricStream) MetricStreamExcludeFilterArrayOutput { return v.ExcludeFilters }).(MetricStreamExcludeFilterArrayOutput)
 }
@@ -544,7 +545,7 @@ func (o MetricStreamOutput) FirehoseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricStream) pulumi.StringOutput { return v.FirehoseArn }).(pulumi.StringOutput)
 }
 
-// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
+// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
 func (o MetricStreamOutput) IncludeFilters() MetricStreamIncludeFilterArrayOutput {
 	return o.ApplyT(func(v *MetricStream) MetricStreamIncludeFilterArrayOutput { return v.IncludeFilters }).(MetricStreamIncludeFilterArrayOutput)
 }

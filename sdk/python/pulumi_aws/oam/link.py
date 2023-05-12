@@ -17,8 +17,7 @@ class LinkArgs:
                  label_template: pulumi.Input[str],
                  resource_types: pulumi.Input[Sequence[pulumi.Input[str]]],
                  sink_identifier: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Link resource.
         :param pulumi.Input[str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
@@ -31,8 +30,6 @@ class LinkArgs:
         pulumi.set(__self__, "sink_identifier", sink_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="labelTemplate")
@@ -81,15 +78,6 @@ class LinkArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -249,7 +237,6 @@ class Link(pulumi.CustomResource):
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sink_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CloudWatch Observability Access Manager Link.
@@ -337,7 +324,6 @@ class Link(pulumi.CustomResource):
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sink_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -357,11 +343,11 @@ class Link(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sink_identifier'")
             __props__.__dict__["sink_identifier"] = sink_identifier
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["label"] = None
             __props__.__dict__["link_id"] = None
             __props__.__dict__["sink_arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(Link, __self__).__init__(
             'aws:oam/link:Link',
             resource_name,

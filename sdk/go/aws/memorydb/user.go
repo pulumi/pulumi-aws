@@ -15,6 +15,7 @@ import (
 //
 // More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
 //
+// > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
 // ## Example Usage
 //
 // ```go
@@ -167,8 +168,6 @@ type userArgs struct {
 	AuthenticationMode UserAuthenticationMode `pulumi:"authenticationMode"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Name of the MemoryDB user. Up to 40 characters.
 	UserName string `pulumi:"userName"`
 }
@@ -181,8 +180,6 @@ type UserArgs struct {
 	AuthenticationMode UserAuthenticationModeInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Name of the MemoryDB user. Up to 40 characters.
 	UserName pulumi.StringInput
 }

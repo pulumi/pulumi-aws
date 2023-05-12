@@ -22,7 +22,7 @@ class GetCertificateAuthorityResult:
     """
     A collection of values returned by getCertificateAuthority.
     """
-    def __init__(__self__, arn=None, certificate=None, certificate_chain=None, certificate_signing_request=None, id=None, not_after=None, not_before=None, revocation_configurations=None, serial=None, status=None, tags=None, type=None, usage_mode=None):
+    def __init__(__self__, arn=None, certificate=None, certificate_chain=None, certificate_signing_request=None, id=None, key_storage_security_standard=None, not_after=None, not_before=None, revocation_configurations=None, serial=None, status=None, tags=None, type=None, usage_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,6 +38,9 @@ class GetCertificateAuthorityResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if key_storage_security_standard and not isinstance(key_storage_security_standard, str):
+            raise TypeError("Expected argument 'key_storage_security_standard' to be a str")
+        pulumi.set(__self__, "key_storage_security_standard", key_storage_security_standard)
         if not_after and not isinstance(not_after, str):
             raise TypeError("Expected argument 'not_after' to be a str")
         pulumi.set(__self__, "not_after", not_after)
@@ -99,6 +102,11 @@ class GetCertificateAuthorityResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="keyStorageSecurityStandard")
+    def key_storage_security_standard(self) -> str:
+        return pulumi.get(self, "key_storage_security_standard")
 
     @property
     @pulumi.getter(name="notAfter")
@@ -184,6 +192,7 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
             certificate_chain=self.certificate_chain,
             certificate_signing_request=self.certificate_signing_request,
             id=self.id,
+            key_storage_security_standard=self.key_storage_security_standard,
             not_after=self.not_after,
             not_before=self.not_before,
             revocation_configurations=self.revocation_configurations,
@@ -225,6 +234,7 @@ def get_certificate_authority(arn: Optional[str] = None,
         certificate_chain=__ret__.certificate_chain,
         certificate_signing_request=__ret__.certificate_signing_request,
         id=__ret__.id,
+        key_storage_security_standard=__ret__.key_storage_security_standard,
         not_after=__ret__.not_after,
         not_before=__ret__.not_before,
         revocation_configurations=__ret__.revocation_configurations,

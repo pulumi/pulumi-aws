@@ -6157,6 +6157,8 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Unit() pulumi.StringPtrOutput {
 }
 
 type MetricStreamExcludeFilter struct {
+	// An array that defines the metrics you want to exclude for this metric namespace
+	MetricNames []string `pulumi:"metricNames"`
 	// Name of the metric namespace in the filter.
 	Namespace string `pulumi:"namespace"`
 }
@@ -6173,6 +6175,8 @@ type MetricStreamExcludeFilterInput interface {
 }
 
 type MetricStreamExcludeFilterArgs struct {
+	// An array that defines the metrics you want to exclude for this metric namespace
+	MetricNames pulumi.StringArrayInput `pulumi:"metricNames"`
 	// Name of the metric namespace in the filter.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
@@ -6228,6 +6232,11 @@ func (o MetricStreamExcludeFilterOutput) ToMetricStreamExcludeFilterOutputWithCo
 	return o
 }
 
+// An array that defines the metrics you want to exclude for this metric namespace
+func (o MetricStreamExcludeFilterOutput) MetricNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetricStreamExcludeFilter) []string { return v.MetricNames }).(pulumi.StringArrayOutput)
+}
+
 // Name of the metric namespace in the filter.
 func (o MetricStreamExcludeFilterOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamExcludeFilter) string { return v.Namespace }).(pulumi.StringOutput)
@@ -6254,6 +6263,8 @@ func (o MetricStreamExcludeFilterArrayOutput) Index(i pulumi.IntInput) MetricStr
 }
 
 type MetricStreamIncludeFilter struct {
+	// An array that defines the metrics you want to include for this metric namespace
+	MetricNames []string `pulumi:"metricNames"`
 	// Name of the metric namespace in the filter.
 	Namespace string `pulumi:"namespace"`
 }
@@ -6270,6 +6281,8 @@ type MetricStreamIncludeFilterInput interface {
 }
 
 type MetricStreamIncludeFilterArgs struct {
+	// An array that defines the metrics you want to include for this metric namespace
+	MetricNames pulumi.StringArrayInput `pulumi:"metricNames"`
 	// Name of the metric namespace in the filter.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
@@ -6323,6 +6336,11 @@ func (o MetricStreamIncludeFilterOutput) ToMetricStreamIncludeFilterOutput() Met
 
 func (o MetricStreamIncludeFilterOutput) ToMetricStreamIncludeFilterOutputWithContext(ctx context.Context) MetricStreamIncludeFilterOutput {
 	return o
+}
+
+// An array that defines the metrics you want to include for this metric namespace
+func (o MetricStreamIncludeFilterOutput) MetricNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetricStreamIncludeFilter) []string { return v.MetricNames }).(pulumi.StringArrayOutput)
 }
 
 // Name of the metric namespace in the filter.

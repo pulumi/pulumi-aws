@@ -125,7 +125,7 @@ export class EcsClusterLayer extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether to use EBS-optimized instances.
      */
@@ -201,9 +201,9 @@ export class EcsClusterLayer extends pulumi.CustomResource {
             resourceInputs["stackId"] = args ? args.stackId : undefined;
             resourceInputs["systemPackages"] = args ? args.systemPackages : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EcsClusterLayer.__pulumiType, name, resourceInputs, opts);
@@ -371,7 +371,6 @@ export interface EcsClusterLayerArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to use EBS-optimized instances.
      */

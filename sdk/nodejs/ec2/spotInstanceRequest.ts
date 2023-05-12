@@ -101,10 +101,18 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     public readonly capacityReservationSpecification!: pulumi.Output<outputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+     *
+     * @deprecated use 'cpu_options' argument instead
      */
     public readonly cpuCoreCount!: pulumi.Output<number>;
     /**
+     * The CPU options for the instance. See CPU Options below for more details.
+     */
+    public readonly cpuOptions!: pulumi.Output<outputs.ec2.SpotInstanceRequestCpuOptions>;
+    /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     *
+     * @deprecated use 'cpu_options' argument instead
      */
     public readonly cpuThreadsPerCore!: pulumi.Output<number>;
     /**
@@ -292,7 +300,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      */
@@ -352,6 +360,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["blockDurationMinutes"] = state ? state.blockDurationMinutes : undefined;
             resourceInputs["capacityReservationSpecification"] = state ? state.capacityReservationSpecification : undefined;
             resourceInputs["cpuCoreCount"] = state ? state.cpuCoreCount : undefined;
+            resourceInputs["cpuOptions"] = state ? state.cpuOptions : undefined;
             resourceInputs["cpuThreadsPerCore"] = state ? state.cpuThreadsPerCore : undefined;
             resourceInputs["creditSpecification"] = state ? state.creditSpecification : undefined;
             resourceInputs["disableApiStop"] = state ? state.disableApiStop : undefined;
@@ -417,6 +426,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["blockDurationMinutes"] = args ? args.blockDurationMinutes : undefined;
             resourceInputs["capacityReservationSpecification"] = args ? args.capacityReservationSpecification : undefined;
             resourceInputs["cpuCoreCount"] = args ? args.cpuCoreCount : undefined;
+            resourceInputs["cpuOptions"] = args ? args.cpuOptions : undefined;
             resourceInputs["cpuThreadsPerCore"] = args ? args.cpuThreadsPerCore : undefined;
             resourceInputs["creditSpecification"] = args ? args.creditSpecification : undefined;
             resourceInputs["disableApiStop"] = args ? args.disableApiStop : undefined;
@@ -454,7 +464,6 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["spotType"] = args ? args.spotType : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["tenancy"] = args ? args.tenancy : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
@@ -475,6 +484,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["spotBidStatus"] = undefined /*out*/;
             resourceInputs["spotInstanceId"] = undefined /*out*/;
             resourceInputs["spotRequestState"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpotInstanceRequest.__pulumiType, name, resourceInputs, opts);
@@ -510,10 +520,18 @@ export interface SpotInstanceRequestState {
     capacityReservationSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+     *
+     * @deprecated use 'cpu_options' argument instead
      */
     cpuCoreCount?: pulumi.Input<number>;
     /**
+     * The CPU options for the instance. See CPU Options below for more details.
+     */
+    cpuOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestCpuOptions>;
+    /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     *
+     * @deprecated use 'cpu_options' argument instead
      */
     cpuThreadsPerCore?: pulumi.Input<number>;
     /**
@@ -770,10 +788,18 @@ export interface SpotInstanceRequestArgs {
     capacityReservationSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+     *
+     * @deprecated use 'cpu_options' argument instead
      */
     cpuCoreCount?: pulumi.Input<number>;
     /**
+     * The CPU options for the instance. See CPU Options below for more details.
+     */
+    cpuOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestCpuOptions>;
+    /**
      * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     *
+     * @deprecated use 'cpu_options' argument instead
      */
     cpuThreadsPerCore?: pulumi.Input<number>;
     /**
@@ -922,10 +948,6 @@ export interface SpotInstanceRequestArgs {
      * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      */

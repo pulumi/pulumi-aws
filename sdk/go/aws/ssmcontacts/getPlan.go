@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// TODO data source for managing a Plan of an AWS SSM Contact.
+// Data source for managing a Plan of an AWS SSM Contact.
 //
 // ## Example Usage
 // ### Basic Usage

@@ -387,6 +387,75 @@ class Policy(pulumi.CustomResource):
                 scale_out_cooldown=300,
             ))
         ```
+        ### Create target tracking scaling policy using metric math
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ecs_target = aws.appautoscaling.Target("ecsTarget",
+            max_capacity=4,
+            min_capacity=1,
+            resource_id="service/clusterName/serviceName",
+            scalable_dimension="ecs:service:DesiredCount",
+            service_namespace="ecs")
+        example = aws.appautoscaling.Policy("example",
+            policy_type="TargetTrackingScaling",
+            resource_id=ecs_target.resource_id,
+            scalable_dimension=ecs_target.scalable_dimension,
+            service_namespace=ecs_target.service_namespace,
+            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
+                target_value=100,
+                customized_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs(
+                    metrics=[
+                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
+                            label="Get the queue size (the number of messages waiting to be processed)",
+                            id="m1",
+                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
+                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
+                                    metric_name="ApproximateNumberOfMessagesVisible",
+                                    namespace="AWS/SQS",
+                                    dimensions=[aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                        name="QueueName",
+                                        value="my-queue",
+                                    )],
+                                ),
+                                stat="Sum",
+                            ),
+                            return_data=False,
+                        ),
+                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
+                            label="Get the ECS running task count (the number of currently running tasks)",
+                            id="m2",
+                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
+                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
+                                    metric_name="RunningTaskCount",
+                                    namespace="ECS/ContainerInsights",
+                                    dimensions=[
+                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                            name="ClusterName",
+                                            value="default",
+                                        ),
+                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                            name="ServiceName",
+                                            value="web-app",
+                                        ),
+                                    ],
+                                ),
+                                stat="Average",
+                            ),
+                            return_data=False,
+                        ),
+                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
+                            label="Calculate the backlog per instance",
+                            id="e1",
+                            expression="m1 / m2",
+                            return_data=True,
+                        ),
+                    ],
+                ),
+            ))
+        ```
         ### MSK / Kafka Autoscaling
 
         ```python
@@ -526,6 +595,75 @@ class Policy(pulumi.CustomResource):
                 target_value=75,
                 scale_in_cooldown=300,
                 scale_out_cooldown=300,
+            ))
+        ```
+        ### Create target tracking scaling policy using metric math
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ecs_target = aws.appautoscaling.Target("ecsTarget",
+            max_capacity=4,
+            min_capacity=1,
+            resource_id="service/clusterName/serviceName",
+            scalable_dimension="ecs:service:DesiredCount",
+            service_namespace="ecs")
+        example = aws.appautoscaling.Policy("example",
+            policy_type="TargetTrackingScaling",
+            resource_id=ecs_target.resource_id,
+            scalable_dimension=ecs_target.scalable_dimension,
+            service_namespace=ecs_target.service_namespace,
+            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
+                target_value=100,
+                customized_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs(
+                    metrics=[
+                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
+                            label="Get the queue size (the number of messages waiting to be processed)",
+                            id="m1",
+                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
+                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
+                                    metric_name="ApproximateNumberOfMessagesVisible",
+                                    namespace="AWS/SQS",
+                                    dimensions=[aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                        name="QueueName",
+                                        value="my-queue",
+                                    )],
+                                ),
+                                stat="Sum",
+                            ),
+                            return_data=False,
+                        ),
+                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
+                            label="Get the ECS running task count (the number of currently running tasks)",
+                            id="m2",
+                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
+                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
+                                    metric_name="RunningTaskCount",
+                                    namespace="ECS/ContainerInsights",
+                                    dimensions=[
+                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                            name="ClusterName",
+                                            value="default",
+                                        ),
+                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                            name="ServiceName",
+                                            value="web-app",
+                                        ),
+                                    ],
+                                ),
+                                stat="Average",
+                            ),
+                            return_data=False,
+                        ),
+                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
+                            label="Calculate the backlog per instance",
+                            id="e1",
+                            expression="m1 / m2",
+                            return_data=True,
+                        ),
+                    ],
+                ),
             ))
         ```
         ### MSK / Kafka Autoscaling

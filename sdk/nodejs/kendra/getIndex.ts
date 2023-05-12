@@ -109,8 +109,7 @@ export interface GetIndexResult {
      */
     readonly updatedAt: string;
     /**
-     * User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
-     * html#Kendra-CreateIndex-request-UserContextPolicy).
+     * User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
      */
     readonly userContextPolicy: string;
     /**

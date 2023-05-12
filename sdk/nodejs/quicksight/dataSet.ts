@@ -236,6 +236,7 @@ export class DataSet extends pulumi.CustomResource {
      * Display name for the dataset.
      */
     public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly outputColumns!: pulumi.Output<outputs.quicksight.DataSetOutputColumn[]>;
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
      */
@@ -244,6 +245,10 @@ export class DataSet extends pulumi.CustomResource {
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      */
     public readonly physicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetPhysicalTableMap[]>;
+    /**
+     * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+     */
+    public readonly refreshProperties!: pulumi.Output<outputs.quicksight.DataSetRefreshProperties | undefined>;
     /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      */
@@ -259,7 +264,7 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DataSet resource with the given unique name, arguments, and options.
@@ -284,8 +289,10 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["importMode"] = state ? state.importMode : undefined;
             resourceInputs["logicalTableMaps"] = state ? state.logicalTableMaps : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputColumns"] = state ? state.outputColumns : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
             resourceInputs["physicalTableMaps"] = state ? state.physicalTableMaps : undefined;
+            resourceInputs["refreshProperties"] = state ? state.refreshProperties : undefined;
             resourceInputs["rowLevelPermissionDataSet"] = state ? state.rowLevelPermissionDataSet : undefined;
             resourceInputs["rowLevelPermissionTagConfiguration"] = state ? state.rowLevelPermissionTagConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -312,11 +319,13 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["physicalTableMaps"] = args ? args.physicalTableMaps : undefined;
+            resourceInputs["refreshProperties"] = args ? args.refreshProperties : undefined;
             resourceInputs["rowLevelPermissionDataSet"] = args ? args.rowLevelPermissionDataSet : undefined;
             resourceInputs["rowLevelPermissionTagConfiguration"] = args ? args.rowLevelPermissionTagConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["outputColumns"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataSet.__pulumiType, name, resourceInputs, opts);
@@ -367,6 +376,7 @@ export interface DataSetState {
      * Display name for the dataset.
      */
     name?: pulumi.Input<string>;
+    outputColumns?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetOutputColumn>[]>;
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
      */
@@ -375,6 +385,10 @@ export interface DataSetState {
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      */
     physicalTableMaps?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMap>[]>;
+    /**
+     * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+     */
+    refreshProperties?: pulumi.Input<inputs.quicksight.DataSetRefreshProperties>;
     /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      */
@@ -442,6 +456,10 @@ export interface DataSetArgs {
      */
     physicalTableMaps: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMap>[]>;
     /**
+     * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+     */
+    refreshProperties?: pulumi.Input<inputs.quicksight.DataSetRefreshProperties>;
+    /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      */
     rowLevelPermissionDataSet?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionDataSet>;
@@ -453,8 +471,4 @@ export interface DataSetArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

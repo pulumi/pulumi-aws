@@ -8342,6 +8342,245 @@ func (o GetUserHierarchyStructureHierarchyStructureLevelTwoArrayOutput) Index(i 
 	}).(GetUserHierarchyStructureHierarchyStructureLevelTwoOutput)
 }
 
+type GetUserIdentityInfo struct {
+	// The email address.
+	Email string `pulumi:"email"`
+	// The first name.
+	FirstName string `pulumi:"firstName"`
+	// The last name.
+	LastName string `pulumi:"lastName"`
+}
+
+// GetUserIdentityInfoInput is an input type that accepts GetUserIdentityInfoArgs and GetUserIdentityInfoOutput values.
+// You can construct a concrete instance of `GetUserIdentityInfoInput` via:
+//
+//	GetUserIdentityInfoArgs{...}
+type GetUserIdentityInfoInput interface {
+	pulumi.Input
+
+	ToGetUserIdentityInfoOutput() GetUserIdentityInfoOutput
+	ToGetUserIdentityInfoOutputWithContext(context.Context) GetUserIdentityInfoOutput
+}
+
+type GetUserIdentityInfoArgs struct {
+	// The email address.
+	Email pulumi.StringInput `pulumi:"email"`
+	// The first name.
+	FirstName pulumi.StringInput `pulumi:"firstName"`
+	// The last name.
+	LastName pulumi.StringInput `pulumi:"lastName"`
+}
+
+func (GetUserIdentityInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserIdentityInfo)(nil)).Elem()
+}
+
+func (i GetUserIdentityInfoArgs) ToGetUserIdentityInfoOutput() GetUserIdentityInfoOutput {
+	return i.ToGetUserIdentityInfoOutputWithContext(context.Background())
+}
+
+func (i GetUserIdentityInfoArgs) ToGetUserIdentityInfoOutputWithContext(ctx context.Context) GetUserIdentityInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserIdentityInfoOutput)
+}
+
+// GetUserIdentityInfoArrayInput is an input type that accepts GetUserIdentityInfoArray and GetUserIdentityInfoArrayOutput values.
+// You can construct a concrete instance of `GetUserIdentityInfoArrayInput` via:
+//
+//	GetUserIdentityInfoArray{ GetUserIdentityInfoArgs{...} }
+type GetUserIdentityInfoArrayInput interface {
+	pulumi.Input
+
+	ToGetUserIdentityInfoArrayOutput() GetUserIdentityInfoArrayOutput
+	ToGetUserIdentityInfoArrayOutputWithContext(context.Context) GetUserIdentityInfoArrayOutput
+}
+
+type GetUserIdentityInfoArray []GetUserIdentityInfoInput
+
+func (GetUserIdentityInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserIdentityInfo)(nil)).Elem()
+}
+
+func (i GetUserIdentityInfoArray) ToGetUserIdentityInfoArrayOutput() GetUserIdentityInfoArrayOutput {
+	return i.ToGetUserIdentityInfoArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserIdentityInfoArray) ToGetUserIdentityInfoArrayOutputWithContext(ctx context.Context) GetUserIdentityInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserIdentityInfoArrayOutput)
+}
+
+type GetUserIdentityInfoOutput struct{ *pulumi.OutputState }
+
+func (GetUserIdentityInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserIdentityInfo)(nil)).Elem()
+}
+
+func (o GetUserIdentityInfoOutput) ToGetUserIdentityInfoOutput() GetUserIdentityInfoOutput {
+	return o
+}
+
+func (o GetUserIdentityInfoOutput) ToGetUserIdentityInfoOutputWithContext(ctx context.Context) GetUserIdentityInfoOutput {
+	return o
+}
+
+// The email address.
+func (o GetUserIdentityInfoOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserIdentityInfo) string { return v.Email }).(pulumi.StringOutput)
+}
+
+// The first name.
+func (o GetUserIdentityInfoOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserIdentityInfo) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// The last name.
+func (o GetUserIdentityInfoOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserIdentityInfo) string { return v.LastName }).(pulumi.StringOutput)
+}
+
+type GetUserIdentityInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserIdentityInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserIdentityInfo)(nil)).Elem()
+}
+
+func (o GetUserIdentityInfoArrayOutput) ToGetUserIdentityInfoArrayOutput() GetUserIdentityInfoArrayOutput {
+	return o
+}
+
+func (o GetUserIdentityInfoArrayOutput) ToGetUserIdentityInfoArrayOutputWithContext(ctx context.Context) GetUserIdentityInfoArrayOutput {
+	return o
+}
+
+func (o GetUserIdentityInfoArrayOutput) Index(i pulumi.IntInput) GetUserIdentityInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserIdentityInfo {
+		return vs[0].([]GetUserIdentityInfo)[vs[1].(int)]
+	}).(GetUserIdentityInfoOutput)
+}
+
+type GetUserPhoneConfig struct {
+	// The After Call Work (ACW) timeout setting, in seconds.
+	AfterContactWorkTimeLimit int `pulumi:"afterContactWorkTimeLimit"`
+	// When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
+	AutoAccept bool `pulumi:"autoAccept"`
+	// The phone number for the user's desk phone.
+	DeskPhoneNumber string `pulumi:"deskPhoneNumber"`
+	// The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
+	PhoneType string `pulumi:"phoneType"`
+}
+
+// GetUserPhoneConfigInput is an input type that accepts GetUserPhoneConfigArgs and GetUserPhoneConfigOutput values.
+// You can construct a concrete instance of `GetUserPhoneConfigInput` via:
+//
+//	GetUserPhoneConfigArgs{...}
+type GetUserPhoneConfigInput interface {
+	pulumi.Input
+
+	ToGetUserPhoneConfigOutput() GetUserPhoneConfigOutput
+	ToGetUserPhoneConfigOutputWithContext(context.Context) GetUserPhoneConfigOutput
+}
+
+type GetUserPhoneConfigArgs struct {
+	// The After Call Work (ACW) timeout setting, in seconds.
+	AfterContactWorkTimeLimit pulumi.IntInput `pulumi:"afterContactWorkTimeLimit"`
+	// When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
+	AutoAccept pulumi.BoolInput `pulumi:"autoAccept"`
+	// The phone number for the user's desk phone.
+	DeskPhoneNumber pulumi.StringInput `pulumi:"deskPhoneNumber"`
+	// The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
+	PhoneType pulumi.StringInput `pulumi:"phoneType"`
+}
+
+func (GetUserPhoneConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPhoneConfig)(nil)).Elem()
+}
+
+func (i GetUserPhoneConfigArgs) ToGetUserPhoneConfigOutput() GetUserPhoneConfigOutput {
+	return i.ToGetUserPhoneConfigOutputWithContext(context.Background())
+}
+
+func (i GetUserPhoneConfigArgs) ToGetUserPhoneConfigOutputWithContext(ctx context.Context) GetUserPhoneConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPhoneConfigOutput)
+}
+
+// GetUserPhoneConfigArrayInput is an input type that accepts GetUserPhoneConfigArray and GetUserPhoneConfigArrayOutput values.
+// You can construct a concrete instance of `GetUserPhoneConfigArrayInput` via:
+//
+//	GetUserPhoneConfigArray{ GetUserPhoneConfigArgs{...} }
+type GetUserPhoneConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPhoneConfigArrayOutput() GetUserPhoneConfigArrayOutput
+	ToGetUserPhoneConfigArrayOutputWithContext(context.Context) GetUserPhoneConfigArrayOutput
+}
+
+type GetUserPhoneConfigArray []GetUserPhoneConfigInput
+
+func (GetUserPhoneConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPhoneConfig)(nil)).Elem()
+}
+
+func (i GetUserPhoneConfigArray) ToGetUserPhoneConfigArrayOutput() GetUserPhoneConfigArrayOutput {
+	return i.ToGetUserPhoneConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPhoneConfigArray) ToGetUserPhoneConfigArrayOutputWithContext(ctx context.Context) GetUserPhoneConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPhoneConfigArrayOutput)
+}
+
+type GetUserPhoneConfigOutput struct{ *pulumi.OutputState }
+
+func (GetUserPhoneConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPhoneConfig)(nil)).Elem()
+}
+
+func (o GetUserPhoneConfigOutput) ToGetUserPhoneConfigOutput() GetUserPhoneConfigOutput {
+	return o
+}
+
+func (o GetUserPhoneConfigOutput) ToGetUserPhoneConfigOutputWithContext(ctx context.Context) GetUserPhoneConfigOutput {
+	return o
+}
+
+// The After Call Work (ACW) timeout setting, in seconds.
+func (o GetUserPhoneConfigOutput) AfterContactWorkTimeLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUserPhoneConfig) int { return v.AfterContactWorkTimeLimit }).(pulumi.IntOutput)
+}
+
+// When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
+func (o GetUserPhoneConfigOutput) AutoAccept() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUserPhoneConfig) bool { return v.AutoAccept }).(pulumi.BoolOutput)
+}
+
+// The phone number for the user's desk phone.
+func (o GetUserPhoneConfigOutput) DeskPhoneNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPhoneConfig) string { return v.DeskPhoneNumber }).(pulumi.StringOutput)
+}
+
+// The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
+func (o GetUserPhoneConfigOutput) PhoneType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPhoneConfig) string { return v.PhoneType }).(pulumi.StringOutput)
+}
+
+type GetUserPhoneConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPhoneConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPhoneConfig)(nil)).Elem()
+}
+
+func (o GetUserPhoneConfigArrayOutput) ToGetUserPhoneConfigArrayOutput() GetUserPhoneConfigArrayOutput {
+	return o
+}
+
+func (o GetUserPhoneConfigArrayOutput) ToGetUserPhoneConfigArrayOutputWithContext(ctx context.Context) GetUserPhoneConfigArrayOutput {
+	return o
+}
+
+func (o GetUserPhoneConfigArrayOutput) Index(i pulumi.IntInput) GetUserPhoneConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPhoneConfig {
+		return vs[0].([]GetUserPhoneConfig)[vs[1].(int)]
+	}).(GetUserPhoneConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAssociationLexBotInput)(nil)).Elem(), BotAssociationLexBotArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAssociationLexBotPtrInput)(nil)).Elem(), BotAssociationLexBotArgs{})
@@ -8468,6 +8707,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyStructureHierarchyStructureLevelThreeArrayInput)(nil)).Elem(), GetUserHierarchyStructureHierarchyStructureLevelThreeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyStructureHierarchyStructureLevelTwoInput)(nil)).Elem(), GetUserHierarchyStructureHierarchyStructureLevelTwoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserHierarchyStructureHierarchyStructureLevelTwoArrayInput)(nil)).Elem(), GetUserHierarchyStructureHierarchyStructureLevelTwoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserIdentityInfoInput)(nil)).Elem(), GetUserIdentityInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserIdentityInfoArrayInput)(nil)).Elem(), GetUserIdentityInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPhoneConfigInput)(nil)).Elem(), GetUserPhoneConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPhoneConfigArrayInput)(nil)).Elem(), GetUserPhoneConfigArray{})
 	pulumi.RegisterOutputType(BotAssociationLexBotOutput{})
 	pulumi.RegisterOutputType(BotAssociationLexBotPtrOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigOutput{})
@@ -8593,4 +8836,8 @@ func init() {
 	pulumi.RegisterOutputType(GetUserHierarchyStructureHierarchyStructureLevelThreeArrayOutput{})
 	pulumi.RegisterOutputType(GetUserHierarchyStructureHierarchyStructureLevelTwoOutput{})
 	pulumi.RegisterOutputType(GetUserHierarchyStructureHierarchyStructureLevelTwoArrayOutput{})
+	pulumi.RegisterOutputType(GetUserIdentityInfoOutput{})
+	pulumi.RegisterOutputType(GetUserIdentityInfoArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPhoneConfigOutput{})
+	pulumi.RegisterOutputType(GetUserPhoneConfigArrayOutput{})
 }

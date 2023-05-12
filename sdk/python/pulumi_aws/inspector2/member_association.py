@@ -37,13 +37,25 @@ class MemberAssociationArgs:
 @pulumi.input_type
 class _MemberAssociationState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[str]] = None):
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 delegated_admin_account_id: Optional[pulumi.Input[str]] = None,
+                 relationship_status: Optional[pulumi.Input[str]] = None,
+                 updated_at: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MemberAssociation resources.
         :param pulumi.Input[str] account_id: ID of the account to associate
+        :param pulumi.Input[str] delegated_admin_account_id: Account ID of the delegated administrator account
+        :param pulumi.Input[str] relationship_status: Status of the member relationship
+        :param pulumi.Input[str] updated_at: Date and time of the last update of the relationship
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if delegated_admin_account_id is not None:
+            pulumi.set(__self__, "delegated_admin_account_id", delegated_admin_account_id)
+        if relationship_status is not None:
+            pulumi.set(__self__, "relationship_status", relationship_status)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
 
     @property
     @pulumi.getter(name="accountId")
@@ -56,6 +68,42 @@ class _MemberAssociationState:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="delegatedAdminAccountId")
+    def delegated_admin_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Account ID of the delegated administrator account
+        """
+        return pulumi.get(self, "delegated_admin_account_id")
+
+    @delegated_admin_account_id.setter
+    def delegated_admin_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delegated_admin_account_id", value)
+
+    @property
+    @pulumi.getter(name="relationshipStatus")
+    def relationship_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of the member relationship
+        """
+        return pulumi.get(self, "relationship_status")
+
+    @relationship_status.setter
+    def relationship_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relationship_status", value)
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date and time of the last update of the relationship
+        """
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "updated_at", value)
 
 
 class MemberAssociation(pulumi.CustomResource):
@@ -76,6 +124,14 @@ class MemberAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.inspector2.MemberAssociation("example", account_id="123456789012")
+        ```
+
+        ## Import
+
+        Amazon Inspector Member Association can be imported using the `account_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -99,6 +155,14 @@ class MemberAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.inspector2.MemberAssociation("example", account_id="123456789012")
+        ```
+
+        ## Import
+
+        Amazon Inspector Member Association can be imported using the `account_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -129,6 +193,9 @@ class MemberAssociation(pulumi.CustomResource):
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["delegated_admin_account_id"] = None
+            __props__.__dict__["relationship_status"] = None
+            __props__.__dict__["updated_at"] = None
         super(MemberAssociation, __self__).__init__(
             'aws:inspector2/memberAssociation:MemberAssociation',
             resource_name,
@@ -139,7 +206,10 @@ class MemberAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[str]] = None) -> 'MemberAssociation':
+            account_id: Optional[pulumi.Input[str]] = None,
+            delegated_admin_account_id: Optional[pulumi.Input[str]] = None,
+            relationship_status: Optional[pulumi.Input[str]] = None,
+            updated_at: Optional[pulumi.Input[str]] = None) -> 'MemberAssociation':
         """
         Get an existing MemberAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -148,12 +218,18 @@ class MemberAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: ID of the account to associate
+        :param pulumi.Input[str] delegated_admin_account_id: Account ID of the delegated administrator account
+        :param pulumi.Input[str] relationship_status: Status of the member relationship
+        :param pulumi.Input[str] updated_at: Date and time of the last update of the relationship
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _MemberAssociationState.__new__(_MemberAssociationState)
 
         __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["delegated_admin_account_id"] = delegated_admin_account_id
+        __props__.__dict__["relationship_status"] = relationship_status
+        __props__.__dict__["updated_at"] = updated_at
         return MemberAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -163,4 +239,28 @@ class MemberAssociation(pulumi.CustomResource):
         ID of the account to associate
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="delegatedAdminAccountId")
+    def delegated_admin_account_id(self) -> pulumi.Output[str]:
+        """
+        Account ID of the delegated administrator account
+        """
+        return pulumi.get(self, "delegated_admin_account_id")
+
+    @property
+    @pulumi.getter(name="relationshipStatus")
+    def relationship_status(self) -> pulumi.Output[str]:
+        """
+        Status of the member relationship
+        """
+        return pulumi.get(self, "relationship_status")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> pulumi.Output[str]:
+        """
+        Date and time of the last update of the relationship
+        """
+        return pulumi.get(self, "updated_at")
 

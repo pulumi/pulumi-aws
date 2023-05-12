@@ -303,11 +303,14 @@ type DataSet struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps DataSetLogicalTableMapArrayOutput `pulumi:"logicalTableMaps"`
 	// Display name for the dataset.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name          pulumi.StringOutput            `pulumi:"name"`
+	OutputColumns DataSetOutputColumnArrayOutput `pulumi:"outputColumns"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayOutput `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
 	PhysicalTableMaps DataSetPhysicalTableMapArrayOutput `pulumi:"physicalTableMaps"`
+	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+	RefreshProperties DataSetRefreshPropertiesPtrOutput `pulumi:"refreshProperties"`
 	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
 	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrOutput `pulumi:"rowLevelPermissionDataSet"`
 	// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
@@ -375,11 +378,14 @@ type dataSetState struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps []DataSetLogicalTableMap `pulumi:"logicalTableMaps"`
 	// Display name for the dataset.
-	Name *string `pulumi:"name"`
+	Name          *string               `pulumi:"name"`
+	OutputColumns []DataSetOutputColumn `pulumi:"outputColumns"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions []DataSetPermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
 	PhysicalTableMaps []DataSetPhysicalTableMap `pulumi:"physicalTableMaps"`
+	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+	RefreshProperties *DataSetRefreshProperties `pulumi:"refreshProperties"`
 	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
 	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
 	// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
@@ -410,11 +416,14 @@ type DataSetState struct {
 	// Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
 	LogicalTableMaps DataSetLogicalTableMapArrayInput
 	// Display name for the dataset.
-	Name pulumi.StringPtrInput
+	Name          pulumi.StringPtrInput
+	OutputColumns DataSetOutputColumnArrayInput
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayInput
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
 	PhysicalTableMaps DataSetPhysicalTableMapArrayInput
+	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+	RefreshProperties DataSetRefreshPropertiesPtrInput
 	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
 	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrInput
 	// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
@@ -452,14 +461,14 @@ type dataSetArgs struct {
 	Permissions []DataSetPermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
 	PhysicalTableMaps []DataSetPhysicalTableMap `pulumi:"physicalTableMaps"`
+	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+	RefreshProperties *DataSetRefreshProperties `pulumi:"refreshProperties"`
 	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
 	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
 	// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DataSet resource.
@@ -486,14 +495,14 @@ type DataSetArgs struct {
 	Permissions DataSetPermissionArrayInput
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
 	PhysicalTableMaps DataSetPhysicalTableMapArrayInput
+	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+	RefreshProperties DataSetRefreshPropertiesPtrInput
 	// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
 	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrInput
 	// The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (DataSetArgs) ElementType() reflect.Type {
@@ -633,6 +642,10 @@ func (o DataSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o DataSetOutput) OutputColumns() DataSetOutputColumnArrayOutput {
+	return o.ApplyT(func(v *DataSet) DataSetOutputColumnArrayOutput { return v.OutputColumns }).(DataSetOutputColumnArrayOutput)
+}
+
 // A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 func (o DataSetOutput) Permissions() DataSetPermissionArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetPermissionArrayOutput { return v.Permissions }).(DataSetPermissionArrayOutput)
@@ -641,6 +654,11 @@ func (o DataSetOutput) Permissions() DataSetPermissionArrayOutput {
 // Declares the physical tables that are available in the underlying data sources. See physical_table_map.
 func (o DataSetOutput) PhysicalTableMaps() DataSetPhysicalTableMapArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetPhysicalTableMapArrayOutput { return v.PhysicalTableMaps }).(DataSetPhysicalTableMapArrayOutput)
+}
+
+// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+func (o DataSetOutput) RefreshProperties() DataSetRefreshPropertiesPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetRefreshPropertiesPtrOutput { return v.RefreshProperties }).(DataSetRefreshPropertiesPtrOutput)
 }
 
 // The row-level security configuration for the data that you want to create. See row_level_permission_data_set.

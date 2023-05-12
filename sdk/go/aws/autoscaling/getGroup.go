@@ -72,29 +72,44 @@ type LookupGroupResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the associated launch configuration.
-	LaunchConfiguration string                   `pulumi:"launchConfiguration"`
-	LaunchTemplates     []GetGroupLaunchTemplate `pulumi:"launchTemplates"`
+	LaunchConfiguration string `pulumi:"launchConfiguration"`
+	// List of launch templates along with the overrides.
+	LaunchTemplates []GetGroupLaunchTemplate `pulumi:"launchTemplates"`
 	// One or more load balancers associated with the group.
 	LoadBalancers []string `pulumi:"loadBalancers"`
+	// Maximum amount of time, in seconds, that an instance can be in service.
+	MaxInstanceLifetime int `pulumi:"maxInstanceLifetime"`
 	// Maximum size of the group.
 	MaxSize int `pulumi:"maxSize"`
-	// Minimum size of the group.
+	// Minimum number of instances to maintain in the warm pool.
 	MinSize int `pulumi:"minSize"`
+	// List of mixed instances policy objects for the group.
+	MixedInstancesPolicies []GetGroupMixedInstancesPolicy `pulumi:"mixedInstancesPolicies"`
 	// Name of the Auto Scaling Group.
 	Name                             string `pulumi:"name"`
 	NewInstancesProtectedFromScaleIn bool   `pulumi:"newInstancesProtectedFromScaleIn"`
 	// Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
 	PlacementGroup string `pulumi:"placementGroup"`
+	// Predicted capacity of the group.
+	PredictedCapacity int `pulumi:"predictedCapacity"`
 	// ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
 	ServiceLinkedRoleArn string `pulumi:"serviceLinkedRoleArn"`
 	// Current state of the group when DeleteAutoScalingGroup is in progress.
 	Status string `pulumi:"status"`
+	// List of processes suspended processes for the Auto Scaling Group.
+	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
+	// List of tags for the group.
+	Tags []GetGroupTag `pulumi:"tags"`
 	// ARNs of the target groups for your load balancer.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// The termination policies for the group.
 	TerminationPolicies []string `pulumi:"terminationPolicies"`
 	// VPC ID for the group.
 	VpcZoneIdentifier string `pulumi:"vpcZoneIdentifier"`
+	// Current size of the warm pool.
+	WarmPoolSize int `pulumi:"warmPoolSize"`
+	// List of warm pool configuration objects.
+	WarmPools []GetGroupWarmPool `pulumi:"warmPools"`
 }
 
 func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
@@ -184,6 +199,7 @@ func (o LookupGroupResultOutput) LaunchConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.LaunchConfiguration }).(pulumi.StringOutput)
 }
 
+// List of launch templates along with the overrides.
 func (o LookupGroupResultOutput) LaunchTemplates() GetGroupLaunchTemplateArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []GetGroupLaunchTemplate { return v.LaunchTemplates }).(GetGroupLaunchTemplateArrayOutput)
 }
@@ -193,14 +209,24 @@ func (o LookupGroupResultOutput) LoadBalancers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.LoadBalancers }).(pulumi.StringArrayOutput)
 }
 
+// Maximum amount of time, in seconds, that an instance can be in service.
+func (o LookupGroupResultOutput) MaxInstanceLifetime() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupGroupResult) int { return v.MaxInstanceLifetime }).(pulumi.IntOutput)
+}
+
 // Maximum size of the group.
 func (o LookupGroupResultOutput) MaxSize() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupGroupResult) int { return v.MaxSize }).(pulumi.IntOutput)
 }
 
-// Minimum size of the group.
+// Minimum number of instances to maintain in the warm pool.
 func (o LookupGroupResultOutput) MinSize() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupGroupResult) int { return v.MinSize }).(pulumi.IntOutput)
+}
+
+// List of mixed instances policy objects for the group.
+func (o LookupGroupResultOutput) MixedInstancesPolicies() GetGroupMixedInstancesPolicyArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []GetGroupMixedInstancesPolicy { return v.MixedInstancesPolicies }).(GetGroupMixedInstancesPolicyArrayOutput)
 }
 
 // Name of the Auto Scaling Group.
@@ -217,6 +243,11 @@ func (o LookupGroupResultOutput) PlacementGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.PlacementGroup }).(pulumi.StringOutput)
 }
 
+// Predicted capacity of the group.
+func (o LookupGroupResultOutput) PredictedCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupGroupResult) int { return v.PredictedCapacity }).(pulumi.IntOutput)
+}
+
 // ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
 func (o LookupGroupResultOutput) ServiceLinkedRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.ServiceLinkedRoleArn }).(pulumi.StringOutput)
@@ -225,6 +256,16 @@ func (o LookupGroupResultOutput) ServiceLinkedRoleArn() pulumi.StringOutput {
 // Current state of the group when DeleteAutoScalingGroup is in progress.
 func (o LookupGroupResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// List of processes suspended processes for the Auto Scaling Group.
+func (o LookupGroupResultOutput) SuspendedProcesses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []string { return v.SuspendedProcesses }).(pulumi.StringArrayOutput)
+}
+
+// List of tags for the group.
+func (o LookupGroupResultOutput) Tags() GetGroupTagArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []GetGroupTag { return v.Tags }).(GetGroupTagArrayOutput)
 }
 
 // ARNs of the target groups for your load balancer.
@@ -240,6 +281,16 @@ func (o LookupGroupResultOutput) TerminationPolicies() pulumi.StringArrayOutput 
 // VPC ID for the group.
 func (o LookupGroupResultOutput) VpcZoneIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.VpcZoneIdentifier }).(pulumi.StringOutput)
+}
+
+// Current size of the warm pool.
+func (o LookupGroupResultOutput) WarmPoolSize() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupGroupResult) int { return v.WarmPoolSize }).(pulumi.IntOutput)
+}
+
+// List of warm pool configuration objects.
+func (o LookupGroupResultOutput) WarmPools() GetGroupWarmPoolArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []GetGroupWarmPool { return v.WarmPools }).(GetGroupWarmPoolArrayOutput)
 }
 
 func init() {

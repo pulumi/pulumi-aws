@@ -64,7 +64,8 @@ type LookupCertificateAuthorityResult struct {
 	// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
 	CertificateSigningRequest string `pulumi:"certificateSigningRequest"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id                         string `pulumi:"id"`
+	KeyStorageSecurityStandard string `pulumi:"keyStorageSecurityStandard"`
 	// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 	NotAfter string `pulumi:"notAfter"`
 	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
@@ -153,6 +154,10 @@ func (o LookupCertificateAuthorityResultOutput) CertificateSigningRequest() pulu
 // The provider-assigned unique ID for this managed resource.
 func (o LookupCertificateAuthorityResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateAuthorityResultOutput) KeyStorageSecurityStandard() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.KeyStorageSecurityStandard }).(pulumi.StringOutput)
 }
 
 // Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.

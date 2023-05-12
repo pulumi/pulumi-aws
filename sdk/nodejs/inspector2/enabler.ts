@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource for enabling Amazon Inspector resource scans.
  *
- * > **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
+ * This resource must be created in the Organization's Administrator Account.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.inspector2.Enabler("example", {
- *     accountIds: ["012345678901"],
+ *     accountIds: ["123456789012"],
  *     resourceTypes: ["EC2"],
  * });
  * ```
@@ -67,10 +67,13 @@ export class Enabler extends pulumi.CustomResource {
 
     /**
      * Set of account IDs.
+     * Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
      */
     public readonly accountIds!: pulumi.Output<string[]>;
     /**
-     * Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+     * Type of resources to scan.
+     * Valid values are `EC2`, `ECR`, and `LAMBDA`.
+     * At least one item is required.
      */
     public readonly resourceTypes!: pulumi.Output<string[]>;
 
@@ -111,10 +114,13 @@ export class Enabler extends pulumi.CustomResource {
 export interface EnablerState {
     /**
      * Set of account IDs.
+     * Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
      */
     accountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+     * Type of resources to scan.
+     * Valid values are `EC2`, `ECR`, and `LAMBDA`.
+     * At least one item is required.
      */
     resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -125,10 +131,13 @@ export interface EnablerState {
 export interface EnablerArgs {
     /**
      * Set of account IDs.
+     * Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
      */
     accountIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+     * Type of resources to scan.
+     * Valid values are `EC2`, `ECR`, and `LAMBDA`.
+     * At least one item is required.
      */
     resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
 }

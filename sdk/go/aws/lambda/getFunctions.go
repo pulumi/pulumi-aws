@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data resource to get a list of Lambda Functions.
+// TODO data resource to get a list of Lambda Functions.
 //
 // ## Example Usage
 //

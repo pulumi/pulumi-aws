@@ -27,8 +27,7 @@ class VpcIpamPoolArgs:
                  public_ip_source: Optional[pulumi.Input[str]] = None,
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcIpamPool resource.
         :param pulumi.Input[str] address_family: The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
@@ -46,7 +45,6 @@ class VpcIpamPoolArgs:
         :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
         :param pulumi.Input[str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "ipam_scope_id", ipam_scope_id)
@@ -74,8 +72,6 @@ class VpcIpamPoolArgs:
             pulumi.set(__self__, "source_ipam_pool_id", source_ipam_pool_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -245,18 +241,6 @@ class VpcIpamPoolArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -584,7 +568,6 @@ class VpcIpamPool(pulumi.CustomResource):
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an IP address pool resource for IPAM.
@@ -658,7 +641,6 @@ class VpcIpamPool(pulumi.CustomResource):
         :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = "ipv6"` and `public_ip_source = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = "amazon"`.
         :param pulumi.Input[str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -750,7 +732,6 @@ class VpcIpamPool(pulumi.CustomResource):
                  publicly_advertisable: Optional[pulumi.Input[bool]] = None,
                  source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -778,11 +759,11 @@ class VpcIpamPool(pulumi.CustomResource):
             __props__.__dict__["publicly_advertisable"] = publicly_advertisable
             __props__.__dict__["source_ipam_pool_id"] = source_ipam_pool_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["ipam_scope_type"] = None
             __props__.__dict__["pool_depth"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["tags_all"] = None
         super(VpcIpamPool, __self__).__init__(
             'aws:ec2/vpcIpamPool:VpcIpamPool',
             resource_name,

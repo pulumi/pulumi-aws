@@ -199,8 +199,7 @@ type memberArgs struct {
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status *string `pulumi:"status"`
 	// A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Member resource.
@@ -218,8 +217,7 @@ type MemberArgs struct {
 	// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
 	Status pulumi.StringPtrInput
 	// A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (MemberArgs) ElementType() reflect.Type {

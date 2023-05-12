@@ -39,11 +39,27 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// Amazon Inspector Member Association can be imported using the `account_id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
+//
+// ```
 type MemberAssociation struct {
 	pulumi.CustomResourceState
 
 	// ID of the account to associate
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// Account ID of the delegated administrator account
+	DelegatedAdminAccountId pulumi.StringOutput `pulumi:"delegatedAdminAccountId"`
+	// Status of the member relationship
+	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
+	// Date and time of the last update of the relationship
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewMemberAssociation registers a new resource with the given unique name, arguments, and options.
@@ -80,11 +96,23 @@ func GetMemberAssociation(ctx *pulumi.Context,
 type memberAssociationState struct {
 	// ID of the account to associate
 	AccountId *string `pulumi:"accountId"`
+	// Account ID of the delegated administrator account
+	DelegatedAdminAccountId *string `pulumi:"delegatedAdminAccountId"`
+	// Status of the member relationship
+	RelationshipStatus *string `pulumi:"relationshipStatus"`
+	// Date and time of the last update of the relationship
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type MemberAssociationState struct {
 	// ID of the account to associate
 	AccountId pulumi.StringPtrInput
+	// Account ID of the delegated administrator account
+	DelegatedAdminAccountId pulumi.StringPtrInput
+	// Status of the member relationship
+	RelationshipStatus pulumi.StringPtrInput
+	// Date and time of the last update of the relationship
+	UpdatedAt pulumi.StringPtrInput
 }
 
 func (MemberAssociationState) ElementType() reflect.Type {
@@ -192,6 +220,21 @@ func (o MemberAssociationOutput) ToMemberAssociationOutputWithContext(ctx contex
 // ID of the account to associate
 func (o MemberAssociationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Account ID of the delegated administrator account
+func (o MemberAssociationOutput) DelegatedAdminAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.DelegatedAdminAccountId }).(pulumi.StringOutput)
+}
+
+// Status of the member relationship
+func (o MemberAssociationOutput) RelationshipStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.RelationshipStatus }).(pulumi.StringOutput)
+}
+
+// Date and time of the last update of the relationship
+func (o MemberAssociationOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
 type MemberAssociationArrayOutput struct{ *pulumi.OutputState }

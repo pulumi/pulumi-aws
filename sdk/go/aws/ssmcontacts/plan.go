@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// TODO resource for managing an AWS SSM Contact Plan.
+// Resource for managing an AWS SSM Contact Plan.
 //
 // ## Example Usage
 // ### Basic Usage

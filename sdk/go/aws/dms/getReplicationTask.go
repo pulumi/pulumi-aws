@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+// Data source for managing an AWS DMS (Database Migration) Replication Task.
 //
 // ## Example Usage
 // ### Basic Usage

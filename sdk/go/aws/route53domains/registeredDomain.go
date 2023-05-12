@@ -248,8 +248,6 @@ type registeredDomainArgs struct {
 	RegistrantPrivacy *bool `pulumi:"registrantPrivacy"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Details about the domain technical contact.
 	TechContact *RegisteredDomainTechContact `pulumi:"techContact"`
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
@@ -276,8 +274,6 @@ type RegisteredDomainArgs struct {
 	RegistrantPrivacy pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Details about the domain technical contact.
 	TechContact RegisteredDomainTechContactPtrInput
 	// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.

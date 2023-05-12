@@ -32,7 +32,6 @@ class BucketV2Args:
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  versionings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]]] = None,
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]]] = None):
         """
@@ -50,24 +49,23 @@ class BucketV2Args:
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2LoggingArgs']]] loggings: Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketLoggingV2` instead.
         :param pulumi.Input['BucketV2ObjectLockConfigurationArgs'] object_lock_configuration: Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-               the provider wil only perform drift detection if a configuration value is provided.
+               TODO wil only perform drift detection if a configuration value is provided.
                Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         :param pulumi.Input[str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-               The provider will only perform drift detection if a configuration value is provided.
+               TODO will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketPolicy` instead.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]] replication_configurations: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketReplicationConfig` instead.
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
                Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
                See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-               The provider will only perform drift detection if a configuration value is provided.
+               TODO will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]] server_side_encryption_configurations: Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-               The provider will only perform drift detection if a configuration value is provided.
+               TODO will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]] versionings: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]] websites: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketWebsiteConfigurationV2` instead.
@@ -137,8 +135,6 @@ class BucketV2Args:
             pulumi.set(__self__, "server_side_encryption_configurations", server_side_encryption_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if versionings is not None:
             warnings.warn("""Use the aws_s3_bucket_versioning resource instead""", DeprecationWarning)
             pulumi.log.warn("""versionings is deprecated: Use the aws_s3_bucket_versioning resource instead""")
@@ -266,7 +262,7 @@ class BucketV2Args:
     def object_lock_configuration(self) -> Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']]:
         """
         Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-        the provider wil only perform drift detection if a configuration value is provided.
+        TODO wil only perform drift detection if a configuration value is provided.
         Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         """
         return pulumi.get(self, "object_lock_configuration")
@@ -292,7 +288,7 @@ class BucketV2Args:
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
         Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        The provider will only perform drift detection if a configuration value is provided.
+        TODO will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketPolicy` instead.
         """
         return pulumi.get(self, "policy")
@@ -321,7 +317,7 @@ class BucketV2Args:
         Specifies who should bear the cost of Amazon S3 data transfer.
         Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
         See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-        The provider will only perform drift detection if a configuration value is provided.
+        TODO will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
         """
         return pulumi.get(self, "request_payer")
@@ -335,7 +331,7 @@ class BucketV2Args:
     def server_side_encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]]]:
         """
         Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-        The provider will only perform drift detection if a configuration value is provided.
+        TODO will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         """
         return pulumi.get(self, "server_side_encryption_configurations")
@@ -355,18 +351,6 @@ class BucketV2Args:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -442,11 +426,11 @@ class _BucketV2State:
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2LoggingArgs']]] loggings: Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketLoggingV2` instead.
         :param pulumi.Input['BucketV2ObjectLockConfigurationArgs'] object_lock_configuration: Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-               the provider wil only perform drift detection if a configuration value is provided.
+               TODO wil only perform drift detection if a configuration value is provided.
                Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         :param pulumi.Input[str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-               The provider will only perform drift detection if a configuration value is provided.
+               TODO will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketPolicy` instead.
         :param pulumi.Input[str] region: AWS region this bucket resides in.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]] replication_configurations: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -454,10 +438,10 @@ class _BucketV2State:
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
                Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
                See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-               The provider will only perform drift detection if a configuration value is provided.
+               TODO will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]] server_side_encryption_configurations: Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-               The provider will only perform drift detection if a configuration value is provided.
+               TODO will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -729,7 +713,7 @@ class _BucketV2State:
     def object_lock_configuration(self) -> Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']]:
         """
         Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-        the provider wil only perform drift detection if a configuration value is provided.
+        TODO wil only perform drift detection if a configuration value is provided.
         Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         """
         return pulumi.get(self, "object_lock_configuration")
@@ -755,7 +739,7 @@ class _BucketV2State:
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
         Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        The provider will only perform drift detection if a configuration value is provided.
+        TODO will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketPolicy` instead.
         """
         return pulumi.get(self, "policy")
@@ -796,7 +780,7 @@ class _BucketV2State:
         Specifies who should bear the cost of Amazon S3 data transfer.
         Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
         See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-        The provider will only perform drift detection if a configuration value is provided.
+        TODO will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
         """
         return pulumi.get(self, "request_payer")
@@ -810,7 +794,7 @@ class _BucketV2State:
     def server_side_encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]]]:
         """
         Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-        The provider will only perform drift detection if a configuration value is provided.
+        TODO will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         """
         return pulumi.get(self, "server_side_encryption_configurations")
@@ -914,7 +898,6 @@ class BucketV2(pulumi.CustomResource):
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ServerSideEncryptionConfigurationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  versionings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2VersioningArgs']]]]] = None,
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2WebsiteArgs']]]]] = None,
                  __props__=None):
@@ -1005,24 +988,23 @@ class BucketV2(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2LoggingArgs']]]] loggings: Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketLoggingV2` instead.
         :param pulumi.Input[pulumi.InputType['BucketV2ObjectLockConfigurationArgs']] object_lock_configuration: Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-               the provider wil only perform drift detection if a configuration value is provided.
+               TODO wil only perform drift detection if a configuration value is provided.
                Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         :param pulumi.Input[str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-               The provider will only perform drift detection if a configuration value is provided.
+               TODO will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketPolicy` instead.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ReplicationConfigurationArgs']]]] replication_configurations: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketReplicationConfig` instead.
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
                Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
                See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-               The provider will only perform drift detection if a configuration value is provided.
+               TODO will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ServerSideEncryptionConfigurationArgs']]]] server_side_encryption_configurations: Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-               The provider will only perform drift detection if a configuration value is provided.
+               TODO will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2VersioningArgs']]]] versionings: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2WebsiteArgs']]]] websites: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketWebsiteConfigurationV2` instead.
@@ -1136,7 +1118,6 @@ class BucketV2(pulumi.CustomResource):
                  request_payer: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ServerSideEncryptionConfigurationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  versionings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2VersioningArgs']]]]] = None,
                  websites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2WebsiteArgs']]]]] = None,
                  __props__=None):
@@ -1197,7 +1178,6 @@ class BucketV2(pulumi.CustomResource):
                 pulumi.log.warn("""server_side_encryption_configurations is deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead""")
             __props__.__dict__["server_side_encryption_configurations"] = server_side_encryption_configurations
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if versionings is not None and not opts.urn:
                 warnings.warn("""Use the aws_s3_bucket_versioning resource instead""", DeprecationWarning)
                 pulumi.log.warn("""versionings is deprecated: Use the aws_s3_bucket_versioning resource instead""")
@@ -1211,6 +1191,7 @@ class BucketV2(pulumi.CustomResource):
             __props__.__dict__["bucket_regional_domain_name"] = None
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["region"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["website_domain"] = None
             __props__.__dict__["website_endpoint"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucket:Bucket")])
@@ -1275,11 +1256,11 @@ class BucketV2(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2LoggingArgs']]]] loggings: Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketLoggingV2` instead.
         :param pulumi.Input[pulumi.InputType['BucketV2ObjectLockConfigurationArgs']] object_lock_configuration: Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-               the provider wil only perform drift detection if a configuration value is provided.
+               TODO wil only perform drift detection if a configuration value is provided.
                Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         :param pulumi.Input[bool] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         :param pulumi.Input[str] policy: Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-               The provider will only perform drift detection if a configuration value is provided.
+               TODO will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketPolicy` instead.
         :param pulumi.Input[str] region: AWS region this bucket resides in.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ReplicationConfigurationArgs']]]] replication_configurations: Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -1287,10 +1268,10 @@ class BucketV2(pulumi.CustomResource):
         :param pulumi.Input[str] request_payer: Specifies who should bear the cost of Amazon S3 data transfer.
                Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
                See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-               The provider will only perform drift detection if a configuration value is provided.
+               TODO will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2ServerSideEncryptionConfigurationArgs']]]] server_side_encryption_configurations: Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-               The provider will only perform drift detection if a configuration value is provided.
+               TODO will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1444,7 +1425,7 @@ class BucketV2(pulumi.CustomResource):
     def object_lock_configuration(self) -> pulumi.Output['outputs.BucketV2ObjectLockConfiguration']:
         """
         Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-        the provider wil only perform drift detection if a configuration value is provided.
+        TODO wil only perform drift detection if a configuration value is provided.
         Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         """
         return pulumi.get(self, "object_lock_configuration")
@@ -1462,7 +1443,7 @@ class BucketV2(pulumi.CustomResource):
     def policy(self) -> pulumi.Output[str]:
         """
         Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-        The provider will only perform drift detection if a configuration value is provided.
+        TODO will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketPolicy` instead.
         """
         return pulumi.get(self, "policy")
@@ -1491,7 +1472,7 @@ class BucketV2(pulumi.CustomResource):
         Specifies who should bear the cost of Amazon S3 data transfer.
         Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
         See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-        The provider will only perform drift detection if a configuration value is provided.
+        TODO will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
         """
         return pulumi.get(self, "request_payer")
@@ -1501,7 +1482,7 @@ class BucketV2(pulumi.CustomResource):
     def server_side_encryption_configurations(self) -> pulumi.Output[Sequence['outputs.BucketV2ServerSideEncryptionConfiguration']]:
         """
         Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-        The provider will only perform drift detection if a configuration value is provided.
+        TODO will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         """
         return pulumi.get(self, "server_side_encryption_configurations")

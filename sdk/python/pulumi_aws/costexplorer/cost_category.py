@@ -22,8 +22,7 @@ class CostCategoryArgs:
                  effective_start: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CostCategory resource.
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
@@ -33,7 +32,6 @@ class CostCategoryArgs:
         :param pulumi.Input[str] name: Unique name for the Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "rule_version", rule_version)
         pulumi.set(__self__, "rules", rules)
@@ -47,8 +45,6 @@ class CostCategoryArgs:
             pulumi.set(__self__, "split_charge_rules", split_charge_rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="ruleVersion")
@@ -133,18 +129,6 @@ class CostCategoryArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -327,7 +311,6 @@ class CostCategory(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]]] = None,
                  split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategorySplitChargeRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a CE Cost Category.
@@ -391,7 +374,6 @@ class CostCategory(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategorySplitChargeRuleArgs']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -474,7 +456,6 @@ class CostCategory(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]]] = None,
                  split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategorySplitChargeRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -495,9 +476,9 @@ class CostCategory(pulumi.CustomResource):
             __props__.__dict__["rules"] = rules
             __props__.__dict__["split_charge_rules"] = split_charge_rules
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["effective_end"] = None
+            __props__.__dict__["tags_all"] = None
         super(CostCategory, __self__).__init__(
             'aws:costexplorer/costCategory:CostCategory',
             resource_name,

@@ -120,7 +120,7 @@ def get_replication_subnet_group(replication_subnet_group_id: Optional[str] = No
                                  tags: Optional[Mapping[str, str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationSubnetGroupResult:
     """
-    TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+    Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
 
     ## Example Usage
     ### Basic Usage
@@ -157,7 +157,7 @@ def get_replication_subnet_group_output(replication_subnet_group_id: Optional[pu
                                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationSubnetGroupResult]:
     """
-    TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+    Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
 
     ## Example Usage
     ### Basic Usage

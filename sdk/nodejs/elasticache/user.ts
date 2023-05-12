@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an ElastiCache user resource.
  *
+ * > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
  * ## Example Usage
  *
  * ```typescript
@@ -123,7 +124,7 @@ export class User extends pulumi.CustomResource {
      * A list of tags to be added to this resource. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the user.
      */
@@ -176,10 +177,10 @@ export class User extends pulumi.CustomResource {
             resourceInputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
             resourceInputs["passwords"] = args?.passwords ? pulumi.secret(args.passwords) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["passwords"] };
@@ -259,7 +260,6 @@ export interface UserArgs {
      * A list of tags to be added to this resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the user.
      */

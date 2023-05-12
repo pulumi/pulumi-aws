@@ -202,9 +202,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         Creating this resource will also create a resource of type `secretsmanager.Secret` which is managed by Direct Connect. While you can import this resource into your state, because this secret is managed by Direct Connect, you will not be able to make any modifications to it. See [How AWS Direct Connect uses AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_directconnect.html) for details.
 
         > **Note:** All arguments including `ckn` and `cak` will be stored in the raw state as plain-text.
-        Read more about sensitive data in state.
-
-        > **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
+        **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
 
         ## Example Usage
         ### Create MACSec key with CKN and CAK
@@ -251,9 +249,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         Creating this resource will also create a resource of type `secretsmanager.Secret` which is managed by Direct Connect. While you can import this resource into your state, because this secret is managed by Direct Connect, you will not be able to make any modifications to it. See [How AWS Direct Connect uses AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_directconnect.html) for details.
 
         > **Note:** All arguments including `ckn` and `cak` will be stored in the raw state as plain-text.
-        Read more about sensitive data in state.
-
-        > **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
+        **Note:** The `secret_arn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
 
         ## Example Usage
         ### Create MACSec key with CKN and CAK

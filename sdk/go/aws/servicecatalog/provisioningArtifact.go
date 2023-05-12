@@ -78,6 +78,8 @@ type ProvisioningArtifact struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Identifier of the product.
 	ProductId pulumi.StringOutput `pulumi:"productId"`
+	// Provisioning artifact identifier.
+	ProvisioningArtifactId pulumi.StringOutput `pulumi:"provisioningArtifactId"`
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId pulumi.StringPtrOutput `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
@@ -134,6 +136,8 @@ type provisioningArtifactState struct {
 	Name *string `pulumi:"name"`
 	// Identifier of the product.
 	ProductId *string `pulumi:"productId"`
+	// Provisioning artifact identifier.
+	ProvisioningArtifactId *string `pulumi:"provisioningArtifactId"`
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
@@ -159,6 +163,8 @@ type ProvisioningArtifactState struct {
 	Name pulumi.StringPtrInput
 	// Identifier of the product.
 	ProductId pulumi.StringPtrInput
+	// Provisioning artifact identifier.
+	ProvisioningArtifactId pulumi.StringPtrInput
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId pulumi.StringPtrInput
 	// Template source as URL of the CloudFormation template in Amazon S3.
@@ -343,6 +349,11 @@ func (o ProvisioningArtifactOutput) Name() pulumi.StringOutput {
 // Identifier of the product.
 func (o ProvisioningArtifactOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
+}
+
+// Provisioning artifact identifier.
+func (o ProvisioningArtifactOutput) ProvisioningArtifactId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.ProvisioningArtifactId }).(pulumi.StringOutput)
 }
 
 // Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.

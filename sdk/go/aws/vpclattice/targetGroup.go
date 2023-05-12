@@ -64,7 +64,7 @@ import (
 //					Port:            pulumi.Int(443),
 //					Protocol:        pulumi.String("HTTPS"),
 //					VpcIdentifier:   pulumi.Any(aws_vpc.Example.Id),
-//					ProtocolVersion: pulumi.String("HPPT1"),
+//					ProtocolVersion: pulumi.String("HTTP1"),
 //					HealthCheck: &vpclattice.TargetGroupConfigHealthCheckArgs{
 //						Enabled:                    pulumi.Bool(true),
 //						HealthCheckIntervalSeconds: pulumi.Int(20),
@@ -221,8 +221,6 @@ type targetGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
 	Type string `pulumi:"type"`
 }
@@ -235,8 +233,6 @@ type TargetGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
 	Type pulumi.StringInput
 }

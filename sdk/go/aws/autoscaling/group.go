@@ -583,6 +583,8 @@ type Group struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup pulumi.StringPtrOutput `pulumi:"placementGroup"`
+	// Predicted capacity of the group.
+	PredictedCapacity pulumi.IntOutput `pulumi:"predictedCapacity"`
 	// Whether newly launched instances
 	// are automatically protected from termination by Amazon EC2 Auto Scaling when
 	// scaling in. For more information about preventing instances from terminating
@@ -621,6 +623,8 @@ type Group struct {
 	// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
 	// to the specified Auto Scaling group. Defined below
 	WarmPool GroupWarmPoolPtrOutput `pulumi:"warmPool"`
+	// Current size of the warm pool.
+	WarmPoolSize pulumi.IntOutput `pulumi:"warmPoolSize"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -731,6 +735,8 @@ type groupState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup interface{} `pulumi:"placementGroup"`
+	// Predicted capacity of the group.
+	PredictedCapacity *int `pulumi:"predictedCapacity"`
 	// Whether newly launched instances
 	// are automatically protected from termination by Amazon EC2 Auto Scaling when
 	// scaling in. For more information about preventing instances from terminating
@@ -769,6 +775,8 @@ type groupState struct {
 	// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
 	// to the specified Auto Scaling group. Defined below
 	WarmPool *GroupWarmPool `pulumi:"warmPool"`
+	// Current size of the warm pool.
+	WarmPoolSize *int `pulumi:"warmPoolSize"`
 }
 
 type GroupState struct {
@@ -845,6 +853,8 @@ type GroupState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup pulumi.Input
+	// Predicted capacity of the group.
+	PredictedCapacity pulumi.IntPtrInput
 	// Whether newly launched instances
 	// are automatically protected from termination by Amazon EC2 Auto Scaling when
 	// scaling in. For more information about preventing instances from terminating
@@ -883,6 +893,8 @@ type GroupState struct {
 	// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
 	// to the specified Auto Scaling group. Defined below
 	WarmPool GroupWarmPoolPtrInput
+	// Current size of the warm pool.
+	WarmPoolSize pulumi.IntPtrInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -1355,6 +1367,11 @@ func (o GroupOutput) PlacementGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.PlacementGroup }).(pulumi.StringPtrOutput)
 }
 
+// Predicted capacity of the group.
+func (o GroupOutput) PredictedCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v *Group) pulumi.IntOutput { return v.PredictedCapacity }).(pulumi.IntOutput)
+}
+
 // Whether newly launched instances
 // are automatically protected from termination by Amazon EC2 Auto Scaling when
 // scaling in. For more information about preventing instances from terminating
@@ -1424,6 +1441,11 @@ func (o GroupOutput) WaitForElbCapacity() pulumi.IntPtrOutput {
 // to the specified Auto Scaling group. Defined below
 func (o GroupOutput) WarmPool() GroupWarmPoolPtrOutput {
 	return o.ApplyT(func(v *Group) GroupWarmPoolPtrOutput { return v.WarmPool }).(GroupWarmPoolPtrOutput)
+}
+
+// Current size of the warm pool.
+func (o GroupOutput) WarmPoolSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *Group) pulumi.IntOutput { return v.WarmPoolSize }).(pulumi.IntOutput)
 }
 
 type GroupArrayOutput struct{ *pulumi.OutputState }

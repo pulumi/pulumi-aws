@@ -158,6 +158,10 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+     */
+    public readonly keyStorageSecurityStandard!: pulumi.Output<string>;
+    /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
     public /*out*/ readonly notAfter!: pulumi.Output<string>;
@@ -190,7 +194,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
@@ -219,6 +223,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
             resourceInputs["certificateSigningRequest"] = state ? state.certificateSigningRequest : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["keyStorageSecurityStandard"] = state ? state.keyStorageSecurityStandard : undefined;
             resourceInputs["notAfter"] = state ? state.notAfter : undefined;
             resourceInputs["notBefore"] = state ? state.notBefore : undefined;
             resourceInputs["permanentDeletionTimeInDays"] = state ? state.permanentDeletionTimeInDays : undefined;
@@ -236,10 +241,10 @@ export class CertificateAuthority extends pulumi.CustomResource {
             }
             resourceInputs["certificateAuthorityConfiguration"] = args ? args.certificateAuthorityConfiguration : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["keyStorageSecurityStandard"] = args ? args.keyStorageSecurityStandard : undefined;
             resourceInputs["permanentDeletionTimeInDays"] = args ? args.permanentDeletionTimeInDays : undefined;
             resourceInputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["usageMode"] = args ? args.usageMode : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -250,6 +255,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["notBefore"] = undefined /*out*/;
             resourceInputs["serial"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CertificateAuthority.__pulumiType, name, resourceInputs, opts);
@@ -284,6 +290,10 @@ export interface CertificateAuthorityState {
      * Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+     */
+    keyStorageSecurityStandard?: pulumi.Input<string>;
     /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
@@ -341,6 +351,10 @@ export interface CertificateAuthorityArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
+     * Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+     */
+    keyStorageSecurityStandard?: pulumi.Input<string>;
+    /**
      * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      */
     permanentDeletionTimeInDays?: pulumi.Input<number>;
@@ -352,10 +366,6 @@ export interface CertificateAuthorityArgs {
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */

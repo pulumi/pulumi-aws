@@ -45,6 +45,7 @@ __all__ = [
     'FlowLogDestinationOptions',
     'InstanceCapacityReservationSpecification',
     'InstanceCapacityReservationSpecificationCapacityReservationTarget',
+    'InstanceCpuOptions',
     'InstanceCreditSpecification',
     'InstanceEbsBlockDevice',
     'InstanceEnclaveOptions',
@@ -200,6 +201,7 @@ __all__ = [
     'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance',
     'SpotInstanceRequestCapacityReservationSpecification',
     'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget',
+    'SpotInstanceRequestCpuOptions',
     'SpotInstanceRequestCreditSpecification',
     'SpotInstanceRequestEbsBlockDevice',
     'SpotInstanceRequestEnclaveOptions',
@@ -3221,6 +3223,70 @@ class InstanceCapacityReservationSpecificationCapacityReservationTarget(dict):
 
 
 @pulumi.output_type
+class InstanceCpuOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amdSevSnp":
+            suggest = "amd_sev_snp"
+        elif key == "coreCount":
+            suggest = "core_count"
+        elif key == "threadsPerCore":
+            suggest = "threads_per_core"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceCpuOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceCpuOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceCpuOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amd_sev_snp: Optional[str] = None,
+                 core_count: Optional[int] = None,
+                 threads_per_core: Optional[int] = None):
+        """
+        :param str amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+        :param int core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        :param int threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+        """
+        if amd_sev_snp is not None:
+            pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
+        if core_count is not None:
+            pulumi.set(__self__, "core_count", core_count)
+        if threads_per_core is not None:
+            pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="amdSevSnp")
+    def amd_sev_snp(self) -> Optional[str]:
+        """
+        Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+        """
+        return pulumi.get(self, "amd_sev_snp")
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> Optional[int]:
+        """
+        Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        """
+        return pulumi.get(self, "core_count")
+
+    @property
+    @pulumi.getter(name="threadsPerCore")
+    def threads_per_core(self) -> Optional[int]:
+        """
+        If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+        """
+        return pulumi.get(self, "threads_per_core")
+
+
+@pulumi.output_type
 class InstanceCreditSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4569,7 +4635,9 @@ class LaunchTemplateCpuOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "coreCount":
+        if key == "amdSevSnp":
+            suggest = "amd_sev_snp"
+        elif key == "coreCount":
             suggest = "core_count"
         elif key == "threadsPerCore":
             suggest = "threads_per_core"
@@ -4586,18 +4654,30 @@ class LaunchTemplateCpuOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 amd_sev_snp: Optional[str] = None,
                  core_count: Optional[int] = None,
                  threads_per_core: Optional[int] = None):
         """
+        :param str amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
         :param int core_count: The number of CPU cores for the instance.
         :param int threads_per_core: The number of threads per CPU core.
                To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
                Otherwise, specify the default value of 2.
         """
+        if amd_sev_snp is not None:
+            pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="amdSevSnp")
+    def amd_sev_snp(self) -> Optional[str]:
+        """
+        Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+        """
+        return pulumi.get(self, "amd_sev_snp")
 
     @property
     @pulumi.getter(name="coreCount")
@@ -13238,6 +13318,70 @@ class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarg
 
 
 @pulumi.output_type
+class SpotInstanceRequestCpuOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amdSevSnp":
+            suggest = "amd_sev_snp"
+        elif key == "coreCount":
+            suggest = "core_count"
+        elif key == "threadsPerCore":
+            suggest = "threads_per_core"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpotInstanceRequestCpuOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpotInstanceRequestCpuOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpotInstanceRequestCpuOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amd_sev_snp: Optional[str] = None,
+                 core_count: Optional[int] = None,
+                 threads_per_core: Optional[int] = None):
+        """
+        :param str amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+        :param int core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        :param int threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+        """
+        if amd_sev_snp is not None:
+            pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
+        if core_count is not None:
+            pulumi.set(__self__, "core_count", core_count)
+        if threads_per_core is not None:
+            pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="amdSevSnp")
+    def amd_sev_snp(self) -> Optional[str]:
+        """
+        Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+        """
+        return pulumi.get(self, "amd_sev_snp")
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> Optional[int]:
+        """
+        Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        """
+        return pulumi.get(self, "core_count")
+
+    @property
+    @pulumi.getter(name="threadsPerCore")
+    def threads_per_core(self) -> Optional[int]:
+        """
+        If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+        """
+        return pulumi.get(self, "threads_per_core")
+
+
+@pulumi.output_type
 class SpotInstanceRequestCreditSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -16376,10 +16520,17 @@ class GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget
 @pulumi.output_type
 class GetLaunchTemplateCpuOptionResult(dict):
     def __init__(__self__, *,
+                 amd_sev_snp: str,
                  core_count: int,
                  threads_per_core: int):
+        pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
         pulumi.set(__self__, "core_count", core_count)
         pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="amdSevSnp")
+    def amd_sev_snp(self) -> str:
+        return pulumi.get(self, "amd_sev_snp")
 
     @property
     @pulumi.getter(name="coreCount")

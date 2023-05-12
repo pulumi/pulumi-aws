@@ -10,11 +10,47 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration',
     'VoiceConnectorGroupConnector',
     'VoiceConnectorOrganizationRoute',
     'VoiceConnectorStreamingMediaInsightsConfiguration',
     'VoiceConnectorTerminationCredentialsCredential',
 ]
+
+@pulumi.output_type
+class SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: str):
+        """
+        :param str kms_key_arn: ARN for KMS Key.
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> str:
+        """
+        ARN for KMS Key.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
 
 @pulumi.output_type
 class VoiceConnectorGroupConnector(dict):

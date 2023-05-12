@@ -189,6 +189,7 @@ class _ProvisioningArtifactState:
                  guidance: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  product_id: Optional[pulumi.Input[str]] = None,
+                 provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
                  template_physical_id: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -202,6 +203,7 @@ class _ProvisioningArtifactState:
         :param pulumi.Input[str] guidance: Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
         :param pulumi.Input[str] name: Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
         :param pulumi.Input[str] product_id: Identifier of the product.
+        :param pulumi.Input[str] provisioning_artifact_id: Provisioning artifact identifier.
         :param pulumi.Input[str] template_physical_id: Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
         :param pulumi.Input[str] template_url: Template source as URL of the CloudFormation template in Amazon S3.
         :param pulumi.Input[str] type: Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
@@ -222,6 +224,8 @@ class _ProvisioningArtifactState:
             pulumi.set(__self__, "name", name)
         if product_id is not None:
             pulumi.set(__self__, "product_id", product_id)
+        if provisioning_artifact_id is not None:
+            pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
         if template_physical_id is not None:
             pulumi.set(__self__, "template_physical_id", template_physical_id)
         if template_url is not None:
@@ -324,6 +328,18 @@ class _ProvisioningArtifactState:
     @product_id.setter
     def product_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "product_id", value)
+
+    @property
+    @pulumi.getter(name="provisioningArtifactId")
+    def provisioning_artifact_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning artifact identifier.
+        """
+        return pulumi.get(self, "provisioning_artifact_id")
+
+    @provisioning_artifact_id.setter
+    def provisioning_artifact_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_artifact_id", value)
 
     @property
     @pulumi.getter(name="templatePhysicalId")
@@ -504,6 +520,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
             __props__.__dict__["template_url"] = template_url
             __props__.__dict__["type"] = type
             __props__.__dict__["created_time"] = None
+            __props__.__dict__["provisioning_artifact_id"] = None
         super(ProvisioningArtifact, __self__).__init__(
             'aws:servicecatalog/provisioningArtifact:ProvisioningArtifact',
             resource_name,
@@ -522,6 +539,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
             guidance: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             product_id: Optional[pulumi.Input[str]] = None,
+            provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
             template_physical_id: Optional[pulumi.Input[str]] = None,
             template_url: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'ProvisioningArtifact':
@@ -540,6 +558,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
         :param pulumi.Input[str] guidance: Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
         :param pulumi.Input[str] name: Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
         :param pulumi.Input[str] product_id: Identifier of the product.
+        :param pulumi.Input[str] provisioning_artifact_id: Provisioning artifact identifier.
         :param pulumi.Input[str] template_physical_id: Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
         :param pulumi.Input[str] template_url: Template source as URL of the CloudFormation template in Amazon S3.
         :param pulumi.Input[str] type: Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
@@ -556,6 +575,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
         __props__.__dict__["guidance"] = guidance
         __props__.__dict__["name"] = name
         __props__.__dict__["product_id"] = product_id
+        __props__.__dict__["provisioning_artifact_id"] = provisioning_artifact_id
         __props__.__dict__["template_physical_id"] = template_physical_id
         __props__.__dict__["template_url"] = template_url
         __props__.__dict__["type"] = type
@@ -624,6 +644,14 @@ class ProvisioningArtifact(pulumi.CustomResource):
         Identifier of the product.
         """
         return pulumi.get(self, "product_id")
+
+    @property
+    @pulumi.getter(name="provisioningArtifactId")
+    def provisioning_artifact_id(self) -> pulumi.Output[str]:
+        """
+        Provisioning artifact identifier.
+        """
+        return pulumi.get(self, "provisioning_artifact_id")
 
     @property
     @pulumi.getter(name="templatePhysicalId")

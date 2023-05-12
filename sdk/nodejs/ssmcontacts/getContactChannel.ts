@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * TODO data source for managing an AWS SSM Contacts Contact Channel.
+ * Data source for managing an AWS SSM Contacts Contact Channel.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -71,7 +71,7 @@ export interface GetContactChannelResult {
     readonly type: string;
 }
 /**
- * TODO data source for managing an AWS SSM Contacts Contact Channel.
+ * Data source for managing an AWS SSM Contacts Contact Channel.
  *
  * ## Example Usage
  * ### Basic Usage

@@ -13,6 +13,7 @@ import (
 
 // Provides an IAM Virtual MFA Device.
 //
+// > **Note:** All attributes will be stored in the raw state as plain-text.
 // ## Example Usage
 //
 // **Using certs on file:**
@@ -143,8 +144,6 @@ type virtualMfaDeviceArgs struct {
 	Path *string `pulumi:"path"`
 	// Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
 	VirtualMfaDeviceName string `pulumi:"virtualMfaDeviceName"`
 }
@@ -155,8 +154,6 @@ type VirtualMfaDeviceArgs struct {
 	Path pulumi.StringPtrInput
 	// Map of resource tags for the virtual mfa device. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
 	VirtualMfaDeviceName pulumi.StringInput
 }

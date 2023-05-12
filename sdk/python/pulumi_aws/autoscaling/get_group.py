@@ -22,7 +22,7 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, desired_capacity_type=None, enabled_metrics=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration=None, launch_templates=None, load_balancers=None, max_size=None, min_size=None, name=None, new_instances_protected_from_scale_in=None, placement_group=None, service_linked_role_arn=None, status=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
+    def __init__(__self__, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, desired_capacity_type=None, enabled_metrics=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration=None, launch_templates=None, load_balancers=None, max_instance_lifetime=None, max_size=None, min_size=None, mixed_instances_policies=None, name=None, new_instances_protected_from_scale_in=None, placement_group=None, predicted_capacity=None, service_linked_role_arn=None, status=None, suspended_processes=None, tags=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None, warm_pool_size=None, warm_pools=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,12 +59,18 @@ class GetGroupResult:
         if load_balancers and not isinstance(load_balancers, list):
             raise TypeError("Expected argument 'load_balancers' to be a list")
         pulumi.set(__self__, "load_balancers", load_balancers)
+        if max_instance_lifetime and not isinstance(max_instance_lifetime, int):
+            raise TypeError("Expected argument 'max_instance_lifetime' to be a int")
+        pulumi.set(__self__, "max_instance_lifetime", max_instance_lifetime)
         if max_size and not isinstance(max_size, int):
             raise TypeError("Expected argument 'max_size' to be a int")
         pulumi.set(__self__, "max_size", max_size)
         if min_size and not isinstance(min_size, int):
             raise TypeError("Expected argument 'min_size' to be a int")
         pulumi.set(__self__, "min_size", min_size)
+        if mixed_instances_policies and not isinstance(mixed_instances_policies, list):
+            raise TypeError("Expected argument 'mixed_instances_policies' to be a list")
+        pulumi.set(__self__, "mixed_instances_policies", mixed_instances_policies)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -74,12 +80,21 @@ class GetGroupResult:
         if placement_group and not isinstance(placement_group, str):
             raise TypeError("Expected argument 'placement_group' to be a str")
         pulumi.set(__self__, "placement_group", placement_group)
+        if predicted_capacity and not isinstance(predicted_capacity, int):
+            raise TypeError("Expected argument 'predicted_capacity' to be a int")
+        pulumi.set(__self__, "predicted_capacity", predicted_capacity)
         if service_linked_role_arn and not isinstance(service_linked_role_arn, str):
             raise TypeError("Expected argument 'service_linked_role_arn' to be a str")
         pulumi.set(__self__, "service_linked_role_arn", service_linked_role_arn)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if suspended_processes and not isinstance(suspended_processes, list):
+            raise TypeError("Expected argument 'suspended_processes' to be a list")
+        pulumi.set(__self__, "suspended_processes", suspended_processes)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if target_group_arns and not isinstance(target_group_arns, list):
             raise TypeError("Expected argument 'target_group_arns' to be a list")
         pulumi.set(__self__, "target_group_arns", target_group_arns)
@@ -89,6 +104,12 @@ class GetGroupResult:
         if vpc_zone_identifier and not isinstance(vpc_zone_identifier, str):
             raise TypeError("Expected argument 'vpc_zone_identifier' to be a str")
         pulumi.set(__self__, "vpc_zone_identifier", vpc_zone_identifier)
+        if warm_pool_size and not isinstance(warm_pool_size, int):
+            raise TypeError("Expected argument 'warm_pool_size' to be a int")
+        pulumi.set(__self__, "warm_pool_size", warm_pool_size)
+        if warm_pools and not isinstance(warm_pools, list):
+            raise TypeError("Expected argument 'warm_pools' to be a list")
+        pulumi.set(__self__, "warm_pools", warm_pools)
 
     @property
     @pulumi.getter
@@ -170,6 +191,9 @@ class GetGroupResult:
     @property
     @pulumi.getter(name="launchTemplates")
     def launch_templates(self) -> Sequence['outputs.GetGroupLaunchTemplateResult']:
+        """
+        List of launch templates along with the overrides.
+        """
         return pulumi.get(self, "launch_templates")
 
     @property
@@ -179,6 +203,14 @@ class GetGroupResult:
         One or more load balancers associated with the group.
         """
         return pulumi.get(self, "load_balancers")
+
+    @property
+    @pulumi.getter(name="maxInstanceLifetime")
+    def max_instance_lifetime(self) -> int:
+        """
+        Maximum amount of time, in seconds, that an instance can be in service.
+        """
+        return pulumi.get(self, "max_instance_lifetime")
 
     @property
     @pulumi.getter(name="maxSize")
@@ -192,9 +224,17 @@ class GetGroupResult:
     @pulumi.getter(name="minSize")
     def min_size(self) -> int:
         """
-        Minimum size of the group.
+        Minimum number of instances to maintain in the warm pool.
         """
         return pulumi.get(self, "min_size")
+
+    @property
+    @pulumi.getter(name="mixedInstancesPolicies")
+    def mixed_instances_policies(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyResult']:
+        """
+        List of mixed instances policy objects for the group.
+        """
+        return pulumi.get(self, "mixed_instances_policies")
 
     @property
     @pulumi.getter
@@ -218,6 +258,14 @@ class GetGroupResult:
         return pulumi.get(self, "placement_group")
 
     @property
+    @pulumi.getter(name="predictedCapacity")
+    def predicted_capacity(self) -> int:
+        """
+        Predicted capacity of the group.
+        """
+        return pulumi.get(self, "predicted_capacity")
+
+    @property
     @pulumi.getter(name="serviceLinkedRoleArn")
     def service_linked_role_arn(self) -> str:
         """
@@ -232,6 +280,22 @@ class GetGroupResult:
         Current state of the group when DeleteAutoScalingGroup is in progress.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="suspendedProcesses")
+    def suspended_processes(self) -> Sequence[str]:
+        """
+        List of processes suspended processes for the Auto Scaling Group.
+        """
+        return pulumi.get(self, "suspended_processes")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.GetGroupTagResult']:
+        """
+        List of tags for the group.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetGroupArns")
@@ -257,6 +321,22 @@ class GetGroupResult:
         """
         return pulumi.get(self, "vpc_zone_identifier")
 
+    @property
+    @pulumi.getter(name="warmPoolSize")
+    def warm_pool_size(self) -> int:
+        """
+        Current size of the warm pool.
+        """
+        return pulumi.get(self, "warm_pool_size")
+
+    @property
+    @pulumi.getter(name="warmPools")
+    def warm_pools(self) -> Sequence['outputs.GetGroupWarmPoolResult']:
+        """
+        List of warm pool configuration objects.
+        """
+        return pulumi.get(self, "warm_pools")
+
 
 class AwaitableGetGroupResult(GetGroupResult):
     # pylint: disable=using-constant-test
@@ -276,16 +356,23 @@ class AwaitableGetGroupResult(GetGroupResult):
             launch_configuration=self.launch_configuration,
             launch_templates=self.launch_templates,
             load_balancers=self.load_balancers,
+            max_instance_lifetime=self.max_instance_lifetime,
             max_size=self.max_size,
             min_size=self.min_size,
+            mixed_instances_policies=self.mixed_instances_policies,
             name=self.name,
             new_instances_protected_from_scale_in=self.new_instances_protected_from_scale_in,
             placement_group=self.placement_group,
+            predicted_capacity=self.predicted_capacity,
             service_linked_role_arn=self.service_linked_role_arn,
             status=self.status,
+            suspended_processes=self.suspended_processes,
+            tags=self.tags,
             target_group_arns=self.target_group_arns,
             termination_policies=self.termination_policies,
-            vpc_zone_identifier=self.vpc_zone_identifier)
+            vpc_zone_identifier=self.vpc_zone_identifier,
+            warm_pool_size=self.warm_pool_size,
+            warm_pools=self.warm_pools)
 
 
 def get_group(name: Optional[str] = None,
@@ -323,16 +410,23 @@ def get_group(name: Optional[str] = None,
         launch_configuration=__ret__.launch_configuration,
         launch_templates=__ret__.launch_templates,
         load_balancers=__ret__.load_balancers,
+        max_instance_lifetime=__ret__.max_instance_lifetime,
         max_size=__ret__.max_size,
         min_size=__ret__.min_size,
+        mixed_instances_policies=__ret__.mixed_instances_policies,
         name=__ret__.name,
         new_instances_protected_from_scale_in=__ret__.new_instances_protected_from_scale_in,
         placement_group=__ret__.placement_group,
+        predicted_capacity=__ret__.predicted_capacity,
         service_linked_role_arn=__ret__.service_linked_role_arn,
         status=__ret__.status,
+        suspended_processes=__ret__.suspended_processes,
+        tags=__ret__.tags,
         target_group_arns=__ret__.target_group_arns,
         termination_policies=__ret__.termination_policies,
-        vpc_zone_identifier=__ret__.vpc_zone_identifier)
+        vpc_zone_identifier=__ret__.vpc_zone_identifier,
+        warm_pool_size=__ret__.warm_pool_size,
+        warm_pools=__ret__.warm_pools)
 
 
 @_utilities.lift_output_func(get_group)

@@ -86,8 +86,7 @@ type LookupIndexResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Unix datetime that the index was last updated.
 	UpdatedAt string `pulumi:"updatedAt"`
-	// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
-	// html#Kendra-CreateIndex-request-UserContextPolicy).
+	// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
 	UserContextPolicy string `pulumi:"userContextPolicy"`
 	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
 	UserGroupResolutionConfigurations []GetIndexUserGroupResolutionConfiguration `pulumi:"userGroupResolutionConfigurations"`
@@ -214,8 +213,7 @@ func (o LookupIndexResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIndexResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
-// html#Kendra-CreateIndex-request-UserContextPolicy).
+// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
 func (o LookupIndexResultOutput) UserContextPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIndexResult) string { return v.UserContextPolicy }).(pulumi.StringOutput)
 }

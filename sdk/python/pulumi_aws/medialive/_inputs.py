@@ -103,6 +103,16 @@ __all__ = [
     'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs',
     'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs',
     'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs',
     'ChannelInputAttachmentArgs',
     'ChannelInputAttachmentAutomaticInputFailoverSettingsArgs',
     'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs',
@@ -6619,7 +6629,8 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
     def __init__(__self__, *,
                  frame_capture_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs']] = None,
-                 h264_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs']] = None):
+                 h264_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs']] = None,
+                 h265_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs']] = None):
         """
         :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs'] frame_capture_settings: Frame capture settings. See Frame Capture Settings for more details.
         :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs'] h264_settings: H264 settings. See H264 Settings for more details.
@@ -6628,6 +6639,8 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
             pulumi.set(__self__, "frame_capture_settings", frame_capture_settings)
         if h264_settings is not None:
             pulumi.set(__self__, "h264_settings", h264_settings)
+        if h265_settings is not None:
+            pulumi.set(__self__, "h265_settings", h265_settings)
 
     @property
     @pulumi.getter(name="frameCaptureSettings")
@@ -6652,6 +6665,15 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
     @h264_settings.setter
     def h264_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs']]):
         pulumi.set(self, "h264_settings", value)
+
+    @property
+    @pulumi.getter(name="h265Settings")
+    def h265_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs']]:
+        return pulumi.get(self, "h265_settings")
+
+    @h265_settings.setter
+    def h265_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs']]):
+        pulumi.set(self, "h265_settings", value)
 
 
 @pulumi.input_type
@@ -7388,6 +7410,749 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSetti
     @strength.setter
     def strength(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "strength", value)
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
+    def __init__(__self__, *,
+                 bitrate: pulumi.Input[int],
+                 framerate_denominator: pulumi.Input[int],
+                 framerate_numerator: pulumi.Input[int],
+                 adaptive_quantization: Optional[pulumi.Input[str]] = None,
+                 afd_signaling: Optional[pulumi.Input[str]] = None,
+                 alternative_transfer_function: Optional[pulumi.Input[str]] = None,
+                 buf_size: Optional[pulumi.Input[int]] = None,
+                 color_metadata: Optional[pulumi.Input[str]] = None,
+                 color_space_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs']] = None,
+                 filter_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs']] = None,
+                 fixed_afd: Optional[pulumi.Input[str]] = None,
+                 flicker_aq: Optional[pulumi.Input[str]] = None,
+                 gop_closed_cadence: Optional[pulumi.Input[int]] = None,
+                 gop_size: Optional[pulumi.Input[float]] = None,
+                 gop_size_units: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 look_ahead_rate_control: Optional[pulumi.Input[str]] = None,
+                 max_bitrate: Optional[pulumi.Input[int]] = None,
+                 min_i_interval: Optional[pulumi.Input[int]] = None,
+                 par_denominator: Optional[pulumi.Input[int]] = None,
+                 par_numerator: Optional[pulumi.Input[int]] = None,
+                 profile: Optional[pulumi.Input[str]] = None,
+                 qvbr_quality_level: Optional[pulumi.Input[int]] = None,
+                 rate_control_mode: Optional[pulumi.Input[str]] = None,
+                 scan_type: Optional[pulumi.Input[str]] = None,
+                 scene_change_detect: Optional[pulumi.Input[str]] = None,
+                 slices: Optional[pulumi.Input[int]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
+                 timecode_burnin_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs']] = None,
+                 timecode_insertion: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] bitrate: Average bitrate in bits/second.
+        :param pulumi.Input[int] framerate_denominator: Framerate denominator.
+        :param pulumi.Input[int] framerate_numerator: Framerate numerator.
+        :param pulumi.Input[str] adaptive_quantization: Enables or disables adaptive quantization.
+        :param pulumi.Input[str] afd_signaling: Indicates that AFD values will be written into the output stream.
+        :param pulumi.Input[str] alternative_transfer_function: Whether or not EML should insert an Alternative Transfer Function SEI message.
+        :param pulumi.Input[int] buf_size: Size of buffer in bits.
+        :param pulumi.Input[str] color_metadata: Includes color space metadata in the output.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs'] color_space_settings: Define the color metadata for the output. H265 Color Space Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs'] filter_settings: Filters to apply to an encode. See H264 Filter Settings for more details.
+        :param pulumi.Input[str] fixed_afd: Four bit AFD value to write on all frames of video in the output stream.
+        :param pulumi.Input[int] gop_closed_cadence: Frequency of closed GOPs.
+        :param pulumi.Input[float] gop_size: GOP size in units of either frames of seconds per `gop_size_units`.
+        :param pulumi.Input[str] gop_size_units: Indicates if the `gop_size` is specified in frames or seconds.
+        :param pulumi.Input[str] level: H264 level.
+        :param pulumi.Input[str] look_ahead_rate_control: Amount of lookahead.
+        :param pulumi.Input[int] max_bitrate: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        :param pulumi.Input[int] par_denominator: Pixel Aspect Ratio denominator.
+        :param pulumi.Input[int] par_numerator: Pixel Aspect Ratio numerator.
+        :param pulumi.Input[str] profile: AAC profile.
+        :param pulumi.Input[int] qvbr_quality_level: Controls the target quality for the video encode.
+        :param pulumi.Input[str] rate_control_mode: The rate control mode.
+        :param pulumi.Input[str] scan_type: Sets the scan type of the output.
+        :param pulumi.Input[str] scene_change_detect: Scene change detection.
+        :param pulumi.Input[int] slices: Number of slices per picture.
+        :param pulumi.Input[str] tier: Set the H265 tier in the output.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs'] timecode_burnin_settings: Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+        :param pulumi.Input[str] timecode_insertion: Determines how timecodes should be inserted into the video elementary stream.
+        """
+        pulumi.set(__self__, "bitrate", bitrate)
+        pulumi.set(__self__, "framerate_denominator", framerate_denominator)
+        pulumi.set(__self__, "framerate_numerator", framerate_numerator)
+        if adaptive_quantization is not None:
+            pulumi.set(__self__, "adaptive_quantization", adaptive_quantization)
+        if afd_signaling is not None:
+            pulumi.set(__self__, "afd_signaling", afd_signaling)
+        if alternative_transfer_function is not None:
+            pulumi.set(__self__, "alternative_transfer_function", alternative_transfer_function)
+        if buf_size is not None:
+            pulumi.set(__self__, "buf_size", buf_size)
+        if color_metadata is not None:
+            pulumi.set(__self__, "color_metadata", color_metadata)
+        if color_space_settings is not None:
+            pulumi.set(__self__, "color_space_settings", color_space_settings)
+        if filter_settings is not None:
+            pulumi.set(__self__, "filter_settings", filter_settings)
+        if fixed_afd is not None:
+            pulumi.set(__self__, "fixed_afd", fixed_afd)
+        if flicker_aq is not None:
+            pulumi.set(__self__, "flicker_aq", flicker_aq)
+        if gop_closed_cadence is not None:
+            pulumi.set(__self__, "gop_closed_cadence", gop_closed_cadence)
+        if gop_size is not None:
+            pulumi.set(__self__, "gop_size", gop_size)
+        if gop_size_units is not None:
+            pulumi.set(__self__, "gop_size_units", gop_size_units)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if look_ahead_rate_control is not None:
+            pulumi.set(__self__, "look_ahead_rate_control", look_ahead_rate_control)
+        if max_bitrate is not None:
+            pulumi.set(__self__, "max_bitrate", max_bitrate)
+        if min_i_interval is not None:
+            pulumi.set(__self__, "min_i_interval", min_i_interval)
+        if par_denominator is not None:
+            pulumi.set(__self__, "par_denominator", par_denominator)
+        if par_numerator is not None:
+            pulumi.set(__self__, "par_numerator", par_numerator)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if qvbr_quality_level is not None:
+            pulumi.set(__self__, "qvbr_quality_level", qvbr_quality_level)
+        if rate_control_mode is not None:
+            pulumi.set(__self__, "rate_control_mode", rate_control_mode)
+        if scan_type is not None:
+            pulumi.set(__self__, "scan_type", scan_type)
+        if scene_change_detect is not None:
+            pulumi.set(__self__, "scene_change_detect", scene_change_detect)
+        if slices is not None:
+            pulumi.set(__self__, "slices", slices)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+        if timecode_burnin_settings is not None:
+            pulumi.set(__self__, "timecode_burnin_settings", timecode_burnin_settings)
+        if timecode_insertion is not None:
+            pulumi.set(__self__, "timecode_insertion", timecode_insertion)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> pulumi.Input[int]:
+        """
+        Average bitrate in bits/second.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @bitrate.setter
+    def bitrate(self, value: pulumi.Input[int]):
+        pulumi.set(self, "bitrate", value)
+
+    @property
+    @pulumi.getter(name="framerateDenominator")
+    def framerate_denominator(self) -> pulumi.Input[int]:
+        """
+        Framerate denominator.
+        """
+        return pulumi.get(self, "framerate_denominator")
+
+    @framerate_denominator.setter
+    def framerate_denominator(self, value: pulumi.Input[int]):
+        pulumi.set(self, "framerate_denominator", value)
+
+    @property
+    @pulumi.getter(name="framerateNumerator")
+    def framerate_numerator(self) -> pulumi.Input[int]:
+        """
+        Framerate numerator.
+        """
+        return pulumi.get(self, "framerate_numerator")
+
+    @framerate_numerator.setter
+    def framerate_numerator(self, value: pulumi.Input[int]):
+        pulumi.set(self, "framerate_numerator", value)
+
+    @property
+    @pulumi.getter(name="adaptiveQuantization")
+    def adaptive_quantization(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables adaptive quantization.
+        """
+        return pulumi.get(self, "adaptive_quantization")
+
+    @adaptive_quantization.setter
+    def adaptive_quantization(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "adaptive_quantization", value)
+
+    @property
+    @pulumi.getter(name="afdSignaling")
+    def afd_signaling(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates that AFD values will be written into the output stream.
+        """
+        return pulumi.get(self, "afd_signaling")
+
+    @afd_signaling.setter
+    def afd_signaling(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "afd_signaling", value)
+
+    @property
+    @pulumi.getter(name="alternativeTransferFunction")
+    def alternative_transfer_function(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether or not EML should insert an Alternative Transfer Function SEI message.
+        """
+        return pulumi.get(self, "alternative_transfer_function")
+
+    @alternative_transfer_function.setter
+    def alternative_transfer_function(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alternative_transfer_function", value)
+
+    @property
+    @pulumi.getter(name="bufSize")
+    def buf_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Size of buffer in bits.
+        """
+        return pulumi.get(self, "buf_size")
+
+    @buf_size.setter
+    def buf_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "buf_size", value)
+
+    @property
+    @pulumi.getter(name="colorMetadata")
+    def color_metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        Includes color space metadata in the output.
+        """
+        return pulumi.get(self, "color_metadata")
+
+    @color_metadata.setter
+    def color_metadata(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "color_metadata", value)
+
+    @property
+    @pulumi.getter(name="colorSpaceSettings")
+    def color_space_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs']]:
+        """
+        Define the color metadata for the output. H265 Color Space Settings for more details.
+        """
+        return pulumi.get(self, "color_space_settings")
+
+    @color_space_settings.setter
+    def color_space_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs']]):
+        pulumi.set(self, "color_space_settings", value)
+
+    @property
+    @pulumi.getter(name="filterSettings")
+    def filter_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs']]:
+        """
+        Filters to apply to an encode. See H264 Filter Settings for more details.
+        """
+        return pulumi.get(self, "filter_settings")
+
+    @filter_settings.setter
+    def filter_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs']]):
+        pulumi.set(self, "filter_settings", value)
+
+    @property
+    @pulumi.getter(name="fixedAfd")
+    def fixed_afd(self) -> Optional[pulumi.Input[str]]:
+        """
+        Four bit AFD value to write on all frames of video in the output stream.
+        """
+        return pulumi.get(self, "fixed_afd")
+
+    @fixed_afd.setter
+    def fixed_afd(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fixed_afd", value)
+
+    @property
+    @pulumi.getter(name="flickerAq")
+    def flicker_aq(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "flicker_aq")
+
+    @flicker_aq.setter
+    def flicker_aq(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flicker_aq", value)
+
+    @property
+    @pulumi.getter(name="gopClosedCadence")
+    def gop_closed_cadence(self) -> Optional[pulumi.Input[int]]:
+        """
+        Frequency of closed GOPs.
+        """
+        return pulumi.get(self, "gop_closed_cadence")
+
+    @gop_closed_cadence.setter
+    def gop_closed_cadence(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "gop_closed_cadence", value)
+
+    @property
+    @pulumi.getter(name="gopSize")
+    def gop_size(self) -> Optional[pulumi.Input[float]]:
+        """
+        GOP size in units of either frames of seconds per `gop_size_units`.
+        """
+        return pulumi.get(self, "gop_size")
+
+    @gop_size.setter
+    def gop_size(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "gop_size", value)
+
+    @property
+    @pulumi.getter(name="gopSizeUnits")
+    def gop_size_units(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates if the `gop_size` is specified in frames or seconds.
+        """
+        return pulumi.get(self, "gop_size_units")
+
+    @gop_size_units.setter
+    def gop_size_units(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gop_size_units", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        """
+        H264 level.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter(name="lookAheadRateControl")
+    def look_ahead_rate_control(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amount of lookahead.
+        """
+        return pulumi.get(self, "look_ahead_rate_control")
+
+    @look_ahead_rate_control.setter
+    def look_ahead_rate_control(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "look_ahead_rate_control", value)
+
+    @property
+    @pulumi.getter(name="maxBitrate")
+    def max_bitrate(self) -> Optional[pulumi.Input[int]]:
+        """
+        Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        """
+        return pulumi.get(self, "max_bitrate")
+
+    @max_bitrate.setter
+    def max_bitrate(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_bitrate", value)
+
+    @property
+    @pulumi.getter(name="minIInterval")
+    def min_i_interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "min_i_interval")
+
+    @min_i_interval.setter
+    def min_i_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_i_interval", value)
+
+    @property
+    @pulumi.getter(name="parDenominator")
+    def par_denominator(self) -> Optional[pulumi.Input[int]]:
+        """
+        Pixel Aspect Ratio denominator.
+        """
+        return pulumi.get(self, "par_denominator")
+
+    @par_denominator.setter
+    def par_denominator(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "par_denominator", value)
+
+    @property
+    @pulumi.getter(name="parNumerator")
+    def par_numerator(self) -> Optional[pulumi.Input[int]]:
+        """
+        Pixel Aspect Ratio numerator.
+        """
+        return pulumi.get(self, "par_numerator")
+
+    @par_numerator.setter
+    def par_numerator(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "par_numerator", value)
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        AAC profile.
+        """
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile", value)
+
+    @property
+    @pulumi.getter(name="qvbrQualityLevel")
+    def qvbr_quality_level(self) -> Optional[pulumi.Input[int]]:
+        """
+        Controls the target quality for the video encode.
+        """
+        return pulumi.get(self, "qvbr_quality_level")
+
+    @qvbr_quality_level.setter
+    def qvbr_quality_level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "qvbr_quality_level", value)
+
+    @property
+    @pulumi.getter(name="rateControlMode")
+    def rate_control_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The rate control mode.
+        """
+        return pulumi.get(self, "rate_control_mode")
+
+    @rate_control_mode.setter
+    def rate_control_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rate_control_mode", value)
+
+    @property
+    @pulumi.getter(name="scanType")
+    def scan_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the scan type of the output.
+        """
+        return pulumi.get(self, "scan_type")
+
+    @scan_type.setter
+    def scan_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scan_type", value)
+
+    @property
+    @pulumi.getter(name="sceneChangeDetect")
+    def scene_change_detect(self) -> Optional[pulumi.Input[str]]:
+        """
+        Scene change detection.
+        """
+        return pulumi.get(self, "scene_change_detect")
+
+    @scene_change_detect.setter
+    def scene_change_detect(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scene_change_detect", value)
+
+    @property
+    @pulumi.getter
+    def slices(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of slices per picture.
+        """
+        return pulumi.get(self, "slices")
+
+    @slices.setter
+    def slices(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "slices", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Set the H265 tier in the output.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter(name="timecodeBurninSettings")
+    def timecode_burnin_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs']]:
+        """
+        Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+        """
+        return pulumi.get(self, "timecode_burnin_settings")
+
+    @timecode_burnin_settings.setter
+    def timecode_burnin_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs']]):
+        pulumi.set(self, "timecode_burnin_settings", value)
+
+    @property
+    @pulumi.getter(name="timecodeInsertion")
+    def timecode_insertion(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines how timecodes should be inserted into the video elementary stream.
+        """
+        return pulumi.get(self, "timecode_insertion")
+
+    @timecode_insertion.setter
+    def timecode_insertion(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timecode_insertion", value)
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs:
+    def __init__(__self__, *,
+                 color_space_passthrough_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs']] = None,
+                 dolby_vision81_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs']] = None,
+                 hdr10_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs']] = None,
+                 rec601_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs']] = None,
+                 rec709_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs'] color_space_passthrough_settings: Sets the colorspace metadata to be passed through.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs'] dolby_vision81_settings: Set the colorspace to Dolby Vision81.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs'] hdr10_settings: Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs'] rec601_settings: Set the colorspace to Rec. 601.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs'] rec709_settings: Set the colorspace to Rec. 709.
+        """
+        if color_space_passthrough_settings is not None:
+            pulumi.set(__self__, "color_space_passthrough_settings", color_space_passthrough_settings)
+        if dolby_vision81_settings is not None:
+            pulumi.set(__self__, "dolby_vision81_settings", dolby_vision81_settings)
+        if hdr10_settings is not None:
+            pulumi.set(__self__, "hdr10_settings", hdr10_settings)
+        if rec601_settings is not None:
+            pulumi.set(__self__, "rec601_settings", rec601_settings)
+        if rec709_settings is not None:
+            pulumi.set(__self__, "rec709_settings", rec709_settings)
+
+    @property
+    @pulumi.getter(name="colorSpacePassthroughSettings")
+    def color_space_passthrough_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs']]:
+        """
+        Sets the colorspace metadata to be passed through.
+        """
+        return pulumi.get(self, "color_space_passthrough_settings")
+
+    @color_space_passthrough_settings.setter
+    def color_space_passthrough_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs']]):
+        pulumi.set(self, "color_space_passthrough_settings", value)
+
+    @property
+    @pulumi.getter(name="dolbyVision81Settings")
+    def dolby_vision81_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs']]:
+        """
+        Set the colorspace to Dolby Vision81.
+        """
+        return pulumi.get(self, "dolby_vision81_settings")
+
+    @dolby_vision81_settings.setter
+    def dolby_vision81_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs']]):
+        pulumi.set(self, "dolby_vision81_settings", value)
+
+    @property
+    @pulumi.getter(name="hdr10Settings")
+    def hdr10_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs']]:
+        """
+        Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+        """
+        return pulumi.get(self, "hdr10_settings")
+
+    @hdr10_settings.setter
+    def hdr10_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs']]):
+        pulumi.set(self, "hdr10_settings", value)
+
+    @property
+    @pulumi.getter(name="rec601Settings")
+    def rec601_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs']]:
+        """
+        Set the colorspace to Rec. 601.
+        """
+        return pulumi.get(self, "rec601_settings")
+
+    @rec601_settings.setter
+    def rec601_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs']]):
+        pulumi.set(self, "rec601_settings", value)
+
+    @property
+    @pulumi.getter(name="rec709Settings")
+    def rec709_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs']]:
+        """
+        Set the colorspace to Rec. 709.
+        """
+        return pulumi.get(self, "rec709_settings")
+
+    @rec709_settings.setter
+    def rec709_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs']]):
+        pulumi.set(self, "rec709_settings", value)
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs:
+    def __init__(__self__, *,
+                 max_cll: Optional[pulumi.Input[int]] = None,
+                 max_fall: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_cll: Sets the MaxCLL value for HDR10.
+        :param pulumi.Input[int] max_fall: Sets the MaxFALL value for HDR10.
+        """
+        if max_cll is not None:
+            pulumi.set(__self__, "max_cll", max_cll)
+        if max_fall is not None:
+            pulumi.set(__self__, "max_fall", max_fall)
+
+    @property
+    @pulumi.getter(name="maxCll")
+    def max_cll(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the MaxCLL value for HDR10.
+        """
+        return pulumi.get(self, "max_cll")
+
+    @max_cll.setter
+    def max_cll(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_cll", value)
+
+    @property
+    @pulumi.getter(name="maxFall")
+    def max_fall(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the MaxFALL value for HDR10.
+        """
+        return pulumi.get(self, "max_fall")
+
+    @max_fall.setter
+    def max_fall(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_fall", value)
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs:
+    def __init__(__self__, *,
+                 temporal_filter_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs'] temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
+        """
+        if temporal_filter_settings is not None:
+            pulumi.set(__self__, "temporal_filter_settings", temporal_filter_settings)
+
+    @property
+    @pulumi.getter(name="temporalFilterSettings")
+    def temporal_filter_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs']]:
+        """
+        Temporal filter settings. See Temporal Filter Settings
+        """
+        return pulumi.get(self, "temporal_filter_settings")
+
+    @temporal_filter_settings.setter
+    def temporal_filter_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs']]):
+        pulumi.set(self, "temporal_filter_settings", value)
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs:
+    def __init__(__self__, *,
+                 post_filter_sharpening: Optional[pulumi.Input[str]] = None,
+                 strength: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] post_filter_sharpening: Post filter sharpening.
+        :param pulumi.Input[str] strength: Filter strength.
+        """
+        if post_filter_sharpening is not None:
+            pulumi.set(__self__, "post_filter_sharpening", post_filter_sharpening)
+        if strength is not None:
+            pulumi.set(__self__, "strength", strength)
+
+    @property
+    @pulumi.getter(name="postFilterSharpening")
+    def post_filter_sharpening(self) -> Optional[pulumi.Input[str]]:
+        """
+        Post filter sharpening.
+        """
+        return pulumi.get(self, "post_filter_sharpening")
+
+    @post_filter_sharpening.setter
+    def post_filter_sharpening(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "post_filter_sharpening", value)
+
+    @property
+    @pulumi.getter
+    def strength(self) -> Optional[pulumi.Input[str]]:
+        """
+        Filter strength.
+        """
+        return pulumi.get(self, "strength")
+
+    @strength.setter
+    def strength(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "strength", value)
+
+
+@pulumi.input_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs:
+    def __init__(__self__, *,
+                 prefix: Optional[pulumi.Input[str]] = None,
+                 timecode_burnin_font_size: Optional[pulumi.Input[str]] = None,
+                 timecode_burnin_position: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] prefix: Set a prefix on the burned in timecode.
+        :param pulumi.Input[str] timecode_burnin_font_size: Sets the size of the burned in timecode.
+        :param pulumi.Input[str] timecode_burnin_position: Sets the position of the burned in timecode.
+        """
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if timecode_burnin_font_size is not None:
+            pulumi.set(__self__, "timecode_burnin_font_size", timecode_burnin_font_size)
+        if timecode_burnin_position is not None:
+            pulumi.set(__self__, "timecode_burnin_position", timecode_burnin_position)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Set a prefix on the burned in timecode.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter(name="timecodeBurninFontSize")
+    def timecode_burnin_font_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the size of the burned in timecode.
+        """
+        return pulumi.get(self, "timecode_burnin_font_size")
+
+    @timecode_burnin_font_size.setter
+    def timecode_burnin_font_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timecode_burnin_font_size", value)
+
+    @property
+    @pulumi.getter(name="timecodeBurninPosition")
+    def timecode_burnin_position(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the position of the burned in timecode.
+        """
+        return pulumi.get(self, "timecode_burnin_position")
+
+    @timecode_burnin_position.setter
+    def timecode_burnin_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timecode_burnin_position", value)
 
 
 @pulumi.input_type

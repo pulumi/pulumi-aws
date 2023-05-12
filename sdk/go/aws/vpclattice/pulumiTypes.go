@@ -2052,6 +2052,162 @@ func (o ServiceNetworkServiceAssociationDnsEntryArrayOutput) Index(i pulumi.IntI
 	}).(ServiceNetworkServiceAssociationDnsEntryOutput)
 }
 
+type TargetGroupAttachmentTarget struct {
+	// The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
+	Id string `pulumi:"id"`
+	// The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+	Port *int `pulumi:"port"`
+}
+
+// TargetGroupAttachmentTargetInput is an input type that accepts TargetGroupAttachmentTargetArgs and TargetGroupAttachmentTargetOutput values.
+// You can construct a concrete instance of `TargetGroupAttachmentTargetInput` via:
+//
+//	TargetGroupAttachmentTargetArgs{...}
+type TargetGroupAttachmentTargetInput interface {
+	pulumi.Input
+
+	ToTargetGroupAttachmentTargetOutput() TargetGroupAttachmentTargetOutput
+	ToTargetGroupAttachmentTargetOutputWithContext(context.Context) TargetGroupAttachmentTargetOutput
+}
+
+type TargetGroupAttachmentTargetArgs struct {
+	// The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (TargetGroupAttachmentTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupAttachmentTarget)(nil)).Elem()
+}
+
+func (i TargetGroupAttachmentTargetArgs) ToTargetGroupAttachmentTargetOutput() TargetGroupAttachmentTargetOutput {
+	return i.ToTargetGroupAttachmentTargetOutputWithContext(context.Background())
+}
+
+func (i TargetGroupAttachmentTargetArgs) ToTargetGroupAttachmentTargetOutputWithContext(ctx context.Context) TargetGroupAttachmentTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentTargetOutput)
+}
+
+func (i TargetGroupAttachmentTargetArgs) ToTargetGroupAttachmentTargetPtrOutput() TargetGroupAttachmentTargetPtrOutput {
+	return i.ToTargetGroupAttachmentTargetPtrOutputWithContext(context.Background())
+}
+
+func (i TargetGroupAttachmentTargetArgs) ToTargetGroupAttachmentTargetPtrOutputWithContext(ctx context.Context) TargetGroupAttachmentTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentTargetOutput).ToTargetGroupAttachmentTargetPtrOutputWithContext(ctx)
+}
+
+// TargetGroupAttachmentTargetPtrInput is an input type that accepts TargetGroupAttachmentTargetArgs, TargetGroupAttachmentTargetPtr and TargetGroupAttachmentTargetPtrOutput values.
+// You can construct a concrete instance of `TargetGroupAttachmentTargetPtrInput` via:
+//
+//	        TargetGroupAttachmentTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type TargetGroupAttachmentTargetPtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupAttachmentTargetPtrOutput() TargetGroupAttachmentTargetPtrOutput
+	ToTargetGroupAttachmentTargetPtrOutputWithContext(context.Context) TargetGroupAttachmentTargetPtrOutput
+}
+
+type targetGroupAttachmentTargetPtrType TargetGroupAttachmentTargetArgs
+
+func TargetGroupAttachmentTargetPtr(v *TargetGroupAttachmentTargetArgs) TargetGroupAttachmentTargetPtrInput {
+	return (*targetGroupAttachmentTargetPtrType)(v)
+}
+
+func (*targetGroupAttachmentTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupAttachmentTarget)(nil)).Elem()
+}
+
+func (i *targetGroupAttachmentTargetPtrType) ToTargetGroupAttachmentTargetPtrOutput() TargetGroupAttachmentTargetPtrOutput {
+	return i.ToTargetGroupAttachmentTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *targetGroupAttachmentTargetPtrType) ToTargetGroupAttachmentTargetPtrOutputWithContext(ctx context.Context) TargetGroupAttachmentTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentTargetPtrOutput)
+}
+
+type TargetGroupAttachmentTargetOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupAttachmentTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupAttachmentTarget)(nil)).Elem()
+}
+
+func (o TargetGroupAttachmentTargetOutput) ToTargetGroupAttachmentTargetOutput() TargetGroupAttachmentTargetOutput {
+	return o
+}
+
+func (o TargetGroupAttachmentTargetOutput) ToTargetGroupAttachmentTargetOutputWithContext(ctx context.Context) TargetGroupAttachmentTargetOutput {
+	return o
+}
+
+func (o TargetGroupAttachmentTargetOutput) ToTargetGroupAttachmentTargetPtrOutput() TargetGroupAttachmentTargetPtrOutput {
+	return o.ToTargetGroupAttachmentTargetPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupAttachmentTargetOutput) ToTargetGroupAttachmentTargetPtrOutputWithContext(ctx context.Context) TargetGroupAttachmentTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupAttachmentTarget) *TargetGroupAttachmentTarget {
+		return &v
+	}).(TargetGroupAttachmentTargetPtrOutput)
+}
+
+// The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
+func (o TargetGroupAttachmentTargetOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetGroupAttachmentTarget) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+func (o TargetGroupAttachmentTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetGroupAttachmentTarget) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type TargetGroupAttachmentTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupAttachmentTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupAttachmentTarget)(nil)).Elem()
+}
+
+func (o TargetGroupAttachmentTargetPtrOutput) ToTargetGroupAttachmentTargetPtrOutput() TargetGroupAttachmentTargetPtrOutput {
+	return o
+}
+
+func (o TargetGroupAttachmentTargetPtrOutput) ToTargetGroupAttachmentTargetPtrOutputWithContext(ctx context.Context) TargetGroupAttachmentTargetPtrOutput {
+	return o
+}
+
+func (o TargetGroupAttachmentTargetPtrOutput) Elem() TargetGroupAttachmentTargetOutput {
+	return o.ApplyT(func(v *TargetGroupAttachmentTarget) TargetGroupAttachmentTarget {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupAttachmentTarget
+		return ret
+	}).(TargetGroupAttachmentTargetOutput)
+}
+
+// The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
+func (o TargetGroupAttachmentTargetPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupAttachmentTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+func (o TargetGroupAttachmentTargetPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroupAttachmentTarget) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
 type TargetGroupConfig struct {
 	// The health check configuration.
 	HealthCheck *TargetGroupConfigHealthCheck `pulumi:"healthCheck"`
@@ -3251,6 +3407,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsEntryArrayInput)(nil)).Elem(), ServiceDnsEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntryInput)(nil)).Elem(), ServiceNetworkServiceAssociationDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntryArrayInput)(nil)).Elem(), ServiceNetworkServiceAssociationDnsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupAttachmentTargetInput)(nil)).Elem(), TargetGroupAttachmentTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupAttachmentTargetPtrInput)(nil)).Elem(), TargetGroupAttachmentTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigInput)(nil)).Elem(), TargetGroupConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigPtrInput)(nil)).Elem(), TargetGroupConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigHealthCheckInput)(nil)).Elem(), TargetGroupConfigHealthCheckArgs{})
@@ -3298,6 +3456,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDnsEntryArrayOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationDnsEntryOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationDnsEntryArrayOutput{})
+	pulumi.RegisterOutputType(TargetGroupAttachmentTargetOutput{})
+	pulumi.RegisterOutputType(TargetGroupAttachmentTargetPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigHealthCheckOutput{})

@@ -197,7 +197,7 @@ class ContactChannel(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        TODO resource for managing an AWS SSM Contacts Contact Channel.
+        Resource for managing an AWS SSM Contacts Contact Channel.
 
         ## Example Usage
         ### Basic Usage
@@ -252,7 +252,7 @@ class ContactChannel(pulumi.CustomResource):
                  args: ContactChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        TODO resource for managing an AWS SSM Contacts Contact Channel.
+        Resource for managing an AWS SSM Contacts Contact Channel.
 
         ## Example Usage
         ### Basic Usage

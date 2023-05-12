@@ -2161,11 +2161,15 @@ class MetricAlarmMetricQueryMetricArgs:
 @pulumi.input_type
 class MetricStreamExcludeFilterArgs:
     def __init__(__self__, *,
-                 namespace: pulumi.Input[str]):
+                 namespace: pulumi.Input[str],
+                 metric_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] namespace: Name of the metric namespace in the filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_names: An array that defines the metrics you want to exclude for this metric namespace
         """
         pulumi.set(__self__, "namespace", namespace)
+        if metric_names is not None:
+            pulumi.set(__self__, "metric_names", metric_names)
 
     @property
     @pulumi.getter
@@ -2178,16 +2182,32 @@ class MetricStreamExcludeFilterArgs:
     @namespace.setter
     def namespace(self, value: pulumi.Input[str]):
         pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array that defines the metrics you want to exclude for this metric namespace
+        """
+        return pulumi.get(self, "metric_names")
+
+    @metric_names.setter
+    def metric_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "metric_names", value)
 
 
 @pulumi.input_type
 class MetricStreamIncludeFilterArgs:
     def __init__(__self__, *,
-                 namespace: pulumi.Input[str]):
+                 namespace: pulumi.Input[str],
+                 metric_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] namespace: Name of the metric namespace in the filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_names: An array that defines the metrics you want to include for this metric namespace
         """
         pulumi.set(__self__, "namespace", namespace)
+        if metric_names is not None:
+            pulumi.set(__self__, "metric_names", metric_names)
 
     @property
     @pulumi.getter
@@ -2200,6 +2220,18 @@ class MetricStreamIncludeFilterArgs:
     @namespace.setter
     def namespace(self, value: pulumi.Input[str]):
         pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array that defines the metrics you want to include for this metric namespace
+        """
+        return pulumi.get(self, "metric_names")
+
+    @metric_names.setter
+    def metric_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "metric_names", value)
 
 
 @pulumi.input_type

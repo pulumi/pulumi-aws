@@ -10,6 +10,143 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration struct {
+	// ARN for KMS Key.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+}
+
+// SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput is an input type that accepts SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs and SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput` via:
+//
+//	SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{...}
+type SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput
+	ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutputWithContext(context.Context) SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput
+}
+
+type SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs struct {
+	// ARN for KMS Key.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+}
+
+func (SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput {
+	return i.ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput)
+}
+
+func (i SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput {
+	return i.ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput).ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrInput is an input type that accepts SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs, SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtr and SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrInput` via:
+//
+//	        SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput
+	ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutputWithContext(context.Context) SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput
+}
+
+type sdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrType SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs
+
+func SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtr(v *SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs) SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrInput {
+	return (*sdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrType)(v)
+}
+
+func (*sdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *sdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrType) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput {
+	return i.ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *sdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrType) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput)
+}
+
+type SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput {
+	return o.ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration) *SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration {
+		return &v
+	}).(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput)
+}
+
+// ARN for KMS Key.
+func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+type SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) ToSdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) Elem() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration) SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration
+		return ret
+	}).(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput)
+}
+
+// ARN for KMS Key.
+func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type VoiceConnectorGroupConnector struct {
 	// The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
 	Priority int `pulumi:"priority"`
@@ -512,6 +649,8 @@ func (o VoiceConnectorTerminationCredentialsCredentialArrayOutput) Index(i pulum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput)(nil)).Elem(), SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupConnectorInput)(nil)).Elem(), VoiceConnectorGroupConnectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupConnectorArrayInput)(nil)).Elem(), VoiceConnectorGroupConnectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationRouteInput)(nil)).Elem(), VoiceConnectorOrganizationRouteArgs{})
@@ -520,6 +659,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingMediaInsightsConfigurationPtrInput)(nil)).Elem(), VoiceConnectorStreamingMediaInsightsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredentialInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredentialArrayInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsCredentialArray{})
+	pulumi.RegisterOutputType(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupConnectorOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupConnectorArrayOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorOrganizationRouteOutput{})

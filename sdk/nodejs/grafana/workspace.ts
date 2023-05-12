@@ -101,9 +101,9 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * The version of Grafana running on the workspace.
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
      */
-    public /*out*/ readonly grafanaVersion!: pulumi.Output<string>;
+    public readonly grafanaVersion!: pulumi.Output<string>;
     /**
      * The Grafana workspace name.
      */
@@ -144,7 +144,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
      */
@@ -199,6 +199,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["dataSources"] = args ? args.dataSources : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["grafanaVersion"] = args ? args.grafanaVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkAccessControl"] = args ? args.networkAccessControl : undefined;
             resourceInputs["notificationDestinations"] = args ? args.notificationDestinations : undefined;
@@ -208,12 +209,11 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
-            resourceInputs["grafanaVersion"] = undefined /*out*/;
             resourceInputs["samlConfigurationStatus"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
@@ -253,7 +253,7 @@ export interface WorkspaceState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The version of Grafana running on the workspace.
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
      */
     grafanaVersion?: pulumi.Input<string>;
     /**
@@ -328,6 +328,10 @@ export interface WorkspaceArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+     */
+    grafanaVersion?: pulumi.Input<string>;
+    /**
      * The Grafana workspace name.
      */
     name?: pulumi.Input<string>;
@@ -363,10 +367,6 @@ export interface WorkspaceArgs {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
      */

@@ -19,7 +19,6 @@ class ContactListArgs:
                  contact_list_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]] = None):
         """
         The set of arguments for constructing a ContactList resource.
@@ -33,8 +32,6 @@ class ContactListArgs:
             pulumi.set(__self__, "description", description)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if topics is not None:
             pulumi.set(__self__, "topics", topics)
 
@@ -73,15 +70,6 @@ class ContactListArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -232,7 +220,6 @@ class ContactList(pulumi.CustomResource):
                  contact_list_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]]] = None,
                  __props__=None):
         """
@@ -340,7 +327,6 @@ class ContactList(pulumi.CustomResource):
                  contact_list_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -356,11 +342,11 @@ class ContactList(pulumi.CustomResource):
             __props__.__dict__["contact_list_name"] = contact_list_name
             __props__.__dict__["description"] = description
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["topics"] = topics
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_timestamp"] = None
             __props__.__dict__["last_updated_timestamp"] = None
+            __props__.__dict__["tags_all"] = None
         super(ContactList, __self__).__init__(
             'aws:sesv2/contactList:ContactList',
             resource_name,

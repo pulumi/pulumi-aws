@@ -266,8 +266,7 @@ type fileCacheArgs struct {
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FileCache resource.
@@ -292,8 +291,7 @@ type FileCacheArgs struct {
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (FileCacheArgs) ElementType() reflect.Type {

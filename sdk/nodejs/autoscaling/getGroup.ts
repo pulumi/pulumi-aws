@@ -80,19 +80,30 @@ export interface GetGroupResult {
      * The name of the associated launch configuration.
      */
     readonly launchConfiguration: string;
+    /**
+     * List of launch templates along with the overrides.
+     */
     readonly launchTemplates: outputs.autoscaling.GetGroupLaunchTemplate[];
     /**
      * One or more load balancers associated with the group.
      */
     readonly loadBalancers: string[];
     /**
+     * Maximum amount of time, in seconds, that an instance can be in service.
+     */
+    readonly maxInstanceLifetime: number;
+    /**
      * Maximum size of the group.
      */
     readonly maxSize: number;
     /**
-     * Minimum size of the group.
+     * Minimum number of instances to maintain in the warm pool.
      */
     readonly minSize: number;
+    /**
+     * List of mixed instances policy objects for the group.
+     */
+    readonly mixedInstancesPolicies: outputs.autoscaling.GetGroupMixedInstancesPolicy[];
     /**
      * Name of the Auto Scaling Group.
      */
@@ -103,6 +114,10 @@ export interface GetGroupResult {
      */
     readonly placementGroup: string;
     /**
+     * Predicted capacity of the group.
+     */
+    readonly predictedCapacity: number;
+    /**
      * ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
      */
     readonly serviceLinkedRoleArn: string;
@@ -110,6 +125,14 @@ export interface GetGroupResult {
      * Current state of the group when DeleteAutoScalingGroup is in progress.
      */
     readonly status: string;
+    /**
+     * List of processes suspended processes for the Auto Scaling Group.
+     */
+    readonly suspendedProcesses: string[];
+    /**
+     * List of tags for the group.
+     */
+    readonly tags: outputs.autoscaling.GetGroupTag[];
     /**
      * ARNs of the target groups for your load balancer.
      */
@@ -122,6 +145,14 @@ export interface GetGroupResult {
      * VPC ID for the group.
      */
     readonly vpcZoneIdentifier: string;
+    /**
+     * Current size of the warm pool.
+     */
+    readonly warmPoolSize: number;
+    /**
+     * List of warm pool configuration objects.
+     */
+    readonly warmPools: outputs.autoscaling.GetGroupWarmPool[];
 }
 /**
  * Use this data source to get information on an existing autoscaling group.

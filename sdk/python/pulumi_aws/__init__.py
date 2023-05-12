@@ -53,6 +53,8 @@ if typing.TYPE_CHECKING:
     appconfig = __appconfig
     import pulumi_aws.appflow as __appflow
     appflow = __appflow
+    import pulumi_aws.appintegrations as __appintegrations
+    appintegrations = __appintegrations
     import pulumi_aws.applicationinsights as __applicationinsights
     applicationinsights = __applicationinsights
     import pulumi_aws.applicationloadbalancing as __applicationloadbalancing
@@ -414,6 +416,7 @@ else:
     appautoscaling = _utilities.lazy_import('pulumi_aws.appautoscaling')
     appconfig = _utilities.lazy_import('pulumi_aws.appconfig')
     appflow = _utilities.lazy_import('pulumi_aws.appflow')
+    appintegrations = _utilities.lazy_import('pulumi_aws.appintegrations')
     applicationinsights = _utilities.lazy_import('pulumi_aws.applicationinsights')
     applicationloadbalancing = _utilities.lazy_import('pulumi_aws.applicationloadbalancing')
     appmesh = _utilities.lazy_import('pulumi_aws.appmesh')
@@ -614,6 +617,14 @@ _utilities.register(
   "fqn": "pulumi_aws.account",
   "classes": {
    "aws:account/alternativeContact:AlternativeContact": "AlternativeContact"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "account/primaryContact",
+  "fqn": "pulumi_aws.account",
+  "classes": {
+   "aws:account/primaryContact:PrimaryContact": "PrimaryContact"
   }
  },
  {
@@ -1182,6 +1193,14 @@ _utilities.register(
   "fqn": "pulumi_aws.appflow",
   "classes": {
    "aws:appflow/flow:Flow": "Flow"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appintegrations/dataIntegration",
+  "fqn": "pulumi_aws.appintegrations",
+  "classes": {
+   "aws:appintegrations/dataIntegration:DataIntegration": "DataIntegration"
   }
  },
  {
@@ -1798,6 +1817,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cfg",
   "classes": {
    "aws:cfg/rule:Rule": "Rule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "chime/sdkvoiceVoiceProfileDomain",
+  "fqn": "pulumi_aws.chime",
+  "classes": {
+   "aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain": "SdkvoiceVoiceProfileDomain"
   }
  },
  {
@@ -7546,6 +7573,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "quicksight/template",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/template:Template": "Template"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "quicksight/user",
   "fqn": "pulumi_aws.quicksight",
   "classes": {
@@ -9842,6 +9877,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "vpclattice/accessLogSubscription",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/accessLogSubscription:AccessLogSubscription": "AccessLogSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/authPolicy",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/authPolicy:AuthPolicy": "AuthPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "vpclattice/listener",
   "fqn": "pulumi_aws.vpclattice",
   "classes": {
@@ -9854,6 +9905,14 @@ _utilities.register(
   "fqn": "pulumi_aws.vpclattice",
   "classes": {
    "aws:vpclattice/listenerRule:ListenerRule": "ListenerRule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/resourcePolicy",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/resourcePolicy:ResourcePolicy": "ResourcePolicy"
   }
  },
  {
@@ -9894,6 +9953,14 @@ _utilities.register(
   "fqn": "pulumi_aws.vpclattice",
   "classes": {
    "aws:vpclattice/targetGroup:TargetGroup": "TargetGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "vpclattice/targetGroupAttachment",
+  "fqn": "pulumi_aws.vpclattice",
+  "classes": {
+   "aws:vpclattice/targetGroupAttachment:TargetGroupAttachment": "TargetGroupAttachment"
   }
  },
  {

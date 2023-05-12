@@ -24,7 +24,6 @@ class IndexArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['IndexServerSideEncryptionConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_context_policy: Optional[pulumi.Input[str]] = None,
                  user_group_resolution_configuration: Optional[pulumi.Input['IndexUserGroupResolutionConfigurationArgs']] = None,
                  user_token_configurations: Optional[pulumi.Input['IndexUserTokenConfigurationsArgs']] = None):
@@ -39,8 +38,7 @@ class IndexArgs:
         :param pulumi.Input['IndexServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Index. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+        :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         :param pulumi.Input['IndexUserGroupResolutionConfigurationArgs'] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         :param pulumi.Input['IndexUserTokenConfigurationsArgs'] user_token_configurations: A block that specifies the user token configuration. Detailed below.
         """
@@ -59,8 +57,6 @@ class IndexArgs:
             pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if user_context_policy is not None:
             pulumi.set(__self__, "user_context_policy", user_context_policy)
         if user_group_resolution_configuration is not None:
@@ -166,22 +162,10 @@ class IndexArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
-    @property
     @pulumi.getter(name="userContextPolicy")
     def user_context_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+        The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         """
         return pulumi.get(self, "user_context_policy")
 
@@ -253,7 +237,7 @@ class _IndexState:
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] updated_at: The Unix datetime that the index was last updated.
-        :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+        :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         :param pulumi.Input['IndexUserGroupResolutionConfigurationArgs'] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         :param pulumi.Input['IndexUserTokenConfigurationsArgs'] user_token_configurations: A block that specifies the user token configuration. Detailed below.
         """
@@ -479,7 +463,7 @@ class _IndexState:
     @pulumi.getter(name="userContextPolicy")
     def user_context_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+        The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         """
         return pulumi.get(self, "user_context_policy")
 
@@ -525,7 +509,6 @@ class Index(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_context_policy: Optional[pulumi.Input[str]] = None,
                  user_group_resolution_configuration: Optional[pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']]] = None,
                  user_token_configurations: Optional[pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']]] = None,
@@ -1061,8 +1044,7 @@ class Index(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Index. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+        :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         :param pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         :param pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']] user_token_configurations: A block that specifies the user token configuration. Detailed below.
         """
@@ -1615,7 +1597,6 @@ class Index(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_context_policy: Optional[pulumi.Input[str]] = None,
                  user_group_resolution_configuration: Optional[pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']]] = None,
                  user_token_configurations: Optional[pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']]] = None,
@@ -1638,7 +1619,6 @@ class Index(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["user_context_policy"] = user_context_policy
             __props__.__dict__["user_group_resolution_configuration"] = user_group_resolution_configuration
             __props__.__dict__["user_token_configurations"] = user_token_configurations
@@ -1647,6 +1627,7 @@ class Index(pulumi.CustomResource):
             __props__.__dict__["error_message"] = None
             __props__.__dict__["index_statistics"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["updated_at"] = None
         super(Index, __self__).__init__(
             'aws:kendra/index:Index',
@@ -1699,7 +1680,7 @@ class Index(pulumi.CustomResource):
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] updated_at: The Unix datetime that the index was last updated.
-        :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+        :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         :param pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         :param pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']] user_token_configurations: A block that specifies the user token configuration. Detailed below.
         """
@@ -1852,7 +1833,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter(name="userContextPolicy")
     def user_context_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+        The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         """
         return pulumi.get(self, "user_context_policy")
 

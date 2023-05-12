@@ -80,6 +80,11 @@ export const getSecurityProfile: typeof import("./getSecurityProfile").getSecuri
 export const getSecurityProfileOutput: typeof import("./getSecurityProfile").getSecurityProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityProfile","getSecurityProfileOutput"], () => require("./getSecurityProfile"));
 
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+
 export { GetUserHierarchyGroupArgs, GetUserHierarchyGroupResult, GetUserHierarchyGroupOutputArgs } from "./getUserHierarchyGroup";
 export const getUserHierarchyGroup: typeof import("./getUserHierarchyGroup").getUserHierarchyGroup = null as any;
 export const getUserHierarchyGroupOutput: typeof import("./getUserHierarchyGroup").getUserHierarchyGroupOutput = null as any;
@@ -89,6 +94,11 @@ export { GetUserHierarchyStructureArgs, GetUserHierarchyStructureResult, GetUser
 export const getUserHierarchyStructure: typeof import("./getUserHierarchyStructure").getUserHierarchyStructure = null as any;
 export const getUserHierarchyStructureOutput: typeof import("./getUserHierarchyStructure").getUserHierarchyStructureOutput = null as any;
 utilities.lazyLoad(exports, ["getUserHierarchyStructure","getUserHierarchyStructureOutput"], () => require("./getUserHierarchyStructure"));
+
+export { GetVocabularyArgs, GetVocabularyResult, GetVocabularyOutputArgs } from "./getVocabulary";
+export const getVocabulary: typeof import("./getVocabulary").getVocabulary = null as any;
+export const getVocabularyOutput: typeof import("./getVocabulary").getVocabularyOutput = null as any;
+utilities.lazyLoad(exports, ["getVocabulary","getVocabularyOutput"], () => require("./getVocabulary"));
 
 export { HoursOfOperationArgs, HoursOfOperationState } from "./hoursOfOperation";
 export type HoursOfOperation = import("./hoursOfOperation").HoursOfOperation;

@@ -75,6 +75,8 @@ __all__ = [
     'GetUserHierarchyStructureHierarchyStructureLevelOneResult',
     'GetUserHierarchyStructureHierarchyStructureLevelThreeResult',
     'GetUserHierarchyStructureHierarchyStructureLevelTwoResult',
+    'GetUserIdentityInfoResult',
+    'GetUserPhoneConfigResult',
 ]
 
 @pulumi.output_type
@@ -3049,5 +3051,96 @@ class GetUserHierarchyStructureHierarchyStructureLevelTwoResult(dict):
         Name of the user hierarchy level. Must not be more than 50 characters.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetUserIdentityInfoResult(dict):
+    def __init__(__self__, *,
+                 email: str,
+                 first_name: str,
+                 last_name: str):
+        """
+        :param str email: The email address.
+        :param str first_name: The first name.
+        :param str last_name: The last name.
+        """
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "first_name", first_name)
+        pulumi.set(__self__, "last_name", last_name)
+
+    @property
+    @pulumi.getter
+    def email(self) -> str:
+        """
+        The email address.
+        """
+        return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> str:
+        """
+        The first name.
+        """
+        return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> str:
+        """
+        The last name.
+        """
+        return pulumi.get(self, "last_name")
+
+
+@pulumi.output_type
+class GetUserPhoneConfigResult(dict):
+    def __init__(__self__, *,
+                 after_contact_work_time_limit: int,
+                 auto_accept: bool,
+                 desk_phone_number: str,
+                 phone_type: str):
+        """
+        :param int after_contact_work_time_limit: The After Call Work (ACW) timeout setting, in seconds.
+        :param bool auto_accept: When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
+        :param str desk_phone_number: The phone number for the user's desk phone.
+        :param str phone_type: The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
+        """
+        pulumi.set(__self__, "after_contact_work_time_limit", after_contact_work_time_limit)
+        pulumi.set(__self__, "auto_accept", auto_accept)
+        pulumi.set(__self__, "desk_phone_number", desk_phone_number)
+        pulumi.set(__self__, "phone_type", phone_type)
+
+    @property
+    @pulumi.getter(name="afterContactWorkTimeLimit")
+    def after_contact_work_time_limit(self) -> int:
+        """
+        The After Call Work (ACW) timeout setting, in seconds.
+        """
+        return pulumi.get(self, "after_contact_work_time_limit")
+
+    @property
+    @pulumi.getter(name="autoAccept")
+    def auto_accept(self) -> bool:
+        """
+        When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
+        """
+        return pulumi.get(self, "auto_accept")
+
+    @property
+    @pulumi.getter(name="deskPhoneNumber")
+    def desk_phone_number(self) -> str:
+        """
+        The phone number for the user's desk phone.
+        """
+        return pulumi.get(self, "desk_phone_number")
+
+    @property
+    @pulumi.getter(name="phoneType")
+    def phone_type(self) -> str:
+        """
+        The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
+        """
+        return pulumi.get(self, "phone_type")
 
 

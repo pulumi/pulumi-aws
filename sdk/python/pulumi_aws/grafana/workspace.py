@@ -22,6 +22,7 @@ class WorkspaceArgs:
                  configuration: Optional[pulumi.Input[str]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 grafana_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -30,7 +31,6 @@ class WorkspaceArgs:
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
@@ -40,6 +40,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         :param pulumi.Input[str] description: The workspace description.
+        :param pulumi.Input[str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
         :param pulumi.Input[str] name: The Grafana workspace name.
         :param pulumi.Input['WorkspaceNetworkAccessControlArgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
@@ -48,7 +49,6 @@ class WorkspaceArgs:
         :param pulumi.Input[str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['WorkspaceVpcConfigurationArgs'] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         pulumi.set(__self__, "account_access_type", account_access_type)
@@ -60,6 +60,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "data_sources", data_sources)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if grafana_version is not None:
+            pulumi.set(__self__, "grafana_version", grafana_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_access_control is not None:
@@ -76,8 +78,6 @@ class WorkspaceArgs:
             pulumi.set(__self__, "stack_set_name", stack_set_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_configuration is not None:
             pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
@@ -152,6 +152,18 @@ class WorkspaceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="grafanaVersion")
+    def grafana_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+        """
+        return pulumi.get(self, "grafana_version")
+
+    @grafana_version.setter
+    def grafana_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "grafana_version", value)
 
     @property
     @pulumi.getter
@@ -250,18 +262,6 @@ class WorkspaceArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
-    @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]:
         """
@@ -306,7 +306,7 @@ class _WorkspaceState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         :param pulumi.Input[str] description: The workspace description.
         :param pulumi.Input[str] endpoint: The endpoint of the Grafana workspace.
-        :param pulumi.Input[str] grafana_version: The version of Grafana running on the workspace.
+        :param pulumi.Input[str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
         :param pulumi.Input[str] name: The Grafana workspace name.
         :param pulumi.Input['WorkspaceNetworkAccessControlArgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
@@ -448,7 +448,7 @@ class _WorkspaceState:
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of Grafana running on the workspace.
+        Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
         """
         return pulumi.get(self, "grafana_version")
 
@@ -608,6 +608,7 @@ class Workspace(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[str]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 grafana_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']]] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -617,7 +618,6 @@ class Workspace(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArgs']]] = None,
                  __props__=None):
         """
@@ -664,6 +664,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         :param pulumi.Input[str] description: The workspace description.
+        :param pulumi.Input[str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
         :param pulumi.Input[str] name: The Grafana workspace name.
         :param pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
@@ -673,7 +674,6 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArgs']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         ...
@@ -739,6 +739,7 @@ class Workspace(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[str]] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 grafana_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']]] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -748,7 +749,6 @@ class Workspace(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -768,6 +768,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["data_sources"] = data_sources
             __props__.__dict__["description"] = description
+            __props__.__dict__["grafana_version"] = grafana_version
             __props__.__dict__["name"] = name
             __props__.__dict__["network_access_control"] = network_access_control
             __props__.__dict__["notification_destinations"] = notification_destinations
@@ -779,12 +780,11 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["stack_set_name"] = stack_set_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
-            __props__.__dict__["grafana_version"] = None
             __props__.__dict__["saml_configuration_status"] = None
+            __props__.__dict__["tags_all"] = None
         super(Workspace, __self__).__init__(
             'aws:grafana/workspace:Workspace',
             resource_name,
@@ -829,7 +829,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         :param pulumi.Input[str] description: The workspace description.
         :param pulumi.Input[str] endpoint: The endpoint of the Grafana workspace.
-        :param pulumi.Input[str] grafana_version: The version of Grafana running on the workspace.
+        :param pulumi.Input[str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
         :param pulumi.Input[str] name: The Grafana workspace name.
         :param pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
@@ -928,7 +928,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> pulumi.Output[str]:
         """
-        The version of Grafana running on the workspace.
+        Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
         """
         return pulumi.get(self, "grafana_version")
 

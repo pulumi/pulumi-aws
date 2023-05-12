@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:account/alternativeContact:AlternativeContact":
 		r = &AlternativeContact{}
+	case "aws:account/primaryContact:PrimaryContact":
+		r = &PrimaryContact{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"account/alternativeContact",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"account/primaryContact",
 		&module{version},
 	)
 }

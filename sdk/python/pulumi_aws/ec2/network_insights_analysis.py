@@ -19,14 +19,12 @@ class NetworkInsightsAnalysisArgs:
                  network_insights_path_id: pulumi.Input[str],
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_for_completion: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAnalysis resource.
         :param pulumi.Input[str] network_insights_path_id: ID of the Network Insights Path to run an analysis on.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_in_arns: A list of ARNs for resources the path must traverse.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] wait_for_completion: If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
         """
         pulumi.set(__self__, "network_insights_path_id", network_insights_path_id)
@@ -34,8 +32,6 @@ class NetworkInsightsAnalysisArgs:
             pulumi.set(__self__, "filter_in_arns", filter_in_arns)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if wait_for_completion is not None:
             pulumi.set(__self__, "wait_for_completion", wait_for_completion)
 
@@ -74,18 +70,6 @@ class NetworkInsightsAnalysisArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="waitForCompletion")
@@ -356,7 +340,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_for_completion: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -388,7 +371,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_in_arns: A list of ARNs for resources the path must traverse.
         :param pulumi.Input[str] network_insights_path_id: ID of the Network Insights Path to run an analysis on.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] wait_for_completion: If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
         """
         ...
@@ -439,7 +421,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_for_completion: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -455,7 +436,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                 raise TypeError("Missing required property 'network_insights_path_id'")
             __props__.__dict__["network_insights_path_id"] = network_insights_path_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["wait_for_completion"] = wait_for_completion
             __props__.__dict__["alternate_path_hints"] = None
             __props__.__dict__["arn"] = None
@@ -466,6 +446,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             __props__.__dict__["start_date"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["warning_message"] = None
         super(NetworkInsightsAnalysis, __self__).__init__(
             'aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis',

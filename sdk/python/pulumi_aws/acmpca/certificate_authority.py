@@ -18,34 +18,34 @@ class CertificateAuthorityArgs:
     def __init__(__self__, *,
                  certificate_authority_configuration: pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs'],
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 key_storage_security_standard: Optional[pulumi.Input[str]] = None,
                  permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
                  revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  usage_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CertificateAuthority resource.
         :param pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs'] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
         :param pulumi.Input[bool] enabled: Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
+        :param pulumi.Input[str] key_storage_security_standard: Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         :param pulumi.Input[int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         :param pulumi.Input[str] usage_mode: Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         """
         pulumi.set(__self__, "certificate_authority_configuration", certificate_authority_configuration)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if key_storage_security_standard is not None:
+            pulumi.set(__self__, "key_storage_security_standard", key_storage_security_standard)
         if permanent_deletion_time_in_days is not None:
             pulumi.set(__self__, "permanent_deletion_time_in_days", permanent_deletion_time_in_days)
         if revocation_configuration is not None:
             pulumi.set(__self__, "revocation_configuration", revocation_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if usage_mode is not None:
@@ -74,6 +74,18 @@ class CertificateAuthorityArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="keyStorageSecurityStandard")
+    def key_storage_security_standard(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+        """
+        return pulumi.get(self, "key_storage_security_standard")
+
+    @key_storage_security_standard.setter
+    def key_storage_security_standard(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_storage_security_standard", value)
 
     @property
     @pulumi.getter(name="permanentDeletionTimeInDays")
@@ -112,18 +124,6 @@ class CertificateAuthorityArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
-    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -157,6 +157,7 @@ class _CertificateAuthorityState:
                  certificate_chain: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 key_storage_security_standard: Optional[pulumi.Input[str]] = None,
                  not_after: Optional[pulumi.Input[str]] = None,
                  not_before: Optional[pulumi.Input[str]] = None,
                  permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
@@ -175,6 +176,7 @@ class _CertificateAuthorityState:
         :param pulumi.Input[str] certificate_chain: Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] certificate_signing_request: The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
         :param pulumi.Input[bool] enabled: Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
+        :param pulumi.Input[str] key_storage_security_standard: Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         :param pulumi.Input[str] not_after: Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] not_before: Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
@@ -198,6 +200,8 @@ class _CertificateAuthorityState:
             pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if key_storage_security_standard is not None:
+            pulumi.set(__self__, "key_storage_security_standard", key_storage_security_standard)
         if not_after is not None:
             pulumi.set(__self__, "not_after", not_after)
         if not_before is not None:
@@ -293,6 +297,18 @@ class _CertificateAuthorityState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="keyStorageSecurityStandard")
+    def key_storage_security_standard(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+        """
+        return pulumi.get(self, "key_storage_security_standard")
+
+    @key_storage_security_standard.setter
+    def key_storage_security_standard(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_storage_security_standard", value)
 
     @property
     @pulumi.getter(name="notAfter")
@@ -422,10 +438,10 @@ class CertificateAuthority(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_authority_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 key_storage_security_standard: Optional[pulumi.Input[str]] = None,
                  permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
                  revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  usage_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -524,10 +540,10 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArgs']] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
         :param pulumi.Input[bool] enabled: Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
+        :param pulumi.Input[str] key_storage_security_standard: Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         :param pulumi.Input[int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         :param pulumi.Input[str] usage_mode: Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         """
@@ -645,10 +661,10 @@ class CertificateAuthority(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_authority_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 key_storage_security_standard: Optional[pulumi.Input[str]] = None,
                  permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
                  revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  usage_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -664,10 +680,10 @@ class CertificateAuthority(pulumi.CustomResource):
                 raise TypeError("Missing required property 'certificate_authority_configuration'")
             __props__.__dict__["certificate_authority_configuration"] = certificate_authority_configuration
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["key_storage_security_standard"] = key_storage_security_standard
             __props__.__dict__["permanent_deletion_time_in_days"] = permanent_deletion_time_in_days
             __props__.__dict__["revocation_configuration"] = revocation_configuration
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["type"] = type
             __props__.__dict__["usage_mode"] = usage_mode
             __props__.__dict__["arn"] = None
@@ -678,6 +694,7 @@ class CertificateAuthority(pulumi.CustomResource):
             __props__.__dict__["not_before"] = None
             __props__.__dict__["serial"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
         super(CertificateAuthority, __self__).__init__(
             'aws:acmpca/certificateAuthority:CertificateAuthority',
             resource_name,
@@ -694,6 +711,7 @@ class CertificateAuthority(pulumi.CustomResource):
             certificate_chain: Optional[pulumi.Input[str]] = None,
             certificate_signing_request: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            key_storage_security_standard: Optional[pulumi.Input[str]] = None,
             not_after: Optional[pulumi.Input[str]] = None,
             not_before: Optional[pulumi.Input[str]] = None,
             permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
@@ -717,6 +735,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_chain: Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] certificate_signing_request: The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
         :param pulumi.Input[bool] enabled: Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
+        :param pulumi.Input[str] key_storage_security_standard: Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         :param pulumi.Input[str] not_after: Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] not_before: Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
@@ -738,6 +757,7 @@ class CertificateAuthority(pulumi.CustomResource):
         __props__.__dict__["certificate_chain"] = certificate_chain
         __props__.__dict__["certificate_signing_request"] = certificate_signing_request
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["key_storage_security_standard"] = key_storage_security_standard
         __props__.__dict__["not_after"] = not_after
         __props__.__dict__["not_before"] = not_before
         __props__.__dict__["permanent_deletion_time_in_days"] = permanent_deletion_time_in_days
@@ -797,6 +817,14 @@ class CertificateAuthority(pulumi.CustomResource):
         Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="keyStorageSecurityStandard")
+    def key_storage_security_standard(self) -> pulumi.Output[str]:
+        """
+        Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+        """
+        return pulumi.get(self, "key_storage_security_standard")
 
     @property
     @pulumi.getter(name="notAfter")

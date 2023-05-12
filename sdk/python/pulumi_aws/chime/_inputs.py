@@ -10,11 +10,34 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs',
     'VoiceConnectorGroupConnectorArgs',
     'VoiceConnectorOrganizationRouteArgs',
     'VoiceConnectorStreamingMediaInsightsConfigurationArgs',
     'VoiceConnectorTerminationCredentialsCredentialArgs',
 ]
+
+@pulumi.input_type
+class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] kms_key_arn: ARN for KMS Key.
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[str]:
+        """
+        ARN for KMS Key.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kms_key_arn", value)
+
 
 @pulumi.input_type
 class VoiceConnectorGroupConnectorArgs:

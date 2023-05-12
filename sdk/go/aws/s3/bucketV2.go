@@ -144,7 +144,7 @@ type BucketV2 struct {
 	// Deprecated: Use the aws_s3_bucket_logging resource instead
 	Loggings BucketV2LoggingArrayOutput `pulumi:"loggings"`
 	// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-	// the provider wil only perform drift detection if a configuration value is provided.
+	// TODO wil only perform drift detection if a configuration value is provided.
 	// Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
 	//
 	// Deprecated: Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
@@ -152,7 +152,7 @@ type BucketV2 struct {
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	ObjectLockEnabled pulumi.BoolOutput `pulumi:"objectLockEnabled"`
 	// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketPolicy` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
@@ -167,13 +167,13 @@ type BucketV2 struct {
 	// Specifies who should bear the cost of Amazon S3 data transfer.
 	// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
 	// See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_request_payment_configuration resource instead
 	RequestPayer pulumi.StringOutput `pulumi:"requestPayer"`
 	// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
@@ -278,7 +278,7 @@ type bucketV2State struct {
 	// Deprecated: Use the aws_s3_bucket_logging resource instead
 	Loggings []BucketV2Logging `pulumi:"loggings"`
 	// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-	// the provider wil only perform drift detection if a configuration value is provided.
+	// TODO wil only perform drift detection if a configuration value is provided.
 	// Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
 	//
 	// Deprecated: Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
@@ -286,7 +286,7 @@ type bucketV2State struct {
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	ObjectLockEnabled *bool `pulumi:"objectLockEnabled"`
 	// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketPolicy` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
@@ -301,13 +301,13 @@ type bucketV2State struct {
 	// Specifies who should bear the cost of Amazon S3 data transfer.
 	// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
 	// See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_request_payment_configuration resource instead
 	RequestPayer *string `pulumi:"requestPayer"`
 	// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
@@ -378,7 +378,7 @@ type BucketV2State struct {
 	// Deprecated: Use the aws_s3_bucket_logging resource instead
 	Loggings BucketV2LoggingArrayInput
 	// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-	// the provider wil only perform drift detection if a configuration value is provided.
+	// TODO wil only perform drift detection if a configuration value is provided.
 	// Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
 	//
 	// Deprecated: Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
@@ -386,7 +386,7 @@ type BucketV2State struct {
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	ObjectLockEnabled pulumi.BoolPtrInput
 	// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketPolicy` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
@@ -401,13 +401,13 @@ type BucketV2State struct {
 	// Specifies who should bear the cost of Amazon S3 data transfer.
 	// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
 	// See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_request_payment_configuration resource instead
 	RequestPayer pulumi.StringPtrInput
 	// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
@@ -474,7 +474,7 @@ type bucketV2Args struct {
 	// Deprecated: Use the aws_s3_bucket_logging resource instead
 	Loggings []BucketV2Logging `pulumi:"loggings"`
 	// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-	// the provider wil only perform drift detection if a configuration value is provided.
+	// TODO wil only perform drift detection if a configuration value is provided.
 	// Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
 	//
 	// Deprecated: Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
@@ -482,7 +482,7 @@ type bucketV2Args struct {
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	ObjectLockEnabled *bool `pulumi:"objectLockEnabled"`
 	// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketPolicy` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
@@ -495,21 +495,19 @@ type bucketV2Args struct {
 	// Specifies who should bear the cost of Amazon S3 data transfer.
 	// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
 	// See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_request_payment_configuration resource instead
 	RequestPayer *string `pulumi:"requestPayer"`
 	// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
 	ServerSideEncryptionConfigurations []BucketV2ServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfigurations"`
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_versioning resource instead
@@ -557,7 +555,7 @@ type BucketV2Args struct {
 	// Deprecated: Use the aws_s3_bucket_logging resource instead
 	Loggings BucketV2LoggingArrayInput
 	// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-	// the provider wil only perform drift detection if a configuration value is provided.
+	// TODO wil only perform drift detection if a configuration value is provided.
 	// Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
 	//
 	// Deprecated: Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
@@ -565,7 +563,7 @@ type BucketV2Args struct {
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	ObjectLockEnabled pulumi.BoolPtrInput
 	// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketPolicy` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_policy resource instead
@@ -578,21 +576,19 @@ type BucketV2Args struct {
 	// Specifies who should bear the cost of Amazon S3 data transfer.
 	// Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
 	// See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_request_payment_configuration resource instead
 	RequestPayer pulumi.StringPtrInput
 	// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-	// The provider will only perform drift detection if a configuration value is provided.
+	// TODO will only perform drift detection if a configuration value is provided.
 	// Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead
 	ServerSideEncryptionConfigurations BucketV2ServerSideEncryptionConfigurationArrayInput
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
 	//
 	// Deprecated: Use the aws_s3_bucket_versioning resource instead
@@ -772,7 +768,7 @@ func (o BucketV2Output) Loggings() BucketV2LoggingArrayOutput {
 }
 
 // Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-// the provider wil only perform drift detection if a configuration value is provided.
+// TODO wil only perform drift detection if a configuration value is provided.
 // Use the `objectLockEnabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
 //
 // Deprecated: Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
@@ -786,7 +782,7 @@ func (o BucketV2Output) ObjectLockEnabled() pulumi.BoolOutput {
 }
 
 // Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-// The provider will only perform drift detection if a configuration value is provided.
+// TODO will only perform drift detection if a configuration value is provided.
 // Use the resource `s3.BucketPolicy` instead.
 //
 // Deprecated: Use the aws_s3_bucket_policy resource instead
@@ -810,7 +806,7 @@ func (o BucketV2Output) ReplicationConfigurations() BucketV2ReplicationConfigura
 // Specifies who should bear the cost of Amazon S3 data transfer.
 // Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
 // See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-// The provider will only perform drift detection if a configuration value is provided.
+// TODO will only perform drift detection if a configuration value is provided.
 // Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
 //
 // Deprecated: Use the aws_s3_bucket_request_payment_configuration resource instead
@@ -819,7 +815,7 @@ func (o BucketV2Output) RequestPayer() pulumi.StringOutput {
 }
 
 // Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-// The provider will only perform drift detection if a configuration value is provided.
+// TODO will only perform drift detection if a configuration value is provided.
 // Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
 //
 // Deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead

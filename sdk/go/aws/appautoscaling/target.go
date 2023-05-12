@@ -13,6 +13,8 @@ import (
 
 // Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the `appautoscaling.Policy` resource.
 //
+// > **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `arn`. These resource cannot use `tags` or participate in `defaultTags`. To prevent `TODO plan` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below.
+//
 // > **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the `iam.ServiceLinkedRole` resource.
 //
 // ## Example Usage
@@ -140,6 +142,37 @@ import (
 //	}
 //
 // ```
+// ### Suppressing `tagsAll` Differences For Older Resources
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appautoscaling.NewTarget(ctx, "ecsTarget", &appautoscaling.TargetArgs{
+//				MaxCapacity:       pulumi.Int(4),
+//				MinCapacity:       pulumi.Int(1),
+//				ResourceId:        pulumi.String(fmt.Sprintf("service/%v/%v", aws_ecs_cluster.Example.Name, aws_ecs_service.Example.Name)),
+//				ScalableDimension: pulumi.String("ecs:service:DesiredCount"),
+//				ServiceNamespace:  pulumi.String("ecs"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### MSK / Kafka Autoscaling
 //
 // ```go
@@ -182,6 +215,8 @@ import (
 type Target struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the scalable target.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Max capacity of the scalable target.
 	MaxCapacity pulumi.IntOutput `pulumi:"maxCapacity"`
 	// Min capacity of the scalable target.
@@ -194,6 +229,10 @@ type Target struct {
 	ScalableDimension pulumi.StringOutput `pulumi:"scalableDimension"`
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace pulumi.StringOutput `pulumi:"serviceNamespace"`
+	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewTarget registers a new resource with the given unique name, arguments, and options.
@@ -240,6 +279,8 @@ func GetTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Target resources.
 type targetState struct {
+	// The ARN of the scalable target.
+	Arn *string `pulumi:"arn"`
 	// Max capacity of the scalable target.
 	MaxCapacity *int `pulumi:"maxCapacity"`
 	// Min capacity of the scalable target.
@@ -252,9 +293,15 @@ type targetState struct {
 	ScalableDimension *string `pulumi:"scalableDimension"`
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace *string `pulumi:"serviceNamespace"`
+	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type TargetState struct {
+	// The ARN of the scalable target.
+	Arn pulumi.StringPtrInput
 	// Max capacity of the scalable target.
 	MaxCapacity pulumi.IntPtrInput
 	// Min capacity of the scalable target.
@@ -267,6 +314,10 @@ type TargetState struct {
 	ScalableDimension pulumi.StringPtrInput
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace pulumi.StringPtrInput
+	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (TargetState) ElementType() reflect.Type {
@@ -286,6 +337,8 @@ type targetArgs struct {
 	ScalableDimension string `pulumi:"scalableDimension"`
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace string `pulumi:"serviceNamespace"`
+	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Target resource.
@@ -302,6 +355,8 @@ type TargetArgs struct {
 	ScalableDimension pulumi.StringInput
 	// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 	ServiceNamespace pulumi.StringInput
+	// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (TargetArgs) ElementType() reflect.Type {
@@ -391,6 +446,11 @@ func (o TargetOutput) ToTargetOutputWithContext(ctx context.Context) TargetOutpu
 	return o
 }
 
+// The ARN of the scalable target.
+func (o TargetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Target) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
 // Max capacity of the scalable target.
 func (o TargetOutput) MaxCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *Target) pulumi.IntOutput { return v.MaxCapacity }).(pulumi.IntOutput)
@@ -419,6 +479,16 @@ func (o TargetOutput) ScalableDimension() pulumi.StringOutput {
 // AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
 func (o TargetOutput) ServiceNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *Target) pulumi.StringOutput { return v.ServiceNamespace }).(pulumi.StringOutput)
+}
+
+// Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o TargetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Target) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o TargetOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Target) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type TargetArrayOutput struct{ *pulumi.OutputState }

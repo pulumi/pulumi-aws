@@ -67,6 +67,7 @@ __all__ = [
     'GetFirewallPolicyFirewallPolicyResult',
     'GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult',
     'GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult',
+    'GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult',
     'GetFirewallPolicyFirewallPolicyStatelessCustomActionResult',
     'GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult',
     'GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionResult',
@@ -2469,9 +2470,12 @@ class GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult(dict):
 class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult(dict):
     def __init__(__self__, *,
                  priority: int,
-                 resource_arn: str):
+                 resource_arn: str,
+                 overrides: Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult']] = None):
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "resource_arn", resource_arn)
+        if overrides is not None:
+            pulumi.set(__self__, "overrides", overrides)
 
     @property
     @pulumi.getter
@@ -2482,6 +2486,24 @@ class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult(dict):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> str:
         return pulumi.get(self, "resource_arn")
+
+    @property
+    @pulumi.getter
+    def overrides(self) -> Optional[Sequence['outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult']]:
+        return pulumi.get(self, "overrides")
+
+
+@pulumi.output_type
+class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult(dict):
+    def __init__(__self__, *,
+                 action: Optional[str] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        return pulumi.get(self, "action")
 
 
 @pulumi.output_type

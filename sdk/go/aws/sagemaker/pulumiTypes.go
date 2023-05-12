@@ -5316,6 +5316,8 @@ type DomainDefaultUserSettings struct {
 	KernelGatewayAppSettings *DomainDefaultUserSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
 	// The RSession app settings. See RSession App Settings below.
 	RSessionAppSettings *DomainDefaultUserSettingsRSessionAppSettings `pulumi:"rSessionAppSettings"`
+	// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+	RStudioServerProAppSettings *DomainDefaultUserSettingsRStudioServerProAppSettings `pulumi:"rStudioServerProAppSettings"`
 	// A list of security group IDs that will be attached to the user.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
@@ -5346,6 +5348,8 @@ type DomainDefaultUserSettingsArgs struct {
 	KernelGatewayAppSettings DomainDefaultUserSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
 	// The RSession app settings. See RSession App Settings below.
 	RSessionAppSettings DomainDefaultUserSettingsRSessionAppSettingsPtrInput `pulumi:"rSessionAppSettings"`
+	// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+	RStudioServerProAppSettings DomainDefaultUserSettingsRStudioServerProAppSettingsPtrInput `pulumi:"rStudioServerProAppSettings"`
 	// A list of security group IDs that will be attached to the user.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
@@ -5464,6 +5468,13 @@ func (o DomainDefaultUserSettingsOutput) RSessionAppSettings() DomainDefaultUser
 	}).(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput)
 }
 
+// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+func (o DomainDefaultUserSettingsOutput) RStudioServerProAppSettings() DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsRStudioServerProAppSettings {
+		return v.RStudioServerProAppSettings
+	}).(DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput)
+}
+
 // A list of security group IDs that will be attached to the user.
 func (o DomainDefaultUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
@@ -5555,6 +5566,16 @@ func (o DomainDefaultUserSettingsPtrOutput) RSessionAppSettings() DomainDefaultU
 	}).(DomainDefaultUserSettingsRSessionAppSettingsPtrOutput)
 }
 
+// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+func (o DomainDefaultUserSettingsPtrOutput) RStudioServerProAppSettings() DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsRStudioServerProAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RStudioServerProAppSettings
+	}).(DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput)
+}
+
 // A list of security group IDs that will be attached to the user.
 func (o DomainDefaultUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettings) []string {
@@ -5586,7 +5607,9 @@ func (o DomainDefaultUserSettingsPtrOutput) TensorBoardAppSettings() DomainDefau
 }
 
 type DomainDefaultUserSettingsCanvasAppSettings struct {
-	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+	// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+	ModelRegisterSettings *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings `pulumi:"modelRegisterSettings"`
+	// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings `pulumi:"timeSeriesForecastingSettings"`
 }
 
@@ -5602,7 +5625,9 @@ type DomainDefaultUserSettingsCanvasAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsCanvasAppSettingsArgs struct {
-	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+	// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+	ModelRegisterSettings DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput `pulumi:"modelRegisterSettings"`
+	// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput `pulumi:"timeSeriesForecastingSettings"`
 }
 
@@ -5683,7 +5708,14 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) ToDomainDefaultUserSet
 	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
 }
 
-// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) ModelRegisterSettings() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings {
+		return v.ModelRegisterSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
+}
+
+// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) TimeSeriesForecastingSettings() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
 		return v.TimeSeriesForecastingSettings
@@ -5714,7 +5746,17 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) Elem() DomainDefaul
 	}).(DomainDefaultUserSettingsCanvasAppSettingsOutput)
 }
 
-// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) ModelRegisterSettings() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings {
+		if v == nil {
+			return nil
+		}
+		return v.ModelRegisterSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
+}
+
+// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecastingSettings() DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
 		if v == nil {
@@ -5722,6 +5764,164 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecasti
 		}
 		return v.TimeSeriesForecastingSettings
 	}).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings struct {
+	// The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+	CrossAccountModelRegisterRoleArn *string `pulumi:"crossAccountModelRegisterRoleArn"`
+	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs and DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsInput` via:
+//
+//	DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{...}
+type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs struct {
+	// The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+	CrossAccountModelRegisterRoleArn pulumi.StringPtrInput `pulumi:"crossAccountModelRegisterRoleArn"`
+	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput).ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs, DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtr and DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrType DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs
+
+func DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtr(v *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs) DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput {
+	return (*domainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings) *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings {
+		return &v
+	}).(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) CrossAccountModelRegisterRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings) *string {
+		return v.CrossAccountModelRegisterRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) Elem() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings) DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings
+		return ret
+	}).(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) CrossAccountModelRegisterRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossAccountModelRegisterRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings struct {
@@ -7335,6 +7535,162 @@ func (o DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainDefaultUserSettingsRStudioServerProAppSettings struct {
+	// Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
+	AccessStatus *string `pulumi:"accessStatus"`
+	// The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
+	UserGroup *string `pulumi:"userGroup"`
+}
+
+// DomainDefaultUserSettingsRStudioServerProAppSettingsInput is an input type that accepts DomainDefaultUserSettingsRStudioServerProAppSettingsArgs and DomainDefaultUserSettingsRStudioServerProAppSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsRStudioServerProAppSettingsInput` via:
+//
+//	DomainDefaultUserSettingsRStudioServerProAppSettingsArgs{...}
+type DomainDefaultUserSettingsRStudioServerProAppSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsRStudioServerProAppSettingsOutput() DomainDefaultUserSettingsRStudioServerProAppSettingsOutput
+	ToDomainDefaultUserSettingsRStudioServerProAppSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsRStudioServerProAppSettingsOutput
+}
+
+type DomainDefaultUserSettingsRStudioServerProAppSettingsArgs struct {
+	// Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
+	AccessStatus pulumi.StringPtrInput `pulumi:"accessStatus"`
+	// The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
+	UserGroup pulumi.StringPtrInput `pulumi:"userGroup"`
+}
+
+func (DomainDefaultUserSettingsRStudioServerProAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsRStudioServerProAppSettingsArgs) ToDomainDefaultUserSettingsRStudioServerProAppSettingsOutput() DomainDefaultUserSettingsRStudioServerProAppSettingsOutput {
+	return i.ToDomainDefaultUserSettingsRStudioServerProAppSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsRStudioServerProAppSettingsArgs) ToDomainDefaultUserSettingsRStudioServerProAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRStudioServerProAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsRStudioServerProAppSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsRStudioServerProAppSettingsArgs) ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput() DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsRStudioServerProAppSettingsArgs) ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsRStudioServerProAppSettingsOutput).ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsRStudioServerProAppSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsRStudioServerProAppSettingsArgs, DomainDefaultUserSettingsRStudioServerProAppSettingsPtr and DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsRStudioServerProAppSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsRStudioServerProAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsRStudioServerProAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput() DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput
+	ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsRStudioServerProAppSettingsPtrType DomainDefaultUserSettingsRStudioServerProAppSettingsArgs
+
+func DomainDefaultUserSettingsRStudioServerProAppSettingsPtr(v *DomainDefaultUserSettingsRStudioServerProAppSettingsArgs) DomainDefaultUserSettingsRStudioServerProAppSettingsPtrInput {
+	return (*domainDefaultUserSettingsRStudioServerProAppSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsRStudioServerProAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsRStudioServerProAppSettingsPtrType) ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput() DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsRStudioServerProAppSettingsPtrType) ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsRStudioServerProAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsRStudioServerProAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsRStudioServerProAppSettingsOutput) ToDomainDefaultUserSettingsRStudioServerProAppSettingsOutput() DomainDefaultUserSettingsRStudioServerProAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRStudioServerProAppSettingsOutput) ToDomainDefaultUserSettingsRStudioServerProAppSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRStudioServerProAppSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRStudioServerProAppSettingsOutput) ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput() DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsRStudioServerProAppSettingsOutput) ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsRStudioServerProAppSettings) *DomainDefaultUserSettingsRStudioServerProAppSettings {
+		return &v
+	}).(DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput)
+}
+
+// Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsRStudioServerProAppSettingsOutput) AccessStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsRStudioServerProAppSettings) *string { return v.AccessStatus }).(pulumi.StringPtrOutput)
+}
+
+// The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
+func (o DomainDefaultUserSettingsRStudioServerProAppSettingsOutput) UserGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsRStudioServerProAppSettings) *string { return v.UserGroup }).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput) ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput() DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput) ToDomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput) Elem() DomainDefaultUserSettingsRStudioServerProAppSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsRStudioServerProAppSettings) DomainDefaultUserSettingsRStudioServerProAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsRStudioServerProAppSettings
+		return ret
+	}).(DomainDefaultUserSettingsRStudioServerProAppSettingsOutput)
+}
+
+// Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput) AccessStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsRStudioServerProAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
+func (o DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput) UserGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsRStudioServerProAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserGroup
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainDefaultUserSettingsSharingSettings struct {
 	// Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
 	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
@@ -7854,6 +8210,8 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 type DomainDomainSettings struct {
 	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
 	ExecutionRoleIdentityConfig *string `pulumi:"executionRoleIdentityConfig"`
+	// A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+	RStudioServerProDomainSettings *DomainDomainSettingsRStudioServerProDomainSettings `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 }
@@ -7872,6 +8230,8 @@ type DomainDomainSettingsInput interface {
 type DomainDomainSettingsArgs struct {
 	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
 	ExecutionRoleIdentityConfig pulumi.StringPtrInput `pulumi:"executionRoleIdentityConfig"`
+	// A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+	RStudioServerProDomainSettings DomainDomainSettingsRStudioServerProDomainSettingsPtrInput `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 }
@@ -7958,6 +8318,13 @@ func (o DomainDomainSettingsOutput) ExecutionRoleIdentityConfig() pulumi.StringP
 	return o.ApplyT(func(v DomainDomainSettings) *string { return v.ExecutionRoleIdentityConfig }).(pulumi.StringPtrOutput)
 }
 
+// A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+func (o DomainDomainSettingsOutput) RStudioServerProDomainSettings() DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDomainSettings) *DomainDomainSettingsRStudioServerProDomainSettings {
+		return v.RStudioServerProDomainSettings
+	}).(DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput)
+}
+
 // The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
 func (o DomainDomainSettingsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDomainSettings) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -7997,6 +8364,16 @@ func (o DomainDomainSettingsPtrOutput) ExecutionRoleIdentityConfig() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+func (o DomainDomainSettingsPtrOutput) RStudioServerProDomainSettings() DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettings) *DomainDomainSettingsRStudioServerProDomainSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RStudioServerProDomainSettings
+	}).(DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput)
+}
+
 // The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
 func (o DomainDomainSettingsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainDomainSettings) []string {
@@ -8005,6 +8382,404 @@ func (o DomainDomainSettingsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutp
 		}
 		return v.SecurityGroupIds
 	}).(pulumi.StringArrayOutput)
+}
+
+type DomainDomainSettingsRStudioServerProDomainSettings struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
+	// The ARN of the execution role for the RStudioServerPro Domain-level app.
+	DomainExecutionRoleArn string `pulumi:"domainExecutionRoleArn"`
+	// A URL pointing to an RStudio Connect server.
+	RStudioConnectUrl *string `pulumi:"rStudioConnectUrl"`
+	// A URL pointing to an RStudio Package Manager server.
+	RStudioPackageManagerUrl *string `pulumi:"rStudioPackageManagerUrl"`
+}
+
+// DomainDomainSettingsRStudioServerProDomainSettingsInput is an input type that accepts DomainDomainSettingsRStudioServerProDomainSettingsArgs and DomainDomainSettingsRStudioServerProDomainSettingsOutput values.
+// You can construct a concrete instance of `DomainDomainSettingsRStudioServerProDomainSettingsInput` via:
+//
+//	DomainDomainSettingsRStudioServerProDomainSettingsArgs{...}
+type DomainDomainSettingsRStudioServerProDomainSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDomainSettingsRStudioServerProDomainSettingsOutput() DomainDomainSettingsRStudioServerProDomainSettingsOutput
+	ToDomainDomainSettingsRStudioServerProDomainSettingsOutputWithContext(context.Context) DomainDomainSettingsRStudioServerProDomainSettingsOutput
+}
+
+type DomainDomainSettingsRStudioServerProDomainSettingsArgs struct {
+	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+	DefaultResourceSpec DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+	// The ARN of the execution role for the RStudioServerPro Domain-level app.
+	DomainExecutionRoleArn pulumi.StringInput `pulumi:"domainExecutionRoleArn"`
+	// A URL pointing to an RStudio Connect server.
+	RStudioConnectUrl pulumi.StringPtrInput `pulumi:"rStudioConnectUrl"`
+	// A URL pointing to an RStudio Package Manager server.
+	RStudioPackageManagerUrl pulumi.StringPtrInput `pulumi:"rStudioPackageManagerUrl"`
+}
+
+func (DomainDomainSettingsRStudioServerProDomainSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainSettingsRStudioServerProDomainSettings)(nil)).Elem()
+}
+
+func (i DomainDomainSettingsRStudioServerProDomainSettingsArgs) ToDomainDomainSettingsRStudioServerProDomainSettingsOutput() DomainDomainSettingsRStudioServerProDomainSettingsOutput {
+	return i.ToDomainDomainSettingsRStudioServerProDomainSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDomainSettingsRStudioServerProDomainSettingsArgs) ToDomainDomainSettingsRStudioServerProDomainSettingsOutputWithContext(ctx context.Context) DomainDomainSettingsRStudioServerProDomainSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainSettingsRStudioServerProDomainSettingsOutput)
+}
+
+func (i DomainDomainSettingsRStudioServerProDomainSettingsArgs) ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutput() DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput {
+	return i.ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDomainSettingsRStudioServerProDomainSettingsArgs) ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutputWithContext(ctx context.Context) DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainSettingsRStudioServerProDomainSettingsOutput).ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDomainSettingsRStudioServerProDomainSettingsPtrInput is an input type that accepts DomainDomainSettingsRStudioServerProDomainSettingsArgs, DomainDomainSettingsRStudioServerProDomainSettingsPtr and DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDomainSettingsRStudioServerProDomainSettingsPtrInput` via:
+//
+//	        DomainDomainSettingsRStudioServerProDomainSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDomainSettingsRStudioServerProDomainSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutput() DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput
+	ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutputWithContext(context.Context) DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput
+}
+
+type domainDomainSettingsRStudioServerProDomainSettingsPtrType DomainDomainSettingsRStudioServerProDomainSettingsArgs
+
+func DomainDomainSettingsRStudioServerProDomainSettingsPtr(v *DomainDomainSettingsRStudioServerProDomainSettingsArgs) DomainDomainSettingsRStudioServerProDomainSettingsPtrInput {
+	return (*domainDomainSettingsRStudioServerProDomainSettingsPtrType)(v)
+}
+
+func (*domainDomainSettingsRStudioServerProDomainSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainSettingsRStudioServerProDomainSettings)(nil)).Elem()
+}
+
+func (i *domainDomainSettingsRStudioServerProDomainSettingsPtrType) ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutput() DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput {
+	return i.ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDomainSettingsRStudioServerProDomainSettingsPtrType) ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutputWithContext(ctx context.Context) DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput)
+}
+
+type DomainDomainSettingsRStudioServerProDomainSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDomainSettingsRStudioServerProDomainSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainSettingsRStudioServerProDomainSettings)(nil)).Elem()
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsOutput) ToDomainDomainSettingsRStudioServerProDomainSettingsOutput() DomainDomainSettingsRStudioServerProDomainSettingsOutput {
+	return o
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsOutput) ToDomainDomainSettingsRStudioServerProDomainSettingsOutputWithContext(ctx context.Context) DomainDomainSettingsRStudioServerProDomainSettingsOutput {
+	return o
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsOutput) ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutput() DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput {
+	return o.ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsOutput) ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutputWithContext(ctx context.Context) DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDomainSettingsRStudioServerProDomainSettings) *DomainDomainSettingsRStudioServerProDomainSettings {
+		return &v
+	}).(DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsOutput) DefaultResourceSpec() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettings) *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec {
+		return v.DefaultResourceSpec
+	}).(DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The ARN of the execution role for the RStudioServerPro Domain-level app.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsOutput) DomainExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettings) string { return v.DomainExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+// A URL pointing to an RStudio Connect server.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsOutput) RStudioConnectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettings) *string { return v.RStudioConnectUrl }).(pulumi.StringPtrOutput)
+}
+
+// A URL pointing to an RStudio Package Manager server.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsOutput) RStudioPackageManagerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettings) *string { return v.RStudioPackageManagerUrl }).(pulumi.StringPtrOutput)
+}
+
+type DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainSettingsRStudioServerProDomainSettings)(nil)).Elem()
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutput() DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) ToDomainDomainSettingsRStudioServerProDomainSettingsPtrOutputWithContext(ctx context.Context) DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) Elem() DomainDomainSettingsRStudioServerProDomainSettingsOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettings) DomainDomainSettingsRStudioServerProDomainSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDomainSettingsRStudioServerProDomainSettings
+		return ret
+	}).(DomainDomainSettingsRStudioServerProDomainSettingsOutput)
+}
+
+// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) DefaultResourceSpec() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettings) *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The ARN of the execution role for the RStudioServerPro Domain-level app.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) DomainExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A URL pointing to an RStudio Connect server.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) RStudioConnectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RStudioConnectUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// A URL pointing to an RStudio Package Manager server.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput) RStudioPackageManagerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RStudioPackageManagerUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec struct {
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn *string `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn *string `pulumi:"sagemakerImageVersionArn"`
+}
+
+// DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecInput is an input type that accepts DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs and DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput values.
+// You can construct a concrete instance of `DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecInput` via:
+//
+//	DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs{...}
+type DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecInput interface {
+	pulumi.Input
+
+	ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput
+	ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutputWithContext(context.Context) DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput
+}
+
+type DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs struct {
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
+	// The ARN of the SageMaker image that the image version belongs to.
+	SagemakerImageArn pulumi.StringPtrInput `pulumi:"sagemakerImageArn"`
+	// The ARN of the image version created on the instance.
+	SagemakerImageVersionArn pulumi.StringPtrInput `pulumi:"sagemakerImageVersionArn"`
+}
+
+func (DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs) ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput {
+	return i.ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutputWithContext(context.Background())
+}
+
+func (i DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs) ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput)
+}
+
+func (i DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs) ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs) ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput).ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutputWithContext(ctx)
+}
+
+// DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrInput is an input type that accepts DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs, DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtr and DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput values.
+// You can construct a concrete instance of `DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrInput` via:
+//
+//	        DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput
+	ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutputWithContext(context.Context) DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput
+}
+
+type domainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrType DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs
+
+func DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtr(v *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs) DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrInput {
+	return (*domainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrType)(v)
+}
+
+func (*domainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (i *domainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrType) ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
+	return i.ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrType) ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput)
+}
+
+type DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput) ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput) ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutputWithContext(ctx context.Context) DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput {
+	return o
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput) ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
+	return o.ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput) ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec {
+		return &v
+	}).(DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput)
+}
+
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec)(nil)).Elem()
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput) ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput) ToDomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput) Elem() DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec
+		return ret
+	}).(DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput)
+}
+
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput) LifecycleConfigArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LifecycleConfigArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SageMaker image that the image version belongs to.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput) SagemakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the image version created on the instance.
+func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput) SagemakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainRetentionPolicy struct {
@@ -8448,6 +9223,8 @@ type EndpointConfigurationAsyncInferenceConfigOutputConfig struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies the configuration for notifications of inference results for asynchronous inference.
 	NotificationConfig *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig `pulumi:"notificationConfig"`
+	// The Amazon S3 location to upload failure inference responses to.
+	S3FailurePath *string `pulumi:"s3FailurePath"`
 	// The Amazon S3 location to upload inference responses to.
 	S3OutputPath string `pulumi:"s3OutputPath"`
 }
@@ -8468,6 +9245,8 @@ type EndpointConfigurationAsyncInferenceConfigOutputConfigArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Specifies the configuration for notifications of inference results for asynchronous inference.
 	NotificationConfig EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrInput `pulumi:"notificationConfig"`
+	// The Amazon S3 location to upload failure inference responses to.
+	S3FailurePath pulumi.StringPtrInput `pulumi:"s3FailurePath"`
 	// The Amazon S3 location to upload inference responses to.
 	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
 }
@@ -8561,6 +9340,11 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) Notificatio
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput)
 }
 
+// The Amazon S3 location to upload failure inference responses to.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) S3FailurePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfig) *string { return v.S3FailurePath }).(pulumi.StringPtrOutput)
+}
+
 // The Amazon S3 location to upload inference responses to.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) S3OutputPath() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
@@ -8610,6 +9394,16 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) Notifica
 	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput)
 }
 
+// The Amazon S3 location to upload failure inference responses to.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) S3FailurePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3FailurePath
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Amazon S3 location to upload inference responses to.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) *string {
@@ -8623,6 +9417,8 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) S3Output
 type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig struct {
 	// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
 	ErrorTopic *string `pulumi:"errorTopic"`
+	// The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+	IncludeInferenceResponseIns []string `pulumi:"includeInferenceResponseIns"`
 	// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
 	SuccessTopic *string `pulumi:"successTopic"`
 }
@@ -8641,6 +9437,8 @@ type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigInpu
 type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs struct {
 	// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
 	ErrorTopic pulumi.StringPtrInput `pulumi:"errorTopic"`
+	// The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+	IncludeInferenceResponseIns pulumi.StringArrayInput `pulumi:"includeInferenceResponseIns"`
 	// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
 	SuccessTopic pulumi.StringPtrInput `pulumi:"successTopic"`
 }
@@ -8729,6 +9527,13 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) IncludeInferenceResponseIns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) []string {
+		return v.IncludeInferenceResponseIns
+	}).(pulumi.StringArrayOutput)
+}
+
 // Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
 func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) SuccessTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
@@ -8768,6 +9573,16 @@ func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigP
 		}
 		return v.ErrorTopic
 	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput) IncludeInferenceResponseIns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeInferenceResponseIns
+	}).(pulumi.StringArrayOutput)
 }
 
 // Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
@@ -16833,6 +17648,8 @@ type UserProfileUserSettings struct {
 	KernelGatewayAppSettings *UserProfileUserSettingsKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
 	// The RSession app settings. See RSession App Settings below.
 	RSessionAppSettings *UserProfileUserSettingsRSessionAppSettings `pulumi:"rSessionAppSettings"`
+	// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+	RStudioServerProAppSettings *UserProfileUserSettingsRStudioServerProAppSettings `pulumi:"rStudioServerProAppSettings"`
 	// The security groups.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
@@ -16863,6 +17680,8 @@ type UserProfileUserSettingsArgs struct {
 	KernelGatewayAppSettings UserProfileUserSettingsKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
 	// The RSession app settings. See RSession App Settings below.
 	RSessionAppSettings UserProfileUserSettingsRSessionAppSettingsPtrInput `pulumi:"rSessionAppSettings"`
+	// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+	RStudioServerProAppSettings UserProfileUserSettingsRStudioServerProAppSettingsPtrInput `pulumi:"rStudioServerProAppSettings"`
 	// The security groups.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The sharing settings. See Sharing Settings below.
@@ -16979,6 +17798,13 @@ func (o UserProfileUserSettingsOutput) RSessionAppSettings() UserProfileUserSett
 	}).(UserProfileUserSettingsRSessionAppSettingsPtrOutput)
 }
 
+// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+func (o UserProfileUserSettingsOutput) RStudioServerProAppSettings() UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettingsRStudioServerProAppSettings {
+		return v.RStudioServerProAppSettings
+	}).(UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput)
+}
+
 // The security groups.
 func (o UserProfileUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
@@ -17070,6 +17896,16 @@ func (o UserProfileUserSettingsPtrOutput) RSessionAppSettings() UserProfileUserS
 	}).(UserProfileUserSettingsRSessionAppSettingsPtrOutput)
 }
 
+// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+func (o UserProfileUserSettingsPtrOutput) RStudioServerProAppSettings() UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileUserSettingsRStudioServerProAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RStudioServerProAppSettings
+	}).(UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput)
+}
+
 // The security groups.
 func (o UserProfileUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) []string {
@@ -17101,6 +17937,8 @@ func (o UserProfileUserSettingsPtrOutput) TensorBoardAppSettings() UserProfileUs
 }
 
 type UserProfileUserSettingsCanvasAppSettings struct {
+	// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+	ModelRegisterSettings *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings `pulumi:"modelRegisterSettings"`
 	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings `pulumi:"timeSeriesForecastingSettings"`
 }
@@ -17117,6 +17955,8 @@ type UserProfileUserSettingsCanvasAppSettingsInput interface {
 }
 
 type UserProfileUserSettingsCanvasAppSettingsArgs struct {
+	// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+	ModelRegisterSettings UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput `pulumi:"modelRegisterSettings"`
 	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput `pulumi:"timeSeriesForecastingSettings"`
 }
@@ -17198,6 +18038,13 @@ func (o UserProfileUserSettingsCanvasAppSettingsOutput) ToUserProfileUserSetting
 	}).(UserProfileUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+func (o UserProfileUserSettingsCanvasAppSettingsOutput) ModelRegisterSettings() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings {
+		return v.ModelRegisterSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
+}
+
 // Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 func (o UserProfileUserSettingsCanvasAppSettingsOutput) TimeSeriesForecastingSettings() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
@@ -17229,6 +18076,16 @@ func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) Elem() UserProfileUse
 	}).(UserProfileUserSettingsCanvasAppSettingsOutput)
 }
 
+// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) ModelRegisterSettings() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings {
+		if v == nil {
+			return nil
+		}
+		return v.ModelRegisterSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
+}
+
 // Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecastingSettings() UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings {
@@ -17237,6 +18094,164 @@ func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecasting
 		}
 		return v.TimeSeriesForecastingSettings
 	}).(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings struct {
+	// The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+	CrossAccountModelRegisterRoleArn *string `pulumi:"crossAccountModelRegisterRoleArn"`
+	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs and UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsInput` via:
+//
+//	UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{...}
+type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput
+	ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput
+}
+
+type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs struct {
+	// The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+	CrossAccountModelRegisterRoleArn pulumi.StringPtrInput `pulumi:"crossAccountModelRegisterRoleArn"`
+	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput)
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput).ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs, UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtr and UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput
+	ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput
+}
+
+type userProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrType UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs
+
+func UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtr(v *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs) UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput {
+	return (*userProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings) *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings {
+		return &v
+	}).(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) CrossAccountModelRegisterRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings) *string {
+		return v.CrossAccountModelRegisterRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) Elem() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings) UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings
+		return ret
+	}).(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput)
+}
+
+// The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) CrossAccountModelRegisterRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossAccountModelRegisterRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 type UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings struct {
@@ -18843,6 +19858,162 @@ func (o UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput) 
 			return nil
 		}
 		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsRStudioServerProAppSettings struct {
+	// Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
+	AccessStatus *string `pulumi:"accessStatus"`
+	// The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
+	UserGroup *string `pulumi:"userGroup"`
+}
+
+// UserProfileUserSettingsRStudioServerProAppSettingsInput is an input type that accepts UserProfileUserSettingsRStudioServerProAppSettingsArgs and UserProfileUserSettingsRStudioServerProAppSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsRStudioServerProAppSettingsInput` via:
+//
+//	UserProfileUserSettingsRStudioServerProAppSettingsArgs{...}
+type UserProfileUserSettingsRStudioServerProAppSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsRStudioServerProAppSettingsOutput() UserProfileUserSettingsRStudioServerProAppSettingsOutput
+	ToUserProfileUserSettingsRStudioServerProAppSettingsOutputWithContext(context.Context) UserProfileUserSettingsRStudioServerProAppSettingsOutput
+}
+
+type UserProfileUserSettingsRStudioServerProAppSettingsArgs struct {
+	// Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
+	AccessStatus pulumi.StringPtrInput `pulumi:"accessStatus"`
+	// The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
+	UserGroup pulumi.StringPtrInput `pulumi:"userGroup"`
+}
+
+func (UserProfileUserSettingsRStudioServerProAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsRStudioServerProAppSettingsArgs) ToUserProfileUserSettingsRStudioServerProAppSettingsOutput() UserProfileUserSettingsRStudioServerProAppSettingsOutput {
+	return i.ToUserProfileUserSettingsRStudioServerProAppSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsRStudioServerProAppSettingsArgs) ToUserProfileUserSettingsRStudioServerProAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsRStudioServerProAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsRStudioServerProAppSettingsOutput)
+}
+
+func (i UserProfileUserSettingsRStudioServerProAppSettingsArgs) ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutput() UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsRStudioServerProAppSettingsArgs) ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsRStudioServerProAppSettingsOutput).ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsRStudioServerProAppSettingsPtrInput is an input type that accepts UserProfileUserSettingsRStudioServerProAppSettingsArgs, UserProfileUserSettingsRStudioServerProAppSettingsPtr and UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsRStudioServerProAppSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsRStudioServerProAppSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsRStudioServerProAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutput() UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput
+	ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput
+}
+
+type userProfileUserSettingsRStudioServerProAppSettingsPtrType UserProfileUserSettingsRStudioServerProAppSettingsArgs
+
+func UserProfileUserSettingsRStudioServerProAppSettingsPtr(v *UserProfileUserSettingsRStudioServerProAppSettingsArgs) UserProfileUserSettingsRStudioServerProAppSettingsPtrInput {
+	return (*userProfileUserSettingsRStudioServerProAppSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsRStudioServerProAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsRStudioServerProAppSettingsPtrType) ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutput() UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsRStudioServerProAppSettingsPtrType) ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsRStudioServerProAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsRStudioServerProAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsRStudioServerProAppSettingsOutput) ToUserProfileUserSettingsRStudioServerProAppSettingsOutput() UserProfileUserSettingsRStudioServerProAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRStudioServerProAppSettingsOutput) ToUserProfileUserSettingsRStudioServerProAppSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsRStudioServerProAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRStudioServerProAppSettingsOutput) ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutput() UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsRStudioServerProAppSettingsOutput) ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsRStudioServerProAppSettings) *UserProfileUserSettingsRStudioServerProAppSettings {
+		return &v
+	}).(UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput)
+}
+
+// Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsRStudioServerProAppSettingsOutput) AccessStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsRStudioServerProAppSettings) *string { return v.AccessStatus }).(pulumi.StringPtrOutput)
+}
+
+// The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
+func (o UserProfileUserSettingsRStudioServerProAppSettingsOutput) UserGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsRStudioServerProAppSettings) *string { return v.UserGroup }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsRStudioServerProAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput) ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutput() UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput) ToUserProfileUserSettingsRStudioServerProAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput) Elem() UserProfileUserSettingsRStudioServerProAppSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsRStudioServerProAppSettings) UserProfileUserSettingsRStudioServerProAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsRStudioServerProAppSettings
+		return ret
+	}).(UserProfileUserSettingsRStudioServerProAppSettingsOutput)
+}
+
+// Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput) AccessStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsRStudioServerProAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
+func (o UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput) UserGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsRStudioServerProAppSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserGroup
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -20743,6 +21914,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsArgs{})
@@ -20763,6 +21936,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayInput)(nil)).Elem(), DomainDefaultUserSettingsRSessionAppSettingsCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsRStudioServerProAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsRStudioServerProAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsRStudioServerProAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsRStudioServerProAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsSharingSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsSharingSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsTensorBoardAppSettingsArgs{})
@@ -20771,6 +21946,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsInput)(nil)).Elem(), DomainDomainSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsPtrInput)(nil)).Elem(), DomainDomainSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsRStudioServerProDomainSettingsInput)(nil)).Elem(), DomainDomainSettingsRStudioServerProDomainSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsRStudioServerProDomainSettingsPtrInput)(nil)).Elem(), DomainDomainSettingsRStudioServerProDomainSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRetentionPolicyInput)(nil)).Elem(), DomainRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRetentionPolicyPtrInput)(nil)).Elem(), DomainRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationAsyncInferenceConfigInput)(nil)).Elem(), EndpointConfigurationAsyncInferenceConfigArgs{})
@@ -20885,6 +22064,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsArgs{})
@@ -20905,6 +22086,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsCustomImageArrayInput)(nil)).Elem(), UserProfileUserSettingsRSessionAppSettingsCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecInput)(nil)).Elem(), UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsRStudioServerProAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsRStudioServerProAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsRStudioServerProAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsRStudioServerProAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsSharingSettingsInput)(nil)).Elem(), UserProfileUserSettingsSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsSharingSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsSharingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsTensorBoardAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsTensorBoardAppSettingsArgs{})
@@ -20995,6 +22178,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsOutput{})
@@ -21015,6 +22200,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsRStudioServerProAppSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsRStudioServerProAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsSharingSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsSharingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsOutput{})
@@ -21023,6 +22210,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(DomainDomainSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDomainSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDomainSettingsRStudioServerProDomainSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput{})
+	pulumi.RegisterOutputType(DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(DomainRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(DomainRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationAsyncInferenceConfigOutput{})
@@ -21137,6 +22328,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsOutput{})
@@ -21157,6 +22350,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsRSessionAppSettingsCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsRStudioServerProAppSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsRStudioServerProAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsSharingSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsSharingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsOutput{})

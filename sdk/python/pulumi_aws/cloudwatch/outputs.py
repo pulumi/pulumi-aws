@@ -2248,12 +2248,33 @@ class MetricAlarmMetricQueryMetric(dict):
 
 @pulumi.output_type
 class MetricStreamExcludeFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricNames":
+            suggest = "metric_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricStreamExcludeFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricStreamExcludeFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricStreamExcludeFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 namespace: str):
+                 namespace: str,
+                 metric_names: Optional[Sequence[str]] = None):
         """
         :param str namespace: Name of the metric namespace in the filter.
+        :param Sequence[str] metric_names: An array that defines the metrics you want to exclude for this metric namespace
         """
         pulumi.set(__self__, "namespace", namespace)
+        if metric_names is not None:
+            pulumi.set(__self__, "metric_names", metric_names)
 
     @property
     @pulumi.getter
@@ -2262,16 +2283,45 @@ class MetricStreamExcludeFilter(dict):
         Name of the metric namespace in the filter.
         """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> Optional[Sequence[str]]:
+        """
+        An array that defines the metrics you want to exclude for this metric namespace
+        """
+        return pulumi.get(self, "metric_names")
 
 
 @pulumi.output_type
 class MetricStreamIncludeFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricNames":
+            suggest = "metric_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricStreamIncludeFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricStreamIncludeFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricStreamIncludeFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 namespace: str):
+                 namespace: str,
+                 metric_names: Optional[Sequence[str]] = None):
         """
         :param str namespace: Name of the metric namespace in the filter.
+        :param Sequence[str] metric_names: An array that defines the metrics you want to include for this metric namespace
         """
         pulumi.set(__self__, "namespace", namespace)
+        if metric_names is not None:
+            pulumi.set(__self__, "metric_names", metric_names)
 
     @property
     @pulumi.getter
@@ -2280,6 +2330,14 @@ class MetricStreamIncludeFilter(dict):
         Name of the metric namespace in the filter.
         """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> Optional[Sequence[str]]:
+        """
+        An array that defines the metrics you want to include for this metric namespace
+        """
+        return pulumi.get(self, "metric_names")
 
 
 @pulumi.output_type

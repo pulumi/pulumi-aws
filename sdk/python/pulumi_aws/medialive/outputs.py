@@ -104,6 +104,16 @@ __all__ = [
     'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings',
     'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings',
     'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings',
     'ChannelInputAttachment',
     'ChannelInputAttachmentAutomaticInputFailoverSettings',
     'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition',
@@ -6849,6 +6859,8 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettings(dict):
             suggest = "frame_capture_settings"
         elif key == "h264Settings":
             suggest = "h264_settings"
+        elif key == "h265Settings":
+            suggest = "h265_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettings. Access the value via the '{suggest}' property getter instead.")
@@ -6863,7 +6875,8 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettings(dict):
 
     def __init__(__self__, *,
                  frame_capture_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings'] = None,
-                 h264_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings'] = None):
+                 h264_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings'] = None,
+                 h265_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings'] = None):
         """
         :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs' frame_capture_settings: Frame capture settings. See Frame Capture Settings for more details.
         :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs' h264_settings: H264 settings. See H264 Settings for more details.
@@ -6872,6 +6885,8 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettings(dict):
             pulumi.set(__self__, "frame_capture_settings", frame_capture_settings)
         if h264_settings is not None:
             pulumi.set(__self__, "h264_settings", h264_settings)
+        if h265_settings is not None:
+            pulumi.set(__self__, "h265_settings", h265_settings)
 
     @property
     @pulumi.getter(name="frameCaptureSettings")
@@ -6888,6 +6903,11 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettings(dict):
         H264 settings. See H264 Settings for more details.
         """
         return pulumi.get(self, "h264_settings")
+
+    @property
+    @pulumi.getter(name="h265Settings")
+    def h265_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings']:
+        return pulumi.get(self, "h265_settings")
 
 
 @pulumi.output_type
@@ -7580,6 +7600,739 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSetti
         Filter strength.
         """
         return pulumi.get(self, "strength")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "framerateDenominator":
+            suggest = "framerate_denominator"
+        elif key == "framerateNumerator":
+            suggest = "framerate_numerator"
+        elif key == "adaptiveQuantization":
+            suggest = "adaptive_quantization"
+        elif key == "afdSignaling":
+            suggest = "afd_signaling"
+        elif key == "alternativeTransferFunction":
+            suggest = "alternative_transfer_function"
+        elif key == "bufSize":
+            suggest = "buf_size"
+        elif key == "colorMetadata":
+            suggest = "color_metadata"
+        elif key == "colorSpaceSettings":
+            suggest = "color_space_settings"
+        elif key == "filterSettings":
+            suggest = "filter_settings"
+        elif key == "fixedAfd":
+            suggest = "fixed_afd"
+        elif key == "flickerAq":
+            suggest = "flicker_aq"
+        elif key == "gopClosedCadence":
+            suggest = "gop_closed_cadence"
+        elif key == "gopSize":
+            suggest = "gop_size"
+        elif key == "gopSizeUnits":
+            suggest = "gop_size_units"
+        elif key == "lookAheadRateControl":
+            suggest = "look_ahead_rate_control"
+        elif key == "maxBitrate":
+            suggest = "max_bitrate"
+        elif key == "minIInterval":
+            suggest = "min_i_interval"
+        elif key == "parDenominator":
+            suggest = "par_denominator"
+        elif key == "parNumerator":
+            suggest = "par_numerator"
+        elif key == "qvbrQualityLevel":
+            suggest = "qvbr_quality_level"
+        elif key == "rateControlMode":
+            suggest = "rate_control_mode"
+        elif key == "scanType":
+            suggest = "scan_type"
+        elif key == "sceneChangeDetect":
+            suggest = "scene_change_detect"
+        elif key == "timecodeBurninSettings":
+            suggest = "timecode_burnin_settings"
+        elif key == "timecodeInsertion":
+            suggest = "timecode_insertion"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bitrate: int,
+                 framerate_denominator: int,
+                 framerate_numerator: int,
+                 adaptive_quantization: Optional[str] = None,
+                 afd_signaling: Optional[str] = None,
+                 alternative_transfer_function: Optional[str] = None,
+                 buf_size: Optional[int] = None,
+                 color_metadata: Optional[str] = None,
+                 color_space_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings'] = None,
+                 filter_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings'] = None,
+                 fixed_afd: Optional[str] = None,
+                 flicker_aq: Optional[str] = None,
+                 gop_closed_cadence: Optional[int] = None,
+                 gop_size: Optional[float] = None,
+                 gop_size_units: Optional[str] = None,
+                 level: Optional[str] = None,
+                 look_ahead_rate_control: Optional[str] = None,
+                 max_bitrate: Optional[int] = None,
+                 min_i_interval: Optional[int] = None,
+                 par_denominator: Optional[int] = None,
+                 par_numerator: Optional[int] = None,
+                 profile: Optional[str] = None,
+                 qvbr_quality_level: Optional[int] = None,
+                 rate_control_mode: Optional[str] = None,
+                 scan_type: Optional[str] = None,
+                 scene_change_detect: Optional[str] = None,
+                 slices: Optional[int] = None,
+                 tier: Optional[str] = None,
+                 timecode_burnin_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings'] = None,
+                 timecode_insertion: Optional[str] = None):
+        """
+        :param int bitrate: Average bitrate in bits/second.
+        :param int framerate_denominator: Framerate denominator.
+        :param int framerate_numerator: Framerate numerator.
+        :param str adaptive_quantization: Enables or disables adaptive quantization.
+        :param str afd_signaling: Indicates that AFD values will be written into the output stream.
+        :param str alternative_transfer_function: Whether or not EML should insert an Alternative Transfer Function SEI message.
+        :param int buf_size: Size of buffer in bits.
+        :param str color_metadata: Includes color space metadata in the output.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs' color_space_settings: Define the color metadata for the output. H265 Color Space Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs' filter_settings: Filters to apply to an encode. See H264 Filter Settings for more details.
+        :param str fixed_afd: Four bit AFD value to write on all frames of video in the output stream.
+        :param int gop_closed_cadence: Frequency of closed GOPs.
+        :param float gop_size: GOP size in units of either frames of seconds per `gop_size_units`.
+        :param str gop_size_units: Indicates if the `gop_size` is specified in frames or seconds.
+        :param str level: H264 level.
+        :param str look_ahead_rate_control: Amount of lookahead.
+        :param int max_bitrate: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        :param int par_denominator: Pixel Aspect Ratio denominator.
+        :param int par_numerator: Pixel Aspect Ratio numerator.
+        :param str profile: AAC profile.
+        :param int qvbr_quality_level: Controls the target quality for the video encode.
+        :param str rate_control_mode: The rate control mode.
+        :param str scan_type: Sets the scan type of the output.
+        :param str scene_change_detect: Scene change detection.
+        :param int slices: Number of slices per picture.
+        :param str tier: Set the H265 tier in the output.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs' timecode_burnin_settings: Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+        :param str timecode_insertion: Determines how timecodes should be inserted into the video elementary stream.
+        """
+        pulumi.set(__self__, "bitrate", bitrate)
+        pulumi.set(__self__, "framerate_denominator", framerate_denominator)
+        pulumi.set(__self__, "framerate_numerator", framerate_numerator)
+        if adaptive_quantization is not None:
+            pulumi.set(__self__, "adaptive_quantization", adaptive_quantization)
+        if afd_signaling is not None:
+            pulumi.set(__self__, "afd_signaling", afd_signaling)
+        if alternative_transfer_function is not None:
+            pulumi.set(__self__, "alternative_transfer_function", alternative_transfer_function)
+        if buf_size is not None:
+            pulumi.set(__self__, "buf_size", buf_size)
+        if color_metadata is not None:
+            pulumi.set(__self__, "color_metadata", color_metadata)
+        if color_space_settings is not None:
+            pulumi.set(__self__, "color_space_settings", color_space_settings)
+        if filter_settings is not None:
+            pulumi.set(__self__, "filter_settings", filter_settings)
+        if fixed_afd is not None:
+            pulumi.set(__self__, "fixed_afd", fixed_afd)
+        if flicker_aq is not None:
+            pulumi.set(__self__, "flicker_aq", flicker_aq)
+        if gop_closed_cadence is not None:
+            pulumi.set(__self__, "gop_closed_cadence", gop_closed_cadence)
+        if gop_size is not None:
+            pulumi.set(__self__, "gop_size", gop_size)
+        if gop_size_units is not None:
+            pulumi.set(__self__, "gop_size_units", gop_size_units)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if look_ahead_rate_control is not None:
+            pulumi.set(__self__, "look_ahead_rate_control", look_ahead_rate_control)
+        if max_bitrate is not None:
+            pulumi.set(__self__, "max_bitrate", max_bitrate)
+        if min_i_interval is not None:
+            pulumi.set(__self__, "min_i_interval", min_i_interval)
+        if par_denominator is not None:
+            pulumi.set(__self__, "par_denominator", par_denominator)
+        if par_numerator is not None:
+            pulumi.set(__self__, "par_numerator", par_numerator)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if qvbr_quality_level is not None:
+            pulumi.set(__self__, "qvbr_quality_level", qvbr_quality_level)
+        if rate_control_mode is not None:
+            pulumi.set(__self__, "rate_control_mode", rate_control_mode)
+        if scan_type is not None:
+            pulumi.set(__self__, "scan_type", scan_type)
+        if scene_change_detect is not None:
+            pulumi.set(__self__, "scene_change_detect", scene_change_detect)
+        if slices is not None:
+            pulumi.set(__self__, "slices", slices)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+        if timecode_burnin_settings is not None:
+            pulumi.set(__self__, "timecode_burnin_settings", timecode_burnin_settings)
+        if timecode_insertion is not None:
+            pulumi.set(__self__, "timecode_insertion", timecode_insertion)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> int:
+        """
+        Average bitrate in bits/second.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="framerateDenominator")
+    def framerate_denominator(self) -> int:
+        """
+        Framerate denominator.
+        """
+        return pulumi.get(self, "framerate_denominator")
+
+    @property
+    @pulumi.getter(name="framerateNumerator")
+    def framerate_numerator(self) -> int:
+        """
+        Framerate numerator.
+        """
+        return pulumi.get(self, "framerate_numerator")
+
+    @property
+    @pulumi.getter(name="adaptiveQuantization")
+    def adaptive_quantization(self) -> Optional[str]:
+        """
+        Enables or disables adaptive quantization.
+        """
+        return pulumi.get(self, "adaptive_quantization")
+
+    @property
+    @pulumi.getter(name="afdSignaling")
+    def afd_signaling(self) -> Optional[str]:
+        """
+        Indicates that AFD values will be written into the output stream.
+        """
+        return pulumi.get(self, "afd_signaling")
+
+    @property
+    @pulumi.getter(name="alternativeTransferFunction")
+    def alternative_transfer_function(self) -> Optional[str]:
+        """
+        Whether or not EML should insert an Alternative Transfer Function SEI message.
+        """
+        return pulumi.get(self, "alternative_transfer_function")
+
+    @property
+    @pulumi.getter(name="bufSize")
+    def buf_size(self) -> Optional[int]:
+        """
+        Size of buffer in bits.
+        """
+        return pulumi.get(self, "buf_size")
+
+    @property
+    @pulumi.getter(name="colorMetadata")
+    def color_metadata(self) -> Optional[str]:
+        """
+        Includes color space metadata in the output.
+        """
+        return pulumi.get(self, "color_metadata")
+
+    @property
+    @pulumi.getter(name="colorSpaceSettings")
+    def color_space_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings']:
+        """
+        Define the color metadata for the output. H265 Color Space Settings for more details.
+        """
+        return pulumi.get(self, "color_space_settings")
+
+    @property
+    @pulumi.getter(name="filterSettings")
+    def filter_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings']:
+        """
+        Filters to apply to an encode. See H264 Filter Settings for more details.
+        """
+        return pulumi.get(self, "filter_settings")
+
+    @property
+    @pulumi.getter(name="fixedAfd")
+    def fixed_afd(self) -> Optional[str]:
+        """
+        Four bit AFD value to write on all frames of video in the output stream.
+        """
+        return pulumi.get(self, "fixed_afd")
+
+    @property
+    @pulumi.getter(name="flickerAq")
+    def flicker_aq(self) -> Optional[str]:
+        return pulumi.get(self, "flicker_aq")
+
+    @property
+    @pulumi.getter(name="gopClosedCadence")
+    def gop_closed_cadence(self) -> Optional[int]:
+        """
+        Frequency of closed GOPs.
+        """
+        return pulumi.get(self, "gop_closed_cadence")
+
+    @property
+    @pulumi.getter(name="gopSize")
+    def gop_size(self) -> Optional[float]:
+        """
+        GOP size in units of either frames of seconds per `gop_size_units`.
+        """
+        return pulumi.get(self, "gop_size")
+
+    @property
+    @pulumi.getter(name="gopSizeUnits")
+    def gop_size_units(self) -> Optional[str]:
+        """
+        Indicates if the `gop_size` is specified in frames or seconds.
+        """
+        return pulumi.get(self, "gop_size_units")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        H264 level.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter(name="lookAheadRateControl")
+    def look_ahead_rate_control(self) -> Optional[str]:
+        """
+        Amount of lookahead.
+        """
+        return pulumi.get(self, "look_ahead_rate_control")
+
+    @property
+    @pulumi.getter(name="maxBitrate")
+    def max_bitrate(self) -> Optional[int]:
+        """
+        Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        """
+        return pulumi.get(self, "max_bitrate")
+
+    @property
+    @pulumi.getter(name="minIInterval")
+    def min_i_interval(self) -> Optional[int]:
+        return pulumi.get(self, "min_i_interval")
+
+    @property
+    @pulumi.getter(name="parDenominator")
+    def par_denominator(self) -> Optional[int]:
+        """
+        Pixel Aspect Ratio denominator.
+        """
+        return pulumi.get(self, "par_denominator")
+
+    @property
+    @pulumi.getter(name="parNumerator")
+    def par_numerator(self) -> Optional[int]:
+        """
+        Pixel Aspect Ratio numerator.
+        """
+        return pulumi.get(self, "par_numerator")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[str]:
+        """
+        AAC profile.
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="qvbrQualityLevel")
+    def qvbr_quality_level(self) -> Optional[int]:
+        """
+        Controls the target quality for the video encode.
+        """
+        return pulumi.get(self, "qvbr_quality_level")
+
+    @property
+    @pulumi.getter(name="rateControlMode")
+    def rate_control_mode(self) -> Optional[str]:
+        """
+        The rate control mode.
+        """
+        return pulumi.get(self, "rate_control_mode")
+
+    @property
+    @pulumi.getter(name="scanType")
+    def scan_type(self) -> Optional[str]:
+        """
+        Sets the scan type of the output.
+        """
+        return pulumi.get(self, "scan_type")
+
+    @property
+    @pulumi.getter(name="sceneChangeDetect")
+    def scene_change_detect(self) -> Optional[str]:
+        """
+        Scene change detection.
+        """
+        return pulumi.get(self, "scene_change_detect")
+
+    @property
+    @pulumi.getter
+    def slices(self) -> Optional[int]:
+        """
+        Number of slices per picture.
+        """
+        return pulumi.get(self, "slices")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        Set the H265 tier in the output.
+        """
+        return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter(name="timecodeBurninSettings")
+    def timecode_burnin_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings']:
+        """
+        Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+        """
+        return pulumi.get(self, "timecode_burnin_settings")
+
+    @property
+    @pulumi.getter(name="timecodeInsertion")
+    def timecode_insertion(self) -> Optional[str]:
+        """
+        Determines how timecodes should be inserted into the video elementary stream.
+        """
+        return pulumi.get(self, "timecode_insertion")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "colorSpacePassthroughSettings":
+            suggest = "color_space_passthrough_settings"
+        elif key == "dolbyVision81Settings":
+            suggest = "dolby_vision81_settings"
+        elif key == "hdr10Settings":
+            suggest = "hdr10_settings"
+        elif key == "rec601Settings":
+            suggest = "rec601_settings"
+        elif key == "rec709Settings":
+            suggest = "rec709_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color_space_passthrough_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings'] = None,
+                 dolby_vision81_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings'] = None,
+                 hdr10_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings'] = None,
+                 rec601_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings'] = None,
+                 rec709_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings'] = None):
+        """
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs' color_space_passthrough_settings: Sets the colorspace metadata to be passed through.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs' dolby_vision81_settings: Set the colorspace to Dolby Vision81.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs' hdr10_settings: Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs' rec601_settings: Set the colorspace to Rec. 601.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs' rec709_settings: Set the colorspace to Rec. 709.
+        """
+        if color_space_passthrough_settings is not None:
+            pulumi.set(__self__, "color_space_passthrough_settings", color_space_passthrough_settings)
+        if dolby_vision81_settings is not None:
+            pulumi.set(__self__, "dolby_vision81_settings", dolby_vision81_settings)
+        if hdr10_settings is not None:
+            pulumi.set(__self__, "hdr10_settings", hdr10_settings)
+        if rec601_settings is not None:
+            pulumi.set(__self__, "rec601_settings", rec601_settings)
+        if rec709_settings is not None:
+            pulumi.set(__self__, "rec709_settings", rec709_settings)
+
+    @property
+    @pulumi.getter(name="colorSpacePassthroughSettings")
+    def color_space_passthrough_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings']:
+        """
+        Sets the colorspace metadata to be passed through.
+        """
+        return pulumi.get(self, "color_space_passthrough_settings")
+
+    @property
+    @pulumi.getter(name="dolbyVision81Settings")
+    def dolby_vision81_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings']:
+        """
+        Set the colorspace to Dolby Vision81.
+        """
+        return pulumi.get(self, "dolby_vision81_settings")
+
+    @property
+    @pulumi.getter(name="hdr10Settings")
+    def hdr10_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings']:
+        """
+        Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+        """
+        return pulumi.get(self, "hdr10_settings")
+
+    @property
+    @pulumi.getter(name="rec601Settings")
+    def rec601_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings']:
+        """
+        Set the colorspace to Rec. 601.
+        """
+        return pulumi.get(self, "rec601_settings")
+
+    @property
+    @pulumi.getter(name="rec709Settings")
+    def rec709_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings']:
+        """
+        Set the colorspace to Rec. 709.
+        """
+        return pulumi.get(self, "rec709_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCll":
+            suggest = "max_cll"
+        elif key == "maxFall":
+            suggest = "max_fall"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_cll: Optional[int] = None,
+                 max_fall: Optional[int] = None):
+        """
+        :param int max_cll: Sets the MaxCLL value for HDR10.
+        :param int max_fall: Sets the MaxFALL value for HDR10.
+        """
+        if max_cll is not None:
+            pulumi.set(__self__, "max_cll", max_cll)
+        if max_fall is not None:
+            pulumi.set(__self__, "max_fall", max_fall)
+
+    @property
+    @pulumi.getter(name="maxCll")
+    def max_cll(self) -> Optional[int]:
+        """
+        Sets the MaxCLL value for HDR10.
+        """
+        return pulumi.get(self, "max_cll")
+
+    @property
+    @pulumi.getter(name="maxFall")
+    def max_fall(self) -> Optional[int]:
+        """
+        Sets the MaxFALL value for HDR10.
+        """
+        return pulumi.get(self, "max_fall")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "temporalFilterSettings":
+            suggest = "temporal_filter_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 temporal_filter_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings'] = None):
+        """
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs' temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
+        """
+        if temporal_filter_settings is not None:
+            pulumi.set(__self__, "temporal_filter_settings", temporal_filter_settings)
+
+    @property
+    @pulumi.getter(name="temporalFilterSettings")
+    def temporal_filter_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings']:
+        """
+        Temporal filter settings. See Temporal Filter Settings
+        """
+        return pulumi.get(self, "temporal_filter_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postFilterSharpening":
+            suggest = "post_filter_sharpening"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 post_filter_sharpening: Optional[str] = None,
+                 strength: Optional[str] = None):
+        """
+        :param str post_filter_sharpening: Post filter sharpening.
+        :param str strength: Filter strength.
+        """
+        if post_filter_sharpening is not None:
+            pulumi.set(__self__, "post_filter_sharpening", post_filter_sharpening)
+        if strength is not None:
+            pulumi.set(__self__, "strength", strength)
+
+    @property
+    @pulumi.getter(name="postFilterSharpening")
+    def post_filter_sharpening(self) -> Optional[str]:
+        """
+        Post filter sharpening.
+        """
+        return pulumi.get(self, "post_filter_sharpening")
+
+    @property
+    @pulumi.getter
+    def strength(self) -> Optional[str]:
+        """
+        Filter strength.
+        """
+        return pulumi.get(self, "strength")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timecodeBurninFontSize":
+            suggest = "timecode_burnin_font_size"
+        elif key == "timecodeBurninPosition":
+            suggest = "timecode_burnin_position"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefix: Optional[str] = None,
+                 timecode_burnin_font_size: Optional[str] = None,
+                 timecode_burnin_position: Optional[str] = None):
+        """
+        :param str prefix: Set a prefix on the burned in timecode.
+        :param str timecode_burnin_font_size: Sets the size of the burned in timecode.
+        :param str timecode_burnin_position: Sets the position of the burned in timecode.
+        """
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if timecode_burnin_font_size is not None:
+            pulumi.set(__self__, "timecode_burnin_font_size", timecode_burnin_font_size)
+        if timecode_burnin_position is not None:
+            pulumi.set(__self__, "timecode_burnin_position", timecode_burnin_position)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        Set a prefix on the burned in timecode.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="timecodeBurninFontSize")
+    def timecode_burnin_font_size(self) -> Optional[str]:
+        """
+        Sets the size of the burned in timecode.
+        """
+        return pulumi.get(self, "timecode_burnin_font_size")
+
+    @property
+    @pulumi.getter(name="timecodeBurninPosition")
+    def timecode_burnin_position(self) -> Optional[str]:
+        """
+        Sets the position of the burned in timecode.
+        """
+        return pulumi.get(self, "timecode_burnin_position")
 
 
 @pulumi.output_type

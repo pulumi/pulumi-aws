@@ -26,11 +26,11 @@ class VpnConnectionArgs:
                  remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 tunnel1_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
                  tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel1_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
@@ -50,6 +50,7 @@ class VpnConnectionArgs:
                  tunnel1_startup_action: Optional[pulumi.Input[str]] = None,
                  tunnel2_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel2_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 tunnel2_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
                  tunnel2_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel2_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
@@ -81,11 +82,11 @@ class VpnConnectionArgs:
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[str] transport_transit_gateway_attachment_id: . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
         :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[int] tunnel1_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[bool] tunnel1_enable_tunnel_lifecycle_control: Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
@@ -105,6 +106,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[str] tunnel1_startup_action: The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
         :param pulumi.Input[str] tunnel2_dpd_timeout_action: The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[int] tunnel2_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[bool] tunnel2_enable_tunnel_lifecycle_control: Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_ike_versions: The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
@@ -143,8 +145,6 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "static_routes_only", static_routes_only)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if transport_transit_gateway_attachment_id is not None:
@@ -153,6 +153,8 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "tunnel1_dpd_timeout_action", tunnel1_dpd_timeout_action)
         if tunnel1_dpd_timeout_seconds is not None:
             pulumi.set(__self__, "tunnel1_dpd_timeout_seconds", tunnel1_dpd_timeout_seconds)
+        if tunnel1_enable_tunnel_lifecycle_control is not None:
+            pulumi.set(__self__, "tunnel1_enable_tunnel_lifecycle_control", tunnel1_enable_tunnel_lifecycle_control)
         if tunnel1_ike_versions is not None:
             pulumi.set(__self__, "tunnel1_ike_versions", tunnel1_ike_versions)
         if tunnel1_inside_cidr is not None:
@@ -191,6 +193,8 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "tunnel2_dpd_timeout_action", tunnel2_dpd_timeout_action)
         if tunnel2_dpd_timeout_seconds is not None:
             pulumi.set(__self__, "tunnel2_dpd_timeout_seconds", tunnel2_dpd_timeout_seconds)
+        if tunnel2_enable_tunnel_lifecycle_control is not None:
+            pulumi.set(__self__, "tunnel2_enable_tunnel_lifecycle_control", tunnel2_enable_tunnel_lifecycle_control)
         if tunnel2_ike_versions is not None:
             pulumi.set(__self__, "tunnel2_ike_versions", tunnel2_ike_versions)
         if tunnel2_inside_cidr is not None:
@@ -351,18 +355,6 @@ class VpnConnectionArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
-    @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -409,6 +401,18 @@ class VpnConnectionArgs:
     @tunnel1_dpd_timeout_seconds.setter
     def tunnel1_dpd_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "tunnel1_dpd_timeout_seconds", value)
+
+    @property
+    @pulumi.getter(name="tunnel1EnableTunnelLifecycleControl")
+    def tunnel1_enable_tunnel_lifecycle_control(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+        """
+        return pulumi.get(self, "tunnel1_enable_tunnel_lifecycle_control")
+
+    @tunnel1_enable_tunnel_lifecycle_control.setter
+    def tunnel1_enable_tunnel_lifecycle_control(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tunnel1_enable_tunnel_lifecycle_control", value)
 
     @property
     @pulumi.getter(name="tunnel1IkeVersions")
@@ -637,6 +641,18 @@ class VpnConnectionArgs:
     @tunnel2_dpd_timeout_seconds.setter
     def tunnel2_dpd_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "tunnel2_dpd_timeout_seconds", value)
+
+    @property
+    @pulumi.getter(name="tunnel2EnableTunnelLifecycleControl")
+    def tunnel2_enable_tunnel_lifecycle_control(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+        """
+        return pulumi.get(self, "tunnel2_enable_tunnel_lifecycle_control")
+
+    @tunnel2_enable_tunnel_lifecycle_control.setter
+    def tunnel2_enable_tunnel_lifecycle_control(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tunnel2_enable_tunnel_lifecycle_control", value)
 
     @property
     @pulumi.getter(name="tunnel2IkeVersions")
@@ -894,6 +910,7 @@ class _VpnConnectionState:
                  tunnel1_cgw_inside_address: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 tunnel1_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
                  tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel1_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
@@ -918,6 +935,7 @@ class _VpnConnectionState:
                  tunnel2_cgw_inside_address: Optional[pulumi.Input[str]] = None,
                  tunnel2_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel2_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 tunnel2_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
                  tunnel2_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel2_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
@@ -966,6 +984,7 @@ class _VpnConnectionState:
         :param pulumi.Input[str] tunnel1_cgw_inside_address: The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
         :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[int] tunnel1_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[bool] tunnel1_enable_tunnel_lifecycle_control: Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
@@ -990,6 +1009,7 @@ class _VpnConnectionState:
         :param pulumi.Input[str] tunnel2_cgw_inside_address: The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
         :param pulumi.Input[str] tunnel2_dpd_timeout_action: The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[int] tunnel2_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[bool] tunnel2_enable_tunnel_lifecycle_control: Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_ike_versions: The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
@@ -1061,6 +1081,8 @@ class _VpnConnectionState:
             pulumi.set(__self__, "tunnel1_dpd_timeout_action", tunnel1_dpd_timeout_action)
         if tunnel1_dpd_timeout_seconds is not None:
             pulumi.set(__self__, "tunnel1_dpd_timeout_seconds", tunnel1_dpd_timeout_seconds)
+        if tunnel1_enable_tunnel_lifecycle_control is not None:
+            pulumi.set(__self__, "tunnel1_enable_tunnel_lifecycle_control", tunnel1_enable_tunnel_lifecycle_control)
         if tunnel1_ike_versions is not None:
             pulumi.set(__self__, "tunnel1_ike_versions", tunnel1_ike_versions)
         if tunnel1_inside_cidr is not None:
@@ -1109,6 +1131,8 @@ class _VpnConnectionState:
             pulumi.set(__self__, "tunnel2_dpd_timeout_action", tunnel2_dpd_timeout_action)
         if tunnel2_dpd_timeout_seconds is not None:
             pulumi.set(__self__, "tunnel2_dpd_timeout_seconds", tunnel2_dpd_timeout_seconds)
+        if tunnel2_enable_tunnel_lifecycle_control is not None:
+            pulumi.set(__self__, "tunnel2_enable_tunnel_lifecycle_control", tunnel2_enable_tunnel_lifecycle_control)
         if tunnel2_ike_versions is not None:
             pulumi.set(__self__, "tunnel2_ike_versions", tunnel2_ike_versions)
         if tunnel2_inside_cidr is not None:
@@ -1443,6 +1467,18 @@ class _VpnConnectionState:
         pulumi.set(self, "tunnel1_dpd_timeout_seconds", value)
 
     @property
+    @pulumi.getter(name="tunnel1EnableTunnelLifecycleControl")
+    def tunnel1_enable_tunnel_lifecycle_control(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+        """
+        return pulumi.get(self, "tunnel1_enable_tunnel_lifecycle_control")
+
+    @tunnel1_enable_tunnel_lifecycle_control.setter
+    def tunnel1_enable_tunnel_lifecycle_control(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tunnel1_enable_tunnel_lifecycle_control", value)
+
+    @property
     @pulumi.getter(name="tunnel1IkeVersions")
     def tunnel1_ike_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1731,6 +1767,18 @@ class _VpnConnectionState:
         pulumi.set(self, "tunnel2_dpd_timeout_seconds", value)
 
     @property
+    @pulumi.getter(name="tunnel2EnableTunnelLifecycleControl")
+    def tunnel2_enable_tunnel_lifecycle_control(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+        """
+        return pulumi.get(self, "tunnel2_enable_tunnel_lifecycle_control")
+
+    @tunnel2_enable_tunnel_lifecycle_control.setter
+    def tunnel2_enable_tunnel_lifecycle_control(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tunnel2_enable_tunnel_lifecycle_control", value)
+
+    @property
     @pulumi.getter(name="tunnel2IkeVersions")
     def tunnel2_ike_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -2009,11 +2057,11 @@ class VpnConnection(pulumi.CustomResource):
                  remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 tunnel1_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
                  tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel1_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
@@ -2033,6 +2081,7 @@ class VpnConnection(pulumi.CustomResource):
                  tunnel1_startup_action: Optional[pulumi.Input[str]] = None,
                  tunnel2_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel2_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 tunnel2_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
                  tunnel2_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel2_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
@@ -2150,11 +2199,11 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
         :param pulumi.Input[str] transport_transit_gateway_attachment_id: . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
         :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[int] tunnel1_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[bool] tunnel1_enable_tunnel_lifecycle_control: Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
@@ -2174,6 +2223,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] tunnel1_startup_action: The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
         :param pulumi.Input[str] tunnel2_dpd_timeout_action: The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[int] tunnel2_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[bool] tunnel2_enable_tunnel_lifecycle_control: Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_ike_versions: The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
@@ -2310,11 +2360,11 @@ class VpnConnection(pulumi.CustomResource):
                  remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 tunnel1_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
                  tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel1_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
@@ -2334,6 +2384,7 @@ class VpnConnection(pulumi.CustomResource):
                  tunnel1_startup_action: Optional[pulumi.Input[str]] = None,
                  tunnel2_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel2_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 tunnel2_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
                  tunnel2_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
                  tunnel2_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
@@ -2374,11 +2425,11 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["remote_ipv6_network_cidr"] = remote_ipv6_network_cidr
             __props__.__dict__["static_routes_only"] = static_routes_only
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["transport_transit_gateway_attachment_id"] = transport_transit_gateway_attachment_id
             __props__.__dict__["tunnel1_dpd_timeout_action"] = tunnel1_dpd_timeout_action
             __props__.__dict__["tunnel1_dpd_timeout_seconds"] = tunnel1_dpd_timeout_seconds
+            __props__.__dict__["tunnel1_enable_tunnel_lifecycle_control"] = tunnel1_enable_tunnel_lifecycle_control
             __props__.__dict__["tunnel1_ike_versions"] = tunnel1_ike_versions
             __props__.__dict__["tunnel1_inside_cidr"] = tunnel1_inside_cidr
             __props__.__dict__["tunnel1_inside_ipv6_cidr"] = tunnel1_inside_ipv6_cidr
@@ -2398,6 +2449,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["tunnel1_startup_action"] = tunnel1_startup_action
             __props__.__dict__["tunnel2_dpd_timeout_action"] = tunnel2_dpd_timeout_action
             __props__.__dict__["tunnel2_dpd_timeout_seconds"] = tunnel2_dpd_timeout_seconds
+            __props__.__dict__["tunnel2_enable_tunnel_lifecycle_control"] = tunnel2_enable_tunnel_lifecycle_control
             __props__.__dict__["tunnel2_ike_versions"] = tunnel2_ike_versions
             __props__.__dict__["tunnel2_inside_cidr"] = tunnel2_inside_cidr
             __props__.__dict__["tunnel2_inside_ipv6_cidr"] = tunnel2_inside_ipv6_cidr
@@ -2425,6 +2477,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["core_network_attachment_arn"] = None
             __props__.__dict__["customer_gateway_configuration"] = None
             __props__.__dict__["routes"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["transit_gateway_attachment_id"] = None
             __props__.__dict__["tunnel1_address"] = None
             __props__.__dict__["tunnel1_bgp_asn"] = None
@@ -2473,6 +2526,7 @@ class VpnConnection(pulumi.CustomResource):
             tunnel1_cgw_inside_address: Optional[pulumi.Input[str]] = None,
             tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
             tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+            tunnel1_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
             tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tunnel1_inside_cidr: Optional[pulumi.Input[str]] = None,
             tunnel1_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
@@ -2497,6 +2551,7 @@ class VpnConnection(pulumi.CustomResource):
             tunnel2_cgw_inside_address: Optional[pulumi.Input[str]] = None,
             tunnel2_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
             tunnel2_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+            tunnel2_enable_tunnel_lifecycle_control: Optional[pulumi.Input[bool]] = None,
             tunnel2_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tunnel2_inside_cidr: Optional[pulumi.Input[str]] = None,
             tunnel2_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None,
@@ -2550,6 +2605,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] tunnel1_cgw_inside_address: The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
         :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[int] tunnel1_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[bool] tunnel1_enable_tunnel_lifecycle_control: Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
@@ -2574,6 +2630,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] tunnel2_cgw_inside_address: The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
         :param pulumi.Input[str] tunnel2_dpd_timeout_action: The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[int] tunnel2_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+        :param pulumi.Input[bool] tunnel2_enable_tunnel_lifecycle_control: Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel2_ike_versions: The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
         :param pulumi.Input[str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
@@ -2625,6 +2682,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__.__dict__["tunnel1_cgw_inside_address"] = tunnel1_cgw_inside_address
         __props__.__dict__["tunnel1_dpd_timeout_action"] = tunnel1_dpd_timeout_action
         __props__.__dict__["tunnel1_dpd_timeout_seconds"] = tunnel1_dpd_timeout_seconds
+        __props__.__dict__["tunnel1_enable_tunnel_lifecycle_control"] = tunnel1_enable_tunnel_lifecycle_control
         __props__.__dict__["tunnel1_ike_versions"] = tunnel1_ike_versions
         __props__.__dict__["tunnel1_inside_cidr"] = tunnel1_inside_cidr
         __props__.__dict__["tunnel1_inside_ipv6_cidr"] = tunnel1_inside_ipv6_cidr
@@ -2649,6 +2707,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__.__dict__["tunnel2_cgw_inside_address"] = tunnel2_cgw_inside_address
         __props__.__dict__["tunnel2_dpd_timeout_action"] = tunnel2_dpd_timeout_action
         __props__.__dict__["tunnel2_dpd_timeout_seconds"] = tunnel2_dpd_timeout_seconds
+        __props__.__dict__["tunnel2_enable_tunnel_lifecycle_control"] = tunnel2_enable_tunnel_lifecycle_control
         __props__.__dict__["tunnel2_ike_versions"] = tunnel2_ike_versions
         __props__.__dict__["tunnel2_inside_cidr"] = tunnel2_inside_cidr
         __props__.__dict__["tunnel2_inside_ipv6_cidr"] = tunnel2_inside_ipv6_cidr
@@ -2866,6 +2925,14 @@ class VpnConnection(pulumi.CustomResource):
         return pulumi.get(self, "tunnel1_dpd_timeout_seconds")
 
     @property
+    @pulumi.getter(name="tunnel1EnableTunnelLifecycleControl")
+    def tunnel1_enable_tunnel_lifecycle_control(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+        """
+        return pulumi.get(self, "tunnel1_enable_tunnel_lifecycle_control")
+
+    @property
     @pulumi.getter(name="tunnel1IkeVersions")
     def tunnel1_ike_versions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
@@ -3056,6 +3123,14 @@ class VpnConnection(pulumi.CustomResource):
         The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
         """
         return pulumi.get(self, "tunnel2_dpd_timeout_seconds")
+
+    @property
+    @pulumi.getter(name="tunnel2EnableTunnelLifecycleControl")
+    def tunnel2_enable_tunnel_lifecycle_control(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+        """
+        return pulumi.get(self, "tunnel2_enable_tunnel_lifecycle_control")
 
     @property
     @pulumi.getter(name="tunnel2IkeVersions")

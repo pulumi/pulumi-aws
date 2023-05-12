@@ -17032,6 +17032,7 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettings struct {
 	FrameCaptureSettings *ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings `pulumi:"frameCaptureSettings"`
 	// H264 settings. See H264 Settings for more details.
 	H264Settings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings `pulumi:"h264Settings"`
+	H265Settings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings `pulumi:"h265Settings"`
 }
 
 // ChannelEncoderSettingsVideoDescriptionCodecSettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsOutput values.
@@ -17050,6 +17051,7 @@ type ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs struct {
 	FrameCaptureSettings ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsPtrInput `pulumi:"frameCaptureSettings"`
 	// H264 settings. See H264 Settings for more details.
 	H264Settings ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrInput `pulumi:"h264Settings"`
+	H265Settings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrInput `pulumi:"h265Settings"`
 }
 
 func (ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs) ElementType() reflect.Type {
@@ -17143,6 +17145,12 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsOutput) H264Settings(
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrOutput)
 }
 
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsOutput) H265Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings {
+		return v.H265Settings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput)
+}
+
 type ChannelEncoderSettingsVideoDescriptionCodecSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelEncoderSettingsVideoDescriptionCodecSettingsPtrOutput) ElementType() reflect.Type {
@@ -17185,6 +17193,15 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsPtrOutput) H264Settin
 		}
 		return v.H264Settings
 	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsPtrOutput)
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsPtrOutput) H265Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings {
+		if v == nil {
+			return nil
+		}
+		return v.H265Settings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput)
 }
 
 type ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings struct {
@@ -18539,6 +18556,2049 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSet
 			return nil
 		}
 		return v.Strength
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings struct {
+	// Enables or disables adaptive quantization.
+	AdaptiveQuantization *string `pulumi:"adaptiveQuantization"`
+	// Indicates that AFD values will be written into the output stream.
+	AfdSignaling *string `pulumi:"afdSignaling"`
+	// Whether or not EML should insert an Alternative Transfer Function SEI message.
+	AlternativeTransferFunction *string `pulumi:"alternativeTransferFunction"`
+	// Average bitrate in bits/second.
+	Bitrate int `pulumi:"bitrate"`
+	// Size of buffer in bits.
+	BufSize *int `pulumi:"bufSize"`
+	// Includes color space metadata in the output.
+	ColorMetadata *string `pulumi:"colorMetadata"`
+	// Define the color metadata for the output. H265 Color Space Settings for more details.
+	ColorSpaceSettings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings `pulumi:"colorSpaceSettings"`
+	// Filters to apply to an encode. See H264 Filter Settings for more details.
+	FilterSettings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings `pulumi:"filterSettings"`
+	// Four bit AFD value to write on all frames of video in the output stream.
+	FixedAfd  *string `pulumi:"fixedAfd"`
+	FlickerAq *string `pulumi:"flickerAq"`
+	// Framerate denominator.
+	FramerateDenominator int `pulumi:"framerateDenominator"`
+	// Framerate numerator.
+	FramerateNumerator int `pulumi:"framerateNumerator"`
+	// Frequency of closed GOPs.
+	GopClosedCadence *int `pulumi:"gopClosedCadence"`
+	// GOP size in units of either frames of seconds per `gopSizeUnits`.
+	GopSize *float64 `pulumi:"gopSize"`
+	// Indicates if the `gopSize` is specified in frames or seconds.
+	GopSizeUnits *string `pulumi:"gopSizeUnits"`
+	// H264 level.
+	Level *string `pulumi:"level"`
+	// Amount of lookahead.
+	LookAheadRateControl *string `pulumi:"lookAheadRateControl"`
+	// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+	MaxBitrate   *int `pulumi:"maxBitrate"`
+	MinIInterval *int `pulumi:"minIInterval"`
+	// Pixel Aspect Ratio denominator.
+	ParDenominator *int `pulumi:"parDenominator"`
+	// Pixel Aspect Ratio numerator.
+	ParNumerator *int `pulumi:"parNumerator"`
+	// AAC profile.
+	Profile *string `pulumi:"profile"`
+	// Controls the target quality for the video encode.
+	QvbrQualityLevel *int `pulumi:"qvbrQualityLevel"`
+	// The rate control mode.
+	RateControlMode *string `pulumi:"rateControlMode"`
+	// Sets the scan type of the output.
+	ScanType *string `pulumi:"scanType"`
+	// Scene change detection.
+	SceneChangeDetect *string `pulumi:"sceneChangeDetect"`
+	// Number of slices per picture.
+	Slices *int `pulumi:"slices"`
+	// Set the H265 tier in the output.
+	Tier *string `pulumi:"tier"`
+	// Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+	TimecodeBurninSettings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings `pulumi:"timecodeBurninSettings"`
+	// Determines how timecodes should be inserted into the video elementary stream.
+	TimecodeInsertion *string `pulumi:"timecodeInsertion"`
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsInput` via:
+//
+//	ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs{...}
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs struct {
+	// Enables or disables adaptive quantization.
+	AdaptiveQuantization pulumi.StringPtrInput `pulumi:"adaptiveQuantization"`
+	// Indicates that AFD values will be written into the output stream.
+	AfdSignaling pulumi.StringPtrInput `pulumi:"afdSignaling"`
+	// Whether or not EML should insert an Alternative Transfer Function SEI message.
+	AlternativeTransferFunction pulumi.StringPtrInput `pulumi:"alternativeTransferFunction"`
+	// Average bitrate in bits/second.
+	Bitrate pulumi.IntInput `pulumi:"bitrate"`
+	// Size of buffer in bits.
+	BufSize pulumi.IntPtrInput `pulumi:"bufSize"`
+	// Includes color space metadata in the output.
+	ColorMetadata pulumi.StringPtrInput `pulumi:"colorMetadata"`
+	// Define the color metadata for the output. H265 Color Space Settings for more details.
+	ColorSpaceSettings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrInput `pulumi:"colorSpaceSettings"`
+	// Filters to apply to an encode. See H264 Filter Settings for more details.
+	FilterSettings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrInput `pulumi:"filterSettings"`
+	// Four bit AFD value to write on all frames of video in the output stream.
+	FixedAfd  pulumi.StringPtrInput `pulumi:"fixedAfd"`
+	FlickerAq pulumi.StringPtrInput `pulumi:"flickerAq"`
+	// Framerate denominator.
+	FramerateDenominator pulumi.IntInput `pulumi:"framerateDenominator"`
+	// Framerate numerator.
+	FramerateNumerator pulumi.IntInput `pulumi:"framerateNumerator"`
+	// Frequency of closed GOPs.
+	GopClosedCadence pulumi.IntPtrInput `pulumi:"gopClosedCadence"`
+	// GOP size in units of either frames of seconds per `gopSizeUnits`.
+	GopSize pulumi.Float64PtrInput `pulumi:"gopSize"`
+	// Indicates if the `gopSize` is specified in frames or seconds.
+	GopSizeUnits pulumi.StringPtrInput `pulumi:"gopSizeUnits"`
+	// H264 level.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// Amount of lookahead.
+	LookAheadRateControl pulumi.StringPtrInput `pulumi:"lookAheadRateControl"`
+	// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+	MaxBitrate   pulumi.IntPtrInput `pulumi:"maxBitrate"`
+	MinIInterval pulumi.IntPtrInput `pulumi:"minIInterval"`
+	// Pixel Aspect Ratio denominator.
+	ParDenominator pulumi.IntPtrInput `pulumi:"parDenominator"`
+	// Pixel Aspect Ratio numerator.
+	ParNumerator pulumi.IntPtrInput `pulumi:"parNumerator"`
+	// AAC profile.
+	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	// Controls the target quality for the video encode.
+	QvbrQualityLevel pulumi.IntPtrInput `pulumi:"qvbrQualityLevel"`
+	// The rate control mode.
+	RateControlMode pulumi.StringPtrInput `pulumi:"rateControlMode"`
+	// Sets the scan type of the output.
+	ScanType pulumi.StringPtrInput `pulumi:"scanType"`
+	// Scene change detection.
+	SceneChangeDetect pulumi.StringPtrInput `pulumi:"sceneChangeDetect"`
+	// Number of slices per picture.
+	Slices pulumi.IntPtrInput `pulumi:"slices"`
+	// Set the H265 tier in the output.
+	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	// Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+	TimecodeBurninSettings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrInput `pulumi:"timecodeBurninSettings"`
+	// Determines how timecodes should be inserted into the video elementary stream.
+	TimecodeInsertion pulumi.StringPtrInput `pulumi:"timecodeInsertion"`
+}
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput)
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput).ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs, ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtr and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput
+}
+
+type channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrType ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs
+
+func ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtr(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrInput {
+	return (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput {
+	return o.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings {
+		return &v
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput)
+}
+
+// Enables or disables adaptive quantization.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) AdaptiveQuantization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		return v.AdaptiveQuantization
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates that AFD values will be written into the output stream.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) AfdSignaling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string { return v.AfdSignaling }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not EML should insert an Alternative Transfer Function SEI message.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) AlternativeTransferFunction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		return v.AlternativeTransferFunction
+	}).(pulumi.StringPtrOutput)
+}
+
+// Average bitrate in bits/second.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) Bitrate() pulumi.IntOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) int { return v.Bitrate }).(pulumi.IntOutput)
+}
+
+// Size of buffer in bits.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) BufSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int { return v.BufSize }).(pulumi.IntPtrOutput)
+}
+
+// Includes color space metadata in the output.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) ColorMetadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		return v.ColorMetadata
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the color metadata for the output. H265 Color Space Settings for more details.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) ColorSpaceSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings {
+		return v.ColorSpaceSettings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput)
+}
+
+// Filters to apply to an encode. See H264 Filter Settings for more details.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) FilterSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings {
+		return v.FilterSettings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput)
+}
+
+// Four bit AFD value to write on all frames of video in the output stream.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) FixedAfd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string { return v.FixedAfd }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) FlickerAq() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string { return v.FlickerAq }).(pulumi.StringPtrOutput)
+}
+
+// Framerate denominator.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) FramerateDenominator() pulumi.IntOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) int {
+		return v.FramerateDenominator
+	}).(pulumi.IntOutput)
+}
+
+// Framerate numerator.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) FramerateNumerator() pulumi.IntOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) int {
+		return v.FramerateNumerator
+	}).(pulumi.IntOutput)
+}
+
+// Frequency of closed GOPs.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) GopClosedCadence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		return v.GopClosedCadence
+	}).(pulumi.IntPtrOutput)
+}
+
+// GOP size in units of either frames of seconds per `gopSizeUnits`.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) GopSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *float64 { return v.GopSize }).(pulumi.Float64PtrOutput)
+}
+
+// Indicates if the `gopSize` is specified in frames or seconds.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) GopSizeUnits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string { return v.GopSizeUnits }).(pulumi.StringPtrOutput)
+}
+
+// H264 level.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// Amount of lookahead.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) LookAheadRateControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		return v.LookAheadRateControl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) MaxBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) MinIInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int { return v.MinIInterval }).(pulumi.IntPtrOutput)
+}
+
+// Pixel Aspect Ratio denominator.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) ParDenominator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int { return v.ParDenominator }).(pulumi.IntPtrOutput)
+}
+
+// Pixel Aspect Ratio numerator.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) ParNumerator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int { return v.ParNumerator }).(pulumi.IntPtrOutput)
+}
+
+// AAC profile.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string { return v.Profile }).(pulumi.StringPtrOutput)
+}
+
+// Controls the target quality for the video encode.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) QvbrQualityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		return v.QvbrQualityLevel
+	}).(pulumi.IntPtrOutput)
+}
+
+// The rate control mode.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) RateControlMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		return v.RateControlMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the scan type of the output.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) ScanType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string { return v.ScanType }).(pulumi.StringPtrOutput)
+}
+
+// Scene change detection.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) SceneChangeDetect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		return v.SceneChangeDetect
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of slices per picture.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) Slices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int { return v.Slices }).(pulumi.IntPtrOutput)
+}
+
+// Set the H265 tier in the output.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) TimecodeBurninSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings {
+		return v.TimecodeBurninSettings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput)
+}
+
+// Determines how timecodes should be inserted into the video elementary stream.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput) TimecodeInsertion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		return v.TimecodeInsertion
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) Elem() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings
+		return ret
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput)
+}
+
+// Enables or disables adaptive quantization.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) AdaptiveQuantization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdaptiveQuantization
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates that AFD values will be written into the output stream.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) AfdSignaling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AfdSignaling
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not EML should insert an Alternative Transfer Function SEI message.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) AlternativeTransferFunction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AlternativeTransferFunction
+	}).(pulumi.StringPtrOutput)
+}
+
+// Average bitrate in bits/second.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) Bitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Bitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Size of buffer in bits.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) BufSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BufSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Includes color space metadata in the output.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) ColorMetadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ColorMetadata
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the color metadata for the output. H265 Color Space Settings for more details.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) ColorSpaceSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings {
+		if v == nil {
+			return nil
+		}
+		return v.ColorSpaceSettings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput)
+}
+
+// Filters to apply to an encode. See H264 Filter Settings for more details.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) FilterSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings {
+		if v == nil {
+			return nil
+		}
+		return v.FilterSettings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput)
+}
+
+// Four bit AFD value to write on all frames of video in the output stream.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) FixedAfd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FixedAfd
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) FlickerAq() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FlickerAq
+	}).(pulumi.StringPtrOutput)
+}
+
+// Framerate denominator.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) FramerateDenominator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FramerateDenominator
+	}).(pulumi.IntPtrOutput)
+}
+
+// Framerate numerator.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) FramerateNumerator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FramerateNumerator
+	}).(pulumi.IntPtrOutput)
+}
+
+// Frequency of closed GOPs.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) GopClosedCadence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.GopClosedCadence
+	}).(pulumi.IntPtrOutput)
+}
+
+// GOP size in units of either frames of seconds per `gopSizeUnits`.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) GopSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.GopSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Indicates if the `gopSize` is specified in frames or seconds.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) GopSizeUnits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GopSizeUnits
+	}).(pulumi.StringPtrOutput)
+}
+
+// H264 level.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amount of lookahead.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) LookAheadRateControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LookAheadRateControl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) MaxBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) MinIInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinIInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Pixel Aspect Ratio denominator.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) ParDenominator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ParDenominator
+	}).(pulumi.IntPtrOutput)
+}
+
+// Pixel Aspect Ratio numerator.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) ParNumerator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ParNumerator
+	}).(pulumi.IntPtrOutput)
+}
+
+// AAC profile.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) Profile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Profile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Controls the target quality for the video encode.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) QvbrQualityLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.QvbrQualityLevel
+	}).(pulumi.IntPtrOutput)
+}
+
+// The rate control mode.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) RateControlMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RateControlMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the scan type of the output.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) ScanType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScanType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Scene change detection.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) SceneChangeDetect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SceneChangeDetect
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of slices per picture.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) Slices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Slices
+	}).(pulumi.IntPtrOutput)
+}
+
+// Set the H265 tier in the output.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) TimecodeBurninSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings {
+		if v == nil {
+			return nil
+		}
+		return v.TimecodeBurninSettings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput)
+}
+
+// Determines how timecodes should be inserted into the video elementary stream.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput) TimecodeInsertion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimecodeInsertion
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings struct {
+	// Sets the colorspace metadata to be passed through.
+	ColorSpacePassthroughSettings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings `pulumi:"colorSpacePassthroughSettings"`
+	// Set the colorspace to Dolby Vision81.
+	DolbyVision81Settings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings `pulumi:"dolbyVision81Settings"`
+	// Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+	Hdr10Settings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings `pulumi:"hdr10Settings"`
+	// Set the colorspace to Rec. 601.
+	Rec601Settings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings `pulumi:"rec601Settings"`
+	// Set the colorspace to Rec. 709.
+	Rec709Settings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings `pulumi:"rec709Settings"`
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsInput` via:
+//
+//	ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs{...}
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs struct {
+	// Sets the colorspace metadata to be passed through.
+	ColorSpacePassthroughSettings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrInput `pulumi:"colorSpacePassthroughSettings"`
+	// Set the colorspace to Dolby Vision81.
+	DolbyVision81Settings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrInput `pulumi:"dolbyVision81Settings"`
+	// Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+	Hdr10Settings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrInput `pulumi:"hdr10Settings"`
+	// Set the colorspace to Rec. 601.
+	Rec601Settings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrInput `pulumi:"rec601Settings"`
+	// Set the colorspace to Rec. 709.
+	Rec709Settings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrInput `pulumi:"rec709Settings"`
+}
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput).ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs, ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtr and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput
+}
+
+type channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrType ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs
+
+func ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtr(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrInput {
+	return (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings {
+		return &v
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput)
+}
+
+// Sets the colorspace metadata to be passed through.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) ColorSpacePassthroughSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings {
+		return v.ColorSpacePassthroughSettings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput)
+}
+
+// Set the colorspace to Dolby Vision81.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) DolbyVision81Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings {
+		return v.DolbyVision81Settings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput)
+}
+
+// Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) Hdr10Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings {
+		return v.Hdr10Settings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput)
+}
+
+// Set the colorspace to Rec. 601.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) Rec601Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings {
+		return v.Rec601Settings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput)
+}
+
+// Set the colorspace to Rec. 709.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput) Rec709Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings {
+		return v.Rec709Settings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) Elem() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings
+		return ret
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput)
+}
+
+// Sets the colorspace metadata to be passed through.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) ColorSpacePassthroughSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings {
+		if v == nil {
+			return nil
+		}
+		return v.ColorSpacePassthroughSettings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput)
+}
+
+// Set the colorspace to Dolby Vision81.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) DolbyVision81Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings {
+		if v == nil {
+			return nil
+		}
+		return v.DolbyVision81Settings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput)
+}
+
+// Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) Hdr10Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings {
+		if v == nil {
+			return nil
+		}
+		return v.Hdr10Settings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput)
+}
+
+// Set the colorspace to Rec. 601.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) Rec601Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings {
+		if v == nil {
+			return nil
+		}
+		return v.Rec601Settings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput)
+}
+
+// Set the colorspace to Rec. 709.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput) Rec709Settings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings {
+		if v == nil {
+			return nil
+		}
+		return v.Rec709Settings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings struct {
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsInput` via:
+//
+//	ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs{...}
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput).ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs, ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtr and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput
+}
+
+type channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrType ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs
+
+func ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtr(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrInput {
+	return (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings {
+		return &v
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput) Elem() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings
+		return ret
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings struct {
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsInput` via:
+//
+//	ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs{...}
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput)
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput).ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs, ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtr and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput
+}
+
+type channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrType ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs
+
+func ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtr(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrInput {
+	return (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput {
+	return o.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings {
+		return &v
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput) Elem() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings
+		return ret
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings struct {
+	// Sets the MaxCLL value for HDR10.
+	MaxCll *int `pulumi:"maxCll"`
+	// Sets the MaxFALL value for HDR10.
+	MaxFall *int `pulumi:"maxFall"`
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsInput` via:
+//
+//	ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs{...}
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs struct {
+	// Sets the MaxCLL value for HDR10.
+	MaxCll pulumi.IntPtrInput `pulumi:"maxCll"`
+	// Sets the MaxFALL value for HDR10.
+	MaxFall pulumi.IntPtrInput `pulumi:"maxFall"`
+}
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput)
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput).ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs, ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtr and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput
+}
+
+type channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrType ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs
+
+func ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtr(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrInput {
+	return (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput {
+	return o.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings {
+		return &v
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput)
+}
+
+// Sets the MaxCLL value for HDR10.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput) MaxCll() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings) *int {
+		return v.MaxCll
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sets the MaxFALL value for HDR10.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput) MaxFall() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings) *int {
+		return v.MaxFall
+	}).(pulumi.IntPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput) Elem() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings
+		return ret
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput)
+}
+
+// Sets the MaxCLL value for HDR10.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput) MaxCll() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCll
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sets the MaxFALL value for HDR10.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput) MaxFall() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFall
+	}).(pulumi.IntPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings struct {
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsInput` via:
+//
+//	ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs{...}
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput)
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput).ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs, ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtr and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput
+}
+
+type channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrType ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs
+
+func ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtr(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrInput {
+	return (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput {
+	return o.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings {
+		return &v
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput) Elem() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings
+		return ret
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings struct {
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsInput` via:
+//
+//	ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs{...}
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput)
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput).ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs, ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtr and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput
+}
+
+type channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrType ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs
+
+func ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtr(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrInput {
+	return (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput {
+	return o.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings {
+		return &v
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput) Elem() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings
+		return ret
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings struct {
+	// Temporal filter settings. See Temporal Filter Settings
+	TemporalFilterSettings *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings `pulumi:"temporalFilterSettings"`
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsInput` via:
+//
+//	ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs{...}
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs struct {
+	// Temporal filter settings. See Temporal Filter Settings
+	TemporalFilterSettings ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrInput `pulumi:"temporalFilterSettings"`
+}
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput).ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs, ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtr and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput
+}
+
+type channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrType ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs
+
+func ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtr(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrInput {
+	return (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings {
+		return &v
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput)
+}
+
+// Temporal filter settings. See Temporal Filter Settings
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput) TemporalFilterSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings {
+		return v.TemporalFilterSettings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput) Elem() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings
+		return ret
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput)
+}
+
+// Temporal filter settings. See Temporal Filter Settings
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput) TemporalFilterSettings() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings {
+		if v == nil {
+			return nil
+		}
+		return v.TemporalFilterSettings
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings struct {
+	// Post filter sharpening.
+	PostFilterSharpening *string `pulumi:"postFilterSharpening"`
+	// Filter strength.
+	Strength *string `pulumi:"strength"`
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsInput` via:
+//
+//	ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs{...}
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs struct {
+	// Post filter sharpening.
+	PostFilterSharpening pulumi.StringPtrInput `pulumi:"postFilterSharpening"`
+	// Filter strength.
+	Strength pulumi.StringPtrInput `pulumi:"strength"`
+}
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput).ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs, ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtr and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput
+}
+
+type channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrType ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs
+
+func ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtr(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrInput {
+	return (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings {
+		return &v
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput)
+}
+
+// Post filter sharpening.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput) PostFilterSharpening() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings) *string {
+		return v.PostFilterSharpening
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filter strength.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput) Strength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings) *string {
+		return v.Strength
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput) Elem() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings
+		return ret
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput)
+}
+
+// Post filter sharpening.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput) PostFilterSharpening() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PostFilterSharpening
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filter strength.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput) Strength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Strength
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings struct {
+	// Set a prefix on the burned in timecode.
+	Prefix *string `pulumi:"prefix"`
+	// Sets the size of the burned in timecode.
+	TimecodeBurninFontSize *string `pulumi:"timecodeBurninFontSize"`
+	// Sets the position of the burned in timecode.
+	TimecodeBurninPosition *string `pulumi:"timecodeBurninPosition"`
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsInput` via:
+//
+//	ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs{...}
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs struct {
+	// Set a prefix on the burned in timecode.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// Sets the size of the burned in timecode.
+	TimecodeBurninFontSize pulumi.StringPtrInput `pulumi:"timecodeBurninFontSize"`
+	// Sets the position of the burned in timecode.
+	TimecodeBurninPosition pulumi.StringPtrInput `pulumi:"timecodeBurninPosition"`
+}
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput).ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrInput is an input type that accepts ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs, ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtr and ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput
+	ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput
+}
+
+type channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrType ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs
+
+func ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtr(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrInput {
+	return (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrType) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings {
+		return &v
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput)
+}
+
+// Set a prefix on the burned in timecode.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *string {
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the size of the burned in timecode.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput) TimecodeBurninFontSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *string {
+		return v.TimecodeBurninFontSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the position of the burned in timecode.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput) TimecodeBurninPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *string {
+		return v.TimecodeBurninPosition
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput) ToChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput) Elem() ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings
+		return ret
+	}).(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput)
+}
+
+// Set a prefix on the burned in timecode.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the size of the burned in timecode.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput) TimecodeBurninFontSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimecodeBurninFontSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the position of the burned in timecode.
+func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput) TimecodeBurninPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimecodeBurninPosition
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -24359,6 +26419,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInput)(nil)).Elem(), ChannelInputAttachmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentArrayInput)(nil)).Elem(), ChannelInputAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentAutomaticInputFailoverSettingsInput)(nil)).Elem(), ChannelInputAttachmentAutomaticInputFailoverSettingsArgs{})
@@ -24616,6 +26696,26 @@ func init() {
 	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentAutomaticInputFailoverSettingsOutput{})

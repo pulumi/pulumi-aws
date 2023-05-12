@@ -182,8 +182,7 @@ type configurationSetArgs struct {
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
 	// An object that defines the VDM settings that apply to emails that you send using the configuration set.
@@ -203,8 +202,7 @@ type ConfigurationSetArgs struct {
 	// An object that contains information about the suppression list preferences for your account.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrInput
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 	// An object that defines the open and click tracking options for emails that you send using the configuration set.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
 	// An object that defines the VDM settings that apply to emails that you send using the configuration set.

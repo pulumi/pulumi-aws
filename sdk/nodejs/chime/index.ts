@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { SdkvoiceVoiceProfileDomainArgs, SdkvoiceVoiceProfileDomainState } from "./sdkvoiceVoiceProfileDomain";
+export type SdkvoiceVoiceProfileDomain = import("./sdkvoiceVoiceProfileDomain").SdkvoiceVoiceProfileDomain;
+export const SdkvoiceVoiceProfileDomain: typeof import("./sdkvoiceVoiceProfileDomain").SdkvoiceVoiceProfileDomain = null as any;
+utilities.lazyLoad(exports, ["SdkvoiceVoiceProfileDomain"], () => require("./sdkvoiceVoiceProfileDomain"));
+
 export { VoiceConnectorArgs, VoiceConnectorState } from "./voiceConnector";
 export type VoiceConnector = import("./voiceConnector").VoiceConnector;
 export const VoiceConnector: typeof import("./voiceConnector").VoiceConnector = null as any;
@@ -45,6 +50,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain":
+                return new SdkvoiceVoiceProfileDomain(name, <any>undefined, { urn })
             case "aws:chime/voiceConnector:VoiceConnector":
                 return new VoiceConnector(name, <any>undefined, { urn })
             case "aws:chime/voiceConnectorGroup:VoiceConnectorGroup":
@@ -64,6 +71,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "chime/sdkvoiceVoiceProfileDomain", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnector", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorLogging", _module)

@@ -106,7 +106,7 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ARN of the transit gateway route table for the attachment.
      */
@@ -149,7 +149,6 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
             }
             resourceInputs["peeringId"] = args ? args.peeringId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["transitGatewayRouteTableArn"] = args ? args.transitGatewayRouteTableArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attachmentPolicyRuleNumber"] = undefined /*out*/;
@@ -161,6 +160,7 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TransitGatewayRouteTableAttachment.__pulumiType, name, resourceInputs, opts);
@@ -241,10 +241,6 @@ export interface TransitGatewayRouteTableAttachmentArgs {
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the transit gateway route table for the attachment.
      */

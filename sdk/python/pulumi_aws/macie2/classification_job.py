@@ -26,8 +26,7 @@ class ClassificationJobArgs:
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  sampling_percentage: Optional[pulumi.Input[int]] = None,
                  schedule_frequency: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ClassificationJob resource.
         :param pulumi.Input[str] job_type: The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
@@ -62,8 +61,6 @@ class ClassificationJobArgs:
             pulumi.set(__self__, "schedule_frequency", schedule_frequency)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="jobType")
@@ -196,15 +193,6 @@ class ClassificationJobArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -475,7 +463,6 @@ class ClassificationJob(pulumi.CustomResource):
                  sampling_percentage: Optional[pulumi.Input[int]] = None,
                  schedule_frequency: Optional[pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [AWS Macie Classification Job](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html).
@@ -581,7 +568,6 @@ class ClassificationJob(pulumi.CustomResource):
                  sampling_percentage: Optional[pulumi.Input[int]] = None,
                  schedule_frequency: Optional[pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -606,10 +592,10 @@ class ClassificationJob(pulumi.CustomResource):
             __props__.__dict__["sampling_percentage"] = sampling_percentage
             __props__.__dict__["schedule_frequency"] = schedule_frequency
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["created_at"] = None
             __props__.__dict__["job_arn"] = None
             __props__.__dict__["job_id"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["user_paused_details"] = None
         super(ClassificationJob, __self__).__init__(
             'aws:macie2/classificationJob:ClassificationJob',

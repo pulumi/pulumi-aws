@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  *     requireNumbers: false,
  * }});
  * const exampleUser = new aws.cognito.User("exampleUser", {
- *     userPoolId: aws_cognito_user_pool.test.id,
+ *     userPoolId: exampleUserPool.id,
  *     username: "example",
  * });
- * const exampleUserGroup = new aws.cognito.UserGroup("exampleUserGroup", {userPoolId: aws_cognito_user_pool.test.id});
+ * const exampleUserGroup = new aws.cognito.UserGroup("exampleUserGroup", {userPoolId: exampleUserPool.id});
  * const exampleUserInGroup = new aws.cognito.UserInGroup("exampleUserInGroup", {
  *     userPoolId: exampleUserPool.id,
  *     groupName: exampleUserGroup.name,
