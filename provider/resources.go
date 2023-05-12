@@ -52,6 +52,7 @@ const (
 	amplifyMod                  = "Amplify"                  // Amplify
 	appFlowMod                  = "AppFlow"                  // AppFlow
 	appConfigMod                = "AppConfig"                // AppConfig
+	appIntegrationsMod          = "AppIntegrations"          // AppIntegrations
 	applicationInsightsMod      = "ApplicationInsights"      // Cloudwatch Application Insights
 	appStreamMod                = "AppStream"                // AppStream
 	appsyncMod                  = "AppSync"                  // AppSync
@@ -251,6 +252,7 @@ var moduleMap = map[string]string{
 	"amplify":                         amplifyMod,
 	"appflow":                         appFlowMod,
 	"appconfig":                       appConfigMod,
+	"appintegrations":                 appIntegrationsMod,
 	"applicationinsights":             applicationInsightsMod,
 	"appstream":                       appStreamMod,
 	"appsync":                         appsyncMod,
