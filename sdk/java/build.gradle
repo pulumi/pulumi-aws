@@ -29,7 +29,7 @@ java {
 
 compileJava {
     options.fork = true
-    options.forkOptions.jvmArgs.addAll(["-Xmx4g"])
+    options.forkOptions.jvmArgs.addAll(["-Xmx16g"])
 }
 
 repositories {
@@ -43,17 +43,18 @@ repositories {
 dependencies {
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("com.google.code.gson:gson:2.8.9")
-    implementation("com.pulumi:pulumi:0.7.1")
+    implementation("com.pulumi:pulumi:0.9.3")
 }
 
 task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
-    classifier = 'sources'
+    archiveClassifier.set('sources')
 }
 
 task javadocJar(type: Jar) {
     from javadoc
-    classifier = 'javadoc'
+    archiveClassifier.set('javadoc')
+    zip64 = true
 }
 
 def genPulumiResources = tasks.register('genPulumiResources') {
@@ -124,6 +125,10 @@ javadoc {
         options.addBooleanOption('html5', true)
     }
     options.jFlags("-Xmx8g", "-Xms512m")
+}
+
+jar {
+    zip64 = true
 }
 
 if (publishRepoUsername) {
