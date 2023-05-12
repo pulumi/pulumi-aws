@@ -8,5 +8,25 @@
         "new": "\"tags_all\":$1tftags.TagsSchemaTrulyComputed()"
       }
     ]
+  },
+  {
+    "glob": "website/**/*.markdown",
+    "replacements": [
+      {
+        "regExp": true,
+        "regExpFlags": "gm",
+        "old": "^(\\s*)Terraform data source (.*)$",
+        "new": "$1Data source $2"
+      },
+      {
+        "regExp": true,
+        "regExpFlags": "gm",
+        "old": "^(\\s*)Terraform resource (.*)$",
+        "new": "$1Resource $2"
+      },
+      {
+        "old": "Read more about sensitive data in state.\n"
+      }
+    ]
   }
 ]
