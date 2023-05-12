@@ -652,7 +652,7 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invokeAsync("aws:lambda/getFunctionUrl:getFunctionUrl", TypeShape.of(GetFunctionUrlResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * TODO data resource to get a list of Lambda Functions.
      * 
      * ## Example Usage
      * ```java
@@ -686,7 +686,7 @@ public final class LambdaFunctions {
         return getFunctions(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * TODO data resource to get a list of Lambda Functions.
      * 
      * ## Example Usage
      * ```java
@@ -720,7 +720,7 @@ public final class LambdaFunctions {
         return getFunctionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * TODO data resource to get a list of Lambda Functions.
      * 
      * ## Example Usage
      * ```java
@@ -754,7 +754,7 @@ public final class LambdaFunctions {
         return getFunctions(args, InvokeOptions.Empty);
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * TODO data resource to get a list of Lambda Functions.
      * 
      * ## Example Usage
      * ```java
@@ -788,7 +788,7 @@ public final class LambdaFunctions {
         return getFunctionsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * TODO data resource to get a list of Lambda Functions.
      * 
      * ## Example Usage
      * ```java
@@ -822,7 +822,7 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invoke("aws:lambda/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * TODO data resource to get a list of Lambda Functions.
      * 
      * ## Example Usage
      * ```java

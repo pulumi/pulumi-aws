@@ -19,7 +19,6 @@ class TemplateArgs:
                  template_id: pulumi.Input[str],
                  version_description: pulumi.Input[str],
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input['TemplateDefinitionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]] = None,
                  source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
@@ -29,7 +28,6 @@ class TemplateArgs:
         :param pulumi.Input[str] template_id: Identifier for the template.
         :param pulumi.Input[str] version_description: A description of the current template version being created/updated.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
-        :param pulumi.Input['TemplateDefinitionArgs'] definition: A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
         :param pulumi.Input[str] name: Display name for the template.
         :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
         :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
@@ -39,8 +37,6 @@ class TemplateArgs:
         pulumi.set(__self__, "version_description", version_description)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
-        if definition is not None:
-            pulumi.set(__self__, "definition", definition)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
@@ -85,18 +81,6 @@ class TemplateArgs:
     @aws_account_id.setter
     def aws_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aws_account_id", value)
-
-    @property
-    @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['TemplateDefinitionArgs']]:
-        """
-        A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
-        """
-        return pulumi.get(self, "definition")
-
-    @definition.setter
-    def definition(self, value: Optional[pulumi.Input['TemplateDefinitionArgs']]):
-        pulumi.set(self, "definition", value)
 
     @property
     @pulumi.getter
@@ -153,7 +137,6 @@ class _TemplateState:
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input['TemplateDefinitionArgs']] = None,
                  last_updated_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]] = None,
@@ -170,7 +153,6 @@ class _TemplateState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] created_time: The time that the template was created.
-        :param pulumi.Input['TemplateDefinitionArgs'] definition: A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
         :param pulumi.Input[str] last_updated_time: The time that the template was last updated.
         :param pulumi.Input[str] name: Display name for the template.
         :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
@@ -189,8 +171,6 @@ class _TemplateState:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if created_time is not None:
             pulumi.set(__self__, "created_time", created_time)
-        if definition is not None:
-            pulumi.set(__self__, "definition", definition)
         if last_updated_time is not None:
             pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name is not None:
@@ -249,18 +229,6 @@ class _TemplateState:
     @created_time.setter
     def created_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "created_time", value)
-
-    @property
-    @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['TemplateDefinitionArgs']]:
-        """
-        A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
-        """
-        return pulumi.get(self, "definition")
-
-    @definition.setter
-    def definition(self, value: Optional[pulumi.Input['TemplateDefinitionArgs']]):
-        pulumi.set(self, "definition", value)
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
@@ -401,7 +369,6 @@ class Template(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['TemplateDefinitionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']]] = None,
@@ -440,7 +407,6 @@ class Template(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
-        :param pulumi.Input[pulumi.InputType['TemplateDefinitionArgs']] definition: A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
         :param pulumi.Input[str] name: Display name for the template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArgs']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
         :param pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
@@ -498,7 +464,6 @@ class Template(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['TemplateDefinitionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']]] = None,
@@ -515,7 +480,6 @@ class Template(pulumi.CustomResource):
             __props__ = TemplateArgs.__new__(TemplateArgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
-            __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["source_entity"] = source_entity
@@ -546,7 +510,6 @@ class Template(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             aws_account_id: Optional[pulumi.Input[str]] = None,
             created_time: Optional[pulumi.Input[str]] = None,
-            definition: Optional[pulumi.Input[pulumi.InputType['TemplateDefinitionArgs']]] = None,
             last_updated_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArgs']]]]] = None,
@@ -568,7 +531,6 @@ class Template(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] created_time: The time that the template was created.
-        :param pulumi.Input[pulumi.InputType['TemplateDefinitionArgs']] definition: A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
         :param pulumi.Input[str] last_updated_time: The time that the template was last updated.
         :param pulumi.Input[str] name: Display name for the template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArgs']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
@@ -588,7 +550,6 @@ class Template(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["aws_account_id"] = aws_account_id
         __props__.__dict__["created_time"] = created_time
-        __props__.__dict__["definition"] = definition
         __props__.__dict__["last_updated_time"] = last_updated_time
         __props__.__dict__["name"] = name
         __props__.__dict__["permissions"] = permissions
@@ -625,14 +586,6 @@ class Template(pulumi.CustomResource):
         The time that the template was created.
         """
         return pulumi.get(self, "created_time")
-
-    @property
-    @pulumi.getter
-    def definition(self) -> pulumi.Output['outputs.TemplateDefinition']:
-        """
-        A detailed template definition. Only one of `definition` or `source_entity` should be configured. See definition.
-        """
-        return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")

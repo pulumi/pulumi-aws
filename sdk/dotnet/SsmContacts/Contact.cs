@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SsmContacts
 {
     /// <summary>
-    /// TODO resource for managing an AWS SSM Contact.
+    /// Resource for managing an AWS SSM Contact.
     /// 
     /// ## Example Usage
     /// ### Basic Usage
@@ -183,18 +183,6 @@ namespace Pulumi.Aws.SsmContacts
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>

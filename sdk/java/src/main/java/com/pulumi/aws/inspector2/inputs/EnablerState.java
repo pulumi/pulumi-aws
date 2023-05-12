@@ -18,6 +18,7 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Set of account IDs.
+     * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
      * 
      */
     @Import(name="accountIds")
@@ -25,6 +26,7 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Set of account IDs.
+     * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
      * 
      */
     public Optional<Output<List<String>>> accountIds() {
@@ -32,14 +34,18 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+     * Type of resources to scan.
+     * Valid values are `EC2`, `ECR`, and `LAMBDA`.
+     * At least one item is required.
      * 
      */
     @Import(name="resourceTypes")
     private @Nullable Output<List<String>> resourceTypes;
 
     /**
-     * @return Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+     * @return Type of resources to scan.
+     * Valid values are `EC2`, `ECR`, and `LAMBDA`.
+     * At least one item is required.
      * 
      */
     public Optional<Output<List<String>>> resourceTypes() {
@@ -73,6 +79,7 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param accountIds Set of account IDs.
+         * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
          * 
          * @return builder
          * 
@@ -84,6 +91,7 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param accountIds Set of account IDs.
+         * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
          * 
          * @return builder
          * 
@@ -94,6 +102,7 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param accountIds Set of account IDs.
+         * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
          * 
          * @return builder
          * 
@@ -103,7 +112,9 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTypes Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+         * @param resourceTypes Type of resources to scan.
+         * Valid values are `EC2`, `ECR`, and `LAMBDA`.
+         * At least one item is required.
          * 
          * @return builder
          * 
@@ -114,7 +125,9 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTypes Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+         * @param resourceTypes Type of resources to scan.
+         * Valid values are `EC2`, `ECR`, and `LAMBDA`.
+         * At least one item is required.
          * 
          * @return builder
          * 
@@ -124,7 +137,9 @@ public final class EnablerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTypes Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+         * @param resourceTypes Type of resources to scan.
+         * Valid values are `EC2`, `ECR`, and `LAMBDA`.
+         * At least one item is required.
          * 
          * @return builder
          * 

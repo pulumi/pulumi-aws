@@ -4,6 +4,7 @@
 package com.pulumi.aws.appautoscaling.outputs;
 
 import com.pulumi.aws.appautoscaling.outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension;
+import com.pulumi.aws.appautoscaling.outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -22,17 +23,22 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
      * @return Name of the metric.
      * 
      */
-    private String metricName;
+    private @Nullable String metricName;
+    /**
+     * @return Metrics to include, as a metric data query.
+     * 
+     */
+    private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric> metrics;
     /**
      * @return Namespace of the metric.
      * 
      */
-    private String namespace;
+    private @Nullable String namespace;
     /**
      * @return Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
      * 
      */
-    private String statistic;
+    private @Nullable String statistic;
     /**
      * @return Unit of the metric.
      * 
@@ -51,22 +57,29 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
      * @return Name of the metric.
      * 
      */
-    public String metricName() {
-        return this.metricName;
+    public Optional<String> metricName() {
+        return Optional.ofNullable(this.metricName);
+    }
+    /**
+     * @return Metrics to include, as a metric data query.
+     * 
+     */
+    public List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric> metrics() {
+        return this.metrics == null ? List.of() : this.metrics;
     }
     /**
      * @return Namespace of the metric.
      * 
      */
-    public String namespace() {
-        return this.namespace;
+    public Optional<String> namespace() {
+        return Optional.ofNullable(this.namespace);
     }
     /**
      * @return Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
      * 
      */
-    public String statistic() {
-        return this.statistic;
+    public Optional<String> statistic() {
+        return Optional.ofNullable(this.statistic);
     }
     /**
      * @return Unit of the metric.
@@ -86,15 +99,17 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions;
-        private String metricName;
-        private String namespace;
-        private String statistic;
+        private @Nullable String metricName;
+        private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric> metrics;
+        private @Nullable String namespace;
+        private @Nullable String statistic;
         private @Nullable String unit;
         public Builder() {}
         public Builder(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
     	      this.metricName = defaults.metricName;
+    	      this.metrics = defaults.metrics;
     	      this.namespace = defaults.namespace;
     	      this.statistic = defaults.statistic;
     	      this.unit = defaults.unit;
@@ -109,18 +124,26 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
             return dimensions(List.of(dimensions));
         }
         @CustomType.Setter
-        public Builder metricName(String metricName) {
-            this.metricName = Objects.requireNonNull(metricName);
+        public Builder metricName(@Nullable String metricName) {
+            this.metricName = metricName;
             return this;
         }
         @CustomType.Setter
-        public Builder namespace(String namespace) {
-            this.namespace = Objects.requireNonNull(namespace);
+        public Builder metrics(@Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric> metrics) {
+            this.metrics = metrics;
+            return this;
+        }
+        public Builder metrics(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric... metrics) {
+            return metrics(List.of(metrics));
+        }
+        @CustomType.Setter
+        public Builder namespace(@Nullable String namespace) {
+            this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
-        public Builder statistic(String statistic) {
-            this.statistic = Objects.requireNonNull(statistic);
+        public Builder statistic(@Nullable String statistic) {
+            this.statistic = statistic;
             return this;
         }
         @CustomType.Setter
@@ -132,6 +155,7 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
             final var o = new PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification();
             o.dimensions = dimensions;
             o.metricName = metricName;
+            o.metrics = metrics;
             o.namespace = namespace;
             o.statistic = statistic;
             o.unit = unit;

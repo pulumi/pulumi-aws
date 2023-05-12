@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Grafana
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The version of Grafana running on the workspace.
+        /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
         /// </summary>
         [Output("grafanaVersion")]
         public Output<string> GrafanaVersion { get; private set; } = null!;
@@ -276,6 +276,12 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+        /// </summary>
+        [Input("grafanaVersion")]
+        public Input<string>? GrafanaVersion { get; set; }
+
+        /// <summary>
         /// The Grafana workspace name.
         /// </summary>
         [Input("name")]
@@ -347,18 +353,6 @@ namespace Pulumi.Aws.Grafana
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         /// </summary>
@@ -428,7 +422,7 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The version of Grafana running on the workspace.
+        /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
         /// </summary>
         [Input("grafanaVersion")]
         public Input<string>? GrafanaVersion { get; set; }

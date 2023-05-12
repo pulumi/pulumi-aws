@@ -21,15 +21,19 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// H264 settings. See H264 Settings for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings? H264Settings;
+        public readonly Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings? H265Settings;
 
         [OutputConstructor]
         private ChannelEncoderSettingsVideoDescriptionCodecSettings(
             Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings? frameCaptureSettings,
 
-            Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings? h264Settings)
+            Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings? h264Settings,
+
+            Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings? h265Settings)
         {
             FrameCaptureSettings = frameCaptureSettings;
             H264Settings = h264Settings;
+            H265Settings = h265Settings;
         }
     }
 }

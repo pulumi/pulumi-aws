@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Inspector2
     /// <summary>
     /// Resource for enabling Amazon Inspector resource scans.
     /// 
-    /// &gt; **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
+    /// This resource must be created in the Organization's Administrator Account.
     /// 
     /// ## Example Usage
     /// ### Basic Usage
@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Inspector2
     ///     {
     ///         AccountIds = new[]
     ///         {
-    ///             "012345678901",
+    ///             "123456789012",
     ///         },
     ///         ResourceTypes = new[]
     ///         {
@@ -72,12 +72,15 @@ namespace Pulumi.Aws.Inspector2
     {
         /// <summary>
         /// Set of account IDs.
+        /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         /// </summary>
         [Output("accountIds")]
         public Output<ImmutableArray<string>> AccountIds { get; private set; } = null!;
 
         /// <summary>
-        /// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+        /// Type of resources to scan.
+        /// Valid values are `EC2`, `ECR`, and `LAMBDA`.
+        /// At least one item is required.
         /// </summary>
         [Output("resourceTypes")]
         public Output<ImmutableArray<string>> ResourceTypes { get; private set; } = null!;
@@ -133,6 +136,7 @@ namespace Pulumi.Aws.Inspector2
 
         /// <summary>
         /// Set of account IDs.
+        /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         /// </summary>
         public InputList<string> AccountIds
         {
@@ -144,7 +148,9 @@ namespace Pulumi.Aws.Inspector2
         private InputList<string>? _resourceTypes;
 
         /// <summary>
-        /// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+        /// Type of resources to scan.
+        /// Valid values are `EC2`, `ECR`, and `LAMBDA`.
+        /// At least one item is required.
         /// </summary>
         public InputList<string> ResourceTypes
         {
@@ -165,6 +171,7 @@ namespace Pulumi.Aws.Inspector2
 
         /// <summary>
         /// Set of account IDs.
+        /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         /// </summary>
         public InputList<string> AccountIds
         {
@@ -176,7 +183,9 @@ namespace Pulumi.Aws.Inspector2
         private InputList<string>? _resourceTypes;
 
         /// <summary>
-        /// Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+        /// Type of resources to scan.
+        /// Valid values are `EC2`, `ECR`, and `LAMBDA`.
+        /// At least one item is required.
         /// </summary>
         public InputList<string> ResourceTypes
         {

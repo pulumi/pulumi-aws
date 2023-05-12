@@ -18,6 +18,18 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("errorTopic")]
         public Input<string>? ErrorTopic { get; set; }
 
+        [Input("includeInferenceResponseIns")]
+        private InputList<string>? _includeInferenceResponseIns;
+
+        /// <summary>
+        /// The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+        /// </summary>
+        public InputList<string> IncludeInferenceResponseIns
+        {
+            get => _includeInferenceResponseIns ?? (_includeInferenceResponseIns = new InputList<string>());
+            set => _includeInferenceResponseIns = value;
+        }
+
         /// <summary>
         /// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
         /// </summary>

@@ -110,6 +110,21 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
      * Configuration block for a target database for resource linking. See `target_database` below.
      * 
      */
@@ -133,6 +148,7 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
         this.locationUri = $.locationUri;
         this.name = $.name;
         this.parameters = $.parameters;
+        this.tags = $.tags;
         this.targetDatabase = $.targetDatabase;
     }
 
@@ -288,6 +304,27 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder parameters(Map<String,String> parameters) {
             return parameters(Output.of(parameters));
+        }
+
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         /**

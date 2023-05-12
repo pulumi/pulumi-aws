@@ -142,6 +142,7 @@ namespace Pulumi.Aws.Acmpca
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string KeyStorageSecurityStandard;
         /// <summary>
         /// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         /// </summary>
@@ -195,6 +196,8 @@ namespace Pulumi.Aws.Acmpca
 
             string id,
 
+            string keyStorageSecurityStandard,
+
             string notAfter,
 
             string notBefore,
@@ -216,6 +219,7 @@ namespace Pulumi.Aws.Acmpca
             CertificateChain = certificateChain;
             CertificateSigningRequest = certificateSigningRequest;
             Id = id;
+            KeyStorageSecurityStandard = keyStorageSecurityStandard;
             NotAfter = notAfter;
             NotBefore = notBefore;
             RevocationConfigurations = revocationConfigurations;

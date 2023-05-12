@@ -99,6 +99,12 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> ProductId { get; private set; } = null!;
 
         /// <summary>
+        /// Provisioning artifact identifier.
+        /// </summary>
+        [Output("provisioningArtifactId")]
+        public Output<string> ProvisioningArtifactId { get; private set; } = null!;
+
+        /// <summary>
         /// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
         /// </summary>
         [Output("templatePhysicalId")]
@@ -277,6 +283,12 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
+
+        /// <summary>
+        /// Provisioning artifact identifier.
+        /// </summary>
+        [Input("provisioningArtifactId")]
+        public Input<string>? ProvisioningArtifactId { get; set; }
 
         /// <summary>
         /// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.

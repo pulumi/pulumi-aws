@@ -306,6 +306,12 @@ namespace Pulumi.Aws.Ec2
         public Output<int?> Tunnel1DpdTimeoutSeconds { get; private set; } = null!;
 
         /// <summary>
+        /// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+        /// </summary>
+        [Output("tunnel1EnableTunnelLifecycleControl")]
+        public Output<bool?> Tunnel1EnableTunnelLifecycleControl { get; private set; } = null!;
+
+        /// <summary>
         /// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
         /// </summary>
         [Output("tunnel1IkeVersions")]
@@ -448,6 +454,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("tunnel2DpdTimeoutSeconds")]
         public Output<int?> Tunnel2DpdTimeoutSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+        /// </summary>
+        [Output("tunnel2EnableTunnelLifecycleControl")]
+        public Output<bool?> Tunnel2EnableTunnelLifecycleControl { get; private set; } = null!;
 
         /// <summary>
         /// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
@@ -693,18 +705,6 @@ namespace Pulumi.Aws.Ec2
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// The ID of the EC2 Transit Gateway.
         /// </summary>
@@ -728,6 +728,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("tunnel1DpdTimeoutSeconds")]
         public Input<int>? Tunnel1DpdTimeoutSeconds { get; set; }
+
+        /// <summary>
+        /// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+        /// </summary>
+        [Input("tunnel1EnableTunnelLifecycleControl")]
+        public Input<bool>? Tunnel1EnableTunnelLifecycleControl { get; set; }
 
         [Input("tunnel1IkeVersions")]
         private InputList<string>? _tunnel1IkeVersions;
@@ -894,6 +900,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("tunnel2DpdTimeoutSeconds")]
         public Input<int>? Tunnel2DpdTimeoutSeconds { get; set; }
+
+        /// <summary>
+        /// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+        /// </summary>
+        [Input("tunnel2EnableTunnelLifecycleControl")]
+        public Input<bool>? Tunnel2EnableTunnelLifecycleControl { get; set; }
 
         [Input("tunnel2IkeVersions")]
         private InputList<string>? _tunnel2IkeVersions;
@@ -1247,6 +1259,12 @@ namespace Pulumi.Aws.Ec2
         [Input("tunnel1DpdTimeoutSeconds")]
         public Input<int>? Tunnel1DpdTimeoutSeconds { get; set; }
 
+        /// <summary>
+        /// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+        /// </summary>
+        [Input("tunnel1EnableTunnelLifecycleControl")]
+        public Input<bool>? Tunnel1EnableTunnelLifecycleControl { get; set; }
+
         [Input("tunnel1IkeVersions")]
         private InputList<string>? _tunnel1IkeVersions;
 
@@ -1442,6 +1460,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("tunnel2DpdTimeoutSeconds")]
         public Input<int>? Tunnel2DpdTimeoutSeconds { get; set; }
+
+        /// <summary>
+        /// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+        /// </summary>
+        [Input("tunnel2EnableTunnelLifecycleControl")]
+        public Input<bool>? Tunnel2EnableTunnelLifecycleControl { get; set; }
 
         [Input("tunnel2IkeVersions")]
         private InputList<string>? _tunnel2IkeVersions;

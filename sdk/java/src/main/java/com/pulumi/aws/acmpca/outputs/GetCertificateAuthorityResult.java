@@ -33,6 +33,7 @@ public final class GetCertificateAuthorityResult {
      * 
      */
     private String id;
+    private String keyStorageSecurityStandard;
     /**
      * @return Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
@@ -114,6 +115,9 @@ public final class GetCertificateAuthorityResult {
     public String id() {
         return this.id;
     }
+    public String keyStorageSecurityStandard() {
+        return this.keyStorageSecurityStandard;
+    }
     /**
      * @return Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
@@ -193,6 +197,7 @@ public final class GetCertificateAuthorityResult {
         private String certificateChain;
         private String certificateSigningRequest;
         private String id;
+        private String keyStorageSecurityStandard;
         private String notAfter;
         private String notBefore;
         private List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations;
@@ -209,6 +214,7 @@ public final class GetCertificateAuthorityResult {
     	      this.certificateChain = defaults.certificateChain;
     	      this.certificateSigningRequest = defaults.certificateSigningRequest;
     	      this.id = defaults.id;
+    	      this.keyStorageSecurityStandard = defaults.keyStorageSecurityStandard;
     	      this.notAfter = defaults.notAfter;
     	      this.notBefore = defaults.notBefore;
     	      this.revocationConfigurations = defaults.revocationConfigurations;
@@ -242,6 +248,11 @@ public final class GetCertificateAuthorityResult {
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder keyStorageSecurityStandard(String keyStorageSecurityStandard) {
+            this.keyStorageSecurityStandard = Objects.requireNonNull(keyStorageSecurityStandard);
             return this;
         }
         @CustomType.Setter
@@ -294,6 +305,7 @@ public final class GetCertificateAuthorityResult {
             o.certificateChain = certificateChain;
             o.certificateSigningRequest = certificateSigningRequest;
             o.id = id;
+            o.keyStorageSecurityStandard = keyStorageSecurityStandard;
             o.notAfter = notAfter;
             o.notBefore = notBefore;
             o.revocationConfigurations = revocationConfigurations;

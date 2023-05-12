@@ -384,6 +384,21 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     * 
+     */
+    @Import(name="tunnel1EnableTunnelLifecycleControl")
+    private @Nullable Output<Boolean> tunnel1EnableTunnelLifecycleControl;
+
+    /**
+     * @return Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     * 
+     */
+    public Optional<Output<Boolean>> tunnel1EnableTunnelLifecycleControl() {
+        return Optional.ofNullable(this.tunnel1EnableTunnelLifecycleControl);
+    }
+
+    /**
      * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
@@ -744,6 +759,21 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     * 
+     */
+    @Import(name="tunnel2EnableTunnelLifecycleControl")
+    private @Nullable Output<Boolean> tunnel2EnableTunnelLifecycleControl;
+
+    /**
+     * @return Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     * 
+     */
+    public Optional<Output<Boolean>> tunnel2EnableTunnelLifecycleControl() {
+        return Optional.ofNullable(this.tunnel2EnableTunnelLifecycleControl);
+    }
+
+    /**
      * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
@@ -1100,6 +1130,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         this.tunnel1CgwInsideAddress = $.tunnel1CgwInsideAddress;
         this.tunnel1DpdTimeoutAction = $.tunnel1DpdTimeoutAction;
         this.tunnel1DpdTimeoutSeconds = $.tunnel1DpdTimeoutSeconds;
+        this.tunnel1EnableTunnelLifecycleControl = $.tunnel1EnableTunnelLifecycleControl;
         this.tunnel1IkeVersions = $.tunnel1IkeVersions;
         this.tunnel1InsideCidr = $.tunnel1InsideCidr;
         this.tunnel1InsideIpv6Cidr = $.tunnel1InsideIpv6Cidr;
@@ -1124,6 +1155,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         this.tunnel2CgwInsideAddress = $.tunnel2CgwInsideAddress;
         this.tunnel2DpdTimeoutAction = $.tunnel2DpdTimeoutAction;
         this.tunnel2DpdTimeoutSeconds = $.tunnel2DpdTimeoutSeconds;
+        this.tunnel2EnableTunnelLifecycleControl = $.tunnel2EnableTunnelLifecycleControl;
         this.tunnel2IkeVersions = $.tunnel2IkeVersions;
         this.tunnel2InsideCidr = $.tunnel2InsideCidr;
         this.tunnel2InsideIpv6Cidr = $.tunnel2InsideIpv6Cidr;
@@ -1678,6 +1710,27 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder tunnel1DpdTimeoutSeconds(Integer tunnel1DpdTimeoutSeconds) {
             return tunnel1DpdTimeoutSeconds(Output.of(tunnel1DpdTimeoutSeconds));
+        }
+
+        /**
+         * @param tunnel1EnableTunnelLifecycleControl Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnel1EnableTunnelLifecycleControl(@Nullable Output<Boolean> tunnel1EnableTunnelLifecycleControl) {
+            $.tunnel1EnableTunnelLifecycleControl = tunnel1EnableTunnelLifecycleControl;
+            return this;
+        }
+
+        /**
+         * @param tunnel1EnableTunnelLifecycleControl Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnel1EnableTunnelLifecycleControl(Boolean tunnel1EnableTunnelLifecycleControl) {
+            return tunnel1EnableTunnelLifecycleControl(Output.of(tunnel1EnableTunnelLifecycleControl));
         }
 
         /**
@@ -2252,6 +2305,27 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder tunnel2DpdTimeoutSeconds(Integer tunnel2DpdTimeoutSeconds) {
             return tunnel2DpdTimeoutSeconds(Output.of(tunnel2DpdTimeoutSeconds));
+        }
+
+        /**
+         * @param tunnel2EnableTunnelLifecycleControl Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnel2EnableTunnelLifecycleControl(@Nullable Output<Boolean> tunnel2EnableTunnelLifecycleControl) {
+            $.tunnel2EnableTunnelLifecycleControl = tunnel2EnableTunnelLifecycleControl;
+            return this;
+        }
+
+        /**
+         * @param tunnel2EnableTunnelLifecycleControl Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnel2EnableTunnelLifecycleControl(Boolean tunnel2EnableTunnelLifecycleControl) {
+            return tunnel2EnableTunnelLifecycleControl(Output.of(tunnel2EnableTunnelLifecycleControl));
         }
 
         /**

@@ -14,6 +14,8 @@ import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccoun
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsPlainArgs;
+import com.pulumi.aws.organizations.inputs.GetPolicyArgs;
+import com.pulumi.aws.organizations.inputs.GetPolicyPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetResourceTagsArgs;
 import com.pulumi.aws.organizations.inputs.GetResourceTagsPlainArgs;
 import com.pulumi.aws.organizations.outputs.GetDelegatedAdministratorsResult;
@@ -22,6 +24,7 @@ import com.pulumi.aws.organizations.outputs.GetOrganizationResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitChildAccountsResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitDescendantAccountsResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitsResult;
+import com.pulumi.aws.organizations.outputs.GetPolicyResult;
 import com.pulumi.aws.organizations.outputs.GetResourceTagsResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -1426,6 +1429,42 @@ public final class OrganizationsFunctions {
      */
     public static CompletableFuture<GetOrganizationalUnitsResult> getOrganizationalUnitsPlain(GetOrganizationalUnitsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", TypeShape.of(GetOrganizationalUnitsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Organizations Policy.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args) {
+        return getPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Organizations Policy.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args) {
+        return getPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Organizations Policy.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetPolicyResult> getPolicy(GetPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Organizations Policy.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetPolicyResult> getPolicyPlain(GetPolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:organizations/getPolicy:getPolicy", TypeShape.of(GetPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get tags attached to the specified AWS Organizations resource.

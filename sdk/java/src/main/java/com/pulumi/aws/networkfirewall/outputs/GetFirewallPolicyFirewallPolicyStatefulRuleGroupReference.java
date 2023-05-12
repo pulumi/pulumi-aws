@@ -3,17 +3,24 @@
 
 package com.pulumi.aws.networkfirewall.outputs;
 
+import com.pulumi.aws.networkfirewall.outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
+    private @Nullable List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides;
     private Integer priority;
     private String resourceArn;
 
     private GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference() {}
+    public List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides() {
+        return this.overrides == null ? List.of() : this.overrides;
+    }
     public Integer priority() {
         return this.priority;
     }
@@ -30,15 +37,25 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides;
         private Integer priority;
         private String resourceArn;
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.overrides = defaults.overrides;
     	      this.priority = defaults.priority;
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
+        public Builder overrides(@Nullable List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides) {
+            this.overrides = overrides;
+            return this;
+        }
+        public Builder overrides(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride... overrides) {
+            return overrides(List.of(overrides));
+        }
         @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
@@ -51,6 +68,7 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
         }
         public GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference build() {
             final var o = new GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference();
+            o.overrides = overrides;
             o.priority = priority;
             o.resourceArn = resourceArn;
             return o;

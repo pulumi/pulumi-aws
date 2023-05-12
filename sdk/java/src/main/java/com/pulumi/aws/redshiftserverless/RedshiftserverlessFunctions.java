@@ -6,9 +6,12 @@ package com.pulumi.aws.redshiftserverless;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsArgs;
 import com.pulumi.aws.redshiftserverless.inputs.GetCredentialsPlainArgs;
+import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
+import com.pulumi.aws.redshiftserverless.inputs.GetNamespacePlainArgs;
 import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupArgs;
 import com.pulumi.aws.redshiftserverless.inputs.GetWorkgroupPlainArgs;
 import com.pulumi.aws.redshiftserverless.outputs.GetCredentialsResult;
+import com.pulumi.aws.redshiftserverless.outputs.GetNamespaceResult;
 import com.pulumi.aws.redshiftserverless.outputs.GetWorkgroupResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -164,6 +167,154 @@ public final class RedshiftserverlessFunctions {
      */
     public static CompletableFuture<GetCredentialsResult> getCredentialsPlain(GetCredentialsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshiftserverless/getCredentials:getCredentials", TypeShape.of(GetCredentialsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Redshift Serverless Namespace.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
+     *             .namespaceName(&#34;example-namespace&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args) {
+        return getNamespace(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Redshift Serverless Namespace.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
+     *             .namespaceName(&#34;example-namespace&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args) {
+        return getNamespacePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Redshift Serverless Namespace.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
+     *             .namespaceName(&#34;example-namespace&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:redshiftserverless/getNamespace:getNamespace", TypeShape.of(GetNamespaceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Redshift Serverless Namespace.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshiftserverless.RedshiftserverlessFunctions;
+     * import com.pulumi.aws.redshiftserverless.inputs.GetNamespaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftserverlessFunctions.getNamespace(GetNamespaceArgs.builder()
+     *             .namespaceName(&#34;example-namespace&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:redshiftserverless/getNamespace:getNamespace", TypeShape.of(GetNamespaceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source for managing an AWS Redshift Serverless Workgroup.

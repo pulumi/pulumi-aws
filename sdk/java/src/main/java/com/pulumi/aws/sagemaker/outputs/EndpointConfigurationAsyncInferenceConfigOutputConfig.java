@@ -23,6 +23,11 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
      */
     private @Nullable EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig notificationConfig;
     /**
+     * @return The Amazon S3 location to upload failure inference responses to.
+     * 
+     */
+    private @Nullable String s3FailurePath;
+    /**
      * @return The Amazon S3 location to upload inference responses to.
      * 
      */
@@ -44,6 +49,13 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
         return Optional.ofNullable(this.notificationConfig);
     }
     /**
+     * @return The Amazon S3 location to upload failure inference responses to.
+     * 
+     */
+    public Optional<String> s3FailurePath() {
+        return Optional.ofNullable(this.s3FailurePath);
+    }
+    /**
      * @return The Amazon S3 location to upload inference responses to.
      * 
      */
@@ -62,12 +74,14 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
     public static final class Builder {
         private @Nullable String kmsKeyId;
         private @Nullable EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig notificationConfig;
+        private @Nullable String s3FailurePath;
         private String s3OutputPath;
         public Builder() {}
         public Builder(EndpointConfigurationAsyncInferenceConfigOutputConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.notificationConfig = defaults.notificationConfig;
+    	      this.s3FailurePath = defaults.s3FailurePath;
     	      this.s3OutputPath = defaults.s3OutputPath;
         }
 
@@ -82,6 +96,11 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder s3FailurePath(@Nullable String s3FailurePath) {
+            this.s3FailurePath = s3FailurePath;
+            return this;
+        }
+        @CustomType.Setter
         public Builder s3OutputPath(String s3OutputPath) {
             this.s3OutputPath = Objects.requireNonNull(s3OutputPath);
             return this;
@@ -90,6 +109,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
             final var o = new EndpointConfigurationAsyncInferenceConfigOutputConfig();
             o.kmsKeyId = kmsKeyId;
             o.notificationConfig = notificationConfig;
+            o.s3FailurePath = s3FailurePath;
             o.s3OutputPath = s3OutputPath;
             return o;
         }

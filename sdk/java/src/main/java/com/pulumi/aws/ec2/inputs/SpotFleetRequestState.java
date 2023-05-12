@@ -49,6 +49,21 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Reserved.
+     * 
+     */
+    @Import(name="context")
+    private @Nullable Output<String> context;
+
+    /**
+     * @return Reserved.
+     * 
+     */
+    public Optional<Output<String>> context() {
+        return Optional.ofNullable(this.context);
+    }
+
+    /**
      * Indicates whether running Spot
      * instances should be terminated if the target capacity of the Spot fleet
      * request is decreased below the current size of the Spot fleet.
@@ -468,6 +483,7 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
     private SpotFleetRequestState(SpotFleetRequestState $) {
         this.allocationStrategy = $.allocationStrategy;
         this.clientToken = $.clientToken;
+        this.context = $.context;
         this.excessCapacityTerminationPolicy = $.excessCapacityTerminationPolicy;
         this.fleetType = $.fleetType;
         this.iamFleetRole = $.iamFleetRole;
@@ -545,6 +561,27 @@ public final class SpotFleetRequestState extends com.pulumi.resources.ResourceAr
 
         public Builder clientToken(String clientToken) {
             return clientToken(Output.of(clientToken));
+        }
+
+        /**
+         * @param context Reserved.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder context(@Nullable Output<String> context) {
+            $.context = context;
+            return this;
+        }
+
+        /**
+         * @param context Reserved.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder context(String context) {
+            return context(Output.of(context));
         }
 
         /**

@@ -8,8 +8,10 @@ import com.pulumi.aws.quicksight.inputs.DataSetColumnLevelPermissionRuleArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetDataSetUsageConfigurationArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetFieldFolderArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetLogicalTableMapArgs;
+import com.pulumi.aws.quicksight.inputs.DataSetOutputColumnArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetPermissionArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
+import com.pulumi.aws.quicksight.inputs.DataSetRefreshPropertiesArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetRowLevelPermissionDataSetArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetRowLevelPermissionTagConfigurationArgs;
 import com.pulumi.core.Output;
@@ -176,6 +178,13 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="outputColumns")
+    private @Nullable Output<List<DataSetOutputColumnArgs>> outputColumns;
+
+    public Optional<Output<List<DataSetOutputColumnArgs>>> outputColumns() {
+        return Optional.ofNullable(this.outputColumns);
+    }
+
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
      * 
@@ -204,6 +213,21 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<DataSetPhysicalTableMapArgs>>> physicalTableMaps() {
         return Optional.ofNullable(this.physicalTableMaps);
+    }
+
+    /**
+     * The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+     * 
+     */
+    @Import(name="refreshProperties")
+    private @Nullable Output<DataSetRefreshPropertiesArgs> refreshProperties;
+
+    /**
+     * @return The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+     * 
+     */
+    public Optional<Output<DataSetRefreshPropertiesArgs>> refreshProperties() {
+        return Optional.ofNullable(this.refreshProperties);
     }
 
     /**
@@ -279,8 +303,10 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
         this.importMode = $.importMode;
         this.logicalTableMaps = $.logicalTableMaps;
         this.name = $.name;
+        this.outputColumns = $.outputColumns;
         this.permissions = $.permissions;
         this.physicalTableMaps = $.physicalTableMaps;
+        this.refreshProperties = $.refreshProperties;
         this.rowLevelPermissionDataSet = $.rowLevelPermissionDataSet;
         this.rowLevelPermissionTagConfiguration = $.rowLevelPermissionTagConfiguration;
         this.tags = $.tags;
@@ -555,6 +581,19 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        public Builder outputColumns(@Nullable Output<List<DataSetOutputColumnArgs>> outputColumns) {
+            $.outputColumns = outputColumns;
+            return this;
+        }
+
+        public Builder outputColumns(List<DataSetOutputColumnArgs> outputColumns) {
+            return outputColumns(Output.of(outputColumns));
+        }
+
+        public Builder outputColumns(DataSetOutputColumnArgs... outputColumns) {
+            return outputColumns(List.of(outputColumns));
+        }
+
         /**
          * @param permissions A set of resource permissions on the data source. Maximum of 64 items. See permissions.
          * 
@@ -615,6 +654,27 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder physicalTableMaps(DataSetPhysicalTableMapArgs... physicalTableMaps) {
             return physicalTableMaps(List.of(physicalTableMaps));
+        }
+
+        /**
+         * @param refreshProperties The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder refreshProperties(@Nullable Output<DataSetRefreshPropertiesArgs> refreshProperties) {
+            $.refreshProperties = refreshProperties;
+            return this;
+        }
+
+        /**
+         * @param refreshProperties The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder refreshProperties(DataSetRefreshPropertiesArgs refreshProperties) {
+            return refreshProperties(Output.of(refreshProperties));
         }
 
         /**

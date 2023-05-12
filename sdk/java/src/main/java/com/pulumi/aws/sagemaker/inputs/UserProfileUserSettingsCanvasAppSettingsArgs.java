@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UserProfileUserSettingsCanvasAppSettingsArgs Empty = new UserProfileUserSettingsCanvasAppSettingsArgs();
+
+    /**
+     * The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+     * 
+     */
+    @Import(name="modelRegisterSettings")
+    private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs> modelRegisterSettings;
+
+    /**
+     * @return The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+     * 
+     */
+    public Optional<Output<UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs>> modelRegisterSettings() {
+        return Optional.ofNullable(this.modelRegisterSettings);
+    }
 
     /**
      * Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
@@ -33,6 +49,7 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
     private UserProfileUserSettingsCanvasAppSettingsArgs() {}
 
     private UserProfileUserSettingsCanvasAppSettingsArgs(UserProfileUserSettingsCanvasAppSettingsArgs $) {
+        this.modelRegisterSettings = $.modelRegisterSettings;
         this.timeSeriesForecastingSettings = $.timeSeriesForecastingSettings;
     }
 
@@ -52,6 +69,27 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
 
         public Builder(UserProfileUserSettingsCanvasAppSettingsArgs defaults) {
             $ = new UserProfileUserSettingsCanvasAppSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param modelRegisterSettings The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelRegisterSettings(@Nullable Output<UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs> modelRegisterSettings) {
+            $.modelRegisterSettings = modelRegisterSettings;
+            return this;
+        }
+
+        /**
+         * @param modelRegisterSettings The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelRegisterSettings(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs modelRegisterSettings) {
+            return modelRegisterSettings(Output.of(modelRegisterSettings));
         }
 
         /**

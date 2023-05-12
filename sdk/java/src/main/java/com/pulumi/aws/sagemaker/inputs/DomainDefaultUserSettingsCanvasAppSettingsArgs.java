@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,14 +17,29 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     public static final DomainDefaultUserSettingsCanvasAppSettingsArgs Empty = new DomainDefaultUserSettingsCanvasAppSettingsArgs();
 
     /**
-     * Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+     * The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+     * 
+     */
+    @Import(name="modelRegisterSettings")
+    private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs> modelRegisterSettings;
+
+    /**
+     * @return The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+     * 
+     */
+    public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs>> modelRegisterSettings() {
+        return Optional.ofNullable(this.modelRegisterSettings);
+    }
+
+    /**
+     * Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
      * 
      */
     @Import(name="timeSeriesForecastingSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs> timeSeriesForecastingSettings;
 
     /**
-     * @return Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+     * @return Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs>> timeSeriesForecastingSettings() {
@@ -33,6 +49,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     private DomainDefaultUserSettingsCanvasAppSettingsArgs() {}
 
     private DomainDefaultUserSettingsCanvasAppSettingsArgs(DomainDefaultUserSettingsCanvasAppSettingsArgs $) {
+        this.modelRegisterSettings = $.modelRegisterSettings;
         this.timeSeriesForecastingSettings = $.timeSeriesForecastingSettings;
     }
 
@@ -55,7 +72,28 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+         * @param modelRegisterSettings The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelRegisterSettings(@Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs> modelRegisterSettings) {
+            $.modelRegisterSettings = modelRegisterSettings;
+            return this;
+        }
+
+        /**
+         * @param modelRegisterSettings The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelRegisterSettings(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs modelRegisterSettings) {
+            return modelRegisterSettings(Output.of(modelRegisterSettings));
+        }
+
+        /**
+         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
          * 
          * @return builder
          * 
@@ -66,7 +104,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+         * @param timeSeriesForecastingSettings Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
          * 
          * @return builder
          * 

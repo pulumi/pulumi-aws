@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Resource for enabling Amazon Inspector resource scans.
  * 
- * &gt; **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
+ * This resource must be created in the Organization&#39;s Administrator Account.
  * 
  * ## Example Usage
  * ### Basic Usage
@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Enabler(&#34;example&#34;, EnablerArgs.builder()        
- *             .accountIds(&#34;012345678901&#34;)
+ *             .accountIds(&#34;123456789012&#34;)
  *             .resourceTypes(&#34;EC2&#34;)
  *             .build());
  * 
@@ -91,6 +91,7 @@ import javax.annotation.Nullable;
 public class Enabler extends com.pulumi.resources.CustomResource {
     /**
      * Set of account IDs.
+     * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
      * 
      */
     @Export(name="accountIds", refs={List.class,String.class}, tree="[0,1]")
@@ -98,20 +99,25 @@ public class Enabler extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Set of account IDs.
+     * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
      * 
      */
     public Output<List<String>> accountIds() {
         return this.accountIds;
     }
     /**
-     * Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+     * Type of resources to scan.
+     * Valid values are `EC2`, `ECR`, and `LAMBDA`.
+     * At least one item is required.
      * 
      */
     @Export(name="resourceTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> resourceTypes;
 
     /**
-     * @return Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
+     * @return Type of resources to scan.
+     * Valid values are `EC2`, `ECR`, and `LAMBDA`.
+     * At least one item is required.
      * 
      */
     public Output<List<String>> resourceTypes() {

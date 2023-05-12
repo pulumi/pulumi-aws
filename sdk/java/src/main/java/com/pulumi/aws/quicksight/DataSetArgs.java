@@ -10,6 +10,7 @@ import com.pulumi.aws.quicksight.inputs.DataSetFieldFolderArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetLogicalTableMapArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetPermissionArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
+import com.pulumi.aws.quicksight.inputs.DataSetRefreshPropertiesArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetRowLevelPermissionDataSetArgs;
 import com.pulumi.aws.quicksight.inputs.DataSetRowLevelPermissionTagConfigurationArgs;
 import com.pulumi.core.Output;
@@ -192,6 +193,21 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+     * 
+     */
+    @Import(name="refreshProperties")
+    private @Nullable Output<DataSetRefreshPropertiesArgs> refreshProperties;
+
+    /**
+     * @return The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+     * 
+     */
+    public Optional<Output<DataSetRefreshPropertiesArgs>> refreshProperties() {
+        return Optional.ofNullable(this.refreshProperties);
+    }
+
+    /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      * 
      */
@@ -236,21 +252,6 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     private DataSetArgs() {}
 
     private DataSetArgs(DataSetArgs $) {
@@ -265,10 +266,10 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.permissions = $.permissions;
         this.physicalTableMaps = $.physicalTableMaps;
+        this.refreshProperties = $.refreshProperties;
         this.rowLevelPermissionDataSet = $.rowLevelPermissionDataSet;
         this.rowLevelPermissionTagConfiguration = $.rowLevelPermissionTagConfiguration;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -581,6 +582,27 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param refreshProperties The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder refreshProperties(@Nullable Output<DataSetRefreshPropertiesArgs> refreshProperties) {
+            $.refreshProperties = refreshProperties;
+            return this;
+        }
+
+        /**
+         * @param refreshProperties The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder refreshProperties(DataSetRefreshPropertiesArgs refreshProperties) {
+            return refreshProperties(Output.of(refreshProperties));
+        }
+
+        /**
          * @param rowLevelPermissionDataSet The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
          * 
          * @return builder
@@ -641,27 +663,6 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public DataSetArgs build() {

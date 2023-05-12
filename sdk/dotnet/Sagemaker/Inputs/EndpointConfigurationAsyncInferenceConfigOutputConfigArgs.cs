@@ -25,6 +25,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<Inputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs>? NotificationConfig { get; set; }
 
         /// <summary>
+        /// The Amazon S3 location to upload failure inference responses to.
+        /// </summary>
+        [Input("s3FailurePath")]
+        public Input<string>? S3FailurePath { get; set; }
+
+        /// <summary>
         /// The Amazon S3 location to upload inference responses to.
         /// </summary>
         [Input("s3OutputPath", required: true)]

@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCanvasAppSetting
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsJupyterServerAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsRSessionAppSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsRStudioServerProAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsSharingSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsTensorBoardAppSettingsArgs;
 import com.pulumi.core.Output;
@@ -98,6 +99,21 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+     * 
+     */
+    @Import(name="rStudioServerProAppSettings")
+    private @Nullable Output<DomainDefaultUserSettingsRStudioServerProAppSettingsArgs> rStudioServerProAppSettings;
+
+    /**
+     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+     * 
+     */
+    public Optional<Output<DomainDefaultUserSettingsRStudioServerProAppSettingsArgs>> rStudioServerProAppSettings() {
+        return Optional.ofNullable(this.rStudioServerProAppSettings);
+    }
+
+    /**
      * A list of security group IDs that will be attached to the user.
      * 
      */
@@ -150,6 +166,7 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
         this.jupyterServerAppSettings = $.jupyterServerAppSettings;
         this.kernelGatewayAppSettings = $.kernelGatewayAppSettings;
         this.rSessionAppSettings = $.rSessionAppSettings;
+        this.rStudioServerProAppSettings = $.rStudioServerProAppSettings;
         this.securityGroups = $.securityGroups;
         this.sharingSettings = $.sharingSettings;
         this.tensorBoardAppSettings = $.tensorBoardAppSettings;
@@ -276,6 +293,27 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
          */
         public Builder rSessionAppSettings(DomainDefaultUserSettingsRSessionAppSettingsArgs rSessionAppSettings) {
             return rSessionAppSettings(Output.of(rSessionAppSettings));
+        }
+
+        /**
+         * @param rStudioServerProAppSettings A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rStudioServerProAppSettings(@Nullable Output<DomainDefaultUserSettingsRStudioServerProAppSettingsArgs> rStudioServerProAppSettings) {
+            $.rStudioServerProAppSettings = rStudioServerProAppSettings;
+            return this;
+        }
+
+        /**
+         * @param rStudioServerProAppSettings A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rStudioServerProAppSettings(DomainDefaultUserSettingsRStudioServerProAppSettingsArgs rStudioServerProAppSettings) {
+            return rStudioServerProAppSettings(Output.of(rStudioServerProAppSettings));
         }
 
         /**

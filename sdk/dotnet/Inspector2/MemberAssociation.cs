@@ -30,6 +30,14 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Amazon Inspector Member Association can be imported using the `account_id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
+    /// ```
     /// </summary>
     [AwsResourceType("aws:inspector2/memberAssociation:MemberAssociation")]
     public partial class MemberAssociation : global::Pulumi.CustomResource
@@ -39,6 +47,24 @@ namespace Pulumi.Aws.Inspector2
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// Account ID of the delegated administrator account
+        /// </summary>
+        [Output("delegatedAdminAccountId")]
+        public Output<string> DelegatedAdminAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of the member relationship
+        /// </summary>
+        [Output("relationshipStatus")]
+        public Output<string> RelationshipStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Date and time of the last update of the relationship
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>
@@ -105,6 +131,24 @@ namespace Pulumi.Aws.Inspector2
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
+
+        /// <summary>
+        /// Account ID of the delegated administrator account
+        /// </summary>
+        [Input("delegatedAdminAccountId")]
+        public Input<string>? DelegatedAdminAccountId { get; set; }
+
+        /// <summary>
+        /// Status of the member relationship
+        /// </summary>
+        [Input("relationshipStatus")]
+        public Input<string>? RelationshipStatus { get; set; }
+
+        /// <summary>
+        /// Date and time of the last update of the relationship
+        /// </summary>
+        [Input("updatedAt")]
+        public Input<string>? UpdatedAt { get; set; }
 
         public MemberAssociationState()
         {

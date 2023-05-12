@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsRSessionAppSettings? RSessionAppSettings;
         /// <summary>
+        /// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsRStudioServerProAppSettings? RStudioServerProAppSettings;
+        /// <summary>
         /// A list of security group IDs that will be attached to the user.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
@@ -58,6 +62,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             Outputs.DomainDefaultUserSettingsRSessionAppSettings? rSessionAppSettings,
 
+            Outputs.DomainDefaultUserSettingsRStudioServerProAppSettings? rStudioServerProAppSettings,
+
             ImmutableArray<string> securityGroups,
 
             Outputs.DomainDefaultUserSettingsSharingSettings? sharingSettings,
@@ -69,6 +75,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             JupyterServerAppSettings = jupyterServerAppSettings;
             KernelGatewayAppSettings = kernelGatewayAppSettings;
             RSessionAppSettings = rSessionAppSettings;
+            RStudioServerProAppSettings = rStudioServerProAppSettings;
             SecurityGroups = securityGroups;
             SharingSettings = sharingSettings;
             TensorBoardAppSettings = tensorBoardAppSettings;

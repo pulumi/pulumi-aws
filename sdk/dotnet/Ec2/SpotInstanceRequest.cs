@@ -103,6 +103,12 @@ namespace Pulumi.Aws.Ec2
         public Output<int> CpuCoreCount { get; private set; } = null!;
 
         /// <summary>
+        /// The CPU options for the instance. See CPU Options below for more details.
+        /// </summary>
+        [Output("cpuOptions")]
+        public Output<Outputs.SpotInstanceRequestCpuOptions> CpuOptions { get; private set; } = null!;
+
+        /// <summary>
         /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         /// </summary>
         [Output("cpuThreadsPerCore")]
@@ -529,6 +535,12 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? CpuCoreCount { get; set; }
 
         /// <summary>
+        /// The CPU options for the instance. See CPU Options below for more details.
+        /// </summary>
+        [Input("cpuOptions")]
+        public Input<Inputs.SpotInstanceRequestCpuOptionsArgs>? CpuOptions { get; set; }
+
+        /// <summary>
         /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         /// </summary>
         [Input("cpuThreadsPerCore")]
@@ -794,18 +806,6 @@ namespace Pulumi.Aws.Ec2
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
         /// </summary>
@@ -922,6 +922,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("cpuCoreCount")]
         public Input<int>? CpuCoreCount { get; set; }
+
+        /// <summary>
+        /// The CPU options for the instance. See CPU Options below for more details.
+        /// </summary>
+        [Input("cpuOptions")]
+        public Input<Inputs.SpotInstanceRequestCpuOptionsGetArgs>? CpuOptions { get; set; }
 
         /// <summary>
         /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.

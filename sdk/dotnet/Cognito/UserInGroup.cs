@@ -36,13 +36,13 @@ namespace Pulumi.Aws.Cognito
     /// 
     ///     var exampleUser = new Aws.Cognito.User("exampleUser", new()
     ///     {
-    ///         UserPoolId = aws_cognito_user_pool.Test.Id,
+    ///         UserPoolId = exampleUserPool.Id,
     ///         Username = "example",
     ///     });
     /// 
     ///     var exampleUserGroup = new Aws.Cognito.UserGroup("exampleUserGroup", new()
     ///     {
-    ///         UserPoolId = aws_cognito_user_pool.Test.Id,
+    ///         UserPoolId = exampleUserPool.Id,
     ///     });
     /// 
     ///     var exampleUserInGroup = new Aws.Cognito.UserInGroup("exampleUserInGroup", new()

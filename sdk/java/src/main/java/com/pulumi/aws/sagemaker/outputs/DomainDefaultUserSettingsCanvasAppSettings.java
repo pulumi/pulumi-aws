@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -12,14 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsCanvasAppSettings {
     /**
-     * @return Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+     * @return The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+     * 
+     */
+    private @Nullable DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings;
+    /**
+     * @return Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings;
 
     private DomainDefaultUserSettingsCanvasAppSettings() {}
     /**
-     * @return Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+     * @return The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+     * 
+     */
+    public Optional<DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings> modelRegisterSettings() {
+        return Optional.ofNullable(this.modelRegisterSettings);
+    }
+    /**
+     * @return Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings> timeSeriesForecastingSettings() {
@@ -35,13 +48,20 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings;
         private @Nullable DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings;
         public Builder() {}
         public Builder(DomainDefaultUserSettingsCanvasAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.modelRegisterSettings = defaults.modelRegisterSettings;
     	      this.timeSeriesForecastingSettings = defaults.timeSeriesForecastingSettings;
         }
 
+        @CustomType.Setter
+        public Builder modelRegisterSettings(@Nullable DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings) {
+            this.modelRegisterSettings = modelRegisterSettings;
+            return this;
+        }
         @CustomType.Setter
         public Builder timeSeriesForecastingSettings(@Nullable DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings) {
             this.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
@@ -49,6 +69,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
         }
         public DomainDefaultUserSettingsCanvasAppSettings build() {
             final var o = new DomainDefaultUserSettingsCanvasAppSettings();
+            o.modelRegisterSettings = modelRegisterSettings;
             o.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
             return o;
         }

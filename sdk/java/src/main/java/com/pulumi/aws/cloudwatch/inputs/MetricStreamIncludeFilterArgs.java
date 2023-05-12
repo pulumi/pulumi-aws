@@ -6,12 +6,30 @@ package com.pulumi.aws.cloudwatch.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class MetricStreamIncludeFilterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MetricStreamIncludeFilterArgs Empty = new MetricStreamIncludeFilterArgs();
+
+    /**
+     * An array that defines the metrics you want to include for this metric namespace
+     * 
+     */
+    @Import(name="metricNames")
+    private @Nullable Output<List<String>> metricNames;
+
+    /**
+     * @return An array that defines the metrics you want to include for this metric namespace
+     * 
+     */
+    public Optional<Output<List<String>>> metricNames() {
+        return Optional.ofNullable(this.metricNames);
+    }
 
     /**
      * Name of the metric namespace in the filter.
@@ -31,6 +49,7 @@ public final class MetricStreamIncludeFilterArgs extends com.pulumi.resources.Re
     private MetricStreamIncludeFilterArgs() {}
 
     private MetricStreamIncludeFilterArgs(MetricStreamIncludeFilterArgs $) {
+        this.metricNames = $.metricNames;
         this.namespace = $.namespace;
     }
 
@@ -50,6 +69,37 @@ public final class MetricStreamIncludeFilterArgs extends com.pulumi.resources.Re
 
         public Builder(MetricStreamIncludeFilterArgs defaults) {
             $ = new MetricStreamIncludeFilterArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param metricNames An array that defines the metrics you want to include for this metric namespace
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricNames(@Nullable Output<List<String>> metricNames) {
+            $.metricNames = metricNames;
+            return this;
+        }
+
+        /**
+         * @param metricNames An array that defines the metrics you want to include for this metric namespace
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricNames(List<String> metricNames) {
+            return metricNames(Output.of(metricNames));
+        }
+
+        /**
+         * @param metricNames An array that defines the metrics you want to include for this metric namespace
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricNames(String... metricNames) {
+            return metricNames(List.of(metricNames));
         }
 
         /**

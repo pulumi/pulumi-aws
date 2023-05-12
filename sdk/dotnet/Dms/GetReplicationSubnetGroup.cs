@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Dms
     public static class GetReplicationSubnetGroup
     {
         /// <summary>
-        /// TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+        /// Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Dms
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationSubnetGroupResult>("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args ?? new GetReplicationSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+        /// Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

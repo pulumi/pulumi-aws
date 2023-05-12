@@ -183,6 +183,12 @@ namespace Pulumi.Aws.Fsx
         public Output<int?> PerUnitStorageThroughput { get; private set; } = null!;
 
         /// <summary>
+        /// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+        /// </summary>
+        [Output("rootSquashConfiguration")]
+        public Output<Outputs.LustreFileSystemRootSquashConfiguration?> RootSquashConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
         [Output("securityGroupIds")]
@@ -366,6 +372,12 @@ namespace Pulumi.Aws.Fsx
         [Input("perUnitStorageThroughput")]
         public Input<int>? PerUnitStorageThroughput { get; set; }
 
+        /// <summary>
+        /// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+        /// </summary>
+        [Input("rootSquashConfiguration")]
+        public Input<Inputs.LustreFileSystemRootSquashConfigurationArgs>? RootSquashConfiguration { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -406,18 +418,6 @@ namespace Pulumi.Aws.Fsx
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -559,6 +559,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("perUnitStorageThroughput")]
         public Input<int>? PerUnitStorageThroughput { get; set; }
+
+        /// <summary>
+        /// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+        /// </summary>
+        [Input("rootSquashConfiguration")]
+        public Input<Inputs.LustreFileSystemRootSquashConfigurationGetArgs>? RootSquashConfiguration { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

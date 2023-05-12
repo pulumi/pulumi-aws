@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.DomainDomainSettingsRStudioServerProDomainSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -32,6 +33,21 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+     * 
+     */
+    @Import(name="rStudioServerProDomainSettings")
+    private @Nullable Output<DomainDomainSettingsRStudioServerProDomainSettingsArgs> rStudioServerProDomainSettings;
+
+    /**
+     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+     * 
+     */
+    public Optional<Output<DomainDomainSettingsRStudioServerProDomainSettingsArgs>> rStudioServerProDomainSettings() {
+        return Optional.ofNullable(this.rStudioServerProDomainSettings);
+    }
+
+    /**
      * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
      * 
      */
@@ -50,6 +66,7 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
 
     private DomainDomainSettingsArgs(DomainDomainSettingsArgs $) {
         this.executionRoleIdentityConfig = $.executionRoleIdentityConfig;
+        this.rStudioServerProDomainSettings = $.rStudioServerProDomainSettings;
         this.securityGroupIds = $.securityGroupIds;
     }
 
@@ -90,6 +107,27 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
          */
         public Builder executionRoleIdentityConfig(String executionRoleIdentityConfig) {
             return executionRoleIdentityConfig(Output.of(executionRoleIdentityConfig));
+        }
+
+        /**
+         * @param rStudioServerProDomainSettings A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rStudioServerProDomainSettings(@Nullable Output<DomainDomainSettingsRStudioServerProDomainSettingsArgs> rStudioServerProDomainSettings) {
+            $.rStudioServerProDomainSettings = rStudioServerProDomainSettings;
+            return this;
+        }
+
+        /**
+         * @param rStudioServerProDomainSettings A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rStudioServerProDomainSettings(DomainDomainSettingsRStudioServerProDomainSettingsArgs rStudioServerProDomainSettings) {
+            return rStudioServerProDomainSettings(Output.of(rStudioServerProDomainSettings));
         }
 
         /**

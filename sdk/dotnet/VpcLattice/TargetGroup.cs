@@ -54,7 +54,7 @@ namespace Pulumi.Aws.VpcLattice
     ///             Port = 443,
     ///             Protocol = "HTTPS",
     ///             VpcIdentifier = aws_vpc.Example.Id,
-    ///             ProtocolVersion = "HPPT1",
+    ///             ProtocolVersion = "HTTP1",
     ///             HealthCheck = new Aws.VpcLattice.Inputs.TargetGroupConfigHealthCheckArgs
     ///             {
     ///                 Enabled = true,
@@ -217,18 +217,6 @@ namespace Pulumi.Aws.VpcLattice
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>

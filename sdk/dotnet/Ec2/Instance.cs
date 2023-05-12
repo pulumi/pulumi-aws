@@ -126,6 +126,74 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// ### CPU options example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new()
+    ///     {
+    ///         CidrBlock = "172.16.0.0/16",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "tf-example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("exampleSubnet", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///         CidrBlock = "172.16.10.0/24",
+    ///         AvailabilityZone = "us-east-2a",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "tf-example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var amzn_linux_2023_ami = Aws.Ec2.GetAmi.Invoke(new()
+    ///     {
+    ///         MostRecent = true,
+    ///         Owners = new[]
+    ///         {
+    ///             "amazon",
+    ///         },
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+    ///             {
+    ///                 Name = "name",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "al2023-ami-2023.*-x86_64",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleInstance = new Aws.Ec2.Instance("exampleInstance", new()
+    ///     {
+    ///         Ami = amzn_linux_2023_ami.Apply(amzn_linux_2023_ami =&gt; amzn_linux_2023_ami.Apply(getAmiResult =&gt; getAmiResult.Id)),
+    ///         InstanceType = "c6a.2xlarge",
+    ///         SubnetId = exampleSubnet.Id,
+    ///         CpuOptions = new Aws.Ec2.Inputs.InstanceCpuOptionsArgs
+    ///         {
+    ///             CoreCount = 2,
+    ///             ThreadsPerCore = 2,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "tf-example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Host resource group or Licence Manager registered AMI example
     /// 
     /// A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
@@ -197,6 +265,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("cpuCoreCount")]
         public Output<int> CpuCoreCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The CPU options for the instance. See CPU Options below for more details.
+        /// </summary>
+        [Output("cpuOptions")]
+        public Output<Outputs.InstanceCpuOptions> CpuOptions { get; private set; } = null!;
 
         /// <summary>
         /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -557,6 +631,12 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? CpuCoreCount { get; set; }
 
         /// <summary>
+        /// The CPU options for the instance. See CPU Options below for more details.
+        /// </summary>
+        [Input("cpuOptions")]
+        public Input<Inputs.InstanceCpuOptionsArgs>? CpuOptions { get; set; }
+
+        /// <summary>
         /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         /// </summary>
         [Input("cpuThreadsPerCore")]
@@ -797,18 +877,6 @@ namespace Pulumi.Aws.Ec2
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
         /// </summary>
@@ -900,6 +968,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("cpuCoreCount")]
         public Input<int>? CpuCoreCount { get; set; }
+
+        /// <summary>
+        /// The CPU options for the instance. See CPU Options below for more details.
+        /// </summary>
+        [Input("cpuOptions")]
+        public Input<Inputs.InstanceCpuOptionsGetArgs>? CpuOptions { get; set; }
 
         /// <summary>
         /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.

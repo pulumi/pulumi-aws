@@ -55,8 +55,8 @@ import javax.annotation.Nullable;
  *                 .sid(&#34;new policy&#34;)
  *                 .effect(&#34;Allow&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;*&#34;)
- *                     .identifiers(&#34;*&#34;)
+ *                     .type(&#34;AWS&#34;)
+ *                     .identifiers(&#34;123456789012&#34;)
  *                     .build())
  *                 .actions(                
  *                     &#34;ecr:GetDownloadUrlForLayer&#34;,

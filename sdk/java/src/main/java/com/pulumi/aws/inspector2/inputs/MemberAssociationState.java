@@ -30,10 +30,58 @@ public final class MemberAssociationState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.accountId);
     }
 
+    /**
+     * Account ID of the delegated administrator account
+     * 
+     */
+    @Import(name="delegatedAdminAccountId")
+    private @Nullable Output<String> delegatedAdminAccountId;
+
+    /**
+     * @return Account ID of the delegated administrator account
+     * 
+     */
+    public Optional<Output<String>> delegatedAdminAccountId() {
+        return Optional.ofNullable(this.delegatedAdminAccountId);
+    }
+
+    /**
+     * Status of the member relationship
+     * 
+     */
+    @Import(name="relationshipStatus")
+    private @Nullable Output<String> relationshipStatus;
+
+    /**
+     * @return Status of the member relationship
+     * 
+     */
+    public Optional<Output<String>> relationshipStatus() {
+        return Optional.ofNullable(this.relationshipStatus);
+    }
+
+    /**
+     * Date and time of the last update of the relationship
+     * 
+     */
+    @Import(name="updatedAt")
+    private @Nullable Output<String> updatedAt;
+
+    /**
+     * @return Date and time of the last update of the relationship
+     * 
+     */
+    public Optional<Output<String>> updatedAt() {
+        return Optional.ofNullable(this.updatedAt);
+    }
+
     private MemberAssociationState() {}
 
     private MemberAssociationState(MemberAssociationState $) {
         this.accountId = $.accountId;
+        this.delegatedAdminAccountId = $.delegatedAdminAccountId;
+        this.relationshipStatus = $.relationshipStatus;
+        this.updatedAt = $.updatedAt;
     }
 
     public static Builder builder() {
@@ -73,6 +121,69 @@ public final class MemberAssociationState extends com.pulumi.resources.ResourceA
          */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param delegatedAdminAccountId Account ID of the delegated administrator account
+         * 
+         * @return builder
+         * 
+         */
+        public Builder delegatedAdminAccountId(@Nullable Output<String> delegatedAdminAccountId) {
+            $.delegatedAdminAccountId = delegatedAdminAccountId;
+            return this;
+        }
+
+        /**
+         * @param delegatedAdminAccountId Account ID of the delegated administrator account
+         * 
+         * @return builder
+         * 
+         */
+        public Builder delegatedAdminAccountId(String delegatedAdminAccountId) {
+            return delegatedAdminAccountId(Output.of(delegatedAdminAccountId));
+        }
+
+        /**
+         * @param relationshipStatus Status of the member relationship
+         * 
+         * @return builder
+         * 
+         */
+        public Builder relationshipStatus(@Nullable Output<String> relationshipStatus) {
+            $.relationshipStatus = relationshipStatus;
+            return this;
+        }
+
+        /**
+         * @param relationshipStatus Status of the member relationship
+         * 
+         * @return builder
+         * 
+         */
+        public Builder relationshipStatus(String relationshipStatus) {
+            return relationshipStatus(Output.of(relationshipStatus));
+        }
+
+        /**
+         * @param updatedAt Date and time of the last update of the relationship
+         * 
+         * @return builder
+         * 
+         */
+        public Builder updatedAt(@Nullable Output<String> updatedAt) {
+            $.updatedAt = updatedAt;
+            return this;
+        }
+
+        /**
+         * @param updatedAt Date and time of the last update of the relationship
+         * 
+         * @return builder
+         * 
+         */
+        public Builder updatedAt(String updatedAt) {
+            return updatedAt(Output.of(updatedAt));
         }
 
         public MemberAssociationState build() {

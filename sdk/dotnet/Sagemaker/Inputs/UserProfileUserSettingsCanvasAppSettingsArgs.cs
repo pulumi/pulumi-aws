@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class UserProfileUserSettingsCanvasAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        /// </summary>
+        [Input("modelRegisterSettings")]
+        public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs>? ModelRegisterSettings { get; set; }
+
+        /// <summary>
         /// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
         /// </summary>
         [Input("timeSeriesForecastingSettings")]

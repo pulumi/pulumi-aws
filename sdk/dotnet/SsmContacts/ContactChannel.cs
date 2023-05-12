@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SsmContacts
 {
     /// <summary>
-    /// TODO resource for managing an AWS SSM Contacts Contact Channel.
+    /// Resource for managing an AWS SSM Contacts Contact Channel.
     /// 
     /// ## Example Usage
     /// ### Basic Usage

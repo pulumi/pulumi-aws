@@ -830,6 +830,8 @@ public final class SsmFunctions {
      * }
      * ```
      * 
+     * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
+     * 
      */
     public static Output<GetParameterResult> getParameter(GetParameterArgs args) {
         return getParameter(args, InvokeOptions.Empty);
@@ -866,6 +868,8 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * 
+     * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
      * 
      */
     public static CompletableFuture<GetParameterResult> getParameterPlain(GetParameterPlainArgs args) {
@@ -904,6 +908,8 @@ public final class SsmFunctions {
      * }
      * ```
      * 
+     * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
+     * 
      */
     public static Output<GetParameterResult> getParameter(GetParameterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssm/getParameter:getParameter", TypeShape.of(GetParameterResult.class), args, Utilities.withVersion(options));
@@ -940,6 +946,8 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * 
+     * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
      * 
      */
     public static CompletableFuture<GetParameterResult> getParameterPlain(GetParameterPlainArgs args, InvokeOptions options) {
@@ -978,7 +986,8 @@ public final class SsmFunctions {
      * }
      * ```
      * 
-     * &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
+     * **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
      * 
      */
     public static Output<GetParametersByPathResult> getParametersByPath(GetParametersByPathArgs args) {
@@ -1017,7 +1026,8 @@ public final class SsmFunctions {
      * }
      * ```
      * 
-     * &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
+     * **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
      * 
      */
     public static CompletableFuture<GetParametersByPathResult> getParametersByPathPlain(GetParametersByPathPlainArgs args) {
@@ -1056,7 +1066,8 @@ public final class SsmFunctions {
      * }
      * ```
      * 
-     * &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
+     * **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
      * 
      */
     public static Output<GetParametersByPathResult> getParametersByPath(GetParametersByPathArgs args, InvokeOptions options) {
@@ -1095,7 +1106,8 @@ public final class SsmFunctions {
      * }
      * ```
      * 
-     * &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
+     * **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
      * 
      */
     public static CompletableFuture<GetParametersByPathResult> getParametersByPathPlain(GetParametersByPathPlainArgs args, InvokeOptions options) {

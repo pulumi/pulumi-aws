@@ -4,6 +4,7 @@
 package com.pulumi.aws.fsx.inputs;
 
 import com.pulumi.aws.fsx.inputs.LustreFileSystemLogConfigurationArgs;
+import com.pulumi.aws.fsx.inputs.LustreFileSystemRootSquashConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -321,6 +322,21 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+     * 
+     */
+    @Import(name="rootSquashConfiguration")
+    private @Nullable Output<LustreFileSystemRootSquashConfigurationArgs> rootSquashConfiguration;
+
+    /**
+     * @return The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+     * 
+     */
+    public Optional<Output<LustreFileSystemRootSquashConfigurationArgs>> rootSquashConfiguration() {
+        return Optional.ofNullable(this.rootSquashConfiguration);
+    }
+
+    /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
@@ -463,6 +479,7 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
         this.networkInterfaceIds = $.networkInterfaceIds;
         this.ownerId = $.ownerId;
         this.perUnitStorageThroughput = $.perUnitStorageThroughput;
+        this.rootSquashConfiguration = $.rootSquashConfiguration;
         this.securityGroupIds = $.securityGroupIds;
         this.storageCapacity = $.storageCapacity;
         this.storageType = $.storageType;
@@ -919,6 +936,27 @@ public final class LustreFileSystemState extends com.pulumi.resources.ResourceAr
          */
         public Builder perUnitStorageThroughput(Integer perUnitStorageThroughput) {
             return perUnitStorageThroughput(Output.of(perUnitStorageThroughput));
+        }
+
+        /**
+         * @param rootSquashConfiguration The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rootSquashConfiguration(@Nullable Output<LustreFileSystemRootSquashConfigurationArgs> rootSquashConfiguration) {
+            $.rootSquashConfiguration = rootSquashConfiguration;
+            return this;
+        }
+
+        /**
+         * @param rootSquashConfiguration The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rootSquashConfiguration(LustreFileSystemRootSquashConfigurationArgs rootSquashConfiguration) {
+            return rootSquashConfiguration(Output.of(rootSquashConfiguration));
         }
 
         /**

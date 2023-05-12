@@ -15,7 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * TODO resource for managing an AWS SSM Contacts Contact Channel.
+ * Resource for managing an AWS SSM Contacts Contact Channel.
  * 
  * ## Example Usage
  * ### Basic Usage

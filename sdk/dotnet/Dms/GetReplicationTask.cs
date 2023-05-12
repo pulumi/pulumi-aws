@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Dms
     public static class GetReplicationTask
     {
         /// <summary>
-        /// TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+        /// Data source for managing an AWS DMS (Database Migration) Replication Task.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Dms
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationTaskResult>("aws:dms/getReplicationTask:getReplicationTask", args ?? new GetReplicationTaskArgs(), options.WithDefaults());
 
         /// <summary>
-        /// TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+        /// Data source for managing an AWS DMS (Database Migration) Replication Task.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

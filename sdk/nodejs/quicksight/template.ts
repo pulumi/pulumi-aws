@@ -77,10 +77,6 @@ export class Template extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
-     */
-    public readonly definition!: pulumi.Output<outputs.quicksight.TemplateDefinition>;
-    /**
      * The time that the template was last updated.
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
@@ -141,7 +137,6 @@ export class Template extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
             resourceInputs["createdTime"] = state ? state.createdTime : undefined;
-            resourceInputs["definition"] = state ? state.definition : undefined;
             resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
@@ -162,7 +157,6 @@ export class Template extends pulumi.CustomResource {
                 throw new Error("Missing required property 'versionDescription'");
             }
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["sourceEntity"] = args ? args.sourceEntity : undefined;
@@ -198,10 +192,6 @@ export interface TemplateState {
      * The time that the template was created.
      */
     createdTime?: pulumi.Input<string>;
-    /**
-     * A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
-     */
-    definition?: pulumi.Input<inputs.quicksight.TemplateDefinition>;
     /**
      * The time that the template was last updated.
      */
@@ -256,10 +246,6 @@ export interface TemplateArgs {
      * AWS account ID.
      */
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
-     */
-    definition?: pulumi.Input<inputs.quicksight.TemplateDefinition>;
     /**
      * Display name for the template.
      */

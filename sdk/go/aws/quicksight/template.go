@@ -64,8 +64,6 @@ type Template struct {
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The time that the template was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
-	Definition TemplateDefinitionOutput `pulumi:"definition"`
 	// The time that the template was last updated.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// Display name for the template.
@@ -131,8 +129,6 @@ type templateState struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The time that the template was created.
 	CreatedTime *string `pulumi:"createdTime"`
-	// A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
-	Definition *TemplateDefinition `pulumi:"definition"`
 	// The time that the template was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Display name for the template.
@@ -164,8 +160,6 @@ type TemplateState struct {
 	AwsAccountId pulumi.StringPtrInput
 	// The time that the template was created.
 	CreatedTime pulumi.StringPtrInput
-	// A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
-	Definition TemplateDefinitionPtrInput
 	// The time that the template was last updated.
 	LastUpdatedTime pulumi.StringPtrInput
 	// Display name for the template.
@@ -197,8 +191,6 @@ func (TemplateState) ElementType() reflect.Type {
 type templateArgs struct {
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
-	Definition *TemplateDefinition `pulumi:"definition"`
 	// Display name for the template.
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
@@ -217,8 +209,6 @@ type templateArgs struct {
 type TemplateArgs struct {
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput
-	// A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
-	Definition TemplateDefinitionPtrInput
 	// Display name for the template.
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
@@ -333,11 +323,6 @@ func (o TemplateOutput) AwsAccountId() pulumi.StringOutput {
 // The time that the template was created.
 func (o TemplateOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
-}
-
-// A detailed template definition. Only one of `definition` or `sourceEntity` should be configured. See definition.
-func (o TemplateOutput) Definition() TemplateDefinitionOutput {
-	return o.ApplyT(func(v *Template) TemplateDefinitionOutput { return v.Definition }).(TemplateDefinitionOutput)
 }
 
 // The time that the template was last updated.

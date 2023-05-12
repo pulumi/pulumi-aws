@@ -4,6 +4,9 @@
 package com.pulumi.aws.autoscaling.outputs;
 
 import com.pulumi.aws.autoscaling.outputs.GetGroupLaunchTemplate;
+import com.pulumi.aws.autoscaling.outputs.GetGroupMixedInstancesPolicy;
+import com.pulumi.aws.autoscaling.outputs.GetGroupTag;
+import com.pulumi.aws.autoscaling.outputs.GetGroupWarmPool;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -59,6 +62,10 @@ public final class GetGroupResult {
      * 
      */
     private String launchConfiguration;
+    /**
+     * @return List of launch templates along with the overrides.
+     * 
+     */
     private List<GetGroupLaunchTemplate> launchTemplates;
     /**
      * @return One or more load balancers associated with the group.
@@ -66,15 +73,25 @@ public final class GetGroupResult {
      */
     private List<String> loadBalancers;
     /**
+     * @return Maximum amount of time, in seconds, that an instance can be in service.
+     * 
+     */
+    private Integer maxInstanceLifetime;
+    /**
      * @return Maximum size of the group.
      * 
      */
     private Integer maxSize;
     /**
-     * @return Minimum size of the group.
+     * @return Minimum number of instances to maintain in the warm pool.
      * 
      */
     private Integer minSize;
+    /**
+     * @return List of mixed instances policy objects for the group.
+     * 
+     */
+    private List<GetGroupMixedInstancesPolicy> mixedInstancesPolicies;
     /**
      * @return Name of the Auto Scaling Group.
      * 
@@ -87,6 +104,11 @@ public final class GetGroupResult {
      */
     private String placementGroup;
     /**
+     * @return Predicted capacity of the group.
+     * 
+     */
+    private Integer predictedCapacity;
+    /**
      * @return ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
      * 
      */
@@ -96,6 +118,16 @@ public final class GetGroupResult {
      * 
      */
     private String status;
+    /**
+     * @return List of processes suspended processes for the Auto Scaling Group.
+     * 
+     */
+    private List<String> suspendedProcesses;
+    /**
+     * @return List of tags for the group.
+     * 
+     */
+    private List<GetGroupTag> tags;
     /**
      * @return ARNs of the target groups for your load balancer.
      * 
@@ -111,6 +143,16 @@ public final class GetGroupResult {
      * 
      */
     private String vpcZoneIdentifier;
+    /**
+     * @return Current size of the warm pool.
+     * 
+     */
+    private Integer warmPoolSize;
+    /**
+     * @return List of warm pool configuration objects.
+     * 
+     */
+    private List<GetGroupWarmPool> warmPools;
 
     private GetGroupResult() {}
     /**
@@ -179,6 +221,10 @@ public final class GetGroupResult {
     public String launchConfiguration() {
         return this.launchConfiguration;
     }
+    /**
+     * @return List of launch templates along with the overrides.
+     * 
+     */
     public List<GetGroupLaunchTemplate> launchTemplates() {
         return this.launchTemplates;
     }
@@ -190,6 +236,13 @@ public final class GetGroupResult {
         return this.loadBalancers;
     }
     /**
+     * @return Maximum amount of time, in seconds, that an instance can be in service.
+     * 
+     */
+    public Integer maxInstanceLifetime() {
+        return this.maxInstanceLifetime;
+    }
+    /**
      * @return Maximum size of the group.
      * 
      */
@@ -197,11 +250,18 @@ public final class GetGroupResult {
         return this.maxSize;
     }
     /**
-     * @return Minimum size of the group.
+     * @return Minimum number of instances to maintain in the warm pool.
      * 
      */
     public Integer minSize() {
         return this.minSize;
+    }
+    /**
+     * @return List of mixed instances policy objects for the group.
+     * 
+     */
+    public List<GetGroupMixedInstancesPolicy> mixedInstancesPolicies() {
+        return this.mixedInstancesPolicies;
     }
     /**
      * @return Name of the Auto Scaling Group.
@@ -221,6 +281,13 @@ public final class GetGroupResult {
         return this.placementGroup;
     }
     /**
+     * @return Predicted capacity of the group.
+     * 
+     */
+    public Integer predictedCapacity() {
+        return this.predictedCapacity;
+    }
+    /**
      * @return ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
      * 
      */
@@ -233,6 +300,20 @@ public final class GetGroupResult {
      */
     public String status() {
         return this.status;
+    }
+    /**
+     * @return List of processes suspended processes for the Auto Scaling Group.
+     * 
+     */
+    public List<String> suspendedProcesses() {
+        return this.suspendedProcesses;
+    }
+    /**
+     * @return List of tags for the group.
+     * 
+     */
+    public List<GetGroupTag> tags() {
+        return this.tags;
     }
     /**
      * @return ARNs of the target groups for your load balancer.
@@ -254,6 +335,20 @@ public final class GetGroupResult {
      */
     public String vpcZoneIdentifier() {
         return this.vpcZoneIdentifier;
+    }
+    /**
+     * @return Current size of the warm pool.
+     * 
+     */
+    public Integer warmPoolSize() {
+        return this.warmPoolSize;
+    }
+    /**
+     * @return List of warm pool configuration objects.
+     * 
+     */
+    public List<GetGroupWarmPool> warmPools() {
+        return this.warmPools;
     }
 
     public static Builder builder() {
@@ -277,16 +372,23 @@ public final class GetGroupResult {
         private String launchConfiguration;
         private List<GetGroupLaunchTemplate> launchTemplates;
         private List<String> loadBalancers;
+        private Integer maxInstanceLifetime;
         private Integer maxSize;
         private Integer minSize;
+        private List<GetGroupMixedInstancesPolicy> mixedInstancesPolicies;
         private String name;
         private Boolean newInstancesProtectedFromScaleIn;
         private String placementGroup;
+        private Integer predictedCapacity;
         private String serviceLinkedRoleArn;
         private String status;
+        private List<String> suspendedProcesses;
+        private List<GetGroupTag> tags;
         private List<String> targetGroupArns;
         private List<String> terminationPolicies;
         private String vpcZoneIdentifier;
+        private Integer warmPoolSize;
+        private List<GetGroupWarmPool> warmPools;
         public Builder() {}
         public Builder(GetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -302,16 +404,23 @@ public final class GetGroupResult {
     	      this.launchConfiguration = defaults.launchConfiguration;
     	      this.launchTemplates = defaults.launchTemplates;
     	      this.loadBalancers = defaults.loadBalancers;
+    	      this.maxInstanceLifetime = defaults.maxInstanceLifetime;
     	      this.maxSize = defaults.maxSize;
     	      this.minSize = defaults.minSize;
+    	      this.mixedInstancesPolicies = defaults.mixedInstancesPolicies;
     	      this.name = defaults.name;
     	      this.newInstancesProtectedFromScaleIn = defaults.newInstancesProtectedFromScaleIn;
     	      this.placementGroup = defaults.placementGroup;
+    	      this.predictedCapacity = defaults.predictedCapacity;
     	      this.serviceLinkedRoleArn = defaults.serviceLinkedRoleArn;
     	      this.status = defaults.status;
+    	      this.suspendedProcesses = defaults.suspendedProcesses;
+    	      this.tags = defaults.tags;
     	      this.targetGroupArns = defaults.targetGroupArns;
     	      this.terminationPolicies = defaults.terminationPolicies;
     	      this.vpcZoneIdentifier = defaults.vpcZoneIdentifier;
+    	      this.warmPoolSize = defaults.warmPoolSize;
+    	      this.warmPools = defaults.warmPools;
         }
 
         @CustomType.Setter
@@ -387,6 +496,11 @@ public final class GetGroupResult {
             return loadBalancers(List.of(loadBalancers));
         }
         @CustomType.Setter
+        public Builder maxInstanceLifetime(Integer maxInstanceLifetime) {
+            this.maxInstanceLifetime = Objects.requireNonNull(maxInstanceLifetime);
+            return this;
+        }
+        @CustomType.Setter
         public Builder maxSize(Integer maxSize) {
             this.maxSize = Objects.requireNonNull(maxSize);
             return this;
@@ -395,6 +509,14 @@ public final class GetGroupResult {
         public Builder minSize(Integer minSize) {
             this.minSize = Objects.requireNonNull(minSize);
             return this;
+        }
+        @CustomType.Setter
+        public Builder mixedInstancesPolicies(List<GetGroupMixedInstancesPolicy> mixedInstancesPolicies) {
+            this.mixedInstancesPolicies = Objects.requireNonNull(mixedInstancesPolicies);
+            return this;
+        }
+        public Builder mixedInstancesPolicies(GetGroupMixedInstancesPolicy... mixedInstancesPolicies) {
+            return mixedInstancesPolicies(List.of(mixedInstancesPolicies));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -412,6 +534,11 @@ public final class GetGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder predictedCapacity(Integer predictedCapacity) {
+            this.predictedCapacity = Objects.requireNonNull(predictedCapacity);
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceLinkedRoleArn(String serviceLinkedRoleArn) {
             this.serviceLinkedRoleArn = Objects.requireNonNull(serviceLinkedRoleArn);
             return this;
@@ -420,6 +547,22 @@ public final class GetGroupResult {
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
+        }
+        @CustomType.Setter
+        public Builder suspendedProcesses(List<String> suspendedProcesses) {
+            this.suspendedProcesses = Objects.requireNonNull(suspendedProcesses);
+            return this;
+        }
+        public Builder suspendedProcesses(String... suspendedProcesses) {
+            return suspendedProcesses(List.of(suspendedProcesses));
+        }
+        @CustomType.Setter
+        public Builder tags(List<GetGroupTag> tags) {
+            this.tags = Objects.requireNonNull(tags);
+            return this;
+        }
+        public Builder tags(GetGroupTag... tags) {
+            return tags(List.of(tags));
         }
         @CustomType.Setter
         public Builder targetGroupArns(List<String> targetGroupArns) {
@@ -442,6 +585,19 @@ public final class GetGroupResult {
             this.vpcZoneIdentifier = Objects.requireNonNull(vpcZoneIdentifier);
             return this;
         }
+        @CustomType.Setter
+        public Builder warmPoolSize(Integer warmPoolSize) {
+            this.warmPoolSize = Objects.requireNonNull(warmPoolSize);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder warmPools(List<GetGroupWarmPool> warmPools) {
+            this.warmPools = Objects.requireNonNull(warmPools);
+            return this;
+        }
+        public Builder warmPools(GetGroupWarmPool... warmPools) {
+            return warmPools(List.of(warmPools));
+        }
         public GetGroupResult build() {
             final var o = new GetGroupResult();
             o.arn = arn;
@@ -456,16 +612,23 @@ public final class GetGroupResult {
             o.launchConfiguration = launchConfiguration;
             o.launchTemplates = launchTemplates;
             o.loadBalancers = loadBalancers;
+            o.maxInstanceLifetime = maxInstanceLifetime;
             o.maxSize = maxSize;
             o.minSize = minSize;
+            o.mixedInstancesPolicies = mixedInstancesPolicies;
             o.name = name;
             o.newInstancesProtectedFromScaleIn = newInstancesProtectedFromScaleIn;
             o.placementGroup = placementGroup;
+            o.predictedCapacity = predictedCapacity;
             o.serviceLinkedRoleArn = serviceLinkedRoleArn;
             o.status = status;
+            o.suspendedProcesses = suspendedProcesses;
+            o.tags = tags;
             o.targetGroupArns = targetGroupArns;
             o.terminationPolicies = terminationPolicies;
             o.vpcZoneIdentifier = vpcZoneIdentifier;
+            o.warmPoolSize = warmPoolSize;
+            o.warmPools = warmPools;
             return o;
         }
     }

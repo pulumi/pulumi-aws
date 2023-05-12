@@ -14,13 +14,21 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettingsCanvasAppSettings
     {
         /// <summary>
-        /// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+        /// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings? ModelRegisterSettings;
+        /// <summary>
+        /// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings? TimeSeriesForecastingSettings;
 
         [OutputConstructor]
-        private DomainDefaultUserSettingsCanvasAppSettings(Outputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings? timeSeriesForecastingSettings)
+        private DomainDefaultUserSettingsCanvasAppSettings(
+            Outputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings? modelRegisterSettings,
+
+            Outputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings? timeSeriesForecastingSettings)
         {
+            ModelRegisterSettings = modelRegisterSettings;
             TimeSeriesForecastingSettings = timeSeriesForecastingSettings;
         }
     }

@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .userPoolId(aws_cognito_user_pool.test().id())
+ *             .userPoolId(exampleUserPool.id())
  *             .username(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleUserGroup = new UserGroup(&#34;exampleUserGroup&#34;, UserGroupArgs.builder()        
- *             .userPoolId(aws_cognito_user_pool.test().id())
+ *             .userPoolId(exampleUserPool.id())
  *             .build());
  * 
  *         var exampleUserInGroup = new UserInGroup(&#34;exampleUserInGroup&#34;, UserInGroupArgs.builder()        

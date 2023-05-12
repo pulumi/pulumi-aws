@@ -5,14 +5,19 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetLaunchTemplateCpuOption {
+    private String amdSevSnp;
     private Integer coreCount;
     private Integer threadsPerCore;
 
     private GetLaunchTemplateCpuOption() {}
+    public String amdSevSnp() {
+        return this.amdSevSnp;
+    }
     public Integer coreCount() {
         return this.coreCount;
     }
@@ -29,15 +34,22 @@ public final class GetLaunchTemplateCpuOption {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String amdSevSnp;
         private Integer coreCount;
         private Integer threadsPerCore;
         public Builder() {}
         public Builder(GetLaunchTemplateCpuOption defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.amdSevSnp = defaults.amdSevSnp;
     	      this.coreCount = defaults.coreCount;
     	      this.threadsPerCore = defaults.threadsPerCore;
         }
 
+        @CustomType.Setter
+        public Builder amdSevSnp(String amdSevSnp) {
+            this.amdSevSnp = Objects.requireNonNull(amdSevSnp);
+            return this;
+        }
         @CustomType.Setter
         public Builder coreCount(Integer coreCount) {
             this.coreCount = Objects.requireNonNull(coreCount);
@@ -50,6 +62,7 @@ public final class GetLaunchTemplateCpuOption {
         }
         public GetLaunchTemplateCpuOption build() {
             final var o = new GetLaunchTemplateCpuOption();
+            o.amdSevSnp = amdSevSnp;
             o.coreCount = coreCount;
             o.threadsPerCore = threadsPerCore;
             return o;

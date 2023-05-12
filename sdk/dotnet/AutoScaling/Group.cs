@@ -664,6 +664,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string?> PlacementGroup { get; private set; } = null!;
 
         /// <summary>
+        /// Predicted capacity of the group.
+        /// </summary>
+        [Output("predictedCapacity")]
+        public Output<int> PredictedCapacity { get; private set; } = null!;
+
+        /// <summary>
         /// Whether newly launched instances
         /// are automatically protected from termination by Amazon EC2 Auto Scaling when
         /// scaling in. For more information about preventing instances from terminating
@@ -742,6 +748,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Output("warmPool")]
         public Output<Outputs.GroupWarmPool?> WarmPool { get; private set; } = null!;
+
+        /// <summary>
+        /// Current size of the warm pool.
+        /// </summary>
+        [Output("warmPoolSize")]
+        public Output<int> WarmPoolSize { get; private set; } = null!;
 
 
         /// <summary>
@@ -1315,6 +1327,12 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? PlacementGroup { get; set; }
 
         /// <summary>
+        /// Predicted capacity of the group.
+        /// </summary>
+        [Input("predictedCapacity")]
+        public Input<int>? PredictedCapacity { get; set; }
+
+        /// <summary>
         /// Whether newly launched instances
         /// are automatically protected from termination by Amazon EC2 Auto Scaling when
         /// scaling in. For more information about preventing instances from terminating
@@ -1430,6 +1448,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("warmPool")]
         public Input<Inputs.GroupWarmPoolGetArgs>? WarmPool { get; set; }
+
+        /// <summary>
+        /// Current size of the warm pool.
+        /// </summary>
+        [Input("warmPoolSize")]
+        public Input<int>? WarmPoolSize { get; set; }
 
         public GroupState()
         {
