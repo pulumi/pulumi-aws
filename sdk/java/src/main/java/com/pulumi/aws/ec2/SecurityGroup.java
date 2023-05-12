@@ -338,14 +338,14 @@ public class SecurityGroup extends com.pulumi.resources.CustomResource {
         return this.ingress;
     }
     /**
-     * Name of the security group. If omitted, this provider will assign a random, unique name.
+     * Name of the security group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the security group. If omitted, this provider will assign a random, unique name.
+     * @return Name of the security group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {

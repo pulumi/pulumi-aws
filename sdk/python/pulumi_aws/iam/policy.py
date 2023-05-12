@@ -24,7 +24,7 @@ class PolicyArgs:
         The set of arguments for constructing a Policy resource.
         :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[str] description: Description of the IAM policy.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the policy.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
@@ -70,7 +70,7 @@ class PolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the policy. If omitted, this provider will assign a random, unique name.
+        The name of the policy. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -132,7 +132,7 @@ class _PolicyState:
         Input properties used for looking up and filtering Policy resources.
         :param pulumi.Input[str] arn: The ARN assigned by AWS to this policy.
         :param pulumi.Input[str] description: Description of the IAM policy.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the policy.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
@@ -188,7 +188,7 @@ class _PolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the policy. If omitted, this provider will assign a random, unique name.
+        The name of the policy. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -316,7 +316,7 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the IAM policy.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the policy.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
@@ -429,7 +429,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN assigned by AWS to this policy.
         :param pulumi.Input[str] description: Description of the IAM policy.
-        :param pulumi.Input[str] name: The name of the policy. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the policy. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path in which to create the policy.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
@@ -473,7 +473,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the policy. If omitted, this provider will assign a random, unique name.
+        The name of the policy. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 

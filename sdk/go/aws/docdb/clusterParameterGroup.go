@@ -60,7 +60,7 @@ type ClusterParameterGroup struct {
 
 	// The ARN of the DocumentDB cluster parameter group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The family of the DocumentDB cluster parameter group.
 	Family pulumi.StringOutput `pulumi:"family"`
@@ -110,7 +110,7 @@ func GetClusterParameterGroup(ctx *pulumi.Context,
 type clusterParameterGroupState struct {
 	// The ARN of the DocumentDB cluster parameter group.
 	Arn *string `pulumi:"arn"`
-	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
 	// The family of the DocumentDB cluster parameter group.
 	Family *string `pulumi:"family"`
@@ -129,7 +129,7 @@ type clusterParameterGroupState struct {
 type ClusterParameterGroupState struct {
 	// The ARN of the DocumentDB cluster parameter group.
 	Arn pulumi.StringPtrInput
-	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
 	// The family of the DocumentDB cluster parameter group.
 	Family pulumi.StringPtrInput
@@ -150,7 +150,7 @@ func (ClusterParameterGroupState) ElementType() reflect.Type {
 }
 
 type clusterParameterGroupArgs struct {
-	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
 	// The family of the DocumentDB cluster parameter group.
 	Family string `pulumi:"family"`
@@ -166,7 +166,7 @@ type clusterParameterGroupArgs struct {
 
 // The set of arguments for constructing a ClusterParameterGroup resource.
 type ClusterParameterGroupArgs struct {
-	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+	// The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
 	// The family of the DocumentDB cluster parameter group.
 	Family pulumi.StringInput
@@ -272,7 +272,7 @@ func (o ClusterParameterGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+// The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
 func (o ClusterParameterGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

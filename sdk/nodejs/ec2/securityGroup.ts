@@ -192,7 +192,7 @@ export class SecurityGroup extends pulumi.CustomResource {
      */
     public readonly ingress!: pulumi.Output<outputs.ec2.SecurityGroupIngress[]>;
     /**
-     * Name of the security group. If omitted, this provider will assign a random, unique name.
+     * Name of the security group. If omitted, the provider will assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -284,7 +284,7 @@ export interface SecurityGroupState {
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
     /**
-     * Name of the security group. If omitted, this provider will assign a random, unique name.
+     * Name of the security group. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -330,7 +330,7 @@ export interface SecurityGroupArgs {
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
     /**
-     * Name of the security group. If omitted, this provider will assign a random, unique name.
+     * Name of the security group. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**

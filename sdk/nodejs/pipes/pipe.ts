@@ -132,7 +132,7 @@ export class Pipe extends pulumi.CustomResource {
      */
     public readonly enrichment!: pulumi.Output<string | undefined>;
     /**
-     * Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -251,7 +251,7 @@ export interface PipeState {
      */
     enrichment?: pulumi.Input<string>;
     /**
-     * Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -305,7 +305,7 @@ export interface PipeArgs {
      */
     enrichment?: pulumi.Input<string>;
     /**
-     * Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**

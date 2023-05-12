@@ -69,7 +69,7 @@ class AwaitableGetFunctionsResult(GetFunctionsResult):
 
 def get_functions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionsResult:
     """
-    TODO data resource to get a list of Lambda Functions.
+    Data resource to get a list of Lambda Functions.
 
     ## Example Usage
 

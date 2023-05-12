@@ -332,7 +332,7 @@ namespace Pulumi.Aws.Iam
         public Output<int?> MaxSessionDuration { get; private set; } = null!;
 
         /// <summary>
-        /// Friendly name of the role. If omitted, this provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        /// Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -470,7 +470,7 @@ namespace Pulumi.Aws.Iam
         public Input<int>? MaxSessionDuration { get; set; }
 
         /// <summary>
-        /// Friendly name of the role. If omitted, this provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        /// Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -570,7 +570,7 @@ namespace Pulumi.Aws.Iam
         public Input<int>? MaxSessionDuration { get; set; }
 
         /// <summary>
-        /// Friendly name of the role. If omitted, this provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
+        /// Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

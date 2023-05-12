@@ -166,7 +166,7 @@ type Topic struct {
 	LambdaSuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"lambdaSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	LambdaSuccessFeedbackSampleRate pulumi.IntPtrOutput `pulumi:"lambdaSuccessFeedbackSampleRate"`
-	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
+	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
@@ -255,7 +255,7 @@ type topicState struct {
 	LambdaSuccessFeedbackRoleArn *string `pulumi:"lambdaSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	LambdaSuccessFeedbackSampleRate *int `pulumi:"lambdaSuccessFeedbackSampleRate"`
-	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
+	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -316,7 +316,7 @@ type TopicState struct {
 	LambdaSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	LambdaSuccessFeedbackSampleRate pulumi.IntPtrInput
-	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
+	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
 	NamePrefix pulumi.StringPtrInput
@@ -379,7 +379,7 @@ type topicArgs struct {
 	LambdaSuccessFeedbackRoleArn *string `pulumi:"lambdaSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	LambdaSuccessFeedbackSampleRate *int `pulumi:"lambdaSuccessFeedbackSampleRate"`
-	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
+	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -435,7 +435,7 @@ type TopicArgs struct {
 	LambdaSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	LambdaSuccessFeedbackSampleRate pulumi.IntPtrInput
-	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
+	// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
 	NamePrefix pulumi.StringPtrInput
@@ -632,7 +632,7 @@ func (o TopicOutput) LambdaSuccessFeedbackSampleRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.IntPtrOutput { return v.LambdaSuccessFeedbackSampleRate }).(pulumi.IntPtrOutput)
 }
 
-// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
+// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
 func (o TopicOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

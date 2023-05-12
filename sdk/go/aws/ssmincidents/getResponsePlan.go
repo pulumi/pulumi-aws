@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+// Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
 //
 // ## Example Usage
 func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts ...pulumi.InvokeOption) (*LookupResponsePlanResult, error) {

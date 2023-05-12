@@ -151,7 +151,7 @@ def get_response_plan(arn: Optional[str] = None,
                       tags: Optional[Mapping[str, str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResponsePlanResult:
     """
-    Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+    Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
 
     ## Example Usage
 
@@ -183,7 +183,7 @@ def get_response_plan_output(arn: Optional[pulumi.Input[str]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResponsePlanResult]:
     """
-    Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+    Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
 
     ## Example Usage
 

@@ -106,7 +106,7 @@ type ClusterInstance struct {
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The database engine version
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+	// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
@@ -211,7 +211,7 @@ type clusterInstanceState struct {
 	Engine *string `pulumi:"engine"`
 	// The database engine version
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+	// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
@@ -282,7 +282,7 @@ type ClusterInstanceState struct {
 	Engine pulumi.StringPtrInput
 	// The database engine version
 	EngineVersion pulumi.StringPtrInput
-	// The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+	// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
@@ -347,7 +347,7 @@ type clusterInstanceArgs struct {
 	EnablePerformanceInsights *bool `pulumi:"enablePerformanceInsights"`
 	// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine *string `pulumi:"engine"`
-	// The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+	// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
@@ -396,7 +396,7 @@ type ClusterInstanceArgs struct {
 	EnablePerformanceInsights pulumi.BoolPtrInput
 	// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
 	Engine pulumi.StringPtrInput
-	// The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+	// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
@@ -576,7 +576,7 @@ func (o ClusterInstanceOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
-// The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
 func (o ClusterInstanceOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }

@@ -25,7 +25,7 @@ class ClusterParameterGroupArgs:
         """
         The set of arguments for constructing a ClusterParameterGroup resource.
         :param pulumi.Input[str] family: The family of the DocumentDB cluster parameter group.
-        :param pulumi.Input[str] description: The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+        :param pulumi.Input[str] description: The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] name: The name of the DocumentDB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]] parameters: A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
@@ -59,7 +59,7 @@ class ClusterParameterGroupArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+        The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -130,7 +130,7 @@ class _ClusterParameterGroupState:
         """
         Input properties used for looking up and filtering ClusterParameterGroup resources.
         :param pulumi.Input[str] arn: The ARN of the DocumentDB cluster parameter group.
-        :param pulumi.Input[str] description: The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+        :param pulumi.Input[str] description: The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the DocumentDB cluster parameter group.
         :param pulumi.Input[str] name: The name of the DocumentDB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -171,7 +171,7 @@ class _ClusterParameterGroupState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+        The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -292,7 +292,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+        :param pulumi.Input[str] description: The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the DocumentDB cluster parameter group.
         :param pulumi.Input[str] name: The name of the DocumentDB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -397,7 +397,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the DocumentDB cluster parameter group.
-        :param pulumi.Input[str] description: The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+        :param pulumi.Input[str] description: The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the DocumentDB cluster parameter group.
         :param pulumi.Input[str] name: The name of the DocumentDB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -431,7 +431,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+        The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 

@@ -126,7 +126,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly engineVersion!: pulumi.Output<string>;
     /**
-     * The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+     * The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      */
     public readonly identifier!: pulumi.Output<string>;
     /**
@@ -328,7 +328,7 @@ export interface ClusterInstanceState {
      */
     engineVersion?: pulumi.Input<string>;
     /**
-     * The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+     * The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      */
     identifier?: pulumi.Input<string>;
     /**
@@ -432,7 +432,7 @@ export interface ClusterInstanceArgs {
      */
     engine?: pulumi.Input<string>;
     /**
-     * The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+     * The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      */
     identifier?: pulumi.Input<string>;
     /**

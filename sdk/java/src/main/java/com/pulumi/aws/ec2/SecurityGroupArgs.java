@@ -67,14 +67,14 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the security group. If omitted, this provider will assign a random, unique name.
+     * Name of the security group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the security group. If omitted, this provider will assign a random, unique name.
+     * @return Name of the security group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -256,7 +256,7 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the security group. If omitted, this provider will assign a random, unique name.
+         * @param name Name of the security group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the security group. If omitted, this provider will assign a random, unique name.
+         * @param name Name of the security group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 

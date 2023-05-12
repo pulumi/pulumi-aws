@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Lambda
     public static class GetFunctions
     {
         /// <summary>
-        /// TODO data resource to get a list of Lambda Functions.
+        /// Data resource to get a list of Lambda Functions.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Pipes
         public Output<string?> Enrichment { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string>? Enrichment { get; set; }
 
         /// <summary>
-        /// Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string>? Enrichment { get; set; }
 
         /// <summary>
-        /// Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`.
+        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

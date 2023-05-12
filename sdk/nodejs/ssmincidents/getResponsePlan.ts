@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+ * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
  *
  * ## Example Usage
  */
@@ -75,7 +75,7 @@ export interface GetResponsePlanResult {
     readonly tags: {[key: string]: string};
 }
 /**
- * Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+ * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
  *
  * ## Example Usage
  */

@@ -171,7 +171,7 @@ type Pipe struct {
 	DesiredState pulumi.StringPtrOutput `pulumi:"desiredState"`
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment pulumi.StringPtrOutput `pulumi:"enrichment"`
-	// Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `namePrefix`.
+	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
@@ -243,7 +243,7 @@ type pipeState struct {
 	DesiredState *string `pulumi:"desiredState"`
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment *string `pulumi:"enrichment"`
-	// Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `namePrefix`.
+	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -272,7 +272,7 @@ type PipeState struct {
 	DesiredState pulumi.StringPtrInput
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment pulumi.StringPtrInput
-	// Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `namePrefix`.
+	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -303,7 +303,7 @@ type pipeArgs struct {
 	DesiredState *string `pulumi:"desiredState"`
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment *string `pulumi:"enrichment"`
-	// Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `namePrefix`.
+	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -329,7 +329,7 @@ type PipeArgs struct {
 	DesiredState pulumi.StringPtrInput
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment pulumi.StringPtrInput
-	// Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `namePrefix`.
+	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -454,7 +454,7 @@ func (o PipeOutput) Enrichment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.Enrichment }).(pulumi.StringPtrOutput)
 }
 
-// Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `namePrefix`.
+// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o PipeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

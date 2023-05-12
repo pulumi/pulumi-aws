@@ -69,7 +69,7 @@ export class SubnetGroup extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+     * The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -152,7 +152,7 @@ export interface SubnetGroupState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+     * The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface SubnetGroupArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+     * The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**

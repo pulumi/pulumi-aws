@@ -91,14 +91,14 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+     * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return Name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+     * @return Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -278,7 +278,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-     * TODO wil only perform drift detection if a configuration value is provided.
+     * The provider wil only perform drift detection if a configuration value is provided.
      * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
      * 
      * @deprecated
@@ -291,7 +291,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-     * TODO wil only perform drift detection if a configuration value is provided.
+     * The provider wil only perform drift detection if a configuration value is provided.
      * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
      * 
      * @deprecated
@@ -320,7 +320,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-     * TODO will only perform drift detection if a configuration value is provided.
+     * The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketPolicy` instead.
      * 
      * @deprecated
@@ -333,7 +333,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-     * TODO will only perform drift detection if a configuration value is provided.
+     * The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketPolicy` instead.
      * 
      * @deprecated
@@ -389,7 +389,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
      * See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-     * TODO will only perform drift detection if a configuration value is provided.
+     * The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
      * 
      * @deprecated
@@ -404,7 +404,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * @return Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
      * See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-     * TODO will only perform drift detection if a configuration value is provided.
+     * The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
      * 
      * @deprecated
@@ -418,7 +418,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-     * TODO will only perform drift detection if a configuration value is provided.
+     * The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
      * 
      * @deprecated
@@ -431,7 +431,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-     * TODO will only perform drift detection if a configuration value is provided.
+     * The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
      * 
      * @deprecated
@@ -698,7 +698,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+         * @param bucket Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+         * @param bucket Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
          * 
          * @return builder
          * 
@@ -1003,7 +1003,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param objectLockConfiguration Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-         * TODO wil only perform drift detection if a configuration value is provided.
+         * The provider wil only perform drift detection if a configuration value is provided.
          * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
          * 
          * @return builder
@@ -1020,7 +1020,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param objectLockConfiguration Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-         * TODO wil only perform drift detection if a configuration value is provided.
+         * The provider wil only perform drift detection if a configuration value is provided.
          * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
          * 
          * @return builder
@@ -1057,7 +1057,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param policy Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-         * TODO will only perform drift detection if a configuration value is provided.
+         * The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketPolicy` instead.
          * 
          * @return builder
@@ -1074,7 +1074,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param policy Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
-         * TODO will only perform drift detection if a configuration value is provided.
+         * The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketPolicy` instead.
          * 
          * @return builder
@@ -1159,7 +1159,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @param requestPayer Specifies who should bear the cost of Amazon S3 data transfer.
          * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
          * See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-         * TODO will only perform drift detection if a configuration value is provided.
+         * The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
          * 
          * @return builder
@@ -1178,7 +1178,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @param requestPayer Specifies who should bear the cost of Amazon S3 data transfer.
          * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur the costs of any data transfer.
          * See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) developer guide for more information.
-         * TODO will only perform drift detection if a configuration value is provided.
+         * The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
          * 
          * @return builder
@@ -1194,7 +1194,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param serverSideEncryptionConfigurations Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-         * TODO will only perform drift detection if a configuration value is provided.
+         * The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
          * 
          * @return builder
@@ -1211,7 +1211,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param serverSideEncryptionConfigurations Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-         * TODO will only perform drift detection if a configuration value is provided.
+         * The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
          * 
          * @return builder
@@ -1227,7 +1227,7 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param serverSideEncryptionConfigurations Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-         * TODO will only perform drift detection if a configuration value is provided.
+         * The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
          * 
          * @return builder

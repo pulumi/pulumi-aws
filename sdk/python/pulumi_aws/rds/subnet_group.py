@@ -23,7 +23,7 @@ class SubnetGroupArgs:
         The set of arguments for constructing a SubnetGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs.
         :param pulumi.Input[str] description: The description of the DB subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] name: The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -67,7 +67,7 @@ class SubnetGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+        The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -116,7 +116,7 @@ class _SubnetGroupState:
         Input properties used for looking up and filtering SubnetGroup resources.
         :param pulumi.Input[str] arn: The ARN of the db subnet group.
         :param pulumi.Input[str] description: The description of the DB subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] name: The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_network_types: The network type of the db subnet group.
@@ -173,7 +173,7 @@ class _SubnetGroupState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+        The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -295,7 +295,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the DB subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] name: The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -403,7 +403,7 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the db subnet group.
         :param pulumi.Input[str] description: The description of the DB subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] name: The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[str] name: The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_network_types: The network type of the db subnet group.
@@ -446,7 +446,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+        The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 

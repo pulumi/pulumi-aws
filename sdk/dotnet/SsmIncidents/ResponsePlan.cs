@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SsmIncidents
 {
     /// <summary>
-    /// Provides a TODO resource to manage response plans in AWS Systems Manager Incident Manager.
+    /// Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
     /// 
     /// ## Example Usage
     /// ### Basic Usage

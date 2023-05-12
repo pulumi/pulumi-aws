@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Sns
         public Output<int?> LambdaSuccessFeedbackSampleRate { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+        /// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -437,7 +437,7 @@ namespace Pulumi.Aws.Sns
         public Input<int>? LambdaSuccessFeedbackSampleRate { get; set; }
 
         /// <summary>
-        /// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+        /// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -613,7 +613,7 @@ namespace Pulumi.Aws.Sns
         public Input<int>? LambdaSuccessFeedbackSampleRate { get; set; }
 
         /// <summary>
-        /// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+        /// The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

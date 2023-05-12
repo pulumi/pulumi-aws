@@ -201,14 +201,14 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+     * The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      * 
      */
     @Import(name="identifier")
     private @Nullable Output<String> identifier;
 
     /**
-     * @return The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+     * @return The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      * 
      */
     public Optional<Output<String>> identifier() {
@@ -738,7 +738,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param identifier The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+         * @param identifier The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
          * 
          * @return builder
          * 
@@ -749,7 +749,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param identifier The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+         * @param identifier The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
          * 
          * @return builder
          * 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * TODO data resource to get a list of Lambda Functions.
+ * Data resource to get a list of Lambda Functions.
  *
  * ## Example Usage
  *
