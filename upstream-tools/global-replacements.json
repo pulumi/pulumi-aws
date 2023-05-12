@@ -1,0 +1,12 @@
+[
+  {
+    "glob": "internal/service/**/*.go",
+    "replacements": [
+      {
+        "regExp": true,
+        "old": "\"tags_all\":(\\s+)tftags.TagsSchemaComputed()",
+        "new": "\"tags_all\":$1tftags.TagsSchemaTrulyComputed()"
+      }
+    ]
+  }
+]
