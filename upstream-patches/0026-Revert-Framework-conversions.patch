@@ -1,7 +1,7 @@
-From 1fd9f19c4b5b0af1f7a2e7c7b17babe5aaeffe6e Mon Sep 17 00:00:00 2001
+From eb0002b3efd5584c9b5e92855522c5c6472cfdfd Mon Sep 17 00:00:00 2001
 From: Thomas Kappler <tkappler@pulumi.com>
 Date: Tue, 28 Mar 2023 15:09:00 -0700
-Subject: [PATCH 26/27] Revert Framework conversions
+Subject: [PATCH 26/28] Revert Framework conversions
 
 https://github.com/hashicorp/terraform-provider-aws/tree/main/internal/service/cognitoidp
 
@@ -94,7 +94,7 @@ index 5e86dd274e..052b7ed81e 100644
  		computeoptimizer.ServicePackage,
  		configservice.ServicePackage,
 diff --git a/internal/service/cognitoidp/managed_user_pool_client.go b/internal/service/cognitoidp/managed_user_pool_client.go
-index 4732b88af5..f00ff49a83 100644
+index e29cdd9663..9063f6faf0 100644
 --- a/internal/service/cognitoidp/managed_user_pool_client.go
 +++ b/internal/service/cognitoidp/managed_user_pool_client.go
 @@ -1,3 +1,5 @@
@@ -189,7 +189,7 @@ index efa1eb0564..b3012c5001 100644
 +// 	return UpdateTags(ctx, meta.(*conns.AWSClient).CognitoIDPConn(), identifier, oldTags, newTags)
 +// }
 diff --git a/internal/service/cognitoidp/user_pool_client.go b/internal/service/cognitoidp/user_pool_client.go
-index 57d5e4090b..2f4198dfd0 100644
+index e3231f4db0..c380e97977 100644
 --- a/internal/service/cognitoidp/user_pool_client.go
 +++ b/internal/service/cognitoidp/user_pool_client.go
 @@ -1,3 +1,5 @@

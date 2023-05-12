@@ -1,7 +1,7 @@
-From a52619f5863c7dbb698a5ee2ac5975fab9c0b5b7 Mon Sep 17 00:00:00 2001
+From 32c1611f331b9dae69bf199ed0f2f950721c73d1 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Wed, 9 Nov 2022 17:37:35 +0000
-Subject: [PATCH 13/27] Add custom appautoscaling examples
+Subject: [PATCH 13/28] Add custom appautoscaling examples
 
 ---
  .../r/appautoscaling_policy.html.markdown     | 28 +++++++++++++++++++
@@ -9,10 +9,10 @@ Subject: [PATCH 13/27] Add custom appautoscaling examples
  2 files changed, 40 insertions(+)
 
 diff --git a/website/docs/r/appautoscaling_policy.html.markdown b/website/docs/r/appautoscaling_policy.html.markdown
-index b281e542ae..9b1a7483d2 100644
+index ac28f00413..7a3a2f194a 100644
 --- a/website/docs/r/appautoscaling_policy.html.markdown
 +++ b/website/docs/r/appautoscaling_policy.html.markdown
-@@ -116,6 +116,34 @@ resource "aws_appautoscaling_policy" "replicas" {
+@@ -196,6 +196,34 @@ resource "aws_appautoscaling_policy" "example" {
  }
  ```
  
@@ -48,10 +48,10 @@ index b281e542ae..9b1a7483d2 100644
  
  The following arguments are supported:
 diff --git a/website/docs/r/appautoscaling_target.html.markdown b/website/docs/r/appautoscaling_target.html.markdown
-index 7060afc3b7..8cc3132712 100644
+index 62d4093dfd..c6c126ee73 100644
 --- a/website/docs/r/appautoscaling_target.html.markdown
 +++ b/website/docs/r/appautoscaling_target.html.markdown
-@@ -62,6 +62,18 @@ resource "aws_appautoscaling_target" "replicas" {
+@@ -82,6 +82,18 @@ resource "aws_appautoscaling_target" "ecs_target" {
  }
  ```
  
