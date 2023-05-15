@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.UserProfileUserSettingsRSessionAppSettings? RSessionAppSettings;
         /// <summary>
+        /// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+        /// </summary>
+        public readonly Outputs.UserProfileUserSettingsRStudioServerProAppSettings? RStudioServerProAppSettings;
+        /// <summary>
         /// The security groups.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
@@ -58,6 +62,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             Outputs.UserProfileUserSettingsRSessionAppSettings? rSessionAppSettings,
 
+            Outputs.UserProfileUserSettingsRStudioServerProAppSettings? rStudioServerProAppSettings,
+
             ImmutableArray<string> securityGroups,
 
             Outputs.UserProfileUserSettingsSharingSettings? sharingSettings,
@@ -69,6 +75,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             JupyterServerAppSettings = jupyterServerAppSettings;
             KernelGatewayAppSettings = kernelGatewayAppSettings;
             RSessionAppSettings = rSessionAppSettings;
+            RStudioServerProAppSettings = rStudioServerProAppSettings;
             SecurityGroups = securityGroups;
             SharingSettings = sharingSettings;
             TensorBoardAppSettings = tensorBoardAppSettings;

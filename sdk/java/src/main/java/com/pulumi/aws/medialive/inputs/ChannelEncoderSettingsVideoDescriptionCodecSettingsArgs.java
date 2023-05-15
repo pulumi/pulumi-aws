@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.inputs;
 
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs;
 import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs;
+import com.pulumi.aws.medialive.inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -46,11 +47,19 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs exten
         return Optional.ofNullable(this.h264Settings);
     }
 
+    @Import(name="h265Settings")
+    private @Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs> h265Settings;
+
+    public Optional<Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs>> h265Settings() {
+        return Optional.ofNullable(this.h265Settings);
+    }
+
     private ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs() {}
 
     private ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs(ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs $) {
         this.frameCaptureSettings = $.frameCaptureSettings;
         this.h264Settings = $.h264Settings;
+        this.h265Settings = $.h265Settings;
     }
 
     public static Builder builder() {
@@ -111,6 +120,15 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs exten
          */
         public Builder h264Settings(ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs h264Settings) {
             return h264Settings(Output.of(h264Settings));
+        }
+
+        public Builder h265Settings(@Nullable Output<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs> h265Settings) {
+            $.h265Settings = h265Settings;
+            return this;
+        }
+
+        public Builder h265Settings(ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs h265Settings) {
+            return h265Settings(Output.of(h265Settings));
         }
 
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs build() {

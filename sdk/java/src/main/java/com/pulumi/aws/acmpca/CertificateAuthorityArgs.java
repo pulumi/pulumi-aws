@@ -51,6 +51,21 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+     * 
+     */
+    @Import(name="keyStorageSecurityStandard")
+    private @Nullable Output<String> keyStorageSecurityStandard;
+
+    /**
+     * @return Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+     * 
+     */
+    public Optional<Output<String>> keyStorageSecurityStandard() {
+        return Optional.ofNullable(this.keyStorageSecurityStandard);
+    }
+
+    /**
      * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      * 
      */
@@ -96,21 +111,6 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      * 
      */
@@ -145,10 +145,10 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
     private CertificateAuthorityArgs(CertificateAuthorityArgs $) {
         this.certificateAuthorityConfiguration = $.certificateAuthorityConfiguration;
         this.enabled = $.enabled;
+        this.keyStorageSecurityStandard = $.keyStorageSecurityStandard;
         this.permanentDeletionTimeInDays = $.permanentDeletionTimeInDays;
         this.revocationConfiguration = $.revocationConfiguration;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.type = $.type;
         this.usageMode = $.usageMode;
     }
@@ -214,6 +214,27 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
+         * @param keyStorageSecurityStandard Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyStorageSecurityStandard(@Nullable Output<String> keyStorageSecurityStandard) {
+            $.keyStorageSecurityStandard = keyStorageSecurityStandard;
+            return this;
+        }
+
+        /**
+         * @param keyStorageSecurityStandard Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyStorageSecurityStandard(String keyStorageSecurityStandard) {
+            return keyStorageSecurityStandard(Output.of(keyStorageSecurityStandard));
+        }
+
+        /**
          * @param permanentDeletionTimeInDays Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
          * 
          * @return builder
@@ -274,27 +295,6 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

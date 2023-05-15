@@ -24,6 +24,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("h264Settings")]
         public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs>? H264Settings { get; set; }
 
+        [Input("h265Settings")]
+        public Input<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs>? H265Settings { get; set; }
+
         public ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs()
         {
         }

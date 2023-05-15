@@ -1,0 +1,41 @@
+[
+  {
+    "glob": "internal/service/**/*.go",
+    "replacements": [
+      {
+        "regExp": true,
+        "old": "\"tags_all\":(\\s+)tftags.TagsSchemaComputed\\(\\)",
+        "new": "\"tags_all\":$1tftags.TagsSchemaTrulyComputed()"
+      },
+      {
+        "regExp": true,
+        "old": "names.AttrTagsAll:(\\s+)tftags.TagsSchemaComputed\\(\\)",
+        "new": "names.AttrTagsAll:$1tftags.TagsSchemaTrulyComputed()"
+      }
+    ]
+  },
+  {
+    "glob": "website/**/*.markdown",
+    "replacements": [
+      {
+        "regExp": true,
+        "regExpFlags": "gm",
+        "old": "^(\\s*)Terraform data source (.*)$",
+        "new": "$1Data source $2"
+      },
+      {
+        "regExp": true,
+        "regExpFlags": "gm",
+        "old": "^(\\s*)Terraform resource (.*)$",
+        "new": "$1Resource $2"
+      },
+      {
+        "old": "Read more about sensitive data in state.\n"
+      },
+      {
+        "old": "If omitted, Terraform will assign a random, unique name.",
+        "new": "If omitted, the provider will assign a random, unique name."
+      }
+    ]
+  }
+]

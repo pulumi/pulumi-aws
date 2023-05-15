@@ -125,7 +125,7 @@ export class BucketV2 extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+     * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -176,7 +176,7 @@ export class BucketV2 extends pulumi.CustomResource {
     public readonly loggings!: pulumi.Output<outputs.s3.BucketV2Logging[]>;
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-     * the provider wil only perform drift detection if a configuration value is provided.
+     * The provider wil only perform drift detection if a configuration value is provided.
      * Use the `objectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
      *
      * @deprecated Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
@@ -230,7 +230,7 @@ export class BucketV2 extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      *
@@ -314,7 +314,6 @@ export class BucketV2 extends pulumi.CustomResource {
             resourceInputs["requestPayer"] = args ? args.requestPayer : undefined;
             resourceInputs["serverSideEncryptionConfigurations"] = args ? args.serverSideEncryptionConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["versionings"] = args ? args.versionings : undefined;
             resourceInputs["websites"] = args ? args.websites : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -322,6 +321,7 @@ export class BucketV2 extends pulumi.CustomResource {
             resourceInputs["bucketRegionalDomainName"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["websiteDomain"] = undefined /*out*/;
             resourceInputs["websiteEndpoint"] = undefined /*out*/;
         }
@@ -354,7 +354,7 @@ export interface BucketV2State {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+     * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -405,7 +405,7 @@ export interface BucketV2State {
     loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2Logging>[]>;
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-     * the provider wil only perform drift detection if a configuration value is provided.
+     * The provider wil only perform drift detection if a configuration value is provided.
      * Use the `objectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
      *
      * @deprecated Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
@@ -505,7 +505,7 @@ export interface BucketV2Args {
      */
     acl?: pulumi.Input<string>;
     /**
-     * Name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+     * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -544,7 +544,7 @@ export interface BucketV2Args {
     loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2Logging>[]>;
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
-     * the provider wil only perform drift detection if a configuration value is provided.
+     * The provider wil only perform drift detection if a configuration value is provided.
      * Use the `objectLockEnabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
      *
      * @deprecated Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
@@ -591,10 +591,6 @@ export interface BucketV2Args {
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      *

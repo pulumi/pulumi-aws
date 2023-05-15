@@ -5,10 +5,17 @@ package com.pulumi.aws.cloudwatch.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class MetricStreamExcludeFilter {
+    /**
+     * @return An array that defines the metrics you want to exclude for this metric namespace
+     * 
+     */
+    private @Nullable List<String> metricNames;
     /**
      * @return Name of the metric namespace in the filter.
      * 
@@ -16,6 +23,13 @@ public final class MetricStreamExcludeFilter {
     private String namespace;
 
     private MetricStreamExcludeFilter() {}
+    /**
+     * @return An array that defines the metrics you want to exclude for this metric namespace
+     * 
+     */
+    public List<String> metricNames() {
+        return this.metricNames == null ? List.of() : this.metricNames;
+    }
     /**
      * @return Name of the metric namespace in the filter.
      * 
@@ -33,13 +47,23 @@ public final class MetricStreamExcludeFilter {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> metricNames;
         private String namespace;
         public Builder() {}
         public Builder(MetricStreamExcludeFilter defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.metricNames = defaults.metricNames;
     	      this.namespace = defaults.namespace;
         }
 
+        @CustomType.Setter
+        public Builder metricNames(@Nullable List<String> metricNames) {
+            this.metricNames = metricNames;
+            return this;
+        }
+        public Builder metricNames(String... metricNames) {
+            return metricNames(List.of(metricNames));
+        }
         @CustomType.Setter
         public Builder namespace(String namespace) {
             this.namespace = Objects.requireNonNull(namespace);
@@ -47,6 +71,7 @@ public final class MetricStreamExcludeFilter {
         }
         public MetricStreamExcludeFilter build() {
             final var o = new MetricStreamExcludeFilter();
+            o.metricNames = metricNames;
             o.namespace = namespace;
             return o;
         }

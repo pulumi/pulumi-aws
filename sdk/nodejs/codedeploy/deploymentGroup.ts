@@ -266,7 +266,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
@@ -331,11 +331,11 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
             resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["computePlatform"] = undefined /*out*/;
             resourceInputs["deploymentGroupId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DeploymentGroup.__pulumiType, name, resourceInputs, opts);
@@ -492,10 +492,6 @@ export interface DeploymentGroupArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */

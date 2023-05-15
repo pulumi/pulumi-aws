@@ -157,21 +157,6 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * The ID of the EC2 Transit Gateway.
      * 
      */
@@ -229,6 +214,21 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> tunnel1DpdTimeoutSeconds() {
         return Optional.ofNullable(this.tunnel1DpdTimeoutSeconds);
+    }
+
+    /**
+     * Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     * 
+     */
+    @Import(name="tunnel1EnableTunnelLifecycleControl")
+    private @Nullable Output<Boolean> tunnel1EnableTunnelLifecycleControl;
+
+    /**
+     * @return Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     * 
+     */
+    public Optional<Output<Boolean>> tunnel1EnableTunnelLifecycleControl() {
+        return Optional.ofNullable(this.tunnel1EnableTunnelLifecycleControl);
     }
 
     /**
@@ -514,6 +514,21 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> tunnel2DpdTimeoutSeconds() {
         return Optional.ofNullable(this.tunnel2DpdTimeoutSeconds);
+    }
+
+    /**
+     * Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     * 
+     */
+    @Import(name="tunnel2EnableTunnelLifecycleControl")
+    private @Nullable Output<Boolean> tunnel2EnableTunnelLifecycleControl;
+
+    /**
+     * @return Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     * 
+     */
+    public Optional<Output<Boolean>> tunnel2EnableTunnelLifecycleControl() {
+        return Optional.ofNullable(this.tunnel2EnableTunnelLifecycleControl);
     }
 
     /**
@@ -828,11 +843,11 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         this.remoteIpv6NetworkCidr = $.remoteIpv6NetworkCidr;
         this.staticRoutesOnly = $.staticRoutesOnly;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.transitGatewayId = $.transitGatewayId;
         this.transportTransitGatewayAttachmentId = $.transportTransitGatewayAttachmentId;
         this.tunnel1DpdTimeoutAction = $.tunnel1DpdTimeoutAction;
         this.tunnel1DpdTimeoutSeconds = $.tunnel1DpdTimeoutSeconds;
+        this.tunnel1EnableTunnelLifecycleControl = $.tunnel1EnableTunnelLifecycleControl;
         this.tunnel1IkeVersions = $.tunnel1IkeVersions;
         this.tunnel1InsideCidr = $.tunnel1InsideCidr;
         this.tunnel1InsideIpv6Cidr = $.tunnel1InsideIpv6Cidr;
@@ -852,6 +867,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         this.tunnel1StartupAction = $.tunnel1StartupAction;
         this.tunnel2DpdTimeoutAction = $.tunnel2DpdTimeoutAction;
         this.tunnel2DpdTimeoutSeconds = $.tunnel2DpdTimeoutSeconds;
+        this.tunnel2EnableTunnelLifecycleControl = $.tunnel2EnableTunnelLifecycleControl;
         this.tunnel2IkeVersions = $.tunnel2IkeVersions;
         this.tunnel2InsideCidr = $.tunnel2InsideCidr;
         this.tunnel2InsideIpv6Cidr = $.tunnel2InsideIpv6Cidr;
@@ -1082,27 +1098,6 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
-        }
-
-        /**
          * @param transitGatewayId The ID of the EC2 Transit Gateway.
          * 
          * @return builder
@@ -1184,6 +1179,27 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tunnel1DpdTimeoutSeconds(Integer tunnel1DpdTimeoutSeconds) {
             return tunnel1DpdTimeoutSeconds(Output.of(tunnel1DpdTimeoutSeconds));
+        }
+
+        /**
+         * @param tunnel1EnableTunnelLifecycleControl Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnel1EnableTunnelLifecycleControl(@Nullable Output<Boolean> tunnel1EnableTunnelLifecycleControl) {
+            $.tunnel1EnableTunnelLifecycleControl = tunnel1EnableTunnelLifecycleControl;
+            return this;
+        }
+
+        /**
+         * @param tunnel1EnableTunnelLifecycleControl Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnel1EnableTunnelLifecycleControl(Boolean tunnel1EnableTunnelLifecycleControl) {
+            return tunnel1EnableTunnelLifecycleControl(Output.of(tunnel1EnableTunnelLifecycleControl));
         }
 
         /**
@@ -1653,6 +1669,27 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tunnel2DpdTimeoutSeconds(Integer tunnel2DpdTimeoutSeconds) {
             return tunnel2DpdTimeoutSeconds(Output.of(tunnel2DpdTimeoutSeconds));
+        }
+
+        /**
+         * @param tunnel2EnableTunnelLifecycleControl Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnel2EnableTunnelLifecycleControl(@Nullable Output<Boolean> tunnel2EnableTunnelLifecycleControl) {
+            $.tunnel2EnableTunnelLifecycleControl = tunnel2EnableTunnelLifecycleControl;
+            return this;
+        }
+
+        /**
+         * @param tunnel2EnableTunnelLifecycleControl Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tunnel2EnableTunnelLifecycleControl(Boolean tunnel2EnableTunnelLifecycleControl) {
+            return tunnel2EnableTunnelLifecycleControl(Output.of(tunnel2EnableTunnelLifecycleControl));
         }
 
         /**

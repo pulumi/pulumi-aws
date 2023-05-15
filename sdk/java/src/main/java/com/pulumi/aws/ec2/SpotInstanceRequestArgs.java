@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2;
 
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestCapacityReservationSpecificationArgs;
+import com.pulumi.aws.ec2.inputs.SpotInstanceRequestCpuOptionsArgs;
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestCreditSpecificationArgs;
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestEbsBlockDeviceArgs;
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestEnclaveOptionsArgs;
@@ -112,29 +113,60 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      * 
+     * @deprecated
+     * use &#39;cpu_options&#39; argument instead
+     * 
      */
+    @Deprecated /* use 'cpu_options' argument instead */
     @Import(name="cpuCoreCount")
     private @Nullable Output<Integer> cpuCoreCount;
 
     /**
      * @return Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      * 
+     * @deprecated
+     * use &#39;cpu_options&#39; argument instead
+     * 
      */
+    @Deprecated /* use 'cpu_options' argument instead */
     public Optional<Output<Integer>> cpuCoreCount() {
         return Optional.ofNullable(this.cpuCoreCount);
     }
 
     /**
-     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     * The CPU options for the instance. See CPU Options below for more details.
      * 
      */
+    @Import(name="cpuOptions")
+    private @Nullable Output<SpotInstanceRequestCpuOptionsArgs> cpuOptions;
+
+    /**
+     * @return The CPU options for the instance. See CPU Options below for more details.
+     * 
+     */
+    public Optional<Output<SpotInstanceRequestCpuOptionsArgs>> cpuOptions() {
+        return Optional.ofNullable(this.cpuOptions);
+    }
+
+    /**
+     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     * 
+     * @deprecated
+     * use &#39;cpu_options&#39; argument instead
+     * 
+     */
+    @Deprecated /* use 'cpu_options' argument instead */
     @Import(name="cpuThreadsPerCore")
     private @Nullable Output<Integer> cpuThreadsPerCore;
 
     /**
      * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      * 
+     * @deprecated
+     * use &#39;cpu_options&#39; argument instead
+     * 
      */
+    @Deprecated /* use 'cpu_options' argument instead */
     public Optional<Output<Integer>> cpuThreadsPerCore() {
         return Optional.ofNullable(this.cpuThreadsPerCore);
     }
@@ -684,21 +716,6 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
@@ -846,6 +863,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         this.blockDurationMinutes = $.blockDurationMinutes;
         this.capacityReservationSpecification = $.capacityReservationSpecification;
         this.cpuCoreCount = $.cpuCoreCount;
+        this.cpuOptions = $.cpuOptions;
         this.cpuThreadsPerCore = $.cpuThreadsPerCore;
         this.creditSpecification = $.creditSpecification;
         this.disableApiStop = $.disableApiStop;
@@ -883,7 +901,6 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         this.spotType = $.spotType;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.tenancy = $.tenancy;
         this.userData = $.userData;
         this.userDataBase64 = $.userDataBase64;
@@ -1027,7 +1044,11 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * use &#39;cpu_options&#39; argument instead
+         * 
          */
+        @Deprecated /* use 'cpu_options' argument instead */
         public Builder cpuCoreCount(@Nullable Output<Integer> cpuCoreCount) {
             $.cpuCoreCount = cpuCoreCount;
             return this;
@@ -1038,9 +1059,34 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * use &#39;cpu_options&#39; argument instead
+         * 
          */
+        @Deprecated /* use 'cpu_options' argument instead */
         public Builder cpuCoreCount(Integer cpuCoreCount) {
             return cpuCoreCount(Output.of(cpuCoreCount));
+        }
+
+        /**
+         * @param cpuOptions The CPU options for the instance. See CPU Options below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cpuOptions(@Nullable Output<SpotInstanceRequestCpuOptionsArgs> cpuOptions) {
+            $.cpuOptions = cpuOptions;
+            return this;
+        }
+
+        /**
+         * @param cpuOptions The CPU options for the instance. See CPU Options below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cpuOptions(SpotInstanceRequestCpuOptionsArgs cpuOptions) {
+            return cpuOptions(Output.of(cpuOptions));
         }
 
         /**
@@ -1048,7 +1094,11 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * use &#39;cpu_options&#39; argument instead
+         * 
          */
+        @Deprecated /* use 'cpu_options' argument instead */
         public Builder cpuThreadsPerCore(@Nullable Output<Integer> cpuThreadsPerCore) {
             $.cpuThreadsPerCore = cpuThreadsPerCore;
             return this;
@@ -1059,7 +1109,11 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
          * 
          * @return builder
          * 
+         * @deprecated
+         * use &#39;cpu_options&#39; argument instead
+         * 
          */
+        @Deprecated /* use 'cpu_options' argument instead */
         public Builder cpuThreadsPerCore(Integer cpuThreadsPerCore) {
             return cpuThreadsPerCore(Output.of(cpuThreadsPerCore));
         }
@@ -1882,27 +1936,6 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

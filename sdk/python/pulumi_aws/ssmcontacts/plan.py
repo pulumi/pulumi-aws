@@ -100,7 +100,7 @@ class Plan(pulumi.CustomResource):
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]]] = None,
                  __props__=None):
         """
-        TODO resource for managing an AWS SSM Contact Plan.
+        Resource for managing an AWS SSM Contact Plan.
 
         ## Example Usage
         ### Basic Usage
@@ -186,7 +186,7 @@ class Plan(pulumi.CustomResource):
                  args: PlanArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        TODO resource for managing an AWS SSM Contact Plan.
+        Resource for managing an AWS SSM Contact Plan.
 
         ## Example Usage
         ### Basic Usage

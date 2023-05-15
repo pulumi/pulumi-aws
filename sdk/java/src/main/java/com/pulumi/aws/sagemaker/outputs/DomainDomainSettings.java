@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.DomainDomainSettingsRStudioServerProDomainSettings;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -18,6 +19,11 @@ public final class DomainDomainSettings {
      */
     private @Nullable String executionRoleIdentityConfig;
     /**
+     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+     * 
+     */
+    private @Nullable DomainDomainSettingsRStudioServerProDomainSettings rStudioServerProDomainSettings;
+    /**
      * @return The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
      * 
      */
@@ -30,6 +36,13 @@ public final class DomainDomainSettings {
      */
     public Optional<String> executionRoleIdentityConfig() {
         return Optional.ofNullable(this.executionRoleIdentityConfig);
+    }
+    /**
+     * @return A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+     * 
+     */
+    public Optional<DomainDomainSettingsRStudioServerProDomainSettings> rStudioServerProDomainSettings() {
+        return Optional.ofNullable(this.rStudioServerProDomainSettings);
     }
     /**
      * @return The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
@@ -49,17 +62,24 @@ public final class DomainDomainSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String executionRoleIdentityConfig;
+        private @Nullable DomainDomainSettingsRStudioServerProDomainSettings rStudioServerProDomainSettings;
         private @Nullable List<String> securityGroupIds;
         public Builder() {}
         public Builder(DomainDomainSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.executionRoleIdentityConfig = defaults.executionRoleIdentityConfig;
+    	      this.rStudioServerProDomainSettings = defaults.rStudioServerProDomainSettings;
     	      this.securityGroupIds = defaults.securityGroupIds;
         }
 
         @CustomType.Setter
         public Builder executionRoleIdentityConfig(@Nullable String executionRoleIdentityConfig) {
             this.executionRoleIdentityConfig = executionRoleIdentityConfig;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder rStudioServerProDomainSettings(@Nullable DomainDomainSettingsRStudioServerProDomainSettings rStudioServerProDomainSettings) {
+            this.rStudioServerProDomainSettings = rStudioServerProDomainSettings;
             return this;
         }
         @CustomType.Setter
@@ -73,6 +93,7 @@ public final class DomainDomainSettings {
         public DomainDomainSettings build() {
             final var o = new DomainDomainSettings();
             o.executionRoleIdentityConfig = executionRoleIdentityConfig;
+            o.rStudioServerProDomainSettings = rStudioServerProDomainSettings;
             o.securityGroupIds = securityGroupIds;
             return o;
         }

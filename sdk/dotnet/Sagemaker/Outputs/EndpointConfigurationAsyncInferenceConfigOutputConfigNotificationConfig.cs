@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? ErrorTopic;
         /// <summary>
+        /// The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+        /// </summary>
+        public readonly ImmutableArray<string> IncludeInferenceResponseIns;
+        /// <summary>
         /// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
         /// </summary>
         public readonly string? SuccessTopic;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         private EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(
             string? errorTopic,
 
+            ImmutableArray<string> includeInferenceResponseIns,
+
             string? successTopic)
         {
             ErrorTopic = errorTopic;
+            IncludeInferenceResponseIns = includeInferenceResponseIns;
             SuccessTopic = successTopic;
         }
     }

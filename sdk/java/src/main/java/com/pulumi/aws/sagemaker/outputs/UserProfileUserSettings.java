@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettings
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsJupyterServerAppSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsKernelGatewayAppSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsRSessionAppSettings;
+import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsRStudioServerProAppSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsSharingSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsTensorBoardAppSettings;
 import com.pulumi.core.annotations.CustomType;
@@ -43,6 +44,11 @@ public final class UserProfileUserSettings {
      * 
      */
     private @Nullable UserProfileUserSettingsRSessionAppSettings rSessionAppSettings;
+    /**
+     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+     * 
+     */
+    private @Nullable UserProfileUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings;
     /**
      * @return The security groups.
      * 
@@ -96,6 +102,13 @@ public final class UserProfileUserSettings {
         return Optional.ofNullable(this.rSessionAppSettings);
     }
     /**
+     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+     * 
+     */
+    public Optional<UserProfileUserSettingsRStudioServerProAppSettings> rStudioServerProAppSettings() {
+        return Optional.ofNullable(this.rStudioServerProAppSettings);
+    }
+    /**
      * @return The security groups.
      * 
      */
@@ -131,6 +144,7 @@ public final class UserProfileUserSettings {
         private @Nullable UserProfileUserSettingsJupyterServerAppSettings jupyterServerAppSettings;
         private @Nullable UserProfileUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
         private @Nullable UserProfileUserSettingsRSessionAppSettings rSessionAppSettings;
+        private @Nullable UserProfileUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings;
         private @Nullable List<String> securityGroups;
         private @Nullable UserProfileUserSettingsSharingSettings sharingSettings;
         private @Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
@@ -142,6 +156,7 @@ public final class UserProfileUserSettings {
     	      this.jupyterServerAppSettings = defaults.jupyterServerAppSettings;
     	      this.kernelGatewayAppSettings = defaults.kernelGatewayAppSettings;
     	      this.rSessionAppSettings = defaults.rSessionAppSettings;
+    	      this.rStudioServerProAppSettings = defaults.rStudioServerProAppSettings;
     	      this.securityGroups = defaults.securityGroups;
     	      this.sharingSettings = defaults.sharingSettings;
     	      this.tensorBoardAppSettings = defaults.tensorBoardAppSettings;
@@ -173,6 +188,11 @@ public final class UserProfileUserSettings {
             return this;
         }
         @CustomType.Setter
+        public Builder rStudioServerProAppSettings(@Nullable UserProfileUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings) {
+            this.rStudioServerProAppSettings = rStudioServerProAppSettings;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
             this.securityGroups = securityGroups;
             return this;
@@ -197,6 +217,7 @@ public final class UserProfileUserSettings {
             o.jupyterServerAppSettings = jupyterServerAppSettings;
             o.kernelGatewayAppSettings = kernelGatewayAppSettings;
             o.rSessionAppSettings = rSessionAppSettings;
+            o.rStudioServerProAppSettings = rStudioServerProAppSettings;
             o.securityGroups = securityGroups;
             o.sharingSettings = sharingSettings;
             o.tensorBoardAppSettings = tensorBoardAppSettings;

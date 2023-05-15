@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an ElastiCache user resource.
  * 
+ * &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
  * ## Example Usage
  * ```java
  * package generated_program;

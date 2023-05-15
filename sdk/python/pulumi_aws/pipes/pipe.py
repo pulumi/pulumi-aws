@@ -26,8 +26,7 @@ class PipeArgs:
                  enrichment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Pipe resource.
         :param pulumi.Input[str] role_arn: ARN of the role that allows the pipe to send data to the target.
@@ -38,10 +37,9 @@ class PipeArgs:
         :param pulumi.Input[str] description: A description of the pipe. At most 512 characters.
         :param pulumi.Input[str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
-        :param pulumi.Input[str] name: Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "source", source)
@@ -60,8 +58,6 @@ class PipeArgs:
             pulumi.set(__self__, "name_prefix", name_prefix)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -163,7 +159,7 @@ class PipeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`.
+        Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -195,18 +191,6 @@ class PipeArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _PipeState:
@@ -230,7 +214,7 @@ class _PipeState:
         :param pulumi.Input[str] description: A description of the pipe. At most 512 characters.
         :param pulumi.Input[str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
-        :param pulumi.Input[str] name: Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] role_arn: ARN of the role that allows the pipe to send data to the target.
         :param pulumi.Input[str] source: Source resource of the pipe (typically an ARN).
@@ -319,7 +303,7 @@ class _PipeState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`.
+        Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -438,7 +422,6 @@ class Pipe(pulumi.CustomResource):
                  source: Optional[pulumi.Input[str]] = None,
                  source_parameters: Optional[pulumi.Input[pulumi.InputType['PipeSourceParametersArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_parameters: Optional[pulumi.Input[pulumi.InputType['PipeTargetParametersArgs']]] = None,
                  __props__=None):
@@ -524,13 +507,12 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the pipe. At most 512 characters.
         :param pulumi.Input[str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
-        :param pulumi.Input[str] name: Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] role_arn: ARN of the role that allows the pipe to send data to the target.
         :param pulumi.Input[str] source: Source resource of the pipe (typically an ARN).
         :param pulumi.Input[pulumi.InputType['PipeSourceParametersArgs']] source_parameters: Parameters required to set up a source for the pipe. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target: Target resource of the pipe (typically an ARN).
         :param pulumi.Input[pulumi.InputType['PipeTargetParametersArgs']] target_parameters: Parameters required to set up a target for your pipe. Detailed below.
         """
@@ -641,7 +623,6 @@ class Pipe(pulumi.CustomResource):
                  source: Optional[pulumi.Input[str]] = None,
                  source_parameters: Optional[pulumi.Input[pulumi.InputType['PipeSourceParametersArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_parameters: Optional[pulumi.Input[pulumi.InputType['PipeTargetParametersArgs']]] = None,
                  __props__=None):
@@ -668,7 +649,6 @@ class Pipe(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_parameters'")
             __props__.__dict__["source_parameters"] = source_parameters
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
@@ -676,6 +656,7 @@ class Pipe(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_parameters'")
             __props__.__dict__["target_parameters"] = target_parameters
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(Pipe, __self__).__init__(
             'aws:pipes/pipe:Pipe',
             resource_name,
@@ -710,7 +691,7 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the pipe. At most 512 characters.
         :param pulumi.Input[str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
-        :param pulumi.Input[str] name: Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] role_arn: ARN of the role that allows the pipe to send data to the target.
         :param pulumi.Input[str] source: Source resource of the pipe (typically an ARN).
@@ -775,7 +756,7 @@ class Pipe(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`.
+        Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 

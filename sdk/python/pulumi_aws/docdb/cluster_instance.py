@@ -27,8 +27,7 @@ class ClusterInstanceArgs:
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ClusterInstance resource.
         :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
@@ -55,14 +54,13 @@ class ClusterInstanceArgs:
         :param pulumi.Input[str] ca_cert_identifier: (Optional) The identifier of the CA certificate for the DB instance.
         :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-        :param pulumi.Input[str] identifier: The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+        :param pulumi.Input[str] identifier: The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] performance_insights_kms_key_id: The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "instance_class", instance_class)
@@ -90,8 +88,6 @@ class ClusterInstanceArgs:
             pulumi.set(__self__, "promotion_tier", promotion_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -209,7 +205,7 @@ class ClusterInstanceArgs:
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+        The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         """
         return pulumi.get(self, "identifier")
 
@@ -278,18 +274,6 @@ class ClusterInstanceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _ClusterInstanceState:
@@ -335,7 +319,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[str] endpoint: The DNS address for this instance. May not be writable
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         :param pulumi.Input[str] engine_version: The database engine version
-        :param pulumi.Input[str] identifier: The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+        :param pulumi.Input[str] identifier: The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
                DocumentDB currently supports the below instance classes.
@@ -567,7 +551,7 @@ class _ClusterInstanceState:
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+        The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         """
         return pulumi.get(self, "identifier")
 
@@ -764,7 +748,6 @@ class ClusterInstance(pulumi.CustomResource):
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an DocumentDB Cluster Resource Instance. A Cluster Instance Resource defines
@@ -817,7 +800,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_identifier: The identifier of the `docdb.Cluster` in which to launch this instance.
         :param pulumi.Input[bool] enable_performance_insights: A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-        :param pulumi.Input[str] identifier: The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+        :param pulumi.Input[str] identifier: The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
                DocumentDB currently supports the below instance classes.
@@ -840,7 +823,6 @@ class ClusterInstance(pulumi.CustomResource):
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         :param pulumi.Input[int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -918,7 +900,6 @@ class ClusterInstance(pulumi.CustomResource):
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -946,7 +927,6 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["promotion_tier"] = promotion_tier
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["db_subnet_group_name"] = None
             __props__.__dict__["dbi_resource_id"] = None
@@ -957,6 +937,7 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["preferred_backup_window"] = None
             __props__.__dict__["publicly_accessible"] = None
             __props__.__dict__["storage_encrypted"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["writer"] = None
         super(ClusterInstance, __self__).__init__(
             'aws:docdb/clusterInstance:ClusterInstance',
@@ -1014,7 +995,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The DNS address for this instance. May not be writable
         :param pulumi.Input[str] engine: The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         :param pulumi.Input[str] engine_version: The database engine version
-        :param pulumi.Input[str] identifier: The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+        :param pulumi.Input[str] identifier: The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
                DocumentDB currently supports the below instance classes.
@@ -1177,7 +1158,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter
     def identifier(self) -> pulumi.Output[str]:
         """
-        The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+        The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         """
         return pulumi.get(self, "identifier")
 

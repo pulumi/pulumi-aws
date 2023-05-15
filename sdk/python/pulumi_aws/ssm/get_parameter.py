@@ -113,6 +113,8 @@ def get_parameter(name: Optional[str] = None,
     foo = aws.ssm.get_parameter(name="foo")
     ```
 
+    > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
+
 
     :param str name: Name of the parameter.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
@@ -148,6 +150,8 @@ def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
 
     foo = aws.ssm.get_parameter(name="foo")
     ```
+
+    > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 
 
     :param str name: Name of the parameter.

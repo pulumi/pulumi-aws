@@ -111,6 +111,21 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+     * 
+     */
+    @Import(name="keyStorageSecurityStandard")
+    private @Nullable Output<String> keyStorageSecurityStandard;
+
+    /**
+     * @return Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+     * 
+     */
+    public Optional<Output<String>> keyStorageSecurityStandard() {
+        return Optional.ofNullable(this.keyStorageSecurityStandard);
+    }
+
+    /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
@@ -277,6 +292,7 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         this.certificateChain = $.certificateChain;
         this.certificateSigningRequest = $.certificateSigningRequest;
         this.enabled = $.enabled;
+        this.keyStorageSecurityStandard = $.keyStorageSecurityStandard;
         this.notAfter = $.notAfter;
         this.notBefore = $.notBefore;
         this.permanentDeletionTimeInDays = $.permanentDeletionTimeInDays;
@@ -431,6 +447,27 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param keyStorageSecurityStandard Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyStorageSecurityStandard(@Nullable Output<String> keyStorageSecurityStandard) {
+            $.keyStorageSecurityStandard = keyStorageSecurityStandard;
+            return this;
+        }
+
+        /**
+         * @param keyStorageSecurityStandard Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyStorageSecurityStandard(String keyStorageSecurityStandard) {
+            return keyStorageSecurityStandard(Output.of(keyStorageSecurityStandard));
         }
 
         /**

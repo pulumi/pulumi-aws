@@ -14,13 +14,21 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class MetricStreamExcludeFilter
     {
         /// <summary>
+        /// An array that defines the metrics you want to exclude for this metric namespace
+        /// </summary>
+        public readonly ImmutableArray<string> MetricNames;
+        /// <summary>
         /// Name of the metric namespace in the filter.
         /// </summary>
         public readonly string Namespace;
 
         [OutputConstructor]
-        private MetricStreamExcludeFilter(string @namespace)
+        private MetricStreamExcludeFilter(
+            ImmutableArray<string> metricNames,
+
+            string @namespace)
         {
+            MetricNames = metricNames;
             Namespace = @namespace;
         }
     }

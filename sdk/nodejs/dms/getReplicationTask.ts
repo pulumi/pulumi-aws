@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+ * Data source for managing an AWS DMS (Database Migration) Replication Task.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -95,7 +95,7 @@ export interface GetReplicationTaskResult {
     readonly targetEndpointArn: string;
 }
 /**
- * TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+ * Data source for managing an AWS DMS (Database Migration) Replication Task.
  *
  * ## Example Usage
  * ### Basic Usage

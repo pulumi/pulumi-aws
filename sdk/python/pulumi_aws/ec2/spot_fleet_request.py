@@ -19,6 +19,7 @@ class SpotFleetRequestArgs:
                  iam_fleet_role: pulumi.Input[str],
                  target_capacity: pulumi.Input[int],
                  allocation_strategy: Optional[pulumi.Input[str]] = None,
+                 context: Optional[pulumi.Input[str]] = None,
                  excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
@@ -33,7 +34,6 @@ class SpotFleetRequestArgs:
                  spot_maintenance_strategies: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs']] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity_unit_type: Optional[pulumi.Input[str]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
@@ -53,6 +53,7 @@ class SpotFleetRequestArgs:
         :param pulumi.Input[str] allocation_strategy: Indicates how to allocate the target capacity across
                the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
                `lowestPrice`.
+        :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[str] excess_capacity_termination_policy: Indicates whether running Spot
                instances should be terminated if the target capacity of the Spot fleet
                request is decreased below the current size of the Spot fleet.
@@ -77,7 +78,6 @@ class SpotFleetRequestArgs:
         :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs'] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum bid price per unit hour.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_capacity_unit_type: The unit for the target capacity. This can only be done with `instance_requirements` defined
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
         :param pulumi.Input[str] terminate_instances_on_delete: Indicates whether running Spot
@@ -95,6 +95,8 @@ class SpotFleetRequestArgs:
         pulumi.set(__self__, "target_capacity", target_capacity)
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if context is not None:
+            pulumi.set(__self__, "context", context)
         if excess_capacity_termination_policy is not None:
             pulumi.set(__self__, "excess_capacity_termination_policy", excess_capacity_termination_policy)
         if fleet_type is not None:
@@ -123,8 +125,6 @@ class SpotFleetRequestArgs:
             pulumi.set(__self__, "spot_price", spot_price)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if target_capacity_unit_type is not None:
             pulumi.set(__self__, "target_capacity_unit_type", target_capacity_unit_type)
         if target_group_arns is not None:
@@ -182,6 +182,18 @@ class SpotFleetRequestArgs:
     @allocation_strategy.setter
     def allocation_strategy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "allocation_strategy", value)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[pulumi.Input[str]]:
+        """
+        Reserved.
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context", value)
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
@@ -362,18 +374,6 @@ class SpotFleetRequestArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
-    @property
     @pulumi.getter(name="targetCapacityUnitType")
     def target_capacity_unit_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -468,6 +468,7 @@ class _SpotFleetRequestState:
     def __init__(__self__, *,
                  allocation_strategy: Optional[pulumi.Input[str]] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
+                 context: Optional[pulumi.Input[str]] = None,
                  excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  iam_fleet_role: Optional[pulumi.Input[str]] = None,
@@ -498,6 +499,7 @@ class _SpotFleetRequestState:
         :param pulumi.Input[str] allocation_strategy: Indicates how to allocate the target capacity across
                the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
                `lowestPrice`.
+        :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[str] excess_capacity_termination_policy: Indicates whether running Spot
                instances should be terminated if the target capacity of the Spot fleet
                request is decreased below the current size of the Spot fleet.
@@ -548,6 +550,8 @@ class _SpotFleetRequestState:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
         if client_token is not None:
             pulumi.set(__self__, "client_token", client_token)
+        if context is not None:
+            pulumi.set(__self__, "context", context)
         if excess_capacity_termination_policy is not None:
             pulumi.set(__self__, "excess_capacity_termination_policy", excess_capacity_termination_policy)
         if fleet_type is not None:
@@ -621,6 +625,18 @@ class _SpotFleetRequestState:
     @client_token.setter
     def client_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_token", value)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[pulumi.Input[str]]:
+        """
+        Reserved.
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context", value)
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
@@ -949,6 +965,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_strategy: Optional[pulumi.Input[str]] = None,
+                 context: Optional[pulumi.Input[str]] = None,
                  excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  iam_fleet_role: Optional[pulumi.Input[str]] = None,
@@ -964,7 +981,6 @@ class SpotFleetRequest(pulumi.CustomResource):
                  spot_maintenance_strategies: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
                  target_capacity_unit_type: Optional[pulumi.Input[str]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1094,6 +1110,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[str] allocation_strategy: Indicates how to allocate the target capacity across
                the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
                `lowestPrice`.
+        :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[str] excess_capacity_termination_policy: Indicates whether running Spot
                instances should be terminated if the target capacity of the Spot fleet
                request is decreased below the current size of the Spot fleet.
@@ -1122,7 +1139,6 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum bid price per unit hour.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] target_capacity: The number of units to request. You can choose to set the
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
@@ -1276,6 +1292,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_strategy: Optional[pulumi.Input[str]] = None,
+                 context: Optional[pulumi.Input[str]] = None,
                  excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  iam_fleet_role: Optional[pulumi.Input[str]] = None,
@@ -1291,7 +1308,6 @@ class SpotFleetRequest(pulumi.CustomResource):
                  spot_maintenance_strategies: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
                  target_capacity_unit_type: Optional[pulumi.Input[str]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1310,6 +1326,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             __props__ = SpotFleetRequestArgs.__new__(SpotFleetRequestArgs)
 
             __props__.__dict__["allocation_strategy"] = allocation_strategy
+            __props__.__dict__["context"] = context
             __props__.__dict__["excess_capacity_termination_policy"] = excess_capacity_termination_policy
             __props__.__dict__["fleet_type"] = fleet_type
             if iam_fleet_role is None and not opts.urn:
@@ -1327,7 +1344,6 @@ class SpotFleetRequest(pulumi.CustomResource):
             __props__.__dict__["spot_maintenance_strategies"] = spot_maintenance_strategies
             __props__.__dict__["spot_price"] = spot_price
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if target_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'target_capacity'")
             __props__.__dict__["target_capacity"] = target_capacity
@@ -1340,6 +1356,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             __props__.__dict__["wait_for_fulfillment"] = wait_for_fulfillment
             __props__.__dict__["client_token"] = None
             __props__.__dict__["spot_request_state"] = None
+            __props__.__dict__["tags_all"] = None
         super(SpotFleetRequest, __self__).__init__(
             'aws:ec2/spotFleetRequest:SpotFleetRequest',
             resource_name,
@@ -1352,6 +1369,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             allocation_strategy: Optional[pulumi.Input[str]] = None,
             client_token: Optional[pulumi.Input[str]] = None,
+            context: Optional[pulumi.Input[str]] = None,
             excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
             fleet_type: Optional[pulumi.Input[str]] = None,
             iam_fleet_role: Optional[pulumi.Input[str]] = None,
@@ -1387,6 +1405,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[str] allocation_strategy: Indicates how to allocate the target capacity across
                the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
                `lowestPrice`.
+        :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[str] excess_capacity_termination_policy: Indicates whether running Spot
                instances should be terminated if the target capacity of the Spot fleet
                request is decreased below the current size of the Spot fleet.
@@ -1439,6 +1458,7 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         __props__.__dict__["allocation_strategy"] = allocation_strategy
         __props__.__dict__["client_token"] = client_token
+        __props__.__dict__["context"] = context
         __props__.__dict__["excess_capacity_termination_policy"] = excess_capacity_termination_policy
         __props__.__dict__["fleet_type"] = fleet_type
         __props__.__dict__["iam_fleet_role"] = iam_fleet_role
@@ -1480,6 +1500,14 @@ class SpotFleetRequest(pulumi.CustomResource):
     @pulumi.getter(name="clientToken")
     def client_token(self) -> pulumi.Output[str]:
         return pulumi.get(self, "client_token")
+
+    @property
+    @pulumi.getter
+    def context(self) -> pulumi.Output[Optional[str]]:
+        """
+        Reserved.
+        """
+        return pulumi.get(self, "context")
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")

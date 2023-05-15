@@ -11,8 +11,10 @@ import com.pulumi.aws.quicksight.outputs.DataSetColumnLevelPermissionRule;
 import com.pulumi.aws.quicksight.outputs.DataSetDataSetUsageConfiguration;
 import com.pulumi.aws.quicksight.outputs.DataSetFieldFolder;
 import com.pulumi.aws.quicksight.outputs.DataSetLogicalTableMap;
+import com.pulumi.aws.quicksight.outputs.DataSetOutputColumn;
 import com.pulumi.aws.quicksight.outputs.DataSetPermission;
 import com.pulumi.aws.quicksight.outputs.DataSetPhysicalTableMap;
+import com.pulumi.aws.quicksight.outputs.DataSetRefreshProperties;
 import com.pulumi.aws.quicksight.outputs.DataSetRowLevelPermissionDataSet;
 import com.pulumi.aws.quicksight.outputs.DataSetRowLevelPermissionTagConfiguration;
 import com.pulumi.core.Output;
@@ -442,6 +444,12 @@ public class DataSet extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    @Export(name="outputColumns", refs={List.class,DataSetOutputColumn.class}, tree="[0,1]")
+    private Output<List<DataSetOutputColumn>> outputColumns;
+
+    public Output<List<DataSetOutputColumn>> outputColumns() {
+        return this.outputColumns;
+    }
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
      * 
@@ -469,6 +477,20 @@ public class DataSet extends com.pulumi.resources.CustomResource {
      */
     public Output<List<DataSetPhysicalTableMap>> physicalTableMaps() {
         return this.physicalTableMaps;
+    }
+    /**
+     * The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+     * 
+     */
+    @Export(name="refreshProperties", refs={DataSetRefreshProperties.class}, tree="[0]")
+    private Output</* @Nullable */ DataSetRefreshProperties> refreshProperties;
+
+    /**
+     * @return The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+     * 
+     */
+    public Output<Optional<DataSetRefreshProperties>> refreshProperties() {
+        return Codegen.optional(this.refreshProperties);
     }
     /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.

@@ -29,17 +29,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rbin.NewRule(ctx, "example", &rbin.RuleArgs{
-//				Description:  pulumi.String("example_rule"),
-//				ResourceType: pulumi.String("EBS_SNAPSHOT"),
+//				Description: pulumi.String("example_rule"),
 //				ResourceTags: rbin.RuleResourceTagArray{
 //					&rbin.RuleResourceTagArgs{
-//						ResourceTagKey:   pulumi.Any(tag_key),
+//						ResourceTagKey:   pulumi.String("tag_key"),
 //						ResourceTagValue: pulumi.String("tag_value"),
 //					},
 //				},
+//				ResourceType: pulumi.String("EBS_SNAPSHOT"),
 //				RetentionPeriod: &rbin.RuleRetentionPeriodArgs{
-//					RetentionPeriodValue: pulumi.Int(10),
 //					RetentionPeriodUnit:  pulumi.String("DAYS"),
+//					RetentionPeriodValue: pulumi.Int(10),
 //				},
 //				Tags: pulumi.StringMap{
 //					"test_tag_key": pulumi.String("test_tag_value"),
@@ -181,7 +181,6 @@ type ruleArgs struct {
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
 	RetentionPeriod RuleRetentionPeriod `pulumi:"retentionPeriod"`
 	Tags            map[string]string   `pulumi:"tags"`
-	TagsAll         map[string]string   `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Rule resource.
@@ -197,7 +196,6 @@ type RuleArgs struct {
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
 	RetentionPeriod RuleRetentionPeriodInput
 	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {

@@ -282,7 +282,7 @@ type SecurityGroup struct {
 	Egress SecurityGroupEgressArrayOutput `pulumi:"egress"`
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Ingress SecurityGroupIngressArrayOutput `pulumi:"ingress"`
-	// Name of the security group. If omitted, this provider will assign a random, unique name.
+	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
@@ -338,7 +338,7 @@ type securityGroupState struct {
 	Egress []SecurityGroupEgress `pulumi:"egress"`
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
-	// Name of the security group. If omitted, this provider will assign a random, unique name.
+	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -363,7 +363,7 @@ type SecurityGroupState struct {
 	Egress SecurityGroupEgressArrayInput
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Ingress SecurityGroupIngressArrayInput
-	// Name of the security group. If omitted, this provider will assign a random, unique name.
+	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -390,7 +390,7 @@ type securityGroupArgs struct {
 	Egress []SecurityGroupEgress `pulumi:"egress"`
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
-	// Name of the security group. If omitted, this provider will assign a random, unique name.
+	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -398,8 +398,6 @@ type securityGroupArgs struct {
 	RevokeRulesOnDelete *bool `pulumi:"revokeRulesOnDelete"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// VPC ID. Defaults to the region's default VPC.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -412,7 +410,7 @@ type SecurityGroupArgs struct {
 	Egress SecurityGroupEgressArrayInput
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
 	Ingress SecurityGroupIngressArrayInput
-	// Name of the security group. If omitted, this provider will assign a random, unique name.
+	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -420,8 +418,6 @@ type SecurityGroupArgs struct {
 	RevokeRulesOnDelete pulumi.BoolPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// VPC ID. Defaults to the region's default VPC.
 	VpcId pulumi.StringPtrInput
 }
@@ -533,7 +529,7 @@ func (o SecurityGroupOutput) Ingress() SecurityGroupIngressArrayOutput {
 	return o.ApplyT(func(v *SecurityGroup) SecurityGroupIngressArrayOutput { return v.Ingress }).(SecurityGroupIngressArrayOutput)
 }
 
-// Name of the security group. If omitted, this provider will assign a random, unique name.
+// Name of the security group. If omitted, the provider will assign a random, unique name.
 func (o SecurityGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

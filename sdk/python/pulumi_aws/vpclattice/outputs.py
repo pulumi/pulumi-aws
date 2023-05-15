@@ -27,6 +27,7 @@ __all__ = [
     'ListenerRuleMatchHttpMatchPathMatchMatch',
     'ServiceDnsEntry',
     'ServiceNetworkServiceAssociationDnsEntry',
+    'TargetGroupAttachmentTarget',
     'TargetGroupConfig',
     'TargetGroupConfigHealthCheck',
     'TargetGroupConfigHealthCheckMatcher',
@@ -722,6 +723,36 @@ class ServiceNetworkServiceAssociationDnsEntry(dict):
         The ID of the hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class TargetGroupAttachmentTarget(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 port: Optional[int] = None):
+        """
+        :param str id: The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
+        :param int port: The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+        """
+        pulumi.set(__self__, "id", id)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+        """
+        return pulumi.get(self, "port")
 
 
 @pulumi.output_type

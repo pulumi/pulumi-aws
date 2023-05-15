@@ -20,8 +20,10 @@ from .get_queue import *
 from .get_quick_connect import *
 from .get_routing_profile import *
 from .get_security_profile import *
+from .get_user import *
 from .get_user_hierarchy_group import *
 from .get_user_hierarchy_structure import *
+from .get_vocabulary import *
 from .hours_of_operation import *
 from .instance import *
 from .instance_storage_config import *

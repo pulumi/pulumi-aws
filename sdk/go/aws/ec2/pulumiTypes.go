@@ -5795,6 +5795,181 @@ func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type InstanceCpuOptions struct {
+	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+	AmdSevSnp *string `pulumi:"amdSevSnp"`
+	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	CoreCount *int `pulumi:"coreCount"`
+	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	ThreadsPerCore *int `pulumi:"threadsPerCore"`
+}
+
+// InstanceCpuOptionsInput is an input type that accepts InstanceCpuOptionsArgs and InstanceCpuOptionsOutput values.
+// You can construct a concrete instance of `InstanceCpuOptionsInput` via:
+//
+//	InstanceCpuOptionsArgs{...}
+type InstanceCpuOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceCpuOptionsOutput() InstanceCpuOptionsOutput
+	ToInstanceCpuOptionsOutputWithContext(context.Context) InstanceCpuOptionsOutput
+}
+
+type InstanceCpuOptionsArgs struct {
+	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+	AmdSevSnp pulumi.StringPtrInput `pulumi:"amdSevSnp"`
+	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
+	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
+}
+
+func (InstanceCpuOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCpuOptions)(nil)).Elem()
+}
+
+func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsOutput() InstanceCpuOptionsOutput {
+	return i.ToInstanceCpuOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsOutputWithContext(ctx context.Context) InstanceCpuOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCpuOptionsOutput)
+}
+
+func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
+	return i.ToInstanceCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCpuOptionsOutput).ToInstanceCpuOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceCpuOptionsPtrInput is an input type that accepts InstanceCpuOptionsArgs, InstanceCpuOptionsPtr and InstanceCpuOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceCpuOptionsPtrInput` via:
+//
+//	        InstanceCpuOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceCpuOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput
+	ToInstanceCpuOptionsPtrOutputWithContext(context.Context) InstanceCpuOptionsPtrOutput
+}
+
+type instanceCpuOptionsPtrType InstanceCpuOptionsArgs
+
+func InstanceCpuOptionsPtr(v *InstanceCpuOptionsArgs) InstanceCpuOptionsPtrInput {
+	return (*instanceCpuOptionsPtrType)(v)
+}
+
+func (*instanceCpuOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCpuOptions)(nil)).Elem()
+}
+
+func (i *instanceCpuOptionsPtrType) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
+	return i.ToInstanceCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceCpuOptionsPtrType) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCpuOptionsPtrOutput)
+}
+
+type InstanceCpuOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceCpuOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCpuOptions)(nil)).Elem()
+}
+
+func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsOutput() InstanceCpuOptionsOutput {
+	return o
+}
+
+func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsOutputWithContext(ctx context.Context) InstanceCpuOptionsOutput {
+	return o
+}
+
+func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
+	return o.ToInstanceCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceCpuOptions) *InstanceCpuOptions {
+		return &v
+	}).(InstanceCpuOptionsPtrOutput)
+}
+
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+func (o InstanceCpuOptionsOutput) AmdSevSnp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceCpuOptions) *string { return v.AmdSevSnp }).(pulumi.StringPtrOutput)
+}
+
+// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+func (o InstanceCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
+}
+
+// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+func (o InstanceCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+}
+
+type InstanceCpuOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceCpuOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCpuOptions)(nil)).Elem()
+}
+
+func (o InstanceCpuOptionsPtrOutput) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceCpuOptionsPtrOutput) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceCpuOptionsPtrOutput) Elem() InstanceCpuOptionsOutput {
+	return o.ApplyT(func(v *InstanceCpuOptions) InstanceCpuOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceCpuOptions
+		return ret
+	}).(InstanceCpuOptionsOutput)
+}
+
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+func (o InstanceCpuOptionsPtrOutput) AmdSevSnp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceCpuOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AmdSevSnp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+func (o InstanceCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CoreCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+func (o InstanceCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThreadsPerCore
+	}).(pulumi.IntPtrOutput)
+}
+
 type InstanceCreditSpecification struct {
 	// Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits *string `pulumi:"cpuCredits"`
@@ -8854,6 +9029,8 @@ func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetP
 }
 
 type LaunchTemplateCpuOptions struct {
+	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+	AmdSevSnp *string `pulumi:"amdSevSnp"`
 	// The number of CPU cores for the instance.
 	CoreCount *int `pulumi:"coreCount"`
 	// The number of threads per CPU core.
@@ -8874,6 +9051,8 @@ type LaunchTemplateCpuOptionsInput interface {
 }
 
 type LaunchTemplateCpuOptionsArgs struct {
+	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+	AmdSevSnp pulumi.StringPtrInput `pulumi:"amdSevSnp"`
 	// The number of CPU cores for the instance.
 	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
 	// The number of threads per CPU core.
@@ -8959,6 +9138,11 @@ func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutputWithC
 	}).(LaunchTemplateCpuOptionsPtrOutput)
 }
 
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+func (o LaunchTemplateCpuOptionsOutput) AmdSevSnp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCpuOptions) *string { return v.AmdSevSnp }).(pulumi.StringPtrOutput)
+}
+
 // The number of CPU cores for the instance.
 func (o LaunchTemplateCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
@@ -8993,6 +9177,16 @@ func (o LaunchTemplateCpuOptionsPtrOutput) Elem() LaunchTemplateCpuOptionsOutput
 		var ret LaunchTemplateCpuOptions
 		return ret
 	}).(LaunchTemplateCpuOptionsOutput)
+}
+
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+func (o LaunchTemplateCpuOptionsPtrOutput) AmdSevSnp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AmdSevSnp
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of CPU cores for the instance.
@@ -28311,6 +28505,181 @@ func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTa
 	}).(pulumi.StringPtrOutput)
 }
 
+type SpotInstanceRequestCpuOptions struct {
+	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+	AmdSevSnp *string `pulumi:"amdSevSnp"`
+	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	CoreCount *int `pulumi:"coreCount"`
+	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	ThreadsPerCore *int `pulumi:"threadsPerCore"`
+}
+
+// SpotInstanceRequestCpuOptionsInput is an input type that accepts SpotInstanceRequestCpuOptionsArgs and SpotInstanceRequestCpuOptionsOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestCpuOptionsInput` via:
+//
+//	SpotInstanceRequestCpuOptionsArgs{...}
+type SpotInstanceRequestCpuOptionsInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestCpuOptionsOutput() SpotInstanceRequestCpuOptionsOutput
+	ToSpotInstanceRequestCpuOptionsOutputWithContext(context.Context) SpotInstanceRequestCpuOptionsOutput
+}
+
+type SpotInstanceRequestCpuOptionsArgs struct {
+	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+	AmdSevSnp pulumi.StringPtrInput `pulumi:"amdSevSnp"`
+	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
+	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
+}
+
+func (SpotInstanceRequestCpuOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestCpuOptions)(nil)).Elem()
+}
+
+func (i SpotInstanceRequestCpuOptionsArgs) ToSpotInstanceRequestCpuOptionsOutput() SpotInstanceRequestCpuOptionsOutput {
+	return i.ToSpotInstanceRequestCpuOptionsOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestCpuOptionsArgs) ToSpotInstanceRequestCpuOptionsOutputWithContext(ctx context.Context) SpotInstanceRequestCpuOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestCpuOptionsOutput)
+}
+
+func (i SpotInstanceRequestCpuOptionsArgs) ToSpotInstanceRequestCpuOptionsPtrOutput() SpotInstanceRequestCpuOptionsPtrOutput {
+	return i.ToSpotInstanceRequestCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestCpuOptionsArgs) ToSpotInstanceRequestCpuOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestCpuOptionsOutput).ToSpotInstanceRequestCpuOptionsPtrOutputWithContext(ctx)
+}
+
+// SpotInstanceRequestCpuOptionsPtrInput is an input type that accepts SpotInstanceRequestCpuOptionsArgs, SpotInstanceRequestCpuOptionsPtr and SpotInstanceRequestCpuOptionsPtrOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestCpuOptionsPtrInput` via:
+//
+//	        SpotInstanceRequestCpuOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpotInstanceRequestCpuOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestCpuOptionsPtrOutput() SpotInstanceRequestCpuOptionsPtrOutput
+	ToSpotInstanceRequestCpuOptionsPtrOutputWithContext(context.Context) SpotInstanceRequestCpuOptionsPtrOutput
+}
+
+type spotInstanceRequestCpuOptionsPtrType SpotInstanceRequestCpuOptionsArgs
+
+func SpotInstanceRequestCpuOptionsPtr(v *SpotInstanceRequestCpuOptionsArgs) SpotInstanceRequestCpuOptionsPtrInput {
+	return (*spotInstanceRequestCpuOptionsPtrType)(v)
+}
+
+func (*spotInstanceRequestCpuOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestCpuOptions)(nil)).Elem()
+}
+
+func (i *spotInstanceRequestCpuOptionsPtrType) ToSpotInstanceRequestCpuOptionsPtrOutput() SpotInstanceRequestCpuOptionsPtrOutput {
+	return i.ToSpotInstanceRequestCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *spotInstanceRequestCpuOptionsPtrType) ToSpotInstanceRequestCpuOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestCpuOptionsPtrOutput)
+}
+
+type SpotInstanceRequestCpuOptionsOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestCpuOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestCpuOptions)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestCpuOptionsOutput) ToSpotInstanceRequestCpuOptionsOutput() SpotInstanceRequestCpuOptionsOutput {
+	return o
+}
+
+func (o SpotInstanceRequestCpuOptionsOutput) ToSpotInstanceRequestCpuOptionsOutputWithContext(ctx context.Context) SpotInstanceRequestCpuOptionsOutput {
+	return o
+}
+
+func (o SpotInstanceRequestCpuOptionsOutput) ToSpotInstanceRequestCpuOptionsPtrOutput() SpotInstanceRequestCpuOptionsPtrOutput {
+	return o.ToSpotInstanceRequestCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SpotInstanceRequestCpuOptionsOutput) ToSpotInstanceRequestCpuOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCpuOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotInstanceRequestCpuOptions) *SpotInstanceRequestCpuOptions {
+		return &v
+	}).(SpotInstanceRequestCpuOptionsPtrOutput)
+}
+
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+func (o SpotInstanceRequestCpuOptionsOutput) AmdSevSnp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestCpuOptions) *string { return v.AmdSevSnp }).(pulumi.StringPtrOutput)
+}
+
+// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+func (o SpotInstanceRequestCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
+}
+
+// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+func (o SpotInstanceRequestCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+}
+
+type SpotInstanceRequestCpuOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestCpuOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestCpuOptions)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestCpuOptionsPtrOutput) ToSpotInstanceRequestCpuOptionsPtrOutput() SpotInstanceRequestCpuOptionsPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestCpuOptionsPtrOutput) ToSpotInstanceRequestCpuOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCpuOptionsPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestCpuOptionsPtrOutput) Elem() SpotInstanceRequestCpuOptionsOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestCpuOptions) SpotInstanceRequestCpuOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SpotInstanceRequestCpuOptions
+		return ret
+	}).(SpotInstanceRequestCpuOptionsOutput)
+}
+
+// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+func (o SpotInstanceRequestCpuOptionsPtrOutput) AmdSevSnp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestCpuOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AmdSevSnp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+func (o SpotInstanceRequestCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CoreCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+func (o SpotInstanceRequestCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThreadsPerCore
+	}).(pulumi.IntPtrOutput)
+}
+
 type SpotInstanceRequestCreditSpecification struct {
 	// Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
 	CpuCredits *string `pulumi:"cpuCredits"`
@@ -37069,8 +37438,9 @@ func (o GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarg
 }
 
 type GetLaunchTemplateCpuOption struct {
-	CoreCount      int `pulumi:"coreCount"`
-	ThreadsPerCore int `pulumi:"threadsPerCore"`
+	AmdSevSnp      string `pulumi:"amdSevSnp"`
+	CoreCount      int    `pulumi:"coreCount"`
+	ThreadsPerCore int    `pulumi:"threadsPerCore"`
 }
 
 // GetLaunchTemplateCpuOptionInput is an input type that accepts GetLaunchTemplateCpuOptionArgs and GetLaunchTemplateCpuOptionOutput values.
@@ -37085,8 +37455,9 @@ type GetLaunchTemplateCpuOptionInput interface {
 }
 
 type GetLaunchTemplateCpuOptionArgs struct {
-	CoreCount      pulumi.IntInput `pulumi:"coreCount"`
-	ThreadsPerCore pulumi.IntInput `pulumi:"threadsPerCore"`
+	AmdSevSnp      pulumi.StringInput `pulumi:"amdSevSnp"`
+	CoreCount      pulumi.IntInput    `pulumi:"coreCount"`
+	ThreadsPerCore pulumi.IntInput    `pulumi:"threadsPerCore"`
 }
 
 func (GetLaunchTemplateCpuOptionArgs) ElementType() reflect.Type {
@@ -37138,6 +37509,10 @@ func (o GetLaunchTemplateCpuOptionOutput) ToGetLaunchTemplateCpuOptionOutput() G
 
 func (o GetLaunchTemplateCpuOptionOutput) ToGetLaunchTemplateCpuOptionOutputWithContext(ctx context.Context) GetLaunchTemplateCpuOptionOutput {
 	return o
+}
+
+func (o GetLaunchTemplateCpuOptionOutput) AmdSevSnp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateCpuOption) string { return v.AmdSevSnp }).(pulumi.StringOutput)
 }
 
 func (o GetLaunchTemplateCpuOptionOutput) CoreCount() pulumi.IntOutput {
@@ -55693,6 +56068,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCapacityReservationSpecificationPtrInput)(nil)).Elem(), InstanceCapacityReservationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCapacityReservationSpecificationCapacityReservationTargetInput)(nil)).Elem(), InstanceCapacityReservationSpecificationCapacityReservationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCapacityReservationSpecificationCapacityReservationTargetPtrInput)(nil)).Elem(), InstanceCapacityReservationSpecificationCapacityReservationTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCpuOptionsInput)(nil)).Elem(), InstanceCpuOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCpuOptionsPtrInput)(nil)).Elem(), InstanceCpuOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCreditSpecificationInput)(nil)).Elem(), InstanceCreditSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCreditSpecificationPtrInput)(nil)).Elem(), InstanceCreditSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEbsBlockDeviceInput)(nil)).Elem(), InstanceEbsBlockDeviceArgs{})
@@ -56002,6 +56379,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestCapacityReservationSpecificationPtrInput)(nil)).Elem(), SpotInstanceRequestCapacityReservationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetInput)(nil)).Elem(), SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrInput)(nil)).Elem(), SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestCpuOptionsInput)(nil)).Elem(), SpotInstanceRequestCpuOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestCpuOptionsPtrInput)(nil)).Elem(), SpotInstanceRequestCpuOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestCreditSpecificationInput)(nil)).Elem(), SpotInstanceRequestCreditSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestCreditSpecificationPtrInput)(nil)).Elem(), SpotInstanceRequestCreditSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestEbsBlockDeviceInput)(nil)).Elem(), SpotInstanceRequestEbsBlockDeviceArgs{})
@@ -56518,6 +56897,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceCapacityReservationSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceCapacityReservationSpecificationCapacityReservationTargetOutput{})
 	pulumi.RegisterOutputType(InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput{})
+	pulumi.RegisterOutputType(InstanceCpuOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceCpuOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceCreditSpecificationOutput{})
 	pulumi.RegisterOutputType(InstanceCreditSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceEbsBlockDeviceOutput{})
@@ -56827,6 +57208,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotInstanceRequestCapacityReservationSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestCpuOptionsOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestCpuOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestCreditSpecificationOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestCreditSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestEbsBlockDeviceOutput{})

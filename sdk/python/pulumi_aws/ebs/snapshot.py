@@ -20,7 +20,6 @@ class SnapshotArgs:
                  permanent_restore: Optional[pulumi.Input[bool]] = None,
                  storage_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  temporary_restore_days: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
@@ -30,7 +29,6 @@ class SnapshotArgs:
         :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
         :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         """
         pulumi.set(__self__, "volume_id", volume_id)
@@ -44,8 +42,6 @@ class SnapshotArgs:
             pulumi.set(__self__, "storage_tier", storage_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if temporary_restore_days is not None:
             pulumi.set(__self__, "temporary_restore_days", temporary_restore_days)
 
@@ -120,18 +116,6 @@ class SnapshotArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="temporaryRestoreDays")
@@ -404,7 +388,6 @@ class Snapshot(pulumi.CustomResource):
                  permanent_restore: Optional[pulumi.Input[bool]] = None,
                  storage_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  temporary_restore_days: Optional[pulumi.Input[int]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -445,7 +428,6 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
         :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         """
@@ -505,7 +487,6 @@ class Snapshot(pulumi.CustomResource):
                  permanent_restore: Optional[pulumi.Input[bool]] = None,
                  storage_tier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  temporary_restore_days: Optional[pulumi.Input[int]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -522,7 +503,6 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["permanent_restore"] = permanent_restore
             __props__.__dict__["storage_tier"] = storage_tier
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["temporary_restore_days"] = temporary_restore_days
             if volume_id is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_id'")
@@ -533,6 +513,7 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = None
             __props__.__dict__["owner_alias"] = None
             __props__.__dict__["owner_id"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["volume_size"] = None
         super(Snapshot, __self__).__init__(
             'aws:ebs/snapshot:Snapshot',

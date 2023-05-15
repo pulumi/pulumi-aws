@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetGroupLaunchTemplate {
     /**
-     * @return Name of the Auto Scaling Group.
+     * @return ID of the launch template.
      * 
      */
     private String id;
@@ -19,11 +19,15 @@ public final class GetGroupLaunchTemplate {
      * 
      */
     private String name;
+    /**
+     * @return Template version.
+     * 
+     */
     private String version;
 
     private GetGroupLaunchTemplate() {}
     /**
-     * @return Name of the Auto Scaling Group.
+     * @return ID of the launch template.
      * 
      */
     public String id() {
@@ -36,6 +40,10 @@ public final class GetGroupLaunchTemplate {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Template version.
+     * 
+     */
     public String version() {
         return this.version;
     }

@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessLogSubscriptionArgs, AccessLogSubscriptionState } from "./accessLogSubscription";
+export type AccessLogSubscription = import("./accessLogSubscription").AccessLogSubscription;
+export const AccessLogSubscription: typeof import("./accessLogSubscription").AccessLogSubscription = null as any;
+utilities.lazyLoad(exports, ["AccessLogSubscription"], () => require("./accessLogSubscription"));
+
+export { AuthPolicyArgs, AuthPolicyState } from "./authPolicy";
+export type AuthPolicy = import("./authPolicy").AuthPolicy;
+export const AuthPolicy: typeof import("./authPolicy").AuthPolicy = null as any;
+utilities.lazyLoad(exports, ["AuthPolicy"], () => require("./authPolicy"));
+
+export { GetAuthPolicyArgs, GetAuthPolicyResult, GetAuthPolicyOutputArgs } from "./getAuthPolicy";
+export const getAuthPolicy: typeof import("./getAuthPolicy").getAuthPolicy = null as any;
+export const getAuthPolicyOutput: typeof import("./getAuthPolicy").getAuthPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthPolicy","getAuthPolicyOutput"], () => require("./getAuthPolicy"));
+
 export { GetListenerArgs, GetListenerResult, GetListenerOutputArgs } from "./getListener";
 export const getListener: typeof import("./getListener").getListener = null as any;
 export const getListenerOutput: typeof import("./getListener").getListenerOutput = null as any;
@@ -15,6 +30,11 @@ export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
 
+export { GetServiceNetworkArgs, GetServiceNetworkResult, GetServiceNetworkOutputArgs } from "./getServiceNetwork";
+export const getServiceNetwork: typeof import("./getServiceNetwork").getServiceNetwork = null as any;
+export const getServiceNetworkOutput: typeof import("./getServiceNetwork").getServiceNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceNetwork","getServiceNetworkOutput"], () => require("./getServiceNetwork"));
+
 export { ListenerArgs, ListenerState } from "./listener";
 export type Listener = import("./listener").Listener;
 export const Listener: typeof import("./listener").Listener = null as any;
@@ -24,6 +44,11 @@ export { ListenerRuleArgs, ListenerRuleState } from "./listenerRule";
 export type ListenerRule = import("./listenerRule").ListenerRule;
 export const ListenerRule: typeof import("./listenerRule").ListenerRule = null as any;
 utilities.lazyLoad(exports, ["ListenerRule"], () => require("./listenerRule"));
+
+export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
 export { ServiceArgs, ServiceState } from "./service";
 export type Service = import("./service").Service;
@@ -50,15 +75,26 @@ export type TargetGroup = import("./targetGroup").TargetGroup;
 export const TargetGroup: typeof import("./targetGroup").TargetGroup = null as any;
 utilities.lazyLoad(exports, ["TargetGroup"], () => require("./targetGroup"));
 
+export { TargetGroupAttachmentArgs, TargetGroupAttachmentState } from "./targetGroupAttachment";
+export type TargetGroupAttachment = import("./targetGroupAttachment").TargetGroupAttachment;
+export const TargetGroupAttachment: typeof import("./targetGroupAttachment").TargetGroupAttachment = null as any;
+utilities.lazyLoad(exports, ["TargetGroupAttachment"], () => require("./targetGroupAttachment"));
+
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:vpclattice/accessLogSubscription:AccessLogSubscription":
+                return new AccessLogSubscription(name, <any>undefined, { urn })
+            case "aws:vpclattice/authPolicy:AuthPolicy":
+                return new AuthPolicy(name, <any>undefined, { urn })
             case "aws:vpclattice/listener:Listener":
                 return new Listener(name, <any>undefined, { urn })
             case "aws:vpclattice/listenerRule:ListenerRule":
                 return new ListenerRule(name, <any>undefined, { urn })
+            case "aws:vpclattice/resourcePolicy:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws:vpclattice/service:Service":
                 return new Service(name, <any>undefined, { urn })
             case "aws:vpclattice/serviceNetwork:ServiceNetwork":
@@ -69,15 +105,21 @@ const _module = {
                 return new ServiceNetworkVpcAssociation(name, <any>undefined, { urn })
             case "aws:vpclattice/targetGroup:TargetGroup":
                 return new TargetGroup(name, <any>undefined, { urn })
+            case "aws:vpclattice/targetGroupAttachment:TargetGroupAttachment":
+                return new TargetGroupAttachment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "vpclattice/accessLogSubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "vpclattice/authPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/listener", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/listenerRule", _module)
+pulumi.runtime.registerResourceModule("aws", "vpclattice/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/service", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetwork", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetworkServiceAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/serviceNetworkVpcAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "vpclattice/targetGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "vpclattice/targetGroupAttachment", _module)

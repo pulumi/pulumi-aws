@@ -95,6 +95,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn&#39;t supported, however it&#39;s possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+     * 
+     */
+    @Import(name="grafanaVersion")
+    private @Nullable Output<String> grafanaVersion;
+
+    /**
+     * @return Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn&#39;t supported, however it&#39;s possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+     * 
+     */
+    public Optional<Output<String>> grafanaVersion() {
+        return Optional.ofNullable(this.grafanaVersion);
+    }
+
+    /**
      * The Grafana workspace name.
      * 
      */
@@ -230,21 +245,6 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
      * 
      */
@@ -267,6 +267,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         this.configuration = $.configuration;
         this.dataSources = $.dataSources;
         this.description = $.description;
+        this.grafanaVersion = $.grafanaVersion;
         this.name = $.name;
         this.networkAccessControl = $.networkAccessControl;
         this.notificationDestinations = $.notificationDestinations;
@@ -276,7 +277,6 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         this.roleArn = $.roleArn;
         this.stackSetName = $.stackSetName;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.vpcConfiguration = $.vpcConfiguration;
     }
 
@@ -421,6 +421,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param grafanaVersion Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn&#39;t supported, however it&#39;s possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grafanaVersion(@Nullable Output<String> grafanaVersion) {
+            $.grafanaVersion = grafanaVersion;
+            return this;
+        }
+
+        /**
+         * @param grafanaVersion Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn&#39;t supported, however it&#39;s possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grafanaVersion(String grafanaVersion) {
+            return grafanaVersion(Output.of(grafanaVersion));
         }
 
         /**
@@ -630,27 +651,6 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

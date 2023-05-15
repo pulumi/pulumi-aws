@@ -497,6 +497,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly placementGroup!: pulumi.Output<string | undefined>;
     /**
+     * Predicted capacity of the group.
+     */
+    public /*out*/ readonly predictedCapacity!: pulumi.Output<number>;
+    /**
      * Whether newly launched instances
      * are automatically protected from termination by Amazon EC2 Auto Scaling when
      * scaling in. For more information about preventing instances from terminating
@@ -556,6 +560,10 @@ export class Group extends pulumi.CustomResource {
      * to the specified Auto Scaling group. Defined below
      */
     public readonly warmPool!: pulumi.Output<outputs.autoscaling.GroupWarmPool | undefined>;
+    /**
+     * Current size of the warm pool.
+     */
+    public /*out*/ readonly warmPoolSize!: pulumi.Output<number>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -597,6 +605,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["placementGroup"] = state ? state.placementGroup : undefined;
+            resourceInputs["predictedCapacity"] = state ? state.predictedCapacity : undefined;
             resourceInputs["protectFromScaleIn"] = state ? state.protectFromScaleIn : undefined;
             resourceInputs["serviceLinkedRoleArn"] = state ? state.serviceLinkedRoleArn : undefined;
             resourceInputs["suspendedProcesses"] = state ? state.suspendedProcesses : undefined;
@@ -608,6 +617,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["waitForCapacityTimeout"] = state ? state.waitForCapacityTimeout : undefined;
             resourceInputs["waitForElbCapacity"] = state ? state.waitForElbCapacity : undefined;
             resourceInputs["warmPool"] = state ? state.warmPool : undefined;
+            resourceInputs["warmPoolSize"] = state ? state.warmPoolSize : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             if ((!args || args.maxSize === undefined) && !opts.urn) {
@@ -654,6 +664,8 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["waitForElbCapacity"] = args ? args.waitForElbCapacity : undefined;
             resourceInputs["warmPool"] = args ? args.warmPool : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["predictedCapacity"] = undefined /*out*/;
+            resourceInputs["warmPoolSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Group.__pulumiType, name, resourceInputs, opts);
@@ -790,6 +802,10 @@ export interface GroupState {
      */
     placementGroup?: pulumi.Input<string | PlacementGroup>;
     /**
+     * Predicted capacity of the group.
+     */
+    predictedCapacity?: pulumi.Input<number>;
+    /**
      * Whether newly launched instances
      * are automatically protected from termination by Amazon EC2 Auto Scaling when
      * scaling in. For more information about preventing instances from terminating
@@ -849,6 +865,10 @@ export interface GroupState {
      * to the specified Auto Scaling group. Defined below
      */
     warmPool?: pulumi.Input<inputs.autoscaling.GroupWarmPool>;
+    /**
+     * Current size of the warm pool.
+     */
+    warmPoolSize?: pulumi.Input<number>;
 }
 
 /**

@@ -12,10 +12,14 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the `aws.appautoscaling.Policy` resource.
+ * 
+ * &gt; **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `arn`. These resource cannot use `tags` or participate in `default_tags`. To prevent `pulumi preview` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below.
  * 
  * &gt; **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the `aws.iam.ServiceLinkedRole` resource.
  * 
@@ -152,6 +156,39 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Suppressing `tags_all` Differences For Older Resources
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appautoscaling.Target;
+ * import com.pulumi.aws.appautoscaling.TargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var ecsTarget = new Target(&#34;ecsTarget&#34;, TargetArgs.builder()        
+ *             .maxCapacity(4)
+ *             .minCapacity(1)
+ *             .resourceId(String.format(&#34;service/%s/%s&#34;, aws_ecs_cluster.example().name(),aws_ecs_service.example().name()))
+ *             .scalableDimension(&#34;ecs:service:DesiredCount&#34;)
+ *             .serviceNamespace(&#34;ecs&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### MSK / Kafka Autoscaling
  * ```java
  * package generated_program;
@@ -197,6 +234,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:appautoscaling/target:Target")
 public class Target extends com.pulumi.resources.CustomResource {
+    /**
+     * The ARN of the scalable target.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The ARN of the scalable target.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
     /**
      * Max capacity of the scalable target.
      * 
@@ -280,6 +331,34 @@ public class Target extends com.pulumi.resources.CustomResource {
      */
     public Output<String> serviceNamespace() {
         return this.serviceNamespace;
+    }
+    /**
+     * Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
 
     /**

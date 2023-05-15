@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *                 .port(443)
  *                 .protocol(&#34;HTTPS&#34;)
  *                 .vpcIdentifier(aws_vpc.example().id())
- *                 .protocolVersion(&#34;HPPT1&#34;)
+ *                 .protocolVersion(&#34;HTTP1&#34;)
  *                 .healthCheck(TargetGroupConfigHealthCheckArgs.builder()
  *                     .enabled(true)
  *                     .healthCheckIntervalSeconds(20)

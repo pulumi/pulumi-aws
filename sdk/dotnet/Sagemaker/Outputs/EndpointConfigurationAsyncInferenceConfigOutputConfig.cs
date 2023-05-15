@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig? NotificationConfig;
         /// <summary>
+        /// The Amazon S3 location to upload failure inference responses to.
+        /// </summary>
+        public readonly string? S3FailurePath;
+        /// <summary>
         /// The Amazon S3 location to upload inference responses to.
         /// </summary>
         public readonly string S3OutputPath;
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             Outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig? notificationConfig,
 
+            string? s3FailurePath,
+
             string s3OutputPath)
         {
             KmsKeyId = kmsKeyId;
             NotificationConfig = notificationConfig;
+            S3FailurePath = s3FailurePath;
             S3OutputPath = s3OutputPath;
         }
     }

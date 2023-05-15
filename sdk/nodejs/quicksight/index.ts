@@ -50,6 +50,11 @@ export type GroupMembership = import("./groupMembership").GroupMembership;
 export const GroupMembership: typeof import("./groupMembership").GroupMembership = null as any;
 utilities.lazyLoad(exports, ["GroupMembership"], () => require("./groupMembership"));
 
+export { TemplateArgs, TemplateState } from "./template";
+export type Template = import("./template").Template;
+export const Template: typeof import("./template").Template = null as any;
+utilities.lazyLoad(exports, ["Template"], () => require("./template"));
+
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -72,6 +77,8 @@ const _module = {
                 return new Group(name, <any>undefined, { urn })
             case "aws:quicksight/groupMembership:GroupMembership":
                 return new GroupMembership(name, <any>undefined, { urn })
+            case "aws:quicksight/template:Template":
+                return new Template(name, <any>undefined, { urn })
             case "aws:quicksight/user:User":
                 return new User(name, <any>undefined, { urn })
             default:
@@ -85,4 +92,5 @@ pulumi.runtime.registerResourceModule("aws", "quicksight/dataSource", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/folder", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/group", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/groupMembership", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/template", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/user", _module)

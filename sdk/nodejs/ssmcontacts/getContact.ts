@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * TODO data source for managing an AWS SSM Contact.
+ * Data source for managing an AWS SSM Contact.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -69,7 +69,7 @@ export interface GetContactResult {
     readonly type: string;
 }
 /**
- * TODO data source for managing an AWS SSM Contact.
+ * Data source for managing an AWS SSM Contact.
  *
  * ## Example Usage
  * ### Basic Usage

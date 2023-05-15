@@ -257,14 +257,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.engineVersion;
     }
     /**
-     * The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+     * The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      * 
      */
     @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
     /**
-     * @return The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+     * @return The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      * 
      */
     public Output<String> identifier() {

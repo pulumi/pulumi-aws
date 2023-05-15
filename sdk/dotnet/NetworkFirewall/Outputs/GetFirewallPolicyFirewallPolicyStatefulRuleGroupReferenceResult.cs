@@ -13,15 +13,19 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     [OutputType]
     public sealed class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult
     {
+        public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult> Overrides;
         public readonly int Priority;
         public readonly string ResourceArn;
 
         [OutputConstructor]
         private GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceResult(
+            ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideResult> overrides,
+
             int priority,
 
             string resourceArn)
         {
+            Overrides = overrides;
             Priority = priority;
             ResourceArn = resourceArn;
         }

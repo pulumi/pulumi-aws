@@ -12,7 +12,7 @@ namespace Pulumi.Aws.SsmContacts
     public static class GetContactChannel
     {
         /// <summary>
-        /// TODO data source for managing an AWS SSM Contacts Contact Channel.
+        /// Data source for managing an AWS SSM Contacts Contact Channel.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.SsmContacts
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactChannelResult>("aws:ssmcontacts/getContactChannel:getContactChannel", args ?? new GetContactChannelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// TODO data source for managing an AWS SSM Contacts Contact Channel.
+        /// Data source for managing an AWS SSM Contacts Contact Channel.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

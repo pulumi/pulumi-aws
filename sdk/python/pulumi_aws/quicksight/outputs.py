@@ -32,6 +32,7 @@ __all__ = [
     'DataSetLogicalTableMapSourceJoinInstruction',
     'DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties',
     'DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties',
+    'DataSetOutputColumn',
     'DataSetPermission',
     'DataSetPhysicalTableMap',
     'DataSetPhysicalTableMapCustomSql',
@@ -41,6 +42,10 @@ __all__ = [
     'DataSetPhysicalTableMapS3Source',
     'DataSetPhysicalTableMapS3SourceInputColumn',
     'DataSetPhysicalTableMapS3SourceUploadSettings',
+    'DataSetRefreshProperties',
+    'DataSetRefreshPropertiesRefreshConfiguration',
+    'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh',
+    'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow',
     'DataSetRowLevelPermissionDataSet',
     'DataSetRowLevelPermissionTagConfiguration',
     'DataSetRowLevelPermissionTagConfigurationTagRule',
@@ -72,6 +77,11 @@ __all__ = [
     'DataSourceSslProperties',
     'DataSourceVpcConnectionProperties',
     'FolderPermission',
+    'TemplatePermission',
+    'TemplateSourceEntity',
+    'TemplateSourceEntitySourceAnalysis',
+    'TemplateSourceEntitySourceAnalysisDataSetReference',
+    'TemplateSourceEntitySourceTemplate',
     'GetDataSetColumnGroupResult',
     'GetDataSetColumnGroupGeoSpatialColumnGroupResult',
     'GetDataSetColumnLevelPermissionRuleResult',
@@ -1203,6 +1213,49 @@ class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties(dict):
 
 
 @pulumi.output_type
+class DataSetOutputColumn(dict):
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str description: Field folder description.
+        :param str name: Display name for the dataset.
+        :param str type: Data type of the column.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Field folder description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Display name for the dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Data type of the column.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class DataSetPermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
@@ -1696,6 +1749,170 @@ class DataSetPhysicalTableMapS3SourceUploadSettings(dict):
         Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
         """
         return pulumi.get(self, "text_qualifier")
+
+
+@pulumi.output_type
+class DataSetRefreshProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "refreshConfiguration":
+            suggest = "refresh_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRefreshProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRefreshProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRefreshProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 refresh_configuration: 'outputs.DataSetRefreshPropertiesRefreshConfiguration'):
+        """
+        :param 'DataSetRefreshPropertiesRefreshConfigurationArgs' refresh_configuration: The refresh configuration for the data set. See refresh_configuration.
+        """
+        pulumi.set(__self__, "refresh_configuration", refresh_configuration)
+
+    @property
+    @pulumi.getter(name="refreshConfiguration")
+    def refresh_configuration(self) -> 'outputs.DataSetRefreshPropertiesRefreshConfiguration':
+        """
+        The refresh configuration for the data set. See refresh_configuration.
+        """
+        return pulumi.get(self, "refresh_configuration")
+
+
+@pulumi.output_type
+class DataSetRefreshPropertiesRefreshConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "incrementalRefresh":
+            suggest = "incremental_refresh"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRefreshPropertiesRefreshConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRefreshPropertiesRefreshConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRefreshPropertiesRefreshConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 incremental_refresh: 'outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh'):
+        """
+        :param 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs' incremental_refresh: The incremental refresh for the data set. See incremental_refresh.
+        """
+        pulumi.set(__self__, "incremental_refresh", incremental_refresh)
+
+    @property
+    @pulumi.getter(name="incrementalRefresh")
+    def incremental_refresh(self) -> 'outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh':
+        """
+        The incremental refresh for the data set. See incremental_refresh.
+        """
+        return pulumi.get(self, "incremental_refresh")
+
+
+@pulumi.output_type
+class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lookbackWindow":
+            suggest = "lookback_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lookback_window: 'outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow'):
+        """
+        :param 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs' lookback_window: The lookback window setup for an incremental refresh configuration. See lookback_window.
+        """
+        pulumi.set(__self__, "lookback_window", lookback_window)
+
+    @property
+    @pulumi.getter(name="lookbackWindow")
+    def lookback_window(self) -> 'outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow':
+        """
+        The lookback window setup for an incremental refresh configuration. See lookback_window.
+        """
+        return pulumi.get(self, "lookback_window")
+
+
+@pulumi.output_type
+class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "sizeUnit":
+            suggest = "size_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 size: int,
+                 size_unit: str):
+        """
+        :param str column_name: The name of the lookback window column.
+        :param int size: The lookback window column size.
+        :param str size_unit: The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "size_unit", size_unit)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        The name of the lookback window column.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def size(self) -> int:
+        """
+        The lookback window column size.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="sizeUnit")
+    def size_unit(self) -> str:
+        """
+        The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+        """
+        return pulumi.get(self, "size_unit")
 
 
 @pulumi.output_type
@@ -3201,6 +3418,197 @@ class FolderPermission(dict):
         ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
         """
         return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class TemplatePermission(dict):
+    def __init__(__self__, *,
+                 actions: Sequence[str],
+                 principal: str):
+        """
+        :param Sequence[str] actions: List of IAM actions to grant or revoke permissions on.
+        :param str principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[str]:
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def principal(self) -> str:
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class TemplateSourceEntity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceAnalysis":
+            suggest = "source_analysis"
+        elif key == "sourceTemplate":
+            suggest = "source_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateSourceEntity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateSourceEntity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateSourceEntity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_analysis: Optional['outputs.TemplateSourceEntitySourceAnalysis'] = None,
+                 source_template: Optional['outputs.TemplateSourceEntitySourceTemplate'] = None):
+        """
+        :param 'TemplateSourceEntitySourceAnalysisArgs' source_analysis: The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
+        :param 'TemplateSourceEntitySourceTemplateArgs' source_template: The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
+        """
+        if source_analysis is not None:
+            pulumi.set(__self__, "source_analysis", source_analysis)
+        if source_template is not None:
+            pulumi.set(__self__, "source_template", source_template)
+
+    @property
+    @pulumi.getter(name="sourceAnalysis")
+    def source_analysis(self) -> Optional['outputs.TemplateSourceEntitySourceAnalysis']:
+        """
+        The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
+        """
+        return pulumi.get(self, "source_analysis")
+
+    @property
+    @pulumi.getter(name="sourceTemplate")
+    def source_template(self) -> Optional['outputs.TemplateSourceEntitySourceTemplate']:
+        """
+        The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
+        """
+        return pulumi.get(self, "source_template")
+
+
+@pulumi.output_type
+class TemplateSourceEntitySourceAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetReferences":
+            suggest = "data_set_references"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateSourceEntitySourceAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateSourceEntitySourceAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateSourceEntitySourceAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn: str,
+                 data_set_references: Sequence['outputs.TemplateSourceEntitySourceAnalysisDataSetReference']):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the resource.
+        :param Sequence['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs'] data_set_references: A list of dataset references used as placeholders in the template. See data_set_references.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "data_set_references", data_set_references)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="dataSetReferences")
+    def data_set_references(self) -> Sequence['outputs.TemplateSourceEntitySourceAnalysisDataSetReference']:
+        """
+        A list of dataset references used as placeholders in the template. See data_set_references.
+        """
+        return pulumi.get(self, "data_set_references")
+
+
+@pulumi.output_type
+class TemplateSourceEntitySourceAnalysisDataSetReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSetArn":
+            suggest = "data_set_arn"
+        elif key == "dataSetPlaceholder":
+            suggest = "data_set_placeholder"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateSourceEntitySourceAnalysisDataSetReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateSourceEntitySourceAnalysisDataSetReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateSourceEntitySourceAnalysisDataSetReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_set_arn: str,
+                 data_set_placeholder: str):
+        """
+        :param str data_set_arn: Dataset Amazon Resource Name (ARN).
+        :param str data_set_placeholder: Dataset placeholder.
+        """
+        pulumi.set(__self__, "data_set_arn", data_set_arn)
+        pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
+
+    @property
+    @pulumi.getter(name="dataSetArn")
+    def data_set_arn(self) -> str:
+        """
+        Dataset Amazon Resource Name (ARN).
+        """
+        return pulumi.get(self, "data_set_arn")
+
+    @property
+    @pulumi.getter(name="dataSetPlaceholder")
+    def data_set_placeholder(self) -> str:
+        """
+        Dataset placeholder.
+        """
+        return pulumi.get(self, "data_set_placeholder")
+
+
+@pulumi.output_type
+class TemplateSourceEntitySourceTemplate(dict):
+    def __init__(__self__, *,
+                 arn: str):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the resource.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the resource.
+        """
+        return pulumi.get(self, "arn")
 
 
 @pulumi.output_type

@@ -196,14 +196,14 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enrichment);
     }
     /**
-     * Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`.
+     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`.
+     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Output<String> name() {

@@ -233,7 +233,7 @@ public class ServerCertificate extends com.pulumi.resources.CustomResource {
     }
     /**
      * The name of the Server Certificate. Do not include the
-     * path in this value. If omitted, this provider will assign a random, unique name.
+     * path in this value. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -241,7 +241,7 @@ public class ServerCertificate extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The name of the Server Certificate. Do not include the
-     * path in this value. If omitted, this provider will assign a random, unique name.
+     * path in this value. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {

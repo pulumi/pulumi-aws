@@ -93,8 +93,7 @@ public final class GetIndexResult {
      */
     private String updatedAt;
     /**
-     * @return User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
-     * html#Kendra-CreateIndex-request-UserContextPolicy).
+     * @return User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
      * 
      */
     private String userContextPolicy;
@@ -216,8 +215,7 @@ public final class GetIndexResult {
         return this.updatedAt;
     }
     /**
-     * @return User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
-     * html#Kendra-CreateIndex-request-UserContextPolicy).
+     * @return User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy).
      * 
      */
     public String userContextPolicy() {

@@ -34,6 +34,7 @@ namespace Pulumi.Aws.Ssm
         /// });
         /// ```
         /// 
+        /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
         /// &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -64,6 +65,7 @@ namespace Pulumi.Aws.Ssm
         /// });
         /// ```
         /// 
+        /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
         /// &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
         /// {{% /example %}}
         /// {{% /examples %}}

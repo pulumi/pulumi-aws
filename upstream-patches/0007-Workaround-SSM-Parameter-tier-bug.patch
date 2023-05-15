@@ -1,7 +1,7 @@
-From a22e6360cf13af0e82b4a271b19a9b3c8f6d7a1a Mon Sep 17 00:00:00 2001
+From 5367aa3507217845325a307a1347176cd4e66932 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:24:42 +0000
-Subject: [PATCH 07/27] Workaround SSM Parameter tier bug
+Subject: [PATCH 07/28] Workaround SSM Parameter tier bug
 
 - Disable "computed".
 - Disable diff suppression & counteractions

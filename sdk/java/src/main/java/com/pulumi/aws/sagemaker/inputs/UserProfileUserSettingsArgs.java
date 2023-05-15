@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsA
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsJupyterServerAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsKernelGatewayAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsRSessionAppSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsRStudioServerProAppSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsSharingSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsTensorBoardAppSettingsArgs;
 import com.pulumi.core.Output;
@@ -98,6 +99,21 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+     * 
+     */
+    @Import(name="rStudioServerProAppSettings")
+    private @Nullable Output<UserProfileUserSettingsRStudioServerProAppSettingsArgs> rStudioServerProAppSettings;
+
+    /**
+     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+     * 
+     */
+    public Optional<Output<UserProfileUserSettingsRStudioServerProAppSettingsArgs>> rStudioServerProAppSettings() {
+        return Optional.ofNullable(this.rStudioServerProAppSettings);
+    }
+
+    /**
      * The security groups.
      * 
      */
@@ -150,6 +166,7 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
         this.jupyterServerAppSettings = $.jupyterServerAppSettings;
         this.kernelGatewayAppSettings = $.kernelGatewayAppSettings;
         this.rSessionAppSettings = $.rSessionAppSettings;
+        this.rStudioServerProAppSettings = $.rStudioServerProAppSettings;
         this.securityGroups = $.securityGroups;
         this.sharingSettings = $.sharingSettings;
         this.tensorBoardAppSettings = $.tensorBoardAppSettings;
@@ -276,6 +293,27 @@ public final class UserProfileUserSettingsArgs extends com.pulumi.resources.Reso
          */
         public Builder rSessionAppSettings(UserProfileUserSettingsRSessionAppSettingsArgs rSessionAppSettings) {
             return rSessionAppSettings(Output.of(rSessionAppSettings));
+        }
+
+        /**
+         * @param rStudioServerProAppSettings A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rStudioServerProAppSettings(@Nullable Output<UserProfileUserSettingsRStudioServerProAppSettingsArgs> rStudioServerProAppSettings) {
+            $.rStudioServerProAppSettings = rStudioServerProAppSettings;
+            return this;
+        }
+
+        /**
+         * @param rStudioServerProAppSettings A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rStudioServerProAppSettings(UserProfileUserSettingsRStudioServerProAppSettingsArgs rStudioServerProAppSettings) {
+            return rStudioServerProAppSettings(Output.of(rStudioServerProAppSettings));
         }
 
         /**

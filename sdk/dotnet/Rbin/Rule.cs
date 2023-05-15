@@ -26,19 +26,19 @@ namespace Pulumi.Aws.Rbin
     ///     var example = new Aws.Rbin.Rule("example", new()
     ///     {
     ///         Description = "example_rule",
-    ///         ResourceType = "EBS_SNAPSHOT",
     ///         ResourceTags = new[]
     ///         {
     ///             new Aws.Rbin.Inputs.RuleResourceTagArgs
     ///             {
-    ///                 ResourceTagKey = tag_key,
+    ///                 ResourceTagKey = "tag_key",
     ///                 ResourceTagValue = "tag_value",
     ///             },
     ///         },
+    ///         ResourceType = "EBS_SNAPSHOT",
     ///         RetentionPeriod = new Aws.Rbin.Inputs.RuleRetentionPeriodArgs
     ///         {
-    ///             RetentionPeriodValue = 10,
     ///             RetentionPeriodUnit = "DAYS",
+    ///             RetentionPeriodValue = 10,
     ///         },
     ///         Tags = 
     ///         {
@@ -205,14 +205,6 @@ namespace Pulumi.Aws.Rbin
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public RuleArgs()

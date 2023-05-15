@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class LaunchTemplateCpuOptionsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LaunchTemplateCpuOptionsArgs Empty = new LaunchTemplateCpuOptionsArgs();
+
+    /**
+     * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+     * 
+     */
+    @Import(name="amdSevSnp")
+    private @Nullable Output<String> amdSevSnp;
+
+    /**
+     * @return Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+     * 
+     */
+    public Optional<Output<String>> amdSevSnp() {
+        return Optional.ofNullable(this.amdSevSnp);
+    }
 
     /**
      * The number of CPU cores for the instance.
@@ -52,6 +68,7 @@ public final class LaunchTemplateCpuOptionsArgs extends com.pulumi.resources.Res
     private LaunchTemplateCpuOptionsArgs() {}
 
     private LaunchTemplateCpuOptionsArgs(LaunchTemplateCpuOptionsArgs $) {
+        this.amdSevSnp = $.amdSevSnp;
         this.coreCount = $.coreCount;
         this.threadsPerCore = $.threadsPerCore;
     }
@@ -72,6 +89,27 @@ public final class LaunchTemplateCpuOptionsArgs extends com.pulumi.resources.Res
 
         public Builder(LaunchTemplateCpuOptionsArgs defaults) {
             $ = new LaunchTemplateCpuOptionsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param amdSevSnp Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amdSevSnp(@Nullable Output<String> amdSevSnp) {
+            $.amdSevSnp = amdSevSnp;
+            return this;
+        }
+
+        /**
+         * @param amdSevSnp Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder amdSevSnp(String amdSevSnp) {
+            return amdSevSnp(Output.of(amdSevSnp));
         }
 
         /**

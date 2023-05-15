@@ -106,6 +106,77 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Create target tracking scaling policy using metric math
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
+ *     maxCapacity: 4,
+ *     minCapacity: 1,
+ *     resourceId: "service/clusterName/serviceName",
+ *     scalableDimension: "ecs:service:DesiredCount",
+ *     serviceNamespace: "ecs",
+ * });
+ * const example = new aws.appautoscaling.Policy("example", {
+ *     policyType: "TargetTrackingScaling",
+ *     resourceId: ecsTarget.resourceId,
+ *     scalableDimension: ecsTarget.scalableDimension,
+ *     serviceNamespace: ecsTarget.serviceNamespace,
+ *     targetTrackingScalingPolicyConfiguration: {
+ *         targetValue: 100,
+ *         customizedMetricSpecification: {
+ *             metrics: [
+ *                 {
+ *                     label: "Get the queue size (the number of messages waiting to be processed)",
+ *                     id: "m1",
+ *                     metricStat: {
+ *                         metric: {
+ *                             metricName: "ApproximateNumberOfMessagesVisible",
+ *                             namespace: "AWS/SQS",
+ *                             dimensions: [{
+ *                                 name: "QueueName",
+ *                                 value: "my-queue",
+ *                             }],
+ *                         },
+ *                         stat: "Sum",
+ *                     },
+ *                     returnData: false,
+ *                 },
+ *                 {
+ *                     label: "Get the ECS running task count (the number of currently running tasks)",
+ *                     id: "m2",
+ *                     metricStat: {
+ *                         metric: {
+ *                             metricName: "RunningTaskCount",
+ *                             namespace: "ECS/ContainerInsights",
+ *                             dimensions: [
+ *                                 {
+ *                                     name: "ClusterName",
+ *                                     value: "default",
+ *                                 },
+ *                                 {
+ *                                     name: "ServiceName",
+ *                                     value: "web-app",
+ *                                 },
+ *                             ],
+ *                         },
+ *                         stat: "Average",
+ *                     },
+ *                     returnData: false,
+ *                 },
+ *                 {
+ *                     label: "Calculate the backlog per instance",
+ *                     id: "e1",
+ *                     expression: "m1 / m2",
+ *                     returnData: true,
+ *                 },
+ *             ],
+ *         },
+ *     },
+ * });
+ * ```
  * ### MSK / Kafka Autoscaling
  *
  * ```typescript

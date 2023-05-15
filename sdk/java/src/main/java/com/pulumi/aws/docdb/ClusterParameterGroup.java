@@ -82,14 +82,14 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
+     * The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
+     * @return The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Output<Optional<String>> description() {

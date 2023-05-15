@@ -26,6 +26,7 @@ __all__ = [
     'ListenerRuleMatchHttpMatchPathMatchMatchArgs',
     'ServiceDnsEntryArgs',
     'ServiceNetworkServiceAssociationDnsEntryArgs',
+    'TargetGroupAttachmentTargetArgs',
     'TargetGroupConfigArgs',
     'TargetGroupConfigHealthCheckArgs',
     'TargetGroupConfigHealthCheckMatcherArgs',
@@ -592,6 +593,44 @@ class ServiceNetworkServiceAssociationDnsEntryArgs:
     @hosted_zone_id.setter
     def hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hosted_zone_id", value)
+
+
+@pulumi.input_type
+class TargetGroupAttachmentTargetArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
+        :param pulumi.Input[int] port: The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+        """
+        pulumi.set(__self__, "id", id)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type

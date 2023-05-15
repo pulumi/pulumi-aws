@@ -47,6 +47,21 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
     }
 
     /**
+     * The Amazon S3 location to upload failure inference responses to.
+     * 
+     */
+    @Import(name="s3FailurePath")
+    private @Nullable Output<String> s3FailurePath;
+
+    /**
+     * @return The Amazon S3 location to upload failure inference responses to.
+     * 
+     */
+    public Optional<Output<String>> s3FailurePath() {
+        return Optional.ofNullable(this.s3FailurePath);
+    }
+
+    /**
      * The Amazon S3 location to upload inference responses to.
      * 
      */
@@ -66,6 +81,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
     private EndpointConfigurationAsyncInferenceConfigOutputConfigArgs(EndpointConfigurationAsyncInferenceConfigOutputConfigArgs $) {
         this.kmsKeyId = $.kmsKeyId;
         this.notificationConfig = $.notificationConfig;
+        this.s3FailurePath = $.s3FailurePath;
         this.s3OutputPath = $.s3OutputPath;
     }
 
@@ -127,6 +143,27 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigArgs ext
          */
         public Builder notificationConfig(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs notificationConfig) {
             return notificationConfig(Output.of(notificationConfig));
+        }
+
+        /**
+         * @param s3FailurePath The Amazon S3 location to upload failure inference responses to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3FailurePath(@Nullable Output<String> s3FailurePath) {
+            $.s3FailurePath = s3FailurePath;
+            return this;
+        }
+
+        /**
+         * @param s3FailurePath The Amazon S3 location to upload failure inference responses to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3FailurePath(String s3FailurePath) {
+            return s3FailurePath(Output.of(s3FailurePath));
         }
 
         /**

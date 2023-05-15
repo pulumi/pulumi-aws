@@ -92,14 +92,14 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+     * The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+     * @return The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {

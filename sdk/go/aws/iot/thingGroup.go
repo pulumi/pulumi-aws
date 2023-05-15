@@ -156,8 +156,7 @@ type thingGroupArgs struct {
 	// The Thing Group properties. Defined below.
 	Properties *ThingGroupProperties `pulumi:"properties"`
 	// Key-value mapping of resource tags
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ThingGroup resource.
@@ -169,8 +168,7 @@ type ThingGroupArgs struct {
 	// The Thing Group properties. Defined below.
 	Properties ThingGroupPropertiesPtrInput
 	// Key-value mapping of resource tags
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (ThingGroupArgs) ElementType() reflect.Type {

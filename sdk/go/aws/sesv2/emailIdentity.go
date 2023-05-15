@@ -236,8 +236,7 @@ type emailIdentityArgs struct {
 	// The email address or domain to verify.
 	EmailIdentity string `pulumi:"emailIdentity"`
 	// (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EmailIdentity resource.
@@ -249,8 +248,7 @@ type EmailIdentityArgs struct {
 	// The email address or domain to verify.
 	EmailIdentity pulumi.StringInput
 	// (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (EmailIdentityArgs) ElementType() reflect.Type {

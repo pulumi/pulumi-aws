@@ -52,14 +52,14 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+     * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
      * 
      */
     @Import(name="excludeFilters")
     private @Nullable Output<List<MetricStreamExcludeFilterArgs>> excludeFilters;
 
     /**
-     * @return List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+     * @return List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
      * 
      */
     public Optional<Output<List<MetricStreamExcludeFilterArgs>>> excludeFilters() {
@@ -82,14 +82,14 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+     * List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
      * 
      */
     @Import(name="includeFilters")
     private @Nullable Output<List<MetricStreamIncludeFilterArgs>> includeFilters;
 
     /**
-     * @return List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+     * @return List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
      * 
      */
     public Optional<Output<List<MetricStreamIncludeFilterArgs>>> includeFilters() {
@@ -327,7 +327,7 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeFilters List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+         * @param excludeFilters List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeFilters List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+         * @param excludeFilters List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param excludeFilters List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+         * @param excludeFilters List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeFilters List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+         * @param includeFilters List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeFilters List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+         * @param includeFilters List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class MetricStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param includeFilters List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+         * @param includeFilters List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
          * 
          * @return builder
          * 

@@ -181,6 +181,20 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
         return this.productId;
     }
     /**
+     * Provisioning artifact identifier.
+     * 
+     */
+    @Export(name="provisioningArtifactId", refs={String.class}, tree="[0]")
+    private Output<String> provisioningArtifactId;
+
+    /**
+     * @return Provisioning artifact identifier.
+     * 
+     */
+    public Output<String> provisioningArtifactId() {
+        return this.provisioningArtifactId;
+    }
+    /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      * 
      */

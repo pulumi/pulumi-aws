@@ -31,6 +31,7 @@ __all__ = [
     'DataSetLogicalTableMapSourceJoinInstructionArgs',
     'DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs',
     'DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs',
+    'DataSetOutputColumnArgs',
     'DataSetPermissionArgs',
     'DataSetPhysicalTableMapArgs',
     'DataSetPhysicalTableMapCustomSqlArgs',
@@ -40,6 +41,10 @@ __all__ = [
     'DataSetPhysicalTableMapS3SourceArgs',
     'DataSetPhysicalTableMapS3SourceInputColumnArgs',
     'DataSetPhysicalTableMapS3SourceUploadSettingsArgs',
+    'DataSetRefreshPropertiesArgs',
+    'DataSetRefreshPropertiesRefreshConfigurationArgs',
+    'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs',
+    'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs',
     'DataSetRowLevelPermissionDataSetArgs',
     'DataSetRowLevelPermissionTagConfigurationArgs',
     'DataSetRowLevelPermissionTagConfigurationTagRuleArgs',
@@ -71,6 +76,11 @@ __all__ = [
     'DataSourceSslPropertiesArgs',
     'DataSourceVpcConnectionPropertiesArgs',
     'FolderPermissionArgs',
+    'TemplatePermissionArgs',
+    'TemplateSourceEntityArgs',
+    'TemplateSourceEntitySourceAnalysisArgs',
+    'TemplateSourceEntitySourceAnalysisDataSetReferenceArgs',
+    'TemplateSourceEntitySourceTemplateArgs',
     'GetDataSetColumnLevelPermissionRuleArgs',
 ]
 
@@ -1013,6 +1023,61 @@ class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs:
 
 
 @pulumi.input_type
+class DataSetOutputColumnArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] description: Field folder description.
+        :param pulumi.Input[str] name: Display name for the dataset.
+        :param pulumi.Input[str] type: Data type of the column.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Field folder description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Display name for the dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Data type of the column.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class DataSetPermissionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1519,6 +1584,124 @@ class DataSetPhysicalTableMapS3SourceUploadSettingsArgs:
     @text_qualifier.setter
     def text_qualifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_qualifier", value)
+
+
+@pulumi.input_type
+class DataSetRefreshPropertiesArgs:
+    def __init__(__self__, *,
+                 refresh_configuration: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationArgs']):
+        """
+        :param pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationArgs'] refresh_configuration: The refresh configuration for the data set. See refresh_configuration.
+        """
+        pulumi.set(__self__, "refresh_configuration", refresh_configuration)
+
+    @property
+    @pulumi.getter(name="refreshConfiguration")
+    def refresh_configuration(self) -> pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationArgs']:
+        """
+        The refresh configuration for the data set. See refresh_configuration.
+        """
+        return pulumi.get(self, "refresh_configuration")
+
+    @refresh_configuration.setter
+    def refresh_configuration(self, value: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationArgs']):
+        pulumi.set(self, "refresh_configuration", value)
+
+
+@pulumi.input_type
+class DataSetRefreshPropertiesRefreshConfigurationArgs:
+    def __init__(__self__, *,
+                 incremental_refresh: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs']):
+        """
+        :param pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs'] incremental_refresh: The incremental refresh for the data set. See incremental_refresh.
+        """
+        pulumi.set(__self__, "incremental_refresh", incremental_refresh)
+
+    @property
+    @pulumi.getter(name="incrementalRefresh")
+    def incremental_refresh(self) -> pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs']:
+        """
+        The incremental refresh for the data set. See incremental_refresh.
+        """
+        return pulumi.get(self, "incremental_refresh")
+
+    @incremental_refresh.setter
+    def incremental_refresh(self, value: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs']):
+        pulumi.set(self, "incremental_refresh", value)
+
+
+@pulumi.input_type
+class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs:
+    def __init__(__self__, *,
+                 lookback_window: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs']):
+        """
+        :param pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs'] lookback_window: The lookback window setup for an incremental refresh configuration. See lookback_window.
+        """
+        pulumi.set(__self__, "lookback_window", lookback_window)
+
+    @property
+    @pulumi.getter(name="lookbackWindow")
+    def lookback_window(self) -> pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs']:
+        """
+        The lookback window setup for an incremental refresh configuration. See lookback_window.
+        """
+        return pulumi.get(self, "lookback_window")
+
+    @lookback_window.setter
+    def lookback_window(self, value: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs']):
+        pulumi.set(self, "lookback_window", value)
+
+
+@pulumi.input_type
+class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs:
+    def __init__(__self__, *,
+                 column_name: pulumi.Input[str],
+                 size: pulumi.Input[int],
+                 size_unit: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] column_name: The name of the lookback window column.
+        :param pulumi.Input[int] size: The lookback window column size.
+        :param pulumi.Input[str] size_unit: The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "size_unit", size_unit)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Input[str]:
+        """
+        The name of the lookback window column.
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[int]:
+        """
+        The lookback window column size.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter(name="sizeUnit")
+    def size_unit(self) -> pulumi.Input[str]:
+        """
+        The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+        """
+        return pulumi.get(self, "size_unit")
+
+    @size_unit.setter
+    def size_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "size_unit", value)
 
 
 @pulumi.input_type
@@ -3105,6 +3288,178 @@ class FolderPermissionArgs:
     @principal.setter
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
+
+
+@pulumi.input_type
+class TemplatePermissionArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 principal: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: List of IAM actions to grant or revoke permissions on.
+        :param pulumi.Input[str] principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[str]:
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal", value)
+
+
+@pulumi.input_type
+class TemplateSourceEntityArgs:
+    def __init__(__self__, *,
+                 source_analysis: Optional[pulumi.Input['TemplateSourceEntitySourceAnalysisArgs']] = None,
+                 source_template: Optional[pulumi.Input['TemplateSourceEntitySourceTemplateArgs']] = None):
+        """
+        :param pulumi.Input['TemplateSourceEntitySourceAnalysisArgs'] source_analysis: The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
+        :param pulumi.Input['TemplateSourceEntitySourceTemplateArgs'] source_template: The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
+        """
+        if source_analysis is not None:
+            pulumi.set(__self__, "source_analysis", source_analysis)
+        if source_template is not None:
+            pulumi.set(__self__, "source_template", source_template)
+
+    @property
+    @pulumi.getter(name="sourceAnalysis")
+    def source_analysis(self) -> Optional[pulumi.Input['TemplateSourceEntitySourceAnalysisArgs']]:
+        """
+        The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
+        """
+        return pulumi.get(self, "source_analysis")
+
+    @source_analysis.setter
+    def source_analysis(self, value: Optional[pulumi.Input['TemplateSourceEntitySourceAnalysisArgs']]):
+        pulumi.set(self, "source_analysis", value)
+
+    @property
+    @pulumi.getter(name="sourceTemplate")
+    def source_template(self) -> Optional[pulumi.Input['TemplateSourceEntitySourceTemplateArgs']]:
+        """
+        The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
+        """
+        return pulumi.get(self, "source_template")
+
+    @source_template.setter
+    def source_template(self, value: Optional[pulumi.Input['TemplateSourceEntitySourceTemplateArgs']]):
+        pulumi.set(self, "source_template", value)
+
+
+@pulumi.input_type
+class TemplateSourceEntitySourceAnalysisArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str],
+                 data_set_references: pulumi.Input[Sequence[pulumi.Input['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs']]]):
+        """
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs']]] data_set_references: A list of dataset references used as placeholders in the template. See data_set_references.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "data_set_references", data_set_references)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="dataSetReferences")
+    def data_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs']]]:
+        """
+        A list of dataset references used as placeholders in the template. See data_set_references.
+        """
+        return pulumi.get(self, "data_set_references")
+
+    @data_set_references.setter
+    def data_set_references(self, value: pulumi.Input[Sequence[pulumi.Input['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs']]]):
+        pulumi.set(self, "data_set_references", value)
+
+
+@pulumi.input_type
+class TemplateSourceEntitySourceAnalysisDataSetReferenceArgs:
+    def __init__(__self__, *,
+                 data_set_arn: pulumi.Input[str],
+                 data_set_placeholder: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] data_set_arn: Dataset Amazon Resource Name (ARN).
+        :param pulumi.Input[str] data_set_placeholder: Dataset placeholder.
+        """
+        pulumi.set(__self__, "data_set_arn", data_set_arn)
+        pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
+
+    @property
+    @pulumi.getter(name="dataSetArn")
+    def data_set_arn(self) -> pulumi.Input[str]:
+        """
+        Dataset Amazon Resource Name (ARN).
+        """
+        return pulumi.get(self, "data_set_arn")
+
+    @data_set_arn.setter
+    def data_set_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_arn", value)
+
+    @property
+    @pulumi.getter(name="dataSetPlaceholder")
+    def data_set_placeholder(self) -> pulumi.Input[str]:
+        """
+        Dataset placeholder.
+        """
+        return pulumi.get(self, "data_set_placeholder")
+
+    @data_set_placeholder.setter
+    def data_set_placeholder(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_set_placeholder", value)
+
+
+@pulumi.input_type
+class TemplateSourceEntitySourceTemplateArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the resource.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn", value)
 
 
 @pulumi.input_type

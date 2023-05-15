@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * TODO data source for managing a Plan of an AWS SSM Contact.
+ * Data source for managing a Plan of an AWS SSM Contact.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -55,7 +55,7 @@ export interface GetPlanResult {
     readonly stages: outputs.ssmcontacts.GetPlanStage[];
 }
 /**
- * TODO data source for managing a Plan of an AWS SSM Contact.
+ * Data source for managing a Plan of an AWS SSM Contact.
  *
  * ## Example Usage
  * ### Basic Usage

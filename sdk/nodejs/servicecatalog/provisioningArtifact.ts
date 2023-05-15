@@ -96,6 +96,10 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
      */
     public readonly productId!: pulumi.Output<string>;
     /**
+     * Provisioning artifact identifier.
+     */
+    public /*out*/ readonly provisioningArtifactId!: pulumi.Output<string>;
+    /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      */
     public readonly templatePhysicalId!: pulumi.Output<string | undefined>;
@@ -129,6 +133,7 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
             resourceInputs["guidance"] = state ? state.guidance : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["provisioningArtifactId"] = state ? state.provisioningArtifactId : undefined;
             resourceInputs["templatePhysicalId"] = state ? state.templatePhysicalId : undefined;
             resourceInputs["templateUrl"] = state ? state.templateUrl : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -148,6 +153,7 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
             resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["provisioningArtifactId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProvisioningArtifact.__pulumiType, name, resourceInputs, opts);
@@ -190,6 +196,10 @@ export interface ProvisioningArtifactState {
      * Identifier of the product.
      */
     productId?: pulumi.Input<string>;
+    /**
+     * Provisioning artifact identifier.
+     */
+    provisioningArtifactId?: pulumi.Input<string>;
     /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      */

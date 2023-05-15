@@ -202,6 +202,8 @@ type SpotFleetRequest struct {
 	// `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrOutput `pulumi:"allocationStrategy"`
 	ClientToken        pulumi.StringOutput    `pulumi:"clientToken"`
+	// Reserved.
+	Context pulumi.StringPtrOutput `pulumi:"context"`
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
@@ -314,6 +316,8 @@ type spotFleetRequestState struct {
 	// `lowestPrice`.
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
 	ClientToken        *string `pulumi:"clientToken"`
+	// Reserved.
+	Context *string `pulumi:"context"`
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
@@ -392,6 +396,8 @@ type SpotFleetRequestState struct {
 	// `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrInput
 	ClientToken        pulumi.StringPtrInput
+	// Reserved.
+	Context pulumi.StringPtrInput
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
@@ -473,6 +479,8 @@ type spotFleetRequestArgs struct {
 	// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
 	// `lowestPrice`.
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
+	// Reserved.
+	Context *string `pulumi:"context"`
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
@@ -516,8 +524,6 @@ type spotFleetRequestArgs struct {
 	SpotPrice *string `pulumi:"spotPrice"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
@@ -549,6 +555,8 @@ type SpotFleetRequestArgs struct {
 	// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
 	// `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrInput
+	// Reserved.
+	Context pulumi.StringPtrInput
 	// Indicates whether running Spot
 	// instances should be terminated if the target capacity of the Spot fleet
 	// request is decreased below the current size of the Spot fleet.
@@ -592,8 +600,6 @@ type SpotFleetRequestArgs struct {
 	SpotPrice pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// The number of units to request. You can choose to set the
 	// target capacity in terms of instances or a performance characteristic that is
 	// important to your application workload, such as vCPUs, memory, or I/O.
@@ -715,6 +721,11 @@ func (o SpotFleetRequestOutput) AllocationStrategy() pulumi.StringPtrOutput {
 
 func (o SpotFleetRequestOutput) ClientToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringOutput { return v.ClientToken }).(pulumi.StringOutput)
+}
+
+// Reserved.
+func (o SpotFleetRequestOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringPtrOutput { return v.Context }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether running Spot

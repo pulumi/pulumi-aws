@@ -107,10 +107,16 @@ namespace Pulumi.Aws.CloudWatch
     ///             new Aws.CloudWatch.Inputs.MetricStreamIncludeFilterArgs
     ///             {
     ///                 Namespace = "AWS/EC2",
+    ///                 MetricNames = new[]
+    ///                 {
+    ///                     "CPUUtilization",
+    ///                     "NetworkOut",
+    ///                 },
     ///             },
     ///             new Aws.CloudWatch.Inputs.MetricStreamIncludeFilterArgs
     ///             {
     ///                 Namespace = "AWS/EBS",
+    ///                 MetricNames = new[] {},
     ///             },
     ///         },
     ///     });
@@ -258,7 +264,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+        /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
         /// </summary>
         [Output("excludeFilters")]
         public Output<ImmutableArray<Outputs.MetricStreamExcludeFilter>> ExcludeFilters { get; private set; } = null!;
@@ -270,7 +276,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> FirehoseArn { get; private set; } = null!;
 
         /// <summary>
-        /// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+        /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
         /// </summary>
         [Output("includeFilters")]
         public Output<ImmutableArray<Outputs.MetricStreamIncludeFilter>> IncludeFilters { get; private set; } = null!;
@@ -385,7 +391,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<Inputs.MetricStreamExcludeFilterArgs>? _excludeFilters;
 
         /// <summary>
-        /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+        /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
         /// </summary>
         public InputList<Inputs.MetricStreamExcludeFilterArgs> ExcludeFilters
         {
@@ -403,7 +409,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<Inputs.MetricStreamIncludeFilterArgs>? _includeFilters;
 
         /// <summary>
-        /// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+        /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
         /// </summary>
         public InputList<Inputs.MetricStreamIncludeFilterArgs> IncludeFilters
         {
@@ -465,18 +471,6 @@ namespace Pulumi.Aws.CloudWatch
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public MetricStreamArgs()
         {
         }
@@ -501,7 +495,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<Inputs.MetricStreamExcludeFilterGetArgs>? _excludeFilters;
 
         /// <summary>
-        /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+        /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
         /// </summary>
         public InputList<Inputs.MetricStreamExcludeFilterGetArgs> ExcludeFilters
         {
@@ -519,7 +513,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<Inputs.MetricStreamIncludeFilterGetArgs>? _includeFilters;
 
         /// <summary>
-        /// List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+        /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
         /// </summary>
         public InputList<Inputs.MetricStreamIncludeFilterGetArgs> IncludeFilters
         {

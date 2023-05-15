@@ -14,13 +14,16 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GetGroupLaunchTemplateResult
     {
         /// <summary>
-        /// Name of the Auto Scaling Group.
+        /// ID of the launch template.
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// Specify the exact name of the desired autoscaling group.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Template version.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

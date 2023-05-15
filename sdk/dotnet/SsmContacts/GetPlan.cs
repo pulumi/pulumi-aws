@@ -12,7 +12,7 @@ namespace Pulumi.Aws.SsmContacts
     public static class GetPlan
     {
         /// <summary>
-        /// TODO data source for managing a Plan of an AWS SSM Contact.
+        /// Data source for managing a Plan of an AWS SSM Contact.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.SsmContacts
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlanResult>("aws:ssmcontacts/getPlan:getPlan", args ?? new GetPlanArgs(), options.WithDefaults());
 
         /// <summary>
-        /// TODO data source for managing a Plan of an AWS SSM Contact.
+        /// Data source for managing a Plan of an AWS SSM Contact.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+ * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -65,7 +65,7 @@ export interface GetReplicationSubnetGroupResult {
     readonly vpcId: string;
 }
 /**
- * TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+ * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
  *
  * ## Example Usage
  * ### Basic Usage

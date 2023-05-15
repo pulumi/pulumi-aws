@@ -1,7 +1,7 @@
-From 6df816a2a9d4e8a7a136c4264284d5d5044c78f7 Mon Sep 17 00:00:00 2001
+From 8c615ed64cfd6b95694acdf42483d347cc43bbc9 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:42:19 +0000
-Subject: [PATCH 12/27] Revert framework conversions
+Subject: [PATCH 12/28] Revert framework conversions
 
 This commit reverts resources and data sources that were ported to the
 plugin framework, back to their previous implementation. The upstream

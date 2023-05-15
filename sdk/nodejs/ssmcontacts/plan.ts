@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * TODO resource for managing an AWS SSM Contact Plan.
+ * Resource for managing an AWS SSM Contact Plan.
  *
  * ## Example Usage
  * ### Basic Usage

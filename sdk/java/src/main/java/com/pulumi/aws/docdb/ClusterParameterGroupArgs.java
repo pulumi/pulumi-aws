@@ -19,14 +19,14 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
     public static final ClusterParameterGroupArgs Empty = new ClusterParameterGroupArgs();
 
     /**
-     * The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
+     * The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
+     * @return The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Optional<Output<String>> description() {
@@ -108,21 +108,6 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     private ClusterParameterGroupArgs() {}
 
     private ClusterParameterGroupArgs(ClusterParameterGroupArgs $) {
@@ -132,7 +117,6 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         this.namePrefix = $.namePrefix;
         this.parameters = $.parameters;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -154,7 +138,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
+         * @param description The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -165,7 +149,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
+         * @param description The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -287,27 +271,6 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public ClusterParameterGroupArgs build() {

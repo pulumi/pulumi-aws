@@ -105,7 +105,7 @@ def get_contact(arn: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactResult:
     """
-    TODO data source for managing an AWS SSM Contact.
+    Data source for managing an AWS SSM Contact.
 
     ## Example Usage
     ### Basic Usage
@@ -141,7 +141,7 @@ def get_contact_output(arn: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactResult]:
     """
-    TODO data source for managing an AWS SSM Contact.
+    Data source for managing an AWS SSM Contact.
 
     ## Example Usage
     ### Basic Usage

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.SsmIncidents
     public static class GetResponsePlan
     {
         /// <summary>
-        /// Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+        /// Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.SsmIncidents
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResponsePlanResult>("aws:ssmincidents/getResponsePlan:getResponsePlan", args ?? new GetResponsePlanArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+        /// Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

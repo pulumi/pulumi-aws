@@ -230,7 +230,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Single lined launch script as a string to configure server with additional user data
      */
@@ -292,7 +292,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["keyPairName"] = args ? args.keyPairName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cpuCount"] = undefined /*out*/;
@@ -303,6 +302,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["privateIpAddress"] = undefined /*out*/;
             resourceInputs["publicIpAddress"] = undefined /*out*/;
             resourceInputs["ramSize"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -438,10 +438,6 @@ export interface InstanceArgs {
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Single lined launch script as a string to configure server with additional user data
      */

@@ -8,12 +8,15 @@ import com.pulumi.aws.dms.inputs.GetCertificateArgs;
 import com.pulumi.aws.dms.inputs.GetCertificatePlainArgs;
 import com.pulumi.aws.dms.inputs.GetEndpointArgs;
 import com.pulumi.aws.dms.inputs.GetEndpointPlainArgs;
+import com.pulumi.aws.dms.inputs.GetReplicationInstanceArgs;
+import com.pulumi.aws.dms.inputs.GetReplicationInstancePlainArgs;
 import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupArgs;
 import com.pulumi.aws.dms.inputs.GetReplicationSubnetGroupPlainArgs;
 import com.pulumi.aws.dms.inputs.GetReplicationTaskArgs;
 import com.pulumi.aws.dms.inputs.GetReplicationTaskPlainArgs;
 import com.pulumi.aws.dms.outputs.GetCertificateResult;
 import com.pulumi.aws.dms.outputs.GetEndpointResult;
+import com.pulumi.aws.dms.outputs.GetReplicationInstanceResult;
 import com.pulumi.aws.dms.outputs.GetReplicationSubnetGroupResult;
 import com.pulumi.aws.dms.outputs.GetReplicationTaskResult;
 import com.pulumi.core.Output;
@@ -328,7 +331,155 @@ public final class DmsFunctions {
         return Deployment.getInstance().invokeAsync("aws:dms/getEndpoint:getEndpoint", TypeShape.of(GetEndpointResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+     * Data source for managing an AWS DMS (Database Migration) Replication Instance.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
+     *             .replicationInstanceId(aws_dms_replication_instance.test().replication_instance_id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetReplicationInstanceResult> getReplicationInstance(GetReplicationInstanceArgs args) {
+        return getReplicationInstance(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS DMS (Database Migration) Replication Instance.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
+     *             .replicationInstanceId(aws_dms_replication_instance.test().replication_instance_id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetReplicationInstanceResult> getReplicationInstancePlain(GetReplicationInstancePlainArgs args) {
+        return getReplicationInstancePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS DMS (Database Migration) Replication Instance.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
+     *             .replicationInstanceId(aws_dms_replication_instance.test().replication_instance_id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetReplicationInstanceResult> getReplicationInstance(GetReplicationInstanceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:dms/getReplicationInstance:getReplicationInstance", TypeShape.of(GetReplicationInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS DMS (Database Migration) Replication Instance.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.dms.DmsFunctions;
+     * import com.pulumi.aws.dms.inputs.GetReplicationInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = DmsFunctions.getReplicationInstance(GetReplicationInstanceArgs.builder()
+     *             .replicationInstanceId(aws_dms_replication_instance.test().replication_instance_id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetReplicationInstanceResult> getReplicationInstancePlain(GetReplicationInstancePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:dms/getReplicationInstance:getReplicationInstance", TypeShape.of(GetReplicationInstanceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -366,7 +517,7 @@ public final class DmsFunctions {
         return getReplicationSubnetGroup(args, InvokeOptions.Empty);
     }
     /**
-     * TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+     * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -404,7 +555,7 @@ public final class DmsFunctions {
         return getReplicationSubnetGroupPlain(args, InvokeOptions.Empty);
     }
     /**
-     * TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+     * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -442,7 +593,7 @@ public final class DmsFunctions {
         return Deployment.getInstance().invoke("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", TypeShape.of(GetReplicationSubnetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
+     * Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -480,7 +631,7 @@ public final class DmsFunctions {
         return Deployment.getInstance().invokeAsync("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", TypeShape.of(GetReplicationSubnetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+     * Data source for managing an AWS DMS (Database Migration) Replication Task.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -518,7 +669,7 @@ public final class DmsFunctions {
         return getReplicationTask(args, InvokeOptions.Empty);
     }
     /**
-     * TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+     * Data source for managing an AWS DMS (Database Migration) Replication Task.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -556,7 +707,7 @@ public final class DmsFunctions {
         return getReplicationTaskPlain(args, InvokeOptions.Empty);
     }
     /**
-     * TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+     * Data source for managing an AWS DMS (Database Migration) Replication Task.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -594,7 +745,7 @@ public final class DmsFunctions {
         return Deployment.getInstance().invoke("aws:dms/getReplicationTask:getReplicationTask", TypeShape.of(GetReplicationTaskResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+     * Data source for managing an AWS DMS (Database Migration) Replication Task.
      * 
      * ## Example Usage
      * ### Basic Usage

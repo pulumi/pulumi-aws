@@ -16,7 +16,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * TODO resource for managing an AWS SSM Contact Plan.
+ * Resource for managing an AWS SSM Contact Plan.
  * 
  * ## Example Usage
  * ### Basic Usage

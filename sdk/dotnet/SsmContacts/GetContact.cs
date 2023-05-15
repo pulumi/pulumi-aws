@@ -12,7 +12,7 @@ namespace Pulumi.Aws.SsmContacts
     public static class GetContact
     {
         /// <summary>
-        /// TODO data source for managing an AWS SSM Contact.
+        /// Data source for managing an AWS SSM Contact.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.SsmContacts
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("aws:ssmcontacts/getContact:getContact", args ?? new GetContactArgs(), options.WithDefaults());
 
         /// <summary>
-        /// TODO data source for managing an AWS SSM Contact.
+        /// Data source for managing an AWS SSM Contact.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

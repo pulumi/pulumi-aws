@@ -149,6 +149,7 @@ class SigningCertificate(pulumi.CustomResource):
         """
         Provides an IAM Signing Certificate resource to upload Signing Certificates.
 
+        > **Note:** All arguments including the certificate body will be stored in the raw state as plain-text.
         ## Example Usage
 
         **Using certs on file:**
@@ -200,6 +201,7 @@ class SigningCertificate(pulumi.CustomResource):
         """
         Provides an IAM Signing Certificate resource to upload Signing Certificates.
 
+        > **Note:** All arguments including the certificate body will be stored in the raw state as plain-text.
         ## Example Usage
 
         **Using certs on file:**

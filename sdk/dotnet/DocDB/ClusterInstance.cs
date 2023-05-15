@@ -141,7 +141,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+        /// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
@@ -327,7 +327,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+        /// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
@@ -388,18 +388,6 @@ namespace Pulumi.Aws.DocDB
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public ClusterInstanceArgs()
@@ -484,7 +472,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier.
+        /// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }

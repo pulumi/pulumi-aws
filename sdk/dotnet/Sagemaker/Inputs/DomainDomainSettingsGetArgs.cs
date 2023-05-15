@@ -18,6 +18,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("executionRoleIdentityConfig")]
         public Input<string>? ExecutionRoleIdentityConfig { get; set; }
 
+        /// <summary>
+        /// A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+        /// </summary>
+        [Input("rStudioServerProDomainSettings")]
+        public Input<Inputs.DomainDomainSettingsRStudioServerProDomainSettingsGetArgs>? RStudioServerProDomainSettings { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 

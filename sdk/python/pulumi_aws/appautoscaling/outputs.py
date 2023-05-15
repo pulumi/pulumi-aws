@@ -16,6 +16,10 @@ __all__ = [
     'PolicyTargetTrackingScalingPolicyConfiguration',
     'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification',
     'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension',
+    'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric',
+    'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat',
+    'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric',
+    'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension',
     'PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification',
     'ScheduledActionScalableTargetAction',
 ]
@@ -298,25 +302,269 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 dimensions: Optional[Sequence['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension']] = None,
+                 metric_name: Optional[str] = None,
+                 metrics: Optional[Sequence['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric']] = None,
+                 namespace: Optional[str] = None,
+                 statistic: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param Sequence['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs'] dimensions: Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+        :param str metric_name: Name of the metric.
+        :param Sequence['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs'] metrics: Metrics to include, as a metric data query.
+        :param str namespace: Namespace of the metric.
+        :param str statistic: Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+        :param str unit: Unit of the metric.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if statistic is not None:
+            pulumi.set(__self__, "statistic", statistic)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension']]:
+        """
+        Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[str]:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional[Sequence['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric']]:
+        """
+        Metrics to include, as a metric data query.
+        """
+        return pulumi.get(self, "metrics")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        Namespace of the metric.
+        """
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def statistic(self) -> Optional[str]:
+        """
+        Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+        """
+        return pulumi.get(self, "statistic")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        Unit of the metric.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: Name of the policy. Must be between 1 and 255 characters in length.
+        :param str value: Value of the dimension.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the policy. Must be between 1 and 255 characters in length.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the dimension.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricStat":
+            suggest = "metric_stat"
+        elif key == "returnData":
+            suggest = "return_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 expression: Optional[str] = None,
+                 label: Optional[str] = None,
+                 metric_stat: Optional['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat'] = None,
+                 return_data: Optional[bool] = None):
+        """
+        :param str id: Short name for the metric used in target tracking scaling policy.
+        :param str expression: Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+        :param str label: Human-readable label for this metric or expression.
+        :param 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs' metric_stat: Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
+        """
+        pulumi.set(__self__, "id", id)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if metric_stat is not None:
+            pulumi.set(__self__, "metric_stat", metric_stat)
+        if return_data is not None:
+            pulumi.set(__self__, "return_data", return_data)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Short name for the metric used in target tracking scaling policy.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        """
+        Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Human-readable label for this metric or expression.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="metricStat")
+    def metric_stat(self) -> Optional['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat']:
+        """
+        Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        """
+        return pulumi.get(self, "metric_stat")
+
+    @property
+    @pulumi.getter(name="returnData")
+    def return_data(self) -> Optional[bool]:
+        """
+        Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
+        """
+        return pulumi.get(self, "return_data")
+
+
+@pulumi.output_type
+class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat(dict):
+    def __init__(__self__, *,
+                 metric: 'outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric',
+                 stat: str,
+                 unit: Optional[str] = None):
+        """
+        :param 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        :param str stat: Statistic of the metrics to return.
+        :param str unit: Unit of the metric.
+        """
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "stat", stat)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> 'outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric':
+        """
+        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> str:
+        """
+        Statistic of the metrics to return.
+        """
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        Unit of the metric.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
                  metric_name: str,
                  namespace: str,
-                 statistic: str,
-                 dimensions: Optional[Sequence['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension']] = None,
-                 unit: Optional[str] = None):
+                 dimensions: Optional[Sequence['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension']] = None):
         """
         :param str metric_name: Name of the metric.
         :param str namespace: Namespace of the metric.
-        :param str statistic: Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-        :param Sequence['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs'] dimensions: Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
-        :param str unit: Unit of the metric.
+        :param Sequence['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs'] dimensions: Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
-        pulumi.set(__self__, "statistic", statistic)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
-        if unit is not None:
-            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="metricName")
@@ -336,31 +584,15 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 
     @property
     @pulumi.getter
-    def statistic(self) -> str:
-        """
-        Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-        """
-        return pulumi.get(self, "statistic")
-
-    @property
-    @pulumi.getter
-    def dimensions(self) -> Optional[Sequence['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension']]:
+    def dimensions(self) -> Optional[Sequence['outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension']]:
         """
         Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
         """
         return pulumi.get(self, "dimensions")
 
-    @property
-    @pulumi.getter
-    def unit(self) -> Optional[str]:
-        """
-        Unit of the metric.
-        """
-        return pulumi.get(self, "unit")
-
 
 @pulumi.output_type
-class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension(dict):
+class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):

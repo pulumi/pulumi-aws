@@ -5,6 +5,7 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings;
+import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,6 +23,7 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettings {
      * 
      */
     private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings h264Settings;
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings h265Settings;
 
     private ChannelEncoderSettingsVideoDescriptionCodecSettings() {}
     /**
@@ -38,6 +40,9 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettings {
     public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings> h264Settings() {
         return Optional.ofNullable(this.h264Settings);
     }
+    public Optional<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings> h265Settings() {
+        return Optional.ofNullable(this.h265Settings);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +55,13 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettings {
     public static final class Builder {
         private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings frameCaptureSettings;
         private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings h264Settings;
+        private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings h265Settings;
         public Builder() {}
         public Builder(ChannelEncoderSettingsVideoDescriptionCodecSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.frameCaptureSettings = defaults.frameCaptureSettings;
     	      this.h264Settings = defaults.h264Settings;
+    	      this.h265Settings = defaults.h265Settings;
         }
 
         @CustomType.Setter
@@ -67,10 +74,16 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettings {
             this.h264Settings = h264Settings;
             return this;
         }
+        @CustomType.Setter
+        public Builder h265Settings(@Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings h265Settings) {
+            this.h265Settings = h265Settings;
+            return this;
+        }
         public ChannelEncoderSettingsVideoDescriptionCodecSettings build() {
             final var o = new ChannelEncoderSettingsVideoDescriptionCodecSettings();
             o.frameCaptureSettings = frameCaptureSettings;
             o.h264Settings = h264Settings;
+            o.h265Settings = h265Settings;
             return o;
         }
     }

@@ -42,6 +42,21 @@ public final class SpotFleetRequestArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Reserved.
+     * 
+     */
+    @Import(name="context")
+    private @Nullable Output<String> context;
+
+    /**
+     * @return Reserved.
+     * 
+     */
+    public Optional<Output<String>> context() {
+        return Optional.ofNullable(this.context);
+    }
+
+    /**
      * Indicates whether running Spot
      * instances should be terminated if the target capacity of the Spot fleet
      * request is decreased below the current size of the Spot fleet.
@@ -293,21 +308,6 @@ public final class SpotFleetRequestArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
      * important to your application workload, such as vCPUs, memory, or I/O.
@@ -445,6 +445,7 @@ public final class SpotFleetRequestArgs extends com.pulumi.resources.ResourceArg
 
     private SpotFleetRequestArgs(SpotFleetRequestArgs $) {
         this.allocationStrategy = $.allocationStrategy;
+        this.context = $.context;
         this.excessCapacityTerminationPolicy = $.excessCapacityTerminationPolicy;
         this.fleetType = $.fleetType;
         this.iamFleetRole = $.iamFleetRole;
@@ -460,7 +461,6 @@ public final class SpotFleetRequestArgs extends com.pulumi.resources.ResourceArg
         this.spotMaintenanceStrategies = $.spotMaintenanceStrategies;
         this.spotPrice = $.spotPrice;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.targetCapacity = $.targetCapacity;
         this.targetCapacityUnitType = $.targetCapacityUnitType;
         this.targetGroupArns = $.targetGroupArns;
@@ -512,6 +512,27 @@ public final class SpotFleetRequestArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder allocationStrategy(String allocationStrategy) {
             return allocationStrategy(Output.of(allocationStrategy));
+        }
+
+        /**
+         * @param context Reserved.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder context(@Nullable Output<String> context) {
+            $.context = context;
+            return this;
+        }
+
+        /**
+         * @param context Reserved.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder context(String context) {
+            return context(Output.of(context));
         }
 
         /**
@@ -885,27 +906,6 @@ public final class SpotFleetRequestArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

@@ -20,6 +20,7 @@ __all__ = [
     'FileCacheLustreConfigurationLogConfiguration',
     'FileCacheLustreConfigurationMetadataConfiguration',
     'LustreFileSystemLogConfiguration',
+    'LustreFileSystemRootSquashConfiguration',
     'OntapFileSystemDiskIopsConfiguration',
     'OntapFileSystemEndpoint',
     'OntapFileSystemEndpointIntercluster',
@@ -512,6 +513,56 @@ class LustreFileSystemLogConfiguration(dict):
         Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
         """
         return pulumi.get(self, "level")
+
+
+@pulumi.output_type
+class LustreFileSystemRootSquashConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noSquashNids":
+            suggest = "no_squash_nids"
+        elif key == "rootSquash":
+            suggest = "root_squash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LustreFileSystemRootSquashConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LustreFileSystemRootSquashConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LustreFileSystemRootSquashConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 no_squash_nids: Optional[Sequence[str]] = None,
+                 root_squash: Optional[str] = None):
+        """
+        :param Sequence[str] no_squash_nids: When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
+        :param str root_squash: You enable root squash by setting a user ID (UID) and group ID (GID) for the file system in the format UID:GID (for example, 365534:65534). The UID and GID values can range from 0 to 4294967294.
+        """
+        if no_squash_nids is not None:
+            pulumi.set(__self__, "no_squash_nids", no_squash_nids)
+        if root_squash is not None:
+            pulumi.set(__self__, "root_squash", root_squash)
+
+    @property
+    @pulumi.getter(name="noSquashNids")
+    def no_squash_nids(self) -> Optional[Sequence[str]]:
+        """
+        When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
+        """
+        return pulumi.get(self, "no_squash_nids")
+
+    @property
+    @pulumi.getter(name="rootSquash")
+    def root_squash(self) -> Optional[str]:
+        """
+        You enable root squash by setting a user ID (UID) and group ID (GID) for the file system in the format UID:GID (for example, 365534:65534). The UID and GID values can range from 0 to 4294967294.
+        """
+        return pulumi.get(self, "root_squash")
 
 
 @pulumi.output_type

@@ -75,7 +75,7 @@ type Policy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the IAM policy.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the policy. If omitted, this provider will assign a random, unique name.
+	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
@@ -128,7 +128,7 @@ type policyState struct {
 	Arn *string `pulumi:"arn"`
 	// Description of the IAM policy.
 	Description *string `pulumi:"description"`
-	// The name of the policy. If omitted, this provider will assign a random, unique name.
+	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -150,7 +150,7 @@ type PolicyState struct {
 	Arn pulumi.StringPtrInput
 	// Description of the IAM policy.
 	Description pulumi.StringPtrInput
-	// The name of the policy. If omitted, this provider will assign a random, unique name.
+	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -174,7 +174,7 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// Description of the IAM policy.
 	Description *string `pulumi:"description"`
-	// The name of the policy. If omitted, this provider will assign a random, unique name.
+	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -185,15 +185,13 @@ type policyArgs struct {
 	Policy interface{} `pulumi:"policy"`
 	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
 	// Description of the IAM policy.
 	Description pulumi.StringPtrInput
-	// The name of the policy. If omitted, this provider will assign a random, unique name.
+	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -204,8 +202,6 @@ type PolicyArgs struct {
 	Policy pulumi.Input
 	// Map of resource tags for the IAM Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {
@@ -305,7 +301,7 @@ func (o PolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the policy. If omitted, this provider will assign a random, unique name.
+// The name of the policy. If omitted, the provider will assign a random, unique name.
 func (o PolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

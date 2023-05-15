@@ -189,7 +189,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
      */
@@ -226,6 +226,10 @@ export class VpnConnection extends pulumi.CustomResource {
      * The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
      */
     public readonly tunnel1DpdTimeoutSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     */
+    public readonly tunnel1EnableTunnelLifecycleControl!: pulumi.Output<boolean | undefined>;
     /**
      * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      */
@@ -322,6 +326,10 @@ export class VpnConnection extends pulumi.CustomResource {
      * The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      */
     public readonly tunnel2DpdTimeoutSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     */
+    public readonly tunnel2EnableTunnelLifecycleControl!: pulumi.Output<boolean | undefined>;
     /**
      * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      */
@@ -448,6 +456,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tunnel1CgwInsideAddress"] = state ? state.tunnel1CgwInsideAddress : undefined;
             resourceInputs["tunnel1DpdTimeoutAction"] = state ? state.tunnel1DpdTimeoutAction : undefined;
             resourceInputs["tunnel1DpdTimeoutSeconds"] = state ? state.tunnel1DpdTimeoutSeconds : undefined;
+            resourceInputs["tunnel1EnableTunnelLifecycleControl"] = state ? state.tunnel1EnableTunnelLifecycleControl : undefined;
             resourceInputs["tunnel1IkeVersions"] = state ? state.tunnel1IkeVersions : undefined;
             resourceInputs["tunnel1InsideCidr"] = state ? state.tunnel1InsideCidr : undefined;
             resourceInputs["tunnel1InsideIpv6Cidr"] = state ? state.tunnel1InsideIpv6Cidr : undefined;
@@ -472,6 +481,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tunnel2CgwInsideAddress"] = state ? state.tunnel2CgwInsideAddress : undefined;
             resourceInputs["tunnel2DpdTimeoutAction"] = state ? state.tunnel2DpdTimeoutAction : undefined;
             resourceInputs["tunnel2DpdTimeoutSeconds"] = state ? state.tunnel2DpdTimeoutSeconds : undefined;
+            resourceInputs["tunnel2EnableTunnelLifecycleControl"] = state ? state.tunnel2EnableTunnelLifecycleControl : undefined;
             resourceInputs["tunnel2IkeVersions"] = state ? state.tunnel2IkeVersions : undefined;
             resourceInputs["tunnel2InsideCidr"] = state ? state.tunnel2InsideCidr : undefined;
             resourceInputs["tunnel2InsideIpv6Cidr"] = state ? state.tunnel2InsideIpv6Cidr : undefined;
@@ -511,11 +521,11 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["remoteIpv6NetworkCidr"] = args ? args.remoteIpv6NetworkCidr : undefined;
             resourceInputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["transportTransitGatewayAttachmentId"] = args ? args.transportTransitGatewayAttachmentId : undefined;
             resourceInputs["tunnel1DpdTimeoutAction"] = args ? args.tunnel1DpdTimeoutAction : undefined;
             resourceInputs["tunnel1DpdTimeoutSeconds"] = args ? args.tunnel1DpdTimeoutSeconds : undefined;
+            resourceInputs["tunnel1EnableTunnelLifecycleControl"] = args ? args.tunnel1EnableTunnelLifecycleControl : undefined;
             resourceInputs["tunnel1IkeVersions"] = args ? args.tunnel1IkeVersions : undefined;
             resourceInputs["tunnel1InsideCidr"] = args ? args.tunnel1InsideCidr : undefined;
             resourceInputs["tunnel1InsideIpv6Cidr"] = args ? args.tunnel1InsideIpv6Cidr : undefined;
@@ -535,6 +545,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tunnel1StartupAction"] = args ? args.tunnel1StartupAction : undefined;
             resourceInputs["tunnel2DpdTimeoutAction"] = args ? args.tunnel2DpdTimeoutAction : undefined;
             resourceInputs["tunnel2DpdTimeoutSeconds"] = args ? args.tunnel2DpdTimeoutSeconds : undefined;
+            resourceInputs["tunnel2EnableTunnelLifecycleControl"] = args ? args.tunnel2EnableTunnelLifecycleControl : undefined;
             resourceInputs["tunnel2IkeVersions"] = args ? args.tunnel2IkeVersions : undefined;
             resourceInputs["tunnel2InsideCidr"] = args ? args.tunnel2InsideCidr : undefined;
             resourceInputs["tunnel2InsideIpv6Cidr"] = args ? args.tunnel2InsideIpv6Cidr : undefined;
@@ -560,6 +571,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["coreNetworkAttachmentArn"] = undefined /*out*/;
             resourceInputs["customerGatewayConfiguration"] = undefined /*out*/;
             resourceInputs["routes"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["transitGatewayAttachmentId"] = undefined /*out*/;
             resourceInputs["tunnel1Address"] = undefined /*out*/;
             resourceInputs["tunnel1BgpAsn"] = undefined /*out*/;
@@ -681,6 +693,10 @@ export interface VpnConnectionState {
      */
     tunnel1DpdTimeoutSeconds?: pulumi.Input<number>;
     /**
+     * Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     */
+    tunnel1EnableTunnelLifecycleControl?: pulumi.Input<boolean>;
+    /**
      * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      */
     tunnel1IkeVersions?: pulumi.Input<pulumi.Input<string>[]>;
@@ -776,6 +792,10 @@ export interface VpnConnectionState {
      * The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      */
     tunnel2DpdTimeoutSeconds?: pulumi.Input<number>;
+    /**
+     * Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     */
+    tunnel2EnableTunnelLifecycleControl?: pulumi.Input<boolean>;
     /**
      * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      */
@@ -907,10 +927,6 @@ export interface VpnConnectionArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
      * The ID of the EC2 Transit Gateway.
      */
     transitGatewayId?: pulumi.Input<string>;
@@ -926,6 +942,10 @@ export interface VpnConnectionArgs {
      * The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
      */
     tunnel1DpdTimeoutSeconds?: pulumi.Input<number>;
+    /**
+     * Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     */
+    tunnel1EnableTunnelLifecycleControl?: pulumi.Input<boolean>;
     /**
      * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      */
@@ -1002,6 +1022,10 @@ export interface VpnConnectionArgs {
      * The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      */
     tunnel2DpdTimeoutSeconds?: pulumi.Input<number>;
+    /**
+     * Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     */
+    tunnel2EnableTunnelLifecycleControl?: pulumi.Input<boolean>;
     /**
      * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      */

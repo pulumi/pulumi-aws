@@ -1,86 +1,4 @@
 {
-  "website/docs/d/appconfig_configuration_profile.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS AppConfig Configuration Profile.",
-      "new": "  Data source for managing an AWS AppConfig Configuration Profile."
-    }
-  ],
-  "website/docs/d/appconfig_configuration_profiles.html.markdown": [
-    {
-      "old": "    Terraform data source for managing an AWS AppConfig Configuration Profiles.",
-      "new": "    Data source for managing an AWS AppConfig Configuration Profiles."
-    }
-  ],
-  "website/docs/d/appconfig_environment.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS AppConfig Environment.",
-      "new": "  Data source for managing an AWS AppConfig Environment."
-    }
-  ],
-  "website/docs/d/appconfig_environments.html.markdown": [
-    {
-      "old": "    Terraform data source for managing an AWS AppConfig Environments.",
-      "new": "    Data source for managing an AWS AppConfig Environments."
-    }
-  ],
-  "website/docs/d/appmesh_gateway_route.html.markdown": [
-    {
-      "old": "    Terraform data source for managing an AWS App Mesh Gateway Route.",
-      "new": "    Data source for managing an AWS App Mesh Gateway Route."
-    }
-  ],
-  "website/docs/d/appmesh_mesh.html.markdown": [
-    {
-      "old": "    Terraform data source for managing an AWS App Mesh Mesh.",
-      "new": "    Data source for managing an AWS App Mesh Mesh."
-    }
-  ],
-  "website/docs/d/appmesh_route.html.markdown": [
-    {
-      "old": "Terraform data source for managing an AWS App Mesh Route.",
-      "new": "Data source for managing an AWS App Mesh Route."
-    }
-  ],
-  "website/docs/d/appmesh_virtual_gateway.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS App Mesh Virtual Gateway.",
-      "new": "  Data source for managing an AWS App Mesh Virtual Gateway."
-    },
-    {
-      "old": "Terraform data source for managing an AWS App Mesh Virtual Gateway.",
-      "new": "Data source for managing an AWS App Mesh Virtual Gateway."
-    }
-  ],
-  "website/docs/d/appmesh_virtual_node.html.markdown": [
-    {
-      "old": "Terraform data source for managing an AWS App Mesh Virtual Node.",
-      "new": "Data source for managing an AWS App Mesh Virtual Node."
-    }
-  ],
-  "website/docs/d/appmesh_virtual_router.html.markdown": [
-    {
-      "old": "Terraform data source for managing an AWS App Mesh Virtual Router.",
-      "new": "Data source for managing an AWS App Mesh Virtual Router."
-    }
-  ],
-  "website/docs/d/appmesh_virtual_service.html.markdown": [
-    {
-      "old": "Terraform data source for managing an AWS App Mesh Virtual Service.",
-      "new": "Data source for managing an AWS App Mesh Virtual Service."
-    }
-  ],
-  "website/docs/d/auditmanager_control.html.markdown": [
-    {
-      "old": "Terraform data source for managing an AWS Audit Manager Control.",
-      "new": "Data source for managing an AWS Audit Manager Control."
-    }
-  ],
-  "website/docs/d/auditmanager_framework.html.markdown": [
-    {
-      "old": "Terraform data source for managing an AWS Audit Manager Framework.",
-      "new": "Data source for managing an AWS Audit Manager Framework."
-    }
-  ],
   "website/docs/d/backup_framework.html.markdown": [
     {
       "old": "  name = \"tf_example_backup_framework_name\"",
@@ -99,83 +17,10 @@
       "new": "  name = \"my_example_backup_report_plan_name\""
     }
   ],
-  "website/docs/d/cloudfront_origin_access_identity.html.markdown": [],
-  "website/docs/d/db_instances.html.markdown": [
-    {
-      "old": "Terraform data source for listing RDS Database Instances.",
-      "new": "Data source for listing RDS Database Instances."
-    }
-  ],
   "website/docs/d/default_tags.markdown": [
     {
       "old": "With this data source, you can apply default tags to resources not _directly_ managed by a Terraform resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.",
       "new": "With this data source, you can apply default tags to resources not _directly_ managed by a resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance."
-    }
-  ],
-  "website/docs/d/dms_certificate.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS DMS (Database Migration) Certificate.",
-      "new": "  Data source for managing an AWS DMS (Database Migration) Certificate."
-    },
-    {
-      "old": "Terraform data source for managing an AWS DMS (Database Migration) Certificate.",
-      "new": "Data source for managing an AWS DMS (Database Migration) Certificate."
-    }
-  ],
-  "website/docs/d/dms_endpoint.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS DMS (Database Migration) Endpoint.",
-      "new": "  Data source for managing an AWS DMS (Database Migration) Endpoint."
-    },
-    {
-      "old": "Terraform data source for managing an AWS DMS (Database Migration) Endpoint.",
-      "new": "Data source for managing an AWS DMS (Database Migration) Endpoint."
-    }
-  ],
-  "website/docs/d/dms_replication_subnet_group.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS DMS (Database Migration) Replication Subnet Group.",
-      "new": "  TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group."
-    },
-    {
-      "old": "Terraform data source for managing an AWS DMS (Database Migration) Replication Subnet Group.",
-      "new": "TODO data source for managing an AWS DMS (Database Migration) Replication Subnet Group."
-    }
-  ],
-  "website/docs/d/dms_replication_task.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS DMS (Database Migration) Replication Task.",
-      "new": "  TODO data source for managing an AWS DMS (Database Migration) Replication Task."
-    },
-    {
-      "old": "Terraform data source for managing an AWS DMS (Database Migration) Replication Task.",
-      "new": "TODO data source for managing an AWS DMS (Database Migration) Replication Task."
-    }
-  ],
-  "website/docs/d/dx_router_configuration.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS Direct Connect Router Configuration.",
-      "new": "  Data source for managing an AWS Direct Connect Router Configuration."
-    },
-    {
-      "old": "Terraform data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.",
-      "new": "Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type."
-    }
-  ],
-  "website/docs/d/dynamodb_table_item.html.markdown": [
-    {
-      "old": "  Terraform data source for retrieving a value from an AWS DynamoDB table.",
-      "new": "  Data source for retrieving a value from an AWS DynamoDB table."
-    },
-    {
-      "old": "Terraform data source for retrieving a value from an AWS DynamoDB table.",
-      "new": "Data source for retrieving a value from an AWS DynamoDB table."
-    }
-  ],
-  "website/docs/d/ec2_public_ipv4_pools.html.markdown": [
-    {
-      "old": "Terraform data source for getting information about AWS EC2 Public IPv4 Pools.",
-      "new": "Data source for getting information about AWS EC2 Public IPv4 Pools."
     }
   ],
   "website/docs/d/ec2_transit_gateway_attachments.html.markdown": [
@@ -190,14 +35,6 @@
     }
   ],
   "website/docs/d/ecs_task_execution.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS ECS (Elastic Container) Task Execution.",
-      "new": "  Data source for managing an AWS ECS (Elastic Container) Task Execution."
-    },
-    {
-      "old": "Terraform data source for managing an AWS ECS (Elastic Container) Task Execution. This data source calls the [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API, allowing execution of one-time tasks that don't fit a standard resource lifecycle. See the feature request issue for additional context.",
-      "new": "Data source for managing an AWS ECS (Elastic Container) Task Execution. This data source calls the [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API, allowing execution of one-time tasks that don't fit a standard resource lifecycle. See the feature request issue for additional context."
-    },
     {
       "old": "~> **NOTE on plan operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `terraform plan` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.",
       "new": "~> **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel."
@@ -224,16 +61,6 @@
       "old": "data source instead** if you manage referenced instances via Terraform."
     }
   ],
-  "website/docs/d/ivs_stream_key.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS IVS (Interactive Video) Stream Key.",
-      "new": "  Data source for managing an AWS IVS (Interactive Video) Stream Key."
-    },
-    {
-      "old": "Terraform data source for managing an AWS IVS (Interactive Video) Stream Key.",
-      "new": "Data source for managing an AWS IVS (Interactive Video) Stream Key."
-    }
-  ],
   "website/docs/d/kms_ciphertext.html.markdown": [
     {
       "old": "Read more about sensitive data in state.\n"
@@ -251,6 +78,10 @@
     }
   ],
   "website/docs/d/lambda_functions.html.markdown": [
+    {
+      "old": "  Terraform data resource to get a list of Lambda Functions.",
+      "new": "  Data resource to get a list of Lambda Functions."
+    },
     {
       "old": "Terraform data resource to get a list of Lambda Functions.",
       "new": "Data resource to get a list of Lambda Functions."
@@ -285,62 +116,10 @@
       "old": "-> For more information about building AWS Core Network policy documents with Terraform, see the Using AWS & AWSCC Provider Together Guide"
     }
   ],
-  "website/docs/d/oam_link.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS CloudWatch Observability Access Manager Link.",
-      "new": "  Data source for managing an AWS CloudWatch Observability Access Manager Link."
-    },
-    {
-      "old": "Terraform data source for managing an AWS CloudWatch Observability Access Manager Link.",
-      "new": "Data source for managing an AWS CloudWatch Observability Access Manager Link."
-    }
-  ],
-  "website/docs/d/oam_links.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS CloudWatch Observability Access Manager Links.",
-      "new": "  Data source for managing an AWS CloudWatch Observability Access Manager Links."
-    },
-    {
-      "old": "Terraform data source for managing an AWS CloudWatch Observability Access Manager Links.",
-      "new": "Data source for managing an AWS CloudWatch Observability Access Manager Links."
-    }
-  ],
-  "website/docs/d/oam_sink.html.markdown": [
-    {
-      "old": "Terraform data source for managing an AWS CloudWatch Observability Access Manager Sink.",
-      "new": "Data source for managing an AWS CloudWatch Observability Access Manager Sink."
-    }
-  ],
-  "website/docs/d/oam_sinks.html.markdown": [
-    {
-      "old": "Terraform data source for managing an AWS CloudWatch Observability Access Manager Sinks.",
-      "new": "Data source for managing an AWS CloudWatch Observability Access Manager Sinks."
-    }
-  ],
   "website/docs/d/partition.html.markdown": [
     {
       "old": "which Terraform is working.",
       "new": "which the provider is working."
-    }
-  ],
-  "website/docs/d/rds_clusters.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS RDS (Relational Database) Clusters.",
-      "new": "  Data source for managing an AWS RDS (Relational Database) Clusters."
-    },
-    {
-      "old": "Terraform data source for managing an AWS RDS (Relational Database) Clusters.",
-      "new": "Data source for managing an AWS RDS (Relational Database) Clusters."
-    }
-  ],
-  "website/docs/d/redshiftserverless_workgroup.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS Redshift Serverless Workgroup.",
-      "new": "  Data source for managing an AWS Redshift Serverless Workgroup."
-    },
-    {
-      "old": "Terraform data source for managing an AWS Redshift Serverless Workgroup.",
-      "new": "Data source for managing an AWS Redshift Serverless Workgroup."
     }
   ],
   "website/docs/d/s3_account_public_access_block.html.markdown": [
@@ -378,36 +157,6 @@
       "old": "### Handling Key-Value Secret Strings in JSON\n[^#]+"
     }
   ],
-  "website/docs/d/sesv2_configuration_set.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.",
-      "new": "  Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set."
-    },
-    {
-      "old": "Terraform data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.",
-      "new": "Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set."
-    }
-  ],
-  "website/docs/d/sesv2_dedicated_ip_pool.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.",
-      "new": "  Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool."
-    },
-    {
-      "old": "Terraform data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.",
-      "new": "Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool."
-    }
-  ],
-  "website/docs/d/sqs_queues.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS SQS (Simple Queue) Queues.",
-      "new": "  Data source for managing an AWS SQS (Simple Queue) Queues."
-    },
-    {
-      "old": "Terraform data source for managing an AWS SQS (Simple Queue) Queues.",
-      "new": "Data source for managing an AWS SQS (Simple Queue) Queues."
-    }
-  ],
   "website/docs/d/ssm_parameter.html.markdown": [
     {
       "old": "* `value` - Value of the parameter. This value is always marked as sensitive in the Terraform plan output, regardless of `type`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.",
@@ -422,41 +171,7 @@
       "old": "~> **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.\nRead more about sensitive data in state.\n"
     }
   ],
-  "website/docs/d/ssmcontacts_contact.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS SSM Contact.",
-      "new": "  TODO data source for managing an AWS SSM Contact."
-    },
-    {
-      "old": "Terraform data source for managing an AWS SSM Contact.",
-      "new": "TODO data source for managing an AWS SSM Contact."
-    }
-  ],
-  "website/docs/d/ssmcontacts_contact_channel.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS SSM Contacts Contact Channel.",
-      "new": "  TODO data source for managing an AWS SSM Contacts Contact Channel."
-    },
-    {
-      "old": "Terraform data source for managing an AWS SSM Contacts Contact Channel.",
-      "new": "TODO data source for managing an AWS SSM Contacts Contact Channel."
-    }
-  ],
-  "website/docs/d/ssmcontacts_plan.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS SSM Contact Plan.",
-      "new": "  TODO data source for managing an AWS SSM Contact Plan."
-    },
-    {
-      "old": "Terraform data source for managing a Plan of an AWS SSM Contact.",
-      "new": "TODO data source for managing a Plan of an AWS SSM Contact."
-    }
-  ],
   "website/docs/d/ssmincidents_replication_set.html.markdown": [
-    {
-      "old": "Terraform data source for managing an incident replication set in AWS Systems Manager Incident Manager.",
-      "new": "Data source for managing an incident replication set in AWS Systems Manager Incident Manager."
-    },
     {
       "old": "Use this Terraform data source to manage a replication set in AWS Systems Manager Incident Manager.",
       "new": "Use this data source to manage a replication set in AWS Systems Manager Incident Manager."
@@ -468,12 +183,8 @@
   ],
   "website/docs/d/ssmincidents_response_plan.html.markdown": [
     {
-      "old": "  Terraform data source for managing a response plan in AWS Systems Manager Incident Manager.",
-      "new": "  TODO data source for managing a response plan in AWS Systems Manager Incident Manager."
-    },
-    {
       "old": "Use this Terraform data source to manage a response plan in AWS Systems Manager Incident Manager.",
-      "new": "Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager."
+      "new": "Use this data source to manage a response plan in AWS Systems Manager Incident Manager."
     }
   ],
   "website/docs/d/vpc_ipam_preview_next_cidr.html.markdown": [
@@ -486,36 +197,6 @@
     {
       "old": "the data source, as noted in issue 4149",
       "new": "the data source."
-    }
-  ],
-  "website/docs/d/vpclattice_listener.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS VPC Lattice Listener.",
-      "new": "  Data source for managing an AWS VPC Lattice Listener."
-    },
-    {
-      "old": "Terraform data source for managing an AWS VPC Lattice Listener.",
-      "new": "Data source for managing an AWS VPC Lattice Listener."
-    }
-  ],
-  "website/docs/d/vpclattice_service.html.markdown": [
-    {
-      "old": "  Terraform data source for managing an AWS VPC Lattice Service.",
-      "new": "  Data source for managing an AWS VPC Lattice Service."
-    },
-    {
-      "old": "Terraform data source for managing an AWS VPC Lattice Service.",
-      "new": "Data source for managing an AWS VPC Lattice Service."
-    }
-  ],
-  "website/docs/r/accessanalyzer_archive_rule.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS AccessAnalyzer Archive Rule.",
-      "new": "  Resource for managing an AWS AccessAnalyzer Archive Rule."
-    },
-    {
-      "old": "Terraform resource for managing an AWS AccessAnalyzer Archive Rule.",
-      "new": "Resource for managing an AWS AccessAnalyzer Archive Rule."
     }
   ],
   "website/docs/r/acm_certificate.html.markdown": [
@@ -588,6 +269,12 @@
     },
     {
       "old": "-> Enable the resource `lifecycle` configuration block `create_before_destroy` argument in this resource configuration to properly order redeployments.\n"
+    }
+  ],
+  "website/docs/r/appautoscaling_target.html.markdown": [
+    {
+      "old": "~> **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `arn`. These resource cannot use `tags` or participate in `default_tags`. To prevent `terraform plan` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below.",
+      "new": "~> **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `arn`. These resource cannot use `tags` or participate in `default_tags`. To prevent `pulumi preview` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below."
     }
   ],
   "website/docs/r/appmesh_gateway_route.html.markdown": [
@@ -672,58 +359,6 @@
       "new": "Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use `ignore_changes` to hide the difference, e.g.,"
     }
   ],
-  "website/docs/r/auditmanager_account_registration.html.markdown": [
-    {
-      "old": "Terraform resource for managing AWS Audit Manager Account Registration.",
-      "new": "Resource for managing AWS Audit Manager Account Registration."
-    }
-  ],
-  "website/docs/r/auditmanager_assessment.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS Audit Manager Assessment.",
-      "new": "Resource for managing an AWS Audit Manager Assessment."
-    }
-  ],
-  "website/docs/r/auditmanager_assessment_delegation.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Audit Manager Assessment Delegation.",
-      "new": "  Resource for managing an AWS Audit Manager Assessment Delegation."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Audit Manager Assessment Delegation.",
-      "new": "Resource for managing an AWS Audit Manager Assessment Delegation."
-    }
-  ],
-  "website/docs/r/auditmanager_assessment_report.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS Audit Manager Assessment Report.",
-      "new": "Resource for managing an AWS Audit Manager Assessment Report."
-    }
-  ],
-  "website/docs/r/auditmanager_control.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS Audit Manager Control.",
-      "new": "Resource for managing an AWS Audit Manager Control."
-    }
-  ],
-  "website/docs/r/auditmanager_framework.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS Audit Manager Framework.",
-      "new": "Resource for managing an AWS Audit Manager Framework."
-    }
-  ],
-  "website/docs/r/auditmanager_framework_share.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS Audit Manager Framework Share.",
-      "new": "Resource for managing an AWS Audit Manager Framework Share."
-    }
-  ],
-  "website/docs/r/auditmanager_organization_admin_account_registration.html.markdown": [
-    {
-      "old": "Terraform resource for managing AWS Audit Manager Organization Admin Account Registration.",
-      "new": "Resource for managing AWS Audit Manager Organization Admin Account Registration."
-    }
-  ],
   "website/docs/r/autoscaling_group.html.markdown": [
     {
       "old": "  Terraform to skip all Capacity Waiting behavior.",
@@ -784,12 +419,6 @@
       "new": "  name         = \"my_example_backup_selection\""
     }
   ],
-  "website/docs/r/batch_compute_environment.html.markdown": [
-    {
-      "old": "* `compute_environment_name` - (Optional, Forces new resource) The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `compute_environment_name` - (Optional, Forces new resource) The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name."
-    }
-  ],
   "website/docs/r/batch_job_definition.html.markdown": [
     {
       "old": "  name               = \"tf_test_batch_exec_role\"",
@@ -804,16 +433,6 @@
     {
       "old": "Create a cost_filter using resource tags, obtaining the tag value from a terraform variable",
       "new": "Create a cost_filter using resource tags, obtaining the tag value from a variable"
-    }
-  ],
-  "website/docs/r/chimesdkmediapipelines_media_insights_pipeline_configuration.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration.",
-      "new": "  Resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration.",
-      "new": "Resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration."
     }
   ],
   "website/docs/r/cloudcontrolapi_resource.html.markdown": [
@@ -847,10 +466,6 @@
     }
   ],
   "website/docs/r/cloudfront_origin_access_control.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS CloudFront Origin Access Control.",
-      "new": "  Resource for managing an AWS CloudFront Origin Access Control."
-    },
     {
       "old": "* `description` - (Optional) The description of the Origin Access Control. Defaults to \"Managed by Terraform\" if omitted.",
       "new": "* `description` - (Optional) The description of the Origin Access Control. Defaults to \"Managed by Pulumi\" if omitted."
@@ -911,12 +526,6 @@
       "new": "* `skip_destroy` - (Optional) Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state."
     }
   ],
-  "website/docs/r/cloudwatch_metric_stream.html.markdown": [
-    {
-      "old": "* `name` - (Optional, Forces new resource) Friendly name of the metric stream. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
   "website/docs/r/codebuild_project.html.markdown": [
     {
       "old": "* `id` - Name (if imported via `name`) or ARN (if created via Terraform or imported via ARN) of the CodeBuild project.",
@@ -926,12 +535,6 @@
   "website/docs/r/codecommit_trigger.html.markdown": [
     {
       "old": "~> **NOTE:** Terraform currently can create only one trigger per repository, even if multiple aws_codecommit_trigger resources are defined. Moreover, creating triggers with Terraform will delete all other triggers in the repository (also manually-created triggers)."
-    }
-  ],
-  "website/docs/r/codegurureviewer_repository_association.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS CodeGuru Reviewer Repository Association.",
-      "new": "Resource for managing an AWS CodeGuru Reviewer Repository Association."
     }
   ],
   "website/docs/r/codepipeline_custom_action_type.html.markdown": [
@@ -958,34 +561,12 @@
     {
       "old": "  If omitted, Terraform will assign a random, unique version name.",
       "new": "  If omitted, the provider will assign a random, unique version name."
-    },
-    {
-      "old": "  Terraform resource for managing an AWS Comprehend Document Classifier.",
-      "new": "  Resource for managing an AWS Comprehend Document Classifier."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Comprehend Document Classifier.",
-      "new": "Resource for managing an AWS Comprehend Document Classifier."
     }
   ],
   "website/docs/r/comprehend_entity_recognizer.html.markdown": [
     {
       "old": "  If omitted, Terraform will assign a random, unique version name.",
       "new": "  If omitted, the provider will assign a random, unique version name."
-    },
-    {
-      "old": "  Terraform resource for managing an AWS Comprehend Entity Recognizer.",
-      "new": "  Resource for managing an AWS Comprehend Entity Recognizer."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Comprehend Entity Recognizer.",
-      "new": "Resource for managing an AWS Comprehend Entity Recognizer."
-    }
-  ],
-  "website/docs/r/config_organization_custom_policy_rule.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Config Organization Custom Policy.",
-      "new": "  TODO resource for managing an AWS Config Organization Custom Policy."
     }
   ],
   "website/docs/r/connect_contact_flow.html.markdown": [
@@ -1048,10 +629,6 @@
     {
       "old": "* `description` - (Optional) The description of the DB subnet group. Defaults to \"Managed by Terraform\".",
       "new": "* `description` - (Optional) The description of the DB subnet group. Defaults to \"Managed by Pulumi\"."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) The name of the DB subnet group. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional, Forces new resource) The name of the DB subnet group. If omitted, this provider will assign a random, unique name."
     }
   ],
   "website/docs/r/default_route_table.html.markdown": [
@@ -1084,7 +661,7 @@
   "website/docs/r/docdb_cluster_instance.html.markdown": [
     {
       "old": "* `identifier` - (Optional, Forces new resource) The identifier for the DocumentDB instance, if omitted, Terraform will assign a random, unique identifier.",
-      "new": "* `identifier` - (Optional, Forces new resource) The identifier for the DocumentDB instance, if omitted, TODO will assign a random, unique identifier."
+      "new": "* `identifier` - (Optional, Forces new resource) The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier."
     },
     {
       "old": "[1]: /docs/providers/aws/r/docdb_cluster.html"
@@ -1096,17 +673,13 @@
   "website/docs/r/docdb_cluster_parameter_group.html.markdown": [
     {
       "old": "* `description` - (Optional, Forces new resource) The description of the DocumentDB cluster parameter group. Defaults to \"Managed by Terraform\".",
-      "new": "* `description` - (Optional, Forces new resource) The description of the DocumentDB cluster parameter group. Defaults to \"Managed by TODO\"."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) The name of the DocumentDB cluster parameter group. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional, Forces new resource) The name of the DocumentDB cluster parameter group. If omitted, TODO will assign a random, unique name."
+      "new": "* `description` - (Optional, Forces new resource) The description of the DocumentDB cluster parameter group. Defaults to \"Managed by Pulumi\"."
     }
   ],
   "website/docs/r/docdb_event_subscription.html.markdown": [
     {
       "old": "* `name` - (Optional) The name of the DocumentDB event subscription. By default generated by Terraform.",
-      "new": "* `name` - (Optional) The name of the DocumentDB event subscription. By default generated by TODO."
+      "new": "* `name` - (Optional) The name of the DocumentDB event subscription. By default generated by this provider."
     }
   ],
   "website/docs/r/docdb_global_cluster.html.markdown": [
@@ -1291,10 +864,6 @@
       "new": "* `instance_types` - (Optional) List of instance types associated with the EKS Node Group. Defaults to `[\"t3.medium\"]`. The provider will only perform drift detection if a configuration value is provided."
     },
     {
-      "old": "* `node_group_name` – (Optional) Name of the EKS Node Group. If omitted, Terraform will assign a random, unique name. Conflicts with `node_group_name_prefix`.",
-      "new": "* `node_group_name` – (Optional) Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`."
-    },
-    {
       "old": "* `version` - (Required) EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and Terraform will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws_launch_template` resource or data source is recommended for this argument.",
       "new": "* `version` - (Required) EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws_launch_template` resource or data source is recommended for this argument."
     },
@@ -1371,12 +940,6 @@
       "new": "~> **Note:** You can enable `node_to_node_encryption` _in place_ for an existing, unencrypted domain only if your Elasticsearch version is 6.7 or greater. For lower versions, if you enable `node_to_node_encryption`, the provider will recreate the domain, potentially causing data loss. For any version, if you disable `node_to_node_encryption` for an existing, node-to-node encrypted domain, the provider will recreate the domain, potentially causing data loss."
     }
   ],
-  "website/docs/r/elasticsearch_domain_saml_options.html.markdown": [
-    {
-      "old": "  Terraform resource for managing SAML authentication options for an AWS Elasticsearch Domain.",
-      "new": "  Resource for managing SAML authentication options for an AWS Elasticsearch Domain."
-    }
-  ],
   "website/docs/r/elastictranscoder_pipeline.html.markdown": [
     {
       "old": "  name         = \"aws_elastictranscoder_pipeline_tf_test_\"",
@@ -1387,14 +950,6 @@
     {
       "old": "By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this Terraform resource.",
       "new": "By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource."
-    },
-    {
-      "old": "Terraform resource for managing an AWS EMR Block Public Access Configuration.",
-      "new": "Resource for managing an AWS EMR Block Public Access Configuration."
-    },
-    {
-      "old": "Terraform resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.",
-      "new": "Resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information."
     },
     {
       "old": "To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this Terraform resource.",
@@ -1500,10 +1055,6 @@
   ],
   "website/docs/r/iam_policy.html.markdown": [
     {
-      "old": "* `name` - (Optional, Forces new resource) The name of the policy. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional, Forces new resource) The name of the policy. If omitted, this provider will assign a random, unique name."
-    },
-    {
       "old": "* `policy` - (Required) The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide",
       "new": "* `policy` - (Required) The policy document. This is a JSON formatted string."
     }
@@ -1512,10 +1063,6 @@
     {
       "old": "* `inline_policy` - (Optional) Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Terraform will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Terraform to remove _all_ inline policies added out of band on `apply`.",
       "new": "* `inline_policy` - (Optional) Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) Friendly name of the role. If omitted, Terraform will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.",
-      "new": "* `name` - (Optional, Forces new resource) Friendly name of the role. If omitted, this provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information."
     },
     {
       "old": "* `policy` - (Required) Policy document as a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.",
@@ -1553,10 +1100,6 @@
     }
   ],
   "website/docs/r/iam_server_certificate.html.markdown": [
-    {
-      "old": "  path in this value. If omitted, Terraform will assign a random, unique name.",
-      "new": "  path in this value. If omitted, this provider will assign a random, unique name."
-    },
     {
       "old": "[lifecycle]: /docs/configuration/resources.html"
     },
@@ -1606,10 +1149,6 @@
       "old": "  # Terraform expression result to valid JSON syntax."
     },
     {
-      "old": "* `name` - (Optional) The name of the policy. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional) The name of the policy. If omitted, the provider will assign a random, unique name."
-    },
-    {
       "old": "* `policy` - (Required) The policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.",
       "new": "* `policy` - (Required) The policy document. This is a JSON formatted string."
     }
@@ -1619,74 +1158,10 @@
       "old": "~> **Note:** All attributes will be stored in the raw state as plain-text.\nRead more about sensitive data in state.\n"
     }
   ],
-  "website/docs/r/identitystore_group.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS IdentityStore Group.",
-      "new": "  Resource for managing an AWS IdentityStore Group."
-    },
-    {
-      "old": "Terraform resource for managing an AWS IdentityStore Group.",
-      "new": "Resource for managing an AWS IdentityStore Group."
-    }
-  ],
-  "website/docs/r/identitystore_group_membership.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS IdentityStore Group Membership.",
-      "new": "  Resource for managing an AWS IdentityStore Group Membership."
-    },
-    {
-      "old": "Terraform resource for managing an AWS IdentityStore Group Membership.",
-      "new": "Resource for managing an AWS IdentityStore Group Membership."
-    }
-  ],
-  "website/docs/r/identitystore_user.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Identity Store User.",
-      "new": "  Resource for managing an AWS Identity Store User."
-    }
-  ],
-  "website/docs/r/inspector2_delegated_admin_account.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an Amazon Inspector Delegated Admin Account.",
-      "new": "  Resource for managing an Amazon Inspector Delegated Admin Account."
-    },
-    {
-      "old": "Terraform resource for managing an Amazon Inspector Delegated Admin Account.",
-      "new": "Resource for managing an Amazon Inspector Delegated Admin Account."
-    }
-  ],
   "website/docs/r/inspector2_enabler.html.markdown": [
     {
-      "old": "  Terraform resource for enabling Amazon Inspector resource scans.",
-      "new": "  Resource for enabling Amazon Inspector resource scans."
-    },
-    {
-      "old": ", Terraform will ignore the status of the other type.",
-      "new": ", the provider will ignore the status of the other type."
-    },
-    {
-      "old": "Terraform resource for enabling Amazon Inspector resource scans.",
-      "new": "Resource for enabling Amazon Inspector resource scans."
-    }
-  ],
-  "website/docs/r/inspector2_member_association.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an Amazon Inspector Member Association.",
-      "new": "  Resource for managing an Amazon Inspector Member Association."
-    },
-    {
-      "old": "Terraform resource for associating accounts to existing Inspector instances.",
-      "new": "Resource for associating accounts to existing Inspector instances."
-    }
-  ],
-  "website/docs/r/inspector2_organization_configuration.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an Amazon Inspector Organization Configuration.",
-      "new": "  Resource for managing an Amazon Inspector Organization Configuration."
-    },
-    {
-      "old": "Terraform resource for managing an Amazon Inspector Organization Configuration.",
-      "new": "Resource for managing an Amazon Inspector Organization Configuration."
+      "old": "* `resource_types` - (Required) Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, Terraform will ignore the status of the other type.",
+      "new": "* `resource_types` - (Required) Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type."
     }
   ],
   "website/docs/r/iot_policy.html.markdown": [
@@ -1701,75 +1176,13 @@
       "new": "    managed = \"true\""
     }
   ],
-  "website/docs/r/ivs_channel.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS IVS (Interactive Video) Channel.",
-      "new": "  Resource for managing an AWS IVS (Interactive Video) Channel."
-    },
-    {
-      "old": "Terraform resource for managing an AWS IVS (Interactive Video) Channel.",
-      "new": "Resource for managing an AWS IVS (Interactive Video) Channel."
-    }
-  ],
-  "website/docs/r/ivs_playback_key_pair.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS IVS (Interactive Video) Playback Key Pair.",
-      "new": "  Resource for managing an AWS IVS (Interactive Video) Playback Key Pair."
-    },
-    {
-      "old": "Terraform resource for managing an AWS IVS (Interactive Video) Playback Key Pair.",
-      "new": "Resource for managing an AWS IVS (Interactive Video) Playback Key Pair."
-    }
-  ],
-  "website/docs/r/ivs_recording_configuration.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS IVS (Interactive Video) Recording Configuration.",
-      "new": "  Resource for managing an AWS IVS (Interactive Video) Recording Configuration."
-    },
-    {
-      "old": "Terraform resource for managing an AWS IVS (Interactive Video) Recording Configuration.",
-      "new": "Resource for managing an AWS IVS (Interactive Video) Recording Configuration."
-    }
-  ],
   "website/docs/r/ivschat_logging_configuration.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.",
-      "new": "  Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration."
-    },
     {
       "old": "  name        = \"terraform-kinesis-firehose-extended-s3-example-stream\"",
       "new": "  name        = \"kinesis-firehose-extended-s3-example-stream\""
-    },
-    {
-      "old": "Terraform resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.",
-      "new": "Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration."
-    }
-  ],
-  "website/docs/r/ivschat_room.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS IVS (Interactive Video) Chat Room.",
-      "new": "  Resource for managing an AWS IVS (Interactive Video) Chat Room."
-    },
-    {
-      "old": "Terraform resource for managing an AWS IVS (Interactive Video) Chat Room.",
-      "new": "Resource for managing an AWS IVS (Interactive Video) Chat Room."
-    }
-  ],
-  "website/docs/r/kendra_data_source.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Kendra Data Source.",
-      "new": "  Resource for managing an AWS Kendra Data Source."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Kendra Data Source.",
-      "new": "Resource for managing an AWS Kendra Data Source."
     }
   ],
   "website/docs/r/kendra_experience.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Kendra Experience.",
-      "new": "  Resource for managing an AWS Kendra Experience."
-    },
     {
       "old": "* `configuration` - (Optional) Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. [Detailed below](#configuration).",
       "new": "* `configuration` - (Optional) Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. [Detailed below](#configuration)."
@@ -1777,40 +1190,6 @@
     {
       "old": "* `content_source_configuration` - (Optional, Required if `user_identity_configuration` not provided) The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. [Detailed below](#content_source_configuration).",
       "new": "* `content_source_configuration` - (Optional, Required if `user_identity_configuration` not provided) The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. [Detailed below](#content_source_configuration)."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Kendra Experience.",
-      "new": "Resource for managing an AWS Kendra Experience."
-    }
-  ],
-  "website/docs/r/kendra_faq.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Kendra FAQ.",
-      "new": "  Resource for managing an AWS Kendra FAQ."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Kendra FAQ.",
-      "new": "Resource for managing an AWS Kendra FAQ."
-    }
-  ],
-  "website/docs/r/kendra_query_suggestions_block_list.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Kendra block list used for query suggestions for an index",
-      "new": "  Resource for managing an AWS Kendra block list used for query suggestions for an index"
-    },
-    {
-      "old": "Terraform resource for managing an AWS Kendra block list used for query suggestions for an index.",
-      "new": "Resource for managing an AWS Kendra block list used for query suggestions for an index."
-    }
-  ],
-  "website/docs/r/kendra_thesaurus.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Kendra Thesaurus.",
-      "new": "  Resource for managing an AWS Kendra Thesaurus."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Kendra Thesaurus.",
-      "new": "Resource for managing an AWS Kendra Thesaurus."
     }
   ],
   "website/docs/r/key_pair.html.markdown": [
@@ -1844,16 +1223,6 @@
   "website/docs/r/kms_ciphertext.html.markdown": [
     {
       "old": "Read more about sensitive data in state.\n"
-    }
-  ],
-  "website/docs/r/kms_custom_key_store.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS KMS (Key Management) Custom Key Store.",
-      "new": "  Resource for managing an AWS KMS (Key Management) Custom Key Store."
-    },
-    {
-      "old": "Terraform resource for managing an AWS KMS (Key Management) Custom Key Store.",
-      "new": "Resource for managing an AWS KMS (Key Management) Custom Key Store."
     }
   ],
   "website/docs/r/kms_key_policy.html.markdown": [
@@ -1992,16 +1361,6 @@
       "new": "~> **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile."
     }
   ],
-  "website/docs/r/lightsail_distribution.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Lightsail Distribution.",
-      "new": "  Resource for managing an AWS Lightsail Distribution."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Lightsail Distribution.",
-      "new": "Resource for managing an AWS Lightsail Distribution."
-    }
-  ],
   "website/docs/r/lightsail_instance.html.markdown": [
     {
       "old": "  user_data         = \"sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Terraform</h1>' | sudo tee /var/www/html/index.html\"",
@@ -2012,44 +1371,6 @@
     {
       "old": "* `triggers` - (Optional) Map of arbitrary keys and values that, when changed, will trigger an update. To force an update without changing these keys/values, use the `terraform taint` command.",
       "new": "* `triggers` - (Optional) Map of arbitrary keys and values that, when changed, will trigger an update."
-    }
-  ],
-  "website/docs/r/location_geofence_collection.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Location Geofence Collection.",
-      "new": "  Resource for managing an AWS Location Geofence Collection."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Location Geofence Collection.",
-      "new": "Resource for managing an AWS Location Geofence Collection."
-    }
-  ],
-  "website/docs/r/location_tracker_association.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Location Tracker Association.",
-      "new": "  Resource for managing an AWS Location Tracker Association."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Location Tracker Association.",
-      "new": "Resource for managing an AWS Location Tracker Association."
-    }
-  ],
-  "website/docs/r/macie2_classification_job.html.markdown": [
-    {
-      "old": "* `name` -  (Optional) A custom name for the job. The name can contain as many as 500 characters. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` -  (Optional) A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
-  "website/docs/r/macie2_custom_data_identifier.html.markdown": [
-    {
-      "old": "* `name` - (Optional) A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional) A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
-  "website/docs/r/macie2_findings_filter.html.markdown": [
-    {
-      "old": "* `name` - (Optional) A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional) A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
     }
   ],
   "website/docs/r/main_route_table_association.html.markdown": [
@@ -2069,96 +1390,22 @@
       "new": "~> **NOTE:** **Do not** use both `aws_default_route_table` to manage a default route table **and** `aws_main_route_table_association` with the same VPC due to possible route conflicts. See aws_default_route_table documentation for more details."
     }
   ],
-  "website/docs/r/medialive_channel.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS MediaLive Channel.",
-      "new": "  Resource for managing an AWS MediaLive Channel."
-    },
-    {
-      "old": "Terraform resource for managing an AWS MediaLive Channel.",
-      "new": "Resource for managing an AWS MediaLive Channel."
-    }
-  ],
-  "website/docs/r/medialive_input.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS MediaLive Input.",
-      "new": "  Resource for managing an AWS MediaLive Input."
-    },
-    {
-      "old": "Terraform resource for managing an AWS MediaLive Input.",
-      "new": "Resource for managing an AWS MediaLive Input."
-    }
-  ],
-  "website/docs/r/medialive_input_security_group.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS MediaLive InputSecurityGroup.",
-      "new": "  Resource for managing an AWS MediaLive InputSecurityGroup."
-    },
-    {
-      "old": "Terraform resource for managing an AWS MediaLive InputSecurityGroup.",
-      "new": "Resource for managing an AWS MediaLive InputSecurityGroup."
-    }
-  ],
-  "website/docs/r/medialive_multiplex.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS MediaLive Multiplex.",
-      "new": "  Resource for managing an AWS MediaLive Multiplex."
-    },
-    {
-      "old": "Terraform resource for managing an AWS MediaLive Multiplex.",
-      "new": "Resource for managing an AWS MediaLive Multiplex."
-    }
-  ],
-  "website/docs/r/medialive_multiplex_program.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS MediaLive MultiplexProgram.",
-      "new": "  Resource for managing an AWS MediaLive MultiplexProgram."
-    },
-    {
-      "old": "Terraform resource for managing an AWS MediaLive MultiplexProgram.",
-      "new": "Resource for managing an AWS MediaLive MultiplexProgram."
-    }
-  ],
-  "website/docs/r/memorydb_acl.html.markdown": [
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the ACL. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
   "website/docs/r/memorydb_cluster.html.markdown": [
     {
       "old": "* `description` - (Optional) Description for the cluster. Defaults to `\"Managed by Terraform\"`.",
       "new": "* `description` - (Optional) Description for the cluster."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the cluster. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
     }
   ],
   "website/docs/r/memorydb_parameter_group.html.markdown": [
     {
       "old": "* `description` - (Optional, Forces new resource) Description for the parameter group. Defaults to `\"Managed by Terraform\"`.",
       "new": "* `description` - (Optional, Forces new resource) Description for the parameter group."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the parameter group. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
-  "website/docs/r/memorydb_snapshot.html.markdown": [
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the snapshot. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
     }
   ],
   "website/docs/r/memorydb_subnet_group.html.markdown": [
     {
       "old": "* `description` - (Optional) Description for the subnet group. Defaults to `\"Managed by Terraform\"`.",
       "new": "* `description` - (Optional) Description for the subnet group."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the subnet group. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
     }
   ],
   "website/docs/r/memorydb_user.html.markdown": [
@@ -2170,12 +1417,6 @@
     {
       "old": "however, this policy will not be in terraform and as such, will present a diff on plan/apply. For that reason, you must use the `aws_secretsmanager_secret_policy`",
       "new": "however, this policy will not be in the state and as such, will present a diff on plan/apply. For that reason, you must use the `aws_secretsmanager_secret_policy`"
-    }
-  ],
-  "website/docs/r/msk_serverless_cluster.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an Amazon MSK Serverless cluster.",
-      "new": "  Resource for managing an Amazon MSK Serverless cluster."
     }
   ],
   "website/docs/r/neptune_cluster_instance.html.markdown": [
@@ -2224,36 +1465,6 @@
       "new": "~> **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource"
     }
   ],
-  "website/docs/r/networkmanager_attachment_accepter.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS NetworkManager Attachment Accepter.",
-      "new": "  Resource for managing an AWS NetworkManager Attachment Accepter."
-    },
-    {
-      "old": "Terraform resource for managing an AWS NetworkManager Attachment Accepter.",
-      "new": "Resource for managing an AWS NetworkManager Attachment Accepter."
-    }
-  ],
-  "website/docs/r/networkmanager_connect_attachment.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS NetworkManager ConnectAttachment.",
-      "new": "  Resource for managing an AWS NetworkManager ConnectAttachment."
-    },
-    {
-      "old": "Terraform resource for managing an AWS NetworkManager ConnectAttachment.",
-      "new": "Resource for managing an AWS NetworkManager ConnectAttachment."
-    }
-  ],
-  "website/docs/r/networkmanager_connect_peer.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS NetworkManager Connect Peer.",
-      "new": "  Resource for managing an AWS NetworkManager Connect Peer."
-    },
-    {
-      "old": "Terraform resource for managing an AWS NetworkManager Connect Peer.",
-      "new": "Resource for managing an AWS NetworkManager Connect Peer."
-    }
-  ],
   "website/docs/r/networkmanager_core_network.html.markdown": [
     {
       "old": "* `create_base_policy` - (Optional) Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws_networkmanager_core_network_policy_attachment` resource. This base policy is needed if your core network does not have any `LIVE` policies (e.g. a core network resource created without the `policy_document` argument) and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. Conflicts with `policy_document`. An example of this Terraform snippet can be found above [for VPC Attachment in a single region](#with-vpc-attachment-single-region) and [for VPC Attachment multi-region](#with-vpc-attachment-multi-region). An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws_networkmanager_core_network_policy_attachment` resource.",
@@ -2282,53 +1493,7 @@
       "new": "~> **NOTE on Core Networks and Policy Attachments:** For a given policy attachment, this resource is incompatible with using the `aws_networkmanager_core_network` resource `policy_document` argument. When using that argument and this resource, both will attempt to manage the core network's policy document and Pulumi will show a permanent difference."
     }
   ],
-  "website/docs/r/networkmanager_site_to_site_vpn_attachment.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS NetworkManager SiteToSiteAttachment.",
-      "new": "  Resource for managing an AWS NetworkManager SiteToSiteAttachment."
-    },
-    {
-      "old": "Terraform resource for managing an AWS NetworkManager SiteToSiteAttachment.",
-      "new": "Resource for managing an AWS NetworkManager SiteToSiteAttachment."
-    }
-  ],
-  "website/docs/r/networkmanager_vpc_attachment.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS NetworkManager VpcAttachment.",
-      "new": "  Resource for managing an AWS NetworkManager VpcAttachment."
-    },
-    {
-      "old": "Terraform resource for managing an AWS NetworkManager VpcAttachment.",
-      "new": "Resource for managing an AWS NetworkManager VpcAttachment."
-    }
-  ],
-  "website/docs/r/oam_link.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS CloudWatch Observability Access Manager Link.",
-      "new": "  Resource for managing an AWS CloudWatch Observability Access Manager Link."
-    },
-    {
-      "old": "Terraform resource for managing an AWS CloudWatch Observability Access Manager Link.",
-      "new": "Resource for managing an AWS CloudWatch Observability Access Manager Link."
-    }
-  ],
-  "website/docs/r/oam_sink.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS CloudWatch Observability Access Manager Sink.",
-      "new": "Resource for managing an AWS CloudWatch Observability Access Manager Sink."
-    }
-  ],
-  "website/docs/r/oam_sink_policy.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.",
-      "new": "Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy."
-    }
-  ],
   "website/docs/r/opensearch_domain.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS OpenSearch Domain.",
-      "new": "  Resource for managing an AWS OpenSearch Domain."
-    },
     {
       "old": "  description = \"Managed by Terraform\"",
       "new": "  description = \"Managed by Pulumi\""
@@ -2354,24 +1519,6 @@
       "new": "~> **Note:** You can enable `node_to_node_encryption` _in place_ for an existing, unencrypted domain only if you are using OpenSearch or your Elasticsearch version is 6.7 or greater. For other versions, if you enable `node_to_node_encryption`, the provider will recreate the domain, potentially causing data loss. For any version, if you disable `node_to_node_encryption` for an existing, node-to-node encrypted domain, the provider will recreate the domain, potentially causing data loss."
     }
   ],
-  "website/docs/r/opensearch_domain_saml_options.html.markdown": [
-    {
-      "old": "  Terraform resource for managing SAML authentication options for an AWS OpenSearch Domain.",
-      "new": "  Resource for managing SAML authentication options for an AWS OpenSearch Domain."
-    }
-  ],
-  "website/docs/r/opensearch_inbound_connection_accepter.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS OpenSearch Inbound Connection Accepter.",
-      "new": "  Resource for managing an AWS OpenSearch Inbound Connection Accepter."
-    }
-  ],
-  "website/docs/r/opensearch_outbound_connection.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS OpenSearch Outbound Connection.",
-      "new": "  Resource for managing an AWS OpenSearch Outbound Connection."
-    }
-  ],
   "website/docs/r/opsworks_rds_db_instance.html.markdown": [
     {
       "old": "Read more about sensitive data in state.\n"
@@ -2393,55 +1540,6 @@
       "new": "* `create_govcloud` - (Optional) Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource."
     }
   ],
-  "website/docs/r/pinpoint_adm_channel.markdown": [
-    {
-      "old": "Read more about sensitive data in state.\n"
-    }
-  ],
-  "website/docs/r/pinpoint_apns_channel.markdown": [
-    {
-      "old": "Read more about sensitive data in state.\n"
-    }
-  ],
-  "website/docs/r/pinpoint_apns_sandbox_channel.markdown": [
-    {
-      "old": "Read more about sensitive data in state.\n"
-    }
-  ],
-  "website/docs/r/pinpoint_apns_voip_channel.markdown": [
-    {
-      "old": "Read more about sensitive data in state.\n"
-    }
-  ],
-  "website/docs/r/pinpoint_apns_voip_sandbox_channel.markdown": [
-    {
-      "old": "Read more about sensitive data in state.\n"
-    }
-  ],
-  "website/docs/r/pinpoint_baidu_channel.markdown": [
-    {
-      "old": "Read more about sensitive data in state.\n"
-    }
-  ],
-  "website/docs/r/pinpoint_gcm_channel.markdown": [
-    {
-      "old": "Read more about sensitive data in state.\n"
-    }
-  ],
-  "website/docs/r/pipes_pipe.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS EventBridge Pipes Pipe.",
-      "new": "  Resource for managing an AWS EventBridge Pipes Pipe."
-    },
-    {
-      "old": "* `name` - (Optional) Name of the pipe. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional) Name of the pipe. If omitted, Pulumi will assign a random, unique name. Conflicts with `name_prefix`."
-    },
-    {
-      "old": "Terraform resource for managing an AWS EventBridge Pipes Pipe.",
-      "new": "Resource for managing an AWS EventBridge Pipes Pipe."
-    }
-  ],
   "website/docs/r/qldb_ledger.html.markdown": [
     {
       "old": "* `deletion_protection` - (Optional) The deletion protection for the QLDB Ledger instance. By default it is `true`. To delete this resource via Terraform, this value must be configured to `false` and applied first before attempting deletion.",
@@ -2454,62 +1552,8 @@
   ],
   "website/docs/r/quicksight_account_subscription.html.markdown": [
     {
-      "old": "  Terraform resource for managing an AWS QuickSight Account Subscription.",
-      "new": "  Resource for managing an AWS QuickSight Account Subscription."
-    },
-    {
       "old": "  account_name          = \"quicksight-terraform\"",
       "new": "  account_name          = \"quicksight-pulumi\""
-    },
-    {
-      "old": "Terraform resource for managing an AWS QuickSight Account Subscription.",
-      "new": "Resource for managing an AWS QuickSight Account Subscription."
-    }
-  ],
-  "website/docs/r/quicksight_folder_membership.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS QuickSight Folder Membership.",
-      "new": "  TODO resource for managing an AWS QuickSight Folder Membership."
-    },
-    {
-      "old": "Terraform resource for managing an AWS QuickSight Folder Membership.",
-      "new": "TODO resource for managing an AWS QuickSight Folder Membership."
-    }
-  ],
-  "website/docs/r/quicksight_iam_policy_assignment.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS QuickSight IAM Policy Assignment.",
-      "new": "  Resource for managing an AWS QuickSight IAM Policy Assignment."
-    },
-    {
-      "old": "Terraform resource for managing an AWS QuickSight IAM Policy Assignment.",
-      "new": "Resource for managing an AWS QuickSight IAM Policy Assignment."
-    }
-  ],
-  "website/docs/r/quicksight_ingestion.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS QuickSight Ingestion.",
-      "new": "  Resource for managing an AWS QuickSight Ingestion."
-    },
-    {
-      "old": "Terraform resource for managing an AWS QuickSight Ingestion.",
-      "new": "Resource for managing an AWS QuickSight Ingestion."
-    }
-  ],
-  "website/docs/r/quicksight_namespace.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS QuickSight Namespace.",
-      "new": "  Resource for managing an AWS QuickSight Namespace."
-    },
-    {
-      "old": "Terraform resource for managing an AWS QuickSight Namespace.",
-      "new": "Resource for managing an AWS QuickSight Namespace."
-    }
-  ],
-  "website/docs/r/rbin_rule.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS RBin Rule.",
-      "new": "Resource for managing an AWS RBin Rule."
     }
   ],
   "website/docs/r/rds_cluster.html.markdown": [
@@ -2554,12 +1598,6 @@
       "new": "attributes that are specific to a single instance in a RDS Cluster,"
     }
   ],
-  "website/docs/r/rds_export_task.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS RDS (Relational Database) Export Task.",
-      "new": "Resource for managing an AWS RDS (Relational Database) Export Task."
-    }
-  ],
   "website/docs/r/rds_global_cluster.html.markdown": [
     {
       "old": "* `engine_version` - (Optional) Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws_rds_cluster_instance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, Terraform will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws_rds_cluster` resource as shown above in [Upgrading Engine Versions](#upgrading-engine-versions) example.",
@@ -2578,18 +1616,6 @@
     {
       "old": "!> **WARNING:** With the retirement of EC2-Classic the `aws_redshift_security_group` resource has been deprecated and will be removed in a future version. Any existing resources can be removed from Terraform state using the `terraform state rm` command.",
       "new": "!> **WARNING:** With the retirement of EC2-Classic the `aws_redshift_security_group` resource has been deprecated and will be removed in a future version. Any existing resources can be removed from state manually."
-    }
-  ],
-  "website/docs/r/rolesanywhere_profile.html.markdown": [
-    {
-      "old": "Terraform resource for managing a Roles Anywhere Profile.",
-      "new": "Resource for managing a Roles Anywhere Profile."
-    }
-  ],
-  "website/docs/r/rolesanywhere_trust_anchor.html.markdown": [
-    {
-      "old": "Terraform resource for managing a Roles Anywhere Trust Anchor.",
-      "new": "Resource for managing a Roles Anywhere Trust Anchor."
     }
   ],
   "website/docs/r/route.html.markdown": [
@@ -2617,7 +1643,7 @@
   "website/docs/r/s3_bucket.html.markdown": [
     {
       "old": "  Terraform wil only perform drift detection if a configuration value is provided.",
-      "new": "  the provider wil only perform drift detection if a configuration value is provided."
+      "new": "  The provider wil only perform drift detection if a configuration value is provided."
     },
     {
       "old": "  Terraform will only perform drift detection if a configuration value is provided.",
@@ -2630,10 +1656,6 @@
     {
       "old": "* `acl` - (Optional, **Deprecated**) The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws_s3_bucket_acl` instead.",
       "new": "* `acl` - (Optional, **Deprecated**) The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws_s3_bucket_acl` instead."
-    },
-    {
-      "old": "* `bucket` - (Optional, Forces new resource) Name of the bucket. If omitted, Terraform will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).",
-      "new": "* `bucket` - (Optional, Forces new resource) Name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)."
     },
     {
       "old": "* `cors_rule` - (Optional, **Deprecated**) Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See [CORS rule](#cors-rule) below for details. Terraform will only perform drift detection if a configuration value is provided. Use the resource `aws_s3_bucket_cors_configuration` instead.",
@@ -2928,50 +1950,10 @@
       "new": "    repository_url = \"https://github.com/github/docs.git\""
     }
   ],
-  "website/docs/r/sagemaker_data_quality_job_definition.html.markdown": [
-    {
-      "old": "* `name` - (Optional) The name of the data quality job definition. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional) The name of the data quality job definition. If omitted, the provider will assign a random, unique name."
-    }
-  ],
-  "website/docs/r/sagemaker_endpoint.html.markdown": [
-    {
-      "old": "* `name` - (Optional) The name of the endpoint. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional) The name of the endpoint. If omitted, the provider will assign a random, unique name."
-    }
-  ],
-  "website/docs/r/sagemaker_monitoring_schedule.html.markdown": [
-    {
-      "old": "* `name` - (Optional) The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional) The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name."
-    }
-  ],
   "website/docs/r/sagemaker_notebook_instance.html.markdown": [
     {
       "old": "    repository_url = \"https://github.com/hashicorp/terraform-provider-aws.git\"",
       "new": "    repository_url = \"https://github.com/github/docs.git\""
-    }
-  ],
-  "website/docs/r/scheduler_schedule.html.markdown": [
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the schedule. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
-  "website/docs/r/scheduler_schedule_group.html.markdown": [
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the schedule group. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`."
-    }
-  ],
-  "website/docs/r/schemas_registry_policy.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS EventBridge Schemas Registry Policy.",
-      "new": "  Resource for managing an AWS EventBridge Schemas Registry Policy."
-    },
-    {
-      "old": "Terraform resource for managing an AWS EventBridge Schemas Registry Policy.",
-      "new": "Resource for managing an AWS EventBridge Schemas Registry Policy."
     }
   ],
   "website/docs/r/secretsmanager_secret_version.html.markdown": [
@@ -2988,10 +1970,6 @@
     {
       "old": "* `description` - (Optional, Forces new resource) Security group description. Defaults to `Managed by Terraform`. Cannot be `\"\"`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.",
       "new": "* `description` - (Optional, Forces new resource) Security group description. Defaults to `Managed by Pulumi`. Cannot be `\"\"`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`."
-    },
-    {
-      "old": "* `name` - (Optional, Forces new resource) Name of the security group. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional, Forces new resource) Name of the security group. If omitted, this provider will assign a random, unique name."
     },
     {
       "old": "* `protocol` - (Required) Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference. This argument is normalized to a lowercase value to match the AWS API requirement when using Terraform 0.12.x and above. Please make sure that the value of the protocol is specified as lowercase when used with older version of Terraform to avoid issues during upgrade.",
@@ -3050,93 +2028,7 @@
       "new": "  name        = \"example.domain.local\""
     }
   ],
-  "website/docs/r/sesv2_configuration_set.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.",
-      "new": "  Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set."
-    },
-    {
-      "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.",
-      "new": "Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set."
-    }
-  ],
-  "website/docs/r/sesv2_configuration_set_event_destination.html.markdown": [
-    {
-      "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.",
-      "new": "Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination."
-    }
-  ],
-  "website/docs/r/sesv2_contact_list.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS SESv2 (Simple Email V2) Contact List.",
-      "new": "  Resource for managing an AWS SESv2 (Simple Email V2) Contact List."
-    },
-    {
-      "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Contact List.",
-      "new": "Resource for managing an AWS SESv2 (Simple Email V2) Contact List."
-    }
-  ],
-  "website/docs/r/sesv2_dedicated_ip_assignment.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment.",
-      "new": "  Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment."
-    },
-    {
-      "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment.",
-      "new": "Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment."
-    }
-  ],
-  "website/docs/r/sesv2_dedicated_ip_pool.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.",
-      "new": "  Tesource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool."
-    },
-    {
-      "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.",
-      "new": "Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool."
-    }
-  ],
-  "website/docs/r/sesv2_email_identity.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS SESv2 (Simple Email V2) Email Identity.",
-      "new": "  Resource for managing an AWS SESv2 (Simple Email V2) Email Identity."
-    },
-    {
-      "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Email Identity.",
-      "new": "Resource for managing an AWS SESv2 (Simple Email V2) Email Identity."
-    }
-  ],
-  "website/docs/r/sesv2_email_identity_feedback_attributes.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.",
-      "new": "  Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes."
-    },
-    {
-      "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.",
-      "new": "Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes."
-    }
-  ],
-  "website/docs/r/sesv2_email_identity_mail_from_attributes.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.",
-      "new": "  Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes."
-    },
-    {
-      "old": "Terraform resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.",
-      "new": "Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes."
-    }
-  ],
-  "website/docs/r/sfn_state_machine.html.markdown": [
-    {
-      "old": "* `name` - (Optional) The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, Terraform will assign a random, unique name.",
-      "new": "* `name` - (Optional) The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name."
-    }
-  ],
   "website/docs/r/sns_topic.html.markdown": [
-    {
-      "old": "* `name` - (Optional) The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, Terraform will assign a random, unique name. Conflicts with `name_prefix`",
-      "new": "* `name` - (Optional) The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`"
-    },
     {
       "old": "* `policy` - (Optional) The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.",
       "new": "* `policy` - (Optional) The fully-formed AWS policy as JSON."
@@ -3174,16 +2066,6 @@
       "new": "resource \"aws_sqs_queue\" \"example_queue_deadletter\" {"
     }
   ],
-  "website/docs/r/ssm_default_patch_baseline.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Systems Manager Default Patch Baseline.",
-      "new": "  Resource for managing an AWS Systems Manager Default Patch Baseline."
-    },
-    {
-      "old": "Terraform resource for registering an AWS Systems Manager Default Patch Baseline.",
-      "new": "Resource for registering an AWS Systems Manager Default Patch Baseline."
-    }
-  ],
   "website/docs/r/ssm_parameter.html.markdown": [
     {
       "old": "* `insecure_value` - (Optional, exactly one of `value` or `insecure_value` is required) Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the Terraform plan output. This argument is not valid with a `type` of `SecureString`.",
@@ -3204,43 +2086,11 @@
   ],
   "website/docs/r/ssmcontacts_contact.html.markdown": [
     {
-      "old": "  Terraform resource for managing an AWS SSM Contact.",
-      "new": "  TODO resource for managing an AWS SSM Contact."
-    },
-    {
-      "old": "Terraform resource for managing an AWS SSM Contact.",
-      "new": "TODO resource for managing an AWS SSM Contact."
-    },
-    {
       "old": "~> **NOTE:** A contact implicitly depends on a replication set. If you configured your replication set in Terraform, we recommend you add it to the `depends_on` argument for the Terraform Contact Resource.",
-      "new": "~> **NOTE:** A contact implicitly depends on a replication set. If you configured your replication set in TODO, we recommend you add it to the `depends_on` argument for the TODO Contact Resource."
-    }
-  ],
-  "website/docs/r/ssmcontacts_contact_channel.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS SSM Contacts Contact Channel.",
-      "new": "  TODO resource for managing an AWS SSM Contacts Contact Channel."
-    },
-    {
-      "old": "Terraform resource for managing an AWS SSM Contacts Contact Channel.",
-      "new": "TODO resource for managing an AWS SSM Contacts Contact Channel."
-    }
-  ],
-  "website/docs/r/ssmcontacts_plan.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS SSM Contact Plan.",
-      "new": "  TODO resource for managing an AWS SSM Contact Plan."
-    },
-    {
-      "old": "Terraform resource for managing an AWS SSM Contact Plan.",
-      "new": "TODO resource for managing an AWS SSM Contact Plan."
+      "new": "~> **NOTE:** A contact implicitly depends on a replication set. If you configured your replication set in Pulumi, we recommend you add it to the `depends_on` argument for the Contact Resource."
     }
   ],
   "website/docs/r/ssmincidents_replication_set.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an incident replication set for AWS Systems Manager Incident Manager.",
-      "new": "  Resource for managing an incident replication set for AWS Systems Manager Incident Manager."
-    },
     {
       "old": "~> **NOTE:** If possible, create all the customer managed keys you need (using the `terraform apply` command) before you create the replication set, or create the keys and replication set in the same `terraform apply` command. Otherwise, to delete a replication set, you must run one `terraform apply` command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.",
       "new": "~> **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set."
@@ -3256,60 +2106,16 @@
   ],
   "website/docs/r/ssmincidents_response_plan.html.markdown": [
     {
-      "old": "  Terraform resource for managing an incident response plan in AWS Systems Manager Incident Manager.",
-      "new": "  TODO resource for managing an incident response plan in AWS Systems Manager Incident Manager."
-    },
-    {
       "old": "Provides a Terraform resource to manage response plans in AWS Systems Manager Incident Manager.",
-      "new": "Provides a TODO resource to manage response plans in AWS Systems Manager Incident Manager."
+      "new": "Provides a resource to manage response plans in AWS Systems Manager Incident Manager."
     },
     {
       "old": "we recommend you add it to the `depends_on` argument for the Terraform ResponsePlan Resource.",
-      "new": "we recommend you add it to the `depends_on` argument for the TODO ResponsePlan Resource."
+      "new": "we recommend you add it to the `depends_on` argument for the ResponsePlan Resource."
     },
     {
       "old": "~> NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Terraform,",
-      "new": "~> NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in TODO,"
-    }
-  ],
-  "website/docs/r/transcribe_language_model.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Transcribe LanguageModel.",
-      "new": "  Resource for managing an AWS Transcribe LanguageModel."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Transcribe LanguageModel.",
-      "new": "Resource for managing an AWS Transcribe LanguageModel."
-    }
-  ],
-  "website/docs/r/transcribe_medical_vocabulary.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Transcribe MedicalVocabulary.",
-      "new": "  Resource for managing an AWS Transcribe MedicalVocabulary."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Transcribe MedicalVocabulary.",
-      "new": "Resource for managing an AWS Transcribe MedicalVocabulary."
-    }
-  ],
-  "website/docs/r/transcribe_vocabulary.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Transcribe Vocabulary.",
-      "new": "  Resource for managing an AWS Transcribe Vocabulary."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Transcribe Vocabulary.",
-      "new": "Resource for managing an AWS Transcribe Vocabulary."
-    }
-  ],
-  "website/docs/r/transcribe_vocabulary_filter.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS Transcribe VocabularyFilter.",
-      "new": "  Resource for managing an AWS Transcribe VocabularyFilter."
-    },
-    {
-      "old": "Terraform resource for managing an AWS Transcribe VocabularyFilter.",
-      "new": "Resource for managing an AWS Transcribe VocabularyFilter."
+      "new": "~> NOTE: A response plan implicitly depends on a replication set. If you configured your replication set in Pulumi,"
     }
   ],
   "website/docs/r/transfer_access.html.markdown": [
@@ -3371,76 +2177,6 @@
     {
       "old": "~> **NOTE on Security Groups and Security Group Rules:** Terraform currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or",
       "new": "~> **NOTE on Security Groups and Security Group Rules:** this provider currently provides a Security Group resource with `ingress` and `egress` rules defined in-line and a Security Group Rule resource which manages one or more `ingress` or"
-    }
-  ],
-  "website/docs/r/vpclattice_listener.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS VPC Lattice Listener.",
-      "new": "  Resource for managing an AWS VPC Lattice Listener."
-    },
-    {
-      "old": "Terraform resource for managing an AWS VPC Lattice Listener.",
-      "new": "Resource for managing an AWS VPC Lattice Listener."
-    }
-  ],
-  "website/docs/r/vpclattice_listener_rule.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS VPC Lattice Listener Rule.",
-      "new": "  Resource for managing an AWS VPC Lattice Listener Rule."
-    },
-    {
-      "old": "Terraform resource for managing an AWS VPC Lattice Listener Rule.",
-      "new": "Resource for managing an AWS VPC Lattice Listener Rule."
-    }
-  ],
-  "website/docs/r/vpclattice_service.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS VPC Lattice Service.",
-      "new": "  Resource for managing an AWS VPC Lattice Service."
-    },
-    {
-      "old": "Terraform resource for managing an AWS VPC Lattice Service.",
-      "new": "Resource for managing an AWS VPC Lattice Service."
-    }
-  ],
-  "website/docs/r/vpclattice_service_network.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS VPC Lattice Service Network.",
-      "new": "  Resource for managing an AWS VPC Lattice Service Network."
-    },
-    {
-      "old": "Terraform resource for managing an AWS VPC Lattice Service Network.",
-      "new": "Resource for managing an AWS VPC Lattice Service Network."
-    }
-  ],
-  "website/docs/r/vpclattice_service_network_service_association.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS VPC Lattice Service Network Service Association.",
-      "new": "  Resource for managing an AWS VPC Lattice Service Network Service Association."
-    },
-    {
-      "old": "Terraform resource for managing an AWS VPC Lattice Service Network Service Association.",
-      "new": "Resource for managing an AWS VPC Lattice Service Network Service Association."
-    }
-  ],
-  "website/docs/r/vpclattice_service_network_vpc_association.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS VPC Lattice Service Network VPC Association.",
-      "new": "  Resource for managing an AWS VPC Lattice Service Network VPC Association."
-    },
-    {
-      "old": "Terraform resource for managing an AWS VPC Lattice Service Network VPC Association.",
-      "new": "Resource for managing an AWS VPC Lattice Service Network VPC Association."
-    }
-  ],
-  "website/docs/r/vpclattice_target_group.html.markdown": [
-    {
-      "old": "  Terraform resource for managing an AWS VPC Lattice Target Group.",
-      "new": "  Resource for managing an AWS VPC Lattice Target Group."
-    },
-    {
-      "old": "Terraform resource for managing an AWS VPC Lattice Target Group.",
-      "new": "Resource for managing an AWS VPC Lattice Target Group."
     }
   ],
   "website/docs/r/vpn_connection.html.markdown": [

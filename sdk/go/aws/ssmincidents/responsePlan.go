@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a TODO resource to manage response plans in AWS Systems Manager Incident Manager.
+// Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
 //
 // ## Example Usage
 // ### Basic Usage
@@ -267,8 +267,6 @@ type responsePlanArgs struct {
 	Name *string `pulumi:"name"`
 	// The tags applied to the response plan.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ResponsePlan resource.
@@ -288,8 +286,6 @@ type ResponsePlanArgs struct {
 	Name pulumi.StringPtrInput
 	// The tags applied to the response plan.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (ResponsePlanArgs) ElementType() reflect.Type {

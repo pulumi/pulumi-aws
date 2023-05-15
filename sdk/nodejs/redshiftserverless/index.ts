@@ -15,6 +15,11 @@ export const getCredentials: typeof import("./getCredentials").getCredentials = 
 export const getCredentialsOutput: typeof import("./getCredentials").getCredentialsOutput = null as any;
 utilities.lazyLoad(exports, ["getCredentials","getCredentialsOutput"], () => require("./getCredentials"));
 
+export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
+export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
+export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
+
 export { GetWorkgroupArgs, GetWorkgroupResult, GetWorkgroupOutputArgs } from "./getWorkgroup";
 export const getWorkgroup: typeof import("./getWorkgroup").getWorkgroup = null as any;
 export const getWorkgroupOutput: typeof import("./getWorkgroup").getWorkgroupOutput = null as any;

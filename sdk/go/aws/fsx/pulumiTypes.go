@@ -1215,6 +1215,162 @@ func (o LustreFileSystemLogConfigurationPtrOutput) Level() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type LustreFileSystemRootSquashConfiguration struct {
+	// When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
+	NoSquashNids []string `pulumi:"noSquashNids"`
+	// You enable root squash by setting a user ID (UID) and group ID (GID) for the file system in the format UID:GID (for example, 365534:65534). The UID and GID values can range from 0 to 4294967294.
+	RootSquash *string `pulumi:"rootSquash"`
+}
+
+// LustreFileSystemRootSquashConfigurationInput is an input type that accepts LustreFileSystemRootSquashConfigurationArgs and LustreFileSystemRootSquashConfigurationOutput values.
+// You can construct a concrete instance of `LustreFileSystemRootSquashConfigurationInput` via:
+//
+//	LustreFileSystemRootSquashConfigurationArgs{...}
+type LustreFileSystemRootSquashConfigurationInput interface {
+	pulumi.Input
+
+	ToLustreFileSystemRootSquashConfigurationOutput() LustreFileSystemRootSquashConfigurationOutput
+	ToLustreFileSystemRootSquashConfigurationOutputWithContext(context.Context) LustreFileSystemRootSquashConfigurationOutput
+}
+
+type LustreFileSystemRootSquashConfigurationArgs struct {
+	// When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
+	NoSquashNids pulumi.StringArrayInput `pulumi:"noSquashNids"`
+	// You enable root squash by setting a user ID (UID) and group ID (GID) for the file system in the format UID:GID (for example, 365534:65534). The UID and GID values can range from 0 to 4294967294.
+	RootSquash pulumi.StringPtrInput `pulumi:"rootSquash"`
+}
+
+func (LustreFileSystemRootSquashConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LustreFileSystemRootSquashConfiguration)(nil)).Elem()
+}
+
+func (i LustreFileSystemRootSquashConfigurationArgs) ToLustreFileSystemRootSquashConfigurationOutput() LustreFileSystemRootSquashConfigurationOutput {
+	return i.ToLustreFileSystemRootSquashConfigurationOutputWithContext(context.Background())
+}
+
+func (i LustreFileSystemRootSquashConfigurationArgs) ToLustreFileSystemRootSquashConfigurationOutputWithContext(ctx context.Context) LustreFileSystemRootSquashConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemRootSquashConfigurationOutput)
+}
+
+func (i LustreFileSystemRootSquashConfigurationArgs) ToLustreFileSystemRootSquashConfigurationPtrOutput() LustreFileSystemRootSquashConfigurationPtrOutput {
+	return i.ToLustreFileSystemRootSquashConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LustreFileSystemRootSquashConfigurationArgs) ToLustreFileSystemRootSquashConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemRootSquashConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemRootSquashConfigurationOutput).ToLustreFileSystemRootSquashConfigurationPtrOutputWithContext(ctx)
+}
+
+// LustreFileSystemRootSquashConfigurationPtrInput is an input type that accepts LustreFileSystemRootSquashConfigurationArgs, LustreFileSystemRootSquashConfigurationPtr and LustreFileSystemRootSquashConfigurationPtrOutput values.
+// You can construct a concrete instance of `LustreFileSystemRootSquashConfigurationPtrInput` via:
+//
+//	        LustreFileSystemRootSquashConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LustreFileSystemRootSquashConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLustreFileSystemRootSquashConfigurationPtrOutput() LustreFileSystemRootSquashConfigurationPtrOutput
+	ToLustreFileSystemRootSquashConfigurationPtrOutputWithContext(context.Context) LustreFileSystemRootSquashConfigurationPtrOutput
+}
+
+type lustreFileSystemRootSquashConfigurationPtrType LustreFileSystemRootSquashConfigurationArgs
+
+func LustreFileSystemRootSquashConfigurationPtr(v *LustreFileSystemRootSquashConfigurationArgs) LustreFileSystemRootSquashConfigurationPtrInput {
+	return (*lustreFileSystemRootSquashConfigurationPtrType)(v)
+}
+
+func (*lustreFileSystemRootSquashConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LustreFileSystemRootSquashConfiguration)(nil)).Elem()
+}
+
+func (i *lustreFileSystemRootSquashConfigurationPtrType) ToLustreFileSystemRootSquashConfigurationPtrOutput() LustreFileSystemRootSquashConfigurationPtrOutput {
+	return i.ToLustreFileSystemRootSquashConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *lustreFileSystemRootSquashConfigurationPtrType) ToLustreFileSystemRootSquashConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemRootSquashConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemRootSquashConfigurationPtrOutput)
+}
+
+type LustreFileSystemRootSquashConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LustreFileSystemRootSquashConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LustreFileSystemRootSquashConfiguration)(nil)).Elem()
+}
+
+func (o LustreFileSystemRootSquashConfigurationOutput) ToLustreFileSystemRootSquashConfigurationOutput() LustreFileSystemRootSquashConfigurationOutput {
+	return o
+}
+
+func (o LustreFileSystemRootSquashConfigurationOutput) ToLustreFileSystemRootSquashConfigurationOutputWithContext(ctx context.Context) LustreFileSystemRootSquashConfigurationOutput {
+	return o
+}
+
+func (o LustreFileSystemRootSquashConfigurationOutput) ToLustreFileSystemRootSquashConfigurationPtrOutput() LustreFileSystemRootSquashConfigurationPtrOutput {
+	return o.ToLustreFileSystemRootSquashConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LustreFileSystemRootSquashConfigurationOutput) ToLustreFileSystemRootSquashConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemRootSquashConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LustreFileSystemRootSquashConfiguration) *LustreFileSystemRootSquashConfiguration {
+		return &v
+	}).(LustreFileSystemRootSquashConfigurationPtrOutput)
+}
+
+// When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
+func (o LustreFileSystemRootSquashConfigurationOutput) NoSquashNids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LustreFileSystemRootSquashConfiguration) []string { return v.NoSquashNids }).(pulumi.StringArrayOutput)
+}
+
+// You enable root squash by setting a user ID (UID) and group ID (GID) for the file system in the format UID:GID (for example, 365534:65534). The UID and GID values can range from 0 to 4294967294.
+func (o LustreFileSystemRootSquashConfigurationOutput) RootSquash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LustreFileSystemRootSquashConfiguration) *string { return v.RootSquash }).(pulumi.StringPtrOutput)
+}
+
+type LustreFileSystemRootSquashConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LustreFileSystemRootSquashConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LustreFileSystemRootSquashConfiguration)(nil)).Elem()
+}
+
+func (o LustreFileSystemRootSquashConfigurationPtrOutput) ToLustreFileSystemRootSquashConfigurationPtrOutput() LustreFileSystemRootSquashConfigurationPtrOutput {
+	return o
+}
+
+func (o LustreFileSystemRootSquashConfigurationPtrOutput) ToLustreFileSystemRootSquashConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemRootSquashConfigurationPtrOutput {
+	return o
+}
+
+func (o LustreFileSystemRootSquashConfigurationPtrOutput) Elem() LustreFileSystemRootSquashConfigurationOutput {
+	return o.ApplyT(func(v *LustreFileSystemRootSquashConfiguration) LustreFileSystemRootSquashConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LustreFileSystemRootSquashConfiguration
+		return ret
+	}).(LustreFileSystemRootSquashConfigurationOutput)
+}
+
+// When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
+func (o LustreFileSystemRootSquashConfigurationPtrOutput) NoSquashNids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LustreFileSystemRootSquashConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NoSquashNids
+	}).(pulumi.StringArrayOutput)
+}
+
+// You enable root squash by setting a user ID (UID) and group ID (GID) for the file system in the format UID:GID (for example, 365534:65534). The UID and GID values can range from 0 to 4294967294.
+func (o LustreFileSystemRootSquashConfigurationPtrOutput) RootSquash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LustreFileSystemRootSquashConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RootSquash
+	}).(pulumi.StringPtrOutput)
+}
+
 type OntapFileSystemDiskIopsConfiguration struct {
 	// The total number of SSD IOPS provisioned for the file system.
 	Iops *int `pulumi:"iops"`
@@ -4687,6 +4843,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationMetadataConfigurationArrayInput)(nil)).Elem(), FileCacheLustreConfigurationMetadataConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemLogConfigurationInput)(nil)).Elem(), LustreFileSystemLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemLogConfigurationPtrInput)(nil)).Elem(), LustreFileSystemLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemRootSquashConfigurationInput)(nil)).Elem(), LustreFileSystemRootSquashConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemRootSquashConfigurationPtrInput)(nil)).Elem(), LustreFileSystemRootSquashConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemDiskIopsConfigurationInput)(nil)).Elem(), OntapFileSystemDiskIopsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemDiskIopsConfigurationPtrInput)(nil)).Elem(), OntapFileSystemDiskIopsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemEndpointInput)(nil)).Elem(), OntapFileSystemEndpointArgs{})
@@ -4755,6 +4913,8 @@ func init() {
 	pulumi.RegisterOutputType(FileCacheLustreConfigurationMetadataConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemLogConfigurationOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LustreFileSystemRootSquashConfigurationOutput{})
+	pulumi.RegisterOutputType(LustreFileSystemRootSquashConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemDiskIopsConfigurationOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemDiskIopsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemEndpointOutput{})

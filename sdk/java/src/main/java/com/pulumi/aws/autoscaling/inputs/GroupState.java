@@ -465,6 +465,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Predicted capacity of the group.
+     * 
+     */
+    @Import(name="predictedCapacity")
+    private @Nullable Output<Integer> predictedCapacity;
+
+    /**
+     * @return Predicted capacity of the group.
+     * 
+     */
+    public Optional<Output<Integer>> predictedCapacity() {
+        return Optional.ofNullable(this.predictedCapacity);
+    }
+
+    /**
      * Whether newly launched instances
      * are automatically protected from termination by Amazon EC2 Auto Scaling when
      * scaling in. For more information about preventing instances from terminating
@@ -665,6 +680,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.warmPool);
     }
 
+    /**
+     * Current size of the warm pool.
+     * 
+     */
+    @Import(name="warmPoolSize")
+    private @Nullable Output<Integer> warmPoolSize;
+
+    /**
+     * @return Current size of the warm pool.
+     * 
+     */
+    public Optional<Output<Integer>> warmPoolSize() {
+        return Optional.ofNullable(this.warmPoolSize);
+    }
+
     private GroupState() {}
 
     private GroupState(GroupState $) {
@@ -695,6 +725,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.placementGroup = $.placementGroup;
+        this.predictedCapacity = $.predictedCapacity;
         this.protectFromScaleIn = $.protectFromScaleIn;
         this.serviceLinkedRoleArn = $.serviceLinkedRoleArn;
         this.suspendedProcesses = $.suspendedProcesses;
@@ -706,6 +737,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         this.waitForCapacityTimeout = $.waitForCapacityTimeout;
         this.waitForElbCapacity = $.waitForElbCapacity;
         this.warmPool = $.warmPool;
+        this.warmPoolSize = $.warmPoolSize;
     }
 
     public static Builder builder() {
@@ -1389,6 +1421,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param predictedCapacity Predicted capacity of the group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder predictedCapacity(@Nullable Output<Integer> predictedCapacity) {
+            $.predictedCapacity = predictedCapacity;
+            return this;
+        }
+
+        /**
+         * @param predictedCapacity Predicted capacity of the group.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder predictedCapacity(Integer predictedCapacity) {
+            return predictedCapacity(Output.of(predictedCapacity));
+        }
+
+        /**
          * @param protectFromScaleIn Whether newly launched instances
          * are automatically protected from termination by Amazon EC2 Auto Scaling when
          * scaling in. For more information about preventing instances from terminating
@@ -1718,6 +1771,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder warmPool(GroupWarmPoolArgs warmPool) {
             return warmPool(Output.of(warmPool));
+        }
+
+        /**
+         * @param warmPoolSize Current size of the warm pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmPoolSize(@Nullable Output<Integer> warmPoolSize) {
+            $.warmPoolSize = warmPoolSize;
+            return this;
+        }
+
+        /**
+         * @param warmPoolSize Current size of the warm pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmPoolSize(Integer warmPoolSize) {
+            return warmPoolSize(Output.of(warmPoolSize));
         }
 
         public GroupState build() {

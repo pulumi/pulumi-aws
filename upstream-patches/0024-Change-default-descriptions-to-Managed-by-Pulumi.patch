@@ -1,7 +1,7 @@
-From 99d2fdd3ee5567a6118b6dc9376c02011bc42710 Mon Sep 17 00:00:00 2001
+From 42e925f4c29a6fd1fa4951db4865c855a5f2b4a9 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
-Subject: [PATCH 24/27] Change default descriptions to "Managed by Pulumi"
+Subject: [PATCH 24/28] Change default descriptions to "Managed by Pulumi"
 
 ---
  internal/service/apigateway/api_key.go               | 2 +-
@@ -138,10 +138,10 @@ index 22d907b7d4..f587fcbcce 100644
  			"name": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/elasticache/subnet_group.go b/internal/service/elasticache/subnet_group.go
-index 1322823aae..709ecbe12f 100644
+index 80cbca91e9..64822098f8 100644
 --- a/internal/service/elasticache/subnet_group.go
 +++ b/internal/service/elasticache/subnet_group.go
-@@ -41,7 +41,7 @@ func ResourceSubnetGroup() *schema.Resource {
+@@ -42,7 +42,7 @@ func ResourceSubnetGroup() *schema.Resource {
  			"description": {
  				Type:     schema.TypeString,
  				Optional: true,

@@ -20,8 +20,7 @@ class ServerCertificateArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServerCertificate resource.
         :param pulumi.Input[str] certificate_body: The contents of the public key certificate in
@@ -31,7 +30,7 @@ class ServerCertificateArgs:
                This is typically a concatenation of the PEM-encoded public key certificates
                of the chain.
         :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the
-               path in this value. If omitted, this provider will assign a random, unique name.
+               path in this value. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not
@@ -39,7 +38,6 @@ class ServerCertificateArgs:
                AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "certificate_body", certificate_body)
         pulumi.set(__self__, "private_key", private_key)
@@ -53,8 +51,6 @@ class ServerCertificateArgs:
             pulumi.set(__self__, "path", path)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="certificateBody")
@@ -100,7 +96,7 @@ class ServerCertificateArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Server Certificate. Do not include the
-        path in this value. If omitted, this provider will assign a random, unique name.
+        path in this value. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -148,18 +144,6 @@ class ServerCertificateArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _ServerCertificateState:
@@ -185,7 +169,7 @@ class _ServerCertificateState:
                of the chain.
         :param pulumi.Input[str] expiration: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
         :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the
-               path in this value. If omitted, this provider will assign a random, unique name.
+               path in this value. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not
@@ -276,7 +260,7 @@ class _ServerCertificateState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Server Certificate. Do not include the
-        path in this value. If omitted, this provider will assign a random, unique name.
+        path in this value. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -373,7 +357,6 @@ class ServerCertificate(pulumi.CustomResource):
                  path: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an IAM Server Certificate resource to upload Server Certificates.
@@ -466,7 +449,7 @@ class ServerCertificate(pulumi.CustomResource):
                This is typically a concatenation of the PEM-encoded public key certificates
                of the chain.
         :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the
-               path in this value. If omitted, this provider will assign a random, unique name.
+               path in this value. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not
@@ -475,7 +458,6 @@ class ServerCertificate(pulumi.CustomResource):
                See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         :param pulumi.Input[str] private_key: The contents of the private key in PEM-encoded format.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -588,7 +570,6 @@ class ServerCertificate(pulumi.CustomResource):
                  path: Optional[pulumi.Input[str]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -609,9 +590,9 @@ class ServerCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'private_key'")
             __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["expiration"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["upload_date"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["privateKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -651,7 +632,7 @@ class ServerCertificate(pulumi.CustomResource):
                of the chain.
         :param pulumi.Input[str] expiration: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
         :param pulumi.Input[str] name: The name of the Server Certificate. Do not include the
-               path in this value. If omitted, this provider will assign a random, unique name.
+               path in this value. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: The IAM path for the server certificate.  If it is not
@@ -720,7 +701,7 @@ class ServerCertificate(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         The name of the Server Certificate. Do not include the
-        path in this value. If omitted, this provider will assign a random, unique name.
+        path in this value. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 

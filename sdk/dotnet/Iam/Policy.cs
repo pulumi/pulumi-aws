@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Iam
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the policy. If omitted, this provider will assign a random, unique name.
+        /// The name of the policy. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the policy. If omitted, this provider will assign a random, unique name.
+        /// The name of the policy. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -203,18 +203,6 @@ namespace Pulumi.Aws.Iam
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public PolicyArgs()
         {
         }
@@ -236,7 +224,7 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the policy. If omitted, this provider will assign a random, unique name.
+        /// The name of the policy. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

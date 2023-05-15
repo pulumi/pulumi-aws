@@ -23,8 +23,8 @@ import * as utilities from "../utilities";
  *         sid: "new policy",
  *         effect: "Allow",
  *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
+ *             type: "AWS",
+ *             identifiers: ["123456789012"],
  *         }],
  *         actions: [
  *             "ecr:GetDownloadUrlForLayer",

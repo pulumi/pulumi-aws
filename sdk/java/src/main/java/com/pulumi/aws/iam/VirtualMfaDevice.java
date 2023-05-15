@@ -18,6 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an IAM Virtual MFA Device.
  * 
+ * &gt; **Note:** All attributes will be stored in the raw state as plain-text.
  * ## Example Usage
  * 
  * **Using certs on file:**

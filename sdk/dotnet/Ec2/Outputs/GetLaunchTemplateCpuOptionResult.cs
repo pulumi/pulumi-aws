@@ -13,15 +13,19 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetLaunchTemplateCpuOptionResult
     {
+        public readonly string AmdSevSnp;
         public readonly int CoreCount;
         public readonly int ThreadsPerCore;
 
         [OutputConstructor]
         private GetLaunchTemplateCpuOptionResult(
+            string amdSevSnp,
+
             int coreCount,
 
             int threadsPerCore)
         {
+            AmdSevSnp = amdSevSnp;
             CoreCount = coreCount;
             ThreadsPerCore = threadsPerCore;
         }

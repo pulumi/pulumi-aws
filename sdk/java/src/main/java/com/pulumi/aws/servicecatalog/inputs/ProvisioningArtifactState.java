@@ -137,6 +137,21 @@ public final class ProvisioningArtifactState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Provisioning artifact identifier.
+     * 
+     */
+    @Import(name="provisioningArtifactId")
+    private @Nullable Output<String> provisioningArtifactId;
+
+    /**
+     * @return Provisioning artifact identifier.
+     * 
+     */
+    public Optional<Output<String>> provisioningArtifactId() {
+        return Optional.ofNullable(this.provisioningArtifactId);
+    }
+
+    /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      * 
      */
@@ -192,6 +207,7 @@ public final class ProvisioningArtifactState extends com.pulumi.resources.Resour
         this.guidance = $.guidance;
         this.name = $.name;
         this.productId = $.productId;
+        this.provisioningArtifactId = $.provisioningArtifactId;
         this.templatePhysicalId = $.templatePhysicalId;
         this.templateUrl = $.templateUrl;
         this.type = $.type;
@@ -381,6 +397,27 @@ public final class ProvisioningArtifactState extends com.pulumi.resources.Resour
          */
         public Builder productId(String productId) {
             return productId(Output.of(productId));
+        }
+
+        /**
+         * @param provisioningArtifactId Provisioning artifact identifier.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisioningArtifactId(@Nullable Output<String> provisioningArtifactId) {
+            $.provisioningArtifactId = provisioningArtifactId;
+            return this;
+        }
+
+        /**
+         * @param provisioningArtifactId Provisioning artifact identifier.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisioningArtifactId(String provisioningArtifactId) {
+            return provisioningArtifactId(Output.of(provisioningArtifactId));
         }
 
         /**

@@ -69,7 +69,7 @@ class AwaitableGetPlanResult(GetPlanResult):
 def get_plan(contact_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlanResult:
     """
-    TODO data source for managing a Plan of an AWS SSM Contact.
+    Data source for managing a Plan of an AWS SSM Contact.
 
     ## Example Usage
     ### Basic Usage
@@ -99,7 +99,7 @@ def get_plan(contact_id: Optional[str] = None,
 def get_plan_output(contact_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlanResult]:
     """
-    TODO data source for managing a Plan of an AWS SSM Contact.
+    Data source for managing a Plan of an AWS SSM Contact.
 
     ## Example Usage
     ### Basic Usage

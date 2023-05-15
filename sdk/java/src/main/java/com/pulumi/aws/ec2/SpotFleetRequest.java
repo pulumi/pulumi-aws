@@ -327,6 +327,20 @@ public class SpotFleetRequest extends com.pulumi.resources.CustomResource {
         return this.clientToken;
     }
     /**
+     * Reserved.
+     * 
+     */
+    @Export(name="context", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> context;
+
+    /**
+     * @return Reserved.
+     * 
+     */
+    public Output<Optional<String>> context() {
+        return Codegen.optional(this.context);
+    }
+    /**
      * Indicates whether running Spot
      * instances should be terminated if the target capacity of the Spot fleet
      * request is decreased below the current size of the Spot fleet.

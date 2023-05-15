@@ -113,6 +113,7 @@ import * as apigatewayv2 from "./apigatewayv2";
 import * as appautoscaling from "./appautoscaling";
 import * as appconfig from "./appconfig";
 import * as appflow from "./appflow";
+import * as appintegrations from "./appintegrations";
 import * as applicationinsights from "./applicationinsights";
 import * as applicationloadbalancing from "./applicationloadbalancing";
 import * as appmesh from "./appmesh";
@@ -303,6 +304,7 @@ export {
     appautoscaling,
     appconfig,
     appflow,
+    appintegrations,
     applicationinsights,
     applicationloadbalancing,
     appmesh,

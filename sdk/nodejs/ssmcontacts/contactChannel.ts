@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * TODO resource for managing an AWS SSM Contacts Contact Channel.
+ * Resource for managing an AWS SSM Contacts Contact Channel.
  *
  * ## Example Usage
  * ### Basic Usage

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2.InstanceArgs;
 import com.pulumi.aws.ec2.inputs.InstanceState;
 import com.pulumi.aws.ec2.outputs.InstanceCapacityReservationSpecification;
+import com.pulumi.aws.ec2.outputs.InstanceCpuOptions;
 import com.pulumi.aws.ec2.outputs.InstanceCreditSpecification;
 import com.pulumi.aws.ec2.outputs.InstanceEbsBlockDevice;
 import com.pulumi.aws.ec2.outputs.InstanceEnclaveOptions;
@@ -143,6 +144,70 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### CPU options example
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.Instance;
+ * import com.pulumi.aws.ec2.InstanceArgs;
+ * import com.pulumi.aws.ec2.inputs.InstanceCpuOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;172.16.0.0/16&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .vpcId(exampleVpc.id())
+ *             .cidrBlock(&#34;172.16.10.0/24&#34;)
+ *             .availabilityZone(&#34;us-east-2a&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
+ *             .build());
+ * 
+ *         final var amzn-linux-2023-ami = Ec2Functions.getAmi(GetAmiArgs.builder()
+ *             .mostRecent(true)
+ *             .owners(&#34;amazon&#34;)
+ *             .filters(GetAmiFilterArgs.builder()
+ *                 .name(&#34;name&#34;)
+ *                 .values(&#34;al2023-ami-2023.*-x86_64&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
+ *             .ami(amzn_linux_2023_ami.id())
+ *             .instanceType(&#34;c6a.2xlarge&#34;)
+ *             .subnetId(exampleSubnet.id())
+ *             .cpuOptions(InstanceCpuOptionsArgs.builder()
+ *                 .coreCount(2)
+ *                 .threadsPerCore(2)
+ *                 .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Host resource group or Licence Manager registered AMI example
  * 
  * A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
@@ -264,7 +329,11 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      * 
+     * @deprecated
+     * use &#39;cpu_options&#39; argument instead
+     * 
      */
+    @Deprecated /* use 'cpu_options' argument instead */
     @Export(name="cpuCoreCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuCoreCount;
 
@@ -276,9 +345,27 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.cpuCoreCount;
     }
     /**
-     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     * The CPU options for the instance. See CPU Options below for more details.
      * 
      */
+    @Export(name="cpuOptions", refs={InstanceCpuOptions.class}, tree="[0]")
+    private Output<InstanceCpuOptions> cpuOptions;
+
+    /**
+     * @return The CPU options for the instance. See CPU Options below for more details.
+     * 
+     */
+    public Output<InstanceCpuOptions> cpuOptions() {
+        return this.cpuOptions;
+    }
+    /**
+     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     * 
+     * @deprecated
+     * use &#39;cpu_options&#39; argument instead
+     * 
+     */
+    @Deprecated /* use 'cpu_options' argument instead */
     @Export(name="cpuThreadsPerCore", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuThreadsPerCore;
 

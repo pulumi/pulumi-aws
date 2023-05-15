@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the `aws.appautoscaling.Policy` resource.
  *
+ * > **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `arn`. These resource cannot use `tags` or participate in `defaultTags`. To prevent `pulumi preview` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below.
+ *
  * > **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the `aws.iam.ServiceLinkedRole` resource.
  *
  * ## Example Usage
@@ -66,6 +68,20 @@ import * as utilities from "../utilities";
  *     serviceNamespace: "rds",
  * });
  * ```
+ * ### Suppressing `tagsAll` Differences For Older Resources
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ecsTarget = new aws.appautoscaling.Target("ecsTarget", {
+ *     maxCapacity: 4,
+ *     minCapacity: 1,
+ *     resourceId: `service/${aws_ecs_cluster.example.name}/${aws_ecs_service.example.name}`,
+ *     scalableDimension: "ecs:service:DesiredCount",
+ *     serviceNamespace: "ecs",
+ * });
+ * ```
  * ### MSK / Kafka Autoscaling
  *
  * ```typescript
@@ -118,6 +134,10 @@ export class Target extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the scalable target.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Max capacity of the scalable target.
      */
     public readonly maxCapacity!: pulumi.Output<number>;
@@ -141,6 +161,14 @@ export class Target extends pulumi.CustomResource {
      * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
     public readonly serviceNamespace!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Target resource with the given unique name, arguments, and options.
@@ -155,12 +183,15 @@ export class Target extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TargetState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             resourceInputs["minCapacity"] = state ? state.minCapacity : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["scalableDimension"] = state ? state.scalableDimension : undefined;
             resourceInputs["serviceNamespace"] = state ? state.serviceNamespace : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as TargetArgs | undefined;
             if ((!args || args.maxCapacity === undefined) && !opts.urn) {
@@ -184,6 +215,9 @@ export class Target extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
             resourceInputs["serviceNamespace"] = args ? args.serviceNamespace : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Target.__pulumiType, name, resourceInputs, opts);
@@ -194,6 +228,10 @@ export class Target extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Target resources.
  */
 export interface TargetState {
+    /**
+     * The ARN of the scalable target.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Max capacity of the scalable target.
      */
@@ -218,6 +256,14 @@ export interface TargetState {
      * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
     serviceNamespace?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -248,4 +294,8 @@ export interface TargetArgs {
      * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      */
     serviceNamespace: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the scalable target. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

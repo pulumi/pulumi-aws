@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,6 +32,21 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
     }
 
     /**
+     * The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+     * 
+     */
+    @Import(name="includeInferenceResponseIns")
+    private @Nullable Output<List<String>> includeInferenceResponseIns;
+
+    /**
+     * @return The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+     * 
+     */
+    public Optional<Output<List<String>>> includeInferenceResponseIns() {
+        return Optional.ofNullable(this.includeInferenceResponseIns);
+    }
+
+    /**
      * Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
      * 
      */
@@ -49,6 +65,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
 
     private EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs $) {
         this.errorTopic = $.errorTopic;
+        this.includeInferenceResponseIns = $.includeInferenceResponseIns;
         this.successTopic = $.successTopic;
     }
 
@@ -89,6 +106,37 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
          */
         public Builder errorTopic(String errorTopic) {
             return errorTopic(Output.of(errorTopic));
+        }
+
+        /**
+         * @param includeInferenceResponseIns The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeInferenceResponseIns(@Nullable Output<List<String>> includeInferenceResponseIns) {
+            $.includeInferenceResponseIns = includeInferenceResponseIns;
+            return this;
+        }
+
+        /**
+         * @param includeInferenceResponseIns The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeInferenceResponseIns(List<String> includeInferenceResponseIns) {
+            return includeInferenceResponseIns(Output.of(includeInferenceResponseIns));
+        }
+
+        /**
+         * @param includeInferenceResponseIns The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeInferenceResponseIns(String... includeInferenceResponseIns) {
+            return includeInferenceResponseIns(List.of(includeInferenceResponseIns));
         }
 
         /**

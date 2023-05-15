@@ -198,7 +198,7 @@ def get_replication_task(replication_task_id: Optional[str] = None,
                          tags: Optional[Mapping[str, str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationTaskResult:
     """
-    TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+    Data source for managing an AWS DMS (Database Migration) Replication Task.
 
     ## Example Usage
     ### Basic Usage
@@ -241,7 +241,7 @@ def get_replication_task_output(replication_task_id: Optional[pulumi.Input[str]]
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationTaskResult]:
     """
-    TODO data source for managing an AWS DMS (Database Migration) Replication Task.
+    Data source for managing an AWS DMS (Database Migration) Replication Task.
 
     ## Example Usage
     ### Basic Usage

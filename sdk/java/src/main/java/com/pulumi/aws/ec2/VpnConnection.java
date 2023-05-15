@@ -545,6 +545,20 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tunnel1DpdTimeoutSeconds);
     }
     /**
+     * Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     * 
+     */
+    @Export(name="tunnel1EnableTunnelLifecycleControl", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> tunnel1EnableTunnelLifecycleControl;
+
+    /**
+     * @return Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     * 
+     */
+    public Output<Optional<Boolean>> tunnel1EnableTunnelLifecycleControl() {
+        return Codegen.optional(this.tunnel1EnableTunnelLifecycleControl);
+    }
+    /**
      * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
@@ -879,6 +893,20 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> tunnel2DpdTimeoutSeconds() {
         return Codegen.optional(this.tunnel2DpdTimeoutSeconds);
+    }
+    /**
+     * Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     * 
+     */
+    @Export(name="tunnel2EnableTunnelLifecycleControl", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> tunnel2EnableTunnelLifecycleControl;
+
+    /**
+     * @return Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     * 
+     */
+    public Output<Optional<Boolean>> tunnel2EnableTunnelLifecycleControl() {
+        return Codegen.optional(this.tunnel2EnableTunnelLifecycleControl);
     }
     /**
      * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.

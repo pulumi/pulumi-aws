@@ -38,10 +38,10 @@ namespace Pulumi.Aws.Ecr
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
-    ///                         Type = "*",
+    ///                         Type = "AWS",
     ///                         Identifiers = new[]
     ///                         {
-    ///                             "*",
+    ///                             "123456789012",
     ///                         },
     ///                     },
     ///                 },

@@ -345,6 +345,9 @@ namespace Pulumi.Aws.Quicksight
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("outputColumns")]
+        public Output<ImmutableArray<Outputs.DataSetOutputColumn>> OutputColumns { get; private set; } = null!;
+
         /// <summary>
         /// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
         /// </summary>
@@ -356,6 +359,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Output("physicalTableMaps")]
         public Output<ImmutableArray<Outputs.DataSetPhysicalTableMap>> PhysicalTableMaps { get; private set; } = null!;
+
+        /// <summary>
+        /// The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+        /// </summary>
+        [Output("refreshProperties")]
+        public Output<Outputs.DataSetRefreshProperties?> RefreshProperties { get; private set; } = null!;
 
         /// <summary>
         /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
@@ -530,6 +539,12 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
+        /// The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+        /// </summary>
+        [Input("refreshProperties")]
+        public Input<Inputs.DataSetRefreshPropertiesArgs>? RefreshProperties { get; set; }
+
+        /// <summary>
         /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         /// </summary>
         [Input("rowLevelPermissionDataSet")]
@@ -551,18 +566,6 @@ namespace Pulumi.Aws.Quicksight
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public DataSetArgs()
@@ -657,6 +660,14 @@ namespace Pulumi.Aws.Quicksight
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("outputColumns")]
+        private InputList<Inputs.DataSetOutputColumnGetArgs>? _outputColumns;
+        public InputList<Inputs.DataSetOutputColumnGetArgs> OutputColumns
+        {
+            get => _outputColumns ?? (_outputColumns = new InputList<Inputs.DataSetOutputColumnGetArgs>());
+            set => _outputColumns = value;
+        }
+
         [Input("permissions")]
         private InputList<Inputs.DataSetPermissionGetArgs>? _permissions;
 
@@ -680,6 +691,12 @@ namespace Pulumi.Aws.Quicksight
             get => _physicalTableMaps ?? (_physicalTableMaps = new InputList<Inputs.DataSetPhysicalTableMapGetArgs>());
             set => _physicalTableMaps = value;
         }
+
+        /// <summary>
+        /// The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+        /// </summary>
+        [Input("refreshProperties")]
+        public Input<Inputs.DataSetRefreshPropertiesGetArgs>? RefreshProperties { get; set; }
 
         /// <summary>
         /// The row-level security configuration for the data that you want to create. See row_level_permission_data_set.

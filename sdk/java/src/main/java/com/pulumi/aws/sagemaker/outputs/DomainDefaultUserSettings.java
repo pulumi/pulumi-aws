@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettin
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsJupyterServerAppSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsKernelGatewayAppSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsRSessionAppSettings;
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsRStudioServerProAppSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsSharingSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsTensorBoardAppSettings;
 import com.pulumi.core.annotations.CustomType;
@@ -43,6 +44,11 @@ public final class DomainDefaultUserSettings {
      * 
      */
     private @Nullable DomainDefaultUserSettingsRSessionAppSettings rSessionAppSettings;
+    /**
+     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+     * 
+     */
+    private @Nullable DomainDefaultUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings;
     /**
      * @return A list of security group IDs that will be attached to the user.
      * 
@@ -96,6 +102,13 @@ public final class DomainDefaultUserSettings {
         return Optional.ofNullable(this.rSessionAppSettings);
     }
     /**
+     * @return A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+     * 
+     */
+    public Optional<DomainDefaultUserSettingsRStudioServerProAppSettings> rStudioServerProAppSettings() {
+        return Optional.ofNullable(this.rStudioServerProAppSettings);
+    }
+    /**
      * @return A list of security group IDs that will be attached to the user.
      * 
      */
@@ -131,6 +144,7 @@ public final class DomainDefaultUserSettings {
         private @Nullable DomainDefaultUserSettingsJupyterServerAppSettings jupyterServerAppSettings;
         private @Nullable DomainDefaultUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
         private @Nullable DomainDefaultUserSettingsRSessionAppSettings rSessionAppSettings;
+        private @Nullable DomainDefaultUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings;
         private @Nullable List<String> securityGroups;
         private @Nullable DomainDefaultUserSettingsSharingSettings sharingSettings;
         private @Nullable DomainDefaultUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
@@ -142,6 +156,7 @@ public final class DomainDefaultUserSettings {
     	      this.jupyterServerAppSettings = defaults.jupyterServerAppSettings;
     	      this.kernelGatewayAppSettings = defaults.kernelGatewayAppSettings;
     	      this.rSessionAppSettings = defaults.rSessionAppSettings;
+    	      this.rStudioServerProAppSettings = defaults.rStudioServerProAppSettings;
     	      this.securityGroups = defaults.securityGroups;
     	      this.sharingSettings = defaults.sharingSettings;
     	      this.tensorBoardAppSettings = defaults.tensorBoardAppSettings;
@@ -173,6 +188,11 @@ public final class DomainDefaultUserSettings {
             return this;
         }
         @CustomType.Setter
+        public Builder rStudioServerProAppSettings(@Nullable DomainDefaultUserSettingsRStudioServerProAppSettings rStudioServerProAppSettings) {
+            this.rStudioServerProAppSettings = rStudioServerProAppSettings;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroups(@Nullable List<String> securityGroups) {
             this.securityGroups = securityGroups;
             return this;
@@ -197,6 +217,7 @@ public final class DomainDefaultUserSettings {
             o.jupyterServerAppSettings = jupyterServerAppSettings;
             o.kernelGatewayAppSettings = kernelGatewayAppSettings;
             o.rSessionAppSettings = rSessionAppSettings;
+            o.rStudioServerProAppSettings = rStudioServerProAppSettings;
             o.securityGroups = securityGroups;
             o.sharingSettings = sharingSettings;
             o.tensorBoardAppSettings = tensorBoardAppSettings;

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.fsx.LustreFileSystemArgs;
 import com.pulumi.aws.fsx.inputs.LustreFileSystemState;
 import com.pulumi.aws.fsx.outputs.LustreFileSystemLogConfiguration;
+import com.pulumi.aws.fsx.outputs.LustreFileSystemRootSquashConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -360,6 +361,20 @@ public class LustreFileSystem extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> perUnitStorageThroughput() {
         return Codegen.optional(this.perUnitStorageThroughput);
+    }
+    /**
+     * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+     * 
+     */
+    @Export(name="rootSquashConfiguration", refs={LustreFileSystemRootSquashConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ LustreFileSystemRootSquashConfiguration> rootSquashConfiguration;
+
+    /**
+     * @return The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user.
+     * 
+     */
+    public Output<Optional<LustreFileSystemRootSquashConfiguration>> rootSquashConfiguration() {
+        return Codegen.optional(this.rootSquashConfiguration);
     }
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.

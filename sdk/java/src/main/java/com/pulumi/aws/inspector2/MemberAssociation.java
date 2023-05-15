@@ -47,6 +47,14 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * Amazon Inspector Member Association can be imported using the `account_id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
+ * ```
+ * 
  */
 @ResourceType(type="aws:inspector2/memberAssociation:MemberAssociation")
 public class MemberAssociation extends com.pulumi.resources.CustomResource {
@@ -63,6 +71,48 @@ public class MemberAssociation extends com.pulumi.resources.CustomResource {
      */
     public Output<String> accountId() {
         return this.accountId;
+    }
+    /**
+     * Account ID of the delegated administrator account
+     * 
+     */
+    @Export(name="delegatedAdminAccountId", refs={String.class}, tree="[0]")
+    private Output<String> delegatedAdminAccountId;
+
+    /**
+     * @return Account ID of the delegated administrator account
+     * 
+     */
+    public Output<String> delegatedAdminAccountId() {
+        return this.delegatedAdminAccountId;
+    }
+    /**
+     * Status of the member relationship
+     * 
+     */
+    @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
+    private Output<String> relationshipStatus;
+
+    /**
+     * @return Status of the member relationship
+     * 
+     */
+    public Output<String> relationshipStatus() {
+        return this.relationshipStatus;
+    }
+    /**
+     * Date and time of the last update of the relationship
+     * 
+     */
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
+    private Output<String> updatedAt;
+
+    /**
+     * @return Date and time of the last update of the relationship
+     * 
+     */
+    public Output<String> updatedAt() {
+        return this.updatedAt;
     }
 
     /**

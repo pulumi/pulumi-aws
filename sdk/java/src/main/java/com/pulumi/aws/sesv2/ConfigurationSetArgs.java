@@ -112,13 +112,6 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.tags);
     }
 
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set.
      * 
@@ -158,7 +151,6 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
         this.sendingOptions = $.sendingOptions;
         this.suppressionOptions = $.suppressionOptions;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.trackingOptions = $.trackingOptions;
         this.vdmOptions = $.vdmOptions;
     }
@@ -305,15 +297,6 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

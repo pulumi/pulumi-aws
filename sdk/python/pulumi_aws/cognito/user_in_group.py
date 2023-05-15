@@ -146,9 +146,9 @@ class UserInGroup(pulumi.CustomResource):
             require_numbers=False,
         ))
         example_user = aws.cognito.User("exampleUser",
-            user_pool_id=aws_cognito_user_pool["test"]["id"],
+            user_pool_id=example_user_pool.id,
             username="example")
-        example_user_group = aws.cognito.UserGroup("exampleUserGroup", user_pool_id=aws_cognito_user_pool["test"]["id"])
+        example_user_group = aws.cognito.UserGroup("exampleUserGroup", user_pool_id=example_user_pool.id)
         example_user_in_group = aws.cognito.UserInGroup("exampleUserInGroup",
             user_pool_id=example_user_pool.id,
             group_name=example_user_group.name,
@@ -184,9 +184,9 @@ class UserInGroup(pulumi.CustomResource):
             require_numbers=False,
         ))
         example_user = aws.cognito.User("exampleUser",
-            user_pool_id=aws_cognito_user_pool["test"]["id"],
+            user_pool_id=example_user_pool.id,
             username="example")
-        example_user_group = aws.cognito.UserGroup("exampleUserGroup", user_pool_id=aws_cognito_user_pool["test"]["id"])
+        example_user_group = aws.cognito.UserGroup("exampleUserGroup", user_pool_id=example_user_pool.id)
         example_user_in_group = aws.cognito.UserInGroup("exampleUserInGroup",
             user_pool_id=example_user_pool.id,
             group_name=example_user_group.name,

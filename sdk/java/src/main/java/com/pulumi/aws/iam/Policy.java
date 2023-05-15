@@ -99,14 +99,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The name of the policy. If omitted, this provider will assign a random, unique name.
+     * The name of the policy. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the policy. If omitted, this provider will assign a random, unique name.
+     * @return The name of the policy. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {

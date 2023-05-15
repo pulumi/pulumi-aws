@@ -178,7 +178,7 @@ type ServerCertificate struct {
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
 	Expiration pulumi.StringOutput `pulumi:"expiration"`
 	// The name of the Server Certificate. Do not include the
-	// path in this value. If omitted, this provider will assign a random, unique name.
+	// path in this value. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -252,7 +252,7 @@ type serverCertificateState struct {
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
 	Expiration *string `pulumi:"expiration"`
 	// The name of the Server Certificate. Do not include the
-	// path in this value. If omitted, this provider will assign a random, unique name.
+	// path in this value. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -285,7 +285,7 @@ type ServerCertificateState struct {
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
 	Expiration pulumi.StringPtrInput
 	// The name of the Server Certificate. Do not include the
-	// path in this value. If omitted, this provider will assign a random, unique name.
+	// path in this value. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -318,7 +318,7 @@ type serverCertificateArgs struct {
 	// of the chain.
 	CertificateChain *string `pulumi:"certificateChain"`
 	// The name of the Server Certificate. Do not include the
-	// path in this value. If omitted, this provider will assign a random, unique name.
+	// path in this value. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -332,8 +332,6 @@ type serverCertificateArgs struct {
 	PrivateKey string `pulumi:"privateKey"`
 	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ServerCertificate resource.
@@ -346,7 +344,7 @@ type ServerCertificateArgs struct {
 	// of the chain.
 	CertificateChain pulumi.StringPtrInput
 	// The name of the Server Certificate. Do not include the
-	// path in this value. If omitted, this provider will assign a random, unique name.
+	// path in this value. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -360,8 +358,6 @@ type ServerCertificateArgs struct {
 	PrivateKey pulumi.StringInput
 	// Map of resource tags for the server certificate. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (ServerCertificateArgs) ElementType() reflect.Type {
@@ -475,7 +471,7 @@ func (o ServerCertificateOutput) Expiration() pulumi.StringOutput {
 }
 
 // The name of the Server Certificate. Do not include the
-// path in this value. If omitted, this provider will assign a random, unique name.
+// path in this value. If omitted, the provider will assign a random, unique name.
 func (o ServerCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

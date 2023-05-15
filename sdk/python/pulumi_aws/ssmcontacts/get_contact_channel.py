@@ -117,7 +117,7 @@ class AwaitableGetContactChannelResult(GetContactChannelResult):
 def get_contact_channel(arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactChannelResult:
     """
-    TODO data source for managing an AWS SSM Contacts Contact Channel.
+    Data source for managing an AWS SSM Contacts Contact Channel.
 
     ## Example Usage
     ### Basic Usage
@@ -151,7 +151,7 @@ def get_contact_channel(arn: Optional[str] = None,
 def get_contact_channel_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactChannelResult]:
     """
-    TODO data source for managing an AWS SSM Contacts Contact Channel.
+    Data source for managing an AWS SSM Contacts Contact Channel.
 
     ## Example Usage
     ### Basic Usage

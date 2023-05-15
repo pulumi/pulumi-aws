@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Group{}
 	case "aws:quicksight/groupMembership:GroupMembership":
 		r = &GroupMembership{}
+	case "aws:quicksight/template:Template":
+		r = &Template{}
 	case "aws:quicksight/user:User":
 		r = &User{}
 	default:
@@ -76,6 +78,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"quicksight/groupMembership",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/template",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

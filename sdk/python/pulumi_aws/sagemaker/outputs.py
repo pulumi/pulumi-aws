@@ -45,6 +45,7 @@ __all__ = [
     'DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec',
     'DomainDefaultUserSettings',
     'DomainDefaultUserSettingsCanvasAppSettings',
+    'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings',
     'DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings',
     'DomainDefaultUserSettingsJupyterServerAppSettings',
     'DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository',
@@ -55,10 +56,13 @@ __all__ = [
     'DomainDefaultUserSettingsRSessionAppSettings',
     'DomainDefaultUserSettingsRSessionAppSettingsCustomImage',
     'DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec',
+    'DomainDefaultUserSettingsRStudioServerProAppSettings',
     'DomainDefaultUserSettingsSharingSettings',
     'DomainDefaultUserSettingsTensorBoardAppSettings',
     'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec',
     'DomainDomainSettings',
+    'DomainDomainSettingsRStudioServerProDomainSettings',
+    'DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec',
     'DomainRetentionPolicy',
     'EndpointConfigurationAsyncInferenceConfig',
     'EndpointConfigurationAsyncInferenceConfigClientConfig',
@@ -116,6 +120,7 @@ __all__ = [
     'SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec',
     'UserProfileUserSettings',
     'UserProfileUserSettingsCanvasAppSettings',
+    'UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings',
     'UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings',
     'UserProfileUserSettingsJupyterServerAppSettings',
     'UserProfileUserSettingsJupyterServerAppSettingsCodeRepository',
@@ -126,6 +131,7 @@ __all__ = [
     'UserProfileUserSettingsRSessionAppSettings',
     'UserProfileUserSettingsRSessionAppSettingsCustomImage',
     'UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec',
+    'UserProfileUserSettingsRStudioServerProAppSettings',
     'UserProfileUserSettingsSharingSettings',
     'UserProfileUserSettingsTensorBoardAppSettings',
     'UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec',
@@ -1907,6 +1913,8 @@ class DomainDefaultUserSettings(dict):
             suggest = "kernel_gateway_app_settings"
         elif key == "rSessionAppSettings":
             suggest = "r_session_app_settings"
+        elif key == "rStudioServerProAppSettings":
+            suggest = "r_studio_server_pro_app_settings"
         elif key == "securityGroups":
             suggest = "security_groups"
         elif key == "sharingSettings":
@@ -1931,6 +1939,7 @@ class DomainDefaultUserSettings(dict):
                  jupyter_server_app_settings: Optional['outputs.DomainDefaultUserSettingsJupyterServerAppSettings'] = None,
                  kernel_gateway_app_settings: Optional['outputs.DomainDefaultUserSettingsKernelGatewayAppSettings'] = None,
                  r_session_app_settings: Optional['outputs.DomainDefaultUserSettingsRSessionAppSettings'] = None,
+                 r_studio_server_pro_app_settings: Optional['outputs.DomainDefaultUserSettingsRStudioServerProAppSettings'] = None,
                  security_groups: Optional[Sequence[str]] = None,
                  sharing_settings: Optional['outputs.DomainDefaultUserSettingsSharingSettings'] = None,
                  tensor_board_app_settings: Optional['outputs.DomainDefaultUserSettingsTensorBoardAppSettings'] = None):
@@ -1940,6 +1949,7 @@ class DomainDefaultUserSettings(dict):
         :param 'DomainDefaultUserSettingsJupyterServerAppSettingsArgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
         :param 'DomainDefaultUserSettingsKernelGatewayAppSettingsArgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
         :param 'DomainDefaultUserSettingsRSessionAppSettingsArgs' r_session_app_settings: The RSession app settings. See RSession App Settings below.
+        :param 'DomainDefaultUserSettingsRStudioServerProAppSettingsArgs' r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
         :param Sequence[str] security_groups: A list of security group IDs that will be attached to the user.
         :param 'DomainDefaultUserSettingsSharingSettingsArgs' sharing_settings: The sharing settings. See Sharing Settings below.
         :param 'DomainDefaultUserSettingsTensorBoardAppSettingsArgs' tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
@@ -1953,6 +1963,8 @@ class DomainDefaultUserSettings(dict):
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
         if r_session_app_settings is not None:
             pulumi.set(__self__, "r_session_app_settings", r_session_app_settings)
+        if r_studio_server_pro_app_settings is not None:
+            pulumi.set(__self__, "r_studio_server_pro_app_settings", r_studio_server_pro_app_settings)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
         if sharing_settings is not None:
@@ -2001,6 +2013,14 @@ class DomainDefaultUserSettings(dict):
         return pulumi.get(self, "r_session_app_settings")
 
     @property
+    @pulumi.getter(name="rStudioServerProAppSettings")
+    def r_studio_server_pro_app_settings(self) -> Optional['outputs.DomainDefaultUserSettingsRStudioServerProAppSettings']:
+        """
+        A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+        """
+        return pulumi.get(self, "r_studio_server_pro_app_settings")
+
+    @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
@@ -2030,7 +2050,9 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "timeSeriesForecastingSettings":
+        if key == "modelRegisterSettings":
+            suggest = "model_register_settings"
+        elif key == "timeSeriesForecastingSettings":
             suggest = "time_series_forecasting_settings"
 
         if suggest:
@@ -2045,20 +2067,80 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 model_register_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings'] = None,
                  time_series_forecasting_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings'] = None):
         """
-        :param 'DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs' time_series_forecasting_settings: Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+        :param 'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs' model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        :param 'DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs' time_series_forecasting_settings: Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
         """
+        if model_register_settings is not None:
+            pulumi.set(__self__, "model_register_settings", model_register_settings)
         if time_series_forecasting_settings is not None:
             pulumi.set(__self__, "time_series_forecasting_settings", time_series_forecasting_settings)
+
+    @property
+    @pulumi.getter(name="modelRegisterSettings")
+    def model_register_settings(self) -> Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings']:
+        """
+        The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        """
+        return pulumi.get(self, "model_register_settings")
 
     @property
     @pulumi.getter(name="timeSeriesForecastingSettings")
     def time_series_forecasting_settings(self) -> Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings']:
         """
-        Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+        Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
         """
         return pulumi.get(self, "time_series_forecasting_settings")
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossAccountModelRegisterRoleArn":
+            suggest = "cross_account_model_register_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cross_account_model_register_role_arn: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        :param str cross_account_model_register_role_arn: The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+        :param str status: Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+        """
+        if cross_account_model_register_role_arn is not None:
+            pulumi.set(__self__, "cross_account_model_register_role_arn", cross_account_model_register_role_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="crossAccountModelRegisterRoleArn")
+    def cross_account_model_register_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+        """
+        return pulumi.get(self, "cross_account_model_register_role_arn")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -2681,6 +2763,56 @@ class DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec(dict):
 
 
 @pulumi.output_type
+class DomainDefaultUserSettingsRStudioServerProAppSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessStatus":
+            suggest = "access_status"
+        elif key == "userGroup":
+            suggest = "user_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsRStudioServerProAppSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultUserSettingsRStudioServerProAppSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultUserSettingsRStudioServerProAppSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_status: Optional[str] = None,
+                 user_group: Optional[str] = None):
+        """
+        :param str access_status: Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
+        :param str user_group: The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
+        """
+        if access_status is not None:
+            pulumi.set(__self__, "access_status", access_status)
+        if user_group is not None:
+            pulumi.set(__self__, "user_group", user_group)
+
+    @property
+    @pulumi.getter(name="accessStatus")
+    def access_status(self) -> Optional[str]:
+        """
+        Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "access_status")
+
+    @property
+    @pulumi.getter(name="userGroup")
+    def user_group(self) -> Optional[str]:
+        """
+        The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
+        """
+        return pulumi.get(self, "user_group")
+
+
+@pulumi.output_type
 class DomainDefaultUserSettingsSharingSettings(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2865,6 +2997,8 @@ class DomainDomainSettings(dict):
         suggest = None
         if key == "executionRoleIdentityConfig":
             suggest = "execution_role_identity_config"
+        elif key == "rStudioServerProDomainSettings":
+            suggest = "r_studio_server_pro_domain_settings"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
 
@@ -2881,13 +3015,17 @@ class DomainDomainSettings(dict):
 
     def __init__(__self__, *,
                  execution_role_identity_config: Optional[str] = None,
+                 r_studio_server_pro_domain_settings: Optional['outputs.DomainDomainSettingsRStudioServerProDomainSettings'] = None,
                  security_group_ids: Optional[Sequence[str]] = None):
         """
         :param str execution_role_identity_config: The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
+        :param 'DomainDomainSettingsRStudioServerProDomainSettingsArgs' r_studio_server_pro_domain_settings: A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
         :param Sequence[str] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
         if execution_role_identity_config is not None:
             pulumi.set(__self__, "execution_role_identity_config", execution_role_identity_config)
+        if r_studio_server_pro_domain_settings is not None:
+            pulumi.set(__self__, "r_studio_server_pro_domain_settings", r_studio_server_pro_domain_settings)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
 
@@ -2900,12 +3038,175 @@ class DomainDomainSettings(dict):
         return pulumi.get(self, "execution_role_identity_config")
 
     @property
+    @pulumi.getter(name="rStudioServerProDomainSettings")
+    def r_studio_server_pro_domain_settings(self) -> Optional['outputs.DomainDomainSettingsRStudioServerProDomainSettings']:
+        """
+        A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+        """
+        return pulumi.get(self, "r_studio_server_pro_domain_settings")
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
         """
         The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
         return pulumi.get(self, "security_group_ids")
+
+
+@pulumi.output_type
+class DomainDomainSettingsRStudioServerProDomainSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainExecutionRoleArn":
+            suggest = "domain_execution_role_arn"
+        elif key == "defaultResourceSpec":
+            suggest = "default_resource_spec"
+        elif key == "rStudioConnectUrl":
+            suggest = "r_studio_connect_url"
+        elif key == "rStudioPackageManagerUrl":
+            suggest = "r_studio_package_manager_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDomainSettingsRStudioServerProDomainSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDomainSettingsRStudioServerProDomainSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDomainSettingsRStudioServerProDomainSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_execution_role_arn: str,
+                 default_resource_spec: Optional['outputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec'] = None,
+                 r_studio_connect_url: Optional[str] = None,
+                 r_studio_package_manager_url: Optional[str] = None):
+        """
+        :param str domain_execution_role_arn: The ARN of the execution role for the RStudioServerPro Domain-level app.
+        :param 'DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param str r_studio_connect_url: A URL pointing to an RStudio Connect server.
+        :param str r_studio_package_manager_url: A URL pointing to an RStudio Package Manager server.
+        """
+        pulumi.set(__self__, "domain_execution_role_arn", domain_execution_role_arn)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if r_studio_connect_url is not None:
+            pulumi.set(__self__, "r_studio_connect_url", r_studio_connect_url)
+        if r_studio_package_manager_url is not None:
+            pulumi.set(__self__, "r_studio_package_manager_url", r_studio_package_manager_url)
+
+    @property
+    @pulumi.getter(name="domainExecutionRoleArn")
+    def domain_execution_role_arn(self) -> str:
+        """
+        The ARN of the execution role for the RStudioServerPro Domain-level app.
+        """
+        return pulumi.get(self, "domain_execution_role_arn")
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional['outputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec']:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @property
+    @pulumi.getter(name="rStudioConnectUrl")
+    def r_studio_connect_url(self) -> Optional[str]:
+        """
+        A URL pointing to an RStudio Connect server.
+        """
+        return pulumi.get(self, "r_studio_connect_url")
+
+    @property
+    @pulumi.getter(name="rStudioPackageManagerUrl")
+    def r_studio_package_manager_url(self) -> Optional[str]:
+        """
+        A URL pointing to an RStudio Package Manager server.
+        """
+        return pulumi.get(self, "r_studio_package_manager_url")
+
+
+@pulumi.output_type
+class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "lifecycleConfigArn":
+            suggest = "lifecycle_config_arn"
+        elif key == "sagemakerImageArn":
+            suggest = "sagemaker_image_arn"
+        elif key == "sagemakerImageVersionArn":
+            suggest = "sagemaker_image_version_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: Optional[str] = None,
+                 lifecycle_config_arn: Optional[str] = None,
+                 sagemaker_image_arn: Optional[str] = None,
+                 sagemaker_image_version_arn: Optional[str] = None):
+        """
+        :param str instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param str lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        :param str sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param str sagemaker_image_version_arn: The ARN of the image version created on the instance.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if lifecycle_config_arn is not None:
+            pulumi.set(__self__, "lifecycle_config_arn", lifecycle_config_arn)
+        if sagemaker_image_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_arn", sagemaker_image_arn)
+        if sagemaker_image_version_arn is not None:
+            pulumi.set(__self__, "sagemaker_image_version_arn", sagemaker_image_version_arn)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        """
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArn")
+    def lifecycle_config_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        """
+        return pulumi.get(self, "lifecycle_config_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageArn")
+    def sagemaker_image_arn(self) -> Optional[str]:
+        """
+        The ARN of the SageMaker image that the image version belongs to.
+        """
+        return pulumi.get(self, "sagemaker_image_arn")
+
+    @property
+    @pulumi.getter(name="sagemakerImageVersionArn")
+    def sagemaker_image_version_arn(self) -> Optional[str]:
+        """
+        The ARN of the image version created on the instance.
+        """
+        return pulumi.get(self, "sagemaker_image_version_arn")
 
 
 @pulumi.output_type
@@ -3040,6 +3341,8 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
             suggest = "kms_key_id"
         elif key == "notificationConfig":
             suggest = "notification_config"
+        elif key == "s3FailurePath":
+            suggest = "s3_failure_path"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointConfigurationAsyncInferenceConfigOutputConfig. Access the value via the '{suggest}' property getter instead.")
@@ -3055,17 +3358,21 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
     def __init__(__self__, *,
                  s3_output_path: str,
                  kms_key_id: Optional[str] = None,
-                 notification_config: Optional['outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig'] = None):
+                 notification_config: Optional['outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig'] = None,
+                 s3_failure_path: Optional[str] = None):
         """
         :param str s3_output_path: The Amazon S3 location to upload inference responses to.
         :param str kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
         :param 'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs' notification_config: Specifies the configuration for notifications of inference results for asynchronous inference.
+        :param str s3_failure_path: The Amazon S3 location to upload failure inference responses to.
         """
         pulumi.set(__self__, "s3_output_path", s3_output_path)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if notification_config is not None:
             pulumi.set(__self__, "notification_config", notification_config)
+        if s3_failure_path is not None:
+            pulumi.set(__self__, "s3_failure_path", s3_failure_path)
 
     @property
     @pulumi.getter(name="s3OutputPath")
@@ -3091,6 +3398,14 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
         """
         return pulumi.get(self, "notification_config")
 
+    @property
+    @pulumi.getter(name="s3FailurePath")
+    def s3_failure_path(self) -> Optional[str]:
+        """
+        The Amazon S3 location to upload failure inference responses to.
+        """
+        return pulumi.get(self, "s3_failure_path")
+
 
 @pulumi.output_type
 class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(dict):
@@ -3099,6 +3414,8 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(di
         suggest = None
         if key == "errorTopic":
             suggest = "error_topic"
+        elif key == "includeInferenceResponseIns":
+            suggest = "include_inference_response_ins"
         elif key == "successTopic":
             suggest = "success_topic"
 
@@ -3115,13 +3432,17 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(di
 
     def __init__(__self__, *,
                  error_topic: Optional[str] = None,
+                 include_inference_response_ins: Optional[Sequence[str]] = None,
                  success_topic: Optional[str] = None):
         """
         :param str error_topic: Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+        :param Sequence[str] include_inference_response_ins: The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
         :param str success_topic: Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
         """
         if error_topic is not None:
             pulumi.set(__self__, "error_topic", error_topic)
+        if include_inference_response_ins is not None:
+            pulumi.set(__self__, "include_inference_response_ins", include_inference_response_ins)
         if success_topic is not None:
             pulumi.set(__self__, "success_topic", success_topic)
 
@@ -3132,6 +3453,14 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(di
         Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
         """
         return pulumi.get(self, "error_topic")
+
+    @property
+    @pulumi.getter(name="includeInferenceResponseIns")
+    def include_inference_response_ins(self) -> Optional[Sequence[str]]:
+        """
+        The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+        """
+        return pulumi.get(self, "include_inference_response_ins")
 
     @property
     @pulumi.getter(name="successTopic")
@@ -6083,6 +6412,8 @@ class UserProfileUserSettings(dict):
             suggest = "kernel_gateway_app_settings"
         elif key == "rSessionAppSettings":
             suggest = "r_session_app_settings"
+        elif key == "rStudioServerProAppSettings":
+            suggest = "r_studio_server_pro_app_settings"
         elif key == "securityGroups":
             suggest = "security_groups"
         elif key == "sharingSettings":
@@ -6107,6 +6438,7 @@ class UserProfileUserSettings(dict):
                  jupyter_server_app_settings: Optional['outputs.UserProfileUserSettingsJupyterServerAppSettings'] = None,
                  kernel_gateway_app_settings: Optional['outputs.UserProfileUserSettingsKernelGatewayAppSettings'] = None,
                  r_session_app_settings: Optional['outputs.UserProfileUserSettingsRSessionAppSettings'] = None,
+                 r_studio_server_pro_app_settings: Optional['outputs.UserProfileUserSettingsRStudioServerProAppSettings'] = None,
                  security_groups: Optional[Sequence[str]] = None,
                  sharing_settings: Optional['outputs.UserProfileUserSettingsSharingSettings'] = None,
                  tensor_board_app_settings: Optional['outputs.UserProfileUserSettingsTensorBoardAppSettings'] = None):
@@ -6116,6 +6448,7 @@ class UserProfileUserSettings(dict):
         :param 'UserProfileUserSettingsJupyterServerAppSettingsArgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
         :param 'UserProfileUserSettingsKernelGatewayAppSettingsArgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
         :param 'UserProfileUserSettingsRSessionAppSettingsArgs' r_session_app_settings: The RSession app settings. See RSession App Settings below.
+        :param 'UserProfileUserSettingsRStudioServerProAppSettingsArgs' r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
         :param Sequence[str] security_groups: The security groups.
         :param 'UserProfileUserSettingsSharingSettingsArgs' sharing_settings: The sharing settings. See Sharing Settings below.
         :param 'UserProfileUserSettingsTensorBoardAppSettingsArgs' tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
@@ -6129,6 +6462,8 @@ class UserProfileUserSettings(dict):
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
         if r_session_app_settings is not None:
             pulumi.set(__self__, "r_session_app_settings", r_session_app_settings)
+        if r_studio_server_pro_app_settings is not None:
+            pulumi.set(__self__, "r_studio_server_pro_app_settings", r_studio_server_pro_app_settings)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
         if sharing_settings is not None:
@@ -6177,6 +6512,14 @@ class UserProfileUserSettings(dict):
         return pulumi.get(self, "r_session_app_settings")
 
     @property
+    @pulumi.getter(name="rStudioServerProAppSettings")
+    def r_studio_server_pro_app_settings(self) -> Optional['outputs.UserProfileUserSettingsRStudioServerProAppSettings']:
+        """
+        A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+        """
+        return pulumi.get(self, "r_studio_server_pro_app_settings")
+
+    @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
@@ -6206,7 +6549,9 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "timeSeriesForecastingSettings":
+        if key == "modelRegisterSettings":
+            suggest = "model_register_settings"
+        elif key == "timeSeriesForecastingSettings":
             suggest = "time_series_forecasting_settings"
 
         if suggest:
@@ -6221,12 +6566,24 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 model_register_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings'] = None,
                  time_series_forecasting_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings'] = None):
         """
+        :param 'UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs' model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
         :param 'UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs' time_series_forecasting_settings: Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
         """
+        if model_register_settings is not None:
+            pulumi.set(__self__, "model_register_settings", model_register_settings)
         if time_series_forecasting_settings is not None:
             pulumi.set(__self__, "time_series_forecasting_settings", time_series_forecasting_settings)
+
+    @property
+    @pulumi.getter(name="modelRegisterSettings")
+    def model_register_settings(self) -> Optional['outputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings']:
+        """
+        The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        """
+        return pulumi.get(self, "model_register_settings")
 
     @property
     @pulumi.getter(name="timeSeriesForecastingSettings")
@@ -6235,6 +6592,54 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
         Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
         """
         return pulumi.get(self, "time_series_forecasting_settings")
+
+
+@pulumi.output_type
+class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossAccountModelRegisterRoleArn":
+            suggest = "cross_account_model_register_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cross_account_model_register_role_arn: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        :param str cross_account_model_register_role_arn: The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+        :param str status: Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+        """
+        if cross_account_model_register_role_arn is not None:
+            pulumi.set(__self__, "cross_account_model_register_role_arn", cross_account_model_register_role_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="crossAccountModelRegisterRoleArn")
+    def cross_account_model_register_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
+        """
+        return pulumi.get(self, "cross_account_model_register_role_arn")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -6854,6 +7259,56 @@ class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec(dict):
         The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_version_arn")
+
+
+@pulumi.output_type
+class UserProfileUserSettingsRStudioServerProAppSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessStatus":
+            suggest = "access_status"
+        elif key == "userGroup":
+            suggest = "user_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsRStudioServerProAppSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileUserSettingsRStudioServerProAppSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileUserSettingsRStudioServerProAppSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_status: Optional[str] = None,
+                 user_group: Optional[str] = None):
+        """
+        :param str access_status: Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
+        :param str user_group: The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
+        """
+        if access_status is not None:
+            pulumi.set(__self__, "access_status", access_status)
+        if user_group is not None:
+            pulumi.set(__self__, "user_group", user_group)
+
+    @property
+    @pulumi.getter(name="accessStatus")
+    def access_status(self) -> Optional[str]:
+        """
+        Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "access_status")
+
+    @property
+    @pulumi.getter(name="userGroup")
+    def user_group(self) -> Optional[str]:
+        """
+        The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
+        """
+        return pulumi.get(self, "user_group")
 
 
 @pulumi.output_type

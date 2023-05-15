@@ -44,6 +44,11 @@ export const getOrganizationalUnits: typeof import("./getOrganizationalUnits").g
 export const getOrganizationalUnitsOutput: typeof import("./getOrganizationalUnits").getOrganizationalUnitsOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganizationalUnits","getOrganizationalUnitsOutput"], () => require("./getOrganizationalUnits"));
 
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+
 export { GetResourceTagsArgs, GetResourceTagsResult, GetResourceTagsOutputArgs } from "./getResourceTags";
 export const getResourceTags: typeof import("./getResourceTags").getResourceTags = null as any;
 export const getResourceTagsOutput: typeof import("./getResourceTags").getResourceTagsOutput = null as any;

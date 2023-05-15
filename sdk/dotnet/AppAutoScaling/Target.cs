@@ -12,6 +12,8 @@ namespace Pulumi.Aws.AppAutoScaling
     /// <summary>
     /// Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the `aws.appautoscaling.Policy` resource.
     /// 
+    /// &gt; **NOTE:** Scalable targets created before 2023-03-20 may not have an assigned `arn`. These resource cannot use `tags` or participate in `default_tags`. To prevent `pulumi preview` showing differences that can never be reconciled, use the `lifecycle.ignore_changes` meta-argument. See the example below.
+    /// 
     /// &gt; **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the `aws.iam.ServiceLinkedRole` resource.
     /// 
     /// ## Example Usage
@@ -99,6 +101,27 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// });
     /// ```
+    /// ### Suppressing `tags_all` Differences For Older Resources
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
+    ///     {
+    ///         MaxCapacity = 4,
+    ///         MinCapacity = 1,
+    ///         ResourceId = $"service/{aws_ecs_cluster.Example.Name}/{aws_ecs_service.Example.Name}",
+    ///         ScalableDimension = "ecs:service:DesiredCount",
+    ///         ServiceNamespace = "ecs",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### MSK / Kafka Autoscaling
     /// 
     /// ```csharp
@@ -132,6 +155,12 @@ namespace Pulumi.Aws.AppAutoScaling
     [AwsResourceType("aws:appautoscaling/target:Target")]
     public partial class Target : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the scalable target.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// Max capacity of the scalable target.
         /// </summary>
@@ -167,6 +196,18 @@ namespace Pulumi.Aws.AppAutoScaling
         /// </summary>
         [Output("serviceNamespace")]
         public Output<string> ServiceNamespace { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -250,6 +291,18 @@ namespace Pulumi.Aws.AppAutoScaling
         [Input("serviceNamespace", required: true)]
         public Input<string> ServiceNamespace { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public TargetArgs()
         {
         }
@@ -258,6 +311,12 @@ namespace Pulumi.Aws.AppAutoScaling
 
     public sealed class TargetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the scalable target.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Max capacity of the scalable target.
         /// </summary>
@@ -293,6 +352,30 @@ namespace Pulumi.Aws.AppAutoScaling
         /// </summary>
         [Input("serviceNamespace")]
         public Input<string>? ServiceNamespace { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         public TargetState()
         {

@@ -27,20 +27,32 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         /// <summary>
         /// Name of the metric.
         /// </summary>
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
+        [Input("metricName")]
+        public Input<string>? MetricName { get; set; }
+
+        [Input("metrics")]
+        private InputList<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricGetArgs>? _metrics;
+
+        /// <summary>
+        /// Metrics to include, as a metric data query.
+        /// </summary>
+        public InputList<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricGetArgs> Metrics
+        {
+            get => _metrics ?? (_metrics = new InputList<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricGetArgs>());
+            set => _metrics = value;
+        }
 
         /// <summary>
         /// Namespace of the metric.
         /// </summary>
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
+        [Input("namespace")]
+        public Input<string>? Namespace { get; set; }
 
         /// <summary>
         /// Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
         /// </summary>
-        [Input("statistic", required: true)]
-        public Input<string> Statistic { get; set; } = null!;
+        [Input("statistic")]
+        public Input<string>? Statistic { get; set; }
 
         /// <summary>
         /// Unit of the metric.

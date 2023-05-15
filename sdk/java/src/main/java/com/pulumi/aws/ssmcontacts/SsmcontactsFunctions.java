@@ -21,7 +21,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class SsmcontactsFunctions {
     /**
-     * TODO data source for managing an AWS SSM Contact.
+     * Data source for managing an AWS SSM Contact.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -59,7 +59,7 @@ public final class SsmcontactsFunctions {
         return getContact(args, InvokeOptions.Empty);
     }
     /**
-     * TODO data source for managing an AWS SSM Contact.
+     * Data source for managing an AWS SSM Contact.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -97,7 +97,7 @@ public final class SsmcontactsFunctions {
         return getContactPlain(args, InvokeOptions.Empty);
     }
     /**
-     * TODO data source for managing an AWS SSM Contact.
+     * Data source for managing an AWS SSM Contact.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -135,7 +135,7 @@ public final class SsmcontactsFunctions {
         return Deployment.getInstance().invoke("aws:ssmcontacts/getContact:getContact", TypeShape.of(GetContactResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * TODO data source for managing an AWS SSM Contact.
+     * Data source for managing an AWS SSM Contact.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -173,7 +173,7 @@ public final class SsmcontactsFunctions {
         return Deployment.getInstance().invokeAsync("aws:ssmcontacts/getContact:getContact", TypeShape.of(GetContactResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * TODO data source for managing an AWS SSM Contacts Contact Channel.
+     * Data source for managing an AWS SSM Contacts Contact Channel.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -211,7 +211,7 @@ public final class SsmcontactsFunctions {
         return getContactChannel(args, InvokeOptions.Empty);
     }
     /**
-     * TODO data source for managing an AWS SSM Contacts Contact Channel.
+     * Data source for managing an AWS SSM Contacts Contact Channel.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -249,7 +249,7 @@ public final class SsmcontactsFunctions {
         return getContactChannelPlain(args, InvokeOptions.Empty);
     }
     /**
-     * TODO data source for managing an AWS SSM Contacts Contact Channel.
+     * Data source for managing an AWS SSM Contacts Contact Channel.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -287,7 +287,7 @@ public final class SsmcontactsFunctions {
         return Deployment.getInstance().invoke("aws:ssmcontacts/getContactChannel:getContactChannel", TypeShape.of(GetContactChannelResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * TODO data source for managing an AWS SSM Contacts Contact Channel.
+     * Data source for managing an AWS SSM Contacts Contact Channel.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -325,7 +325,7 @@ public final class SsmcontactsFunctions {
         return Deployment.getInstance().invokeAsync("aws:ssmcontacts/getContactChannel:getContactChannel", TypeShape.of(GetContactChannelResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * TODO data source for managing a Plan of an AWS SSM Contact.
+     * Data source for managing a Plan of an AWS SSM Contact.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -363,7 +363,7 @@ public final class SsmcontactsFunctions {
         return getPlan(args, InvokeOptions.Empty);
     }
     /**
-     * TODO data source for managing a Plan of an AWS SSM Contact.
+     * Data source for managing a Plan of an AWS SSM Contact.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -401,7 +401,7 @@ public final class SsmcontactsFunctions {
         return getPlanPlain(args, InvokeOptions.Empty);
     }
     /**
-     * TODO data source for managing a Plan of an AWS SSM Contact.
+     * Data source for managing a Plan of an AWS SSM Contact.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -439,7 +439,7 @@ public final class SsmcontactsFunctions {
         return Deployment.getInstance().invoke("aws:ssmcontacts/getPlan:getPlan", TypeShape.of(GetPlanResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * TODO data source for managing a Plan of an AWS SSM Contact.
+     * Data source for managing a Plan of an AWS SSM Contact.
      * 
      * ## Example Usage
      * ### Basic Usage

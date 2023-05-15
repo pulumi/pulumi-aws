@@ -27,10 +27,10 @@ class DataSetArgs:
                  logical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPermissionArgs']]]] = None,
+                 refresh_properties: Optional[pulumi.Input['DataSetRefreshPropertiesArgs']] = None,
                  row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DataSet resource.
         :param pulumi.Input[str] data_set_id: Identifier for the data set.
@@ -44,10 +44,10 @@ class DataSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapArgs']]] logical_table_maps: Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
         :param pulumi.Input[str] name: Display name for the dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetPermissionArgs']]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+        :param pulumi.Input['DataSetRefreshPropertiesArgs'] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
         :param pulumi.Input['DataSetRowLevelPermissionDataSetArgs'] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         :param pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs'] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "data_set_id", data_set_id)
         pulumi.set(__self__, "import_mode", import_mode)
@@ -68,14 +68,14 @@ class DataSetArgs:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if refresh_properties is not None:
+            pulumi.set(__self__, "refresh_properties", refresh_properties)
         if row_level_permission_data_set is not None:
             pulumi.set(__self__, "row_level_permission_data_set", row_level_permission_data_set)
         if row_level_permission_tag_configuration is not None:
             pulumi.set(__self__, "row_level_permission_tag_configuration", row_level_permission_tag_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="dataSetId")
@@ -210,6 +210,18 @@ class DataSetArgs:
         pulumi.set(self, "permissions", value)
 
     @property
+    @pulumi.getter(name="refreshProperties")
+    def refresh_properties(self) -> Optional[pulumi.Input['DataSetRefreshPropertiesArgs']]:
+        """
+        The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+        """
+        return pulumi.get(self, "refresh_properties")
+
+    @refresh_properties.setter
+    def refresh_properties(self, value: Optional[pulumi.Input['DataSetRefreshPropertiesArgs']]):
+        pulumi.set(self, "refresh_properties", value)
+
+    @property
     @pulumi.getter(name="rowLevelPermissionDataSet")
     def row_level_permission_data_set(self) -> Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']]:
         """
@@ -245,18 +257,6 @@ class DataSetArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
 
 @pulumi.input_type
 class _DataSetState:
@@ -271,8 +271,10 @@ class _DataSetState:
                  import_mode: Optional[pulumi.Input[str]] = None,
                  logical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 output_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetOutputColumnArgs']]]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPermissionArgs']]]] = None,
                  physical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]]] = None,
+                 refresh_properties: Optional[pulumi.Input['DataSetRefreshPropertiesArgs']] = None,
                  row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -291,6 +293,7 @@ class _DataSetState:
         :param pulumi.Input[str] name: Display name for the dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetPermissionArgs']]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        :param pulumi.Input['DataSetRefreshPropertiesArgs'] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
         :param pulumi.Input['DataSetRowLevelPermissionDataSetArgs'] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         :param pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs'] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -316,10 +319,14 @@ class _DataSetState:
             pulumi.set(__self__, "logical_table_maps", logical_table_maps)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if output_columns is not None:
+            pulumi.set(__self__, "output_columns", output_columns)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if physical_table_maps is not None:
             pulumi.set(__self__, "physical_table_maps", physical_table_maps)
+        if refresh_properties is not None:
+            pulumi.set(__self__, "refresh_properties", refresh_properties)
         if row_level_permission_data_set is not None:
             pulumi.set(__self__, "row_level_permission_data_set", row_level_permission_data_set)
         if row_level_permission_tag_configuration is not None:
@@ -450,6 +457,15 @@ class _DataSetState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="outputColumns")
+    def output_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetOutputColumnArgs']]]]:
+        return pulumi.get(self, "output_columns")
+
+    @output_columns.setter
+    def output_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetOutputColumnArgs']]]]):
+        pulumi.set(self, "output_columns", value)
+
+    @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPermissionArgs']]]]:
         """
@@ -472,6 +488,18 @@ class _DataSetState:
     @physical_table_maps.setter
     def physical_table_maps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]]]):
         pulumi.set(self, "physical_table_maps", value)
+
+    @property
+    @pulumi.getter(name="refreshProperties")
+    def refresh_properties(self) -> Optional[pulumi.Input['DataSetRefreshPropertiesArgs']]:
+        """
+        The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+        """
+        return pulumi.get(self, "refresh_properties")
+
+    @refresh_properties.setter
+    def refresh_properties(self, value: Optional[pulumi.Input['DataSetRefreshPropertiesArgs']]):
+        pulumi.set(self, "refresh_properties", value)
 
     @property
     @pulumi.getter(name="rowLevelPermissionDataSet")
@@ -538,10 +566,10 @@ class DataSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPermissionArgs']]]]] = None,
                  physical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]]]] = None,
+                 refresh_properties: Optional[pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource for managing a QuickSight Data Set.
@@ -712,10 +740,10 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: Display name for the dataset.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPermissionArgs']]]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        :param pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
         :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -905,10 +933,10 @@ class DataSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPermissionArgs']]]]] = None,
                  physical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]]]] = None,
+                 refresh_properties: Optional[pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -935,11 +963,13 @@ class DataSet(pulumi.CustomResource):
             if physical_table_maps is None and not opts.urn:
                 raise TypeError("Missing required property 'physical_table_maps'")
             __props__.__dict__["physical_table_maps"] = physical_table_maps
+            __props__.__dict__["refresh_properties"] = refresh_properties
             __props__.__dict__["row_level_permission_data_set"] = row_level_permission_data_set
             __props__.__dict__["row_level_permission_tag_configuration"] = row_level_permission_tag_configuration
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
+            __props__.__dict__["output_columns"] = None
+            __props__.__dict__["tags_all"] = None
         super(DataSet, __self__).__init__(
             'aws:quicksight/dataSet:DataSet',
             resource_name,
@@ -960,8 +990,10 @@ class DataSet(pulumi.CustomResource):
             import_mode: Optional[pulumi.Input[str]] = None,
             logical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetLogicalTableMapArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            output_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetOutputColumnArgs']]]]] = None,
             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPermissionArgs']]]]] = None,
             physical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]]]] = None,
+            refresh_properties: Optional[pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']]] = None,
             row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
             row_level_permission_tag_configuration: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -985,6 +1017,7 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: Display name for the dataset.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPermissionArgs']]]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        :param pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
         :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1004,8 +1037,10 @@ class DataSet(pulumi.CustomResource):
         __props__.__dict__["import_mode"] = import_mode
         __props__.__dict__["logical_table_maps"] = logical_table_maps
         __props__.__dict__["name"] = name
+        __props__.__dict__["output_columns"] = output_columns
         __props__.__dict__["permissions"] = permissions
         __props__.__dict__["physical_table_maps"] = physical_table_maps
+        __props__.__dict__["refresh_properties"] = refresh_properties
         __props__.__dict__["row_level_permission_data_set"] = row_level_permission_data_set
         __props__.__dict__["row_level_permission_tag_configuration"] = row_level_permission_tag_configuration
         __props__.__dict__["tags"] = tags
@@ -1093,6 +1128,11 @@ class DataSet(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="outputColumns")
+    def output_columns(self) -> pulumi.Output[Sequence['outputs.DataSetOutputColumn']]:
+        return pulumi.get(self, "output_columns")
+
+    @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetPermission']]]:
         """
@@ -1107,6 +1147,14 @@ class DataSet(pulumi.CustomResource):
         Declares the physical tables that are available in the underlying data sources. See physical_table_map.
         """
         return pulumi.get(self, "physical_table_maps")
+
+    @property
+    @pulumi.getter(name="refreshProperties")
+    def refresh_properties(self) -> pulumi.Output[Optional['outputs.DataSetRefreshProperties']]:
+        """
+        The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
+        """
+        return pulumi.get(self, "refresh_properties")
 
     @property
     @pulumi.getter(name="rowLevelPermissionDataSet")

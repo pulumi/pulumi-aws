@@ -57,7 +57,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+        /// The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.DocDB
     public sealed class ClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+        /// The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -192,18 +192,6 @@ namespace Pulumi.Aws.DocDB
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public ClusterParameterGroupArgs()
         {
         }
@@ -219,7 +207,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The description of the DocumentDB cluster parameter group. Defaults to "Managed by TODO".
+        /// The description of the DocumentDB cluster parameter group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

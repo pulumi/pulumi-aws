@@ -205,6 +205,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> ClientToken { get; private set; } = null!;
 
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [Output("context")]
+        public Output<string?> Context { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether running Spot
         /// instances should be terminated if the target capacity of the Spot fleet
         /// request is decreased below the current size of the Spot fleet.
@@ -429,6 +435,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AllocationStrategy { get; set; }
 
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [Input("context")]
+        public Input<string>? Context { get; set; }
+
+        /// <summary>
         /// Indicates whether running Spot
         /// instances should be terminated if the target capacity of the Spot fleet
         /// request is decreased below the current size of the Spot fleet.
@@ -555,18 +567,6 @@ namespace Pulumi.Aws.Ec2
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// The number of units to request. You can choose to set the
         /// target capacity in terms of instances or a performance characteristic that is
@@ -646,6 +646,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
+
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [Input("context")]
+        public Input<string>? Context { get; set; }
 
         /// <summary>
         /// Indicates whether running Spot

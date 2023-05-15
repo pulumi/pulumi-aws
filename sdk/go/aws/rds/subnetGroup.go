@@ -61,7 +61,7 @@ type SubnetGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the DB subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+	// The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
@@ -116,7 +116,7 @@ type subnetGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// The description of the DB subnet group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
-	// The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+	// The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -137,7 +137,7 @@ type SubnetGroupState struct {
 	Arn pulumi.StringPtrInput
 	// The description of the DB subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	// The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+	// The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -160,7 +160,7 @@ func (SubnetGroupState) ElementType() reflect.Type {
 type subnetGroupArgs struct {
 	// The description of the DB subnet group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
-	// The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+	// The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -168,15 +168,13 @@ type subnetGroupArgs struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
 	// The description of the DB subnet group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	// The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+	// The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -184,8 +182,6 @@ type SubnetGroupArgs struct {
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (SubnetGroupArgs) ElementType() reflect.Type {
@@ -285,7 +281,7 @@ func (o SubnetGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The name of the DB subnet group. If omitted, this provider will assign a random, unique name.
+// The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
 func (o SubnetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -106,9 +106,13 @@ import javax.annotation.Nullable;
  *             .includeFilters(            
  *                 MetricStreamIncludeFilterArgs.builder()
  *                     .namespace(&#34;AWS/EC2&#34;)
+ *                     .metricNames(                    
+ *                         &#34;CPUUtilization&#34;,
+ *                         &#34;NetworkOut&#34;)
  *                     .build(),
  *                 MetricStreamIncludeFilterArgs.builder()
  *                     .namespace(&#34;AWS/EBS&#34;)
+ *                     .metricNames()
  *                     .build())
  *             .build());
  * 
@@ -246,14 +250,14 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
         return this.creationDate;
     }
     /**
-     * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+     * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
      * 
      */
     @Export(name="excludeFilters", refs={List.class,MetricStreamExcludeFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MetricStreamExcludeFilter>> excludeFilters;
 
     /**
-     * @return List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `include_filter`.
+     * @return List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
      * 
      */
     public Output<Optional<List<MetricStreamExcludeFilter>>> excludeFilters() {
@@ -274,14 +278,14 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
         return this.firehoseArn;
     }
     /**
-     * List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+     * List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
      * 
      */
     @Export(name="includeFilters", refs={List.class,MetricStreamIncludeFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<MetricStreamIncludeFilter>> includeFilters;
 
     /**
-     * @return List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `exclude_filter`.
+     * @return List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
      * 
      */
     public Output<Optional<List<MetricStreamIncludeFilter>>> includeFilters() {

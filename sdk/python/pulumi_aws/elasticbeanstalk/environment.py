@@ -25,7 +25,6 @@ class EnvironmentArgs:
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -51,7 +50,6 @@ class EnvironmentArgs:
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your environment
                off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] template_name: The name of the Elastic Beanstalk Configuration
                template to use in deployment
         :param pulumi.Input[str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
@@ -80,8 +78,6 @@ class EnvironmentArgs:
             pulumi.set(__self__, "solution_stack_name", solution_stack_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if template_name is not None:
             pulumi.set(__self__, "template_name", template_name)
         if tier is not None:
@@ -208,18 +204,6 @@ class EnvironmentArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="templateName")
@@ -714,7 +698,6 @@ class Environment(pulumi.CustomResource):
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -804,7 +787,6 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your environment
                off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] template_name: The name of the Elastic Beanstalk Configuration
                template to use in deployment
         :param pulumi.Input[str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
@@ -909,7 +891,6 @@ class Environment(pulumi.CustomResource):
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -934,7 +915,6 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["settings"] = settings
             __props__.__dict__["solution_stack_name"] = solution_stack_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["template_name"] = template_name
             __props__.__dict__["tier"] = tier
             __props__.__dict__["version"] = version
@@ -948,6 +928,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["launch_configurations"] = None
             __props__.__dict__["load_balancers"] = None
             __props__.__dict__["queues"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["triggers"] = None
         super(Environment, __self__).__init__(
             'aws:elasticbeanstalk/environment:Environment',

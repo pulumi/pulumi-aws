@@ -18,8 +18,7 @@ class RepositoryAssociationArgs:
     def __init__(__self__, *,
                  repository: pulumi.Input['RepositoryAssociationRepositoryArgs'],
                  kms_key_details: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RepositoryAssociation resource.
         :param pulumi.Input['RepositoryAssociationRepositoryArgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
@@ -30,8 +29,6 @@ class RepositoryAssociationArgs:
             pulumi.set(__self__, "kms_key_details", kms_key_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -65,15 +62,6 @@ class RepositoryAssociationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -288,7 +276,6 @@ class RepositoryAssociation(pulumi.CustomResource):
                  kms_key_details: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArgs']]] = None,
                  repository: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CodeGuru Reviewer Repository Association.
@@ -365,7 +352,6 @@ class RepositoryAssociation(pulumi.CustomResource):
                  kms_key_details: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArgs']]] = None,
                  repository: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -380,7 +366,6 @@ class RepositoryAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["association_id"] = None
             __props__.__dict__["connection_arn"] = None
@@ -390,6 +375,7 @@ class RepositoryAssociation(pulumi.CustomResource):
             __props__.__dict__["s3_repository_details"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["state_reason"] = None
+            __props__.__dict__["tags_all"] = None
         super(RepositoryAssociation, __self__).__init__(
             'aws:codegurureviewer/repositoryAssociation:RepositoryAssociation',
             resource_name,

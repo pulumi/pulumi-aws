@@ -54,7 +54,7 @@ public final class ServerCertificateArgs extends com.pulumi.resources.ResourceAr
 
     /**
      * The name of the Server Certificate. Do not include the
-     * path in this value. If omitted, this provider will assign a random, unique name.
+     * path in this value. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
@@ -62,7 +62,7 @@ public final class ServerCertificateArgs extends com.pulumi.resources.ResourceAr
 
     /**
      * @return The name of the Server Certificate. Do not include the
-     * path in this value. If omitted, this provider will assign a random, unique name.
+     * path in this value. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -137,21 +137,6 @@ public final class ServerCertificateArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     private ServerCertificateArgs() {}
 
     private ServerCertificateArgs(ServerCertificateArgs $) {
@@ -162,7 +147,6 @@ public final class ServerCertificateArgs extends com.pulumi.resources.ResourceAr
         this.path = $.path;
         this.privateKey = $.privateKey;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -233,7 +217,7 @@ public final class ServerCertificateArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param name The name of the Server Certificate. Do not include the
-         * path in this value. If omitted, this provider will assign a random, unique name.
+         * path in this value. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -245,7 +229,7 @@ public final class ServerCertificateArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param name The name of the Server Certificate. Do not include the
-         * path in this value. If omitted, this provider will assign a random, unique name.
+         * path in this value. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -344,27 +328,6 @@ public final class ServerCertificateArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         public ServerCertificateArgs build() {

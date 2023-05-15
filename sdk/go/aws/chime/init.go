@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain":
+		r = &SdkvoiceVoiceProfileDomain{}
 	case "aws:chime/voiceConnector:VoiceConnector":
 		r = &VoiceConnector{}
 	case "aws:chime/voiceConnectorGroup:VoiceConnectorGroup":
@@ -48,6 +50,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"chime/sdkvoiceVoiceProfileDomain",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"chime/voiceConnector",

@@ -41,9 +41,9 @@ import (
 //						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
-//								Type: "*",
+//								Type: "AWS",
 //								Identifiers: []string{
-//									"*",
+//									"123456789012",
 //								},
 //							},
 //						},

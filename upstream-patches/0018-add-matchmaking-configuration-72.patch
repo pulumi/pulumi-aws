@@ -1,7 +1,7 @@
-From 7147d4f0a7fd7733a35cddb7ae5d0878117efeae Mon Sep 17 00:00:00 2001
+From eeb2132cb072dadb31aa0f14531bdeb814c13276 Mon Sep 17 00:00:00 2001
 From: Lee Briggs <jaxxstorm@users.noreply.github.com>
 Date: Wed, 21 Dec 2022 12:23:59 -0800
-Subject: [PATCH 18/27] add matchmaking configuration (#72)
+Subject: [PATCH 18/28] add matchmaking configuration (#72)
 
 * add matchmaking configuration
 * add matchmaking rule set

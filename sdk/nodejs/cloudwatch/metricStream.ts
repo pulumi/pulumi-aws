@@ -54,9 +54,14 @@ import * as utilities from "../utilities";
  *     includeFilters: [
  *         {
  *             namespace: "AWS/EC2",
+ *             metricNames: [
+ *                 "CPUUtilization",
+ *                 "NetworkOut",
+ *             ],
  *         },
  *         {
  *             namespace: "AWS/EBS",
+ *             metricNames: [],
  *         },
  *     ],
  * });
@@ -177,7 +182,7 @@ export class MetricStream extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
-     * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
+     * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
      */
     public readonly excludeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamExcludeFilter[] | undefined>;
     /**
@@ -185,7 +190,7 @@ export class MetricStream extends pulumi.CustomResource {
      */
     public readonly firehoseArn!: pulumi.Output<string>;
     /**
-     * List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
+     * List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
      */
     public readonly includeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamIncludeFilter[] | undefined>;
     /**
@@ -227,7 +232,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a MetricStream resource with the given unique name, arguments, and options.
@@ -278,11 +283,11 @@ export class MetricStream extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["statisticsConfigurations"] = args ? args.statisticsConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastUpdateDate"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MetricStream.__pulumiType, name, resourceInputs, opts);
@@ -302,7 +307,7 @@ export interface MetricStreamState {
      */
     creationDate?: pulumi.Input<string>;
     /**
-     * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
+     * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
      */
     excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamExcludeFilter>[]>;
     /**
@@ -310,7 +315,7 @@ export interface MetricStreamState {
      */
     firehoseArn?: pulumi.Input<string>;
     /**
-     * List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
+     * List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
      */
     includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamIncludeFilter>[]>;
     /**
@@ -360,7 +365,7 @@ export interface MetricStreamState {
  */
 export interface MetricStreamArgs {
     /**
-     * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
+     * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `includeFilter`.
      */
     excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamExcludeFilter>[]>;
     /**
@@ -368,7 +373,7 @@ export interface MetricStreamArgs {
      */
     firehoseArn: pulumi.Input<string>;
     /**
-     * List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
+     * List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `excludeFilter`.
      */
     includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamIncludeFilter>[]>;
     /**
@@ -399,8 +404,4 @@ export interface MetricStreamArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

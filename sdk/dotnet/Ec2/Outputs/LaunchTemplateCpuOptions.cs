@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchTemplateCpuOptions
     {
         /// <summary>
+        /// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+        /// </summary>
+        public readonly string? AmdSevSnp;
+        /// <summary>
         /// The number of CPU cores for the instance.
         /// </summary>
         public readonly int? CoreCount;
@@ -26,10 +30,13 @@ namespace Pulumi.Aws.Ec2.Outputs
 
         [OutputConstructor]
         private LaunchTemplateCpuOptions(
+            string? amdSevSnp,
+
             int? coreCount,
 
             int? threadsPerCore)
         {
+            AmdSevSnp = amdSevSnp;
             CoreCount = coreCount;
             ThreadsPerCore = threadsPerCore;
         }

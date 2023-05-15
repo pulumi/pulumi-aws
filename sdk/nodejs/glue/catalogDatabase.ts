@@ -100,6 +100,14 @@ export class CatalogDatabase extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * Configuration block for a target database for resource linking. See `targetDatabase` below.
      */
     public readonly targetDatabase!: pulumi.Output<outputs.glue.CatalogDatabaseTargetDatabase | undefined>;
@@ -124,6 +132,8 @@ export class CatalogDatabase extends pulumi.CustomResource {
             resourceInputs["locationUri"] = state ? state.locationUri : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["targetDatabase"] = state ? state.targetDatabase : undefined;
         } else {
             const args = argsOrState as CatalogDatabaseArgs | undefined;
@@ -133,8 +143,10 @@ export class CatalogDatabase extends pulumi.CustomResource {
             resourceInputs["locationUri"] = args ? args.locationUri : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetDatabase"] = args ? args.targetDatabase : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CatalogDatabase.__pulumiType, name, resourceInputs, opts);
@@ -174,6 +186,14 @@ export interface CatalogDatabaseState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Configuration block for a target database for resource linking. See `targetDatabase` below.
      */
     targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase>;
@@ -207,6 +227,10 @@ export interface CatalogDatabaseArgs {
      * List of key-value pairs that define parameters and properties of the database.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for a target database for resource linking. See `targetDatabase` below.
      */

@@ -153,8 +153,6 @@ type buildArgs struct {
 	StorageLocation BuildStorageLocation `pulumi:"storageLocation"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Version that is associated with this build.
 	Version *string `pulumi:"version"`
 }
@@ -169,8 +167,6 @@ type BuildArgs struct {
 	StorageLocation BuildStorageLocationInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 	// Version that is associated with this build.
 	Version pulumi.StringPtrInput
 }

@@ -198,6 +198,12 @@ namespace Pulumi.Aws.Acmpca
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+        /// </summary>
+        [Output("keyStorageSecurityStandard")]
+        public Output<string> KeyStorageSecurityStandard { get; private set; } = null!;
+
+        /// <summary>
         /// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         /// </summary>
         [Output("notAfter")]
@@ -316,6 +322,12 @@ namespace Pulumi.Aws.Acmpca
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+        /// </summary>
+        [Input("keyStorageSecurityStandard")]
+        public Input<string>? KeyStorageSecurityStandard { get; set; }
+
+        /// <summary>
         /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         /// </summary>
         [Input("permanentDeletionTimeInDays")]
@@ -337,18 +349,6 @@ namespace Pulumi.Aws.Acmpca
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>
@@ -406,6 +406,12 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
+        /// </summary>
+        [Input("keyStorageSecurityStandard")]
+        public Input<string>? KeyStorageSecurityStandard { get; set; }
 
         /// <summary>
         /// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.

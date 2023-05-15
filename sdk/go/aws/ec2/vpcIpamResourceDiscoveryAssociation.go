@@ -172,8 +172,6 @@ type vpcIpamResourceDiscoveryAssociationArgs struct {
 	IpamResourceDiscoveryId string `pulumi:"ipamResourceDiscoveryId"`
 	// A map of tags to add to the IPAM resource discovery association resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a VpcIpamResourceDiscoveryAssociation resource.
@@ -184,8 +182,6 @@ type VpcIpamResourceDiscoveryAssociationArgs struct {
 	IpamResourceDiscoveryId pulumi.StringInput
 	// A map of tags to add to the IPAM resource discovery association resource.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (VpcIpamResourceDiscoveryAssociationArgs) ElementType() reflect.Type {

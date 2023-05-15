@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +17,11 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
      * 
      */
     private @Nullable String errorTopic;
+    /**
+     * @return The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+     * 
+     */
+    private @Nullable List<String> includeInferenceResponseIns;
     /**
      * @return Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
      * 
@@ -29,6 +35,13 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
      */
     public Optional<String> errorTopic() {
         return Optional.ofNullable(this.errorTopic);
+    }
+    /**
+     * @return The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
+     * 
+     */
+    public List<String> includeInferenceResponseIns() {
+        return this.includeInferenceResponseIns == null ? List.of() : this.includeInferenceResponseIns;
     }
     /**
      * @return Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
@@ -48,11 +61,13 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String errorTopic;
+        private @Nullable List<String> includeInferenceResponseIns;
         private @Nullable String successTopic;
         public Builder() {}
         public Builder(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.errorTopic = defaults.errorTopic;
+    	      this.includeInferenceResponseIns = defaults.includeInferenceResponseIns;
     	      this.successTopic = defaults.successTopic;
         }
 
@@ -62,6 +77,14 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
             return this;
         }
         @CustomType.Setter
+        public Builder includeInferenceResponseIns(@Nullable List<String> includeInferenceResponseIns) {
+            this.includeInferenceResponseIns = includeInferenceResponseIns;
+            return this;
+        }
+        public Builder includeInferenceResponseIns(String... includeInferenceResponseIns) {
+            return includeInferenceResponseIns(List.of(includeInferenceResponseIns));
+        }
+        @CustomType.Setter
         public Builder successTopic(@Nullable String successTopic) {
             this.successTopic = successTopic;
             return this;
@@ -69,6 +92,7 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
         public EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig build() {
             final var o = new EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig();
             o.errorTopic = errorTopic;
+            o.includeInferenceResponseIns = includeInferenceResponseIns;
             o.successTopic = successTopic;
             return o;
         }

@@ -67,14 +67,14 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the security group. If omitted, this provider will assign a random, unique name.
+     * Name of the security group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the security group. If omitted, this provider will assign a random, unique name.
+     * @return Name of the security group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -127,21 +127,6 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Import(name="tagsAll")
-    private @Nullable Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
      * VPC ID. Defaults to the region&#39;s default VPC.
      * 
      */
@@ -166,7 +151,6 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.namePrefix = $.namePrefix;
         this.revokeRulesOnDelete = $.revokeRulesOnDelete;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
         this.vpcId = $.vpcId;
     }
 
@@ -272,7 +256,7 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the security group. If omitted, this provider will assign a random, unique name.
+         * @param name Name of the security group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -283,7 +267,7 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the security group. If omitted, this provider will assign a random, unique name.
+         * @param name Name of the security group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -353,27 +337,6 @@ public final class SecurityGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
-            $.tagsAll = tagsAll;
-            return this;
-        }
-
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            return tagsAll(Output.of(tagsAll));
         }
 
         /**

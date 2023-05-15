@@ -167,6 +167,10 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     public readonly allocationStrategy!: pulumi.Output<string | undefined>;
     public /*out*/ readonly clientToken!: pulumi.Output<string>;
     /**
+     * Reserved.
+     */
+    public readonly context!: pulumi.Output<string | undefined>;
+    /**
      * Indicates whether running Spot
      * instances should be terminated if the target capacity of the Spot fleet
      * request is decreased below the current size of the Spot fleet.
@@ -246,7 +250,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
@@ -302,6 +306,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             const state = argsOrState as SpotFleetRequestState | undefined;
             resourceInputs["allocationStrategy"] = state ? state.allocationStrategy : undefined;
             resourceInputs["clientToken"] = state ? state.clientToken : undefined;
+            resourceInputs["context"] = state ? state.context : undefined;
             resourceInputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
             resourceInputs["fleetType"] = state ? state.fleetType : undefined;
             resourceInputs["iamFleetRole"] = state ? state.iamFleetRole : undefined;
@@ -336,6 +341,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetCapacity'");
             }
             resourceInputs["allocationStrategy"] = args ? args.allocationStrategy : undefined;
+            resourceInputs["context"] = args ? args.context : undefined;
             resourceInputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
             resourceInputs["fleetType"] = args ? args.fleetType : undefined;
             resourceInputs["iamFleetRole"] = args ? args.iamFleetRole : undefined;
@@ -351,7 +357,6 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             resourceInputs["spotMaintenanceStrategies"] = args ? args.spotMaintenanceStrategies : undefined;
             resourceInputs["spotPrice"] = args ? args.spotPrice : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["targetCapacity"] = args ? args.targetCapacity : undefined;
             resourceInputs["targetCapacityUnitType"] = args ? args.targetCapacityUnitType : undefined;
             resourceInputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
@@ -362,6 +367,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             resourceInputs["waitForFulfillment"] = args ? args.waitForFulfillment : undefined;
             resourceInputs["clientToken"] = undefined /*out*/;
             resourceInputs["spotRequestState"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpotFleetRequest.__pulumiType, name, resourceInputs, opts);
@@ -379,6 +385,10 @@ export interface SpotFleetRequestState {
      */
     allocationStrategy?: pulumi.Input<string>;
     clientToken?: pulumi.Input<string>;
+    /**
+     * Reserved.
+     */
+    context?: pulumi.Input<string>;
     /**
      * Indicates whether running Spot
      * instances should be terminated if the target capacity of the Spot fleet
@@ -512,6 +522,10 @@ export interface SpotFleetRequestArgs {
      */
     allocationStrategy?: pulumi.Input<string>;
     /**
+     * Reserved.
+     */
+    context?: pulumi.Input<string>;
+    /**
      * Indicates whether running Spot
      * instances should be terminated if the target capacity of the Spot fleet
      * request is decreased below the current size of the Spot fleet.
@@ -584,10 +598,6 @@ export interface SpotFleetRequestArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is

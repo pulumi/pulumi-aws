@@ -5,12 +5,18 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateCpuOptions {
+    /**
+     * @return Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+     * 
+     */
+    private @Nullable String amdSevSnp;
     /**
      * @return The number of CPU cores for the instance.
      * 
@@ -25,6 +31,13 @@ public final class LaunchTemplateCpuOptions {
     private @Nullable Integer threadsPerCore;
 
     private LaunchTemplateCpuOptions() {}
+    /**
+     * @return Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+     * 
+     */
+    public Optional<String> amdSevSnp() {
+        return Optional.ofNullable(this.amdSevSnp);
+    }
     /**
      * @return The number of CPU cores for the instance.
      * 
@@ -51,15 +64,22 @@ public final class LaunchTemplateCpuOptions {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String amdSevSnp;
         private @Nullable Integer coreCount;
         private @Nullable Integer threadsPerCore;
         public Builder() {}
         public Builder(LaunchTemplateCpuOptions defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.amdSevSnp = defaults.amdSevSnp;
     	      this.coreCount = defaults.coreCount;
     	      this.threadsPerCore = defaults.threadsPerCore;
         }
 
+        @CustomType.Setter
+        public Builder amdSevSnp(@Nullable String amdSevSnp) {
+            this.amdSevSnp = amdSevSnp;
+            return this;
+        }
         @CustomType.Setter
         public Builder coreCount(@Nullable Integer coreCount) {
             this.coreCount = coreCount;
@@ -72,6 +92,7 @@ public final class LaunchTemplateCpuOptions {
         }
         public LaunchTemplateCpuOptions build() {
             final var o = new LaunchTemplateCpuOptions();
+            o.amdSevSnp = amdSevSnp;
             o.coreCount = coreCount;
             o.threadsPerCore = threadsPerCore;
             return o;

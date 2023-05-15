@@ -246,7 +246,7 @@ public final class SsmincidentsFunctions {
         return Deployment.getInstance().invokeAsync("aws:ssmincidents/getReplicationSet:getReplicationSet", TypeShape.of(GetReplicationSetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+     * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -285,7 +285,7 @@ public final class SsmincidentsFunctions {
         return getResponsePlan(args, InvokeOptions.Empty);
     }
     /**
-     * Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+     * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -324,7 +324,7 @@ public final class SsmincidentsFunctions {
         return getResponsePlanPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+     * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -363,7 +363,7 @@ public final class SsmincidentsFunctions {
         return Deployment.getInstance().invoke("aws:ssmincidents/getResponsePlan:getResponsePlan", TypeShape.of(GetResponsePlanResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this TODO data source to manage a response plan in AWS Systems Manager Incident Manager.
+     * Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
      * 
      * ## Example Usage
      * ### Basic Usage

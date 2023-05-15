@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2.SpotInstanceRequestArgs;
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestState;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestCapacityReservationSpecification;
+import com.pulumi.aws.ec2.outputs.SpotInstanceRequestCpuOptions;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestCreditSpecification;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestEbsBlockDevice;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestEnclaveOptions;
@@ -172,7 +173,11 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      * 
+     * @deprecated
+     * use &#39;cpu_options&#39; argument instead
+     * 
      */
+    @Deprecated /* use 'cpu_options' argument instead */
     @Export(name="cpuCoreCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuCoreCount;
 
@@ -184,9 +189,27 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.cpuCoreCount;
     }
     /**
-     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     * The CPU options for the instance. See CPU Options below for more details.
      * 
      */
+    @Export(name="cpuOptions", refs={SpotInstanceRequestCpuOptions.class}, tree="[0]")
+    private Output<SpotInstanceRequestCpuOptions> cpuOptions;
+
+    /**
+     * @return The CPU options for the instance. See CPU Options below for more details.
+     * 
+     */
+    public Output<SpotInstanceRequestCpuOptions> cpuOptions() {
+        return this.cpuOptions;
+    }
+    /**
+     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+     * 
+     * @deprecated
+     * use &#39;cpu_options&#39; argument instead
+     * 
+     */
+    @Deprecated /* use 'cpu_options' argument instead */
     @Export(name="cpuThreadsPerCore", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuThreadsPerCore;
 

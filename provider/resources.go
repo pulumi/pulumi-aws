@@ -52,6 +52,7 @@ const (
 	amplifyMod                  = "Amplify"                  // Amplify
 	appFlowMod                  = "AppFlow"                  // AppFlow
 	appConfigMod                = "AppConfig"                // AppConfig
+	appIntegrationsMod          = "AppIntegrations"          // AppIntegrations
 	applicationInsightsMod      = "ApplicationInsights"      // Cloudwatch Application Insights
 	appStreamMod                = "AppStream"                // AppStream
 	appsyncMod                  = "AppSync"                  // AppSync
@@ -251,6 +252,7 @@ var moduleMap = map[string]string{
 	"amplify":                         amplifyMod,
 	"appflow":                         appFlowMod,
 	"appconfig":                       appConfigMod,
+	"appintegrations":                 appIntegrationsMod,
 	"applicationinsights":             applicationInsightsMod,
 	"appstream":                       appStreamMod,
 	"appsync":                         appsyncMod,
@@ -3744,6 +3746,16 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_quicksight_group_membership":     {Tok: awsResource(quicksightMod, "GroupMembership")},
 			"aws_quicksight_data_source":          {Tok: awsResource(quicksightMod, "DataSource")},
 			"aws_quicksight_folder":               {Tok: awsResource(quicksightMod, "Folder")},
+			"aws_quicksight_template": {
+				Tok: awsResource(quicksightMod, "Template"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// HACK: remove this field for now as it breaks dotnet codegen due to our current type naming strategy.
+					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
+					"definition": {
+						Omit: true,
+					},
+				},
+			},
 			// Service Quotas
 			"aws_servicequotas_service_quota": {Tok: awsResource(servicequotasMod, "ServiceQuota")},
 			// Fis

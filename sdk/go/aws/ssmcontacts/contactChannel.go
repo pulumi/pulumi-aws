@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// TODO resource for managing an AWS SSM Contacts Contact Channel.
+// Resource for managing an AWS SSM Contacts Contact Channel.
 //
 // ## Example Usage
 // ### Basic Usage

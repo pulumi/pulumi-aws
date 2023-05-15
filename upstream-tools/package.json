@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "apply": "tf-patch apply --cwd ../upstream",
+    "patcher": "tf-patch",
+    "pre-replace": "tf-patch replace --cwd ../upstream --replacements pre-replacements.json",
+    "strip-links": "tf-patch strip-links --cwd ../upstream",
+    "global-replace": "tf-patch global-replace --cwd ../upstream",
+    "replace": "tf-patch replace --cwd ../upstream",
+    "apply": "yarn pre-replace && yarn strip-links && yarn global-replace && yarn replace",
     "check": "tf-patch check --cwd ../upstream"
   },
   "dependencies": {

@@ -151,6 +151,103 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// });
     /// ```
+    /// ### Create target tracking scaling policy using metric math
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ecsTarget = new Aws.AppAutoScaling.Target("ecsTarget", new()
+    ///     {
+    ///         MaxCapacity = 4,
+    ///         MinCapacity = 1,
+    ///         ResourceId = "service/clusterName/serviceName",
+    ///         ScalableDimension = "ecs:service:DesiredCount",
+    ///         ServiceNamespace = "ecs",
+    ///     });
+    /// 
+    ///     var example = new Aws.AppAutoScaling.Policy("example", new()
+    ///     {
+    ///         PolicyType = "TargetTrackingScaling",
+    ///         ResourceId = ecsTarget.ResourceId,
+    ///         ScalableDimension = ecsTarget.ScalableDimension,
+    ///         ServiceNamespace = ecsTarget.ServiceNamespace,
+    ///         TargetTrackingScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs
+    ///         {
+    ///             TargetValue = 100,
+    ///             CustomizedMetricSpecification = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs
+    ///             {
+    ///                 Metrics = new[]
+    ///                 {
+    ///                     new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs
+    ///                     {
+    ///                         Label = "Get the queue size (the number of messages waiting to be processed)",
+    ///                         Id = "m1",
+    ///                         MetricStat = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs
+    ///                         {
+    ///                             Metric = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs
+    ///                             {
+    ///                                 MetricName = "ApproximateNumberOfMessagesVisible",
+    ///                                 Namespace = "AWS/SQS",
+    ///                                 Dimensions = new[]
+    ///                                 {
+    ///                                     new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs
+    ///                                     {
+    ///                                         Name = "QueueName",
+    ///                                         Value = "my-queue",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             Stat = "Sum",
+    ///                         },
+    ///                         ReturnData = false,
+    ///                     },
+    ///                     new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs
+    ///                     {
+    ///                         Label = "Get the ECS running task count (the number of currently running tasks)",
+    ///                         Id = "m2",
+    ///                         MetricStat = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs
+    ///                         {
+    ///                             Metric = new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs
+    ///                             {
+    ///                                 MetricName = "RunningTaskCount",
+    ///                                 Namespace = "ECS/ContainerInsights",
+    ///                                 Dimensions = new[]
+    ///                                 {
+    ///                                     new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs
+    ///                                     {
+    ///                                         Name = "ClusterName",
+    ///                                         Value = "default",
+    ///                                     },
+    ///                                     new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs
+    ///                                     {
+    ///                                         Name = "ServiceName",
+    ///                                         Value = "web-app",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                             Stat = "Average",
+    ///                         },
+    ///                         ReturnData = false,
+    ///                     },
+    ///                     new Aws.AppAutoScaling.Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs
+    ///                     {
+    ///                         Label = "Calculate the backlog per instance",
+    ///                         Id = "e1",
+    ///                         Expression = "m1 / m2",
+    ///                         ReturnData = true,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### MSK / Kafka Autoscaling
     /// 
     /// ```csharp

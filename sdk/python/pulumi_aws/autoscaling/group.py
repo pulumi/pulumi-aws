@@ -709,6 +709,7 @@ class _GroupState:
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
+                 predicted_capacity: Optional[pulumi.Input[int]] = None,
                  protect_from_scale_in: Optional[pulumi.Input[bool]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
                  suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -719,7 +720,8 @@ class _GroupState:
                  vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
                  wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
-                 warm_pool: Optional[pulumi.Input['GroupWarmPoolArgs']] = None):
+                 warm_pool: Optional[pulumi.Input['GroupWarmPoolArgs']] = None,
+                 warm_pool_size: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[str] arn: ARN for this Auto Scaling Group
@@ -768,6 +770,7 @@ class _GroupState:
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_group: Name of the placement group into which you'll launch your instances, if any.
+        :param pulumi.Input[int] predicted_capacity: Predicted capacity of the group.
         :param pulumi.Input[bool] protect_from_scale_in: Whether newly launched instances
                are automatically protected from termination by Amazon EC2 Auto Scaling when
                scaling in. For more information about preventing instances from terminating
@@ -793,6 +796,7 @@ class _GroupState:
                (See also Waiting for Capacity below.)
         :param pulumi.Input['GroupWarmPoolArgs'] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
                to the specified Auto Scaling group. Defined below
+        :param pulumi.Input[int] warm_pool_size: Current size of the warm pool.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -848,6 +852,8 @@ class _GroupState:
             pulumi.set(__self__, "name_prefix", name_prefix)
         if placement_group is not None:
             pulumi.set(__self__, "placement_group", placement_group)
+        if predicted_capacity is not None:
+            pulumi.set(__self__, "predicted_capacity", predicted_capacity)
         if protect_from_scale_in is not None:
             pulumi.set(__self__, "protect_from_scale_in", protect_from_scale_in)
         if service_linked_role_arn is not None:
@@ -873,6 +879,8 @@ class _GroupState:
             pulumi.set(__self__, "wait_for_elb_capacity", wait_for_elb_capacity)
         if warm_pool is not None:
             pulumi.set(__self__, "warm_pool", warm_pool)
+        if warm_pool_size is not None:
+            pulumi.set(__self__, "warm_pool_size", warm_pool_size)
 
     @property
     @pulumi.getter
@@ -1216,6 +1224,18 @@ class _GroupState:
         pulumi.set(self, "placement_group", value)
 
     @property
+    @pulumi.getter(name="predictedCapacity")
+    def predicted_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Predicted capacity of the group.
+        """
+        return pulumi.get(self, "predicted_capacity")
+
+    @predicted_capacity.setter
+    def predicted_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "predicted_capacity", value)
+
+    @property
     @pulumi.getter(name="protectFromScaleIn")
     def protect_from_scale_in(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1360,6 +1380,18 @@ class _GroupState:
     @warm_pool.setter
     def warm_pool(self, value: Optional[pulumi.Input['GroupWarmPoolArgs']]):
         pulumi.set(self, "warm_pool", value)
+
+    @property
+    @pulumi.getter(name="warmPoolSize")
+    def warm_pool_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Current size of the warm pool.
+        """
+        return pulumi.get(self, "warm_pool_size")
+
+    @warm_pool_size.setter
+    def warm_pool_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "warm_pool_size", value)
 
 
 class Group(pulumi.CustomResource):
@@ -2222,6 +2254,8 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["wait_for_elb_capacity"] = wait_for_elb_capacity
             __props__.__dict__["warm_pool"] = warm_pool
             __props__.__dict__["arn"] = None
+            __props__.__dict__["predicted_capacity"] = None
+            __props__.__dict__["warm_pool_size"] = None
         super(Group, __self__).__init__(
             'aws:autoscaling/group:Group',
             resource_name,
@@ -2259,6 +2293,7 @@ class Group(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             placement_group: Optional[pulumi.Input[str]] = None,
+            predicted_capacity: Optional[pulumi.Input[int]] = None,
             protect_from_scale_in: Optional[pulumi.Input[bool]] = None,
             service_linked_role_arn: Optional[pulumi.Input[str]] = None,
             suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2269,7 +2304,8 @@ class Group(pulumi.CustomResource):
             vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
             wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
-            warm_pool: Optional[pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']]] = None) -> 'Group':
+            warm_pool: Optional[pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']]] = None,
+            warm_pool_size: Optional[pulumi.Input[int]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -2323,6 +2359,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_group: Name of the placement group into which you'll launch your instances, if any.
+        :param pulumi.Input[int] predicted_capacity: Predicted capacity of the group.
         :param pulumi.Input[bool] protect_from_scale_in: Whether newly launched instances
                are automatically protected from termination by Amazon EC2 Auto Scaling when
                scaling in. For more information about preventing instances from terminating
@@ -2348,6 +2385,7 @@ class Group(pulumi.CustomResource):
                (See also Waiting for Capacity below.)
         :param pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
                to the specified Auto Scaling group. Defined below
+        :param pulumi.Input[int] warm_pool_size: Current size of the warm pool.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2380,6 +2418,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["placement_group"] = placement_group
+        __props__.__dict__["predicted_capacity"] = predicted_capacity
         __props__.__dict__["protect_from_scale_in"] = protect_from_scale_in
         __props__.__dict__["service_linked_role_arn"] = service_linked_role_arn
         __props__.__dict__["suspended_processes"] = suspended_processes
@@ -2391,6 +2430,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["wait_for_capacity_timeout"] = wait_for_capacity_timeout
         __props__.__dict__["wait_for_elb_capacity"] = wait_for_elb_capacity
         __props__.__dict__["warm_pool"] = warm_pool
+        __props__.__dict__["warm_pool_size"] = warm_pool_size
         return Group(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -2627,6 +2667,14 @@ class Group(pulumi.CustomResource):
         return pulumi.get(self, "placement_group")
 
     @property
+    @pulumi.getter(name="predictedCapacity")
+    def predicted_capacity(self) -> pulumi.Output[int]:
+        """
+        Predicted capacity of the group.
+        """
+        return pulumi.get(self, "predicted_capacity")
+
+    @property
     @pulumi.getter(name="protectFromScaleIn")
     def protect_from_scale_in(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -2727,4 +2775,12 @@ class Group(pulumi.CustomResource):
         to the specified Auto Scaling group. Defined below
         """
         return pulumi.get(self, "warm_pool")
+
+    @property
+    @pulumi.getter(name="warmPoolSize")
+    def warm_pool_size(self) -> pulumi.Output[int]:
+        """
+        Current size of the warm pool.
+        """
+        return pulumi.get(self, "warm_pool_size")
 

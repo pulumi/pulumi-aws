@@ -1017,6 +1017,20 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.placementGroup);
     }
     /**
+     * Predicted capacity of the group.
+     * 
+     */
+    @Export(name="predictedCapacity", refs={Integer.class}, tree="[0]")
+    private Output<Integer> predictedCapacity;
+
+    /**
+     * @return Predicted capacity of the group.
+     * 
+     */
+    public Output<Integer> predictedCapacity() {
+        return this.predictedCapacity;
+    }
+    /**
      * Whether newly launched instances
      * are automatically protected from termination by Amazon EC2 Auto Scaling when
      * scaling in. For more information about preventing instances from terminating
@@ -1201,6 +1215,20 @@ public class Group extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<GroupWarmPool>> warmPool() {
         return Codegen.optional(this.warmPool);
+    }
+    /**
+     * Current size of the warm pool.
+     * 
+     */
+    @Export(name="warmPoolSize", refs={Integer.class}, tree="[0]")
+    private Output<Integer> warmPoolSize;
+
+    /**
+     * @return Current size of the warm pool.
+     * 
+     */
+    public Output<Integer> warmPoolSize() {
+        return this.warmPoolSize;
     }
 
     /**

@@ -39,7 +39,6 @@ class TopicArgs:
                  sqs_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  sqs_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracing_config: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Topic resource.
@@ -60,7 +59,7 @@ class TopicArgs:
         :param pulumi.Input[str] lambda_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] lambda_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] lambda_success_feedback_sample_rate: Percentage of success to sample
-        :param pulumi.Input[str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+        :param pulumi.Input[str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
         :param pulumi.Input[int] signature_version: If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
@@ -68,7 +67,6 @@ class TopicArgs:
         :param pulumi.Input[str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] sqs_success_feedback_sample_rate: Percentage of success to sample
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tracing_config: Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
         """
         if application_failure_feedback_role_arn is not None:
@@ -121,8 +119,6 @@ class TopicArgs:
             pulumi.set(__self__, "sqs_success_feedback_sample_rate", sqs_success_feedback_sample_rate)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if tracing_config is not None:
             pulumi.set(__self__, "tracing_config", tracing_config)
 
@@ -334,7 +330,7 @@ class TopicArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+        The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         """
         return pulumi.get(self, "name")
 
@@ -427,18 +423,6 @@ class TopicArgs:
         pulumi.set(self, "tags", value)
 
     @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
-
-    @property
     @pulumi.getter(name="tracingConfig")
     def tracing_config(self) -> Optional[pulumi.Input[str]]:
         """
@@ -503,7 +487,7 @@ class _TopicState:
         :param pulumi.Input[str] lambda_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] lambda_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] lambda_success_feedback_sample_rate: Percentage of success to sample
-        :param pulumi.Input[str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+        :param pulumi.Input[str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[str] owner: The AWS Account ID of the SNS topic owner
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
@@ -794,7 +778,7 @@ class _TopicState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+        The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         """
         return pulumi.get(self, "name")
 
@@ -953,7 +937,6 @@ class Topic(pulumi.CustomResource):
                  sqs_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  sqs_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracing_config: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -1045,7 +1028,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] lambda_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] lambda_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] lambda_success_feedback_sample_rate: Percentage of success to sample
-        :param pulumi.Input[str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+        :param pulumi.Input[str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
         :param pulumi.Input[int] signature_version: If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
@@ -1053,7 +1036,6 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] sqs_success_feedback_sample_rate: Percentage of success to sample
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tracing_config: Tracing mode of an Amazon SNS topic. Valid values: `"PassThrough"`, `"Active"`.
         """
         ...
@@ -1172,7 +1154,6 @@ class Topic(pulumi.CustomResource):
                  sqs_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  sqs_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracing_config: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1208,10 +1189,10 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["sqs_success_feedback_role_arn"] = sqs_success_feedback_role_arn
             __props__.__dict__["sqs_success_feedback_sample_rate"] = sqs_success_feedback_sample_rate
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["tracing_config"] = tracing_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner"] = None
+            __props__.__dict__["tags_all"] = None
         super(Topic, __self__).__init__(
             'aws:sns/topic:Topic',
             resource_name,
@@ -1276,7 +1257,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] lambda_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] lambda_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] lambda_success_feedback_sample_rate: Percentage of success to sample
-        :param pulumi.Input[str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+        :param pulumi.Input[str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[str] owner: The AWS Account ID of the SNS topic owner
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
@@ -1471,7 +1452,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
+        The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         """
         return pulumi.get(self, "name")
 

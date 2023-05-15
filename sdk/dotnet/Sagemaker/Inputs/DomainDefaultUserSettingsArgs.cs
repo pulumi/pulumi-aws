@@ -42,6 +42,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("rSessionAppSettings")]
         public Input<Inputs.DomainDefaultUserSettingsRSessionAppSettingsArgs>? RSessionAppSettings { get; set; }
 
+        /// <summary>
+        /// A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+        /// </summary>
+        [Input("rStudioServerProAppSettings")]
+        public Input<Inputs.DomainDefaultUserSettingsRStudioServerProAppSettingsArgs>? RStudioServerProAppSettings { get; set; }
+
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
 

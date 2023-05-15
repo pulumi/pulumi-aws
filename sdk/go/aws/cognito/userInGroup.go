@@ -40,14 +40,14 @@ import (
 //				return err
 //			}
 //			exampleUser, err := cognito.NewUser(ctx, "exampleUser", &cognito.UserArgs{
-//				UserPoolId: pulumi.Any(aws_cognito_user_pool.Test.Id),
+//				UserPoolId: exampleUserPool.ID(),
 //				Username:   pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleUserGroup, err := cognito.NewUserGroup(ctx, "exampleUserGroup", &cognito.UserGroupArgs{
-//				UserPoolId: pulumi.Any(aws_cognito_user_pool.Test.Id),
+//				UserPoolId: exampleUserPool.ID(),
 //			})
 //			if err != nil {
 //				return err
