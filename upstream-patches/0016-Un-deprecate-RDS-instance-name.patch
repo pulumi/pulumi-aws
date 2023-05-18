@@ -1,7 +1,7 @@
 From 4c2a4481f558cd1f0037482050338c28c09da8b9 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Thu, 17 Nov 2022 09:55:46 +0000
-Subject: [PATCH 16/28] Un-deprecate RDS instance name
+Subject: [PATCH 16/29] Un-deprecate RDS instance name
 
 We don't have a good migration story yet so this just adds noise for users.
 
