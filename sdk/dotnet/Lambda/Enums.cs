@@ -45,6 +45,7 @@ namespace Pulumi.Aws.Lambda
         public static Runtime Python3d7 { get; } = new Runtime("python3.7");
         public static Runtime Python3d8 { get; } = new Runtime("python3.8");
         public static Runtime Python3d9 { get; } = new Runtime("python3.9");
+        public static Runtime Python3d10 { get; } = new Runtime("python3.10");
         public static Runtime Custom { get; } = new Runtime("provided");
         public static Runtime CustomAL2 { get; } = new Runtime("provided.al2");
 
