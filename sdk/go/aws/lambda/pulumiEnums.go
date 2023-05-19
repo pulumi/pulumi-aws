@@ -35,12 +35,13 @@ const (
 	// Deprecated: This runtime is now deprecated
 	RuntimePython2d7 = Runtime("python2.7")
 	// Deprecated: This runtime is now deprecated
-	RuntimePython3d6 = Runtime("python3.6")
-	RuntimePython3d7 = Runtime("python3.7")
-	RuntimePython3d8 = Runtime("python3.8")
-	RuntimePython3d9 = Runtime("python3.9")
-	RuntimeCustom    = Runtime("provided")
-	RuntimeCustomAL2 = Runtime("provided.al2")
+	RuntimePython3d6  = Runtime("python3.6")
+	RuntimePython3d7  = Runtime("python3.7")
+	RuntimePython3d8  = Runtime("python3.8")
+	RuntimePython3d9  = Runtime("python3.9")
+	RuntimePython3d10 = Runtime("python3.10")
+	RuntimeCustom     = Runtime("provided")
+	RuntimeCustomAL2  = Runtime("provided.al2")
 )
 
 func (Runtime) ElementType() reflect.Type {

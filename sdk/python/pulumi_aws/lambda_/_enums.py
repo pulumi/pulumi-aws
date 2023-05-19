@@ -33,5 +33,6 @@ class Runtime(str, Enum):
     PYTHON3D7 = "python3.7"
     PYTHON3D8 = "python3.8"
     PYTHON3D9 = "python3.9"
+    PYTHON3D10 = "python3.10"
     CUSTOM = "provided"
     CUSTOM_AL2 = "provided.al2"

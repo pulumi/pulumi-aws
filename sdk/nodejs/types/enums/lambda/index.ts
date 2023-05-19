@@ -38,6 +38,7 @@ export const Runtime = {
     Python3d7: "python3.7",
     Python3d8: "python3.8",
     Python3d9: "python3.9",
+    Python3d10: "python3.10",
     Custom: "provided",
     CustomAL2: "provided.al2",
 } as const;
