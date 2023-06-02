@@ -1,4 +1,4 @@
-From 550a8f6fe20558228784b6effab8a4982cb2804d Mon Sep 17 00:00:00 2001
+From 2298f708c3532b879bf2acb89337300e589ebf58 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:34:56 +0000
 Subject: [PATCH 10/29] Workaround Autoscaling launch_configuration
@@ -10,7 +10,7 @@ Subject: [PATCH 10/29] Workaround Autoscaling launch_configuration
  1 file changed, 13 insertions(+), 9 deletions(-)
 
 diff --git a/internal/service/autoscaling/launch_configuration.go b/internal/service/autoscaling/launch_configuration.go
-index d53dab6ec3..e1db7acbc5 100644
+index 567ffca83e..b76134cebf 100644
 --- a/internal/service/autoscaling/launch_configuration.go
 +++ b/internal/service/autoscaling/launch_configuration.go
 @@ -45,7 +45,8 @@ func ResourceLaunchConfiguration() *schema.Resource {
@@ -23,7 +23,7 @@ index d53dab6ec3..e1db7acbc5 100644
  				ForceNew: true,
  			},
  			"ebs_block_device": {
-@@ -341,16 +342,19 @@ func resourceLaunchConfigurationCreate(ctx context.Context, d *schema.ResourceDa
+@@ -320,16 +321,19 @@ func resourceLaunchConfigurationCreate(ctx context.Context, d *schema.ResourceDa
  
  	lcName := create.Name(d.Get("name").(string), d.Get("name_prefix").(string))
  	input := autoscaling.CreateLaunchConfigurationInput{

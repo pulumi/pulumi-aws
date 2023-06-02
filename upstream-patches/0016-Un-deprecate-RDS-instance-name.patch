@@ -1,4 +1,4 @@
-From 4c2a4481f558cd1f0037482050338c28c09da8b9 Mon Sep 17 00:00:00 2001
+From e3e41e81909c99c2e47cfaec0afab8e13511e14a Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Thu, 17 Nov 2022 09:55:46 +0000
 Subject: [PATCH 16/29] Un-deprecate RDS instance name
@@ -7,26 +7,27 @@ We don't have a good migration story yet so this just adds noise for users.
 
 Reference: https://github.com/pulumi/pulumi-aws/issues/2203
 ---
- internal/service/rds/instance.go | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ internal/service/rds/instance.go | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
 diff --git a/internal/service/rds/instance.go b/internal/service/rds/instance.go
-index 9ee36fd86e..eb26a7b9d5 100644
+index 7fe8740160..7aacd18b77 100644
 --- a/internal/service/rds/instance.go
 +++ b/internal/service/rds/instance.go
-@@ -385,11 +385,10 @@ func ResourceInstance() *schema.Resource {
+@@ -397,6 +397,16 @@ func ResourceInstance() *schema.Resource {
+ 				Optional: true,
  				Computed: true,
  			},
- 			"name": {
--				Type:       schema.TypeString,
--				Optional:   true,
--				Computed:   true,
--				Deprecated: "Use db_name instead",
--				ForceNew:   true,
++			"name": {
 +				Type:     schema.TypeString,
 +				Optional: true,
 +				Computed: true,
 +				ForceNew: true,
- 				ConflictsWith: []string{
- 					"db_name",
- 					"replicate_source_db",
++				ConflictsWith: []string{
++					"db_name",
++					"replicate_source_db",
++				},
++			},
+ 			"nchar_character_set_name": {
+ 				Type:     schema.TypeString,
+ 				Optional: true,

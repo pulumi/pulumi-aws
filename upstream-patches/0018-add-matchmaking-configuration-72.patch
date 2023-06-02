@@ -1,4 +1,4 @@
-From eeb2132cb072dadb31aa0f14531bdeb814c13276 Mon Sep 17 00:00:00 2001
+From cd21550f239724c15a3def9edcd5615e8657b6de Mon Sep 17 00:00:00 2001
 From: Lee Briggs <jaxxstorm@users.noreply.github.com>
 Date: Wed, 21 Dec 2022 12:23:59 -0800
 Subject: [PATCH 18/29] add matchmaking configuration (#72)
@@ -25,7 +25,7 @@ Subject: [PATCH 18/29] add matchmaking configuration (#72)
  create mode 100644 website/docs/r/gamelift_matchmaking_rule_set.html.markdown
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 764e4987a4..12ec3fe625 100644
+index f3b7493b92..e7dd1d0f9b 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -9,6 +9,7 @@ import (
@@ -36,7 +36,7 @@ index 764e4987a4..12ec3fe625 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/globalaccelerator"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/meta"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/s3legacy"
-@@ -277,6 +278,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -253,6 +254,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
  			"aws_globalaccelerator_accelerator":    globalaccelerator.ResourceAccelerator(),
  			"aws_globalaccelerator_endpoint_group": globalaccelerator.ResourceEndpointGroup(),
  			"aws_globalaccelerator_listener":       globalaccelerator.ResourceListener(),

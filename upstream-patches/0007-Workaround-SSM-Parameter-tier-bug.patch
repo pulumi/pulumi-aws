@@ -1,4 +1,4 @@
-From 5367aa3507217845325a307a1347176cd4e66932 Mon Sep 17 00:00:00 2001
+From 0cb2c4c9d3a7bac082fc34aeb678e49dae5af6ac Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:24:42 +0000
 Subject: [PATCH 07/29] Workaround SSM Parameter tier bug
@@ -10,10 +10,10 @@ Subject: [PATCH 07/29] Workaround SSM Parameter tier bug
  1 file changed, 15 insertions(+), 11 deletions(-)
 
 diff --git a/internal/service/ssm/parameter.go b/internal/service/ssm/parameter.go
-index b4c9e26a38..4a4c38111f 100644
+index d80b7a4661..5da34898e9 100644
 --- a/internal/service/ssm/parameter.go
 +++ b/internal/service/ssm/parameter.go
-@@ -90,15 +90,17 @@ func ResourceParameter() *schema.Resource {
+@@ -91,15 +91,17 @@ func ResourceParameter() *schema.Resource {
  			names.AttrTags:    tftags.TagsSchema(),
  			names.AttrTagsAll: tftags.TagsSchemaComputed(),
  			"tier": {
@@ -38,7 +38,7 @@ index b4c9e26a38..4a4c38111f 100644
  				},
  			},
  			"type": {
-@@ -314,11 +316,13 @@ func resourceParameterUpdate(ctx context.Context, d *schema.ResourceData, meta i
+@@ -315,11 +317,13 @@ func resourceParameterUpdate(ctx context.Context, d *schema.ResourceData, meta i
  			AllowedPattern: aws.String(d.Get("allowed_pattern").(string)),
  		}
  

@@ -1,4 +1,4 @@
-From 8c615ed64cfd6b95694acdf42483d347cc43bbc9 Mon Sep 17 00:00:00 2001
+From dfbf865eb7c1d1ecabae8ce9344a681bf7c5deea Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:42:19 +0000
 Subject: [PATCH 12/29] Revert framework conversions
@@ -136,7 +136,7 @@ index 0000000000..9f1b58046f
 +	return a.Unknown
 +}
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 03dc9cea6c..764e4987a4 100644
+index 92e08099d8..f3b7493b92 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -9,7 +9,11 @@ import (
@@ -151,7 +151,7 @@ index 03dc9cea6c..764e4987a4 100644
  
  	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
  	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
-@@ -250,10 +254,29 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -226,10 +230,29 @@ func New(ctx context.Context) (*schema.Provider, error) {
  		// rather than adding directly to these maps.
  		DataSourcesMap: map[string]*schema.Resource{
  			"aws_ecr_credentials": ecr.DataSourceCredentials(),
@@ -182,7 +182,7 @@ index 03dc9cea6c..764e4987a4 100644
  	}
  
 diff --git a/internal/provider/service_packages_gen.go b/internal/provider/service_packages_gen.go
-index 68aad25056..5e86dd274e 100644
+index 523a637b3b..00077770ac 100644
 --- a/internal/provider/service_packages_gen.go
 +++ b/internal/provider/service_packages_gen.go
 @@ -95,7 +95,7 @@ import (
@@ -194,7 +194,7 @@ index 68aad25056..5e86dd274e 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/glue"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/grafana"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/greengrass"
-@@ -136,7 +136,7 @@ import (
+@@ -135,7 +135,7 @@ import (
  	"github.com/hashicorp/terraform-provider-aws/internal/service/mediapackage"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/mediastore"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/memorydb"
@@ -203,7 +203,7 @@ index 68aad25056..5e86dd274e 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/mq"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/mwaa"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/neptune"
-@@ -187,7 +187,7 @@ import (
+@@ -186,7 +186,7 @@ import (
  	"github.com/hashicorp/terraform-provider-aws/internal/service/sfn"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/shield"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/signer"
@@ -212,7 +212,7 @@ index 68aad25056..5e86dd274e 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/sns"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/sqs"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/ssm"
-@@ -195,7 +195,7 @@ import (
+@@ -194,7 +194,7 @@ import (
  	"github.com/hashicorp/terraform-provider-aws/internal/service/ssmincidents"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/ssoadmin"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/storagegateway"
@@ -221,7 +221,7 @@ index 68aad25056..5e86dd274e 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/swf"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/synthetics"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/timestreamwrite"
-@@ -302,7 +302,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+@@ -301,7 +301,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		fsx.ServicePackage,
  		gamelift.ServicePackage,
  		glacier.ServicePackage,
@@ -230,7 +230,7 @@ index 68aad25056..5e86dd274e 100644
  		glue.ServicePackage,
  		grafana.ServicePackage,
  		greengrass.ServicePackage,
-@@ -343,7 +343,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+@@ -341,7 +341,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		mediapackage.ServicePackage,
  		mediastore.ServicePackage,
  		memorydb.ServicePackage,
@@ -239,7 +239,7 @@ index 68aad25056..5e86dd274e 100644
  		mq.ServicePackage,
  		mwaa.ServicePackage,
  		neptune.ServicePackage,
-@@ -394,7 +394,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+@@ -392,7 +392,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		sfn.ServicePackage,
  		shield.ServicePackage,
  		signer.ServicePackage,
@@ -248,7 +248,7 @@ index 68aad25056..5e86dd274e 100644
  		sns.ServicePackage,
  		sqs.ServicePackage,
  		ssm.ServicePackage,
-@@ -402,7 +402,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+@@ -400,7 +400,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		ssmincidents.ServicePackage,
  		ssoadmin.ServicePackage,
  		storagegateway.ServicePackage,
@@ -1418,7 +1418,7 @@ index 0000000000..fc0f83feab
 +	return nil
 +}
 diff --git a/internal/service/simpledb/domain_test.go b/internal/service/simpledb/domain_test.go
-index 48eaf51cf7..320fe8175d 100644
+index 50e3974c83..0df29f7545 100644
 --- a/internal/service/simpledb/domain_test.go
 +++ b/internal/service/simpledb/domain_test.go
 @@ -1,3 +1,5 @@
