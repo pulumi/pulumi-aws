@@ -1627,14 +1627,6 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_elasticache_security_group": {
-				Tok: awsResource(elasticacheMod, "SecurityGroup"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {Default: managedByPulumi},
-					// // Use "ingress" instead of "ingresses" to match AWS APIs
-					// "ingress": {Name: "ingress"},
-				},
-			},
 			"aws_elasticache_subnet_group": {
 				Tok: awsResource(elasticacheMod, "SubnetGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2664,10 +2656,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_location_tracker_association": {Tok: awsResource(locationMod, "TrackerAssociation")},
 
 			// Macie
-			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
-			"aws_macie_s3_bucket_association":      {Tok: awsResource(macieMod, "S3BucketAssociation")},
-			"aws_macie2_custom_data_identifier":    {Tok: awsResource(macieMod, "CustomDataIdentifier")},
-			"aws_macie2_findings_filter":           {Tok: awsResource(macieMod, "FindingsFilter")},
+			"aws_macie2_custom_data_identifier": {Tok: awsResource(macieMod, "CustomDataIdentifier")},
+			"aws_macie2_findings_filter":        {Tok: awsResource(macieMod, "FindingsFilter")},
 			// Macie2
 			"aws_macie2_account":                             {Tok: awsResource(macie2Mod, "Account")},
 			"aws_macie2_classification_job":                  {Tok: awsResource(macie2Mod, "ClassificationJob")},
@@ -2913,14 +2903,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_instance_role_association": {
 				Tok: awsResource(rdsMod, "RoleAssociation"),
 			},
-			"aws_db_security_group": {
-				Tok: awsResource(rdsMod, "SecurityGroup"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {Default: managedByPulumi},
-					// Use "ingress" instead of "ingresses" to match AWS APIs
-					"ingress": {Name: "ingress"},
-				},
-			},
 			"aws_db_snapshot": {Tok: awsResource(rdsMod, "Snapshot")},
 			"aws_db_subnet_group": {
 				Tok: awsResource(rdsMod, "SubnetGroup"),
@@ -2955,14 +2937,6 @@ func Provider() tfbridge.ProviderInfo {
 					"description": {
 						Default: managedByPulumi,
 					},
-				},
-			},
-			"aws_redshift_security_group": {
-				Tok: awsResource(redshiftMod, "SecurityGroup"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {Default: managedByPulumi},
-					// Use "ingress" instead of "ingresses" to match AWS APIs
-					"ingress": {Name: "ingress"},
 				},
 			},
 			"aws_redshift_snapshot_copy_grant": {Tok: awsResource(redshiftMod, "SnapshotCopyGrant")},
