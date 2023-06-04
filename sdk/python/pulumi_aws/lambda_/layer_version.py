@@ -33,11 +33,11 @@ class LayerVersionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         :param pulumi.Input[str] description: Description of what your Lambda Layer does.
         :param pulumi.Input[str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
-        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
-        :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
-        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
-        :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `code`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `code`.
+        :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `code`.
+        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `code`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `code` or `s3_key`.
         """
         pulumi.set(__self__, "layer_name", layer_name)
         if code is not None:
@@ -137,7 +137,7 @@ class LayerVersionArgs:
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        S3 bucket location containing the function's deployment package. Conflicts with `code`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         """
         return pulumi.get(self, "s3_bucket")
 
@@ -149,7 +149,7 @@ class LayerVersionArgs:
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+        S3 key of an object containing the function's deployment package. Conflicts with `code`.
         """
         return pulumi.get(self, "s3_key")
 
@@ -161,7 +161,7 @@ class LayerVersionArgs:
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Object version containing the function's deployment package. Conflicts with `filename`.
+        Object version containing the function's deployment package. Conflicts with `code`.
         """
         return pulumi.get(self, "s3_object_version")
 
@@ -173,7 +173,7 @@ class LayerVersionArgs:
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `code`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         """
         return pulumi.get(self, "skip_destroy")
 
@@ -185,7 +185,7 @@ class LayerVersionArgs:
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[str]]:
         """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `code` or `s3_key`.
         """
         return pulumi.get(self, "source_code_hash")
 
@@ -226,13 +226,13 @@ class _LayerVersionState:
         :param pulumi.Input[str] layer_arn: ARN of the Lambda Layer without version.
         :param pulumi.Input[str] layer_name: Unique name for your Lambda Layer
         :param pulumi.Input[str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
-        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
-        :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
+        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `code`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `code`.
+        :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `code`.
         :param pulumi.Input[str] signing_job_arn: ARN of a signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN for a signing profile version.
-        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
-        :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `code`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `code` or `s3_key`.
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[str] version: Lambda Layer version.
         """
@@ -385,7 +385,7 @@ class _LayerVersionState:
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        S3 bucket location containing the function's deployment package. Conflicts with `code`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         """
         return pulumi.get(self, "s3_bucket")
 
@@ -397,7 +397,7 @@ class _LayerVersionState:
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> Optional[pulumi.Input[str]]:
         """
-        S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+        S3 key of an object containing the function's deployment package. Conflicts with `code`.
         """
         return pulumi.get(self, "s3_key")
 
@@ -409,7 +409,7 @@ class _LayerVersionState:
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Object version containing the function's deployment package. Conflicts with `filename`.
+        Object version containing the function's deployment package. Conflicts with `code`.
         """
         return pulumi.get(self, "s3_object_version")
 
@@ -445,7 +445,7 @@ class _LayerVersionState:
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `code`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         """
         return pulumi.get(self, "skip_destroy")
 
@@ -457,7 +457,7 @@ class _LayerVersionState:
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> Optional[pulumi.Input[str]]:
         """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `code` or `s3_key`.
         """
         return pulumi.get(self, "source_code_hash")
 
@@ -530,7 +530,7 @@ class LayerVersion(pulumi.CustomResource):
         AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
         See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
 
-        Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
+        Once you have created your deployment package you can specify it either directly as a local file (using the `code` argument) or
         indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
         package via S3 it may be useful to use the `s3.BucketObjectv2` resource to upload it.
 
@@ -556,11 +556,11 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of what your Lambda Layer does.
         :param pulumi.Input[str] layer_name: Unique name for your Lambda Layer
         :param pulumi.Input[str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
-        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
-        :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
-        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
-        :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `code`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `code`.
+        :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `code`.
+        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `code`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `code` or `s3_key`.
         """
         ...
     @overload
@@ -591,7 +591,7 @@ class LayerVersion(pulumi.CustomResource):
         AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
         See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
 
-        Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
+        Once you have created your deployment package you can specify it either directly as a local file (using the `code` argument) or
         indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
         package via S3 it may be useful to use the `s3.BucketObjectv2` resource to upload it.
 
@@ -708,13 +708,13 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[str] layer_arn: ARN of the Lambda Layer without version.
         :param pulumi.Input[str] layer_name: Unique name for your Lambda Layer
         :param pulumi.Input[str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
-        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
-        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `filename`.
-        :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `filename`.
+        :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. Conflicts with `code`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. Conflicts with `code`.
+        :param pulumi.Input[str] s3_object_version: Object version containing the function's deployment package. Conflicts with `code`.
         :param pulumi.Input[str] signing_job_arn: ARN of a signing job.
         :param pulumi.Input[str] signing_profile_version_arn: ARN for a signing profile version.
-        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
-        :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `code`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `code` or `s3_key`.
         :param pulumi.Input[int] source_code_size: Size in bytes of the function .zip file.
         :param pulumi.Input[str] version: Lambda Layer version.
         """
@@ -818,7 +818,7 @@ class LayerVersion(pulumi.CustomResource):
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> pulumi.Output[Optional[str]]:
         """
-        S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
+        S3 bucket location containing the function's deployment package. Conflicts with `code`. This bucket must reside in the same AWS region where you are creating the Lambda function.
         """
         return pulumi.get(self, "s3_bucket")
 
@@ -826,7 +826,7 @@ class LayerVersion(pulumi.CustomResource):
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> pulumi.Output[Optional[str]]:
         """
-        S3 key of an object containing the function's deployment package. Conflicts with `filename`.
+        S3 key of an object containing the function's deployment package. Conflicts with `code`.
         """
         return pulumi.get(self, "s3_key")
 
@@ -834,7 +834,7 @@ class LayerVersion(pulumi.CustomResource):
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> pulumi.Output[Optional[str]]:
         """
-        Object version containing the function's deployment package. Conflicts with `filename`.
+        Object version containing the function's deployment package. Conflicts with `code`.
         """
         return pulumi.get(self, "s3_object_version")
 
@@ -858,7 +858,7 @@ class LayerVersion(pulumi.CustomResource):
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `code`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         """
         return pulumi.get(self, "skip_destroy")
 
@@ -866,7 +866,7 @@ class LayerVersion(pulumi.CustomResource):
     @pulumi.getter(name="sourceCodeHash")
     def source_code_hash(self) -> pulumi.Output[str]:
         """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `code` or `s3_key`.
         """
         return pulumi.get(self, "source_code_hash")
 
