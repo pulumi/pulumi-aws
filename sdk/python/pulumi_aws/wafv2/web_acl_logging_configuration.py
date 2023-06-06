@@ -204,7 +204,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                         behavior="DROP",
                         conditions=[
                             aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                                action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(
+                                action_conditions=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(
                                     action="COUNT",
                                 ),
                             ),
@@ -219,7 +219,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                     aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs(
                         behavior="KEEP",
                         conditions=[aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                            action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(
+                            action_conditions=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(
                                 action="ALLOW",
                             ),
                         )],
