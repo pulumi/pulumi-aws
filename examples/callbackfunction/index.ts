@@ -55,10 +55,10 @@ const functions = [
             return async () => ret;
         },
     }, providerOpts),
-    new aws.lambda.CallbackFunction("f", {
-        policies: { one: policy.arn },
-        callback: async () => ({ success: true }),
-    }, providerOpts),
+    // new aws.lambda.CallbackFunction("f", {
+    //     policies: { one: policy.arn },
+    //     callback: async () => ({ success: true }),
+    // }, providerOpts),
 ];
 
 export const arns = functions.map(f => f.arn);
