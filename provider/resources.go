@@ -27,7 +27,7 @@ import (
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	"github.com/mitchellh/go-homedir"
-	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"

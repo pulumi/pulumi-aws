@@ -19,8 +19,8 @@ package main
 import (
 	_ "embed"
 
-	aws "github.com/pulumi/pulumi-aws/provider/v5"
-	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
+	aws "github.com/pulumi/pulumi-aws/provider/v6"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 )
 
