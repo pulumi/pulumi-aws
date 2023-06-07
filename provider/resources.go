@@ -3731,6 +3731,26 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_quicksight_analysis": {
+				Tok: awsResource(quicksightMod, "Analysis"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// HACK: remove this field for now as it breaks dotnet and java codegen due to our current type naming strategy.
+					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
+					"definition": {
+						Omit: true,
+					},
+				},
+			},
+			"aws_quicksight_dashboard": {
+				Tok: awsResource(quicksightMod, "Dashboard"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// HACK: remove this field for now as it breaks dotnet and java codegen due to our current type naming strategy.
+					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
+					"definition": {
+						Omit: true,
+					},
+				},
+			},
 			// Service Quotas
 			"aws_servicequotas_service_quota": {Tok: awsResource(servicequotasMod, "ServiceQuota")},
 			// Fis
