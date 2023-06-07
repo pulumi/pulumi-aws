@@ -86,12 +86,6 @@ export interface GetHoursOfOperationResult {
      */
     readonly description: string;
     /**
-     * (**Deprecated**) ARN of the Hours of Operation.
-     *
-     * @deprecated use 'arn' attribute instead
-     */
-    readonly hoursOfOperationArn: string;
-    /**
      * The identifier for the hours of operation.
      */
     readonly hoursOfOperationId: string;

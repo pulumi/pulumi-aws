@@ -100,10 +100,6 @@ type LookupClusterResult struct {
 	ReplicationGroupId string `pulumi:"replicationGroupId"`
 	// List VPC security groups associated with the cache cluster.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// List of security group names associated with this cache cluster.
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// The number of days for which ElastiCache will
 	// retain automatic cache cluster snapshots before deleting them.
 	SnapshotRetentionLimit int `pulumi:"snapshotRetentionLimit"`
@@ -261,13 +257,6 @@ func (o LookupClusterResultOutput) ReplicationGroupId() pulumi.StringOutput {
 // List VPC security groups associated with the cache cluster.
 func (o LookupClusterResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
-}
-
-// List of security group names associated with this cache cluster.
-//
-// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-func (o LookupClusterResultOutput) SecurityGroupNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupClusterResult) []string { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
 }
 
 // The number of days for which ElastiCache will

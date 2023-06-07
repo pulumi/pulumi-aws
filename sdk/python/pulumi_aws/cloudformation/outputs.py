@@ -14,6 +14,7 @@ __all__ = [
     'StackSetAutoDeployment',
     'StackSetInstanceDeploymentTargets',
     'StackSetInstanceOperationPreferences',
+    'StackSetManagedExecution',
     'StackSetOperationPreferences',
     'GetCloudFormationTypeLoggingConfigResult',
 ]
@@ -254,6 +255,25 @@ class StackSetInstanceOperationPreferences(dict):
         The order of the Regions in where you want to perform the stack operation.
         """
         return pulumi.get(self, "region_orders")
+
+
+@pulumi.output_type
+class StackSetManagedExecution(dict):
+    def __init__(__self__, *,
+                 active: Optional[bool] = None):
+        """
+        :param bool active: When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+        """
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[bool]:
+        """
+        When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+        """
+        return pulumi.get(self, "active")
 
 
 @pulumi.output_type

@@ -22,6 +22,7 @@ class StackSetArgs:
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
+                 managed_execution: Optional[pulumi.Input['StackSetManagedExecutionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operation_preferences: Optional[pulumi.Input['StackSetOperationPreferencesArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,6 +38,7 @@ class StackSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         :param pulumi.Input[str] description: Description of the StackSet.
         :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
+        :param pulumi.Input['StackSetManagedExecutionArgs'] managed_execution: Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
         :param pulumi.Input[str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         :param pulumi.Input['StackSetOperationPreferencesArgs'] operation_preferences: Preferences for how AWS CloudFormation performs a stack set update.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
@@ -57,6 +59,8 @@ class StackSetArgs:
             pulumi.set(__self__, "description", description)
         if execution_role_name is not None:
             pulumi.set(__self__, "execution_role_name", execution_role_name)
+        if managed_execution is not None:
+            pulumi.set(__self__, "managed_execution", managed_execution)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if operation_preferences is not None:
@@ -143,6 +147,18 @@ class StackSetArgs:
     @execution_role_name.setter
     def execution_role_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "execution_role_name", value)
+
+    @property
+    @pulumi.getter(name="managedExecution")
+    def managed_execution(self) -> Optional[pulumi.Input['StackSetManagedExecutionArgs']]:
+        """
+        Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+        """
+        return pulumi.get(self, "managed_execution")
+
+    @managed_execution.setter
+    def managed_execution(self, value: Optional[pulumi.Input['StackSetManagedExecutionArgs']]):
+        pulumi.set(self, "managed_execution", value)
 
     @property
     @pulumi.getter
@@ -239,6 +255,7 @@ class _StackSetState:
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
+                 managed_execution: Optional[pulumi.Input['StackSetManagedExecutionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operation_preferences: Optional[pulumi.Input['StackSetOperationPreferencesArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -257,6 +274,7 @@ class _StackSetState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         :param pulumi.Input[str] description: Description of the StackSet.
         :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
+        :param pulumi.Input['StackSetManagedExecutionArgs'] managed_execution: Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
         :param pulumi.Input[str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         :param pulumi.Input['StackSetOperationPreferencesArgs'] operation_preferences: Preferences for how AWS CloudFormation performs a stack set update.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
@@ -281,6 +299,8 @@ class _StackSetState:
             pulumi.set(__self__, "description", description)
         if execution_role_name is not None:
             pulumi.set(__self__, "execution_role_name", execution_role_name)
+        if managed_execution is not None:
+            pulumi.set(__self__, "managed_execution", managed_execution)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if operation_preferences is not None:
@@ -383,6 +403,18 @@ class _StackSetState:
     @execution_role_name.setter
     def execution_role_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "execution_role_name", value)
+
+    @property
+    @pulumi.getter(name="managedExecution")
+    def managed_execution(self) -> Optional[pulumi.Input['StackSetManagedExecutionArgs']]:
+        """
+        Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+        """
+        return pulumi.get(self, "managed_execution")
+
+    @managed_execution.setter
+    def managed_execution(self, value: Optional[pulumi.Input['StackSetManagedExecutionArgs']]):
+        pulumi.set(self, "managed_execution", value)
 
     @property
     @pulumi.getter
@@ -504,6 +536,7 @@ class StackSet(pulumi.CustomResource):
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
+                 managed_execution: Optional[pulumi.Input[pulumi.InputType['StackSetManagedExecutionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -589,6 +622,7 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         :param pulumi.Input[str] description: Description of the StackSet.
         :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
+        :param pulumi.Input[pulumi.InputType['StackSetManagedExecutionArgs']] managed_execution: Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
         :param pulumi.Input[str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         :param pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set update.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
@@ -693,6 +727,7 @@ class StackSet(pulumi.CustomResource):
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
+                 managed_execution: Optional[pulumi.Input[pulumi.InputType['StackSetManagedExecutionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -715,6 +750,7 @@ class StackSet(pulumi.CustomResource):
             __props__.__dict__["capabilities"] = capabilities
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_role_name"] = execution_role_name
+            __props__.__dict__["managed_execution"] = managed_execution
             __props__.__dict__["name"] = name
             __props__.__dict__["operation_preferences"] = operation_preferences
             __props__.__dict__["parameters"] = parameters
@@ -742,6 +778,7 @@ class StackSet(pulumi.CustomResource):
             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             execution_role_name: Optional[pulumi.Input[str]] = None,
+            managed_execution: Optional[pulumi.Input[pulumi.InputType['StackSetManagedExecutionArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -765,6 +802,7 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         :param pulumi.Input[str] description: Description of the StackSet.
         :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
+        :param pulumi.Input[pulumi.InputType['StackSetManagedExecutionArgs']] managed_execution: Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
         :param pulumi.Input[str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         :param pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set update.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
@@ -786,6 +824,7 @@ class StackSet(pulumi.CustomResource):
         __props__.__dict__["capabilities"] = capabilities
         __props__.__dict__["description"] = description
         __props__.__dict__["execution_role_name"] = execution_role_name
+        __props__.__dict__["managed_execution"] = managed_execution
         __props__.__dict__["name"] = name
         __props__.__dict__["operation_preferences"] = operation_preferences
         __props__.__dict__["parameters"] = parameters
@@ -852,6 +891,14 @@ class StackSet(pulumi.CustomResource):
         Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         """
         return pulumi.get(self, "execution_role_name")
+
+    @property
+    @pulumi.getter(name="managedExecution")
+    def managed_execution(self) -> pulumi.Output[Optional['outputs.StackSetManagedExecution']]:
+        """
+        Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+        """
+        return pulumi.get(self, "managed_execution")
 
     @property
     @pulumi.getter

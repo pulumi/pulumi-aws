@@ -17,14 +17,14 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
     public static final LaunchTemplateMetadataOptionsArgs Empty = new LaunchTemplateMetadataOptionsArgs();
 
     /**
-     * Whether the metadata service is available. Can be `enabled` or `disabled`.
+     * Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
      * 
      */
     @Import(name="httpEndpoint")
     private @Nullable Output<String> httpEndpoint;
 
     /**
-     * @return Whether the metadata service is available. Can be `enabled` or `disabled`.
+     * @return Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
      * 
      */
     public Optional<Output<String>> httpEndpoint() {
@@ -32,14 +32,14 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
     }
 
     /**
-     * Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+     * Enables or disables the IPv6 endpoint for the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
      * 
      */
     @Import(name="httpProtocolIpv6")
     private @Nullable Output<String> httpProtocolIpv6;
 
     /**
-     * @return Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+     * @return Enables or disables the IPv6 endpoint for the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
      * 
      */
     public Optional<Output<String>> httpProtocolIpv6() {
@@ -47,14 +47,14 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
     }
 
     /**
-     * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
+     * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
      * 
      */
     @Import(name="httpPutResponseHopLimit")
     private @Nullable Output<Integer> httpPutResponseHopLimit;
 
     /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
+     * @return The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
      * 
      */
     public Optional<Output<Integer>> httpPutResponseHopLimit() {
@@ -62,14 +62,14 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
     }
 
     /**
-     * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
+     * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
      * 
      */
     @Import(name="httpTokens")
     private @Nullable Output<String> httpTokens;
 
     /**
-     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
+     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
      * 
      */
     public Optional<Output<String>> httpTokens() {
@@ -77,7 +77,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
     }
 
     /**
-     * Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+     * Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
      * 
      * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
      * 
@@ -86,7 +86,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
     private @Nullable Output<String> instanceMetadataTags;
 
     /**
-     * @return Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+     * @return Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
      * 
      * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
      * 
@@ -124,7 +124,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpEndpoint Whether the metadata service is available. Can be `enabled` or `disabled`.
+         * @param httpEndpoint Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpEndpoint Whether the metadata service is available. Can be `enabled` or `disabled`.
+         * @param httpEndpoint Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpProtocolIpv6 Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+         * @param httpProtocolIpv6 Enables or disables the IPv6 endpoint for the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpProtocolIpv6 Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+         * @param httpProtocolIpv6 Enables or disables the IPv6 endpoint for the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpPutResponseHopLimit The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
+         * @param httpPutResponseHopLimit The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpPutResponseHopLimit The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
+         * @param httpPutResponseHopLimit The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
+         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
+         * @param httpTokens Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param instanceMetadataTags Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+         * @param instanceMetadataTags Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
          * 
          * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
          * 
@@ -221,7 +221,7 @@ public final class LaunchTemplateMetadataOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param instanceMetadataTags Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+         * @param instanceMetadataTags Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
          * 
          * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
          * 

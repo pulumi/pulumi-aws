@@ -429,6 +429,7 @@ class Permission(pulumi.CustomResource):
         Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 
         ## Example Usage
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -462,7 +463,7 @@ class Permission(pulumi.CustomResource):
             source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
             qualifier=test_alias.name)
         ```
-        ## Usage with SNS
+        ### With SNS
 
         ```python
         import pulumi
@@ -496,8 +497,7 @@ class Permission(pulumi.CustomResource):
             protocol="lambda",
             endpoint=func.arn)
         ```
-
-        ## Specify Lambda permissions for API Gateway REST API
+        ### With API Gateway REST API
 
         ```python
         import pulumi
@@ -510,8 +510,7 @@ class Permission(pulumi.CustomResource):
             principal="apigateway.amazonaws.com",
             source_arn=my_demo_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*"))
         ```
-
-        ## Usage with CloudWatch log group
+        ### With CloudWatch Log Group
 
         ```python
         import pulumi
@@ -543,8 +542,7 @@ class Permission(pulumi.CustomResource):
             log_group=default_log_group.name,
             opts=pulumi.ResourceOptions(depends_on=[logging_permission]))
         ```
-
-        ## Example function URL cross-account invoke policy
+        ### With Cross-Account Invocation Policy
 
         ```python
         import pulumi
@@ -559,6 +557,20 @@ class Permission(pulumi.CustomResource):
             principal="arn:aws:iam::444455556666:role/example",
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
+        ```
+        ### With `replace_triggered_by` Lifecycle Configuration
+
+        If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        logging = aws.lambda_.Permission("logging",
+            action="lambda:InvokeFunction",
+            function=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            principal="events.amazonaws.com",
+            source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
         ```
 
         ## Import
@@ -605,6 +617,7 @@ class Permission(pulumi.CustomResource):
         Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 
         ## Example Usage
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -638,7 +651,7 @@ class Permission(pulumi.CustomResource):
             source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
             qualifier=test_alias.name)
         ```
-        ## Usage with SNS
+        ### With SNS
 
         ```python
         import pulumi
@@ -672,8 +685,7 @@ class Permission(pulumi.CustomResource):
             protocol="lambda",
             endpoint=func.arn)
         ```
-
-        ## Specify Lambda permissions for API Gateway REST API
+        ### With API Gateway REST API
 
         ```python
         import pulumi
@@ -686,8 +698,7 @@ class Permission(pulumi.CustomResource):
             principal="apigateway.amazonaws.com",
             source_arn=my_demo_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*"))
         ```
-
-        ## Usage with CloudWatch log group
+        ### With CloudWatch Log Group
 
         ```python
         import pulumi
@@ -719,8 +730,7 @@ class Permission(pulumi.CustomResource):
             log_group=default_log_group.name,
             opts=pulumi.ResourceOptions(depends_on=[logging_permission]))
         ```
-
-        ## Example function URL cross-account invoke policy
+        ### With Cross-Account Invocation Policy
 
         ```python
         import pulumi
@@ -735,6 +745,20 @@ class Permission(pulumi.CustomResource):
             principal="arn:aws:iam::444455556666:role/example",
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
+        ```
+        ### With `replace_triggered_by` Lifecycle Configuration
+
+        If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        logging = aws.lambda_.Permission("logging",
+            action="lambda:InvokeFunction",
+            function=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            principal="events.amazonaws.com",
+            source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
         ```
 
         ## Import

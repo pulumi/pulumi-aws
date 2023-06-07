@@ -183,6 +183,12 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string> ExecutionRoleName { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+        /// </summary>
+        [Output("managedExecution")]
+        public Output<Outputs.StackSetManagedExecution?> ManagedExecution { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         /// </summary>
         [Output("name")]
@@ -325,6 +331,12 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? ExecutionRoleName { get; set; }
 
         /// <summary>
+        /// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+        /// </summary>
+        [Input("managedExecution")]
+        public Input<Inputs.StackSetManagedExecutionArgs>? ManagedExecution { get; set; }
+
+        /// <summary>
         /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         /// </summary>
         [Input("name")]
@@ -433,6 +445,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("executionRoleName")]
         public Input<string>? ExecutionRoleName { get; set; }
+
+        /// <summary>
+        /// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+        /// </summary>
+        [Input("managedExecution")]
+        public Input<Inputs.StackSetManagedExecutionGetArgs>? ManagedExecution { get; set; }
 
         /// <summary>
         /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.

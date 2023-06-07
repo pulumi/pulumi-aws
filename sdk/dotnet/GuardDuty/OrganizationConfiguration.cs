@@ -31,7 +31,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     ///     var exampleOrganizationConfiguration = new Aws.GuardDuty.OrganizationConfiguration("exampleOrganizationConfiguration", new()
     ///     {
-    ///         AutoEnable = true,
+    ///         AutoEnableOrganizationMembers = "ALL",
     ///         DetectorId = exampleDetector.Id,
     ///         Datasources = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesArgs
     ///         {
@@ -74,10 +74,16 @@ namespace Pulumi.Aws.GuardDuty
     public partial class OrganizationConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         /// </summary>
         [Output("autoEnable")]
         public Output<bool> AutoEnable { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        /// </summary>
+        [Output("autoEnableOrganizationMembers")]
+        public Output<string> AutoEnableOrganizationMembers { get; private set; } = null!;
 
         /// <summary>
         /// Configuration for the collected datasources.
@@ -138,10 +144,16 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class OrganizationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         /// </summary>
-        [Input("autoEnable", required: true)]
-        public Input<bool> AutoEnable { get; set; } = null!;
+        [Input("autoEnable")]
+        public Input<bool>? AutoEnable { get; set; }
+
+        /// <summary>
+        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        /// </summary>
+        [Input("autoEnableOrganizationMembers")]
+        public Input<string>? AutoEnableOrganizationMembers { get; set; }
 
         /// <summary>
         /// Configuration for the collected datasources.
@@ -164,10 +176,16 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class OrganizationConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         /// </summary>
         [Input("autoEnable")]
         public Input<bool>? AutoEnable { get; set; }
+
+        /// <summary>
+        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        /// </summary>
+        [Input("autoEnableOrganizationMembers")]
+        public Input<string>? AutoEnableOrganizationMembers { get; set; }
 
         /// <summary>
         /// Configuration for the collected datasources.

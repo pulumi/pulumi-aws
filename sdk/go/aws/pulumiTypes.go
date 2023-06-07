@@ -11,9 +11,7 @@ import (
 )
 
 type ProviderAssumeRole struct {
-	Duration *string `pulumi:"duration"`
-	// Deprecated: Use assume_role.duration instead
-	DurationSeconds   *int              `pulumi:"durationSeconds"`
+	Duration          *string           `pulumi:"duration"`
 	ExternalId        *string           `pulumi:"externalId"`
 	Policy            *string           `pulumi:"policy"`
 	PolicyArns        []string          `pulumi:"policyArns"`
@@ -36,9 +34,7 @@ type ProviderAssumeRoleInput interface {
 }
 
 type ProviderAssumeRoleArgs struct {
-	Duration pulumi.StringPtrInput `pulumi:"duration"`
-	// Deprecated: Use assume_role.duration instead
-	DurationSeconds   pulumi.IntPtrInput      `pulumi:"durationSeconds"`
+	Duration          pulumi.StringPtrInput   `pulumi:"duration"`
 	ExternalId        pulumi.StringPtrInput   `pulumi:"externalId"`
 	Policy            pulumi.StringPtrInput   `pulumi:"policy"`
 	PolicyArns        pulumi.StringArrayInput `pulumi:"policyArns"`
@@ -130,11 +126,6 @@ func (o ProviderAssumeRoleOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderAssumeRole) *string { return v.Duration }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: Use assume_role.duration instead
-func (o ProviderAssumeRoleOutput) DurationSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProviderAssumeRole) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
-}
-
 func (o ProviderAssumeRoleOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderAssumeRole) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
@@ -198,16 +189,6 @@ func (o ProviderAssumeRolePtrOutput) Duration() pulumi.StringPtrOutput {
 		}
 		return v.Duration
 	}).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: Use assume_role.duration instead
-func (o ProviderAssumeRolePtrOutput) DurationSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ProviderAssumeRole) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DurationSeconds
-	}).(pulumi.IntPtrOutput)
 }
 
 func (o ProviderAssumeRolePtrOutput) ExternalId() pulumi.StringPtrOutput {

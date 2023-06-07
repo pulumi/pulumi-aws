@@ -60,6 +60,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
 
+        /// <summary>
+        /// The S3 Configuration. See s3_configuration for more details.
+        /// </summary>
+        [Input("s3Configuration", required: true)]
+        public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationGetArgs> S3Configuration { get; set; } = null!;
+
         public FirehoseDeliveryStreamSplunkConfigurationGetArgs()
         {
         }

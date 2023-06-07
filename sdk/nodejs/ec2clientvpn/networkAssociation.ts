@@ -8,10 +8,7 @@ import * as utilities from "../utilities";
  * Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
  * [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
  *
- * > **NOTE on Client VPN endpoint target network security groups:** The provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `securityGroups` argument and a Client VPN endpoint resource with a `securityGroupIds` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
- *
  * ## Example Usage
- * ### Using default security group
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -20,21 +17,6 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2clientvpn.NetworkAssociation("example", {
  *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint.example.id,
  *     subnetId: aws_subnet.example.id,
- * });
- * ```
- * ### Using custom security groups
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2clientvpn.NetworkAssociation("example", {
- *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint.example.id,
- *     subnetId: aws_subnet.example.id,
- *     securityGroups: [
- *         aws_security_group.example1.id,
- *         aws_security_group.example2.id,
- *     ],
  * });
  * ```
  *
@@ -83,18 +65,6 @@ export class NetworkAssociation extends pulumi.CustomResource {
      */
     public readonly clientVpnEndpointId!: pulumi.Output<string>;
     /**
-     * A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
-     *
-     * @deprecated Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-     */
-    public readonly securityGroups!: pulumi.Output<string[]>;
-    /**
-     * **Deprecated** The current state of the target network association.
-     *
-     * @deprecated This attribute has been deprecated.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */
     public readonly subnetId!: pulumi.Output<string>;
@@ -118,8 +88,6 @@ export class NetworkAssociation extends pulumi.CustomResource {
             const state = argsOrState as NetworkAssociationState | undefined;
             resourceInputs["associationId"] = state ? state.associationId : undefined;
             resourceInputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
-            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -131,10 +99,8 @@ export class NetworkAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
-            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["associationId"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -155,18 +121,6 @@ export interface NetworkAssociationState {
      */
     clientVpnEndpointId?: pulumi.Input<string>;
     /**
-     * A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
-     *
-     * @deprecated Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-     */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * **Deprecated** The current state of the target network association.
-     *
-     * @deprecated This attribute has been deprecated.
-     */
-    status?: pulumi.Input<string>;
-    /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */
     subnetId?: pulumi.Input<string>;
@@ -184,12 +138,6 @@ export interface NetworkAssociationArgs {
      * The ID of the Client VPN endpoint.
      */
     clientVpnEndpointId: pulumi.Input<string>;
-    /**
-     * A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
-     *
-     * @deprecated Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-     */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */

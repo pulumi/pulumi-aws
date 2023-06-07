@@ -138,6 +138,10 @@ export class StackSet extends pulumi.CustomResource {
      */
     public readonly executionRoleName!: pulumi.Output<string>;
     /**
+     * Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+     */
+    public readonly managedExecution!: pulumi.Output<outputs.cloudformation.StackSetManagedExecution | undefined>;
+    /**
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */
     public readonly name!: pulumi.Output<string>;
@@ -194,6 +198,7 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["capabilities"] = state ? state.capabilities : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["executionRoleName"] = state ? state.executionRoleName : undefined;
+            resourceInputs["managedExecution"] = state ? state.managedExecution : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["operationPreferences"] = state ? state.operationPreferences : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
@@ -211,6 +216,7 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["capabilities"] = args ? args.capabilities : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["executionRoleName"] = args ? args.executionRoleName : undefined;
+            resourceInputs["managedExecution"] = args ? args.managedExecution : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["operationPreferences"] = args ? args.operationPreferences : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
@@ -259,6 +265,10 @@ export interface StackSetState {
      * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
      */
     executionRoleName?: pulumi.Input<string>;
+    /**
+     * Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+     */
+    managedExecution?: pulumi.Input<inputs.cloudformation.StackSetManagedExecution>;
     /**
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */
@@ -325,6 +335,10 @@ export interface StackSetArgs {
      * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
      */
     executionRoleName?: pulumi.Input<string>;
+    /**
+     * Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+     */
+    managedExecution?: pulumi.Input<inputs.cloudformation.StackSetManagedExecution>;
     /**
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      */

@@ -410,8 +410,6 @@ class ReportDefinition(pulumi.CustomResource):
 
         > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
 
-        > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-
         ## Example Usage
 
         ```python
@@ -464,8 +462,6 @@ class ReportDefinition(pulumi.CustomResource):
         Manages Cost and Usage Report Definitions.
 
         > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
-
-        > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
 
         ## Example Usage
 

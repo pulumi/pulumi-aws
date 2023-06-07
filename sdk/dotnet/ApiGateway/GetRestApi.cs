@@ -162,7 +162,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Minimum response size to compress for the REST API.
         /// </summary>
-        public readonly int MinimumCompressionSize;
+        public readonly string MinimumCompressionSize;
         public readonly string Name;
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway.
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.ApiGateway
 
             string id,
 
-            int minimumCompressionSize,
+            string minimumCompressionSize,
 
             string name,
 

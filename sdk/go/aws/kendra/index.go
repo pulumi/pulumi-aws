@@ -102,8 +102,38 @@ import (
 //	}
 //
 // ```
+// ### With user group resolution configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := kendra.NewIndex(ctx, "example", &kendra.IndexArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.This.Arn),
+//				UserGroupResolutionConfiguration: &kendra.IndexUserGroupResolutionConfigurationArgs{
+//					UserGroupResolutionMode: pulumi.String("AWS_SSO"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### With Document Metadata Configuration Updates
 // ### Specifying the predefined elements
+//
+// Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
 //
 // ```go
 // package main
@@ -271,6 +301,20 @@ import (
 //							Facetable:   pulumi.Bool(false),
 //							Searchable:  pulumi.Bool(false),
 //							Sortable:    pulumi.Bool(false),
+//						},
+//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
+//							Importance:          pulumi.Int(1),
+//							ValuesImportanceMap: nil,
+//						},
+//					},
+//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
+//						Name: pulumi.String("_tenant_id"),
+//						Type: pulumi.String("STRING_VALUE"),
+//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
+//							Displayable: pulumi.Bool(false),
+//							Facetable:   pulumi.Bool(false),
+//							Searchable:  pulumi.Bool(false),
+//							Sortable:    pulumi.Bool(true),
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),
@@ -485,6 +529,20 @@ import (
 //							Facetable:   pulumi.Bool(false),
 //							Searchable:  pulumi.Bool(false),
 //							Sortable:    pulumi.Bool(false),
+//						},
+//						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
+//							Importance:          pulumi.Int(1),
+//							ValuesImportanceMap: nil,
+//						},
+//					},
+//					&kendra.IndexDocumentMetadataConfigurationUpdateArgs{
+//						Name: pulumi.String("_tenant_id"),
+//						Type: pulumi.String("STRING_VALUE"),
+//						Search: &kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs{
+//							Displayable: pulumi.Bool(false),
+//							Facetable:   pulumi.Bool(false),
+//							Searchable:  pulumi.Bool(false),
+//							Sortable:    pulumi.Bool(true),
 //						},
 //						Relevance: &kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs{
 //							Importance:          pulumi.Int(1),

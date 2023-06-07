@@ -76,15 +76,6 @@ public final class GetClusterResult {
      */
     private String clusterRevisionNumber;
     /**
-     * @return The security groups associated with the cluster
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
-    private List<String> clusterSecurityGroups;
-    /**
      * @return The name of a cluster subnet group to be associated with this cluster
      * 
      */
@@ -302,17 +293,6 @@ public final class GetClusterResult {
         return this.clusterRevisionNumber;
     }
     /**
-     * @return The security groups associated with the cluster
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
-    public List<String> clusterSecurityGroups() {
-        return this.clusterSecurityGroups;
-    }
-    /**
      * @return The name of a cluster subnet group to be associated with this cluster
      * 
      */
@@ -519,7 +499,6 @@ public final class GetClusterResult {
         private String clusterParameterGroupName;
         private String clusterPublicKey;
         private String clusterRevisionNumber;
-        private List<String> clusterSecurityGroups;
         private String clusterSubnetGroupName;
         private String clusterType;
         private String clusterVersion;
@@ -562,7 +541,6 @@ public final class GetClusterResult {
     	      this.clusterParameterGroupName = defaults.clusterParameterGroupName;
     	      this.clusterPublicKey = defaults.clusterPublicKey;
     	      this.clusterRevisionNumber = defaults.clusterRevisionNumber;
-    	      this.clusterSecurityGroups = defaults.clusterSecurityGroups;
     	      this.clusterSubnetGroupName = defaults.clusterSubnetGroupName;
     	      this.clusterType = defaults.clusterType;
     	      this.clusterVersion = defaults.clusterVersion;
@@ -654,14 +632,6 @@ public final class GetClusterResult {
         public Builder clusterRevisionNumber(String clusterRevisionNumber) {
             this.clusterRevisionNumber = Objects.requireNonNull(clusterRevisionNumber);
             return this;
-        }
-        @CustomType.Setter
-        public Builder clusterSecurityGroups(List<String> clusterSecurityGroups) {
-            this.clusterSecurityGroups = Objects.requireNonNull(clusterSecurityGroups);
-            return this;
-        }
-        public Builder clusterSecurityGroups(String... clusterSecurityGroups) {
-            return clusterSecurityGroups(List.of(clusterSecurityGroups));
         }
         @CustomType.Setter
         public Builder clusterSubnetGroupName(String clusterSubnetGroupName) {
@@ -821,7 +791,6 @@ public final class GetClusterResult {
             o.clusterParameterGroupName = clusterParameterGroupName;
             o.clusterPublicKey = clusterPublicKey;
             o.clusterRevisionNumber = clusterRevisionNumber;
-            o.clusterSecurityGroups = clusterSecurityGroups;
             o.clusterSubnetGroupName = clusterSubnetGroupName;
             o.clusterType = clusterType;
             o.clusterVersion = clusterVersion;

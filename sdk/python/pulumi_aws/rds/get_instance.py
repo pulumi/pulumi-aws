@@ -22,7 +22,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_security_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
@@ -62,13 +62,6 @@ class GetInstanceResult:
         if db_parameter_groups and not isinstance(db_parameter_groups, list):
             raise TypeError("Expected argument 'db_parameter_groups' to be a list")
         pulumi.set(__self__, "db_parameter_groups", db_parameter_groups)
-        if db_security_groups and not isinstance(db_security_groups, list):
-            raise TypeError("Expected argument 'db_security_groups' to be a list")
-        if db_security_groups is not None:
-            warnings.warn("""With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""db_security_groups is deprecated: With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.""")
-
-        pulumi.set(__self__, "db_security_groups", db_security_groups)
         if db_subnet_group and not isinstance(db_subnet_group, str):
             raise TypeError("Expected argument 'db_subnet_group' to be a str")
         pulumi.set(__self__, "db_subnet_group", db_subnet_group)
@@ -257,14 +250,6 @@ class GetInstanceResult:
         Provides the list of DB parameter groups applied to this DB instance.
         """
         return pulumi.get(self, "db_parameter_groups")
-
-    @property
-    @pulumi.getter(name="dbSecurityGroups")
-    def db_security_groups(self) -> Sequence[str]:
-        """
-        Provides List of DB security groups associated to this DB instance.
-        """
-        return pulumi.get(self, "db_security_groups")
 
     @property
     @pulumi.getter(name="dbSubnetGroup")
@@ -515,7 +500,6 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             db_instance_port=self.db_instance_port,
             db_name=self.db_name,
             db_parameter_groups=self.db_parameter_groups,
-            db_security_groups=self.db_security_groups,
             db_subnet_group=self.db_subnet_group,
             enabled_cloudwatch_logs_exports=self.enabled_cloudwatch_logs_exports,
             endpoint=self.endpoint,
@@ -585,7 +569,6 @@ def get_instance(db_instance_identifier: Optional[str] = None,
         db_instance_port=__ret__.db_instance_port,
         db_name=__ret__.db_name,
         db_parameter_groups=__ret__.db_parameter_groups,
-        db_security_groups=__ret__.db_security_groups,
         db_subnet_group=__ret__.db_subnet_group,
         enabled_cloudwatch_logs_exports=__ret__.enabled_cloudwatch_logs_exports,
         endpoint=__ret__.endpoint,

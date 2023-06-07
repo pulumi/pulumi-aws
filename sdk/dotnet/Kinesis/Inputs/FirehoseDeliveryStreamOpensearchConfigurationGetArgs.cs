@@ -79,6 +79,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
+        /// The S3 Configuration. See s3_configuration for more details.
+        /// </summary>
+        [Input("s3Configuration", required: true)]
+        public Input<Inputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationGetArgs> S3Configuration { get; set; } = null!;
+
+        /// <summary>
         /// The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
         /// </summary>
         [Input("typeName")]

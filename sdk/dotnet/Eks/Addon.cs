@@ -35,11 +35,9 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
-    /// ## Example Update add-on usage with resolve_conflicts and PRESERVE
+    /// ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
     /// 
-    /// `resolve_conflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
-    /// 
-    /// &gt; **Note:** `resolve_conflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
+    /// `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -54,7 +52,7 @@ namespace Pulumi.Aws.Eks
     ///         ClusterName = aws_eks_cluster.Example.Name,
     ///         AddonName = "coredns",
     ///         AddonVersion = "v1.8.7-eksbuild.3",
-    ///         ResolveConflicts = "PRESERVE",
+    ///         ResolveConflictsOnUpdate = "PRESERVE",
     ///     });
     /// 
     /// });
@@ -84,6 +82,7 @@ namespace Pulumi.Aws.Eks
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -91,11 +90,27 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.Addon("example", new()
     ///     {
+    ///         ClusterName = "mycluster",
     ///         AddonName = "coredns",
     ///         AddonVersion = "v1.8.7-eksbuild.3",
-    ///         ClusterName = "mycluster",
-    ///         ConfigurationValues = "{\"replicaCount\":4,\"resources\":{\"limits\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"}}}",
-    ///         ResolveConflicts = "OVERWRITE",
+    ///         ResolveConflictsOnCreate = "OVERWRITE",
+    ///         ConfigurationValues = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["replicaCount"] = 4,
+    ///             ["resources"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["limits"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["cpu"] = "100m",
+    ///                     ["memory"] = "150Mi",
+    ///                 },
+    ///                 ["requests"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["cpu"] = "100m",
+    ///                     ["memory"] = "150Mi",
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
     /// });
@@ -165,12 +180,22 @@ namespace Pulumi.Aws.Eks
         public Output<bool?> Preserve { get; private set; } = null!;
 
         /// <summary>
-        /// Define how to resolve parameter value conflicts
-        /// when migrating an existing add-on to an Amazon EKS add-on or when applying
-        /// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         /// </summary>
         [Output("resolveConflicts")]
         public Output<string?> ResolveConflicts { get; private set; } = null!;
+
+        /// <summary>
+        /// How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+        /// </summary>
+        [Output("resolveConflictsOnCreate")]
+        public Output<string?> ResolveConflictsOnCreate { get; private set; } = null!;
+
+        /// <summary>
+        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE` and `OVERWRITE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// </summary>
+        [Output("resolveConflictsOnUpdate")]
+        public Output<string?> ResolveConflictsOnUpdate { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an
@@ -281,12 +306,22 @@ namespace Pulumi.Aws.Eks
         public Input<bool>? Preserve { get; set; }
 
         /// <summary>
-        /// Define how to resolve parameter value conflicts
-        /// when migrating an existing add-on to an Amazon EKS add-on or when applying
-        /// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         /// </summary>
         [Input("resolveConflicts")]
         public Input<string>? ResolveConflicts { get; set; }
+
+        /// <summary>
+        /// How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+        /// </summary>
+        [Input("resolveConflictsOnCreate")]
+        public Input<string>? ResolveConflictsOnCreate { get; set; }
+
+        /// <summary>
+        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE` and `OVERWRITE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// </summary>
+        [Input("resolveConflictsOnUpdate")]
+        public Input<string>? ResolveConflictsOnUpdate { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an
@@ -377,12 +412,22 @@ namespace Pulumi.Aws.Eks
         public Input<bool>? Preserve { get; set; }
 
         /// <summary>
-        /// Define how to resolve parameter value conflicts
-        /// when migrating an existing add-on to an Amazon EKS add-on or when applying
-        /// version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         /// </summary>
         [Input("resolveConflicts")]
         public Input<string>? ResolveConflicts { get; set; }
+
+        /// <summary>
+        /// How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+        /// </summary>
+        [Input("resolveConflictsOnCreate")]
+        public Input<string>? ResolveConflictsOnCreate { get; set; }
+
+        /// <summary>
+        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE` and `OVERWRITE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// </summary>
+        [Input("resolveConflictsOnUpdate")]
+        public Input<string>? ResolveConflictsOnUpdate { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an

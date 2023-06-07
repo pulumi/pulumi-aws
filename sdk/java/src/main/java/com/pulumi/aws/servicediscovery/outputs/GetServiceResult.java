@@ -57,9 +57,13 @@ public final class GetServiceResult {
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * this attribute has been deprecated
      * 
      */
+    @Deprecated /* this attribute has been deprecated */
     private Map<String,String> tagsAll;
 
     private GetServiceResult() {}
@@ -123,9 +127,13 @@ public final class GetServiceResult {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * this attribute has been deprecated
      * 
      */
+    @Deprecated /* this attribute has been deprecated */
     public Map<String,String> tagsAll() {
         return this.tagsAll;
     }

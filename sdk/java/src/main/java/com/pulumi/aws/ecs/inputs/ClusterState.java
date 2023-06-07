@@ -4,7 +4,6 @@
 package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.aws.ecs.inputs.ClusterConfigurationArgs;
-import com.pulumi.aws.ecs.inputs.ClusterDefaultCapacityProviderStrategyArgs;
 import com.pulumi.aws.ecs.inputs.ClusterServiceConnectDefaultsArgs;
 import com.pulumi.aws.ecs.inputs.ClusterSettingArgs;
 import com.pulumi.core.Output;
@@ -37,29 +36,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     * 
-     * @deprecated
-     * Use the aws_ecs_cluster_capacity_providers resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-    @Import(name="capacityProviders")
-    private @Nullable Output<List<String>> capacityProviders;
-
-    /**
-     * @return List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     * 
-     * @deprecated
-     * Use the aws_ecs_cluster_capacity_providers resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-    public Optional<Output<List<String>>> capacityProviders() {
-        return Optional.ofNullable(this.capacityProviders);
-    }
-
-    /**
      * The execute command configuration for the cluster. Detailed below.
      * 
      */
@@ -72,29 +48,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ClusterConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
-    }
-
-    /**
-     * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-     * 
-     * @deprecated
-     * Use the aws_ecs_cluster_capacity_providers resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-    @Import(name="defaultCapacityProviderStrategies")
-    private @Nullable Output<List<ClusterDefaultCapacityProviderStrategyArgs>> defaultCapacityProviderStrategies;
-
-    /**
-     * @return Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-     * 
-     * @deprecated
-     * Use the aws_ecs_cluster_capacity_providers resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-    public Optional<Output<List<ClusterDefaultCapacityProviderStrategyArgs>>> defaultCapacityProviderStrategies() {
-        return Optional.ofNullable(this.defaultCapacityProviderStrategies);
     }
 
     /**
@@ -176,9 +129,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     private ClusterState(ClusterState $) {
         this.arn = $.arn;
-        this.capacityProviders = $.capacityProviders;
         this.configuration = $.configuration;
-        this.defaultCapacityProviderStrategies = $.defaultCapacityProviderStrategies;
         this.name = $.name;
         this.serviceConnectDefaults = $.serviceConnectDefaults;
         this.settings = $.settings;
@@ -226,49 +177,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityProviders List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_ecs_cluster_capacity_providers resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-        public Builder capacityProviders(@Nullable Output<List<String>> capacityProviders) {
-            $.capacityProviders = capacityProviders;
-            return this;
-        }
-
-        /**
-         * @param capacityProviders List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_ecs_cluster_capacity_providers resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-        public Builder capacityProviders(List<String> capacityProviders) {
-            return capacityProviders(Output.of(capacityProviders));
-        }
-
-        /**
-         * @param capacityProviders List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_ecs_cluster_capacity_providers resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-        public Builder capacityProviders(String... capacityProviders) {
-            return capacityProviders(List.of(capacityProviders));
-        }
-
-        /**
          * @param configuration The execute command configuration for the cluster. Detailed below.
          * 
          * @return builder
@@ -287,49 +195,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder configuration(ClusterConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
-        }
-
-        /**
-         * @param defaultCapacityProviderStrategies Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_ecs_cluster_capacity_providers resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-        public Builder defaultCapacityProviderStrategies(@Nullable Output<List<ClusterDefaultCapacityProviderStrategyArgs>> defaultCapacityProviderStrategies) {
-            $.defaultCapacityProviderStrategies = defaultCapacityProviderStrategies;
-            return this;
-        }
-
-        /**
-         * @param defaultCapacityProviderStrategies Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_ecs_cluster_capacity_providers resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-        public Builder defaultCapacityProviderStrategies(List<ClusterDefaultCapacityProviderStrategyArgs> defaultCapacityProviderStrategies) {
-            return defaultCapacityProviderStrategies(Output.of(defaultCapacityProviderStrategies));
-        }
-
-        /**
-         * @param defaultCapacityProviderStrategies Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_ecs_cluster_capacity_providers resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-        public Builder defaultCapacityProviderStrategies(ClusterDefaultCapacityProviderStrategyArgs... defaultCapacityProviderStrategies) {
-            return defaultCapacityProviderStrategies(List.of(defaultCapacityProviderStrategies));
         }
 
         /**

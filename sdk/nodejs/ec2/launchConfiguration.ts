@@ -286,18 +286,6 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
     public readonly userDataBase64!: pulumi.Output<string | undefined>;
-    /**
-     * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-     *
-     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-     */
-    public readonly vpcClassicLinkId!: pulumi.Output<string | undefined>;
-    /**
-     * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-     *
-     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-     */
-    public readonly vpcClassicLinkSecurityGroups!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a LaunchConfiguration resource with the given unique name, arguments, and options.
@@ -331,8 +319,6 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             resourceInputs["spotPrice"] = state ? state.spotPrice : undefined;
             resourceInputs["userData"] = state ? state.userData : undefined;
             resourceInputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
-            resourceInputs["vpcClassicLinkId"] = state ? state.vpcClassicLinkId : undefined;
-            resourceInputs["vpcClassicLinkSecurityGroups"] = state ? state.vpcClassicLinkSecurityGroups : undefined;
         } else {
             const args = argsOrState as LaunchConfigurationArgs | undefined;
             if ((!args || args.imageId === undefined) && !opts.urn) {
@@ -359,8 +345,6 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             resourceInputs["spotPrice"] = args ? args.spotPrice : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
-            resourceInputs["vpcClassicLinkId"] = args ? args.vpcClassicLinkId : undefined;
-            resourceInputs["vpcClassicLinkSecurityGroups"] = args ? args.vpcClassicLinkSecurityGroups : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -450,18 +434,6 @@ export interface LaunchConfigurationState {
      * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
     userDataBase64?: pulumi.Input<string>;
-    /**
-     * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-     *
-     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-     */
-    vpcClassicLinkId?: pulumi.Input<string>;
-    /**
-     * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-     *
-     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-     */
-    vpcClassicLinkSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -542,16 +514,4 @@ export interface LaunchConfigurationArgs {
      * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
     userDataBase64?: pulumi.Input<string>;
-    /**
-     * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-     *
-     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-     */
-    vpcClassicLinkId?: pulumi.Input<string>;
-    /**
-     * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-     *
-     * @deprecated With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-     */
-    vpcClassicLinkSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
 }

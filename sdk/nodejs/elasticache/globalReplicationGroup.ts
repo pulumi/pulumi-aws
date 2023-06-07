@@ -20,20 +20,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.elasticache.ReplicationGroup("primary", {
- *     replicationGroupDescription: "primary replication group",
+ *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "5.0.6",
  *     nodeType: "cache.m5.large",
- *     numberCacheClusters: 1,
+ *     numCacheClusters: 1,
  * });
  * const example = new aws.elasticache.GlobalReplicationGroup("example", {
  *     globalReplicationGroupIdSuffix: "example",
  *     primaryReplicationGroupId: primary.id,
  * });
  * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
- *     replicationGroupDescription: "secondary replication group",
+ *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
- *     numberCacheClusters: 1,
+ *     numCacheClusters: 1,
  * }, {
  *     provider: aws.other_region,
  * });
@@ -57,11 +57,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.elasticache.ReplicationGroup("primary", {
- *     replicationGroupDescription: "primary replication group",
+ *     description: "primary replication group",
  *     engine: "redis",
  *     engineVersion: "6.0",
  *     nodeType: "cache.m5.large",
- *     numberCacheClusters: 1,
+ *     numCacheClusters: 1,
  * });
  * const example = new aws.elasticache.GlobalReplicationGroup("example", {
  *     globalReplicationGroupIdSuffix: "example",
@@ -69,9 +69,9 @@ import * as utilities from "../utilities";
  *     engineVersion: "6.2",
  * });
  * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
- *     replicationGroupDescription: "secondary replication group",
+ *     description: "secondary replication group",
  *     globalReplicationGroupId: example.globalReplicationGroupId,
- *     numberCacheClusters: 1,
+ *     numCacheClusters: 1,
  * }, {
  *     provider: aws.other_region,
  * });

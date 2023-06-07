@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.outputs;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -70,6 +71,11 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      * 
      */
     private @Nullable String s3BackupMode;
+    /**
+     * @return The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    private FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration;
     /**
      * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
      * 
@@ -155,6 +161,13 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
+     * @return The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    public FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration() {
+        return this.s3Configuration;
+    }
+    /**
      * @return The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
      * 
      */
@@ -182,6 +195,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
         private String roleArn;
         private @Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration;
         private @Nullable String s3BackupMode;
+        private FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration;
         private String username;
         public Builder() {}
         public Builder(FirehoseDeliveryStreamRedshiftConfiguration defaults) {
@@ -197,6 +211,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
     	      this.roleArn = defaults.roleArn;
     	      this.s3BackupConfiguration = defaults.s3BackupConfiguration;
     	      this.s3BackupMode = defaults.s3BackupMode;
+    	      this.s3Configuration = defaults.s3Configuration;
     	      this.username = defaults.username;
         }
 
@@ -256,6 +271,11 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration) {
+            this.s3Configuration = Objects.requireNonNull(s3Configuration);
+            return this;
+        }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
@@ -273,6 +293,7 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
             o.roleArn = roleArn;
             o.s3BackupConfiguration = s3BackupConfiguration;
             o.s3BackupMode = s3BackupMode;
+            o.s3Configuration = s3Configuration;
             o.username = username;
             return o;
         }

@@ -237,33 +237,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
      * Specific to the Amazon S3 service.
      * 
-     * @deprecated
-     * Use s3_use_path_style instead.
-     * 
-     */
-    @Deprecated /* Use s3_use_path_style instead. */
-    @Import(name="s3ForcePathStyle", json=true)
-    private @Nullable Output<Boolean> s3ForcePathStyle;
-
-    /**
-     * @return Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-     * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-     * Specific to the Amazon S3 service.
-     * 
-     * @deprecated
-     * Use s3_use_path_style instead.
-     * 
-     */
-    @Deprecated /* Use s3_use_path_style instead. */
-    public Optional<Output<Boolean>> s3ForcePathStyle() {
-        return Optional.ofNullable(this.s3ForcePathStyle);
-    }
-
-    /**
-     * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-     * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-     * Specific to the Amazon S3 service.
-     * 
      */
     @Import(name="s3UsePathStyle", json=true)
     private @Nullable Output<Boolean> s3UsePathStyle;
@@ -309,29 +282,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-     * 
-     * @deprecated
-     * Use shared_credentials_files instead.
-     * 
-     */
-    @Deprecated /* Use shared_credentials_files instead. */
-    @Import(name="sharedCredentialsFile")
-    private @Nullable Output<String> sharedCredentialsFile;
-
-    /**
-     * @return The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-     * 
-     * @deprecated
-     * Use shared_credentials_files instead.
-     * 
-     */
-    @Deprecated /* Use shared_credentials_files instead. */
-    public Optional<Output<String>> sharedCredentialsFile() {
-        return Optional.ofNullable(this.sharedCredentialsFile);
-    }
-
-    /**
      * List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
      * 
      */
@@ -361,29 +311,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> skipCredentialsValidation() {
         return Optional.ofNullable(this.skipCredentialsValidation);
-    }
-
-    /**
-     * Skip getting the supported EC2 platforms. Used by users that don&#39;t have ec2:DescribeAccountAttributes permissions.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version. */
-    @Import(name="skipGetEc2Platforms", json=true)
-    private @Nullable Output<Boolean> skipGetEc2Platforms;
-
-    /**
-     * @return Skip getting the supported EC2 platforms. Used by users that don&#39;t have ec2:DescribeAccountAttributes permissions.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version. */
-    public Optional<Output<Boolean>> skipGetEc2Platforms() {
-        return Optional.ofNullable(this.skipGetEc2Platforms);
     }
 
     /**
@@ -512,14 +439,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.maxRetries = $.maxRetries;
         this.profile = $.profile;
         this.region = $.region;
-        this.s3ForcePathStyle = $.s3ForcePathStyle;
         this.s3UsePathStyle = $.s3UsePathStyle;
         this.secretKey = $.secretKey;
         this.sharedConfigFiles = $.sharedConfigFiles;
-        this.sharedCredentialsFile = $.sharedCredentialsFile;
         this.sharedCredentialsFiles = $.sharedCredentialsFiles;
         this.skipCredentialsValidation = $.skipCredentialsValidation;
-        this.skipGetEc2Platforms = $.skipGetEc2Platforms;
         this.skipMetadataApiCheck = $.skipMetadataApiCheck;
         this.skipRegionValidation = $.skipRegionValidation;
         this.skipRequestingAccountId = $.skipRequestingAccountId;
@@ -844,39 +768,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3ForcePathStyle Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-         * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-         * Specific to the Amazon S3 service.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use s3_use_path_style instead.
-         * 
-         */
-        @Deprecated /* Use s3_use_path_style instead. */
-        public Builder s3ForcePathStyle(@Nullable Output<Boolean> s3ForcePathStyle) {
-            $.s3ForcePathStyle = s3ForcePathStyle;
-            return this;
-        }
-
-        /**
-         * @param s3ForcePathStyle Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-         * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-         * Specific to the Amazon S3 service.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use s3_use_path_style instead.
-         * 
-         */
-        @Deprecated /* Use s3_use_path_style instead. */
-        public Builder s3ForcePathStyle(Boolean s3ForcePathStyle) {
-            return s3ForcePathStyle(Output.of(s3ForcePathStyle));
-        }
-
-        /**
          * @param s3UsePathStyle Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
          * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
          * Specific to the Amazon S3 service.
@@ -954,35 +845,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sharedCredentialsFile The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use shared_credentials_files instead.
-         * 
-         */
-        @Deprecated /* Use shared_credentials_files instead. */
-        public Builder sharedCredentialsFile(@Nullable Output<String> sharedCredentialsFile) {
-            $.sharedCredentialsFile = sharedCredentialsFile;
-            return this;
-        }
-
-        /**
-         * @param sharedCredentialsFile The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use shared_credentials_files instead.
-         * 
-         */
-        @Deprecated /* Use shared_credentials_files instead. */
-        public Builder sharedCredentialsFile(String sharedCredentialsFile) {
-            return sharedCredentialsFile(Output.of(sharedCredentialsFile));
-        }
-
-        /**
          * @param sharedCredentialsFiles List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
          * 
          * @return builder
@@ -1034,35 +896,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder skipCredentialsValidation(Boolean skipCredentialsValidation) {
             return skipCredentialsValidation(Output.of(skipCredentialsValidation));
-        }
-
-        /**
-         * @param skipGetEc2Platforms Skip getting the supported EC2 platforms. Used by users that don&#39;t have ec2:DescribeAccountAttributes permissions.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version. */
-        public Builder skipGetEc2Platforms(@Nullable Output<Boolean> skipGetEc2Platforms) {
-            $.skipGetEc2Platforms = skipGetEc2Platforms;
-            return this;
-        }
-
-        /**
-         * @param skipGetEc2Platforms Skip getting the supported EC2 platforms. Used by users that don&#39;t have ec2:DescribeAccountAttributes permissions.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version. */
-        public Builder skipGetEc2Platforms(Boolean skipGetEc2Platforms) {
-            return skipGetEc2Platforms(Output.of(skipGetEc2Platforms));
         }
 
         /**

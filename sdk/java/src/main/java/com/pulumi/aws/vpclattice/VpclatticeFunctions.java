@@ -8,12 +8,15 @@ import com.pulumi.aws.vpclattice.inputs.GetAuthPolicyArgs;
 import com.pulumi.aws.vpclattice.inputs.GetAuthPolicyPlainArgs;
 import com.pulumi.aws.vpclattice.inputs.GetListenerArgs;
 import com.pulumi.aws.vpclattice.inputs.GetListenerPlainArgs;
+import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyArgs;
+import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyPlainArgs;
 import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
 import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkArgs;
 import com.pulumi.aws.vpclattice.inputs.GetServiceNetworkPlainArgs;
 import com.pulumi.aws.vpclattice.inputs.GetServicePlainArgs;
 import com.pulumi.aws.vpclattice.outputs.GetAuthPolicyResult;
 import com.pulumi.aws.vpclattice.outputs.GetListenerResult;
+import com.pulumi.aws.vpclattice.outputs.GetResourcePolicyResult;
 import com.pulumi.aws.vpclattice.outputs.GetServiceNetworkResult;
 import com.pulumi.aws.vpclattice.outputs.GetServiceResult;
 import com.pulumi.core.Output;
@@ -318,6 +321,158 @@ public final class VpclatticeFunctions {
      */
     public static CompletableFuture<GetListenerResult> getListenerPlain(GetListenerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:vpclattice/getListener:getListener", TypeShape.of(GetListenerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS VPC Lattice Resource Policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
+     *             .resourceArn(aws_vpclattice_service_network.example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResourcePolicyResult> getResourcePolicy(GetResourcePolicyArgs args) {
+        return getResourcePolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS VPC Lattice Resource Policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
+     *             .resourceArn(aws_vpclattice_service_network.example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResourcePolicyResult> getResourcePolicyPlain(GetResourcePolicyPlainArgs args) {
+        return getResourcePolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS VPC Lattice Resource Policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
+     *             .resourceArn(aws_vpclattice_service_network.example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetResourcePolicyResult> getResourcePolicy(GetResourcePolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:vpclattice/getResourcePolicy:getResourcePolicy", TypeShape.of(GetResourcePolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS VPC Lattice Resource Policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetResourcePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpclatticeFunctions.getResourcePolicy(GetResourcePolicyArgs.builder()
+     *             .resourceArn(aws_vpclattice_service_network.example().arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetResourcePolicyResult> getResourcePolicyPlain(GetResourcePolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:vpclattice/getResourcePolicy:getResourcePolicy", TypeShape.of(GetResourcePolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source for managing an AWS VPC Lattice Service.

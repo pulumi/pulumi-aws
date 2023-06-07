@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Rds
     ///         Engine = "mysql",
     ///         EngineVersion = "5.6.17",
     ///         InstanceClass = "db.t2.micro",
-    ///         Name = "mydb",
+    ///         DbName = "mydb",
     ///         Username = "foo",
     ///         Password = "bar",
     ///         DbSubnetGroupName = "my_database_subnet_group",
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Rds
     ///         SourceType = "db-instance",
     ///         SourceIds = new[]
     ///         {
-    ///             defaultInstance.Id,
+    ///             defaultInstance.Identifier,
     ///         },
     ///         EventCategories = new[]
     ///         {

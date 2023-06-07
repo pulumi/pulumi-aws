@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     privateDnsEnabled: false,
  *     securityGroupIds: [aws_security_group.test.id],
  * }, {
- *     provider: "aws.alternate",
+ *     provider: aws.alternate,
  * });
  * const exampleVpcEndpointConnectionAccepter = new aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", {
  *     vpcEndpointServiceId: exampleVpcEndpointService.id,

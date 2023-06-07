@@ -24,8 +24,6 @@ class SecretArgs:
                  policy: Optional[pulumi.Input[str]] = None,
                  recovery_window_in_days: Optional[pulumi.Input[int]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]]] = None,
-                 rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
-                 rotation_rules: Optional[pulumi.Input['SecretRotationRulesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Secret resource.
@@ -37,8 +35,6 @@ class SecretArgs:
         :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         :param pulumi.Input[int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
         :param pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]] replicas: Configuration block to support secret replication. See details below.
-        :param pulumi.Input[str] rotation_lambda_arn: ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        :param pulumi.Input['SecretRotationRulesArgs'] rotation_rules: Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
@@ -57,16 +53,6 @@ class SecretArgs:
             pulumi.set(__self__, "recovery_window_in_days", recovery_window_in_days)
         if replicas is not None:
             pulumi.set(__self__, "replicas", replicas)
-        if rotation_lambda_arn is not None:
-            warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
-            pulumi.log.warn("""rotation_lambda_arn is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
-        if rotation_lambda_arn is not None:
-            pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
-        if rotation_rules is not None:
-            warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
-            pulumi.log.warn("""rotation_rules is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
-        if rotation_rules is not None:
-            pulumi.set(__self__, "rotation_rules", rotation_rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -167,30 +153,6 @@ class SecretArgs:
         pulumi.set(self, "replicas", value)
 
     @property
-    @pulumi.getter(name="rotationLambdaArn")
-    def rotation_lambda_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        """
-        return pulumi.get(self, "rotation_lambda_arn")
-
-    @rotation_lambda_arn.setter
-    def rotation_lambda_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "rotation_lambda_arn", value)
-
-    @property
-    @pulumi.getter(name="rotationRules")
-    def rotation_rules(self) -> Optional[pulumi.Input['SecretRotationRulesArgs']]:
-        """
-        Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        """
-        return pulumi.get(self, "rotation_rules")
-
-    @rotation_rules.setter
-    def rotation_rules(self, value: Optional[pulumi.Input['SecretRotationRulesArgs']]):
-        pulumi.set(self, "rotation_rules", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -215,9 +177,6 @@ class _SecretState:
                  policy: Optional[pulumi.Input[str]] = None,
                  recovery_window_in_days: Optional[pulumi.Input[int]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]]] = None,
-                 rotation_enabled: Optional[pulumi.Input[bool]] = None,
-                 rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
-                 rotation_rules: Optional[pulumi.Input['SecretRotationRulesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -231,9 +190,6 @@ class _SecretState:
         :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         :param pulumi.Input[int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
         :param pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]] replicas: Configuration block to support secret replication. See details below.
-        :param pulumi.Input[bool] rotation_enabled: Whether automatic rotation is enabled for this secret.
-        :param pulumi.Input[str] rotation_lambda_arn: ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        :param pulumi.Input['SecretRotationRulesArgs'] rotation_rules: Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -255,21 +211,6 @@ class _SecretState:
             pulumi.set(__self__, "recovery_window_in_days", recovery_window_in_days)
         if replicas is not None:
             pulumi.set(__self__, "replicas", replicas)
-        if rotation_enabled is not None:
-            warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
-            pulumi.log.warn("""rotation_enabled is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
-        if rotation_enabled is not None:
-            pulumi.set(__self__, "rotation_enabled", rotation_enabled)
-        if rotation_lambda_arn is not None:
-            warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
-            pulumi.log.warn("""rotation_lambda_arn is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
-        if rotation_lambda_arn is not None:
-            pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
-        if rotation_rules is not None:
-            warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
-            pulumi.log.warn("""rotation_rules is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
-        if rotation_rules is not None:
-            pulumi.set(__self__, "rotation_rules", rotation_rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -384,42 +325,6 @@ class _SecretState:
         pulumi.set(self, "replicas", value)
 
     @property
-    @pulumi.getter(name="rotationEnabled")
-    def rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether automatic rotation is enabled for this secret.
-        """
-        return pulumi.get(self, "rotation_enabled")
-
-    @rotation_enabled.setter
-    def rotation_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "rotation_enabled", value)
-
-    @property
-    @pulumi.getter(name="rotationLambdaArn")
-    def rotation_lambda_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        """
-        return pulumi.get(self, "rotation_lambda_arn")
-
-    @rotation_lambda_arn.setter
-    def rotation_lambda_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "rotation_lambda_arn", value)
-
-    @property
-    @pulumi.getter(name="rotationRules")
-    def rotation_rules(self) -> Optional[pulumi.Input['SecretRotationRulesArgs']]:
-        """
-        Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        """
-        return pulumi.get(self, "rotation_rules")
-
-    @rotation_rules.setter
-    def rotation_rules(self, value: Optional[pulumi.Input['SecretRotationRulesArgs']]):
-        pulumi.set(self, "rotation_rules", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -457,8 +362,6 @@ class Secret(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[str]] = None,
                  recovery_window_in_days: Optional[pulumi.Input[int]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArgs']]]]] = None,
-                 rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
-                 rotation_rules: Optional[pulumi.Input[pulumi.InputType['SecretRotationRulesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -472,24 +375,6 @@ class Secret(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.secretsmanager.Secret("example")
-        ```
-        ### Rotation Configuration
-
-        To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
-
-        > **NOTE:** Configuring rotation causes the secret to rotate once as soon as you store the secret. Before you do this, you must ensure that all of your applications that use the credentials stored in the secret are updated to retrieve the secret from AWS Secrets Manager. The old credentials might no longer be usable after the initial rotation and any applications that you fail to update will break as soon as the old credentials are no longer valid.
-
-        > **NOTE:** If you cancel a rotation that is in progress (by removing the `rotation` configuration), it can leave the VersionStage labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label AWSPENDING from the partially created version, specified by the SecretVersionId response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version's VersionStage field.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        rotation_example = aws.secretsmanager.Secret("rotation-example",
-            rotation_lambda_arn=aws_lambda_function["example"]["arn"],
-            rotation_rules=aws.secretsmanager.SecretRotationRulesArgs(
-                automatically_after_days=7,
-            ))
         ```
 
         ## Import
@@ -510,8 +395,6 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         :param pulumi.Input[int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArgs']]]] replicas: Configuration block to support secret replication. See details below.
-        :param pulumi.Input[str] rotation_lambda_arn: ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        :param pulumi.Input[pulumi.InputType['SecretRotationRulesArgs']] rotation_rules: Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -531,24 +414,6 @@ class Secret(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.secretsmanager.Secret("example")
-        ```
-        ### Rotation Configuration
-
-        To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
-
-        > **NOTE:** Configuring rotation causes the secret to rotate once as soon as you store the secret. Before you do this, you must ensure that all of your applications that use the credentials stored in the secret are updated to retrieve the secret from AWS Secrets Manager. The old credentials might no longer be usable after the initial rotation and any applications that you fail to update will break as soon as the old credentials are no longer valid.
-
-        > **NOTE:** If you cancel a rotation that is in progress (by removing the `rotation` configuration), it can leave the VersionStage labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label AWSPENDING from the partially created version, specified by the SecretVersionId response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version's VersionStage field.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        rotation_example = aws.secretsmanager.Secret("rotation-example",
-            rotation_lambda_arn=aws_lambda_function["example"]["arn"],
-            rotation_rules=aws.secretsmanager.SecretRotationRulesArgs(
-                automatically_after_days=7,
-            ))
         ```
 
         ## Import
@@ -582,8 +447,6 @@ class Secret(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[str]] = None,
                  recovery_window_in_days: Optional[pulumi.Input[int]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArgs']]]]] = None,
-                 rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
-                 rotation_rules: Optional[pulumi.Input[pulumi.InputType['SecretRotationRulesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -602,17 +465,8 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["policy"] = policy
             __props__.__dict__["recovery_window_in_days"] = recovery_window_in_days
             __props__.__dict__["replicas"] = replicas
-            if rotation_lambda_arn is not None and not opts.urn:
-                warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
-                pulumi.log.warn("""rotation_lambda_arn is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
-            __props__.__dict__["rotation_lambda_arn"] = rotation_lambda_arn
-            if rotation_rules is not None and not opts.urn:
-                warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
-                pulumi.log.warn("""rotation_rules is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
-            __props__.__dict__["rotation_rules"] = rotation_rules
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["rotation_enabled"] = None
             __props__.__dict__["tags_all"] = None
         super(Secret, __self__).__init__(
             'aws:secretsmanager/secret:Secret',
@@ -633,9 +487,6 @@ class Secret(pulumi.CustomResource):
             policy: Optional[pulumi.Input[str]] = None,
             recovery_window_in_days: Optional[pulumi.Input[int]] = None,
             replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArgs']]]]] = None,
-            rotation_enabled: Optional[pulumi.Input[bool]] = None,
-            rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
-            rotation_rules: Optional[pulumi.Input[pulumi.InputType['SecretRotationRulesArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Secret':
         """
@@ -654,9 +505,6 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         :param pulumi.Input[int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArgs']]]] replicas: Configuration block to support secret replication. See details below.
-        :param pulumi.Input[bool] rotation_enabled: Whether automatic rotation is enabled for this secret.
-        :param pulumi.Input[str] rotation_lambda_arn: ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        :param pulumi.Input[pulumi.InputType['SecretRotationRulesArgs']] rotation_rules: Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -673,9 +521,6 @@ class Secret(pulumi.CustomResource):
         __props__.__dict__["policy"] = policy
         __props__.__dict__["recovery_window_in_days"] = recovery_window_in_days
         __props__.__dict__["replicas"] = replicas
-        __props__.__dict__["rotation_enabled"] = rotation_enabled
-        __props__.__dict__["rotation_lambda_arn"] = rotation_lambda_arn
-        __props__.__dict__["rotation_rules"] = rotation_rules
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Secret(resource_name, opts=opts, __props__=__props__)
@@ -751,30 +596,6 @@ class Secret(pulumi.CustomResource):
         Configuration block to support secret replication. See details below.
         """
         return pulumi.get(self, "replicas")
-
-    @property
-    @pulumi.getter(name="rotationEnabled")
-    def rotation_enabled(self) -> pulumi.Output[bool]:
-        """
-        Whether automatic rotation is enabled for this secret.
-        """
-        return pulumi.get(self, "rotation_enabled")
-
-    @property
-    @pulumi.getter(name="rotationLambdaArn")
-    def rotation_lambda_arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        """
-        return pulumi.get(self, "rotation_lambda_arn")
-
-    @property
-    @pulumi.getter(name="rotationRules")
-    def rotation_rules(self) -> pulumi.Output['outputs.SecretRotationRules']:
-        """
-        Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        """
-        return pulumi.get(self, "rotation_rules")
 
     @property
     @pulumi.getter

@@ -76,15 +76,6 @@ public final class GetInstanceResult {
      */
     private List<String> dbParameterGroups;
     /**
-     * @return Provides List of DB security groups associated to this DB instance.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version. */
-    private List<String> dbSecurityGroups;
-    /**
      * @return Name of the subnet group associated with the DB instance.
      * 
      */
@@ -315,17 +306,6 @@ public final class GetInstanceResult {
         return this.dbParameterGroups;
     }
     /**
-     * @return Provides List of DB security groups associated to this DB instance.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version. */
-    public List<String> dbSecurityGroups() {
-        return this.dbSecurityGroups;
-    }
-    /**
      * @return Name of the subnet group associated with the DB instance.
      * 
      */
@@ -547,7 +527,6 @@ public final class GetInstanceResult {
         private Integer dbInstancePort;
         private String dbName;
         private List<String> dbParameterGroups;
-        private List<String> dbSecurityGroups;
         private String dbSubnetGroup;
         private List<String> enabledCloudwatchLogsExports;
         private String endpoint;
@@ -593,7 +572,6 @@ public final class GetInstanceResult {
     	      this.dbInstancePort = defaults.dbInstancePort;
     	      this.dbName = defaults.dbName;
     	      this.dbParameterGroups = defaults.dbParameterGroups;
-    	      this.dbSecurityGroups = defaults.dbSecurityGroups;
     	      this.dbSubnetGroup = defaults.dbSubnetGroup;
     	      this.enabledCloudwatchLogsExports = defaults.enabledCloudwatchLogsExports;
     	      this.endpoint = defaults.endpoint;
@@ -692,14 +670,6 @@ public final class GetInstanceResult {
         }
         public Builder dbParameterGroups(String... dbParameterGroups) {
             return dbParameterGroups(List.of(dbParameterGroups));
-        }
-        @CustomType.Setter
-        public Builder dbSecurityGroups(List<String> dbSecurityGroups) {
-            this.dbSecurityGroups = Objects.requireNonNull(dbSecurityGroups);
-            return this;
-        }
-        public Builder dbSecurityGroups(String... dbSecurityGroups) {
-            return dbSecurityGroups(List.of(dbSecurityGroups));
         }
         @CustomType.Setter
         public Builder dbSubnetGroup(String dbSubnetGroup) {
@@ -873,7 +843,6 @@ public final class GetInstanceResult {
             o.dbInstancePort = dbInstancePort;
             o.dbName = dbName;
             o.dbParameterGroups = dbParameterGroups;
-            o.dbSecurityGroups = dbSecurityGroups;
             o.dbSubnetGroup = dbSubnetGroup;
             o.enabledCloudwatchLogsExports = enabledCloudwatchLogsExports;
             o.endpoint = endpoint;

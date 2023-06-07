@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *             .fixedRate(0.05)
  *             .host(&#34;*&#34;)
  *             .httpMethod(&#34;*&#34;)
- *             .priority(10000)
+ *             .priority(9999)
  *             .reservoirSize(1)
  *             .resourceArn(&#34;*&#34;)
  *             .ruleName(&#34;example&#34;)

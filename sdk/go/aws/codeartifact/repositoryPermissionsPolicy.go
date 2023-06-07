@@ -62,10 +62,10 @@ import (
 //							},
 //						},
 //						Actions: pulumi.StringArray{
-//							pulumi.String("codeartifact:CreateRepository"),
+//							pulumi.String("codeartifact:ReadFromRepository"),
 //						},
 //						Resources: pulumi.StringArray{
-//							exampleDomain.Arn,
+//							exampleRepository.Arn,
 //						},
 //					},
 //				},

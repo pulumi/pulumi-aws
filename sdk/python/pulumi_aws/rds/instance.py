@@ -69,7 +69,6 @@ class InstanceArgs:
                  replicate_source_db: Optional[pulumi.Input[str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input['InstanceRestoreToPointInTimeArgs']] = None,
                  s3_import: Optional[pulumi.Input['InstanceS3ImportArgs']] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -195,9 +194,6 @@ class InstanceArgs:
                for more information on using Replication.
         :param pulumi.Input['InstanceRestoreToPointInTimeArgs'] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
         :param pulumi.Input['InstanceS3ImportArgs'] s3_import: Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of DB Security Groups to
-               associate. Only used for [DB Instances on the _EC2-Classic_
-               Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is
                created before the DB instance is deleted. If true is specified, no DBSnapshot
                is created. If false is specified, a DB snapshot is created before the DB
@@ -329,11 +325,6 @@ class InstanceArgs:
             pulumi.set(__self__, "restore_to_point_in_time", restore_to_point_in_time)
         if s3_import is not None:
             pulumi.set(__self__, "s3_import", s3_import)
-        if security_group_names is not None:
-            warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-        if security_group_names is not None:
-            pulumi.set(__self__, "security_group_names", security_group_names)
         if skip_final_snapshot is not None:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if snapshot_identifier is not None:
@@ -1040,20 +1031,6 @@ class InstanceArgs:
         pulumi.set(self, "s3_import", value)
 
     @property
-    @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of DB Security Groups to
-        associate. Only used for [DB Instances on the _EC2-Classic_
-        Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-        """
-        return pulumi.get(self, "security_group_names")
-
-    @security_group_names.setter
-    def security_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "security_group_names", value)
-
-    @property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1245,7 +1222,6 @@ class _InstanceState:
                  resource_id: Optional[pulumi.Input[str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input['InstanceRestoreToPointInTimeArgs']] = None,
                  s3_import: Optional[pulumi.Input['InstanceS3ImportArgs']] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -1382,9 +1358,6 @@ class _InstanceState:
         :param pulumi.Input[str] resource_id: The RDS Resource ID of this instance.
         :param pulumi.Input['InstanceRestoreToPointInTimeArgs'] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
         :param pulumi.Input['InstanceS3ImportArgs'] s3_import: Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of DB Security Groups to
-               associate. Only used for [DB Instances on the _EC2-Classic_
-               Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is
                created before the DB instance is deleted. If true is specified, no DBSnapshot
                is created. If false is specified, a DB snapshot is created before the DB
@@ -1539,11 +1512,6 @@ class _InstanceState:
             pulumi.set(__self__, "restore_to_point_in_time", restore_to_point_in_time)
         if s3_import is not None:
             pulumi.set(__self__, "s3_import", s3_import)
-        if security_group_names is not None:
-            warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-        if security_group_names is not None:
-            pulumi.set(__self__, "security_group_names", security_group_names)
         if skip_final_snapshot is not None:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if snapshot_identifier is not None:
@@ -2371,20 +2339,6 @@ class _InstanceState:
         pulumi.set(self, "s3_import", value)
 
     @property
-    @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of DB Security Groups to
-        associate. Only used for [DB Instances on the _EC2-Classic_
-        Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-        """
-        return pulumi.get(self, "security_group_names")
-
-    @security_group_names.setter
-    def security_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "security_group_names", value)
-
-    @property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -2592,7 +2546,6 @@ class Instance(pulumi.CustomResource):
                  replicate_source_db: Optional[pulumi.Input[str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input[pulumi.InputType['InstanceRestoreToPointInTimeArgs']]] = None,
                  s3_import: Optional[pulumi.Input[pulumi.InputType['InstanceS3ImportArgs']]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -2837,9 +2790,6 @@ class Instance(pulumi.CustomResource):
                for more information on using Replication.
         :param pulumi.Input[pulumi.InputType['InstanceRestoreToPointInTimeArgs']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
         :param pulumi.Input[pulumi.InputType['InstanceS3ImportArgs']] s3_import: Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of DB Security Groups to
-               associate. Only used for [DB Instances on the _EC2-Classic_
-               Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is
                created before the DB instance is deleted. If true is specified, no DBSnapshot
                is created. If false is specified, a DB snapshot is created before the DB
@@ -3059,7 +3009,6 @@ class Instance(pulumi.CustomResource):
                  replicate_source_db: Optional[pulumi.Input[str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input[pulumi.InputType['InstanceRestoreToPointInTimeArgs']]] = None,
                  s3_import: Optional[pulumi.Input[pulumi.InputType['InstanceS3ImportArgs']]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -3132,10 +3081,6 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["replicate_source_db"] = replicate_source_db
             __props__.__dict__["restore_to_point_in_time"] = restore_to_point_in_time
             __props__.__dict__["s3_import"] = s3_import
-            if security_group_names is not None and not opts.urn:
-                warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-                pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-            __props__.__dict__["security_group_names"] = security_group_names
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["storage_encrypted"] = storage_encrypted
@@ -3231,7 +3176,6 @@ class Instance(pulumi.CustomResource):
             resource_id: Optional[pulumi.Input[str]] = None,
             restore_to_point_in_time: Optional[pulumi.Input[pulumi.InputType['InstanceRestoreToPointInTimeArgs']]] = None,
             s3_import: Optional[pulumi.Input[pulumi.InputType['InstanceS3ImportArgs']]] = None,
-            security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
             snapshot_identifier: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -3373,9 +3317,6 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: The RDS Resource ID of this instance.
         :param pulumi.Input[pulumi.InputType['InstanceRestoreToPointInTimeArgs']] restore_to_point_in_time: A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
         :param pulumi.Input[pulumi.InputType['InstanceS3ImportArgs']] s3_import: Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of DB Security Groups to
-               associate. Only used for [DB Instances on the _EC2-Classic_
-               Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is
                created before the DB instance is deleted. If true is specified, no DBSnapshot
                is created. If false is specified, a DB snapshot is created before the DB
@@ -3472,7 +3413,6 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["restore_to_point_in_time"] = restore_to_point_in_time
         __props__.__dict__["s3_import"] = s3_import
-        __props__.__dict__["security_group_names"] = security_group_names
         __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
         __props__.__dict__["snapshot_identifier"] = snapshot_identifier
         __props__.__dict__["status"] = status
@@ -4040,16 +3980,6 @@ class Instance(pulumi.CustomResource):
         Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
         """
         return pulumi.get(self, "s3_import")
-
-    @property
-    @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        List of DB Security Groups to
-        associate. Only used for [DB Instances on the _EC2-Classic_
-        Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-        """
-        return pulumi.get(self, "security_group_names")
 
     @property
     @pulumi.getter(name="skipFinalSnapshot")

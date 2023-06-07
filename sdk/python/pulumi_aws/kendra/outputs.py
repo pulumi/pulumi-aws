@@ -2612,7 +2612,7 @@ class GetIndexCapacityUnitResult(dict):
                  query_capacity_units: int,
                  storage_capacity_units: int):
         """
-        :param int query_capacity_units: The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+        :param int query_capacity_units: The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
         :param int storage_capacity_units: The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
         """
         pulumi.set(__self__, "query_capacity_units", query_capacity_units)
@@ -2622,7 +2622,7 @@ class GetIndexCapacityUnitResult(dict):
     @pulumi.getter(name="queryCapacityUnits")
     def query_capacity_units(self) -> int:
         """
-        The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+        The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
         """
         return pulumi.get(self, "query_capacity_units")
 
@@ -2695,11 +2695,11 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
                  rank_order: str,
                  values_importance_map: Mapping[str, int]):
         """
-        :param str duration: Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
-        :param bool freshness: How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+        :param str duration: Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
+        :param bool freshness: How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
         :param int importance: Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-        :param str rank_order: Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-        :param Mapping[str, int] values_importance_map: A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+        :param str rank_order: Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+        :param Mapping[str, int] values_importance_map: A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
         """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "freshness", freshness)
@@ -2711,7 +2711,7 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
     @pulumi.getter
     def duration(self) -> str:
         """
-        Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+        Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
         """
         return pulumi.get(self, "duration")
 
@@ -2719,7 +2719,7 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
     @pulumi.getter
     def freshness(self) -> bool:
         """
-        How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+        How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
         """
         return pulumi.get(self, "freshness")
 
@@ -2735,7 +2735,7 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
     @pulumi.getter(name="rankOrder")
     def rank_order(self) -> str:
         """
-        Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+        Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
         """
         return pulumi.get(self, "rank_order")
 
@@ -2743,7 +2743,7 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
     @pulumi.getter(name="valuesImportanceMap")
     def values_importance_map(self) -> Mapping[str, int]:
         """
-        A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+        A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
         """
         return pulumi.get(self, "values_importance_map")
 

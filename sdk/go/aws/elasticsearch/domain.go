@@ -204,8 +204,15 @@ import (
 // if err != nil {
 // return err
 // }
-// selectedSubnetIds, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
-// VpcId: selectedVpc.Id,
+// selectedSubnets, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+// Filters: []ec2.GetSubnetsFilter{
+// {
+// Name: "vpc-id",
+// Values: interface{}{
+// selectedVpc.Id,
+// },
+// },
+// },
 // Tags: map[string]interface{}{
 // "Tier": "private",
 // },
@@ -252,8 +259,8 @@ import (
 // },
 // VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
 // SubnetIds: pulumi.StringArray{
-// *pulumi.String(selectedSubnetIds.Ids[0]),
-// *pulumi.String(selectedSubnetIds.Ids[1]),
+// *pulumi.String(selectedSubnets.Ids[0]),
+// *pulumi.String(selectedSubnets.Ids[1]),
 // },
 // SecurityGroupIds: pulumi.StringArray{
 // esSecurityGroup.ID(),

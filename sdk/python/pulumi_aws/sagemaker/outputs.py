@@ -3910,6 +3910,8 @@ class EndpointConfigurationProductionVariantServerlessConfig(dict):
             suggest = "max_concurrency"
         elif key == "memorySizeInMb":
             suggest = "memory_size_in_mb"
+        elif key == "provisionedConcurrency":
+            suggest = "provisioned_concurrency"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointConfigurationProductionVariantServerlessConfig. Access the value via the '{suggest}' property getter instead.")
@@ -3924,13 +3926,17 @@ class EndpointConfigurationProductionVariantServerlessConfig(dict):
 
     def __init__(__self__, *,
                  max_concurrency: int,
-                 memory_size_in_mb: int):
+                 memory_size_in_mb: int,
+                 provisioned_concurrency: Optional[int] = None):
         """
         :param int max_concurrency: The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
         :param int memory_size_in_mb: The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+        :param int provisioned_concurrency: The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
         """
         pulumi.set(__self__, "max_concurrency", max_concurrency)
         pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
+        if provisioned_concurrency is not None:
+            pulumi.set(__self__, "provisioned_concurrency", provisioned_concurrency)
 
     @property
     @pulumi.getter(name="maxConcurrency")
@@ -3947,6 +3953,14 @@ class EndpointConfigurationProductionVariantServerlessConfig(dict):
         The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
         """
         return pulumi.get(self, "memory_size_in_mb")
+
+    @property
+    @pulumi.getter(name="provisionedConcurrency")
+    def provisioned_concurrency(self) -> Optional[int]:
+        """
+        The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+        """
+        return pulumi.get(self, "provisioned_concurrency")
 
 
 @pulumi.output_type
@@ -4195,6 +4209,8 @@ class EndpointConfigurationShadowProductionVariantServerlessConfig(dict):
             suggest = "max_concurrency"
         elif key == "memorySizeInMb":
             suggest = "memory_size_in_mb"
+        elif key == "provisionedConcurrency":
+            suggest = "provisioned_concurrency"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointConfigurationShadowProductionVariantServerlessConfig. Access the value via the '{suggest}' property getter instead.")
@@ -4209,13 +4225,17 @@ class EndpointConfigurationShadowProductionVariantServerlessConfig(dict):
 
     def __init__(__self__, *,
                  max_concurrency: int,
-                 memory_size_in_mb: int):
+                 memory_size_in_mb: int,
+                 provisioned_concurrency: Optional[int] = None):
         """
         :param int max_concurrency: The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
         :param int memory_size_in_mb: The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+        :param int provisioned_concurrency: The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
         """
         pulumi.set(__self__, "max_concurrency", max_concurrency)
         pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
+        if provisioned_concurrency is not None:
+            pulumi.set(__self__, "provisioned_concurrency", provisioned_concurrency)
 
     @property
     @pulumi.getter(name="maxConcurrency")
@@ -4232,6 +4252,14 @@ class EndpointConfigurationShadowProductionVariantServerlessConfig(dict):
         The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
         """
         return pulumi.get(self, "memory_size_in_mb")
+
+    @property
+    @pulumi.getter(name="provisionedConcurrency")
+    def provisioned_concurrency(self) -> Optional[int]:
+        """
+        The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+        """
+        return pulumi.get(self, "provisioned_concurrency")
 
 
 @pulumi.output_type

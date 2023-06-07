@@ -21,20 +21,20 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
  *     instanceClass: "db.t2.micro",
- *     name: "mydb",
+ *     dbName: "mydb",
  *     username: "foo",
  *     password: "bar",
  *     dbSubnetGroupName: "my_database_subnet_group",
  *     parameterGroupName: "default.mysql5.6",
  * });
  * const latestProdSnapshot = aws.rds.getSnapshotOutput({
- *     dbInstanceIdentifier: prod.id,
+ *     dbInstanceIdentifier: prod.identifier,
  *     mostRecent: true,
  * });
  * // Use the latest production snapshot to create a dev instance.
  * const dev = new aws.rds.Instance("dev", {
  *     instanceClass: "db.t2.micro",
- *     name: "mydbdev",
+ *     dbName: "mydbdev",
  *     snapshotIdentifier: latestProdSnapshot.apply(latestProdSnapshot => latestProdSnapshot.id),
  * });
  * ```
@@ -186,20 +186,20 @@ export interface GetSnapshotResult {
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
  *     instanceClass: "db.t2.micro",
- *     name: "mydb",
+ *     dbName: "mydb",
  *     username: "foo",
  *     password: "bar",
  *     dbSubnetGroupName: "my_database_subnet_group",
  *     parameterGroupName: "default.mysql5.6",
  * });
  * const latestProdSnapshot = aws.rds.getSnapshotOutput({
- *     dbInstanceIdentifier: prod.id,
+ *     dbInstanceIdentifier: prod.identifier,
  *     mostRecent: true,
  * });
  * // Use the latest production snapshot to create a dev instance.
  * const dev = new aws.rds.Instance("dev", {
  *     instanceClass: "db.t2.micro",
- *     name: "mydbdev",
+ *     dbName: "mydbdev",
  *     snapshotIdentifier: latestProdSnapshot.apply(latestProdSnapshot => latestProdSnapshot.id),
  * });
  * ```

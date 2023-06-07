@@ -74,6 +74,10 @@ class GetDataSetResult:
         pulumi.set(__self__, "tags", tags)
         if tags_all and not isinstance(tags_all, dict):
             raise TypeError("Expected argument 'tags_all' to be a dict")
+        if tags_all is not None:
+            warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: this attribute has been deprecated""")
+
         pulumi.set(__self__, "tags_all", tags_all)
 
     @property
@@ -194,6 +198,7 @@ def get_data_set(aws_account_id: Optional[str] = None,
                  column_level_permission_rules: Optional[Sequence[pulumi.InputType['GetDataSetColumnLevelPermissionRuleArgs']]] = None,
                  data_set_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
+                 tags_all: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSetResult:
     """
     Data source for managing a QuickSight Data Set.
@@ -219,6 +224,7 @@ def get_data_set(aws_account_id: Optional[str] = None,
     __args__['columnLevelPermissionRules'] = column_level_permission_rules
     __args__['dataSetId'] = data_set_id
     __args__['tags'] = tags
+    __args__['tagsAll'] = tags_all
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:quicksight/getDataSet:getDataSet', __args__, opts=opts, typ=GetDataSetResult).value
 
@@ -247,6 +253,7 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = 
                         column_level_permission_rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDataSetColumnLevelPermissionRuleArgs']]]]] = None,
                         data_set_id: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                        tags_all: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSetResult]:
     """
     Data source for managing a QuickSight Data Set.

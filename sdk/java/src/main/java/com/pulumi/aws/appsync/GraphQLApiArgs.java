@@ -159,6 +159,21 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+     * 
+     */
+    @Import(name="visibility")
+    private @Nullable Output<String> visibility;
+
+    /**
+     * @return Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+     * 
+     */
+    public Optional<Output<String>> visibility() {
+        return Optional.ofNullable(this.visibility);
+    }
+
+    /**
      * Whether tracing with X-ray is enabled. Defaults to false.
      * 
      */
@@ -185,6 +200,7 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
         this.schema = $.schema;
         this.tags = $.tags;
         this.userPoolConfig = $.userPoolConfig;
+        this.visibility = $.visibility;
         this.xrayEnabled = $.xrayEnabled;
     }
 
@@ -403,6 +419,27 @@ public final class GraphQLApiArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder userPoolConfig(GraphQLApiUserPoolConfigArgs userPoolConfig) {
             return userPoolConfig(Output.of(userPoolConfig));
+        }
+
+        /**
+         * @param visibility Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder visibility(@Nullable Output<String> visibility) {
+            $.visibility = visibility;
+            return this;
+        }
+
+        /**
+         * @param visibility Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder visibility(String visibility) {
+            return visibility(Output.of(visibility));
         }
 
         /**

@@ -62,10 +62,6 @@ import (
 //				Accepter: &ec2.PeeringConnectionOptionsAccepterArgs{
 //					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
 //				},
-//				Requester: &ec2.PeeringConnectionOptionsRequesterArgs{
-//					AllowVpcToRemoteClassicLink: pulumi.Bool(true),
-//					AllowClassicLinkToRemoteVpc: pulumi.Bool(true),
-//				},
 //			})
 //			if err != nil {
 //				return err

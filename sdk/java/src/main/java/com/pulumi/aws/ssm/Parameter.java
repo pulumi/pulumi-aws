@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .engine(&#34;mysql&#34;)
  *             .engineVersion(&#34;5.7.16&#34;)
  *             .instanceClass(&#34;db.t2.micro&#34;)
- *             .name(&#34;mydb&#34;)
+ *             .dbName(&#34;mydb&#34;)
  *             .username(&#34;foo&#34;)
  *             .password(var_.database_master_password())
  *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -212,14 +212,18 @@ public class Parameter extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     * 
+     * @deprecated
+     * this attribute has been deprecated
      * 
      */
+    @Deprecated /* this attribute has been deprecated */
     @Export(name="overwrite", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overwrite;
 
     /**
-     * @return Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * @return Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
      * 
      */
     public Output<Optional<Boolean>> overwrite() {

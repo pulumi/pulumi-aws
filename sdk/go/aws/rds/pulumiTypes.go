@@ -11,11 +11,11 @@ import (
 )
 
 type ClusterMasterUserSecret struct {
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// Amazon Resource Name (ARN) of the secret.
 	SecretArn *string `pulumi:"secretArn"`
-	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus *string `pulumi:"secretStatus"`
 }
 
@@ -31,11 +31,11 @@ type ClusterMasterUserSecretInput interface {
 }
 
 type ClusterMasterUserSecretArgs struct {
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// Amazon Resource Name (ARN) of the secret.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
-	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus pulumi.StringPtrInput `pulumi:"secretStatus"`
 }
 
@@ -90,17 +90,17 @@ func (o ClusterMasterUserSecretOutput) ToClusterMasterUserSecretOutputWithContex
 	return o
 }
 
-// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+// ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 func (o ClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// Amazon Resource Name (ARN) of the secret.
 func (o ClusterMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
-// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 func (o ClusterMasterUserSecretOutput) SecretStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.SecretStatus }).(pulumi.StringPtrOutput)
 }
@@ -252,7 +252,7 @@ type ClusterRestoreToPointInTime struct {
 	// Type of restore to be performed.
 	// Valid options are `full-copy` (default) and `copy-on-write`.
 	RestoreType *string `pulumi:"restoreType"`
-	// The identifier of the source database cluster from which to restore.
+	// Identifier of the source database cluster from which to restore.
 	SourceClusterIdentifier string `pulumi:"sourceClusterIdentifier"`
 	// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
 	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
@@ -275,7 +275,7 @@ type ClusterRestoreToPointInTimeArgs struct {
 	// Type of restore to be performed.
 	// Valid options are `full-copy` (default) and `copy-on-write`.
 	RestoreType pulumi.StringPtrInput `pulumi:"restoreType"`
-	// The identifier of the source database cluster from which to restore.
+	// Identifier of the source database cluster from which to restore.
 	SourceClusterIdentifier pulumi.StringInput `pulumi:"sourceClusterIdentifier"`
 	// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restoreToTime`.
 	UseLatestRestorableTime pulumi.BoolPtrInput `pulumi:"useLatestRestorableTime"`
@@ -369,7 +369,7 @@ func (o ClusterRestoreToPointInTimeOutput) RestoreType() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreType }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source database cluster from which to restore.
+// Identifier of the source database cluster from which to restore.
 func (o ClusterRestoreToPointInTimeOutput) SourceClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterRestoreToPointInTime) string { return v.SourceClusterIdentifier }).(pulumi.StringOutput)
 }
@@ -424,7 +424,7 @@ func (o ClusterRestoreToPointInTimePtrOutput) RestoreType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source database cluster from which to restore.
+// Identifier of the source database cluster from which to restore.
 func (o ClusterRestoreToPointInTimePtrOutput) SourceClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
 		if v == nil {
@@ -445,7 +445,7 @@ func (o ClusterRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.B
 }
 
 type ClusterS3Import struct {
-	// The bucket name where your backup is stored
+	// Bucket name where your backup is stored
 	BucketName string `pulumi:"bucketName"`
 	// Can be blank, but is the path to your backup
 	BucketPrefix *string `pulumi:"bucketPrefix"`
@@ -471,7 +471,7 @@ type ClusterS3ImportInput interface {
 }
 
 type ClusterS3ImportArgs struct {
-	// The bucket name where your backup is stored
+	// Bucket name where your backup is stored
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// Can be blank, but is the path to your backup
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
@@ -562,7 +562,7 @@ func (o ClusterS3ImportOutput) ToClusterS3ImportPtrOutputWithContext(ctx context
 	}).(ClusterS3ImportPtrOutput)
 }
 
-// The bucket name where your backup is stored
+// Bucket name where your backup is stored
 func (o ClusterS3ImportOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -613,7 +613,7 @@ func (o ClusterS3ImportPtrOutput) Elem() ClusterS3ImportOutput {
 	}).(ClusterS3ImportOutput)
 }
 
-// The bucket name where your backup is stored
+// Bucket name where your backup is stored
 func (o ClusterS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -668,13 +668,13 @@ func (o ClusterS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 type ClusterScalingConfiguration struct {
 	// Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
 	AutoPause *bool `pulumi:"autoPause"`
-	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+	// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 	MaxCapacity *int `pulumi:"maxCapacity"`
-	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+	// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 	MinCapacity *int `pulumi:"minCapacity"`
-	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
+	// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
-	// The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
+	// Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
 	TimeoutAction *string `pulumi:"timeoutAction"`
 }
 
@@ -692,13 +692,13 @@ type ClusterScalingConfigurationInput interface {
 type ClusterScalingConfigurationArgs struct {
 	// Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
 	AutoPause pulumi.BoolPtrInput `pulumi:"autoPause"`
-	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+	// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
-	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+	// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
-	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
+	// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
-	// The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
+	// Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
 	TimeoutAction pulumi.StringPtrInput `pulumi:"timeoutAction"`
 }
 
@@ -784,22 +784,22 @@ func (o ClusterScalingConfigurationOutput) AutoPause() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *bool { return v.AutoPause }).(pulumi.BoolPtrOutput)
 }
 
-// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 func (o ClusterScalingConfigurationOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 func (o ClusterScalingConfigurationOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
 
-// The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
+// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 func (o ClusterScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
 }
 
-// The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
+// Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
 func (o ClusterScalingConfigurationOutput) TimeoutAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterScalingConfiguration) *string { return v.TimeoutAction }).(pulumi.StringPtrOutput)
 }
@@ -838,7 +838,7 @@ func (o ClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 func (o ClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
 		if v == nil {
@@ -848,7 +848,7 @@ func (o ClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 func (o ClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
 		if v == nil {
@@ -858,7 +858,7 @@ func (o ClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
+// Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
 func (o ClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterScalingConfiguration) *int {
 		if v == nil {
@@ -868,7 +868,7 @@ func (o ClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
+// Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
 func (o ClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterScalingConfiguration) *string {
 		if v == nil {
@@ -879,9 +879,9 @@ func (o ClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOu
 }
 
 type ClusterServerlessv2ScalingConfiguration struct {
-	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+	// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 	MaxCapacity float64 `pulumi:"maxCapacity"`
-	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+	// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 	MinCapacity float64 `pulumi:"minCapacity"`
 }
 
@@ -897,9 +897,9 @@ type ClusterServerlessv2ScalingConfigurationInput interface {
 }
 
 type ClusterServerlessv2ScalingConfigurationArgs struct {
-	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+	// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 	MaxCapacity pulumi.Float64Input `pulumi:"maxCapacity"`
-	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+	// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 	MinCapacity pulumi.Float64Input `pulumi:"minCapacity"`
 }
 
@@ -980,12 +980,12 @@ func (o ClusterServerlessv2ScalingConfigurationOutput) ToClusterServerlessv2Scal
 	}).(ClusterServerlessv2ScalingConfigurationPtrOutput)
 }
 
-// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 func (o ClusterServerlessv2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterServerlessv2ScalingConfiguration) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
 }
 
-// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 func (o ClusterServerlessv2ScalingConfigurationOutput) MinCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ClusterServerlessv2ScalingConfiguration) float64 { return v.MinCapacity }).(pulumi.Float64Output)
 }
@@ -1014,7 +1014,7 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) Elem() ClusterServerle
 	}).(ClusterServerlessv2ScalingConfigurationOutput)
 }
 
-// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+// Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
 func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) *float64 {
 		if v == nil {
@@ -1024,7 +1024,7 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.F
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+// Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
 func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) *float64 {
 		if v == nil {
@@ -2800,133 +2800,6 @@ func (o ReservedInstanceRecurringChargeArrayOutput) Index(i pulumi.IntInput) Res
 	}).(ReservedInstanceRecurringChargeOutput)
 }
 
-type SecurityGroupIngress struct {
-	// The CIDR block to accept
-	Cidr *string `pulumi:"cidr"`
-	// The ID of the security group to authorize
-	SecurityGroupId *string `pulumi:"securityGroupId"`
-	// The name of the security group to authorize
-	SecurityGroupName *string `pulumi:"securityGroupName"`
-	// The owner Id of the security group provided
-	// by `securityGroupName`.
-	SecurityGroupOwnerId *string `pulumi:"securityGroupOwnerId"`
-}
-
-// SecurityGroupIngressInput is an input type that accepts SecurityGroupIngressArgs and SecurityGroupIngressOutput values.
-// You can construct a concrete instance of `SecurityGroupIngressInput` via:
-//
-//	SecurityGroupIngressArgs{...}
-type SecurityGroupIngressInput interface {
-	pulumi.Input
-
-	ToSecurityGroupIngressOutput() SecurityGroupIngressOutput
-	ToSecurityGroupIngressOutputWithContext(context.Context) SecurityGroupIngressOutput
-}
-
-type SecurityGroupIngressArgs struct {
-	// The CIDR block to accept
-	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
-	// The ID of the security group to authorize
-	SecurityGroupId pulumi.StringPtrInput `pulumi:"securityGroupId"`
-	// The name of the security group to authorize
-	SecurityGroupName pulumi.StringPtrInput `pulumi:"securityGroupName"`
-	// The owner Id of the security group provided
-	// by `securityGroupName`.
-	SecurityGroupOwnerId pulumi.StringPtrInput `pulumi:"securityGroupOwnerId"`
-}
-
-func (SecurityGroupIngressArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupIngress)(nil)).Elem()
-}
-
-func (i SecurityGroupIngressArgs) ToSecurityGroupIngressOutput() SecurityGroupIngressOutput {
-	return i.ToSecurityGroupIngressOutputWithContext(context.Background())
-}
-
-func (i SecurityGroupIngressArgs) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressOutput)
-}
-
-// SecurityGroupIngressArrayInput is an input type that accepts SecurityGroupIngressArray and SecurityGroupIngressArrayOutput values.
-// You can construct a concrete instance of `SecurityGroupIngressArrayInput` via:
-//
-//	SecurityGroupIngressArray{ SecurityGroupIngressArgs{...} }
-type SecurityGroupIngressArrayInput interface {
-	pulumi.Input
-
-	ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput
-	ToSecurityGroupIngressArrayOutputWithContext(context.Context) SecurityGroupIngressArrayOutput
-}
-
-type SecurityGroupIngressArray []SecurityGroupIngressInput
-
-func (SecurityGroupIngressArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityGroupIngress)(nil)).Elem()
-}
-
-func (i SecurityGroupIngressArray) ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput {
-	return i.ToSecurityGroupIngressArrayOutputWithContext(context.Background())
-}
-
-func (i SecurityGroupIngressArray) ToSecurityGroupIngressArrayOutputWithContext(ctx context.Context) SecurityGroupIngressArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressArrayOutput)
-}
-
-type SecurityGroupIngressOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupIngressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupIngress)(nil)).Elem()
-}
-
-func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutput() SecurityGroupIngressOutput {
-	return o
-}
-
-func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
-	return o
-}
-
-// The CIDR block to accept
-func (o SecurityGroupIngressOutput) Cidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.Cidr }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the security group to authorize
-func (o SecurityGroupIngressOutput) SecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.SecurityGroupId }).(pulumi.StringPtrOutput)
-}
-
-// The name of the security group to authorize
-func (o SecurityGroupIngressOutput) SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
-}
-
-// The owner Id of the security group provided
-// by `securityGroupName`.
-func (o SecurityGroupIngressOutput) SecurityGroupOwnerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
-}
-
-type SecurityGroupIngressArrayOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupIngressArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityGroupIngress)(nil)).Elem()
-}
-
-func (o SecurityGroupIngressArrayOutput) ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput {
-	return o
-}
-
-func (o SecurityGroupIngressArrayOutput) ToSecurityGroupIngressArrayOutputWithContext(ctx context.Context) SecurityGroupIngressArrayOutput {
-	return o
-}
-
-func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupIngressOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupIngress {
-		return vs[0].([]SecurityGroupIngress)[vs[1].(int)]
-	}).(SecurityGroupIngressOutput)
-}
-
 type GetClusterMasterUserSecret struct {
 	KmsKeyId     string `pulumi:"kmsKeyId"`
 	SecretArn    string `pulumi:"secretArn"`
@@ -3621,8 +3494,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyDefaultTargetGroupConnectionPoolConfigPtrInput)(nil)).Elem(), ProxyDefaultTargetGroupConnectionPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReservedInstanceRecurringChargeInput)(nil)).Elem(), ReservedInstanceRecurringChargeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReservedInstanceRecurringChargeArrayInput)(nil)).Elem(), ReservedInstanceRecurringChargeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressInput)(nil)).Elem(), SecurityGroupIngressArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressArrayInput)(nil)).Elem(), SecurityGroupIngressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterMasterUserSecretInput)(nil)).Elem(), GetClusterMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterMasterUserSecretArrayInput)(nil)).Elem(), GetClusterMasterUserSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClustersFilterInput)(nil)).Elem(), GetClustersFilterArgs{})
@@ -3671,8 +3542,6 @@ func init() {
 	pulumi.RegisterOutputType(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReservedInstanceRecurringChargeOutput{})
 	pulumi.RegisterOutputType(ReservedInstanceRecurringChargeArrayOutput{})
-	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
-	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterMasterUserSecretOutput{})
 	pulumi.RegisterOutputType(GetClusterMasterUserSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetClustersFilterOutput{})

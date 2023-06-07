@@ -13,10 +13,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
     /// [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
     /// 
-    /// &gt; **NOTE on Client VPN endpoint target network security groups:** The provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
-    /// 
     /// ## Example Usage
-    /// ### Using default security group
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -30,29 +27,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
     ///     {
     ///         ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
     ///         SubnetId = aws_subnet.Example.Id,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Using custom security groups
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Ec2ClientVpn.NetworkAssociation("example", new()
-    ///     {
-    ///         ClientVpnEndpointId = aws_ec2_client_vpn_endpoint.Example.Id,
-    ///         SubnetId = aws_subnet.Example.Id,
-    ///         SecurityGroups = new[]
-    ///         {
-    ///             aws_security_group.Example1.Id,
-    ///             aws_security_group.Example2.Id,
-    ///         },
     ///     });
     /// 
     /// });
@@ -80,18 +54,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         [Output("clientVpnEndpointId")]
         public Output<string> ClientVpnEndpointId { get; private set; } = null!;
-
-        /// <summary>
-        /// A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
-        /// </summary>
-        [Output("securityGroups")]
-        public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
-
-        /// <summary>
-        /// **Deprecated** The current state of the target network association.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the subnet to associate with the Client VPN endpoint.
@@ -157,19 +119,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
         [Input("clientVpnEndpointId", required: true)]
         public Input<string> ClientVpnEndpointId { get; set; } = null!;
 
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
-        /// </summary>
-        [Obsolete(@"Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.")]
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
         /// <summary>
         /// The ID of the subnet to associate with the Client VPN endpoint.
         /// </summary>
@@ -195,25 +144,6 @@ namespace Pulumi.Aws.Ec2ClientVpn
         /// </summary>
         [Input("clientVpnEndpointId")]
         public Input<string>? ClientVpnEndpointId { get; set; }
-
-        [Input("securityGroups")]
-        private InputList<string>? _securityGroups;
-
-        /// <summary>
-        /// A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
-        /// </summary>
-        [Obsolete(@"Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.")]
-        public InputList<string> SecurityGroups
-        {
-            get => _securityGroups ?? (_securityGroups = new InputList<string>());
-            set => _securityGroups = value;
-        }
-
-        /// <summary>
-        /// **Deprecated** The current state of the target network association.
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
 
         /// <summary>
         /// The ID of the subnet to associate with the Client VPN endpoint.

@@ -262,14 +262,14 @@ class TableReplica(pulumi.CustomResource):
                 name="BrodoBaggins",
                 type="S",
             )],
-            opts=pulumi.ResourceOptions(provider="aws.main"))
+            opts=pulumi.ResourceOptions(provider=aws["main"]))
         example_table_replica = aws.dynamodb.TableReplica("exampleTableReplica",
             global_table_arn=example_table.arn,
             tags={
                 "Name": "IZPAWS",
                 "Pozo": "Amargo",
             },
-            opts=pulumi.ResourceOptions(provider="aws.alt"))
+            opts=pulumi.ResourceOptions(provider=aws["alt"]))
         ```
 
         ## Import
@@ -321,14 +321,14 @@ class TableReplica(pulumi.CustomResource):
                 name="BrodoBaggins",
                 type="S",
             )],
-            opts=pulumi.ResourceOptions(provider="aws.main"))
+            opts=pulumi.ResourceOptions(provider=aws["main"]))
         example_table_replica = aws.dynamodb.TableReplica("exampleTableReplica",
             global_table_arn=example_table.arn,
             tags={
                 "Name": "IZPAWS",
                 "Pozo": "Amargo",
             },
-            opts=pulumi.ResourceOptions(provider="aws.alt"))
+            opts=pulumi.ResourceOptions(provider=aws["alt"]))
         ```
 
         ## Import

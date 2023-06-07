@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly string? RestoreType;
         /// <summary>
-        /// The identifier of the source database cluster from which to restore.
+        /// Identifier of the source database cluster from which to restore.
         /// </summary>
         public readonly string SourceClusterIdentifier;
         /// <summary>

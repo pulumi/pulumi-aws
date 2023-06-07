@@ -123,30 +123,6 @@ public class DefaultVpc extends com.pulumi.resources.CustomResource {
     public Output<String> dhcpOptionsId() {
         return this.dhcpOptionsId;
     }
-    /**
-     * @deprecated
-     * With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version. */
-    @Export(name="enableClassiclink", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableClassiclink;
-
-    public Output<Boolean> enableClassiclink() {
-        return this.enableClassiclink;
-    }
-    /**
-     * @deprecated
-     * With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version. */
-    @Export(name="enableClassiclinkDnsSupport", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableClassiclinkDnsSupport;
-
-    public Output<Boolean> enableClassiclinkDnsSupport() {
-        return this.enableClassiclinkDnsSupport;
-    }
     @Export(name="enableDnsHostnames", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableDnsHostnames;
 

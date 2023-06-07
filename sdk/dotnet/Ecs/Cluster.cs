@@ -12,8 +12,6 @@ namespace Pulumi.Aws.Ecs
     /// <summary>
     /// Provides an ECS cluster.
     /// 
-    /// &gt; **NOTE on Clusters and Cluster Capacity Providers:** this provider provides both a standalone `aws.ecs.ClusterCapacityProviders` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `aws.ecs.Cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -75,46 +73,6 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
-    /// ### Example with Capacity Providers
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleCluster = new Aws.Ecs.Cluster("exampleCluster");
-    /// 
-    ///     var exampleCapacityProvider = new Aws.Ecs.CapacityProvider("exampleCapacityProvider", new()
-    ///     {
-    ///         AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
-    ///         {
-    ///             AutoScalingGroupArn = aws_autoscaling_group.Example.Arn,
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleClusterCapacityProviders = new Aws.Ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", new()
-    ///     {
-    ///         ClusterName = exampleCluster.Name,
-    ///         CapacityProviders = new[]
-    ///         {
-    ///             exampleCapacityProvider.Name,
-    ///         },
-    ///         DefaultCapacityProviderStrategies = new[]
-    ///         {
-    ///             new Aws.Ecs.Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs
-    ///             {
-    ///                 Base = 1,
-    ///                 Weight = 100,
-    ///                 CapacityProvider = exampleCapacityProvider.Name,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
@@ -134,22 +92,10 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-        /// </summary>
-        [Output("capacityProviders")]
-        public Output<ImmutableArray<string>> CapacityProviders { get; private set; } = null!;
-
-        /// <summary>
         /// The execute command configuration for the cluster. Detailed below.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.ClusterConfiguration?> Configuration { get; private set; } = null!;
-
-        /// <summary>
-        /// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-        /// </summary>
-        [Output("defaultCapacityProviderStrategies")]
-        public Output<ImmutableArray<Outputs.ClusterDefaultCapacityProviderStrategy>> DefaultCapacityProviderStrategies { get; private set; } = null!;
 
         /// <summary>
         /// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
@@ -227,37 +173,11 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
-        [Input("capacityProviders")]
-        private InputList<string>? _capacityProviders;
-
-        /// <summary>
-        /// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-        /// </summary>
-        [Obsolete(@"Use the aws_ecs_cluster_capacity_providers resource instead")]
-        public InputList<string> CapacityProviders
-        {
-            get => _capacityProviders ?? (_capacityProviders = new InputList<string>());
-            set => _capacityProviders = value;
-        }
-
         /// <summary>
         /// The execute command configuration for the cluster. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ClusterConfigurationArgs>? Configuration { get; set; }
-
-        [Input("defaultCapacityProviderStrategies")]
-        private InputList<Inputs.ClusterDefaultCapacityProviderStrategyArgs>? _defaultCapacityProviderStrategies;
-
-        /// <summary>
-        /// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-        /// </summary>
-        [Obsolete(@"Use the aws_ecs_cluster_capacity_providers resource instead")]
-        public InputList<Inputs.ClusterDefaultCapacityProviderStrategyArgs> DefaultCapacityProviderStrategies
-        {
-            get => _defaultCapacityProviderStrategies ?? (_defaultCapacityProviderStrategies = new InputList<Inputs.ClusterDefaultCapacityProviderStrategyArgs>());
-            set => _defaultCapacityProviderStrategies = value;
-        }
 
         /// <summary>
         /// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
@@ -309,37 +229,11 @@ namespace Pulumi.Aws.Ecs
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        [Input("capacityProviders")]
-        private InputList<string>? _capacityProviders;
-
-        /// <summary>
-        /// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-        /// </summary>
-        [Obsolete(@"Use the aws_ecs_cluster_capacity_providers resource instead")]
-        public InputList<string> CapacityProviders
-        {
-            get => _capacityProviders ?? (_capacityProviders = new InputList<string>());
-            set => _capacityProviders = value;
-        }
-
         /// <summary>
         /// The execute command configuration for the cluster. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ClusterConfigurationGetArgs>? Configuration { get; set; }
-
-        [Input("defaultCapacityProviderStrategies")]
-        private InputList<Inputs.ClusterDefaultCapacityProviderStrategyGetArgs>? _defaultCapacityProviderStrategies;
-
-        /// <summary>
-        /// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-        /// </summary>
-        [Obsolete(@"Use the aws_ecs_cluster_capacity_providers resource instead")]
-        public InputList<Inputs.ClusterDefaultCapacityProviderStrategyGetArgs> DefaultCapacityProviderStrategies
-        {
-            get => _defaultCapacityProviderStrategies ?? (_defaultCapacityProviderStrategies = new InputList<Inputs.ClusterDefaultCapacityProviderStrategyGetArgs>());
-            set => _defaultCapacityProviderStrategies = value;
-        }
 
         /// <summary>
         /// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)

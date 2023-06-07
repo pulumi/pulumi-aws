@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.6.21",
  *     instanceClass: "db.t2.micro",
- *     name: "baz",
+ *     dbName: "baz",
  *     password: "barbarbarbar",
  *     username: "foo",
  *     maintenanceWindow: "Fri:09:00-Fri:09:30",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     parameterGroupName: "default.mysql5.6",
  * });
  * const test = new aws.rds.Snapshot("test", {
- *     dbInstanceIdentifier: bar.id,
+ *     dbInstanceIdentifier: bar.identifier,
  *     dbSnapshotIdentifier: "testsnapshot1234",
  * });
  * ```

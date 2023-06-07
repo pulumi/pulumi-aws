@@ -3,7 +3,6 @@
 
 package com.pulumi.aws.codebuild.outputs;
 
-import com.pulumi.aws.codebuild.outputs.ProjectSourceAuth;
 import com.pulumi.aws.codebuild.outputs.ProjectSourceBuildStatusConfig;
 import com.pulumi.aws.codebuild.outputs.ProjectSourceGitSubmodulesConfig;
 import com.pulumi.core.annotations.CustomType;
@@ -16,15 +15,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectSource {
-    /**
-     * @return Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console&#39;s use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-     * 
-     * @deprecated
-     * Use the aws_codebuild_source_credential resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_codebuild_source_credential resource instead */
-    private @Nullable ProjectSourceAuth auth;
     /**
      * @return Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
      * 
@@ -61,23 +51,12 @@ public final class ProjectSource {
      */
     private @Nullable Boolean reportBuildStatus;
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
      * 
      */
     private String type;
 
     private ProjectSource() {}
-    /**
-     * @return Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console&#39;s use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-     * 
-     * @deprecated
-     * Use the aws_codebuild_source_credential resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_codebuild_source_credential resource instead */
-    public Optional<ProjectSourceAuth> auth() {
-        return Optional.ofNullable(this.auth);
-    }
     /**
      * @return Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
      * 
@@ -128,7 +107,7 @@ public final class ProjectSource {
         return Optional.ofNullable(this.reportBuildStatus);
     }
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+     * @return Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
      * 
      */
     public String type() {
@@ -144,7 +123,6 @@ public final class ProjectSource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable ProjectSourceAuth auth;
         private @Nullable ProjectSourceBuildStatusConfig buildStatusConfig;
         private @Nullable String buildspec;
         private @Nullable Integer gitCloneDepth;
@@ -156,7 +134,6 @@ public final class ProjectSource {
         public Builder() {}
         public Builder(ProjectSource defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.auth = defaults.auth;
     	      this.buildStatusConfig = defaults.buildStatusConfig;
     	      this.buildspec = defaults.buildspec;
     	      this.gitCloneDepth = defaults.gitCloneDepth;
@@ -167,11 +144,6 @@ public final class ProjectSource {
     	      this.type = defaults.type;
         }
 
-        @CustomType.Setter
-        public Builder auth(@Nullable ProjectSourceAuth auth) {
-            this.auth = auth;
-            return this;
-        }
         @CustomType.Setter
         public Builder buildStatusConfig(@Nullable ProjectSourceBuildStatusConfig buildStatusConfig) {
             this.buildStatusConfig = buildStatusConfig;
@@ -214,7 +186,6 @@ public final class ProjectSource {
         }
         public ProjectSource build() {
             final var o = new ProjectSource();
-            o.auth = auth;
             o.buildStatusConfig = buildStatusConfig;
             o.buildspec = buildspec;
             o.gitCloneDepth = gitCloneDepth;

@@ -52,6 +52,11 @@ export type Tag = import("./tag").Tag;
 export const Tag: typeof import("./tag").Tag = null as any;
 utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
 
+export { TrafficSourceAttachmentArgs, TrafficSourceAttachmentState } from "./trafficSourceAttachment";
+export type TrafficSourceAttachment = import("./trafficSourceAttachment").TrafficSourceAttachment;
+export const TrafficSourceAttachment: typeof import("./trafficSourceAttachment").TrafficSourceAttachment = null as any;
+utilities.lazyLoad(exports, ["TrafficSourceAttachment"], () => require("./trafficSourceAttachment"));
+
 
 // Export enums:
 export * from "../types/enums/autoscaling";
@@ -74,6 +79,8 @@ const _module = {
                 return new Schedule(name, <any>undefined, { urn })
             case "aws:autoscaling/tag:Tag":
                 return new Tag(name, <any>undefined, { urn })
+            case "aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment":
+                return new TrafficSourceAttachment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -86,3 +93,4 @@ pulumi.runtime.registerResourceModule("aws", "autoscaling/notification", _module
 pulumi.runtime.registerResourceModule("aws", "autoscaling/policy", _module)
 pulumi.runtime.registerResourceModule("aws", "autoscaling/schedule", _module)
 pulumi.runtime.registerResourceModule("aws", "autoscaling/tag", _module)
+pulumi.runtime.registerResourceModule("aws", "autoscaling/trafficSourceAttachment", _module)

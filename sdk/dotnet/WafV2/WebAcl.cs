@@ -301,14 +301,22 @@ namespace Pulumi.Aws.WafV2
     ///                     RuleGroupReferenceStatement = new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementArgs
     ///                     {
     ///                         Arn = example.Arn,
-    ///                         ExcludedRules = new[]
+    ///                         RuleActionOverrides = new[]
     ///                         {
-    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs
     ///                             {
+    ///                                 ActionToUse = new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs
+    ///                                 {
+    ///                                     Count = null,
+    ///                                 },
     ///                                 Name = "rule-to-exclude-b",
     ///                             },
-    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs
+    ///                             new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs
     ///                             {
+    ///                                 ActionToUse = new Aws.WafV2.Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs
+    ///                                 {
+    ///                                     Count = null,
+    ///                                 },
     ///                                 Name = "rule-to-exclude-a",
     ///                             },
     ///                         },

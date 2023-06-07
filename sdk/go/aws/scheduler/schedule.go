@@ -37,7 +37,7 @@ import (
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
 //					Mode: pulumi.String("OFF"),
 //				},
-//				ScheduleExpression: pulumi.String("rate(1 hour)"),
+//				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.Any(aws_sqs_queue.Example.Arn),
 //					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
@@ -76,7 +76,7 @@ import (
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
 //					Mode: pulumi.String("OFF"),
 //				},
-//				ScheduleExpression: pulumi.String("rate(1 hour)"),
+//				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.String("arn:aws:scheduler:::aws-sdk:sqs:sendMessage"),
 //					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),

@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class GetDomainClusterConfigColdStorageOption {
     /**
-     * @return Whether node to node encryption is enabled.
+     * @return Enabled disabled toggle for off-peak update window
      * 
      */
     private Boolean enabled;
 
     private GetDomainClusterConfigColdStorageOption() {}
     /**
-     * @return Whether node to node encryption is enabled.
+     * @return Enabled disabled toggle for off-peak update window
      * 
      */
     public Boolean enabled() {

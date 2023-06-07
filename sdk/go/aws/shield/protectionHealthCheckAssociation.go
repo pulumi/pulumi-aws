@@ -49,7 +49,7 @@ import (
 //				return err
 //			}
 //			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
-//				Vpc: pulumi.Bool(true),
+//				Domain: pulumi.String("vpc"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //				},

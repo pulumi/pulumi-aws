@@ -139,11 +139,6 @@ public final class EndpointS3Settings {
      */
     private @Nullable Integer ignoreHeaderRows;
     /**
-     * @return Deprecated. This setting has no effect. Will be removed in a future version.
-     * 
-     */
-    private @Nullable Integer ignoreHeadersRow;
-    /**
      * @return Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
      * 
      */
@@ -381,13 +376,6 @@ public final class EndpointS3Settings {
         return Optional.ofNullable(this.ignoreHeaderRows);
     }
     /**
-     * @return Deprecated. This setting has no effect. Will be removed in a future version.
-     * 
-     */
-    public Optional<Integer> ignoreHeadersRow() {
-        return Optional.ofNullable(this.ignoreHeadersRow);
-    }
-    /**
      * @return Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
      * 
      */
@@ -506,7 +494,6 @@ public final class EndpointS3Settings {
         private @Nullable String encryptionMode;
         private @Nullable String externalTableDefinition;
         private @Nullable Integer ignoreHeaderRows;
-        private @Nullable Integer ignoreHeadersRow;
         private @Nullable Boolean includeOpForFullLoad;
         private @Nullable Integer maxFileSize;
         private @Nullable Boolean parquetTimestampInMillisecond;
@@ -547,7 +534,6 @@ public final class EndpointS3Settings {
     	      this.encryptionMode = defaults.encryptionMode;
     	      this.externalTableDefinition = defaults.externalTableDefinition;
     	      this.ignoreHeaderRows = defaults.ignoreHeaderRows;
-    	      this.ignoreHeadersRow = defaults.ignoreHeadersRow;
     	      this.includeOpForFullLoad = defaults.includeOpForFullLoad;
     	      this.maxFileSize = defaults.maxFileSize;
     	      this.parquetTimestampInMillisecond = defaults.parquetTimestampInMillisecond;
@@ -688,11 +674,6 @@ public final class EndpointS3Settings {
             return this;
         }
         @CustomType.Setter
-        public Builder ignoreHeadersRow(@Nullable Integer ignoreHeadersRow) {
-            this.ignoreHeadersRow = ignoreHeadersRow;
-            return this;
-        }
-        @CustomType.Setter
         public Builder includeOpForFullLoad(@Nullable Boolean includeOpForFullLoad) {
             this.includeOpForFullLoad = includeOpForFullLoad;
             return this;
@@ -779,7 +760,6 @@ public final class EndpointS3Settings {
             o.encryptionMode = encryptionMode;
             o.externalTableDefinition = externalTableDefinition;
             o.ignoreHeaderRows = ignoreHeaderRows;
-            o.ignoreHeadersRow = ignoreHeadersRow;
             o.includeOpForFullLoad = includeOpForFullLoad;
             o.maxFileSize = maxFileSize;
             o.parquetTimestampInMillisecond = parquetTimestampInMillisecond;

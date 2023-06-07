@@ -34,7 +34,7 @@ import (
 //				SecurityGroupIds: pulumi.StringArray{
 //					data.Aws_security_group.Example.Id,
 //				},
-//				SubnetIds: pulumi.Any(data.Aws_subnet_ids.Example.Ids),
+//				SubnetIds: pulumi.Any(data.Aws_subnets.Example.Ids),
 //				Tags: pulumi.StringMap{
 //					"Usage": pulumi.String("example"),
 //				},

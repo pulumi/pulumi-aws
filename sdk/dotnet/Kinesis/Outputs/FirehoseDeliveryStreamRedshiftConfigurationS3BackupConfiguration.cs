@@ -18,18 +18,16 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string BucketArn;
         /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        /// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
         /// </summary>
-        public readonly int? BufferInterval;
+        public readonly int? BufferingInterval;
         /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        /// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         /// </summary>
-        public readonly int? BufferSize;
+        public readonly int? BufferingSize;
         /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// 
-        /// The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
@@ -58,9 +56,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
         private FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration(
             string bucketArn,
 
-            int? bufferInterval,
+            int? bufferingInterval,
 
-            int? bufferSize,
+            int? bufferingSize,
 
             Outputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions? cloudwatchLoggingOptions,
 
@@ -75,8 +73,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
             string roleArn)
         {
             BucketArn = bucketArn;
-            BufferInterval = bufferInterval;
-            BufferSize = bufferSize;
+            BufferingInterval = bufferingInterval;
+            BufferingSize = bufferingSize;
             CloudwatchLoggingOptions = cloudwatchLoggingOptions;
             CompressionFormat = compressionFormat;
             ErrorOutputPrefix = errorOutputPrefix;

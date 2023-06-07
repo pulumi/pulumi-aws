@@ -33,7 +33,7 @@ import (
 //				Engine:             pulumi.String("mysql"),
 //				EngineVersion:      pulumi.String("5.6.17"),
 //				InstanceClass:      pulumi.String("db.t2.micro"),
-//				Name:               pulumi.String("mydb"),
+//				DbName:             pulumi.String("mydb"),
 //				Username:           pulumi.String("foo"),
 //				Password:           pulumi.String("bar"),
 //				DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
@@ -50,7 +50,7 @@ import (
 //				SnsTopic:   defaultTopic.Arn,
 //				SourceType: pulumi.String("db-instance"),
 //				SourceIds: pulumi.StringArray{
-//					defaultInstance.ID(),
+//					defaultInstance.Identifier,
 //				},
 //				EventCategories: pulumi.StringArray{
 //					pulumi.String("availability"),

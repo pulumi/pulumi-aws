@@ -25,6 +25,7 @@ class GraphQLApiArgs:
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a GraphQLApi resource.
@@ -37,6 +38,7 @@ class GraphQLApiArgs:
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -56,6 +58,8 @@ class GraphQLApiArgs:
             pulumi.set(__self__, "tags", tags)
         if user_pool_config is not None:
             pulumi.set(__self__, "user_pool_config", user_pool_config)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
         if xray_enabled is not None:
             pulumi.set(__self__, "xray_enabled", xray_enabled)
 
@@ -168,6 +172,18 @@ class GraphQLApiArgs:
         pulumi.set(self, "user_pool_config", value)
 
     @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        """
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "visibility", value)
+
+    @property
     @pulumi.getter(name="xrayEnabled")
     def xray_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -195,6 +211,7 @@ class _GraphQLApiState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering GraphQLApi resources.
@@ -210,6 +227,7 @@ class _GraphQLApiState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         if additional_authentication_providers is not None:
@@ -236,6 +254,8 @@ class _GraphQLApiState:
             pulumi.set(__self__, "uris", uris)
         if user_pool_config is not None:
             pulumi.set(__self__, "user_pool_config", user_pool_config)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
         if xray_enabled is not None:
             pulumi.set(__self__, "xray_enabled", xray_enabled)
 
@@ -384,6 +404,18 @@ class _GraphQLApiState:
         pulumi.set(self, "user_pool_config", value)
 
     @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        """
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "visibility", value)
+
+    @property
     @pulumi.getter(name="xrayEnabled")
     def xray_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -410,6 +442,7 @@ class GraphQLApi(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -548,6 +581,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         ...
@@ -705,6 +739,7 @@ class GraphQLApi(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -726,6 +761,7 @@ class GraphQLApi(pulumi.CustomResource):
             __props__.__dict__["schema"] = schema
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_pool_config"] = user_pool_config
+            __props__.__dict__["visibility"] = visibility
             __props__.__dict__["xray_enabled"] = xray_enabled
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -752,6 +788,7 @@ class GraphQLApi(pulumi.CustomResource):
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+            visibility: Optional[pulumi.Input[str]] = None,
             xray_enabled: Optional[pulumi.Input[bool]] = None) -> 'GraphQLApi':
         """
         Get an existing GraphQLApi resource's state with the given name, id, and optional extra
@@ -772,6 +809,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         :param pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -790,6 +828,7 @@ class GraphQLApi(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["uris"] = uris
         __props__.__dict__["user_pool_config"] = user_pool_config
+        __props__.__dict__["visibility"] = visibility
         __props__.__dict__["xray_enabled"] = xray_enabled
         return GraphQLApi(resource_name, opts=opts, __props__=__props__)
 
@@ -888,6 +927,14 @@ class GraphQLApi(pulumi.CustomResource):
         Amazon Cognito User Pool configuration. Defined below.
         """
         return pulumi.get(self, "user_pool_config")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        """
+        return pulumi.get(self, "visibility")
 
     @property
     @pulumi.getter(name="xrayEnabled")

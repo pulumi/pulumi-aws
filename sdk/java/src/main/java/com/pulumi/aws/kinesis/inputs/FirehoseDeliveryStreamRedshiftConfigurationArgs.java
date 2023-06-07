@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -185,6 +186,21 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
     }
 
     /**
+     * The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    @Import(name="s3Configuration", required=true)
+    private Output<FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs> s3Configuration;
+
+    /**
+     * @return The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    public Output<FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs> s3Configuration() {
+        return this.s3Configuration;
+    }
+
+    /**
      * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
      * 
      */
@@ -213,6 +229,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         this.roleArn = $.roleArn;
         this.s3BackupConfiguration = $.s3BackupConfiguration;
         this.s3BackupMode = $.s3BackupMode;
+        this.s3Configuration = $.s3Configuration;
         this.username = $.username;
     }
 
@@ -466,6 +483,27 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
         }
 
         /**
+         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3Configuration(Output<FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs> s3Configuration) {
+            $.s3Configuration = s3Configuration;
+            return this;
+        }
+
+        /**
+         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs s3Configuration) {
+            return s3Configuration(Output.of(s3Configuration));
+        }
+
+        /**
          * @param username The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions.
          * 
          * @return builder
@@ -491,6 +529,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationArgs extends com.p
             $.dataTableName = Objects.requireNonNull($.dataTableName, "expected parameter 'dataTableName' to be non-null");
             $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
             $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            $.s3Configuration = Objects.requireNonNull($.s3Configuration, "expected parameter 's3Configuration' to be non-null");
             $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
             return $;
         }

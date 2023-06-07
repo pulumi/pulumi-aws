@@ -4,6 +4,7 @@
 package com.pulumi.aws.directconnect.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -60,7 +61,7 @@ public final class GetConnectionResult {
      * @return The VLAN ID.
      * 
      */
-    private String vlanId;
+    private Integer vlanId;
 
     private GetConnectionResult() {}
     /**
@@ -133,7 +134,7 @@ public final class GetConnectionResult {
      * @return The VLAN ID.
      * 
      */
-    public String vlanId() {
+    public Integer vlanId() {
         return this.vlanId;
     }
 
@@ -156,7 +157,7 @@ public final class GetConnectionResult {
         private String partnerName;
         private String providerName;
         private Map<String,String> tags;
-        private String vlanId;
+        private Integer vlanId;
         public Builder() {}
         public Builder(GetConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -224,7 +225,7 @@ public final class GetConnectionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder vlanId(String vlanId) {
+        public Builder vlanId(Integer vlanId) {
             this.vlanId = Objects.requireNonNull(vlanId);
             return this;
         }

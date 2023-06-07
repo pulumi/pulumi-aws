@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
-//				Vpc: pulumi.Bool(true),
+//				Domain: pulumi.String("vpc"),
 //			})
 //			if err != nil {
 //				return err

@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleProxyTarget = new aws.rds.ProxyTarget("exampleProxyTarget", {
- *     dbInstanceIdentifier: aws_db_instance.example.id,
+ *     dbInstanceIdentifier: aws_db_instance.example.identifier,
  *     dbProxyName: exampleProxy.name,
  *     targetGroupName: exampleProxyDefaultTargetGroup.name,
  * });

@@ -2606,148 +2606,6 @@ func (o RoutingProfileQueueConfigArrayOutput) Index(i pulumi.IntInput) RoutingPr
 	}).(RoutingProfileQueueConfigOutput)
 }
 
-type RoutingProfileQueueConfigsAssociated struct {
-	// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-	Channel *string `pulumi:"channel"`
-	// Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-	Delay *int `pulumi:"delay"`
-	// Specifies the order in which contacts are to be handled for the queue.
-	Priority *int `pulumi:"priority"`
-	// ARN for the queue.
-	QueueArn *string `pulumi:"queueArn"`
-	// Specifies the identifier for the queue.
-	QueueId *string `pulumi:"queueId"`
-	// Name for the queue.
-	QueueName *string `pulumi:"queueName"`
-}
-
-// RoutingProfileQueueConfigsAssociatedInput is an input type that accepts RoutingProfileQueueConfigsAssociatedArgs and RoutingProfileQueueConfigsAssociatedOutput values.
-// You can construct a concrete instance of `RoutingProfileQueueConfigsAssociatedInput` via:
-//
-//	RoutingProfileQueueConfigsAssociatedArgs{...}
-type RoutingProfileQueueConfigsAssociatedInput interface {
-	pulumi.Input
-
-	ToRoutingProfileQueueConfigsAssociatedOutput() RoutingProfileQueueConfigsAssociatedOutput
-	ToRoutingProfileQueueConfigsAssociatedOutputWithContext(context.Context) RoutingProfileQueueConfigsAssociatedOutput
-}
-
-type RoutingProfileQueueConfigsAssociatedArgs struct {
-	// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-	Channel pulumi.StringPtrInput `pulumi:"channel"`
-	// Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-	Delay pulumi.IntPtrInput `pulumi:"delay"`
-	// Specifies the order in which contacts are to be handled for the queue.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// ARN for the queue.
-	QueueArn pulumi.StringPtrInput `pulumi:"queueArn"`
-	// Specifies the identifier for the queue.
-	QueueId pulumi.StringPtrInput `pulumi:"queueId"`
-	// Name for the queue.
-	QueueName pulumi.StringPtrInput `pulumi:"queueName"`
-}
-
-func (RoutingProfileQueueConfigsAssociatedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoutingProfileQueueConfigsAssociated)(nil)).Elem()
-}
-
-func (i RoutingProfileQueueConfigsAssociatedArgs) ToRoutingProfileQueueConfigsAssociatedOutput() RoutingProfileQueueConfigsAssociatedOutput {
-	return i.ToRoutingProfileQueueConfigsAssociatedOutputWithContext(context.Background())
-}
-
-func (i RoutingProfileQueueConfigsAssociatedArgs) ToRoutingProfileQueueConfigsAssociatedOutputWithContext(ctx context.Context) RoutingProfileQueueConfigsAssociatedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileQueueConfigsAssociatedOutput)
-}
-
-// RoutingProfileQueueConfigsAssociatedArrayInput is an input type that accepts RoutingProfileQueueConfigsAssociatedArray and RoutingProfileQueueConfigsAssociatedArrayOutput values.
-// You can construct a concrete instance of `RoutingProfileQueueConfigsAssociatedArrayInput` via:
-//
-//	RoutingProfileQueueConfigsAssociatedArray{ RoutingProfileQueueConfigsAssociatedArgs{...} }
-type RoutingProfileQueueConfigsAssociatedArrayInput interface {
-	pulumi.Input
-
-	ToRoutingProfileQueueConfigsAssociatedArrayOutput() RoutingProfileQueueConfigsAssociatedArrayOutput
-	ToRoutingProfileQueueConfigsAssociatedArrayOutputWithContext(context.Context) RoutingProfileQueueConfigsAssociatedArrayOutput
-}
-
-type RoutingProfileQueueConfigsAssociatedArray []RoutingProfileQueueConfigsAssociatedInput
-
-func (RoutingProfileQueueConfigsAssociatedArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RoutingProfileQueueConfigsAssociated)(nil)).Elem()
-}
-
-func (i RoutingProfileQueueConfigsAssociatedArray) ToRoutingProfileQueueConfigsAssociatedArrayOutput() RoutingProfileQueueConfigsAssociatedArrayOutput {
-	return i.ToRoutingProfileQueueConfigsAssociatedArrayOutputWithContext(context.Background())
-}
-
-func (i RoutingProfileQueueConfigsAssociatedArray) ToRoutingProfileQueueConfigsAssociatedArrayOutputWithContext(ctx context.Context) RoutingProfileQueueConfigsAssociatedArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileQueueConfigsAssociatedArrayOutput)
-}
-
-type RoutingProfileQueueConfigsAssociatedOutput struct{ *pulumi.OutputState }
-
-func (RoutingProfileQueueConfigsAssociatedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoutingProfileQueueConfigsAssociated)(nil)).Elem()
-}
-
-func (o RoutingProfileQueueConfigsAssociatedOutput) ToRoutingProfileQueueConfigsAssociatedOutput() RoutingProfileQueueConfigsAssociatedOutput {
-	return o
-}
-
-func (o RoutingProfileQueueConfigsAssociatedOutput) ToRoutingProfileQueueConfigsAssociatedOutputWithContext(ctx context.Context) RoutingProfileQueueConfigsAssociatedOutput {
-	return o
-}
-
-// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-func (o RoutingProfileQueueConfigsAssociatedOutput) Channel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RoutingProfileQueueConfigsAssociated) *string { return v.Channel }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-func (o RoutingProfileQueueConfigsAssociatedOutput) Delay() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RoutingProfileQueueConfigsAssociated) *int { return v.Delay }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the order in which contacts are to be handled for the queue.
-func (o RoutingProfileQueueConfigsAssociatedOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RoutingProfileQueueConfigsAssociated) *int { return v.Priority }).(pulumi.IntPtrOutput)
-}
-
-// ARN for the queue.
-func (o RoutingProfileQueueConfigsAssociatedOutput) QueueArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RoutingProfileQueueConfigsAssociated) *string { return v.QueueArn }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the identifier for the queue.
-func (o RoutingProfileQueueConfigsAssociatedOutput) QueueId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RoutingProfileQueueConfigsAssociated) *string { return v.QueueId }).(pulumi.StringPtrOutput)
-}
-
-// Name for the queue.
-func (o RoutingProfileQueueConfigsAssociatedOutput) QueueName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RoutingProfileQueueConfigsAssociated) *string { return v.QueueName }).(pulumi.StringPtrOutput)
-}
-
-type RoutingProfileQueueConfigsAssociatedArrayOutput struct{ *pulumi.OutputState }
-
-func (RoutingProfileQueueConfigsAssociatedArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RoutingProfileQueueConfigsAssociated)(nil)).Elem()
-}
-
-func (o RoutingProfileQueueConfigsAssociatedArrayOutput) ToRoutingProfileQueueConfigsAssociatedArrayOutput() RoutingProfileQueueConfigsAssociatedArrayOutput {
-	return o
-}
-
-func (o RoutingProfileQueueConfigsAssociatedArrayOutput) ToRoutingProfileQueueConfigsAssociatedArrayOutputWithContext(ctx context.Context) RoutingProfileQueueConfigsAssociatedArrayOutput {
-	return o
-}
-
-func (o RoutingProfileQueueConfigsAssociatedArrayOutput) Index(i pulumi.IntInput) RoutingProfileQueueConfigsAssociatedOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingProfileQueueConfigsAssociated {
-		return vs[0].([]RoutingProfileQueueConfigsAssociated)[vs[1].(int)]
-	}).(RoutingProfileQueueConfigsAssociatedOutput)
-}
-
 type UserHierarchyGroupHierarchyPath struct {
 	// A block that defines the details of level five. The level block is documented below.
 	LevelFives []UserHierarchyGroupHierarchyPathLevelFife `pulumi:"levelFives"`
@@ -8626,8 +8484,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileMediaConcurrencyArrayInput)(nil)).Elem(), RoutingProfileMediaConcurrencyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileQueueConfigInput)(nil)).Elem(), RoutingProfileQueueConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileQueueConfigArrayInput)(nil)).Elem(), RoutingProfileQueueConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileQueueConfigsAssociatedInput)(nil)).Elem(), RoutingProfileQueueConfigsAssociatedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileQueueConfigsAssociatedArrayInput)(nil)).Elem(), RoutingProfileQueueConfigsAssociatedArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyGroupHierarchyPathInput)(nil)).Elem(), UserHierarchyGroupHierarchyPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyGroupHierarchyPathArrayInput)(nil)).Elem(), UserHierarchyGroupHierarchyPathArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserHierarchyGroupHierarchyPathLevelFifeInput)(nil)).Elem(), UserHierarchyGroupHierarchyPathLevelFifeArgs{})
@@ -8755,8 +8611,6 @@ func init() {
 	pulumi.RegisterOutputType(RoutingProfileMediaConcurrencyArrayOutput{})
 	pulumi.RegisterOutputType(RoutingProfileQueueConfigOutput{})
 	pulumi.RegisterOutputType(RoutingProfileQueueConfigArrayOutput{})
-	pulumi.RegisterOutputType(RoutingProfileQueueConfigsAssociatedOutput{})
-	pulumi.RegisterOutputType(RoutingProfileQueueConfigsAssociatedArrayOutput{})
 	pulumi.RegisterOutputType(UserHierarchyGroupHierarchyPathOutput{})
 	pulumi.RegisterOutputType(UserHierarchyGroupHierarchyPathArrayOutput{})
 	pulumi.RegisterOutputType(UserHierarchyGroupHierarchyPathLevelFifeOutput{})

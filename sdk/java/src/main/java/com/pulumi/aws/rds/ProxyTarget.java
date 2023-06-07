@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleProxyTarget = new ProxyTarget(&#34;exampleProxyTarget&#34;, ProxyTargetArgs.builder()        
- *             .dbInstanceIdentifier(aws_db_instance.example().id())
+ *             .dbInstanceIdentifier(aws_db_instance.example().identifier())
  *             .dbProxyName(exampleProxy.name())
  *             .targetGroupName(exampleProxyDefaultTargetGroup.name())
  *             .build());

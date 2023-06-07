@@ -11,57 +11,6 @@ import (
 )
 
 // Provides details about a specific redshift cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := redshift.LookupCluster(ctx, &redshift.LookupClusterArgs{
-//				ClusterIdentifier: "example-cluster",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "exampleStream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Destination: pulumi.String("redshift"),
-//				S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-//					RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//					BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
-//					BufferSize:        pulumi.Int(10),
-//					BufferInterval:    pulumi.Int(400),
-//					CompressionFormat: pulumi.String("GZIP"),
-//				},
-//				RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
-//					RoleArn:          pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//					ClusterJdbcurl:   pulumi.String(fmt.Sprintf("jdbc:redshift://%v/%v", example.Endpoint, example.DatabaseName)),
-//					Username:         pulumi.String("exampleuser"),
-//					Password:         pulumi.String("Exampl3Pass"),
-//					DataTableName:    pulumi.String("example-table"),
-//					CopyOptions:      pulumi.String("delimiter '|'"),
-//					DataTableColumns: pulumi.String("example-col"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:redshift/getCluster:getCluster", args, &rv, opts...)
@@ -105,10 +54,6 @@ type LookupClusterResult struct {
 	ClusterPublicKey string `pulumi:"clusterPublicKey"`
 	// The cluster revision number
 	ClusterRevisionNumber string `pulumi:"clusterRevisionNumber"`
-	// The security groups associated with the cluster
-	//
-	// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-	ClusterSecurityGroups []string `pulumi:"clusterSecurityGroups"`
 	// The name of a cluster subnet group to be associated with this cluster
 	ClusterSubnetGroupName string `pulumi:"clusterSubnetGroupName"`
 	// Cluster type
@@ -262,13 +207,6 @@ func (o LookupClusterResultOutput) ClusterPublicKey() pulumi.StringOutput {
 // The cluster revision number
 func (o LookupClusterResultOutput) ClusterRevisionNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterRevisionNumber }).(pulumi.StringOutput)
-}
-
-// The security groups associated with the cluster
-//
-// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-func (o LookupClusterResultOutput) ClusterSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupClusterResult) []string { return v.ClusterSecurityGroups }).(pulumi.StringArrayOutput)
 }
 
 // The name of a cluster subnet group to be associated with this cluster

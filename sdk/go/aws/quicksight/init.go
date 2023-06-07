@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:quicksight/accountSubscription:AccountSubscription":
 		r = &AccountSubscription{}
+	case "aws:quicksight/analysis:Analysis":
+		r = &Analysis{}
+	case "aws:quicksight/dashboard:Dashboard":
+		r = &Dashboard{}
 	case "aws:quicksight/dataSet:DataSet":
 		r = &DataSet{}
 	case "aws:quicksight/dataSource:DataSource":
@@ -53,6 +57,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"quicksight/accountSubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/analysis",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/dashboard",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

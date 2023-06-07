@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleTransitGatewayRouteTables = aws.ec2.getTransitGatewayRouteTables({});
- * export const example = data.aws_ec2_transit_gateway_route_table.example.ids;
+ * export const example = exampleTransitGatewayRouteTables.then(exampleTransitGatewayRouteTables => exampleTransitGatewayRouteTables.ids);
  * ```
  */
 export function getTransitGatewayRouteTables(args?: GetTransitGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTablesResult> {
@@ -77,7 +77,7 @@ export interface GetTransitGatewayRouteTablesResult {
  * import * as aws from "@pulumi/aws";
  *
  * const exampleTransitGatewayRouteTables = aws.ec2.getTransitGatewayRouteTables({});
- * export const example = data.aws_ec2_transit_gateway_route_table.example.ids;
+ * export const example = exampleTransitGatewayRouteTables.then(exampleTransitGatewayRouteTables => exampleTransitGatewayRouteTables.ids);
  * ```
  */
 export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTablesResult> {

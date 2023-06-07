@@ -7,7 +7,6 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.secretsmanager.SecretArgs;
 import com.pulumi.aws.secretsmanager.inputs.SecretState;
 import com.pulumi.aws.secretsmanager.outputs.SecretReplica;
-import com.pulumi.aws.secretsmanager.outputs.SecretRotationRules;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -46,45 +45,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Secret(&#34;example&#34;);
- * 
- *     }
- * }
- * ```
- * ### Rotation Configuration
- * 
- * To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
- * 
- * &gt; **NOTE:** Configuring rotation causes the secret to rotate once as soon as you store the secret. Before you do this, you must ensure that all of your applications that use the credentials stored in the secret are updated to retrieve the secret from AWS Secrets Manager. The old credentials might no longer be usable after the initial rotation and any applications that you fail to update will break as soon as the old credentials are no longer valid.
- * 
- * &gt; **NOTE:** If you cancel a rotation that is in progress (by removing the `rotation` configuration), it can leave the VersionStage labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label AWSPENDING from the partially created version, specified by the SecretVersionId response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version&#39;s VersionStage field.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.secretsmanager.Secret;
- * import com.pulumi.aws.secretsmanager.SecretArgs;
- * import com.pulumi.aws.secretsmanager.inputs.SecretRotationRulesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var rotation_example = new Secret(&#34;rotation-example&#34;, SecretArgs.builder()        
- *             .rotationLambdaArn(aws_lambda_function.example().arn())
- *             .rotationRules(SecretRotationRulesArgs.builder()
- *                 .automaticallyAfterDays(7)
- *                 .build())
- *             .build());
  * 
  *     }
  * }
@@ -226,60 +186,6 @@ public class Secret extends com.pulumi.resources.CustomResource {
      */
     public Output<List<SecretReplica>> replicas() {
         return this.replicas;
-    }
-    /**
-     * Whether automatic rotation is enabled for this secret.
-     * 
-     * @deprecated
-     * Use the aws_secretsmanager_secret_rotation resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_secretsmanager_secret_rotation resource instead */
-    @Export(name="rotationEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> rotationEnabled;
-
-    /**
-     * @return Whether automatic rotation is enabled for this secret.
-     * 
-     */
-    public Output<Boolean> rotationEnabled() {
-        return this.rotationEnabled;
-    }
-    /**
-     * ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-     * 
-     * @deprecated
-     * Use the aws_secretsmanager_secret_rotation resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_secretsmanager_secret_rotation resource instead */
-    @Export(name="rotationLambdaArn", refs={String.class}, tree="[0]")
-    private Output<String> rotationLambdaArn;
-
-    /**
-     * @return ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-     * 
-     */
-    public Output<String> rotationLambdaArn() {
-        return this.rotationLambdaArn;
-    }
-    /**
-     * Configuration block for the rotation configuration of this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-     * 
-     * @deprecated
-     * Use the aws_secretsmanager_secret_rotation resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_secretsmanager_secret_rotation resource instead */
-    @Export(name="rotationRules", refs={SecretRotationRules.class}, tree="[0]")
-    private Output<SecretRotationRules> rotationRules;
-
-    /**
-     * @return Configuration block for the rotation configuration of this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-     * 
-     */
-    public Output<SecretRotationRules> rotationRules() {
-        return this.rotationRules;
     }
     /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

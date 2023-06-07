@@ -45,7 +45,7 @@ class GetOrderableClusterResult:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[str]:
         """
-        List of Availability Zone names where the Redshit Cluster is available.
+        List of Availability Zone names where the Redshift Cluster is available.
         """
         return pulumi.get(self, "availability_zones")
 

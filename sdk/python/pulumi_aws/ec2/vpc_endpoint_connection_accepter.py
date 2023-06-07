@@ -132,7 +132,7 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
             vpc_endpoint_type="Interface",
             private_dns_enabled=False,
             security_group_ids=[aws_security_group["test"]["id"]],
-            opts=pulumi.ResourceOptions(provider="aws.alternate"))
+            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
         example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter",
             vpc_endpoint_service_id=example_vpc_endpoint_service.id,
             vpc_endpoint_id=example_vpc_endpoint.id)
@@ -176,7 +176,7 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
             vpc_endpoint_type="Interface",
             private_dns_enabled=False,
             security_group_ids=[aws_security_group["test"]["id"]],
-            opts=pulumi.ResourceOptions(provider="aws.alternate"))
+            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
         example_vpc_endpoint_connection_accepter = aws.ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter",
             vpc_endpoint_service_id=example_vpc_endpoint_service.id,
             vpc_endpoint_id=example_vpc_endpoint.id)

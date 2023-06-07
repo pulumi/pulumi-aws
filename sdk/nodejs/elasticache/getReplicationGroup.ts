@@ -92,12 +92,6 @@ export interface GetReplicationGroupResult {
      */
     readonly numNodeGroups: number;
     /**
-     * (**Deprecated** use `numCacheClusters` instead) Number of cache clusters that the replication group has.
-     *
-     * @deprecated Use num_cache_clusters instead
-     */
-    readonly numberCacheClusters: number;
-    /**
      * The port number on which the configuration endpoint will accept connections.
      */
     readonly port: number;
@@ -113,12 +107,6 @@ export interface GetReplicationGroupResult {
      * Number of replica nodes in each node group.
      */
     readonly replicasPerNodeGroup: number;
-    /**
-     * (**Deprecated** use `description` instead) Description of the replication group.
-     *
-     * @deprecated Use description instead
-     */
-    readonly replicationGroupDescription: string;
     readonly replicationGroupId: string;
     /**
      * The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.

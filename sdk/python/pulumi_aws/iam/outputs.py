@@ -13,7 +13,6 @@ from ._enums import *
 
 __all__ = [
     'RoleInlinePolicy',
-    'RoleRoleLastUsed',
     'GetAccessKeysAccessKeyResult',
     'GetGroupUserResult',
     'GetPolicyDocumentStatementResult',
@@ -52,50 +51,6 @@ class RoleInlinePolicy(dict):
         Policy document as a JSON formatted string.
         """
         return pulumi.get(self, "policy")
-
-
-@pulumi.output_type
-class RoleRoleLastUsed(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lastUsedDate":
-            suggest = "last_used_date"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoleRoleLastUsed. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoleRoleLastUsed.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoleRoleLastUsed.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 last_used_date: Optional[str] = None,
-                 region: Optional[str] = None):
-        """
-        :param str region: The name of the AWS Region in which the role was last used.
-        """
-        if last_used_date is not None:
-            pulumi.set(__self__, "last_used_date", last_used_date)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
-
-    @property
-    @pulumi.getter(name="lastUsedDate")
-    def last_used_date(self) -> Optional[str]:
-        return pulumi.get(self, "last_used_date")
-
-    @property
-    @pulumi.getter
-    def region(self) -> Optional[str]:
-        """
-        The name of the AWS Region in which the role was last used.
-        """
-        return pulumi.get(self, "region")
 
 
 @pulumi.output_type

@@ -96,27 +96,31 @@ export class OntapVolume extends pulumi.CustomResource {
     /**
      * Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      */
-    public readonly junctionPath!: pulumi.Output<string>;
+    public readonly junctionPath!: pulumi.Output<string | undefined>;
     /**
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      */
-    public /*out*/ readonly ontapVolumeType!: pulumi.Output<string>;
+    public readonly ontapVolumeType!: pulumi.Output<string>;
     /**
-     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      */
-    public readonly securityStyle!: pulumi.Output<string | undefined>;
+    public readonly securityStyle!: pulumi.Output<string>;
     /**
      * Specifies the size of the volume, in megabytes (MB), that you are creating.
      */
     public readonly sizeInMegabytes!: pulumi.Output<number>;
     /**
+     * When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     */
+    public readonly skipFinalBackup!: pulumi.Output<boolean | undefined>;
+    /**
      * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
      */
-    public readonly storageEfficiencyEnabled!: pulumi.Output<boolean>;
+    public readonly storageEfficiencyEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the storage virtual machine in which to create the volume.
      */
@@ -160,6 +164,7 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["ontapVolumeType"] = state ? state.ontapVolumeType : undefined;
             resourceInputs["securityStyle"] = state ? state.securityStyle : undefined;
             resourceInputs["sizeInMegabytes"] = state ? state.sizeInMegabytes : undefined;
+            resourceInputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
             resourceInputs["storageEfficiencyEnabled"] = state ? state.storageEfficiencyEnabled : undefined;
             resourceInputs["storageVirtualMachineId"] = state ? state.storageVirtualMachineId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -169,22 +174,18 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["volumeType"] = state ? state.volumeType : undefined;
         } else {
             const args = argsOrState as OntapVolumeArgs | undefined;
-            if ((!args || args.junctionPath === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'junctionPath'");
-            }
             if ((!args || args.sizeInMegabytes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sizeInMegabytes'");
-            }
-            if ((!args || args.storageEfficiencyEnabled === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageEfficiencyEnabled'");
             }
             if ((!args || args.storageVirtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageVirtualMachineId'");
             }
             resourceInputs["junctionPath"] = args ? args.junctionPath : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ontapVolumeType"] = args ? args.ontapVolumeType : undefined;
             resourceInputs["securityStyle"] = args ? args.securityStyle : undefined;
             resourceInputs["sizeInMegabytes"] = args ? args.sizeInMegabytes : undefined;
+            resourceInputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
             resourceInputs["storageEfficiencyEnabled"] = args ? args.storageEfficiencyEnabled : undefined;
             resourceInputs["storageVirtualMachineId"] = args ? args.storageVirtualMachineId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -193,7 +194,6 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fileSystemId"] = undefined /*out*/;
             resourceInputs["flexcacheEndpointType"] = undefined /*out*/;
-            resourceInputs["ontapVolumeType"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         }
@@ -227,17 +227,21 @@ export interface OntapVolumeState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      */
     ontapVolumeType?: pulumi.Input<string>;
     /**
-     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      */
     securityStyle?: pulumi.Input<string>;
     /**
      * Specifies the size of the volume, in megabytes (MB), that you are creating.
      */
     sizeInMegabytes?: pulumi.Input<number>;
+    /**
+     * When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     */
+    skipFinalBackup?: pulumi.Input<boolean>;
     /**
      * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
      */
@@ -272,13 +276,17 @@ export interface OntapVolumeArgs {
     /**
      * Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      */
-    junctionPath: pulumi.Input<string>;
+    junctionPath?: pulumi.Input<string>;
     /**
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     */
+    ontapVolumeType?: pulumi.Input<string>;
+    /**
+     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      */
     securityStyle?: pulumi.Input<string>;
     /**
@@ -286,9 +294,13 @@ export interface OntapVolumeArgs {
      */
     sizeInMegabytes: pulumi.Input<number>;
     /**
+     * When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     */
+    skipFinalBackup?: pulumi.Input<boolean>;
+    /**
      * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
      */
-    storageEfficiencyEnabled: pulumi.Input<boolean>;
+    storageEfficiencyEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the storage virtual machine in which to create the volume.
      */

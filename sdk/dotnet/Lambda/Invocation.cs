@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Lambda
     /// <summary>
     /// Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
     /// 
-    /// &gt; **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `aws.lambda.Invocation` data source.
+    /// &gt; **NOTE:** By default this resource _only_ invokes the function when the arguments call for a create or replace. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `aws.lambda.Invocation` data source. To invoke the lambda function when the Pulumi resource is updated and deleted, see the CRUD Lifecycle Scope example below.
     /// 
     /// &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
     /// 
@@ -55,6 +55,73 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
+    /// ### CRUD Lifecycle Scope
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.Invocation("example", new()
+    ///     {
+    ///         FunctionName = aws_lambda_function.Lambda_function_test.Function_name,
+    ///         Input = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["key1"] = "value1",
+    ///             ["key2"] = "value2",
+    ///         }),
+    ///         LifecycleScope = "CRUD",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **NOTE:** `lifecycle_scope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
+    /// 
+    /// The key `tf` gets added with subkeys:
+    /// 
+    /// * `action` - Action Pulumi performs on the resource. Values are `create`, `update`, or `delete`.
+    /// * `prev_input` - Input JSON payload from the previous invocation. This can be used to handle update and delete events.
+    /// 
+    /// When the resource from the example above is created, the Lambda will get following JSON payload:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
+    /// 
+    /// If the input value of `key1` changes to "valueB", then the lambda will be invoked again with the following JSON payload:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
+    /// 
+    /// When the invocation resource is removed, the final invocation will have the following JSON payload:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/invocation:Invocation")]
     public partial class Invocation : global::Pulumi.CustomResource
@@ -74,6 +141,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Input { get; private set; } = null!;
 
         /// <summary>
+        /// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+        /// </summary>
+        [Output("lifecycleScope")]
+        public Output<string?> LifecycleScope { get; private set; } = null!;
+
+        /// <summary>
         /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         /// </summary>
         [Output("qualifier")]
@@ -84,6 +157,9 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("result")]
         public Output<string> Result { get; private set; } = null!;
+
+        [Output("terraformKey")]
+        public Output<string?> TerraformKey { get; private set; } = null!;
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -152,10 +228,19 @@ namespace Pulumi.Aws.Lambda
         public Input<string> Input { get; set; } = null!;
 
         /// <summary>
+        /// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+        /// </summary>
+        [Input("lifecycleScope")]
+        public Input<string>? LifecycleScope { get; set; }
+
+        /// <summary>
         /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
+
+        [Input("terraformKey")]
+        public Input<string>? TerraformKey { get; set; }
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
@@ -192,6 +277,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Input { get; set; }
 
         /// <summary>
+        /// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+        /// </summary>
+        [Input("lifecycleScope")]
+        public Input<string>? LifecycleScope { get; set; }
+
+        /// <summary>
         /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         /// </summary>
         [Input("qualifier")]
@@ -202,6 +293,9 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("result")]
         public Input<string>? Result { get; set; }
+
+        [Input("terraformKey")]
+        public Input<string>? TerraformKey { get; set; }
 
         [Input("triggers")]
         private InputMap<string>? _triggers;

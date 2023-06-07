@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_virtual_cluster import *
+from .job_template import *
 from .virtual_cluster import *
 from ._inputs import *
 from . import outputs

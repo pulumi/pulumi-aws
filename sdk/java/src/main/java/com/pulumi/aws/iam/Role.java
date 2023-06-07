@@ -7,7 +7,6 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.iam.RoleArgs;
 import com.pulumi.aws.iam.inputs.RoleState;
 import com.pulumi.aws.iam.outputs.RoleInlinePolicy;
-import com.pulumi.aws.iam.outputs.RoleRoleLastUsed;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -480,20 +479,6 @@ public class Role extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> permissionsBoundary() {
         return Codegen.optional(this.permissionsBoundary);
-    }
-    /**
-     * Contains information about the last time that an IAM role was used. See `role_last_used` for details.
-     * 
-     */
-    @Export(name="roleLastUseds", refs={List.class,RoleRoleLastUsed.class}, tree="[0,1]")
-    private Output<List<RoleRoleLastUsed>> roleLastUseds;
-
-    /**
-     * @return Contains information about the last time that an IAM role was used. See `role_last_used` for details.
-     * 
-     */
-    public Output<List<RoleRoleLastUsed>> roleLastUseds() {
-        return this.roleLastUseds;
     }
     /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

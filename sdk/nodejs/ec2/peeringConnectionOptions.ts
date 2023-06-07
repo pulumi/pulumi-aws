@@ -38,10 +38,6 @@ import * as utilities from "../utilities";
  *     accepter: {
  *         allowRemoteVpcDnsResolution: true,
  *     },
- *     requester: {
- *         allowVpcToRemoteClassicLink: true,
- *         allowClassicLinkToRemoteVpc: true,
- *     },
  * });
  * ```
  * ### Cross-Account Usage

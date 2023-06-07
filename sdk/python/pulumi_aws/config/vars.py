@@ -118,15 +118,6 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('region') or _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
 
     @property
-    def s3_force_path_style(self) -> Optional[bool]:
-        """
-        Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-        default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-        Specific to the Amazon S3 service.
-        """
-        return __config__.get_bool('s3ForcePathStyle')
-
-    @property
     def s3_use_path_style(self) -> Optional[bool]:
         """
         Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
@@ -150,13 +141,6 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('sharedConfigFiles')
 
     @property
-    def shared_credentials_file(self) -> Optional[str]:
-        """
-        The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-        """
-        return __config__.get('sharedCredentialsFile')
-
-    @property
     def shared_credentials_files(self) -> Optional[str]:
         """
         List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
@@ -170,13 +154,6 @@ class _ExportableConfig(types.ModuleType):
         available/implemented.
         """
         return __config__.get_bool('skipCredentialsValidation') or False
-
-    @property
-    def skip_get_ec2_platforms(self) -> Optional[bool]:
-        """
-        Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-        """
-        return __config__.get_bool('skipGetEc2Platforms')
 
     @property
     def skip_metadata_api_check(self) -> bool:

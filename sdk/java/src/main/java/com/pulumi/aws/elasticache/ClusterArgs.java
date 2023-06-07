@@ -375,29 +375,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    @Import(name="securityGroupNames")
-    private @Nullable Output<List<String>> securityGroupNames;
-
-    /**
-     * @return List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    public Optional<Output<List<String>>> securityGroupNames() {
-        return Optional.ofNullable(this.securityGroupNames);
-    }
-
-    /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
      * 
      */
@@ -512,7 +489,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.preferredOutpostArn = $.preferredOutpostArn;
         this.replicationGroupId = $.replicationGroupId;
         this.securityGroupIds = $.securityGroupIds;
-        this.securityGroupNames = $.securityGroupNames;
         this.snapshotArns = $.snapshotArns;
         this.snapshotName = $.snapshotName;
         this.snapshotRetentionLimit = $.snapshotRetentionLimit;
@@ -1053,49 +1029,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
-        }
-
-        /**
-         * @param securityGroupNames List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-        public Builder securityGroupNames(@Nullable Output<List<String>> securityGroupNames) {
-            $.securityGroupNames = securityGroupNames;
-            return this;
-        }
-
-        /**
-         * @param securityGroupNames List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-        public Builder securityGroupNames(List<String> securityGroupNames) {
-            return securityGroupNames(Output.of(securityGroupNames));
-        }
-
-        /**
-         * @param securityGroupNames List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-        public Builder securityGroupNames(String... securityGroupNames) {
-            return securityGroupNames(List.of(securityGroupNames));
         }
 
         /**

@@ -95,12 +95,6 @@ export interface GetInstanceResult {
      */
     readonly dbParameterGroups: string[];
     /**
-     * Provides List of DB security groups associated to this DB instance.
-     *
-     * @deprecated With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.
-     */
-    readonly dbSecurityGroups: string[];
-    /**
      * Name of the subnet group associated with the DB instance.
      */
     readonly dbSubnetGroup: string;

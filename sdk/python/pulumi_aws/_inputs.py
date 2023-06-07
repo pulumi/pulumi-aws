@@ -30,7 +30,6 @@ __all__ = [
 class ProviderAssumeRoleArgs:
     def __init__(__self__, *,
                  duration: Optional[pulumi.Input[str]] = None,
-                 duration_seconds: Optional[pulumi.Input[int]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -41,11 +40,6 @@ class ProviderAssumeRoleArgs:
                  transitive_tag_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
-        if duration_seconds is not None:
-            warnings.warn("""Use assume_role.duration instead""", DeprecationWarning)
-            pulumi.log.warn("""duration_seconds is deprecated: Use assume_role.duration instead""")
-        if duration_seconds is not None:
-            pulumi.set(__self__, "duration_seconds", duration_seconds)
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if policy is not None:
@@ -71,15 +65,6 @@ class ProviderAssumeRoleArgs:
     @duration.setter
     def duration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "duration", value)
-
-    @property
-    @pulumi.getter(name="durationSeconds")
-    def duration_seconds(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "duration_seconds")
-
-    @duration_seconds.setter
-    def duration_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "duration_seconds", value)
 
     @property
     @pulumi.getter(name="externalId")

@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Cloud9
     ///     var cloud9Eip = new Aws.Ec2.Eip("cloud9Eip", new()
     ///     {
     ///         Instance = cloud9Instance.Apply(getInstanceResult =&gt; getInstanceResult.Id),
-    ///         Vpc = true,
+    ///         Domain = "vpc",
     ///     });
     /// 
     ///     return new Dictionary&lt;string, object?&gt;

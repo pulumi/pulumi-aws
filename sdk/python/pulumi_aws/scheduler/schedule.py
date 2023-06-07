@@ -471,7 +471,7 @@ class Schedule(pulumi.CustomResource):
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
-            schedule_expression="rate(1 hour)",
+            schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
@@ -489,7 +489,7 @@ class Schedule(pulumi.CustomResource):
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
-            schedule_expression="rate(1 hour)",
+            schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
                 role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
@@ -550,7 +550,7 @@ class Schedule(pulumi.CustomResource):
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
-            schedule_expression="rate(1 hour)",
+            schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
@@ -568,7 +568,7 @@ class Schedule(pulumi.CustomResource):
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
-            schedule_expression="rate(1 hour)",
+            schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
                 role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),

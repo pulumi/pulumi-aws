@@ -132,8 +132,6 @@ type Route struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrOutput `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// The AWS account ID of the owner of the EC2 instance.
 	InstanceOwnerId pulumi.StringOutput `pulumi:"instanceOwnerId"`
@@ -210,8 +208,6 @@ type routeState struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId *string `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
 	InstanceId *string `pulumi:"instanceId"`
 	// The AWS account ID of the owner of the EC2 instance.
 	InstanceOwnerId *string `pulumi:"instanceOwnerId"`
@@ -257,8 +253,6 @@ type RouteState struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
 	InstanceId pulumi.StringPtrInput
 	// The AWS account ID of the owner of the EC2 instance.
 	InstanceOwnerId pulumi.StringPtrInput
@@ -307,10 +301,6 @@ type routeArgs struct {
 	EgressOnlyGatewayId *string `pulumi:"egressOnlyGatewayId"`
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId *string `pulumi:"gatewayId"`
-	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
-	InstanceId *string `pulumi:"instanceId"`
 	// Identifier of a Outpost local gateway.
 	LocalGatewayId *string `pulumi:"localGatewayId"`
 	// Identifier of a VPC NAT gateway.
@@ -349,10 +339,6 @@ type RouteArgs struct {
 	EgressOnlyGatewayId pulumi.StringPtrInput
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrInput
-	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
-	InstanceId pulumi.StringPtrInput
 	// Identifier of a Outpost local gateway.
 	LocalGatewayId pulumi.StringPtrInput
 	// Identifier of a VPC NAT gateway.
@@ -498,8 +484,6 @@ func (o RouteOutput) GatewayId() pulumi.StringPtrOutput {
 }
 
 // Identifier of an EC2 instance.
-//
-// Deprecated: Use network_interface_id instead
 func (o RouteOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }

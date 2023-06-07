@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *         final var currentPartition = AwsFunctions.getPartition();
  * 
  *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
- *             .vpc(true)
+ *             .domain(&#34;vpc&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());
  * 

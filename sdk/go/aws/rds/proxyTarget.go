@@ -71,7 +71,7 @@ import (
 //				return err
 //			}
 //			_, err = rds.NewProxyTarget(ctx, "exampleProxyTarget", &rds.ProxyTargetArgs{
-//				DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Id),
+//				DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Identifier),
 //				DbProxyName:          exampleProxy.Name,
 //				TargetGroupName:      exampleProxyDefaultTargetGroup.Name,
 //			})

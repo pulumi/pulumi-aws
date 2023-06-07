@@ -388,7 +388,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return this.logFormat;
     }
     /**
-     * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+     * **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
      * 
      * @deprecated
      * use &#39;log_destination&#39; argument instead
@@ -399,7 +399,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
     private Output<String> logGroupName;
 
     /**
-     * @return *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+     * @return **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
      * 
      */
     public Output<String> logGroupName() {

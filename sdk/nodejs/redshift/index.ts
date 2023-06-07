@@ -90,11 +90,6 @@ export type ScheduledAction = import("./scheduledAction").ScheduledAction;
 export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
 utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
 
-export { SecurityGroupArgs, SecurityGroupState } from "./securityGroup";
-export type SecurityGroup = import("./securityGroup").SecurityGroup;
-export const SecurityGroup: typeof import("./securityGroup").SecurityGroup = null as any;
-utilities.lazyLoad(exports, ["SecurityGroup"], () => require("./securityGroup"));
-
 export { SnapshotCopyGrantArgs, SnapshotCopyGrantState } from "./snapshotCopyGrant";
 export type SnapshotCopyGrant = import("./snapshotCopyGrant").SnapshotCopyGrant;
 export const SnapshotCopyGrant: typeof import("./snapshotCopyGrant").SnapshotCopyGrant = null as any;
@@ -149,8 +144,6 @@ const _module = {
                 return new Partner(name, <any>undefined, { urn })
             case "aws:redshift/scheduledAction:ScheduledAction":
                 return new ScheduledAction(name, <any>undefined, { urn })
-            case "aws:redshift/securityGroup:SecurityGroup":
-                return new SecurityGroup(name, <any>undefined, { urn })
             case "aws:redshift/snapshotCopyGrant:SnapshotCopyGrant":
                 return new SnapshotCopyGrant(name, <any>undefined, { urn })
             case "aws:redshift/snapshotSchedule:SnapshotSchedule":
@@ -178,7 +171,6 @@ pulumi.runtime.registerResourceModule("aws", "redshift/hsmConfiguration", _modul
 pulumi.runtime.registerResourceModule("aws", "redshift/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/partner", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/scheduledAction", _module)
-pulumi.runtime.registerResourceModule("aws", "redshift/securityGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotCopyGrant", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotSchedule", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotScheduleAssociation", _module)

@@ -15,9 +15,6 @@ namespace Pulumi.Aws.Inputs
         [Input("duration")]
         public Input<string>? Duration { get; set; }
 
-        [Input("durationSeconds")]
-        public Input<int>? DurationSeconds { get; set; }
-
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 

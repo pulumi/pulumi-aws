@@ -30,6 +30,7 @@ export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): P
         "columnLevelPermissionRules": args.columnLevelPermissionRules,
         "dataSetId": args.dataSetId,
         "tags": args.tags,
+        "tagsAll": args.tagsAll,
     }, opts);
 }
 
@@ -49,6 +50,10 @@ export interface GetDataSetArgs {
      */
     dataSetId: string;
     tags?: {[key: string]: string};
+    /**
+     * @deprecated this attribute has been deprecated
+     */
+    tagsAll?: {[key: string]: string};
 }
 
 /**
@@ -74,6 +79,9 @@ export interface GetDataSetResult {
     readonly rowLevelPermissionDataSets: outputs.quicksight.GetDataSetRowLevelPermissionDataSet[];
     readonly rowLevelPermissionTagConfigurations: outputs.quicksight.GetDataSetRowLevelPermissionTagConfiguration[];
     readonly tags: {[key: string]: string};
+    /**
+     * @deprecated this attribute has been deprecated
+     */
     readonly tagsAll: {[key: string]: string};
 }
 /**
@@ -111,4 +119,8 @@ export interface GetDataSetOutputArgs {
      */
     dataSetId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * @deprecated this attribute has been deprecated
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

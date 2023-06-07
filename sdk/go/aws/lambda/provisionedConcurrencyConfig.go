@@ -13,6 +13,8 @@ import (
 
 // Manages a Lambda Provisioned Concurrency Configuration.
 //
+// > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
+//
 // ## Example Usage
 // ### Alias Name
 //
@@ -86,7 +88,11 @@ type ProvisionedConcurrencyConfig struct {
 	// Amount of capacity to allocate. Must be greater than or equal to `1`.
 	ProvisionedConcurrentExecutions pulumi.IntOutput `pulumi:"provisionedConcurrentExecutions"`
 	// Lambda Function version or Lambda Alias name.
+	//
+	// The following arguments are optional:
 	Qualifier pulumi.StringOutput `pulumi:"qualifier"`
+	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 }
 
 // NewProvisionedConcurrencyConfig registers a new resource with the given unique name, arguments, and options.
@@ -132,7 +138,11 @@ type provisionedConcurrencyConfigState struct {
 	// Amount of capacity to allocate. Must be greater than or equal to `1`.
 	ProvisionedConcurrentExecutions *int `pulumi:"provisionedConcurrentExecutions"`
 	// Lambda Function version or Lambda Alias name.
+	//
+	// The following arguments are optional:
 	Qualifier *string `pulumi:"qualifier"`
+	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 }
 
 type ProvisionedConcurrencyConfigState struct {
@@ -141,7 +151,11 @@ type ProvisionedConcurrencyConfigState struct {
 	// Amount of capacity to allocate. Must be greater than or equal to `1`.
 	ProvisionedConcurrentExecutions pulumi.IntPtrInput
 	// Lambda Function version or Lambda Alias name.
+	//
+	// The following arguments are optional:
 	Qualifier pulumi.StringPtrInput
+	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	SkipDestroy pulumi.BoolPtrInput
 }
 
 func (ProvisionedConcurrencyConfigState) ElementType() reflect.Type {
@@ -154,7 +168,11 @@ type provisionedConcurrencyConfigArgs struct {
 	// Amount of capacity to allocate. Must be greater than or equal to `1`.
 	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
 	// Lambda Function version or Lambda Alias name.
+	//
+	// The following arguments are optional:
 	Qualifier string `pulumi:"qualifier"`
+	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 }
 
 // The set of arguments for constructing a ProvisionedConcurrencyConfig resource.
@@ -164,7 +182,11 @@ type ProvisionedConcurrencyConfigArgs struct {
 	// Amount of capacity to allocate. Must be greater than or equal to `1`.
 	ProvisionedConcurrentExecutions pulumi.IntInput
 	// Lambda Function version or Lambda Alias name.
+	//
+	// The following arguments are optional:
 	Qualifier pulumi.StringInput
+	// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+	SkipDestroy pulumi.BoolPtrInput
 }
 
 func (ProvisionedConcurrencyConfigArgs) ElementType() reflect.Type {
@@ -265,8 +287,15 @@ func (o ProvisionedConcurrencyConfigOutput) ProvisionedConcurrentExecutions() pu
 }
 
 // Lambda Function version or Lambda Alias name.
+//
+// The following arguments are optional:
 func (o ProvisionedConcurrencyConfigOutput) Qualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.StringOutput { return v.Qualifier }).(pulumi.StringOutput)
+}
+
+// Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+func (o ProvisionedConcurrencyConfigOutput) SkipDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
 type ProvisionedConcurrencyConfigArrayOutput struct{ *pulumi.OutputState }

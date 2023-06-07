@@ -178,10 +178,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             vpc_peering_connection_id=foo_vpc_peering_connection.id,
             accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
                 allow_remote_vpc_dns_resolution=True,
-            ),
-            requester=aws.ec2.PeeringConnectionOptionsRequesterArgs(
-                allow_vpc_to_remote_classic_link=True,
-                allow_classic_link_to_remote_vpc=True,
             ))
         ```
         ### Cross-Account Usage
@@ -290,10 +286,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             vpc_peering_connection_id=foo_vpc_peering_connection.id,
             accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
                 allow_remote_vpc_dns_resolution=True,
-            ),
-            requester=aws.ec2.PeeringConnectionOptionsRequesterArgs(
-                allow_vpc_to_remote_classic_link=True,
-                allow_classic_link_to_remote_vpc=True,
             ))
         ```
         ### Cross-Account Usage

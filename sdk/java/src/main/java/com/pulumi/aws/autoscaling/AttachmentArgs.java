@@ -16,29 +16,6 @@ public final class AttachmentArgs extends com.pulumi.resources.ResourceArgs {
     public static final AttachmentArgs Empty = new AttachmentArgs();
 
     /**
-     * ARN of an ALB Target Group.
-     * 
-     * @deprecated
-     * Use lb_target_group_arn instead
-     * 
-     */
-    @Deprecated /* Use lb_target_group_arn instead */
-    @Import(name="albTargetGroupArn")
-    private @Nullable Output<String> albTargetGroupArn;
-
-    /**
-     * @return ARN of an ALB Target Group.
-     * 
-     * @deprecated
-     * Use lb_target_group_arn instead
-     * 
-     */
-    @Deprecated /* Use lb_target_group_arn instead */
-    public Optional<Output<String>> albTargetGroupArn() {
-        return Optional.ofNullable(this.albTargetGroupArn);
-    }
-
-    /**
      * Name of ASG to associate with the ELB.
      * 
      */
@@ -86,7 +63,6 @@ public final class AttachmentArgs extends com.pulumi.resources.ResourceArgs {
     private AttachmentArgs() {}
 
     private AttachmentArgs(AttachmentArgs $) {
-        this.albTargetGroupArn = $.albTargetGroupArn;
         this.autoscalingGroupName = $.autoscalingGroupName;
         this.elb = $.elb;
         this.lbTargetGroupArn = $.lbTargetGroupArn;
@@ -108,35 +84,6 @@ public final class AttachmentArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(AttachmentArgs defaults) {
             $ = new AttachmentArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param albTargetGroupArn ARN of an ALB Target Group.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use lb_target_group_arn instead
-         * 
-         */
-        @Deprecated /* Use lb_target_group_arn instead */
-        public Builder albTargetGroupArn(@Nullable Output<String> albTargetGroupArn) {
-            $.albTargetGroupArn = albTargetGroupArn;
-            return this;
-        }
-
-        /**
-         * @param albTargetGroupArn ARN of an ALB Target Group.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use lb_target_group_arn instead
-         * 
-         */
-        @Deprecated /* Use lb_target_group_arn instead */
-        public Builder albTargetGroupArn(String albTargetGroupArn) {
-            return albTargetGroupArn(Output.of(albTargetGroupArn));
         }
 
         /**

@@ -80,10 +80,6 @@ type LookupInstanceResult struct {
 	DbName string `pulumi:"dbName"`
 	// Provides the list of DB parameter groups applied to this DB instance.
 	DbParameterGroups []string `pulumi:"dbParameterGroups"`
-	// Provides List of DB security groups associated to this DB instance.
-	//
-	// Deprecated: With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.
-	DbSecurityGroups []string `pulumi:"dbSecurityGroups"`
 	// Name of the subnet group associated with the DB instance.
 	DbSubnetGroup string `pulumi:"dbSubnetGroup"`
 	// List of log types to export to cloudwatch.
@@ -244,13 +240,6 @@ func (o LookupInstanceResultOutput) DbName() pulumi.StringOutput {
 // Provides the list of DB parameter groups applied to this DB instance.
 func (o LookupInstanceResultOutput) DbParameterGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []string { return v.DbParameterGroups }).(pulumi.StringArrayOutput)
-}
-
-// Provides List of DB security groups associated to this DB instance.
-//
-// Deprecated: With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.
-func (o LookupInstanceResultOutput) DbSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupInstanceResult) []string { return v.DbSecurityGroups }).(pulumi.StringArrayOutput)
 }
 
 // Name of the subnet group associated with the DB instance.

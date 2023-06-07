@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         type: "S",
  *     }],
  * }, {
- *     provider: "aws.main",
+ *     provider: aws.main,
  * });
  * const exampleTableReplica = new aws.dynamodb.TableReplica("exampleTableReplica", {
  *     globalTableArn: exampleTable.arn,
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *         Pozo: "Amargo",
  *     },
  * }, {
- *     provider: "aws.alt",
+ *     provider: aws.alt,
  * });
  * ```
  *

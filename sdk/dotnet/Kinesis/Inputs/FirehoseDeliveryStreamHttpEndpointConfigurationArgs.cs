@@ -83,6 +83,12 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
+        /// The S3 Configuration. See s3_configuration for more details.
+        /// </summary>
+        [Input("s3Configuration", required: true)]
+        public Input<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs> S3Configuration { get; set; } = null!;
+
+        /// <summary>
         /// The HTTP endpoint URL to which Kinesis Firehose sends your data.
         /// </summary>
         [Input("url", required: true)]

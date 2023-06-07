@@ -56,7 +56,7 @@ import (
 //						Type: pulumi.String("S"),
 //					},
 //				},
-//			}, pulumi.Provider("aws.main"))
+//			}, pulumi.Provider(aws.Main))
 //			if err != nil {
 //				return err
 //			}
@@ -66,7 +66,7 @@ import (
 //					"Name": pulumi.String("IZPAWS"),
 //					"Pozo": pulumi.String("Amargo"),
 //				},
-//			}, pulumi.Provider("aws.alt"))
+//			}, pulumi.Provider(aws.Alt))
 //			if err != nil {
 //				return err
 //			}

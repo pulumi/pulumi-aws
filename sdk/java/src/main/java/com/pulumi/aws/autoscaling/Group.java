@@ -11,6 +11,7 @@ import com.pulumi.aws.autoscaling.outputs.GroupInstanceRefresh;
 import com.pulumi.aws.autoscaling.outputs.GroupLaunchTemplate;
 import com.pulumi.aws.autoscaling.outputs.GroupMixedInstancesPolicy;
 import com.pulumi.aws.autoscaling.outputs.GroupTag;
+import com.pulumi.aws.autoscaling.outputs.GroupTrafficSource;
 import com.pulumi.aws.autoscaling.outputs.GroupWarmPool;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -20,7 +21,6 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -29,13 +29,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
  * 
- * &gt; **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
- * both a standalone `aws.autoscaling.Attachment` resource
- * (describing an ASG attached to an ELB or ALB), and an `aws.autoscaling.Group`
- * with `load_balancers` and `target_group_arns` defined in-line. These two methods are not
- * mutually-exclusive. If `aws.autoscaling.Attachment` resources are used, either alone or with inline
- * `load_balancers` or `target_group_arns`, the `aws.autoscaling.Group` resource must be configured
- * to ignore changes to the `load_balancers` and `target_group_arns` arguments.
+ * &gt; **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
  * 
  * ## Example Usage
  * 
@@ -413,6 +407,58 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Dynamic tagging
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var config = ctx.config();
+ *         final var extraTags = config.get(&#34;extraTags&#34;).orElse(        
+ *             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+ *             %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
+ *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
+ *             .maxSize(5)
+ *             .minSize(2)
+ *             .launchConfiguration(aws_launch_configuration.foobar().name())
+ *             .vpcZoneIdentifiers(            
+ *                 aws_subnet.example1().id(),
+ *                 aws_subnet.example2().id())
+ *             .tags(            
+ *                 GroupTagArgs.builder()
+ *                     .key(&#34;explicit1&#34;)
+ *                     .value(&#34;value1&#34;)
+ *                     .propagateAtLaunch(true)
+ *                     .build(),
+ *                 GroupTagArgs.builder()
+ *                     .key(&#34;explicit2&#34;)
+ *                     .value(&#34;value2&#34;)
+ *                     .propagateAtLaunch(true)
+ *                     .build())
+ *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Automatically refresh all instances after the group is updated
  * ```java
  * package generated_program;
@@ -533,6 +579,40 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Auto Scaling group with Traffic Sources
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Group(&#34;test&#34;, GroupArgs.builder()        
+ *             .vpcZoneIdentifiers(aws_subnet.test().id())
+ *             .maxSize(1)
+ *             .minSize(1)
+ *             .forceDelete(true)
+ *             .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ## Waiting for Capacity
  * 
  * A newly-created ASG is initially empty and begins to scale to `min_size` (or
@@ -574,7 +654,7 @@ import javax.annotation.Nullable;
  * 
  * The `min_elb_capacity` parameter causes the provider to wait for at least the
  * requested number of instances to show up `&#34;InService&#34;` in all attached ELBs
- * during ASG creation.  It has no effect on ASG updates.
+ * during ASG creation. It has no effect on ASG updates.
  * 
  * If `wait_for_elb_capacity` is set, the provider will wait for exactly that number
  * of Instances to be `&#34;InService&#34;` in all attached ELBs on both creation and
@@ -621,14 +701,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+     * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
     /**
-     * @return List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
+     * @return A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
      * 
      */
     public Output<List<String>> availabilityZones() {
@@ -738,9 +818,9 @@ public class Group extends com.pulumi.resources.CustomResource {
     }
     /**
      * Allows deleting the Auto Scaling Group without waiting
-     * for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+     * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
      * even if it&#39;s in the process of scaling a resource. Normally, this provider
-     * drains all the instances before deleting the group.  This bypasses that
+     * drains all the instances before deleting the group. This bypasses that
      * behavior and potentially leaves resources dangling.
      * 
      */
@@ -749,9 +829,9 @@ public class Group extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Allows deleting the Auto Scaling Group without waiting
-     * for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+     * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
      * even if it&#39;s in the process of scaling a resource. Normally, this provider
-     * drains all the instances before deleting the group.  This bypasses that
+     * drains all the instances before deleting the group. This bypasses that
      * behavior and potentially leaves resources dangling.
      * 
      */
@@ -866,19 +946,19 @@ public class Group extends com.pulumi.resources.CustomResource {
     }
     /**
      * List of elastic load balancer names to add to the autoscaling
-     * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+     * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
      * 
      */
     @Export(name="loadBalancers", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> loadBalancers;
+    private Output<List<String>> loadBalancers;
 
     /**
      * @return List of elastic load balancer names to add to the autoscaling
-     * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
+     * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
      * 
      */
-    public Output<Optional<List<String>>> loadBalancers() {
-        return Codegen.optional(this.loadBalancers);
+    public Output<List<String>> loadBalancers() {
+        return this.loadBalancers;
     }
     /**
      * Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
@@ -923,7 +1003,7 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.metricsGranularity);
     }
     /**
-     * Setting this causes the provider to wait for
+     * Setting this causes Pulumi to wait for
      * this number of instances from this Auto Scaling Group to show up healthy in the
      * ELB only on creation. Updates will not wait on ELB instance number changes.
      * (See also Waiting for Capacity below.)
@@ -933,7 +1013,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Integer> minElbCapacity;
 
     /**
-     * @return Setting this causes the provider to wait for
+     * @return Setting this causes Pulumi to wait for
      * this number of instances from this Auto Scaling Group to show up healthy in the
      * ELB only on creation. Updates will not wait on ELB instance number changes.
      * (See also Waiting for Capacity below.)
@@ -973,14 +1053,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mixedInstancesPolicy);
     }
     /**
-     * Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `name_prefix`.
+     * Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `name_prefix`.
+     * @return Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
      * 
      */
     public Output<String> name() {
@@ -1083,50 +1163,32 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.suspendedProcesses);
     }
     /**
-     * Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+     * Configuration block(s) containing resource tags. See Tag below for more details.
      * 
      */
     @Export(name="tags", refs={List.class,GroupTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GroupTag>> tags;
 
     /**
-     * @return Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+     * @return Configuration block(s) containing resource tags. See Tag below for more details.
      * 
      */
     public Output<Optional<List<GroupTag>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-     * 
-     * @deprecated
-     * Use tag instead
-     * 
-     */
-    @Deprecated /* Use tag instead */
-    @Export(name="tagsCollection", refs={List.class,Map.class,String.class}, tree="[0,[1,2,2]]")
-    private Output</* @Nullable */ List<Map<String,String>>> tagsCollection;
-
-    /**
-     * @return Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-     * 
-     */
-    public Output<Optional<List<Map<String,String>>>> tagsCollection() {
-        return Codegen.optional(this.tagsCollection);
-    }
-    /**
-     * Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+     * Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
      * 
      */
     @Export(name="targetGroupArns", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> targetGroupArns;
+    private Output<List<String>> targetGroupArns;
 
     /**
-     * @return Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+     * @return Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
      * 
      */
-    public Output<Optional<List<String>>> targetGroupArns() {
-        return Codegen.optional(this.targetGroupArns);
+    public Output<List<String>> targetGroupArns() {
+        return this.targetGroupArns;
     }
     /**
      * List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
@@ -1141,6 +1203,20 @@ public class Group extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> terminationPolicies() {
         return Codegen.optional(this.terminationPolicies);
+    }
+    /**
+     * Attaches one or more traffic sources to the specified Auto Scaling group.
+     * 
+     */
+    @Export(name="trafficSources", refs={List.class,GroupTrafficSource.class}, tree="[0,1]")
+    private Output<List<GroupTrafficSource>> trafficSources;
+
+    /**
+     * @return Attaches one or more traffic sources to the specified Auto Scaling group.
+     * 
+     */
+    public Output<List<GroupTrafficSource>> trafficSources() {
+        return this.trafficSources;
     }
     /**
      * List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
@@ -1159,7 +1235,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * Maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-     * wait for ASG instances to be healthy before timing out.  (See also Waiting
+     * wait for ASG instances to be healthy before timing out. (See also Waiting
      * for Capacity below.) Setting this to &#34;0&#34; causes
      * the provider to skip all Capacity Waiting behavior.
      * 
@@ -1170,7 +1246,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * @return Maximum
      * [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-     * wait for ASG instances to be healthy before timing out.  (See also Waiting
+     * wait for ASG instances to be healthy before timing out. (See also Waiting
      * for Capacity below.) Setting this to &#34;0&#34; causes
      * the provider to skip all Capacity Waiting behavior.
      * 
@@ -1179,7 +1255,7 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.waitForCapacityTimeout);
     }
     /**
-     * Setting this will cause the provider to wait
+     * Setting this will cause Pulumi to wait
      * for exactly this number of healthy instances from this Auto Scaling Group in
      * all attached load balancers on both create and update operations. (Takes
      * precedence over `min_elb_capacity` behavior.)
@@ -1190,7 +1266,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Integer> waitForElbCapacity;
 
     /**
-     * @return Setting this will cause the provider to wait
+     * @return Setting this will cause Pulumi to wait
      * for exactly this number of healthy instances from this Auto Scaling Group in
      * all attached load balancers on both create and update operations. (Takes
      * precedence over `min_elb_capacity` behavior.)

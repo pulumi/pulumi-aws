@@ -98,12 +98,6 @@ namespace Pulumi.Aws.Connect
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-        /// </summary>
-        [Output("hoursOfOperationArn")]
-        public Output<string> HoursOfOperationArn { get; private set; } = null!;
-
-        /// <summary>
         /// The identifier for the hours of operation.
         /// </summary>
         [Output("hoursOfOperationId")]
@@ -264,12 +258,6 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-        /// </summary>
-        [Input("hoursOfOperationArn")]
-        public Input<string>? HoursOfOperationArn { get; set; }
 
         /// <summary>
         /// The identifier for the hours of operation.

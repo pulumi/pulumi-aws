@@ -175,7 +175,7 @@ type Association struct {
 	ComplianceSeverity pulumi.StringPtrOutput `pulumi:"complianceSeverity"`
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
 	DocumentVersion pulumi.StringOutput `pulumi:"documentVersion"`
-	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 	//
 	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
 	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
@@ -242,7 +242,7 @@ type associationState struct {
 	ComplianceSeverity *string `pulumi:"complianceSeverity"`
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
 	DocumentVersion *string `pulumi:"documentVersion"`
-	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 	//
 	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
 	InstanceId *string `pulumi:"instanceId"`
@@ -281,7 +281,7 @@ type AssociationState struct {
 	ComplianceSeverity pulumi.StringPtrInput
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
 	DocumentVersion pulumi.StringPtrInput
-	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 	//
 	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
 	InstanceId pulumi.StringPtrInput
@@ -320,7 +320,7 @@ type associationArgs struct {
 	ComplianceSeverity *string `pulumi:"complianceSeverity"`
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
 	DocumentVersion *string `pulumi:"documentVersion"`
-	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 	//
 	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
 	InstanceId *string `pulumi:"instanceId"`
@@ -356,7 +356,7 @@ type AssociationArgs struct {
 	ComplianceSeverity pulumi.StringPtrInput
 	// The document version you want to associate with the target(s). Can be a specific version or the default version.
 	DocumentVersion pulumi.StringPtrInput
-	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+	// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 	//
 	// Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
 	InstanceId pulumi.StringPtrInput
@@ -502,7 +502,7 @@ func (o AssociationOutput) DocumentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.DocumentVersion }).(pulumi.StringOutput)
 }
 
-// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+// The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
 //
 // Deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
 func (o AssociationOutput) InstanceId() pulumi.StringPtrOutput {

@@ -167,10 +167,6 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> DbParameterGroups;
         /// <summary>
-        /// Provides List of DB security groups associated to this DB instance.
-        /// </summary>
-        public readonly ImmutableArray<string> DbSecurityGroups;
-        /// <summary>
         /// Name of the subnet group associated with the DB instance.
         /// </summary>
         public readonly string DbSubnetGroup;
@@ -312,8 +308,6 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<string> dbParameterGroups,
 
-            ImmutableArray<string> dbSecurityGroups,
-
             string dbSubnetGroup,
 
             ImmutableArray<string> enabledCloudwatchLogsExports,
@@ -385,7 +379,6 @@ namespace Pulumi.Aws.Rds
             DbInstancePort = dbInstancePort;
             DbName = dbName;
             DbParameterGroups = dbParameterGroups;
-            DbSecurityGroups = dbSecurityGroups;
             DbSubnetGroup = dbSubnetGroup;
             EnabledCloudwatchLogsExports = enabledCloudwatchLogsExports;
             Endpoint = endpoint;

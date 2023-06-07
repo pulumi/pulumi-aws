@@ -29,8 +29,8 @@ import * as utilities from "../utilities";
  *             type: "*",
  *             identifiers: ["*"],
  *         }],
- *         actions: ["codeartifact:CreateRepository"],
- *         resources: [exampleDomain.arn],
+ *         actions: ["codeartifact:ReadFromRepository"],
+ *         resources: [exampleRepository.arn],
  *     }],
  * });
  * const exampleRepositoryPermissionsPolicy = new aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", {

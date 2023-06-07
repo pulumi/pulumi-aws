@@ -160,7 +160,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetOrderableClusterResult
     {
         /// <summary>
-        /// List of Availability Zone names where the Redshit Cluster is available.
+        /// List of Availability Zone names where the Redshift Cluster is available.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly string ClusterType;

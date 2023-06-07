@@ -5,7 +5,6 @@ package com.pulumi.aws.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -23,25 +22,6 @@ public final class ProviderAssumeRoleArgs extends com.pulumi.resources.ResourceA
 
     public Optional<Output<String>> duration() {
         return Optional.ofNullable(this.duration);
-    }
-
-    /**
-     * @deprecated
-     * Use assume_role.duration instead
-     * 
-     */
-    @Deprecated /* Use assume_role.duration instead */
-    @Import(name="durationSeconds")
-    private @Nullable Output<Integer> durationSeconds;
-
-    /**
-     * @deprecated
-     * Use assume_role.duration instead
-     * 
-     */
-    @Deprecated /* Use assume_role.duration instead */
-    public Optional<Output<Integer>> durationSeconds() {
-        return Optional.ofNullable(this.durationSeconds);
     }
 
     @Import(name="externalId")
@@ -104,7 +84,6 @@ public final class ProviderAssumeRoleArgs extends com.pulumi.resources.ResourceA
 
     private ProviderAssumeRoleArgs(ProviderAssumeRoleArgs $) {
         this.duration = $.duration;
-        this.durationSeconds = $.durationSeconds;
         this.externalId = $.externalId;
         this.policy = $.policy;
         this.policyArns = $.policyArns;
@@ -140,31 +119,6 @@ public final class ProviderAssumeRoleArgs extends com.pulumi.resources.ResourceA
 
         public Builder duration(String duration) {
             return duration(Output.of(duration));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Use assume_role.duration instead
-         * 
-         */
-        @Deprecated /* Use assume_role.duration instead */
-        public Builder durationSeconds(@Nullable Output<Integer> durationSeconds) {
-            $.durationSeconds = durationSeconds;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Use assume_role.duration instead
-         * 
-         */
-        @Deprecated /* Use assume_role.duration instead */
-        public Builder durationSeconds(Integer durationSeconds) {
-            return durationSeconds(Output.of(durationSeconds));
         }
 
         public Builder externalId(@Nullable Output<String> externalId) {

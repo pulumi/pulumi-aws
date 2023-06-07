@@ -85,7 +85,7 @@ export interface GetConnectionResult {
     /**
      * The VLAN ID.
      */
-    readonly vlanId: string;
+    readonly vlanId: number;
 }
 /**
  * Retrieve information about a Direct Connect Connection.

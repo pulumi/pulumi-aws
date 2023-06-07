@@ -747,7 +747,10 @@ class Domain(pulumi.CustomResource):
         selected_vpc = aws.ec2.get_vpc(tags={
             "Name": vpc,
         })
-        selected_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=selected_vpc.id,
+        selected_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+                name="vpc-id",
+                values=[selected_vpc.id],
+            )],
             tags={
                 "Tier": "private",
             })
@@ -771,8 +774,8 @@ class Domain(pulumi.CustomResource):
             ),
             vpc_options=aws.elasticsearch.DomainVpcOptionsArgs(
                 subnet_ids=[
-                    selected_subnet_ids.ids[0],
-                    selected_subnet_ids.ids[1],
+                    selected_subnets.ids[0],
+                    selected_subnets.ids[1],
                 ],
                 security_group_ids=[es_security_group.id],
             ),
@@ -924,7 +927,10 @@ class Domain(pulumi.CustomResource):
         selected_vpc = aws.ec2.get_vpc(tags={
             "Name": vpc,
         })
-        selected_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=selected_vpc.id,
+        selected_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+                name="vpc-id",
+                values=[selected_vpc.id],
+            )],
             tags={
                 "Tier": "private",
             })
@@ -948,8 +954,8 @@ class Domain(pulumi.CustomResource):
             ),
             vpc_options=aws.elasticsearch.DomainVpcOptionsArgs(
                 subnet_ids=[
-                    selected_subnet_ids.ids[0],
-                    selected_subnet_ids.ids[1],
+                    selected_subnets.ids[0],
+                    selected_subnets.ids[1],
                 ],
                 security_group_ids=[es_security_group.id],
             ),

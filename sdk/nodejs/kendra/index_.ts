@@ -54,8 +54,23 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### With user group resolution configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.Index("example", {
+ *     roleArn: aws_iam_role["this"].arn,
+ *     userGroupResolutionConfiguration: {
+ *         userGroupResolutionMode: "AWS_SSO",
+ *     },
+ * });
+ * ```
  * ### With Document Metadata Configuration Updates
  * ### Specifying the predefined elements
+ *
+ * Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -215,6 +230,20 @@ import * as utilities from "../utilities";
  *                 facetable: false,
  *                 searchable: false,
  *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_tenant_id",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
  *             },
  *             relevance: {
  *                 importance: 1,
@@ -414,6 +443,20 @@ import * as utilities from "../utilities";
  *                 facetable: false,
  *                 searchable: false,
  *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_tenant_id",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
  *             },
  *             relevance: {
  *                 importance: 1,

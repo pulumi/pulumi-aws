@@ -361,24 +361,6 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
         return this.serial;
     }
     /**
-     * (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-     * 
-     * @deprecated
-     * The reported value of the &#34;status&#34; attribute is often inaccurate. Use the resource&#39;s &#34;enabled&#34; attribute to explicitly set status.
-     * 
-     */
-    @Deprecated /* The reported value of the ""status"" attribute is often inaccurate. Use the resource's ""enabled"" attribute to explicitly set status. */
-    @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
-
-    /**
-     * @return (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-     * 
-     */
-    public Output<String> status() {
-        return this.status;
-    }
-    /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

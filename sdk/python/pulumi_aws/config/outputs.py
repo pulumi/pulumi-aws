@@ -21,7 +21,6 @@ __all__ = [
 class AssumeRole(dict):
     def __init__(__self__, *,
                  duration: Optional[str] = None,
-                 duration_seconds: Optional[int] = None,
                  external_id: Optional[str] = None,
                  policy: Optional[str] = None,
                  policy_arns: Optional[Sequence[str]] = None,
@@ -32,8 +31,6 @@ class AssumeRole(dict):
                  transitive_tag_keys: Optional[Sequence[str]] = None):
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
-        if duration_seconds is not None:
-            pulumi.set(__self__, "duration_seconds", duration_seconds)
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
         if policy is not None:
@@ -55,11 +52,6 @@ class AssumeRole(dict):
     @pulumi.getter
     def duration(self) -> Optional[str]:
         return pulumi.get(self, "duration")
-
-    @property
-    @pulumi.getter(name="durationSeconds")
-    def duration_seconds(self) -> Optional[int]:
-        return pulumi.get(self, "duration_seconds")
 
     @property
     @pulumi.getter(name="externalId")

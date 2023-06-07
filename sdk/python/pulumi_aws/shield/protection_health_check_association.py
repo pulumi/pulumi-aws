@@ -114,7 +114,7 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         current_caller_identity = aws.get_caller_identity()
         current_partition = aws.get_partition()
         example_eip = aws.ec2.Eip("exampleEip",
-            vpc=True,
+            domain="vpc",
             tags={
                 "Name": "example",
             })
@@ -170,7 +170,7 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         current_caller_identity = aws.get_caller_identity()
         current_partition = aws.get_partition()
         example_eip = aws.ec2.Eip("exampleEip",
-            vpc=True,
+            domain="vpc",
             tags={
                 "Name": "example",
             })

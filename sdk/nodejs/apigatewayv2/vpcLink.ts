@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.apigatewayv2.VpcLink("example", {
  *     securityGroupIds: [data.aws_security_group.example.id],
- *     subnetIds: data.aws_subnet_ids.example.ids,
+ *     subnetIds: data.aws_subnets.example.ids,
  *     tags: {
  *         Usage: "example",
  *     },

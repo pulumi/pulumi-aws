@@ -97,6 +97,19 @@ namespace Pulumi.Aws.ServiceDiscovery
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private Dictionary<string, string>? _tagsAll;
+
+        /// <summary>
+        /// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Obsolete(@"this attribute has been deprecated")]
+        public Dictionary<string, string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new Dictionary<string, string>());
+            set => _tagsAll = value;
+        }
+
         public GetServiceArgs()
         {
         }
@@ -127,6 +140,19 @@ namespace Pulumi.Aws.ServiceDiscovery
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Obsolete(@"this attribute has been deprecated")]
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public GetServiceInvokeArgs()
@@ -173,7 +199,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public readonly ImmutableDictionary<string, string> TagsAll;
 

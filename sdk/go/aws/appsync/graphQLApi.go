@@ -316,6 +316,8 @@ type GraphQLApi struct {
 	Uris pulumi.StringMapOutput `pulumi:"uris"`
 	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrOutput `pulumi:"userPoolConfig"`
+	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+	Visibility pulumi.StringPtrOutput `pulumi:"visibility"`
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled pulumi.BoolPtrOutput `pulumi:"xrayEnabled"`
 }
@@ -376,6 +378,8 @@ type graphQLApiState struct {
 	Uris map[string]string `pulumi:"uris"`
 	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
+	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+	Visibility *string `pulumi:"visibility"`
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled *bool `pulumi:"xrayEnabled"`
 }
@@ -405,6 +409,8 @@ type GraphQLApiState struct {
 	Uris pulumi.StringMapInput
 	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
+	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+	Visibility pulumi.StringPtrInput
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled pulumi.BoolPtrInput
 }
@@ -432,6 +438,8 @@ type graphQLApiArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
+	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+	Visibility *string `pulumi:"visibility"`
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled *bool `pulumi:"xrayEnabled"`
 }
@@ -456,6 +464,8 @@ type GraphQLApiArgs struct {
 	Tags pulumi.StringMapInput
 	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
+	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+	Visibility pulumi.StringPtrInput
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled pulumi.BoolPtrInput
 }
@@ -607,6 +617,11 @@ func (o GraphQLApiOutput) Uris() pulumi.StringMapOutput {
 // Amazon Cognito User Pool configuration. Defined below.
 func (o GraphQLApiOutput) UserPoolConfig() GraphQLApiUserPoolConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiUserPoolConfigPtrOutput { return v.UserPoolConfig }).(GraphQLApiUserPoolConfigPtrOutput)
+}
+
+// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+func (o GraphQLApiOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.Visibility }).(pulumi.StringPtrOutput)
 }
 
 // Whether tracing with X-ray is enabled. Defaults to false.

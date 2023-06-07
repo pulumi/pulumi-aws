@@ -108,9 +108,6 @@ namespace Pulumi.Aws.Connect
         [Output("queueConfigs")]
         public Output<ImmutableArray<Outputs.RoutingProfileQueueConfig>> QueueConfigs { get; private set; } = null!;
 
-        [Output("queueConfigsAssociateds")]
-        public Output<ImmutableArray<Outputs.RoutingProfileQueueConfigsAssociated>> QueueConfigsAssociateds { get; private set; } = null!;
-
         /// <summary>
         /// The identifier for the Routing Profile.
         /// </summary>
@@ -297,15 +294,6 @@ namespace Pulumi.Aws.Connect
         {
             get => _queueConfigs ?? (_queueConfigs = new InputList<Inputs.RoutingProfileQueueConfigGetArgs>());
             set => _queueConfigs = value;
-        }
-
-        [Input("queueConfigsAssociateds")]
-        private InputList<Inputs.RoutingProfileQueueConfigsAssociatedGetArgs>? _queueConfigsAssociateds;
-        [Obsolete(@"Use the queue_configs instead")]
-        public InputList<Inputs.RoutingProfileQueueConfigsAssociatedGetArgs> QueueConfigsAssociateds
-        {
-            get => _queueConfigsAssociateds ?? (_queueConfigsAssociateds = new InputList<Inputs.RoutingProfileQueueConfigsAssociatedGetArgs>());
-            set => _queueConfigsAssociateds = value;
         }
 
         /// <summary>

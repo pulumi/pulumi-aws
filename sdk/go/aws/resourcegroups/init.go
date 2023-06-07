@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:resourcegroups/group:Group":
 		r = &Group{}
+	case "aws:resourcegroups/resource:Resource":
+		r = &Resource{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"resourcegroups/group",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"resourcegroups/resource",
 		&module{version},
 	)
 }

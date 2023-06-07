@@ -146,8 +146,6 @@ type Queue struct {
 	QueueId pulumi.StringOutput `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayOutput `pulumi:"quickConnectIds"`
-	// Deprecated: Use the quick_connect_ids instead
-	QuickConnectIdsAssociateds pulumi.StringArrayOutput `pulumi:"quickConnectIdsAssociateds"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -209,8 +207,6 @@ type queueState struct {
 	QueueId *string `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds []string `pulumi:"quickConnectIds"`
-	// Deprecated: Use the quick_connect_ids instead
-	QuickConnectIdsAssociateds []string `pulumi:"quickConnectIdsAssociateds"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status *string `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -238,8 +234,6 @@ type QueueState struct {
 	QueueId pulumi.StringPtrInput
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayInput
-	// Deprecated: Use the quick_connect_ids instead
-	QuickConnectIdsAssociateds pulumi.StringArrayInput
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringPtrInput
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -425,11 +419,6 @@ func (o QueueOutput) QueueId() pulumi.StringOutput {
 // Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 func (o QueueOutput) QuickConnectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringArrayOutput { return v.QuickConnectIds }).(pulumi.StringArrayOutput)
-}
-
-// Deprecated: Use the quick_connect_ids instead
-func (o QueueOutput) QuickConnectIdsAssociateds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Queue) pulumi.StringArrayOutput { return v.QuickConnectIdsAssociateds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.

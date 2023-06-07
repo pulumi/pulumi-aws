@@ -51,12 +51,6 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? GatewayId { get; set; }
 
         /// <summary>
-        /// Identifier of an EC2 instance.
-        /// </summary>
-        [Input("instanceId")]
-        public Input<string>? InstanceId { get; set; }
-
-        /// <summary>
         /// The Ipv6 CIDR block of the route.
         /// </summary>
         [Input("ipv6CidrBlock")]

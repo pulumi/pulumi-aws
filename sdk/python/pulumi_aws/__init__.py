@@ -1589,6 +1589,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "autoscaling/trafficSourceAttachment",
+  "fqn": "pulumi_aws.autoscaling",
+  "classes": {
+   "aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment": "TrafficSourceAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "autoscalingplans/scalingPlan",
   "fqn": "pulumi_aws.autoscalingplans",
   "classes": {
@@ -4597,14 +4605,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "elasticache/securityGroup",
-  "fqn": "pulumi_aws.elasticache",
-  "classes": {
-   "aws:elasticache/securityGroup:SecurityGroup": "SecurityGroup"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "elasticache/subnetGroup",
   "fqn": "pulumi_aws.elasticache",
   "classes": {
@@ -4949,6 +4949,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "emrcontainers/jobTemplate",
+  "fqn": "pulumi_aws.emrcontainers",
+  "classes": {
+   "aws:emrcontainers/jobTemplate:JobTemplate": "JobTemplate"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "emrcontainers/virtualCluster",
   "fqn": "pulumi_aws.emrcontainers",
   "classes": {
@@ -5257,6 +5265,14 @@ _utilities.register(
   "fqn": "pulumi_aws.glue",
   "classes": {
    "aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings": "DataCatalogEncryptionSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "glue/dataQualityRuleset",
+  "fqn": "pulumi_aws.glue",
+  "classes": {
+   "aws:glue/dataQualityRuleset:DataQualityRuleset": "DataQualityRuleset"
   }
  },
  {
@@ -6653,22 +6669,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "macie/memberAccountAssociation",
-  "fqn": "pulumi_aws.macie",
-  "classes": {
-   "aws:macie/memberAccountAssociation:MemberAccountAssociation": "MemberAccountAssociation"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "macie/s3BucketAssociation",
-  "fqn": "pulumi_aws.macie",
-  "classes": {
-   "aws:macie/s3BucketAssociation:S3BucketAssociation": "S3BucketAssociation"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "macie2/account",
   "fqn": "pulumi_aws.macie2",
   "classes": {
@@ -7533,6 +7533,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "quicksight/analysis",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/analysis:Analysis": "Analysis"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "quicksight/dashboard",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/dashboard:Dashboard": "Dashboard"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "quicksight/dataSet",
   "fqn": "pulumi_aws.quicksight",
   "classes": {
@@ -7781,14 +7797,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "rds/securityGroup",
-  "fqn": "pulumi_aws.rds",
-  "classes": {
-   "aws:rds/securityGroup:SecurityGroup": "SecurityGroup"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "rds/snapshot",
   "fqn": "pulumi_aws.rds",
   "classes": {
@@ -7909,14 +7917,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "redshift/securityGroup",
-  "fqn": "pulumi_aws.redshift",
-  "classes": {
-   "aws:redshift/securityGroup:SecurityGroup": "SecurityGroup"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "redshift/snapshotCopyGrant",
   "fqn": "pulumi_aws.redshift",
   "classes": {
@@ -8017,6 +8017,14 @@ _utilities.register(
   "fqn": "pulumi_aws.resourcegroups",
   "classes": {
    "aws:resourcegroups/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "resourcegroups/resource",
+  "fqn": "pulumi_aws.resourcegroups",
+  "classes": {
+   "aws:resourcegroups/resource:Resource": "Resource"
   }
  },
  {

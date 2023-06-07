@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Lambda Provisioned Concurrency Configuration.
  *
+ * > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
+ *
  * ## Example Usage
  * ### Alias Name
  *
@@ -79,8 +81,14 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
     public readonly provisionedConcurrentExecutions!: pulumi.Output<number>;
     /**
      * Lambda Function version or Lambda Alias name.
+     *
+     * The following arguments are optional:
      */
     public readonly qualifier!: pulumi.Output<string>;
+    /**
+     * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     */
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ProvisionedConcurrencyConfig resource with the given unique name, arguments, and options.
@@ -98,6 +106,7 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
             resourceInputs["functionName"] = state ? state.functionName : undefined;
             resourceInputs["provisionedConcurrentExecutions"] = state ? state.provisionedConcurrentExecutions : undefined;
             resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
         } else {
             const args = argsOrState as ProvisionedConcurrencyConfigArgs | undefined;
             if ((!args || args.functionName === undefined) && !opts.urn) {
@@ -112,6 +121,7 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["provisionedConcurrentExecutions"] = args ? args.provisionedConcurrentExecutions : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProvisionedConcurrencyConfig.__pulumiType, name, resourceInputs, opts);
@@ -132,8 +142,14 @@ export interface ProvisionedConcurrencyConfigState {
     provisionedConcurrentExecutions?: pulumi.Input<number>;
     /**
      * Lambda Function version or Lambda Alias name.
+     *
+     * The following arguments are optional:
      */
     qualifier?: pulumi.Input<string>;
+    /**
+     * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
 }
 
 /**
@@ -150,6 +166,12 @@ export interface ProvisionedConcurrencyConfigArgs {
     provisionedConcurrentExecutions: pulumi.Input<number>;
     /**
      * Lambda Function version or Lambda Alias name.
+     *
+     * The following arguments are optional:
      */
     qualifier: pulumi.Input<string>;
+    /**
+     * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
 }

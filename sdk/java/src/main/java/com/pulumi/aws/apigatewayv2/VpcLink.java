@@ -46,7 +46,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new VpcLink(&#34;example&#34;, VpcLinkArgs.builder()        
  *             .securityGroupIds(data.aws_security_group().example().id())
- *             .subnetIds(data.aws_subnet_ids().example().ids())
+ *             .subnetIds(data.aws_subnets().example().ids())
  *             .tags(Map.of(&#34;Usage&#34;, &#34;example&#34;))
  *             .build());
  * 

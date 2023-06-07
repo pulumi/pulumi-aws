@@ -199,7 +199,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      */
     public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -441,7 +441,7 @@ export interface ClusterState {
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      */
     snapshotIdentifier?: pulumi.Input<string>;
     /**
@@ -567,7 +567,7 @@ export interface ClusterArgs {
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      */
     snapshotIdentifier?: pulumi.Input<string>;
     /**

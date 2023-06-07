@@ -14,48 +14,6 @@ import (
 // Provides a CE Anomaly Subscription.
 //
 // ## Example Usage
-// ### Basic Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testAnomalyMonitor, err := costexplorer.NewAnomalyMonitor(ctx, "testAnomalyMonitor", &costexplorer.AnomalyMonitorArgs{
-//				MonitorType:      pulumi.String("DIMENSIONAL"),
-//				MonitorDimension: pulumi.String("SERVICE"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = costexplorer.NewAnomalySubscription(ctx, "testAnomalySubscription", &costexplorer.AnomalySubscriptionArgs{
-//				Threshold: pulumi.Float64(100),
-//				Frequency: pulumi.String("DAILY"),
-//				MonitorArnLists: pulumi.StringArray{
-//					testAnomalyMonitor.Arn,
-//				},
-//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
-//					&costexplorer.AnomalySubscriptionSubscriberArgs{
-//						Type:    pulumi.String("EMAIL"),
-//						Address: pulumi.String("abc@example.com"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Threshold Expression
 //
 // ```go
@@ -101,124 +59,6 @@ import (
 //	}
 //
 // ```
-// ### SNS Example
-//
-// ```go
-// package main
-//
-// import (
-//
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// costAnomalyUpdates, err := sns.NewTopic(ctx, "costAnomalyUpdates", nil)
-// if err != nil {
-// return err
-// }
-// snsTopicPolicy := pulumi.All(costAnomalyUpdates.Arn,costAnomalyUpdates.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// costAnomalyUpdatesArn := _args[0].(string)
-// costAnomalyUpdatesArn1 := _args[1].(string)
-// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// PolicyId: "__default_policy_ID",
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: "AWSAnomalyDetectionSNSPublishingPermissions",
-// Actions: []string{
-// "SNS:Publish",
-// },
-// Effect: "Allow",
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "costalerts.amazonaws.com",
-// },
-// },
-// },
-// Resources: interface{}{
-// costAnomalyUpdatesArn,
-// },
-// },
-// {
-// Sid: "__default_statement_ID",
-// Actions: []string{
-// "SNS:Subscribe",
-// "SNS:SetTopicAttributes",
-// "SNS:RemovePermission",
-// "SNS:Receive",
-// "SNS:Publish",
-// "SNS:ListSubscriptionsByTopic",
-// "SNS:GetTopicAttributes",
-// "SNS:DeleteTopic",
-// "SNS:AddPermission",
-// },
-// Conditions: []iam.GetPolicyDocumentStatementCondition{
-// {
-// Test: "StringEquals",
-// Variable: "AWS:SourceOwner",
-// Values: interface{}{
-// _var.AccountId,
-// },
-// },
-// },
-// Effect: "Allow",
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "AWS",
-// Identifiers: []string{
-// "*",
-// },
-// },
-// },
-// Resources: interface{}{
-// costAnomalyUpdatesArn1,
-// },
-// },
-// },
-// }, nil), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
-// Arn: costAnomalyUpdates.Arn,
-// Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &snsTopicPolicy.Json, nil
-// }).(pulumi.StringPtrOutput),
-// })
-// if err != nil {
-// return err
-// }
-// anomalyMonitor, err := costexplorer.NewAnomalyMonitor(ctx, "anomalyMonitor", &costexplorer.AnomalyMonitorArgs{
-// MonitorType: pulumi.String("DIMENSIONAL"),
-// MonitorDimension: pulumi.String("SERVICE"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = costexplorer.NewAnomalySubscription(ctx, "realtimeSubscription", &costexplorer.AnomalySubscriptionArgs{
-// Threshold: pulumi.Float64(0),
-// Frequency: pulumi.String("IMMEDIATE"),
-// MonitorArnLists: pulumi.StringArray{
-// anomalyMonitor.Arn,
-// },
-// Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
-// &costexplorer.AnomalySubscriptionSubscriberArgs{
-// Type: pulumi.String("SNS"),
-// Address: costAnomalyUpdates.Arn,
-// },
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// _default,
-// }))
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
 //
 // ## Import
 //
@@ -248,10 +88,6 @@ type AnomalySubscription struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
-	//
-	// Deprecated: use threshold_expression instead
-	Threshold pulumi.Float64Output `pulumi:"threshold"`
 	// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
 	ThresholdExpression AnomalySubscriptionThresholdExpressionOutput `pulumi:"thresholdExpression"`
 }
@@ -310,10 +146,6 @@ type anomalySubscriptionState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
-	//
-	// Deprecated: use threshold_expression instead
-	Threshold *float64 `pulumi:"threshold"`
 	// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
 	ThresholdExpression *AnomalySubscriptionThresholdExpression `pulumi:"thresholdExpression"`
 }
@@ -335,10 +167,6 @@ type AnomalySubscriptionState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
-	//
-	// Deprecated: use threshold_expression instead
-	Threshold pulumi.Float64PtrInput
 	// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
 	ThresholdExpression AnomalySubscriptionThresholdExpressionPtrInput
 }
@@ -360,10 +188,6 @@ type anomalySubscriptionArgs struct {
 	Subscribers []AnomalySubscriptionSubscriber `pulumi:"subscribers"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
-	//
-	// Deprecated: use threshold_expression instead
-	Threshold *float64 `pulumi:"threshold"`
 	// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
 	ThresholdExpression *AnomalySubscriptionThresholdExpression `pulumi:"thresholdExpression"`
 }
@@ -382,10 +206,6 @@ type AnomalySubscriptionArgs struct {
 	Subscribers AnomalySubscriptionSubscriberArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
-	//
-	// Deprecated: use threshold_expression instead
-	Threshold pulumi.Float64PtrInput
 	// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
 	ThresholdExpression AnomalySubscriptionThresholdExpressionPtrInput
 }
@@ -515,13 +335,6 @@ func (o AnomalySubscriptionOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AnomalySubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
-}
-
-// The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `thresholdExpression` instead.
-//
-// Deprecated: use threshold_expression instead
-func (o AnomalySubscriptionOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func(v *AnomalySubscription) pulumi.Float64Output { return v.Threshold }).(pulumi.Float64Output)
 }
 
 // An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.

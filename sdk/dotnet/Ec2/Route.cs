@@ -300,12 +300,6 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? GatewayId { get; set; }
 
         /// <summary>
-        /// Identifier of an EC2 instance.
-        /// </summary>
-        [Input("instanceId")]
-        public Input<string>? InstanceId { get; set; }
-
-        /// <summary>
         /// Identifier of a Outpost local gateway.
         /// </summary>
         [Input("localGatewayId")]

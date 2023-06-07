@@ -87,10 +87,6 @@ type HoursOfOperation struct {
 	Configs HoursOfOperationConfigArrayOutput `pulumi:"configs"`
 	// Specifies the description of the Hours of Operation.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-	//
-	// Deprecated: use 'arn' attribute instead
-	HoursOfOperationArn pulumi.StringOutput `pulumi:"hoursOfOperationArn"`
 	// The identifier for the hours of operation.
 	HoursOfOperationId pulumi.StringOutput `pulumi:"hoursOfOperationId"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
@@ -149,10 +145,6 @@ type hoursOfOperationState struct {
 	Configs []HoursOfOperationConfig `pulumi:"configs"`
 	// Specifies the description of the Hours of Operation.
 	Description *string `pulumi:"description"`
-	// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-	//
-	// Deprecated: use 'arn' attribute instead
-	HoursOfOperationArn *string `pulumi:"hoursOfOperationArn"`
 	// The identifier for the hours of operation.
 	HoursOfOperationId *string `pulumi:"hoursOfOperationId"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
@@ -174,10 +166,6 @@ type HoursOfOperationState struct {
 	Configs HoursOfOperationConfigArrayInput
 	// Specifies the description of the Hours of Operation.
 	Description pulumi.StringPtrInput
-	// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-	//
-	// Deprecated: use 'arn' attribute instead
-	HoursOfOperationArn pulumi.StringPtrInput
 	// The identifier for the hours of operation.
 	HoursOfOperationId pulumi.StringPtrInput
 	// Specifies the identifier of the hosting Amazon Connect Instance.
@@ -327,13 +315,6 @@ func (o HoursOfOperationOutput) Configs() HoursOfOperationConfigArrayOutput {
 // Specifies the description of the Hours of Operation.
 func (o HoursOfOperationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-//
-// Deprecated: use 'arn' attribute instead
-func (o HoursOfOperationOutput) HoursOfOperationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.HoursOfOperationArn }).(pulumi.StringOutput)
 }
 
 // The identifier for the hours of operation.

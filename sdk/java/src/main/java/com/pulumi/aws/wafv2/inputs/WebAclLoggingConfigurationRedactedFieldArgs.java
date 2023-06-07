@@ -3,12 +3,9 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldAllQueryArgumentsArgs;
-import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldMethodArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldQueryStringArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs;
-import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldUriPathArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -20,52 +17,6 @@ import javax.annotation.Nullable;
 public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclLoggingConfigurationRedactedFieldArgs Empty = new WebAclLoggingConfigurationRedactedFieldArgs();
-
-    /**
-     * Redact all query arguments.
-     * 
-     * @deprecated
-     * Not supported by WAFv2 API
-     * 
-     */
-    @Deprecated /* Not supported by WAFv2 API */
-    @Import(name="allQueryArguments")
-    private @Nullable Output<WebAclLoggingConfigurationRedactedFieldAllQueryArgumentsArgs> allQueryArguments;
-
-    /**
-     * @return Redact all query arguments.
-     * 
-     * @deprecated
-     * Not supported by WAFv2 API
-     * 
-     */
-    @Deprecated /* Not supported by WAFv2 API */
-    public Optional<Output<WebAclLoggingConfigurationRedactedFieldAllQueryArgumentsArgs>> allQueryArguments() {
-        return Optional.ofNullable(this.allQueryArguments);
-    }
-
-    /**
-     * Redact the request body, which immediately follows the request headers.
-     * 
-     * @deprecated
-     * Not supported by WAFv2 API
-     * 
-     */
-    @Deprecated /* Not supported by WAFv2 API */
-    @Import(name="body")
-    private @Nullable Output<WebAclLoggingConfigurationRedactedFieldBodyArgs> body;
-
-    /**
-     * @return Redact the request body, which immediately follows the request headers.
-     * 
-     * @deprecated
-     * Not supported by WAFv2 API
-     * 
-     */
-    @Deprecated /* Not supported by WAFv2 API */
-    public Optional<Output<WebAclLoggingConfigurationRedactedFieldBodyArgs>> body() {
-        return Optional.ofNullable(this.body);
-    }
 
     /**
      * Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
@@ -113,29 +64,6 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
     }
 
     /**
-     * Redact a single query argument. See Single Query Argument below for details.
-     * 
-     * @deprecated
-     * Not supported by WAFv2 API
-     * 
-     */
-    @Deprecated /* Not supported by WAFv2 API */
-    @Import(name="singleQueryArgument")
-    private @Nullable Output<WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentArgs> singleQueryArgument;
-
-    /**
-     * @return Redact a single query argument. See Single Query Argument below for details.
-     * 
-     * @deprecated
-     * Not supported by WAFv2 API
-     * 
-     */
-    @Deprecated /* Not supported by WAFv2 API */
-    public Optional<Output<WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentArgs>> singleQueryArgument() {
-        return Optional.ofNullable(this.singleQueryArgument);
-    }
-
-    /**
      * Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
@@ -153,12 +81,9 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
     private WebAclLoggingConfigurationRedactedFieldArgs() {}
 
     private WebAclLoggingConfigurationRedactedFieldArgs(WebAclLoggingConfigurationRedactedFieldArgs $) {
-        this.allQueryArguments = $.allQueryArguments;
-        this.body = $.body;
         this.method = $.method;
         this.queryString = $.queryString;
         this.singleHeader = $.singleHeader;
-        this.singleQueryArgument = $.singleQueryArgument;
         this.uriPath = $.uriPath;
     }
 
@@ -178,64 +103,6 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
 
         public Builder(WebAclLoggingConfigurationRedactedFieldArgs defaults) {
             $ = new WebAclLoggingConfigurationRedactedFieldArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param allQueryArguments Redact all query arguments.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Not supported by WAFv2 API
-         * 
-         */
-        @Deprecated /* Not supported by WAFv2 API */
-        public Builder allQueryArguments(@Nullable Output<WebAclLoggingConfigurationRedactedFieldAllQueryArgumentsArgs> allQueryArguments) {
-            $.allQueryArguments = allQueryArguments;
-            return this;
-        }
-
-        /**
-         * @param allQueryArguments Redact all query arguments.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Not supported by WAFv2 API
-         * 
-         */
-        @Deprecated /* Not supported by WAFv2 API */
-        public Builder allQueryArguments(WebAclLoggingConfigurationRedactedFieldAllQueryArgumentsArgs allQueryArguments) {
-            return allQueryArguments(Output.of(allQueryArguments));
-        }
-
-        /**
-         * @param body Redact the request body, which immediately follows the request headers.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Not supported by WAFv2 API
-         * 
-         */
-        @Deprecated /* Not supported by WAFv2 API */
-        public Builder body(@Nullable Output<WebAclLoggingConfigurationRedactedFieldBodyArgs> body) {
-            $.body = body;
-            return this;
-        }
-
-        /**
-         * @param body Redact the request body, which immediately follows the request headers.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Not supported by WAFv2 API
-         * 
-         */
-        @Deprecated /* Not supported by WAFv2 API */
-        public Builder body(WebAclLoggingConfigurationRedactedFieldBodyArgs body) {
-            return body(Output.of(body));
         }
 
         /**
@@ -299,35 +166,6 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
          */
         public Builder singleHeader(WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs singleHeader) {
             return singleHeader(Output.of(singleHeader));
-        }
-
-        /**
-         * @param singleQueryArgument Redact a single query argument. See Single Query Argument below for details.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Not supported by WAFv2 API
-         * 
-         */
-        @Deprecated /* Not supported by WAFv2 API */
-        public Builder singleQueryArgument(@Nullable Output<WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentArgs> singleQueryArgument) {
-            $.singleQueryArgument = singleQueryArgument;
-            return this;
-        }
-
-        /**
-         * @param singleQueryArgument Redact a single query argument. See Single Query Argument below for details.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Not supported by WAFv2 API
-         * 
-         */
-        @Deprecated /* Not supported by WAFv2 API */
-        public Builder singleQueryArgument(WebAclLoggingConfigurationRedactedFieldSingleQueryArgumentArgs singleQueryArgument) {
-            return singleQueryArgument(Output.of(singleQueryArgument));
         }
 
         /**

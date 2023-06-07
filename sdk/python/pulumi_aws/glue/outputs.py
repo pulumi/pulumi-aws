@@ -42,6 +42,7 @@ __all__ = [
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettings',
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption',
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest',
+    'DataQualityRulesetTargetTable',
     'JobCommand',
     'JobExecutionProperty',
     'JobNotificationProperty',
@@ -2028,6 +2029,54 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
         The ARN of the AWS KMS key to use for encryption at rest.
         """
         return pulumi.get(self, "sse_aws_kms_key_id")
+
+
+@pulumi.output_type
+class DataQualityRulesetTargetTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityRulesetTargetTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityRulesetTargetTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityRulesetTargetTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 table_name: str):
+        """
+        :param str database_name: Name of the database where the AWS Glue table exists.
+        :param str table_name: Name of the AWS Glue table.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        Name of the database where the AWS Glue table exists.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        Name of the AWS Glue table.
+        """
+        return pulumi.get(self, "table_name")
 
 
 @pulumi.output_type

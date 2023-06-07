@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.inputs;
 
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -185,6 +186,21 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
     }
 
     /**
+     * The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    @Import(name="s3Configuration", required=true)
+    private Output<FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs> s3Configuration;
+
+    /**
+     * @return The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    public Output<FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs> s3Configuration() {
+        return this.s3Configuration;
+    }
+
+    /**
      * The Elasticsearch type name with maximum length of 100 characters.
      * 
      */
@@ -228,6 +244,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         this.retryDuration = $.retryDuration;
         this.roleArn = $.roleArn;
         this.s3BackupMode = $.s3BackupMode;
+        this.s3Configuration = $.s3Configuration;
         this.typeName = $.typeName;
         this.vpcConfig = $.vpcConfig;
     }
@@ -482,6 +499,27 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         }
 
         /**
+         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3Configuration(Output<FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs> s3Configuration) {
+            $.s3Configuration = s3Configuration;
+            return this;
+        }
+
+        /**
+         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3Configuration(FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs s3Configuration) {
+            return s3Configuration(Output.of(s3Configuration));
+        }
+
+        /**
          * @param typeName The Elasticsearch type name with maximum length of 100 characters.
          * 
          * @return builder
@@ -526,6 +564,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
         public FirehoseDeliveryStreamElasticsearchConfigurationArgs build() {
             $.indexName = Objects.requireNonNull($.indexName, "expected parameter 'indexName' to be non-null");
             $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
+            $.s3Configuration = Objects.requireNonNull($.s3Configuration, "expected parameter 's3Configuration' to be non-null");
             return $;
         }
     }

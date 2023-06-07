@@ -478,6 +478,14 @@ class PrimaryContact(pulumi.CustomResource):
             website_url="https://www.examplecorp.com")
         ```
 
+        ## Import
+
+        The Primary Contact can be imported using the `account_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
@@ -520,6 +528,14 @@ class PrimaryContact(pulumi.CustomResource):
             postal_code="98101",
             state_or_region="WA",
             website_url="https://www.examplecorp.com")
+        ```
+
+        ## Import
+
+        The Primary Contact can be imported using the `account_id`, e.g.,
+
+        ```sh
+         $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
         ```
 
         :param str resource_name: The name of the resource.

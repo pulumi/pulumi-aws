@@ -2866,7 +2866,7 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) TestTraffic
 }
 
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute struct {
-	// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+	// List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
 	ListenerArns []string `pulumi:"listenerArns"`
 }
 
@@ -2882,7 +2882,7 @@ type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteInput int
 }
 
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs struct {
-	// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+	// List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
 	ListenerArns pulumi.StringArrayInput `pulumi:"listenerArns"`
 }
 
@@ -2963,7 +2963,7 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput)
 }
 
-// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+// List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput) ListenerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute) []string {
 		return v.ListenerArns
@@ -2994,7 +2994,7 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOut
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput)
 }
 
-// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+// List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput) ListenerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute) []string {
 		if v == nil {

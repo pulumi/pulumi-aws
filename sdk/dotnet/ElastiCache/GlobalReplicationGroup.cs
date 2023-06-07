@@ -27,11 +27,11 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var primary = new Aws.ElastiCache.ReplicationGroup("primary", new()
     ///     {
-    ///         ReplicationGroupDescription = "primary replication group",
+    ///         Description = "primary replication group",
     ///         Engine = "redis",
     ///         EngineVersion = "5.0.6",
     ///         NodeType = "cache.m5.large",
-    ///         NumberCacheClusters = 1,
+    ///         NumCacheClusters = 1,
     ///     });
     /// 
     ///     var example = new Aws.ElastiCache.GlobalReplicationGroup("example", new()
@@ -42,9 +42,9 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     ///     var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new()
     ///     {
-    ///         ReplicationGroupDescription = "secondary replication group",
+    ///         Description = "secondary replication group",
     ///         GlobalReplicationGroupId = example.GlobalReplicationGroupId,
-    ///         NumberCacheClusters = 1,
+    ///         NumCacheClusters = 1,
     ///     }, new CustomResourceOptions
     ///     {
     ///         Provider = aws.Other_region,
@@ -76,11 +76,11 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var primary = new Aws.ElastiCache.ReplicationGroup("primary", new()
     ///     {
-    ///         ReplicationGroupDescription = "primary replication group",
+    ///         Description = "primary replication group",
     ///         Engine = "redis",
     ///         EngineVersion = "6.0",
     ///         NodeType = "cache.m5.large",
-    ///         NumberCacheClusters = 1,
+    ///         NumCacheClusters = 1,
     ///     });
     /// 
     ///     var example = new Aws.ElastiCache.GlobalReplicationGroup("example", new()
@@ -92,9 +92,9 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     ///     var secondary = new Aws.ElastiCache.ReplicationGroup("secondary", new()
     ///     {
-    ///         ReplicationGroupDescription = "secondary replication group",
+    ///         Description = "secondary replication group",
     ///         GlobalReplicationGroupId = example.GlobalReplicationGroupId,
-    ///         NumberCacheClusters = 1,
+    ///         NumCacheClusters = 1,
     ///     }, new CustomResourceOptions
     ///     {
     ///         Provider = aws.Other_region,

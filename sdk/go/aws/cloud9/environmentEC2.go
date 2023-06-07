@@ -118,7 +118,7 @@ import (
 //				Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (*string, error) {
 //					return &cloud9Instance.Id, nil
 //				}).(pulumi.StringPtrOutput),
-//				Vpc: pulumi.Bool(true),
+//				Domain: pulumi.String("vpc"),
 //			})
 //			if err != nil {
 //				return err

@@ -11,17 +11,13 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import javax.annotation.Nullable;
 
 /**
  * Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
  * [AWS Client VPN Administrator&#39;s Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
  * 
- * &gt; **NOTE on Client VPN endpoint target network security groups:** The provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
- * 
  * ## Example Usage
- * ### Using default security group
  * ```java
  * package generated_program;
  * 
@@ -46,39 +42,6 @@ import javax.annotation.Nullable;
  *         var example = new NetworkAssociation(&#34;example&#34;, NetworkAssociationArgs.builder()        
  *             .clientVpnEndpointId(aws_ec2_client_vpn_endpoint.example().id())
  *             .subnetId(aws_subnet.example().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Using custom security groups
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2clientvpn.NetworkAssociation;
- * import com.pulumi.aws.ec2clientvpn.NetworkAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NetworkAssociation(&#34;example&#34;, NetworkAssociationArgs.builder()        
- *             .clientVpnEndpointId(aws_ec2_client_vpn_endpoint.example().id())
- *             .subnetId(aws_subnet.example().id())
- *             .securityGroups(            
- *                 aws_security_group.example1().id(),
- *                 aws_security_group.example2().id())
  *             .build());
  * 
  *     }
@@ -123,42 +86,6 @@ public class NetworkAssociation extends com.pulumi.resources.CustomResource {
      */
     public Output<String> clientVpnEndpointId() {
         return this.clientVpnEndpointId;
-    }
-    /**
-     * A list of up to five custom security groups to apply to the target network. If not specified, the VPC&#39;s default security group is assigned.
-     * 
-     * @deprecated
-     * Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-     * 
-     */
-    @Deprecated /* Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead. */
-    @Export(name="securityGroups", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroups;
-
-    /**
-     * @return A list of up to five custom security groups to apply to the target network. If not specified, the VPC&#39;s default security group is assigned.
-     * 
-     */
-    public Output<List<String>> securityGroups() {
-        return this.securityGroups;
-    }
-    /**
-     * **Deprecated** The current state of the target network association.
-     * 
-     * @deprecated
-     * This attribute has been deprecated.
-     * 
-     */
-    @Deprecated /* This attribute has been deprecated. */
-    @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
-
-    /**
-     * @return **Deprecated** The current state of the target network association.
-     * 
-     */
-    public Output<String> status() {
-        return this.status;
     }
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.

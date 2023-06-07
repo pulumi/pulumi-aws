@@ -318,12 +318,6 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        /// </summary>
-        [Output("securityGroupNames")]
-        public Output<ImmutableArray<string>> SecurityGroupNames { get; private set; } = null!;
-
-        /// <summary>
         /// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         /// </summary>
         [Output("snapshotArns")]
@@ -573,19 +567,6 @@ namespace Pulumi.Aws.ElastiCache
             set => _securityGroupIds = value;
         }
 
-        [Input("securityGroupNames")]
-        private InputList<string>? _securityGroupNames;
-
-        /// <summary>
-        /// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        /// </summary>
-        [Obsolete(@"With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.")]
-        public InputList<string> SecurityGroupNames
-        {
-            get => _securityGroupNames ?? (_securityGroupNames = new InputList<string>());
-            set => _securityGroupNames = value;
-        }
-
         /// <summary>
         /// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         /// </summary>
@@ -832,19 +813,6 @@ namespace Pulumi.Aws.ElastiCache
         {
             get => _securityGroupIds ?? (_securityGroupIds = new InputList<string>());
             set => _securityGroupIds = value;
-        }
-
-        [Input("securityGroupNames")]
-        private InputList<string>? _securityGroupNames;
-
-        /// <summary>
-        /// List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        /// </summary>
-        [Obsolete(@"With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.")]
-        public InputList<string> SecurityGroupNames
-        {
-            get => _securityGroupNames ?? (_securityGroupNames = new InputList<string>());
-            set => _securityGroupNames = value;
         }
 
         /// <summary>

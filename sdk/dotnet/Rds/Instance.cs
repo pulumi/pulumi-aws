@@ -598,14 +598,6 @@ namespace Pulumi.Aws.Rds
         public Output<Outputs.InstanceS3Import?> S3Import { get; private set; } = null!;
 
         /// <summary>
-        /// List of DB Security Groups to
-        /// associate. Only used for [DB Instances on the _EC2-Classic_
-        /// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-        /// </summary>
-        [Output("securityGroupNames")]
-        public Output<ImmutableArray<string>> SecurityGroupNames { get; private set; } = null!;
-
-        /// <summary>
         /// Determines whether a final DB snapshot is
         /// created before the DB instance is deleted. If true is specified, no DBSnapshot
         /// is created. If false is specified, a DB snapshot is created before the DB
@@ -1128,21 +1120,6 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("s3Import")]
         public Input<Inputs.InstanceS3ImportArgs>? S3Import { get; set; }
-
-        [Input("securityGroupNames")]
-        private InputList<string>? _securityGroupNames;
-
-        /// <summary>
-        /// List of DB Security Groups to
-        /// associate. Only used for [DB Instances on the _EC2-Classic_
-        /// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-        /// </summary>
-        [Obsolete(@"With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.")]
-        public InputList<string> SecurityGroupNames
-        {
-            get => _securityGroupNames ?? (_securityGroupNames = new InputList<string>());
-            set => _securityGroupNames = value;
-        }
 
         /// <summary>
         /// Determines whether a final DB snapshot is
@@ -1699,21 +1676,6 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("s3Import")]
         public Input<Inputs.InstanceS3ImportGetArgs>? S3Import { get; set; }
-
-        [Input("securityGroupNames")]
-        private InputList<string>? _securityGroupNames;
-
-        /// <summary>
-        /// List of DB Security Groups to
-        /// associate. Only used for [DB Instances on the _EC2-Classic_
-        /// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-        /// </summary>
-        [Obsolete(@"With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.")]
-        public InputList<string> SecurityGroupNames
-        {
-            get => _securityGroupNames ?? (_securityGroupNames = new InputList<string>());
-            set => _securityGroupNames = value;
-        }
 
         /// <summary>
         /// Determines whether a final DB snapshot is

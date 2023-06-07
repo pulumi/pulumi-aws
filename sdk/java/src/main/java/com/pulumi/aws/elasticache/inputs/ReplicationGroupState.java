@@ -3,7 +3,6 @@
 
 package com.pulumi.aws.elasticache.inputs;
 
-import com.pulumi.aws.elasticache.inputs.ReplicationGroupClusterModeArgs;
 import com.pulumi.aws.elasticache.inputs.ReplicationGroupLogDeliveryConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -116,21 +115,6 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is not considered.
-     * 
-     */
-    @Import(name="availabilityZones")
-    private @Nullable Output<List<String>> availabilityZones;
-
-    /**
-     * @return List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is not considered.
-     * 
-     */
-    public Optional<Output<List<String>>> availabilityZones() {
-        return Optional.ofNullable(this.availabilityZones);
-    }
-
-    /**
      * Indicates if cluster mode is enabled.
      * 
      */
@@ -143,29 +127,6 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<Boolean>> clusterEnabled() {
         return Optional.ofNullable(this.clusterEnabled);
-    }
-
-    /**
-     * Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-     * 
-     * @deprecated
-     * Use num_node_groups and replicas_per_node_group instead
-     * 
-     */
-    @Deprecated /* Use num_node_groups and replicas_per_node_group instead */
-    @Import(name="clusterMode")
-    private @Nullable Output<ReplicationGroupClusterModeArgs> clusterMode;
-
-    /**
-     * @return Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-     * 
-     * @deprecated
-     * Use num_node_groups and replicas_per_node_group instead
-     * 
-     */
-    @Deprecated /* Use num_node_groups and replicas_per_node_group instead */
-    public Optional<Output<ReplicationGroupClusterModeArgs>> clusterMode() {
-        return Optional.ofNullable(this.clusterMode);
     }
 
     /**
@@ -282,14 +243,14 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter (or the `num_node_groups` parameter of the deprecated `cluster_mode` block) cannot be set.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
      * 
      */
     @Import(name="globalReplicationGroupId")
     private @Nullable Output<String> globalReplicationGroupId;
 
     /**
-     * @return The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter (or the `num_node_groups` parameter of the deprecated `cluster_mode` block) cannot be set.
+     * @return The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
      * 
      */
     public Optional<Output<String>> globalReplicationGroupId() {
@@ -402,14 +363,14 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`, the deprecated`number_cache_clusters`, or the deprecated `cluster_mode`. Defaults to `1`.
+     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
      * 
      */
     @Import(name="numCacheClusters")
     private @Nullable Output<Integer> numCacheClusters;
 
     /**
-     * @return Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`, the deprecated`number_cache_clusters`, or the deprecated `cluster_mode`. Defaults to `1`.
+     * @return Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
      * 
      */
     public Optional<Output<Integer>> numCacheClusters() {
@@ -431,29 +392,6 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<Integer>> numNodeGroups() {
         return Optional.ofNullable(this.numNodeGroups);
-    }
-
-    /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
-     * 
-     * @deprecated
-     * Use num_cache_clusters instead
-     * 
-     */
-    @Deprecated /* Use num_cache_clusters instead */
-    @Import(name="numberCacheClusters")
-    private @Nullable Output<Integer> numberCacheClusters;
-
-    /**
-     * @return Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
-     * 
-     * @deprecated
-     * Use num_cache_clusters instead
-     * 
-     */
-    @Deprecated /* Use num_cache_clusters instead */
-    public Optional<Output<Integer>> numberCacheClusters() {
-        return Optional.ofNullable(this.numberCacheClusters);
     }
 
     /**
@@ -551,34 +489,9 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * User-created description for the replication group. Must not be empty.
-     * 
-     * The following arguments are optional:
-     * 
-     * @deprecated
-     * Use description instead
-     * 
-     */
-    @Deprecated /* Use description instead */
-    @Import(name="replicationGroupDescription")
-    private @Nullable Output<String> replicationGroupDescription;
-
-    /**
-     * @return User-created description for the replication group. Must not be empty.
-     * 
-     * The following arguments are optional:
-     * 
-     * @deprecated
-     * Use description instead
-     * 
-     */
-    @Deprecated /* Use description instead */
-    public Optional<Output<String>> replicationGroupDescription() {
-        return Optional.ofNullable(this.replicationGroupDescription);
-    }
-
-    /**
      * Replication group identifier. This parameter is stored as a lowercase string.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="replicationGroupId")
@@ -586,6 +499,8 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
 
     /**
      * @return Replication group identifier. This parameter is stored as a lowercase string.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> replicationGroupId() {
@@ -766,9 +681,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         this.authToken = $.authToken;
         this.autoMinorVersionUpgrade = $.autoMinorVersionUpgrade;
         this.automaticFailoverEnabled = $.automaticFailoverEnabled;
-        this.availabilityZones = $.availabilityZones;
         this.clusterEnabled = $.clusterEnabled;
-        this.clusterMode = $.clusterMode;
         this.configurationEndpointAddress = $.configurationEndpointAddress;
         this.dataTieringEnabled = $.dataTieringEnabled;
         this.description = $.description;
@@ -786,14 +699,12 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         this.notificationTopicArn = $.notificationTopicArn;
         this.numCacheClusters = $.numCacheClusters;
         this.numNodeGroups = $.numNodeGroups;
-        this.numberCacheClusters = $.numberCacheClusters;
         this.parameterGroupName = $.parameterGroupName;
         this.port = $.port;
         this.preferredCacheClusterAzs = $.preferredCacheClusterAzs;
         this.primaryEndpointAddress = $.primaryEndpointAddress;
         this.readerEndpointAddress = $.readerEndpointAddress;
         this.replicasPerNodeGroup = $.replicasPerNodeGroup;
-        this.replicationGroupDescription = $.replicationGroupDescription;
         this.replicationGroupId = $.replicationGroupId;
         this.securityGroupIds = $.securityGroupIds;
         this.securityGroupNames = $.securityGroupNames;
@@ -957,37 +868,6 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param availabilityZones List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is not considered.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder availabilityZones(@Nullable Output<List<String>> availabilityZones) {
-            $.availabilityZones = availabilityZones;
-            return this;
-        }
-
-        /**
-         * @param availabilityZones List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is not considered.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder availabilityZones(List<String> availabilityZones) {
-            return availabilityZones(Output.of(availabilityZones));
-        }
-
-        /**
-         * @param availabilityZones List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is not considered.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder availabilityZones(String... availabilityZones) {
-            return availabilityZones(List.of(availabilityZones));
-        }
-
-        /**
          * @param clusterEnabled Indicates if cluster mode is enabled.
          * 
          * @return builder
@@ -1006,35 +886,6 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
          */
         public Builder clusterEnabled(Boolean clusterEnabled) {
             return clusterEnabled(Output.of(clusterEnabled));
-        }
-
-        /**
-         * @param clusterMode Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use num_node_groups and replicas_per_node_group instead
-         * 
-         */
-        @Deprecated /* Use num_node_groups and replicas_per_node_group instead */
-        public Builder clusterMode(@Nullable Output<ReplicationGroupClusterModeArgs> clusterMode) {
-            $.clusterMode = clusterMode;
-            return this;
-        }
-
-        /**
-         * @param clusterMode Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use num_node_groups and replicas_per_node_group instead
-         * 
-         */
-        @Deprecated /* Use num_node_groups and replicas_per_node_group instead */
-        public Builder clusterMode(ReplicationGroupClusterModeArgs clusterMode) {
-            return clusterMode(Output.of(clusterMode));
         }
 
         /**
@@ -1193,7 +1044,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param globalReplicationGroupId The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter (or the `num_node_groups` parameter of the deprecated `cluster_mode` block) cannot be set.
+         * @param globalReplicationGroupId The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
          * 
          * @return builder
          * 
@@ -1204,7 +1055,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param globalReplicationGroupId The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter (or the `num_node_groups` parameter of the deprecated `cluster_mode` block) cannot be set.
+         * @param globalReplicationGroupId The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
          * 
          * @return builder
          * 
@@ -1381,7 +1232,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param numCacheClusters Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`, the deprecated`number_cache_clusters`, or the deprecated `cluster_mode`. Defaults to `1`.
+         * @param numCacheClusters Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -1392,7 +1243,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param numCacheClusters Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`, the deprecated`number_cache_clusters`, or the deprecated `cluster_mode`. Defaults to `1`.
+         * @param numCacheClusters Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -1422,35 +1273,6 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
          */
         public Builder numNodeGroups(Integer numNodeGroups) {
             return numNodeGroups(Output.of(numNodeGroups));
-        }
-
-        /**
-         * @param numberCacheClusters Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use num_cache_clusters instead
-         * 
-         */
-        @Deprecated /* Use num_cache_clusters instead */
-        public Builder numberCacheClusters(@Nullable Output<Integer> numberCacheClusters) {
-            $.numberCacheClusters = numberCacheClusters;
-            return this;
-        }
-
-        /**
-         * @param numberCacheClusters Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use num_cache_clusters instead
-         * 
-         */
-        @Deprecated /* Use num_cache_clusters instead */
-        public Builder numberCacheClusters(Integer numberCacheClusters) {
-            return numberCacheClusters(Output.of(numberCacheClusters));
         }
 
         /**
@@ -1594,40 +1416,9 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param replicationGroupDescription User-created description for the replication group. Must not be empty.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use description instead
-         * 
-         */
-        @Deprecated /* Use description instead */
-        public Builder replicationGroupDescription(@Nullable Output<String> replicationGroupDescription) {
-            $.replicationGroupDescription = replicationGroupDescription;
-            return this;
-        }
-
-        /**
-         * @param replicationGroupDescription User-created description for the replication group. Must not be empty.
-         * 
-         * The following arguments are optional:
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use description instead
-         * 
-         */
-        @Deprecated /* Use description instead */
-        public Builder replicationGroupDescription(String replicationGroupDescription) {
-            return replicationGroupDescription(Output.of(replicationGroupDescription));
-        }
-
-        /**
          * @param replicationGroupId Replication group identifier. This parameter is stored as a lowercase string.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -1639,6 +1430,8 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param replicationGroupId Replication group identifier. This parameter is stored as a lowercase string.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

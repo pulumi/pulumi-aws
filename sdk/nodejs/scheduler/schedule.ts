@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
- *     scheduleExpression: "rate(1 hour)",
+ *     scheduleExpression: "rate(1 hours)",
  *     target: {
  *         arn: aws_sqs_queue.example.arn,
  *         roleArn: aws_iam_role.example.arn,
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
- *     scheduleExpression: "rate(1 hour)",
+ *     scheduleExpression: "rate(1 hours)",
  *     target: {
  *         arn: "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
  *         roleArn: aws_iam_role.example.arn,

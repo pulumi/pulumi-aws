@@ -126,8 +126,43 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### With user group resolution configuration
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kendra.Index;
+ * import com.pulumi.aws.kendra.IndexArgs;
+ * import com.pulumi.aws.kendra.inputs.IndexUserGroupResolutionConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
+ *             .roleArn(aws_iam_role.this().arn())
+ *             .userGroupResolutionConfiguration(IndexUserGroupResolutionConfigurationArgs.builder()
+ *                 .userGroupResolutionMode(&#34;AWS_SSO&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### With Document Metadata Configuration Updates
  * ### Specifying the predefined elements
+ * 
+ * Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
  * ```java
  * package generated_program;
  * 
@@ -306,6 +341,20 @@ import javax.annotation.Nullable;
  *                         .facetable(false)
  *                         .searchable(false)
  *                         .sortable(false)
+ *                         .build())
+ *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
+ *                         .importance(1)
+ *                         .valuesImportanceMap()
+ *                         .build())
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
+ *                     .name(&#34;_tenant_id&#34;)
+ *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
+ *                         .displayable(false)
+ *                         .facetable(false)
+ *                         .searchable(false)
+ *                         .sortable(true)
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)
@@ -526,6 +575,20 @@ import javax.annotation.Nullable;
  *                         .facetable(false)
  *                         .searchable(false)
  *                         .sortable(false)
+ *                         .build())
+ *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
+ *                         .importance(1)
+ *                         .valuesImportanceMap()
+ *                         .build())
+ *                     .build(),
+ *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
+ *                     .name(&#34;_tenant_id&#34;)
+ *                     .type(&#34;STRING_VALUE&#34;)
+ *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
+ *                         .displayable(false)
+ *                         .facetable(false)
+ *                         .searchable(false)
+ *                         .sortable(true)
  *                         .build())
  *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
  *                         .importance(1)

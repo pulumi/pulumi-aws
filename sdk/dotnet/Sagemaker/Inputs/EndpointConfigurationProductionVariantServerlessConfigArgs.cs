@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("memorySizeInMb", required: true)]
         public Input<int> MemorySizeInMb { get; set; } = null!;
 
+        /// <summary>
+        /// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+        /// </summary>
+        [Input("provisionedConcurrency")]
+        public Input<int>? ProvisionedConcurrency { get; set; }
+
         public EndpointConfigurationProductionVariantServerlessConfigArgs()
         {
         }

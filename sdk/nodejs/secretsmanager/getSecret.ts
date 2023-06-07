@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -81,24 +78,6 @@ export interface GetSecretResult {
      * Resource-based policy document that's attached to the secret.
      */
     readonly policy: string;
-    /**
-     * Whether rotation is enabled or not.
-     *
-     * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
-     */
-    readonly rotationEnabled: boolean;
-    /**
-     * Rotation Lambda function ARN if rotation is enabled.
-     *
-     * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
-     */
-    readonly rotationLambdaArn: string;
-    /**
-     * Rotation rules if rotation is enabled.
-     *
-     * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
-     */
-    readonly rotationRules: outputs.secretsmanager.GetSecretRotationRule[];
     /**
      * Tags of the secret.
      */

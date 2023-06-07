@@ -4,7 +4,6 @@
 package com.pulumi.aws.config.inputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -15,13 +14,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AssumeRole {
     private @Nullable String duration;
-    /**
-     * @deprecated
-     * Use assume_role.duration instead
-     * 
-     */
-    @Deprecated /* Use assume_role.duration instead */
-    private @Nullable Integer durationSeconds;
     private @Nullable String externalId;
     private @Nullable String policy;
     private @Nullable List<String> policyArns;
@@ -34,15 +26,6 @@ public final class AssumeRole {
     private AssumeRole() {}
     public Optional<String> duration() {
         return Optional.ofNullable(this.duration);
-    }
-    /**
-     * @deprecated
-     * Use assume_role.duration instead
-     * 
-     */
-    @Deprecated /* Use assume_role.duration instead */
-    public Optional<Integer> durationSeconds() {
-        return Optional.ofNullable(this.durationSeconds);
     }
     public Optional<String> externalId() {
         return Optional.ofNullable(this.externalId);
@@ -79,7 +62,6 @@ public final class AssumeRole {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String duration;
-        private @Nullable Integer durationSeconds;
         private @Nullable String externalId;
         private @Nullable String policy;
         private @Nullable List<String> policyArns;
@@ -92,7 +74,6 @@ public final class AssumeRole {
         public Builder(AssumeRole defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
-    	      this.durationSeconds = defaults.durationSeconds;
     	      this.externalId = defaults.externalId;
     	      this.policy = defaults.policy;
     	      this.policyArns = defaults.policyArns;
@@ -106,11 +87,6 @@ public final class AssumeRole {
         @CustomType.Setter
         public Builder duration(@Nullable String duration) {
             this.duration = duration;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder durationSeconds(@Nullable Integer durationSeconds) {
-            this.durationSeconds = durationSeconds;
             return this;
         }
         @CustomType.Setter
@@ -162,7 +138,6 @@ public final class AssumeRole {
         public AssumeRole build() {
             final var o = new AssumeRole();
             o.duration = duration;
-            o.durationSeconds = durationSeconds;
             o.externalId = externalId;
             o.policy = policy;
             o.policyArns = policyArns;

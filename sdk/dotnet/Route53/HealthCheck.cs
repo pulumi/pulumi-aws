@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Route53
         public Output<int> FailureThreshold { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified domain name of the endpoint to be checked.
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         /// </summary>
         [Output("fqdn")]
         public Output<string?> Fqdn { get; private set; } = null!;
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? FailureThreshold { get; set; }
 
         /// <summary>
-        /// The fully qualified domain name of the endpoint to be checked.
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
@@ -540,7 +540,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? FailureThreshold { get; set; }
 
         /// <summary>
-        /// The fully qualified domain name of the endpoint to be checked.
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }

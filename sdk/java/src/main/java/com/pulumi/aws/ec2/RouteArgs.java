@@ -125,29 +125,6 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifier of an EC2 instance.
-     * 
-     * @deprecated
-     * Use network_interface_id instead
-     * 
-     */
-    @Deprecated /* Use network_interface_id instead */
-    @Import(name="instanceId")
-    private @Nullable Output<String> instanceId;
-
-    /**
-     * @return Identifier of an EC2 instance.
-     * 
-     * @deprecated
-     * Use network_interface_id instead
-     * 
-     */
-    @Deprecated /* Use network_interface_id instead */
-    public Optional<Output<String>> instanceId() {
-        return Optional.ofNullable(this.instanceId);
-    }
-
-    /**
      * Identifier of a Outpost local gateway.
      * 
      */
@@ -270,7 +247,6 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         this.destinationPrefixListId = $.destinationPrefixListId;
         this.egressOnlyGatewayId = $.egressOnlyGatewayId;
         this.gatewayId = $.gatewayId;
-        this.instanceId = $.instanceId;
         this.localGatewayId = $.localGatewayId;
         this.natGatewayId = $.natGatewayId;
         this.networkInterfaceId = $.networkInterfaceId;
@@ -447,35 +423,6 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder gatewayId(String gatewayId) {
             return gatewayId(Output.of(gatewayId));
-        }
-
-        /**
-         * @param instanceId Identifier of an EC2 instance.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use network_interface_id instead
-         * 
-         */
-        @Deprecated /* Use network_interface_id instead */
-        public Builder instanceId(@Nullable Output<String> instanceId) {
-            $.instanceId = instanceId;
-            return this;
-        }
-
-        /**
-         * @param instanceId Identifier of an EC2 instance.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use network_interface_id instead
-         * 
-         */
-        @Deprecated /* Use network_interface_id instead */
-        public Builder instanceId(String instanceId) {
-            return instanceId(Output.of(instanceId));
         }
 
         /**

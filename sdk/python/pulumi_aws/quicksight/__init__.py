@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .account_subscription import *
+from .analysis import *
+from .dashboard import *
 from .data_set import *
 from .data_source import *
 from .folder import *

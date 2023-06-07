@@ -169,7 +169,7 @@ class _ConnectionState:
                  skip_destroy: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vlan_id: Optional[pulumi.Input[str]] = None):
+                 vlan_id: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
         :param pulumi.Input[str] arn: The ARN of the connection.
@@ -191,7 +191,7 @@ class _ConnectionState:
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] vlan_id: The VLAN ID.
+        :param pulumi.Input[int] vlan_id: The VLAN ID.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -438,14 +438,14 @@ class _ConnectionState:
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> Optional[pulumi.Input[str]]:
+    def vlan_id(self) -> Optional[pulumi.Input[int]]:
         """
         The VLAN ID.
         """
         return pulumi.get(self, "vlan_id")
 
     @vlan_id.setter
-    def vlan_id(self, value: Optional[pulumi.Input[str]]):
+    def vlan_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "vlan_id", value)
 
 
@@ -659,7 +659,7 @@ class Connection(pulumi.CustomResource):
             skip_destroy: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            vlan_id: Optional[pulumi.Input[str]] = None) -> 'Connection':
+            vlan_id: Optional[pulumi.Input[int]] = None) -> 'Connection':
         """
         Get an existing Connection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -686,7 +686,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] vlan_id: The VLAN ID.
+        :param pulumi.Input[int] vlan_id: The VLAN ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -852,7 +852,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> pulumi.Output[str]:
+    def vlan_id(self) -> pulumi.Output[int]:
         """
         The VLAN ID.
         """

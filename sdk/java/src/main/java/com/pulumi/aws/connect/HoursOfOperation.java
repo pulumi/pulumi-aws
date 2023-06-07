@@ -134,24 +134,6 @@ public class HoursOfOperation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-     * 
-     * @deprecated
-     * use &#39;arn&#39; attribute instead
-     * 
-     */
-    @Deprecated /* use 'arn' attribute instead */
-    @Export(name="hoursOfOperationArn", refs={String.class}, tree="[0]")
-    private Output<String> hoursOfOperationArn;
-
-    /**
-     * @return (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-     * 
-     */
-    public Output<String> hoursOfOperationArn() {
-        return this.hoursOfOperationArn;
-    }
-    /**
      * The identifier for the hours of operation.
      * 
      */

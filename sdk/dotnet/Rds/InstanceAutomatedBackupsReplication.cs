@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Rds
     ///         Engine = "postgres",
     ///         EngineVersion = "13.4",
     ///         InstanceClass = "db.t3.micro",
-    ///         Name = "mydb",
+    ///         DbName = "mydb",
     ///         Username = "masterusername",
     ///         Password = "mustbeeightcharacters",
     ///         BackupRetentionPeriod = 7,
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Rds
     ///         Description = "Encryption key for automated backups",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.replica",
+    ///         Provider = aws.Replica,
     ///     });
     /// 
     ///     var defaultInstanceAutomatedBackupsReplication = new Aws.Rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", new()
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Rds
     ///         KmsKeyId = defaultKey.Arn,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.replica",
+    ///         Provider = aws.Replica,
     ///     });
     /// 
     /// });

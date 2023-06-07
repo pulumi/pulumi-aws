@@ -64,7 +64,7 @@ type GetOrderableClusterArgs struct {
 
 // A collection of values returned by getOrderableCluster.
 type GetOrderableClusterResult struct {
-	// List of Availability Zone names where the Redshit Cluster is available.
+	// List of Availability Zone names where the Redshift Cluster is available.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	ClusterType       string   `pulumi:"clusterType"`
 	ClusterVersion    string   `pulumi:"clusterVersion"`
@@ -118,7 +118,7 @@ func (o GetOrderableClusterResultOutput) ToGetOrderableClusterResultOutputWithCo
 	return o
 }
 
-// List of Availability Zone names where the Redshit Cluster is available.
+// List of Availability Zone names where the Redshift Cluster is available.
 func (o GetOrderableClusterResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrderableClusterResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }

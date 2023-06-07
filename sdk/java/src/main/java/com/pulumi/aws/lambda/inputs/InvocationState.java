@@ -51,6 +51,21 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+     * 
+     */
+    @Import(name="lifecycleScope")
+    private @Nullable Output<String> lifecycleScope;
+
+    /**
+     * @return Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+     * 
+     */
+    public Optional<Output<String>> lifecycleScope() {
+        return Optional.ofNullable(this.lifecycleScope);
+    }
+
+    /**
      * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
      * 
      */
@@ -80,6 +95,13 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.result);
     }
 
+    @Import(name="terraformKey")
+    private @Nullable Output<String> terraformKey;
+
+    public Optional<Output<String>> terraformKey() {
+        return Optional.ofNullable(this.terraformKey);
+    }
+
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
      * 
@@ -100,8 +122,10 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
     private InvocationState(InvocationState $) {
         this.functionName = $.functionName;
         this.input = $.input;
+        this.lifecycleScope = $.lifecycleScope;
         this.qualifier = $.qualifier;
         this.result = $.result;
+        this.terraformKey = $.terraformKey;
         this.triggers = $.triggers;
     }
 
@@ -170,6 +194,27 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param lifecycleScope Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lifecycleScope(@Nullable Output<String> lifecycleScope) {
+            $.lifecycleScope = lifecycleScope;
+            return this;
+        }
+
+        /**
+         * @param lifecycleScope Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lifecycleScope(String lifecycleScope) {
+            return lifecycleScope(Output.of(lifecycleScope));
+        }
+
+        /**
          * @param qualifier Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
          * 
          * @return builder
@@ -209,6 +254,15 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder result(String result) {
             return result(Output.of(result));
+        }
+
+        public Builder terraformKey(@Nullable Output<String> terraformKey) {
+            $.terraformKey = terraformKey;
+            return this;
+        }
+
+        public Builder terraformKey(String terraformKey) {
+            return terraformKey(Output.of(terraformKey));
         }
 
         /**

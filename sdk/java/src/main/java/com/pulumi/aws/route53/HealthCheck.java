@@ -304,14 +304,14 @@ public class HealthCheck extends com.pulumi.resources.CustomResource {
         return this.failureThreshold;
     }
     /**
-     * The fully qualified domain name of the endpoint to be checked.
+     * The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
      * 
      */
     @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fqdn;
 
     /**
-     * @return The fully qualified domain name of the endpoint to be checked.
+     * @return The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
      * 
      */
     public Output<Optional<String>> fqdn() {

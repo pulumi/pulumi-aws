@@ -45,8 +45,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Partner{}
 	case "aws:redshift/scheduledAction:ScheduledAction":
 		r = &ScheduledAction{}
-	case "aws:redshift/securityGroup:SecurityGroup":
-		r = &SecurityGroup{}
 	case "aws:redshift/snapshotCopyGrant:SnapshotCopyGrant":
 		r = &SnapshotCopyGrant{}
 	case "aws:redshift/snapshotSchedule:SnapshotSchedule":
@@ -128,11 +126,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"redshift/scheduledAction",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"redshift/securityGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -20,7 +20,6 @@ class BudgetArgs:
                  time_unit: pulumi.Input[str],
                  account_id: Optional[pulumi.Input[str]] = None,
                  auto_adjust_data: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']] = None,
-                 cost_filter_legacy: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]] = None,
                  cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
                  limit_amount: Optional[pulumi.Input[str]] = None,
@@ -37,7 +36,6 @@ class BudgetArgs:
         :param pulumi.Input[str] time_unit: The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         :param pulumi.Input['BudgetAutoAdjustDataArgs'] auto_adjust_data: Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filter_legacy: Map of CostFilters key/value pairs to apply to the budget.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]] cost_filters: A list of CostFilter name/values pair to apply to budget.
         :param pulumi.Input['BudgetCostTypesArgs'] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         :param pulumi.Input[str] limit_amount: The amount of cost or usage being measured for a budget.
@@ -55,11 +53,6 @@ class BudgetArgs:
             pulumi.set(__self__, "account_id", account_id)
         if auto_adjust_data is not None:
             pulumi.set(__self__, "auto_adjust_data", auto_adjust_data)
-        if cost_filter_legacy is not None:
-            warnings.warn("""Use the attribute \"cost_filter\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""cost_filter_legacy is deprecated: Use the attribute \"cost_filter\" instead.""")
-        if cost_filter_legacy is not None:
-            pulumi.set(__self__, "cost_filter_legacy", cost_filter_legacy)
         if cost_filters is not None:
             pulumi.set(__self__, "cost_filters", cost_filters)
         if cost_types is not None:
@@ -128,18 +121,6 @@ class BudgetArgs:
     @auto_adjust_data.setter
     def auto_adjust_data(self, value: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']]):
         pulumi.set(self, "auto_adjust_data", value)
-
-    @property
-    @pulumi.getter(name="costFilterLegacy")
-    def cost_filter_legacy(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of CostFilters key/value pairs to apply to the budget.
-        """
-        return pulumi.get(self, "cost_filter_legacy")
-
-    @cost_filter_legacy.setter
-    def cost_filter_legacy(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "cost_filter_legacy", value)
 
     @property
     @pulumi.getter(name="costFilters")
@@ -269,7 +250,6 @@ class _BudgetState:
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_adjust_data: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']] = None,
                  budget_type: Optional[pulumi.Input[str]] = None,
-                 cost_filter_legacy: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]]] = None,
                  cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
                  limit_amount: Optional[pulumi.Input[str]] = None,
@@ -287,7 +267,6 @@ class _BudgetState:
         :param pulumi.Input[str] arn: The ARN of the budget.
         :param pulumi.Input['BudgetAutoAdjustDataArgs'] auto_adjust_data: Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
         :param pulumi.Input[str] budget_type: Whether this budget tracks monetary cost or usage.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filter_legacy: Map of CostFilters key/value pairs to apply to the budget.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetCostFilterArgs']]] cost_filters: A list of CostFilter name/values pair to apply to budget.
         :param pulumi.Input['BudgetCostTypesArgs'] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         :param pulumi.Input[str] limit_amount: The amount of cost or usage being measured for a budget.
@@ -308,11 +287,6 @@ class _BudgetState:
             pulumi.set(__self__, "auto_adjust_data", auto_adjust_data)
         if budget_type is not None:
             pulumi.set(__self__, "budget_type", budget_type)
-        if cost_filter_legacy is not None:
-            warnings.warn("""Use the attribute \"cost_filter\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""cost_filter_legacy is deprecated: Use the attribute \"cost_filter\" instead.""")
-        if cost_filter_legacy is not None:
-            pulumi.set(__self__, "cost_filter_legacy", cost_filter_legacy)
         if cost_filters is not None:
             pulumi.set(__self__, "cost_filters", cost_filters)
         if cost_types is not None:
@@ -383,18 +357,6 @@ class _BudgetState:
     @budget_type.setter
     def budget_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "budget_type", value)
-
-    @property
-    @pulumi.getter(name="costFilterLegacy")
-    def cost_filter_legacy(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of CostFilters key/value pairs to apply to the budget.
-        """
-        return pulumi.get(self, "cost_filter_legacy")
-
-    @cost_filter_legacy.setter
-    def cost_filter_legacy(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "cost_filter_legacy", value)
 
     @property
     @pulumi.getter(name="costFilters")
@@ -537,7 +499,6 @@ class Budget(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[str]] = None,
                  auto_adjust_data: Optional[pulumi.Input[pulumi.InputType['BudgetAutoAdjustDataArgs']]] = None,
                  budget_type: Optional[pulumi.Input[str]] = None,
-                 cost_filter_legacy: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetCostFilterArgs']]]]] = None,
                  cost_types: Optional[pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']]] = None,
                  limit_amount: Optional[pulumi.Input[str]] = None,
@@ -712,7 +673,6 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: The ID of the target account for budget. Will use current user's account_id by default if omitted.
         :param pulumi.Input[pulumi.InputType['BudgetAutoAdjustDataArgs']] auto_adjust_data: Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
         :param pulumi.Input[str] budget_type: Whether this budget tracks monetary cost or usage.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filter_legacy: Map of CostFilters key/value pairs to apply to the budget.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetCostFilterArgs']]]] cost_filters: A list of CostFilter name/values pair to apply to budget.
         :param pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         :param pulumi.Input[str] limit_amount: The amount of cost or usage being measured for a budget.
@@ -906,7 +866,6 @@ class Budget(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[str]] = None,
                  auto_adjust_data: Optional[pulumi.Input[pulumi.InputType['BudgetAutoAdjustDataArgs']]] = None,
                  budget_type: Optional[pulumi.Input[str]] = None,
-                 cost_filter_legacy: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetCostFilterArgs']]]]] = None,
                  cost_types: Optional[pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']]] = None,
                  limit_amount: Optional[pulumi.Input[str]] = None,
@@ -932,10 +891,6 @@ class Budget(pulumi.CustomResource):
             if budget_type is None and not opts.urn:
                 raise TypeError("Missing required property 'budget_type'")
             __props__.__dict__["budget_type"] = budget_type
-            if cost_filter_legacy is not None and not opts.urn:
-                warnings.warn("""Use the attribute \"cost_filter\" instead.""", DeprecationWarning)
-                pulumi.log.warn("""cost_filter_legacy is deprecated: Use the attribute \"cost_filter\" instead.""")
-            __props__.__dict__["cost_filter_legacy"] = cost_filter_legacy
             __props__.__dict__["cost_filters"] = cost_filters
             __props__.__dict__["cost_types"] = cost_types
             __props__.__dict__["limit_amount"] = limit_amount
@@ -964,7 +919,6 @@ class Budget(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             auto_adjust_data: Optional[pulumi.Input[pulumi.InputType['BudgetAutoAdjustDataArgs']]] = None,
             budget_type: Optional[pulumi.Input[str]] = None,
-            cost_filter_legacy: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             cost_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetCostFilterArgs']]]]] = None,
             cost_types: Optional[pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']]] = None,
             limit_amount: Optional[pulumi.Input[str]] = None,
@@ -987,7 +941,6 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the budget.
         :param pulumi.Input[pulumi.InputType['BudgetAutoAdjustDataArgs']] auto_adjust_data: Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
         :param pulumi.Input[str] budget_type: Whether this budget tracks monetary cost or usage.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] cost_filter_legacy: Map of CostFilters key/value pairs to apply to the budget.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetCostFilterArgs']]]] cost_filters: A list of CostFilter name/values pair to apply to budget.
         :param pulumi.Input[pulumi.InputType['BudgetCostTypesArgs']] cost_types: Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         :param pulumi.Input[str] limit_amount: The amount of cost or usage being measured for a budget.
@@ -1008,7 +961,6 @@ class Budget(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auto_adjust_data"] = auto_adjust_data
         __props__.__dict__["budget_type"] = budget_type
-        __props__.__dict__["cost_filter_legacy"] = cost_filter_legacy
         __props__.__dict__["cost_filters"] = cost_filters
         __props__.__dict__["cost_types"] = cost_types
         __props__.__dict__["limit_amount"] = limit_amount
@@ -1053,14 +1005,6 @@ class Budget(pulumi.CustomResource):
         Whether this budget tracks monetary cost or usage.
         """
         return pulumi.get(self, "budget_type")
-
-    @property
-    @pulumi.getter(name="costFilterLegacy")
-    def cost_filter_legacy(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        Map of CostFilters key/value pairs to apply to the budget.
-        """
-        return pulumi.get(self, "cost_filter_legacy")
 
     @property
     @pulumi.getter(name="costFilters")

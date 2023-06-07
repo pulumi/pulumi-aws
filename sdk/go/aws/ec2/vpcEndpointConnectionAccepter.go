@@ -45,7 +45,7 @@ import (
 //				SecurityGroupIds: pulumi.StringArray{
 //					aws_security_group.Test.Id,
 //				},
-//			}, pulumi.Provider("aws.alternate"))
+//			}, pulumi.Provider(aws.Alternate))
 //			if err != nil {
 //				return err
 //			}

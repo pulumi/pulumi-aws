@@ -55,7 +55,7 @@ import (
 //				CidrBlock:          pulumi.String("10.7.0.0/16"),
 //				EnableDnsHostnames: pulumi.Bool(true),
 //				EnableDnsSupport:   pulumi.Bool(true),
-//			}, pulumi.Provider("aws.alternate"))
+//			}, pulumi.Provider(aws.Alternate))
 //			if err != nil {
 //				return err
 //			}
@@ -69,7 +69,7 @@ import (
 //			_, err = route53.NewZoneAssociation(ctx, "exampleZoneAssociation", &route53.ZoneAssociationArgs{
 //				VpcId:  exampleVpcAssociationAuthorization.VpcId,
 //				ZoneId: exampleVpcAssociationAuthorization.ZoneId,
-//			}, pulumi.Provider("aws.alternate"))
+//			}, pulumi.Provider(aws.Alternate))
 //			if err != nil {
 //				return err
 //			}

@@ -159,9 +159,9 @@ import (
 //			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "extendedS3Stream", &kinesis.FirehoseDeliveryStreamArgs{
 //				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
-//					RoleArn:    pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//					BucketArn:  pulumi.Any(aws_s3_bucket.Bucket.Arn),
-//					BufferSize: pulumi.Int(64),
+//					RoleArn:       pulumi.Any(aws_iam_role.Firehose_role.Arn),
+//					BucketArn:     pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//					BufferingSize: pulumi.Int(64),
 //					DynamicPartitioningConfiguration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs{
 //						Enabled: pulumi.Bool(true),
 //					},
@@ -207,75 +207,6 @@ import (
 //	}
 //
 // ```
-// ### S3 Destination (deprecated)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketAclV2(ctx, "bucketAcl", &s3.BucketAclV2Args{
-//				Bucket: bucket.ID(),
-//				Acl:    pulumi.String("private"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"firehose.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Destination: pulumi.String("s3"),
-//				S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-//					RoleArn:   firehoseRole.Arn,
-//					BucketArn: bucket.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Redshift Destination
 //
 // ```go
@@ -306,13 +237,6 @@ import (
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
 //				Destination: pulumi.String("redshift"),
-//				S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-//					RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//					BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
-//					BufferSize:        pulumi.Int(10),
-//					BufferInterval:    pulumi.Int(400),
-//					CompressionFormat: pulumi.String("GZIP"),
-//				},
 //				RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
 //					RoleArn: pulumi.Any(aws_iam_role.Firehose_role.Arn),
 //					ClusterJdbcurl: pulumi.All(testCluster.Endpoint, testCluster.DatabaseName).ApplyT(func(_args []interface{}) (string, error) {
@@ -326,11 +250,18 @@ import (
 //					CopyOptions:      pulumi.String("delimiter '|'"),
 //					DataTableColumns: pulumi.String("test-col"),
 //					S3BackupMode:     pulumi.String("Enabled"),
+//					S3Configuration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs{
+//						RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
+//						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						BufferingSize:     pulumi.Int(10),
+//						BufferingInterval: pulumi.Int(400),
+//						CompressionFormat: pulumi.String("GZIP"),
+//					},
 //					S3BackupConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs{
 //						RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
 //						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
-//						BufferSize:        pulumi.Int(15),
-//						BufferInterval:    pulumi.Int(300),
+//						BufferingSize:     pulumi.Int(15),
+//						BufferingInterval: pulumi.Int(300),
 //						CompressionFormat: pulumi.String("GZIP"),
 //					},
 //				},
@@ -366,18 +297,18 @@ import (
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
 //				Destination: pulumi.String("elasticsearch"),
-//				S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-//					RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//					BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
-//					BufferSize:        pulumi.Int(10),
-//					BufferInterval:    pulumi.Int(400),
-//					CompressionFormat: pulumi.String("GZIP"),
-//				},
 //				ElasticsearchConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs{
 //					DomainArn: testCluster.Arn,
 //					RoleArn:   pulumi.Any(aws_iam_role.Firehose_role.Arn),
 //					IndexName: pulumi.String("test"),
 //					TypeName:  pulumi.String("test"),
+//					S3Configuration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs{
+//						RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
+//						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						BufferingSize:     pulumi.Int(10),
+//						BufferingInterval: pulumi.Int(400),
+//						CompressionFormat: pulumi.String("GZIP"),
+//					},
 //					ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs{
 //						Enabled: pulumi.Bool(true),
 //						Processors: kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArray{
@@ -486,15 +417,15 @@ import (
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test", &kinesis.FirehoseDeliveryStreamArgs{
 //				Destination: pulumi.String("elasticsearch"),
-//				S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-//					RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
-//					BucketArn: pulumi.Any(aws_s3_bucket.Bucket.Arn),
-//				},
 //				ElasticsearchConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs{
 //					DomainArn: testCluster.Arn,
 //					RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
 //					IndexName: pulumi.String("test"),
 //					TypeName:  pulumi.String("test"),
+//					S3Configuration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs{
+//						RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
+//						BucketArn: pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//					},
 //					VpcConfig: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs{
 //						SubnetIds: pulumi.StringArray{
 //							aws_subnet.First.Id,
@@ -540,17 +471,17 @@ import (
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
 //				Destination: pulumi.String("opensearch"),
-//				S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-//					RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
-//					BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
-//					BufferSize:        pulumi.Int(10),
-//					BufferInterval:    pulumi.Int(400),
-//					CompressionFormat: pulumi.String("GZIP"),
-//				},
 //				OpensearchConfiguration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs{
 //					DomainArn: testCluster.Arn,
 //					RoleArn:   pulumi.Any(aws_iam_role.Firehose_role.Arn),
 //					IndexName: pulumi.String("test"),
+//					S3Configuration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs{
+//						RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
+//						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						BufferingSize:     pulumi.Int(10),
+//						BufferingInterval: pulumi.Int(400),
+//						CompressionFormat: pulumi.String("GZIP"),
+//					},
 //					ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs{
 //						Enabled: pulumi.Bool(true),
 //						Processors: kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArray{
@@ -662,14 +593,14 @@ import (
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test", &kinesis.FirehoseDeliveryStreamArgs{
 //				Destination: pulumi.String("opensearch"),
-//				S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-//					RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
-//					BucketArn: pulumi.Any(aws_s3_bucket.Bucket.Arn),
-//				},
 //				OpensearchConfiguration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs{
 //					DomainArn: testCluster.Arn,
 //					RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
 //					IndexName: pulumi.String("test"),
+//					S3Configuration: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs{
+//						RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
+//						BucketArn: pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//					},
 //					VpcConfig: &kinesis.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs{
 //						SubnetIds: pulumi.StringArray{
 //							aws_subnet.First.Id,
@@ -708,19 +639,19 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
 //				Destination: pulumi.String("splunk"),
-//				S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-//					RoleArn:           pulumi.Any(aws_iam_role.Firehose.Arn),
-//					BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
-//					BufferSize:        pulumi.Int(10),
-//					BufferInterval:    pulumi.Int(400),
-//					CompressionFormat: pulumi.String("GZIP"),
-//				},
 //				SplunkConfiguration: &kinesis.FirehoseDeliveryStreamSplunkConfigurationArgs{
 //					HecEndpoint:              pulumi.String("https://http-inputs-mydomain.splunkcloud.com:443"),
 //					HecToken:                 pulumi.String("51D4DA16-C61B-4F5F-8EC7-ED4301342A4A"),
 //					HecAcknowledgmentTimeout: pulumi.Int(600),
 //					HecEndpointType:          pulumi.String("Event"),
 //					S3BackupMode:             pulumi.String("FailedEventsOnly"),
+//					S3Configuration: &kinesis.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs{
+//						RoleArn:           pulumi.Any(aws_iam_role.Firehose.Arn),
+//						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						BufferingSize:     pulumi.Int(10),
+//						BufferingInterval: pulumi.Int(400),
+//						CompressionFormat: pulumi.String("GZIP"),
+//					},
 //				},
 //			})
 //			if err != nil {
@@ -747,13 +678,6 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kinesis.NewFirehoseDeliveryStream(ctx, "testStream", &kinesis.FirehoseDeliveryStreamArgs{
 //				Destination: pulumi.String("http_endpoint"),
-//				S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
-//					RoleArn:           pulumi.Any(aws_iam_role.Firehose.Arn),
-//					BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
-//					BufferSize:        pulumi.Int(10),
-//					BufferInterval:    pulumi.Int(400),
-//					CompressionFormat: pulumi.String("GZIP"),
-//				},
 //				HttpEndpointConfiguration: &kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationArgs{
 //					Url:               pulumi.String("https://aws-api.newrelic.com/firehose/v1"),
 //					Name:              pulumi.String("New Relic"),
@@ -762,6 +686,13 @@ import (
 //					BufferingInterval: pulumi.Int(600),
 //					RoleArn:           pulumi.Any(aws_iam_role.Firehose.Arn),
 //					S3BackupMode:      pulumi.String("FailedDataOnly"),
+//					S3Configuration: &kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs{
+//						RoleArn:           pulumi.Any(aws_iam_role.Firehose.Arn),
+//						BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+//						BufferingSize:     pulumi.Int(10),
+//						BufferingInterval: pulumi.Int(400),
+//						CompressionFormat: pulumi.String("GZIP"),
+//					},
 //					RequestConfiguration: &kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs{
 //						ContentEncoding: pulumi.String("GZIP"),
 //						CommonAttributes: kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArray{
@@ -803,6 +734,7 @@ type FirehoseDeliveryStream struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
+	// is redshift). More details are given below.
 	Destination   pulumi.StringOutput `pulumi:"destination"`
 	DestinationId pulumi.StringOutput `pulumi:"destinationId"`
 	// Configuration options if elasticsearch is the destination. More details are given below.
@@ -821,9 +753,6 @@ type FirehoseDeliveryStream struct {
 	// Using `redshiftConfiguration` requires the user to also specify a
 	// `s3Configuration` block. More details are given below.
 	RedshiftConfiguration FirehoseDeliveryStreamRedshiftConfigurationPtrOutput `pulumi:"redshiftConfiguration"`
-	// Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-	// is redshift). More details are given below.
-	S3Configuration FirehoseDeliveryStreamS3ConfigurationPtrOutput `pulumi:"s3Configuration"`
 	// Encrypt at rest options.
 	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrOutput `pulumi:"serverSideEncryption"`
@@ -872,6 +801,7 @@ type firehoseDeliveryStreamState struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn *string `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
+	// is redshift). More details are given below.
 	Destination   *string `pulumi:"destination"`
 	DestinationId *string `pulumi:"destinationId"`
 	// Configuration options if elasticsearch is the destination. More details are given below.
@@ -890,9 +820,6 @@ type firehoseDeliveryStreamState struct {
 	// Using `redshiftConfiguration` requires the user to also specify a
 	// `s3Configuration` block. More details are given below.
 	RedshiftConfiguration *FirehoseDeliveryStreamRedshiftConfiguration `pulumi:"redshiftConfiguration"`
-	// Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-	// is redshift). More details are given below.
-	S3Configuration *FirehoseDeliveryStreamS3Configuration `pulumi:"s3Configuration"`
 	// Encrypt at rest options.
 	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
@@ -910,6 +837,7 @@ type FirehoseDeliveryStreamState struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn pulumi.StringPtrInput
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
+	// is redshift). More details are given below.
 	Destination   pulumi.StringPtrInput
 	DestinationId pulumi.StringPtrInput
 	// Configuration options if elasticsearch is the destination. More details are given below.
@@ -928,9 +856,6 @@ type FirehoseDeliveryStreamState struct {
 	// Using `redshiftConfiguration` requires the user to also specify a
 	// `s3Configuration` block. More details are given below.
 	RedshiftConfiguration FirehoseDeliveryStreamRedshiftConfigurationPtrInput
-	// Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-	// is redshift). More details are given below.
-	S3Configuration FirehoseDeliveryStreamS3ConfigurationPtrInput
 	// Encrypt at rest options.
 	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
@@ -952,6 +877,7 @@ type firehoseDeliveryStreamArgs struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn *string `pulumi:"arn"`
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
+	// is redshift). More details are given below.
 	Destination   string  `pulumi:"destination"`
 	DestinationId *string `pulumi:"destinationId"`
 	// Configuration options if elasticsearch is the destination. More details are given below.
@@ -970,9 +896,6 @@ type firehoseDeliveryStreamArgs struct {
 	// Using `redshiftConfiguration` requires the user to also specify a
 	// `s3Configuration` block. More details are given below.
 	RedshiftConfiguration *FirehoseDeliveryStreamRedshiftConfiguration `pulumi:"redshiftConfiguration"`
-	// Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-	// is redshift). More details are given below.
-	S3Configuration *FirehoseDeliveryStreamS3Configuration `pulumi:"s3Configuration"`
 	// Encrypt at rest options.
 	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption *FirehoseDeliveryStreamServerSideEncryption `pulumi:"serverSideEncryption"`
@@ -989,6 +912,7 @@ type FirehoseDeliveryStreamArgs struct {
 	// The Amazon Resource Name (ARN) specifying the Stream
 	Arn pulumi.StringPtrInput
 	// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
+	// is redshift). More details are given below.
 	Destination   pulumi.StringInput
 	DestinationId pulumi.StringPtrInput
 	// Configuration options if elasticsearch is the destination. More details are given below.
@@ -1007,9 +931,6 @@ type FirehoseDeliveryStreamArgs struct {
 	// Using `redshiftConfiguration` requires the user to also specify a
 	// `s3Configuration` block. More details are given below.
 	RedshiftConfiguration FirehoseDeliveryStreamRedshiftConfigurationPtrInput
-	// Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-	// is redshift). More details are given below.
-	S3Configuration FirehoseDeliveryStreamS3ConfigurationPtrInput
 	// Encrypt at rest options.
 	// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
 	ServerSideEncryption FirehoseDeliveryStreamServerSideEncryptionPtrInput
@@ -1114,6 +1035,7 @@ func (o FirehoseDeliveryStreamOutput) Arn() pulumi.StringOutput {
 }
 
 // This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint` and `opensearch`.
+// is redshift). More details are given below.
 func (o FirehoseDeliveryStreamOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStream) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
 }
@@ -1169,14 +1091,6 @@ func (o FirehoseDeliveryStreamOutput) RedshiftConfiguration() FirehoseDeliverySt
 	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamRedshiftConfigurationPtrOutput {
 		return v.RedshiftConfiguration
 	}).(FirehoseDeliveryStreamRedshiftConfigurationPtrOutput)
-}
-
-// Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-// is redshift). More details are given below.
-func (o FirehoseDeliveryStreamOutput) S3Configuration() FirehoseDeliveryStreamS3ConfigurationPtrOutput {
-	return o.ApplyT(func(v *FirehoseDeliveryStream) FirehoseDeliveryStreamS3ConfigurationPtrOutput {
-		return v.S3Configuration
-	}).(FirehoseDeliveryStreamS3ConfigurationPtrOutput)
 }
 
 // Encrypt at rest options.

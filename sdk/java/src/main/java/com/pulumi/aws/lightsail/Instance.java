@@ -311,24 +311,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipAddressType);
     }
     /**
-     * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
-     * 
-     * @deprecated
-     * use `ipv6_addresses` attribute instead
-     * 
-     */
-    @Deprecated /* use `ipv6_addresses` attribute instead */
-    @Export(name="ipv6Address", refs={String.class}, tree="[0]")
-    private Output<String> ipv6Address;
-
-    /**
-     * @return (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
-     * 
-     */
-    public Output<String> ipv6Address() {
-        return this.ipv6Address;
-    }
-    /**
      * List of IPv6 addresses for the Lightsail instance.
      * 
      */

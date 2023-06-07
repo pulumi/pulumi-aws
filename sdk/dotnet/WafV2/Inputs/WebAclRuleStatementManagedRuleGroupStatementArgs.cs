@@ -12,19 +12,6 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclRuleStatementManagedRuleGroupStatementArgs : global::Pulumi.ResourceArgs
     {
-        [Input("excludedRules")]
-        private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>? _excludedRules;
-
-        /// <summary>
-        /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
-        /// </summary>
-        [Obsolete(@"Use rule_action_override instead")]
-        public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs> ExcludedRules
-        {
-            get => _excludedRules ?? (_excludedRules = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>());
-            set => _excludedRules = value;
-        }
-
         [Input("managedRuleGroupConfigs")]
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>? _managedRuleGroupConfigs;
 

@@ -52,8 +52,8 @@ class GetConnectionResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if vlan_id and not isinstance(vlan_id, str):
-            raise TypeError("Expected argument 'vlan_id' to be a str")
+        if vlan_id and not isinstance(vlan_id, int):
+            raise TypeError("Expected argument 'vlan_id' to be a int")
         pulumi.set(__self__, "vlan_id", vlan_id)
 
     @property
@@ -135,7 +135,7 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> str:
+    def vlan_id(self) -> int:
         """
         The VLAN ID.
         """

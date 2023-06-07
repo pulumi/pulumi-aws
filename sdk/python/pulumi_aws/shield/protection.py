@@ -177,7 +177,7 @@ class Protection(pulumi.CustomResource):
         available = aws.get_availability_zones()
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
-        example_eip = aws.ec2.Eip("exampleEip", vpc=True)
+        example_eip = aws.ec2.Eip("exampleEip", domain="vpc")
         example_protection = aws.shield.Protection("exampleProtection",
             resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"),
             tags={
@@ -219,7 +219,7 @@ class Protection(pulumi.CustomResource):
         available = aws.get_availability_zones()
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
-        example_eip = aws.ec2.Eip("exampleEip", vpc=True)
+        example_eip = aws.ec2.Eip("exampleEip", domain="vpc")
         example_protection = aws.shield.Protection("exampleProtection",
             resource_arn=example_eip.id.apply(lambda id: f"arn:aws:ec2:{current_region.name}:{current_caller_identity.account_id}:eip-allocation/{id}"),
             tags={

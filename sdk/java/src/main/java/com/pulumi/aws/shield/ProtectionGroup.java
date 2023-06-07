@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
  *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
- *             .vpc(true)
+ *             .domain(&#34;vpc&#34;)
  *             .build());
  * 
  *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        

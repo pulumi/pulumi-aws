@@ -14,6 +14,9 @@ import (
 // Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
 // instances to be requested on the Spot market.
 //
+// > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+// We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+//
 // ## Example Usage
 // ### Using launch specifications
 //
@@ -128,61 +131,65 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
 // )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
-//				VpcId: _var.Vpc_id,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "fooLaunchTemplate", &ec2.LaunchTemplateArgs{
-//				ImageId:      pulumi.String("ami-516b9131"),
-//				InstanceType: pulumi.String("m1.small"),
-//				KeyName:      pulumi.String("some-key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSpotFleetRequest(ctx, "fooSpotFleetRequest", &ec2.SpotFleetRequestArgs{
-//				IamFleetRole:   pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
-//				SpotPrice:      pulumi.String("0.005"),
-//				TargetCapacity: pulumi.Int(2),
-//				ValidUntil:     pulumi.String("2019-11-04T20:44:20Z"),
-//				LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
-//					&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
-//						LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-//							Id:      fooLaunchTemplate.ID(),
-//							Version: fooLaunchTemplate.LatestVersion,
-//						},
-//						Overrides: ec2.SpotFleetRequestLaunchTemplateConfigOverrideArray{
-//							&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-//								SubnetId: pulumi.Any(data.Aws_subnets.Example.Ids[0]),
-//							},
-//							&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-//								SubnetId: pulumi.Any(data.Aws_subnets.Example.Ids[1]),
-//							},
-//							&ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-//								SubnetId: pulumi.Any(data.Aws_subnets.Example.Ids[2]),
-//							},
-//						},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				aws_iam_policy_attachment.TestAttach,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+// Filters: []ec2.GetSubnetsFilter{
+// {
+// Name: "vpc-id",
+// Values: interface{}{
+// _var.Vpc_id,
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// fooLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "fooLaunchTemplate", &ec2.LaunchTemplateArgs{
+// ImageId: pulumi.String("ami-516b9131"),
+// InstanceType: pulumi.String("m1.small"),
+// KeyName: pulumi.String("some-key"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = ec2.NewSpotFleetRequest(ctx, "fooSpotFleetRequest", &ec2.SpotFleetRequestArgs{
+// IamFleetRole: pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
+// SpotPrice: pulumi.String("0.005"),
+// TargetCapacity: pulumi.Int(2),
+// ValidUntil: pulumi.String("2019-11-04T20:44:20Z"),
+// LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
+// &ec2.SpotFleetRequestLaunchTemplateConfigArgs{
+// LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
+// Id: fooLaunchTemplate.ID(),
+// Version: fooLaunchTemplate.LatestVersion,
+// },
+// Overrides: ec2.SpotFleetRequestLaunchTemplateConfigOverrideArray{
+// &ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
+// SubnetId: *pulumi.String(example.Ids[0]),
+// },
+// &ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
+// SubnetId: *pulumi.String(example.Ids[1]),
+// },
+// &ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
+// SubnetId: *pulumi.String(example.Ids[2]),
+// },
+// },
+// },
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_iam_policy_attachment.TestAttach,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
 // ```
 //
 // ## Import

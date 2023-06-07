@@ -205,11 +205,17 @@ import * as utilities from "../utilities";
  *         statement: {
  *             ruleGroupReferenceStatement: {
  *                 arn: example.arn,
- *                 excludedRules: [
+ *                 ruleActionOverrides: [
  *                     {
+ *                         actionToUse: {
+ *                             count: {},
+ *                         },
  *                         name: "rule-to-exclude-b",
  *                     },
  *                     {
+ *                         actionToUse: {
+ *                             count: {},
+ *                         },
  *                         name: "rule-to-exclude-a",
  *                     },
  *                 ],

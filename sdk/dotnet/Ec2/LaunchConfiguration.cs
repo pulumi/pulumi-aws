@@ -368,18 +368,6 @@ namespace Pulumi.Aws.Ec2
         [Output("userDataBase64")]
         public Output<string?> UserDataBase64 { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        /// </summary>
-        [Output("vpcClassicLinkId")]
-        public Output<string?> VpcClassicLinkId { get; private set; } = null!;
-
-        /// <summary>
-        /// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        /// </summary>
-        [Output("vpcClassicLinkSecurityGroups")]
-        public Output<ImmutableArray<string>> VpcClassicLinkSecurityGroups { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a LaunchConfiguration resource with the given unique name, arguments, and options.
@@ -554,25 +542,6 @@ namespace Pulumi.Aws.Ec2
         [Input("userDataBase64")]
         public Input<string>? UserDataBase64 { get; set; }
 
-        /// <summary>
-        /// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        /// </summary>
-        [Input("vpcClassicLinkId")]
-        public Input<string>? VpcClassicLinkId { get; set; }
-
-        [Input("vpcClassicLinkSecurityGroups")]
-        private InputList<string>? _vpcClassicLinkSecurityGroups;
-
-        /// <summary>
-        /// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        /// </summary>
-        [Obsolete(@"With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.")]
-        public InputList<string> VpcClassicLinkSecurityGroups
-        {
-            get => _vpcClassicLinkSecurityGroups ?? (_vpcClassicLinkSecurityGroups = new InputList<string>());
-            set => _vpcClassicLinkSecurityGroups = value;
-        }
-
         public LaunchConfigurationArgs()
         {
         }
@@ -714,25 +683,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("userDataBase64")]
         public Input<string>? UserDataBase64 { get; set; }
-
-        /// <summary>
-        /// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-        /// </summary>
-        [Input("vpcClassicLinkId")]
-        public Input<string>? VpcClassicLinkId { get; set; }
-
-        [Input("vpcClassicLinkSecurityGroups")]
-        private InputList<string>? _vpcClassicLinkSecurityGroups;
-
-        /// <summary>
-        /// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-        /// </summary>
-        [Obsolete(@"With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.")]
-        public InputList<string> VpcClassicLinkSecurityGroups
-        {
-            get => _vpcClassicLinkSecurityGroups ?? (_vpcClassicLinkSecurityGroups = new InputList<string>());
-            set => _vpcClassicLinkSecurityGroups = value;
-        }
 
         public LaunchConfigurationState()
         {

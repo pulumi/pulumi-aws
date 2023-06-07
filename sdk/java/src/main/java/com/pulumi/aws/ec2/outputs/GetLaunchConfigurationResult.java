@@ -105,24 +105,6 @@ public final class GetLaunchConfigurationResult {
      * 
      */
     private String userData;
-    /**
-     * @return ID of a ClassicLink-enabled VPC.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version. */
-    private String vpcClassicLinkId;
-    /**
-     * @return The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version. */
-    private List<String> vpcClassicLinkSecurityGroups;
 
     private GetLaunchConfigurationResult() {}
     /**
@@ -251,28 +233,6 @@ public final class GetLaunchConfigurationResult {
     public String userData() {
         return this.userData;
     }
-    /**
-     * @return ID of a ClassicLink-enabled VPC.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version. */
-    public String vpcClassicLinkId() {
-        return this.vpcClassicLinkId;
-    }
-    /**
-     * @return The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version. */
-    public List<String> vpcClassicLinkSecurityGroups() {
-        return this.vpcClassicLinkSecurityGroups;
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -301,8 +261,6 @@ public final class GetLaunchConfigurationResult {
         private List<String> securityGroups;
         private String spotPrice;
         private String userData;
-        private String vpcClassicLinkId;
-        private List<String> vpcClassicLinkSecurityGroups;
         public Builder() {}
         public Builder(GetLaunchConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -324,8 +282,6 @@ public final class GetLaunchConfigurationResult {
     	      this.securityGroups = defaults.securityGroups;
     	      this.spotPrice = defaults.spotPrice;
     	      this.userData = defaults.userData;
-    	      this.vpcClassicLinkId = defaults.vpcClassicLinkId;
-    	      this.vpcClassicLinkSecurityGroups = defaults.vpcClassicLinkSecurityGroups;
         }
 
         @CustomType.Setter
@@ -433,19 +389,6 @@ public final class GetLaunchConfigurationResult {
             this.userData = Objects.requireNonNull(userData);
             return this;
         }
-        @CustomType.Setter
-        public Builder vpcClassicLinkId(String vpcClassicLinkId) {
-            this.vpcClassicLinkId = Objects.requireNonNull(vpcClassicLinkId);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder vpcClassicLinkSecurityGroups(List<String> vpcClassicLinkSecurityGroups) {
-            this.vpcClassicLinkSecurityGroups = Objects.requireNonNull(vpcClassicLinkSecurityGroups);
-            return this;
-        }
-        public Builder vpcClassicLinkSecurityGroups(String... vpcClassicLinkSecurityGroups) {
-            return vpcClassicLinkSecurityGroups(List.of(vpcClassicLinkSecurityGroups));
-        }
         public GetLaunchConfigurationResult build() {
             final var o = new GetLaunchConfigurationResult();
             o.arn = arn;
@@ -466,8 +409,6 @@ public final class GetLaunchConfigurationResult {
             o.securityGroups = securityGroups;
             o.spotPrice = spotPrice;
             o.userData = userData;
-            o.vpcClassicLinkId = vpcClassicLinkId;
-            o.vpcClassicLinkSecurityGroups = vpcClassicLinkSecurityGroups;
             return o;
         }
     }

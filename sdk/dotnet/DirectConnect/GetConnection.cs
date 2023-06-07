@@ -165,7 +165,7 @@ namespace Pulumi.Aws.DirectConnect
         /// <summary>
         /// The VLAN ID.
         /// </summary>
-        public readonly string VlanId;
+        public readonly int VlanId;
 
         [OutputConstructor]
         private GetConnectionResult(
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.DirectConnect
 
             ImmutableDictionary<string, string> tags,
 
-            string vlanId)
+            int vlanId)
         {
             Arn = arn;
             AwsDevice = awsDevice;

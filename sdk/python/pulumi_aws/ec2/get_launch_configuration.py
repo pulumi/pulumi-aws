@@ -22,7 +22,7 @@ class GetLaunchConfigurationResult:
     """
     A collection of values returned by getLaunchConfiguration.
     """
-    def __init__(__self__, arn=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, id=None, image_id=None, instance_type=None, key_name=None, metadata_options=None, name=None, placement_tenancy=None, root_block_devices=None, security_groups=None, spot_price=None, user_data=None, vpc_classic_link_id=None, vpc_classic_link_security_groups=None):
+    def __init__(__self__, arn=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, id=None, image_id=None, instance_type=None, key_name=None, metadata_options=None, name=None, placement_tenancy=None, root_block_devices=None, security_groups=None, spot_price=None, user_data=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -77,20 +77,6 @@ class GetLaunchConfigurationResult:
         if user_data and not isinstance(user_data, str):
             raise TypeError("Expected argument 'user_data' to be a str")
         pulumi.set(__self__, "user_data", user_data)
-        if vpc_classic_link_id and not isinstance(vpc_classic_link_id, str):
-            raise TypeError("Expected argument 'vpc_classic_link_id' to be a str")
-        if vpc_classic_link_id is not None:
-            warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""vpc_classic_link_id is deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""")
-
-        pulumi.set(__self__, "vpc_classic_link_id", vpc_classic_link_id)
-        if vpc_classic_link_security_groups and not isinstance(vpc_classic_link_security_groups, list):
-            raise TypeError("Expected argument 'vpc_classic_link_security_groups' to be a list")
-        if vpc_classic_link_security_groups is not None:
-            warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""vpc_classic_link_security_groups is deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""")
-
-        pulumi.set(__self__, "vpc_classic_link_security_groups", vpc_classic_link_security_groups)
 
     @property
     @pulumi.getter
@@ -236,22 +222,6 @@ class GetLaunchConfigurationResult:
         """
         return pulumi.get(self, "user_data")
 
-    @property
-    @pulumi.getter(name="vpcClassicLinkId")
-    def vpc_classic_link_id(self) -> str:
-        """
-        ID of a ClassicLink-enabled VPC.
-        """
-        return pulumi.get(self, "vpc_classic_link_id")
-
-    @property
-    @pulumi.getter(name="vpcClassicLinkSecurityGroups")
-    def vpc_classic_link_security_groups(self) -> Sequence[str]:
-        """
-        The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
-        """
-        return pulumi.get(self, "vpc_classic_link_security_groups")
-
 
 class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
     # pylint: disable=using-constant-test
@@ -276,9 +246,7 @@ class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
             root_block_devices=self.root_block_devices,
             security_groups=self.security_groups,
             spot_price=self.spot_price,
-            user_data=self.user_data,
-            vpc_classic_link_id=self.vpc_classic_link_id,
-            vpc_classic_link_security_groups=self.vpc_classic_link_security_groups)
+            user_data=self.user_data)
 
 
 def get_launch_configuration(name: Optional[str] = None,
@@ -321,9 +289,7 @@ def get_launch_configuration(name: Optional[str] = None,
         root_block_devices=__ret__.root_block_devices,
         security_groups=__ret__.security_groups,
         spot_price=__ret__.spot_price,
-        user_data=__ret__.user_data,
-        vpc_classic_link_id=__ret__.vpc_classic_link_id,
-        vpc_classic_link_security_groups=__ret__.vpc_classic_link_security_groups)
+        user_data=__ret__.user_data)
 
 
 @_utilities.lift_output_func(get_launch_configuration)

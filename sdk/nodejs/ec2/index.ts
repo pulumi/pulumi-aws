@@ -334,11 +334,6 @@ export const getSubnet: typeof import("./getSubnet").getSubnet = null as any;
 export const getSubnetOutput: typeof import("./getSubnet").getSubnetOutput = null as any;
 utilities.lazyLoad(exports, ["getSubnet","getSubnetOutput"], () => require("./getSubnet"));
 
-export { GetSubnetIdsArgs, GetSubnetIdsResult, GetSubnetIdsOutputArgs } from "./getSubnetIds";
-export const getSubnetIds: typeof import("./getSubnetIds").getSubnetIds = null as any;
-export const getSubnetIdsOutput: typeof import("./getSubnetIds").getSubnetIdsOutput = null as any;
-utilities.lazyLoad(exports, ["getSubnetIds","getSubnetIdsOutput"], () => require("./getSubnetIds"));
-
 export { GetSubnetsArgs, GetSubnetsResult, GetSubnetsOutputArgs } from "./getSubnets";
 export const getSubnets: typeof import("./getSubnets").getSubnets = null as any;
 export const getSubnetsOutput: typeof import("./getSubnets").getSubnetsOutput = null as any;

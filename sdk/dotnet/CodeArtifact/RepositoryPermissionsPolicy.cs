@@ -59,11 +59,11 @@ namespace Pulumi.Aws.CodeArtifact
     ///                 },
     ///                 Actions = new[]
     ///                 {
-    ///                     "codeartifact:CreateRepository",
+    ///                     "codeartifact:ReadFromRepository",
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     exampleDomain.Arn,
+    ///                     exampleRepository.Arn,
     ///                 },
     ///             },
     ///         },

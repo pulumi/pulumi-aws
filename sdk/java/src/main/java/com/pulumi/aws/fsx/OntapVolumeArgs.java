@@ -23,15 +23,15 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
      * Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
      * 
      */
-    @Import(name="junctionPath", required=true)
-    private Output<String> junctionPath;
+    @Import(name="junctionPath")
+    private @Nullable Output<String> junctionPath;
 
     /**
      * @return Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
      * 
      */
-    public Output<String> junctionPath() {
-        return this.junctionPath;
+    public Optional<Output<String>> junctionPath() {
+        return Optional.ofNullable(this.junctionPath);
     }
 
     /**
@@ -50,14 +50,29 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * 
+     */
+    @Import(name="ontapVolumeType")
+    private @Nullable Output<String> ontapVolumeType;
+
+    /**
+     * @return Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * 
+     */
+    public Optional<Output<String>> ontapVolumeType() {
+        return Optional.ofNullable(this.ontapVolumeType);
+    }
+
+    /**
+     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
     @Import(name="securityStyle")
     private @Nullable Output<String> securityStyle;
 
     /**
-     * @return Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * @return Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
     public Optional<Output<String>> securityStyle() {
@@ -80,18 +95,33 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    @Import(name="skipFinalBackup")
+    private @Nullable Output<Boolean> skipFinalBackup;
+
+    /**
+     * @return When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> skipFinalBackup() {
+        return Optional.ofNullable(this.skipFinalBackup);
+    }
+
+    /**
      * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
      * 
      */
-    @Import(name="storageEfficiencyEnabled", required=true)
-    private Output<Boolean> storageEfficiencyEnabled;
+    @Import(name="storageEfficiencyEnabled")
+    private @Nullable Output<Boolean> storageEfficiencyEnabled;
 
     /**
      * @return Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
      * 
      */
-    public Output<Boolean> storageEfficiencyEnabled() {
-        return this.storageEfficiencyEnabled;
+    public Optional<Output<Boolean>> storageEfficiencyEnabled() {
+        return Optional.ofNullable(this.storageEfficiencyEnabled);
     }
 
     /**
@@ -151,8 +181,10 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     private OntapVolumeArgs(OntapVolumeArgs $) {
         this.junctionPath = $.junctionPath;
         this.name = $.name;
+        this.ontapVolumeType = $.ontapVolumeType;
         this.securityStyle = $.securityStyle;
         this.sizeInMegabytes = $.sizeInMegabytes;
+        this.skipFinalBackup = $.skipFinalBackup;
         this.storageEfficiencyEnabled = $.storageEfficiencyEnabled;
         this.storageVirtualMachineId = $.storageVirtualMachineId;
         this.tags = $.tags;
@@ -184,7 +216,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder junctionPath(Output<String> junctionPath) {
+        public Builder junctionPath(@Nullable Output<String> junctionPath) {
             $.junctionPath = junctionPath;
             return this;
         }
@@ -221,7 +253,28 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityStyle Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+         * @param ontapVolumeType Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ontapVolumeType(@Nullable Output<String> ontapVolumeType) {
+            $.ontapVolumeType = ontapVolumeType;
+            return this;
+        }
+
+        /**
+         * @param ontapVolumeType Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ontapVolumeType(String ontapVolumeType) {
+            return ontapVolumeType(Output.of(ontapVolumeType));
+        }
+
+        /**
+         * @param securityStyle Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
          * 
          * @return builder
          * 
@@ -232,7 +285,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityStyle Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+         * @param securityStyle Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
          * 
          * @return builder
          * 
@@ -263,12 +316,33 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param skipFinalBackup When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalBackup(@Nullable Output<Boolean> skipFinalBackup) {
+            $.skipFinalBackup = skipFinalBackup;
+            return this;
+        }
+
+        /**
+         * @param skipFinalBackup When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalBackup(Boolean skipFinalBackup) {
+            return skipFinalBackup(Output.of(skipFinalBackup));
+        }
+
+        /**
          * @param storageEfficiencyEnabled Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
          * 
          * @return builder
          * 
          */
-        public Builder storageEfficiencyEnabled(Output<Boolean> storageEfficiencyEnabled) {
+        public Builder storageEfficiencyEnabled(@Nullable Output<Boolean> storageEfficiencyEnabled) {
             $.storageEfficiencyEnabled = storageEfficiencyEnabled;
             return this;
         }
@@ -356,9 +430,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OntapVolumeArgs build() {
-            $.junctionPath = Objects.requireNonNull($.junctionPath, "expected parameter 'junctionPath' to be non-null");
             $.sizeInMegabytes = Objects.requireNonNull($.sizeInMegabytes, "expected parameter 'sizeInMegabytes' to be non-null");
-            $.storageEfficiencyEnabled = Objects.requireNonNull($.storageEfficiencyEnabled, "expected parameter 'storageEfficiencyEnabled' to be non-null");
             $.storageVirtualMachineId = Objects.requireNonNull($.storageVirtualMachineId, "expected parameter 'storageVirtualMachineId' to be non-null");
             return $;
         }

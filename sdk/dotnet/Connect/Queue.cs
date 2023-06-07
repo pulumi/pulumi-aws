@@ -161,9 +161,6 @@ namespace Pulumi.Aws.Connect
         [Output("quickConnectIds")]
         public Output<ImmutableArray<string>> QuickConnectIds { get; private set; } = null!;
 
-        [Output("quickConnectIdsAssociateds")]
-        public Output<ImmutableArray<string>> QuickConnectIdsAssociateds { get; private set; } = null!;
-
         /// <summary>
         /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         /// </summary>
@@ -360,15 +357,6 @@ namespace Pulumi.Aws.Connect
         {
             get => _quickConnectIds ?? (_quickConnectIds = new InputList<string>());
             set => _quickConnectIds = value;
-        }
-
-        [Input("quickConnectIdsAssociateds")]
-        private InputList<string>? _quickConnectIdsAssociateds;
-        [Obsolete(@"Use the quick_connect_ids instead")]
-        public InputList<string> QuickConnectIdsAssociateds
-        {
-            get => _quickConnectIdsAssociateds ?? (_quickConnectIdsAssociateds = new InputList<string>());
-            set => _quickConnectIdsAssociateds = value;
         }
 
         /// <summary>

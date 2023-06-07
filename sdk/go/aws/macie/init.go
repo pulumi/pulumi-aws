@@ -25,10 +25,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomDataIdentifier{}
 	case "aws:macie/findingsFilter:FindingsFilter":
 		r = &FindingsFilter{}
-	case "aws:macie/memberAccountAssociation:MemberAccountAssociation":
-		r = &MemberAccountAssociation{}
-	case "aws:macie/s3BucketAssociation:S3BucketAssociation":
-		r = &S3BucketAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -50,16 +46,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"macie/findingsFilter",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"macie/memberAccountAssociation",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"macie/s3BucketAssociation",
 		&module{version},
 	)
 }

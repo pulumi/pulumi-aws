@@ -267,18 +267,6 @@ public class Queue extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.quickConnectIds);
     }
     /**
-     * @deprecated
-     * Use the quick_connect_ids instead
-     * 
-     */
-    @Deprecated /* Use the quick_connect_ids instead */
-    @Export(name="quickConnectIdsAssociateds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> quickConnectIdsAssociateds;
-
-    public Output<List<String>> quickConnectIdsAssociateds() {
-        return this.quickConnectIdsAssociateds;
-    }
-    /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      * 
      */

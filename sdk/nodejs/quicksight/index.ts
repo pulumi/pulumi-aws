@@ -10,6 +10,16 @@ export type AccountSubscription = import("./accountSubscription").AccountSubscri
 export const AccountSubscription: typeof import("./accountSubscription").AccountSubscription = null as any;
 utilities.lazyLoad(exports, ["AccountSubscription"], () => require("./accountSubscription"));
 
+export { AnalysisArgs, AnalysisState } from "./analysis";
+export type Analysis = import("./analysis").Analysis;
+export const Analysis: typeof import("./analysis").Analysis = null as any;
+utilities.lazyLoad(exports, ["Analysis"], () => require("./analysis"));
+
+export { DashboardArgs, DashboardState } from "./dashboard";
+export type Dashboard = import("./dashboard").Dashboard;
+export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
+
 export { DataSetArgs, DataSetState } from "./dataSet";
 export type DataSet = import("./dataSet").DataSet;
 export const DataSet: typeof import("./dataSet").DataSet = null as any;
@@ -67,6 +77,10 @@ const _module = {
         switch (type) {
             case "aws:quicksight/accountSubscription:AccountSubscription":
                 return new AccountSubscription(name, <any>undefined, { urn })
+            case "aws:quicksight/analysis:Analysis":
+                return new Analysis(name, <any>undefined, { urn })
+            case "aws:quicksight/dashboard:Dashboard":
+                return new Dashboard(name, <any>undefined, { urn })
             case "aws:quicksight/dataSet:DataSet":
                 return new DataSet(name, <any>undefined, { urn })
             case "aws:quicksight/dataSource:DataSource":
@@ -87,6 +101,8 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "quicksight/accountSubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/analysis", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/dashboard", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/dataSet", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/dataSource", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/folder", _module)

@@ -21,7 +21,6 @@ __all__ = [
     'ScheduledActionTargetActionPauseCluster',
     'ScheduledActionTargetActionResizeCluster',
     'ScheduledActionTargetActionResumeCluster',
-    'SecurityGroupIngress',
     'GetClusterClusterNodeResult',
 ]
 
@@ -635,70 +634,6 @@ class ScheduledActionTargetActionResumeCluster(dict):
         The identifier of the cluster to be resumed.
         """
         return pulumi.get(self, "cluster_identifier")
-
-
-@pulumi.output_type
-class SecurityGroupIngress(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "securityGroupName":
-            suggest = "security_group_name"
-        elif key == "securityGroupOwnerId":
-            suggest = "security_group_owner_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SecurityGroupIngress. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SecurityGroupIngress.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SecurityGroupIngress.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cidr: Optional[str] = None,
-                 security_group_name: Optional[str] = None,
-                 security_group_owner_id: Optional[str] = None):
-        """
-        :param str cidr: The CIDR block to accept
-        :param str security_group_name: The name of the security group to authorize
-        :param str security_group_owner_id: The owner Id of the security group provided
-               by `security_group_name`.
-        """
-        if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
-        if security_group_name is not None:
-            pulumi.set(__self__, "security_group_name", security_group_name)
-        if security_group_owner_id is not None:
-            pulumi.set(__self__, "security_group_owner_id", security_group_owner_id)
-
-    @property
-    @pulumi.getter
-    def cidr(self) -> Optional[str]:
-        """
-        The CIDR block to accept
-        """
-        return pulumi.get(self, "cidr")
-
-    @property
-    @pulumi.getter(name="securityGroupName")
-    def security_group_name(self) -> Optional[str]:
-        """
-        The name of the security group to authorize
-        """
-        return pulumi.get(self, "security_group_name")
-
-    @property
-    @pulumi.getter(name="securityGroupOwnerId")
-    def security_group_owner_id(self) -> Optional[str]:
-        """
-        The owner Id of the security group provided
-        by `security_group_name`.
-        """
-        return pulumi.get(self, "security_group_owner_id")
 
 
 @pulumi.output_type

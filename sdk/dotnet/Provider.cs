@@ -71,12 +71,6 @@ namespace Pulumi.Aws
         public Output<string?> SecretKey { get; private set; } = null!;
 
         /// <summary>
-        /// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-        /// </summary>
-        [Output("sharedCredentialsFile")]
-        public Output<string?> SharedCredentialsFile { get; private set; } = null!;
-
-        /// <summary>
         /// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
         /// </summary>
         [Output("stsRegion")]
@@ -221,14 +215,6 @@ namespace Pulumi.Aws
         /// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
         /// Specific to the Amazon S3 service.
         /// </summary>
-        [Input("s3ForcePathStyle", json: true)]
-        public Input<bool>? S3ForcePathStyle { get; set; }
-
-        /// <summary>
-        /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-        /// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-        /// Specific to the Amazon S3 service.
-        /// </summary>
         [Input("s3UsePathStyle", json: true)]
         public Input<bool>? S3UsePathStyle { get; set; }
 
@@ -250,12 +236,6 @@ namespace Pulumi.Aws
             set => _sharedConfigFiles = value;
         }
 
-        /// <summary>
-        /// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-        /// </summary>
-        [Input("sharedCredentialsFile")]
-        public Input<string>? SharedCredentialsFile { get; set; }
-
         [Input("sharedCredentialsFiles", json: true)]
         private InputList<string>? _sharedCredentialsFiles;
 
@@ -274,12 +254,6 @@ namespace Pulumi.Aws
         /// </summary>
         [Input("skipCredentialsValidation", json: true)]
         public Input<bool>? SkipCredentialsValidation { get; set; }
-
-        /// <summary>
-        /// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-        /// </summary>
-        [Input("skipGetEc2Platforms", json: true)]
-        public Input<bool>? SkipGetEc2Platforms { get; set; }
 
         /// <summary>
         /// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.

@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .engine(&#34;mysql&#34;)
  *             .engineVersion(&#34;5.6.17&#34;)
  *             .instanceClass(&#34;db.t2.micro&#34;)
- *             .name(&#34;mydb&#34;)
+ *             .dbName(&#34;mydb&#34;)
  *             .username(&#34;foo&#34;)
  *             .password(&#34;bar&#34;)
  *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *         var defaultEventSubscription = new EventSubscription(&#34;defaultEventSubscription&#34;, EventSubscriptionArgs.builder()        
  *             .snsTopic(defaultTopic.arn())
  *             .sourceType(&#34;db-instance&#34;)
- *             .sourceIds(defaultInstance.id())
+ *             .sourceIds(defaultInstance.identifier())
  *             .eventCategories(            
  *                 &#34;availability&#34;,
  *                 &#34;deletion&#34;,

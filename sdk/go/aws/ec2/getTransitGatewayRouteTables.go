@@ -28,11 +28,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetTransitGatewayRouteTables(ctx, nil, nil)
+//			exampleTransitGatewayRouteTables, err := ec2.GetTransitGatewayRouteTables(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", data.Aws_ec2_transit_gateway_route_table.Example.Ids)
+//			ctx.Export("example", exampleTransitGatewayRouteTables.Ids)
 //			return nil
 //		})
 //	}

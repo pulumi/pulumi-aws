@@ -67,12 +67,6 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly secretKey!: pulumi.Output<string | undefined>;
     /**
-     * The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-     *
-     * @deprecated Use shared_credentials_files instead.
-     */
-    public readonly sharedCredentialsFile!: pulumi.Output<string | undefined>;
-    /**
      * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
      */
     public readonly stsRegion!: pulumi.Output<string | undefined>;
@@ -108,14 +102,11 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
             resourceInputs["profile"] = args ? args.profile : undefined;
             resourceInputs["region"] = (args ? args.region : undefined) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
-            resourceInputs["s3ForcePathStyle"] = pulumi.output(args ? args.s3ForcePathStyle : undefined).apply(JSON.stringify);
             resourceInputs["s3UsePathStyle"] = pulumi.output(args ? args.s3UsePathStyle : undefined).apply(JSON.stringify);
             resourceInputs["secretKey"] = args ? args.secretKey : undefined;
             resourceInputs["sharedConfigFiles"] = pulumi.output(args ? args.sharedConfigFiles : undefined).apply(JSON.stringify);
-            resourceInputs["sharedCredentialsFile"] = args ? args.sharedCredentialsFile : undefined;
             resourceInputs["sharedCredentialsFiles"] = pulumi.output(args ? args.sharedCredentialsFiles : undefined).apply(JSON.stringify);
             resourceInputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? false).apply(JSON.stringify);
-            resourceInputs["skipGetEc2Platforms"] = pulumi.output(args ? args.skipGetEc2Platforms : undefined).apply(JSON.stringify);
             resourceInputs["skipMetadataApiCheck"] = pulumi.output((args ? args.skipMetadataApiCheck : undefined) ?? true).apply(JSON.stringify);
             resourceInputs["skipRegionValidation"] = pulumi.output((args ? args.skipRegionValidation : undefined) ?? true).apply(JSON.stringify);
             resourceInputs["skipRequestingAccountId"] = pulumi.output(args ? args.skipRequestingAccountId : undefined).apply(JSON.stringify);
@@ -190,14 +181,6 @@ export interface ProviderArgs {
      * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
      * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
      * Specific to the Amazon S3 service.
-     *
-     * @deprecated Use s3_use_path_style instead.
-     */
-    s3ForcePathStyle?: pulumi.Input<boolean>;
-    /**
-     * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-     * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-     * Specific to the Amazon S3 service.
      */
     s3UsePathStyle?: pulumi.Input<boolean>;
     /**
@@ -209,12 +192,6 @@ export interface ProviderArgs {
      */
     sharedConfigFiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-     *
-     * @deprecated Use shared_credentials_files instead.
-     */
-    sharedCredentialsFile?: pulumi.Input<string>;
-    /**
      * List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
      */
     sharedCredentialsFiles?: pulumi.Input<pulumi.Input<string>[]>;
@@ -223,12 +200,6 @@ export interface ProviderArgs {
      * available/implemented.
      */
     skipCredentialsValidation?: pulumi.Input<boolean>;
-    /**
-     * Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-     *
-     * @deprecated With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
-     */
-    skipGetEc2Platforms?: pulumi.Input<boolean>;
     /**
      * Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
      */

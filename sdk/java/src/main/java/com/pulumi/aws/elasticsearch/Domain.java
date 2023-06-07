@@ -188,7 +188,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Ec2Functions;
  * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
- * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+ * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.ec2.SecurityGroup;
@@ -221,8 +221,11 @@ import javax.annotation.Nullable;
  *             .tags(Map.of(&#34;Name&#34;, vpc))
  *             .build());
  * 
- *         final var selectedSubnetIds = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
- *             .vpcId(selectedVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
+ *         final var selectedSubnets = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
+ *             .filters(GetSubnetsFilterArgs.builder()
+ *                 .name(&#34;vpc-id&#34;)
+ *                 .values(selectedVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
+ *                 .build())
  *             .tags(Map.of(&#34;Tier&#34;, &#34;private&#34;))
  *             .build());
  * 
@@ -253,8 +256,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .vpcOptions(DomainVpcOptionsArgs.builder()
  *                 .subnetIds(                
- *                     selectedSubnetIds.applyValue(getSubnetIdsResult -&gt; getSubnetIdsResult.ids()[0]),
- *                     selectedSubnetIds.applyValue(getSubnetIdsResult -&gt; getSubnetIdsResult.ids()[1]))
+ *                     selectedSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[0]),
+ *                     selectedSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[1]))
  *                 .securityGroupIds(esSecurityGroup.id())
  *                 .build())
  *             .advancedOptions(Map.of(&#34;rest.action.multi.allow_explicit_index&#34;, &#34;true&#34;))

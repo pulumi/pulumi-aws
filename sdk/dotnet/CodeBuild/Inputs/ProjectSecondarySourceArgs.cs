@@ -13,12 +13,6 @@ namespace Pulumi.Aws.CodeBuild.Inputs
     public sealed class ProjectSecondarySourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `aws.codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-        /// </summary>
-        [Input("auth")]
-        public Input<Inputs.ProjectSecondarySourceAuthArgs>? Auth { get; set; }
-
-        /// <summary>
         /// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
         /// </summary>
         [Input("buildStatusConfig")]
@@ -67,7 +61,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string> SourceIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+        /// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

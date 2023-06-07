@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Acm
         public Output<ImmutableArray<string>> ValidationEmails { get; private set; } = null!;
 
         /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         /// </summary>
         [Output("validationMethod")]
         public Output<string> ValidationMethod { get; private set; } = null!;
@@ -437,7 +437,7 @@ namespace Pulumi.Aws.Acm
         }
 
         /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
@@ -644,7 +644,7 @@ namespace Pulumi.Aws.Acm
         }
 
         /// <summary>
-        /// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
