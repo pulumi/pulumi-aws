@@ -624,7 +624,7 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(awsShim.NewProvider())
+	p := shimv2.NewProvider(awsShim.NewProvider(), shimv2.WithDiffStrategy(shimv2.PlanState))
 
 	prov := tfbridge.ProviderInfo{
 		P:           p,
