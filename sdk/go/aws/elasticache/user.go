@@ -15,6 +15,7 @@ import (
 //
 // > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -44,6 +45,7 @@ import (
 //	}
 //
 // ```
+//
 // ```go
 // package main
 //
@@ -73,6 +75,7 @@ import (
 //	}
 //
 // ```
+//
 // ```go
 // package main
 //

@@ -19,6 +19,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,6 +43,7 @@ namespace Pulumi.Aws.LightSail
     /// });
     /// ```
     /// ### Public Domain Names
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,6 +73,7 @@ namespace Pulumi.Aws.LightSail
     /// });
     /// ```
     /// ### Private Registry Access
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

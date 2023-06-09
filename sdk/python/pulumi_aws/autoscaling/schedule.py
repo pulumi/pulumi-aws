@@ -364,6 +364,7 @@ class Schedule(pulumi.CustomResource):
         Provides an AutoScaling Schedule resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -420,6 +421,7 @@ class Schedule(pulumi.CustomResource):
         Provides an AutoScaling Schedule resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

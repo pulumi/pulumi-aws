@@ -17,6 +17,31 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := codestarconnections.NewHost(ctx, "example", &codestarconnections.HostArgs{
+//				ProviderEndpoint: pulumi.String("https://example.com"),
+//				ProviderType:     pulumi.String("GitHubEnterpriseServer"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // CodeStar Host can be imported using the ARN, e.g.,

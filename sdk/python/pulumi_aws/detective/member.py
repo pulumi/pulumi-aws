@@ -291,6 +291,7 @@ class Member(pulumi.CustomResource):
         Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -330,6 +331,7 @@ class Member(pulumi.CustomResource):
         Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -97,6 +97,7 @@ def get_workspaces(alias_prefix: Optional[str] = None,
     ## Example Usage
 
     The following example returns all of the workspaces in a region:
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -106,6 +107,7 @@ def get_workspaces(alias_prefix: Optional[str] = None,
 
     The following example filters the workspaces by alias. Only the workspaces with
     aliases that begin with the value of `alias_prefix` will be returned:
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -138,6 +140,7 @@ def get_workspaces_output(alias_prefix: Optional[pulumi.Input[Optional[str]]] = 
     ## Example Usage
 
     The following example returns all of the workspaces in a region:
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -147,6 +150,7 @@ def get_workspaces_output(alias_prefix: Optional[pulumi.Input[Optional[str]]] = 
 
     The following example filters the workspaces by alias. Only the workspaces with
     aliases that begin with the value of `alias_prefix` will be returned:
+
     ```python
     import pulumi
     import pulumi_aws as aws

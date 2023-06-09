@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Cloud9
     /// ## Example Usage
     /// 
     /// Basic usage:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.Cloud9
     /// ```
     /// 
     /// Get the URL of the Cloud9 environment after creation:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,6 +70,7 @@ namespace Pulumi.Aws.Cloud9
     /// ```
     /// 
     /// Allocate a static IP to the Cloud9 environment:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

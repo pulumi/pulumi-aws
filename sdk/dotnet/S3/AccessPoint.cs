@@ -18,6 +18,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### AWS Partition Bucket
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,6 +37,7 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### S3 on Outposts Bucket
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

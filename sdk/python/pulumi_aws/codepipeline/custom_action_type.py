@@ -346,6 +346,7 @@ class CustomActionType(pulumi.CustomResource):
         Provides a CodeDeploy CustomActionType
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -393,6 +394,7 @@ class CustomActionType(pulumi.CustomResource):
         Provides a CodeDeploy CustomActionType
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

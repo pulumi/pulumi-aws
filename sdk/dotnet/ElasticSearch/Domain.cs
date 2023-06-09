@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,6 +41,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// ### Access Policy
     /// 
     /// &gt; See also: `aws.elasticsearch.DomainPolicy` resource
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,6 +83,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// });
     /// ```
     /// ### Log Publishing to CloudWatch Logs
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -145,6 +148,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// });
     /// ```
     /// ### VPC based ES
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

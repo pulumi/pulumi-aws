@@ -168,6 +168,7 @@ def get_permissions(catalog_id: Optional[str] = None,
 
     ## Example Usage
     ### Permissions For A Lake Formation S3 Resource
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -178,6 +179,7 @@ def get_permissions(catalog_id: Optional[str] = None,
         ))
     ```
     ### Permissions For A Glue Catalog Database
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -189,6 +191,7 @@ def get_permissions(catalog_id: Optional[str] = None,
         ))
     ```
     ### Permissions For Tag-Based Access Control
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -273,6 +276,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
 
     ## Example Usage
     ### Permissions For A Lake Formation S3 Resource
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -283,6 +287,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
         ))
     ```
     ### Permissions For A Glue Catalog Database
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -294,6 +299,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
         ))
     ```
     ### Permissions For Tag-Based Access Control
+
     ```python
     import pulumi
     import pulumi_aws as aws

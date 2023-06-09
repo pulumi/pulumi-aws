@@ -293,6 +293,7 @@ class EventDestination(pulumi.CustomResource):
 
         ## Example Usage
         ### CloudWatch Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -311,6 +312,7 @@ class EventDestination(pulumi.CustomResource):
             )])
         ```
         ### Kinesis Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,6 +330,7 @@ class EventDestination(pulumi.CustomResource):
             ))
         ```
         ### SNS Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -375,6 +378,7 @@ class EventDestination(pulumi.CustomResource):
 
         ## Example Usage
         ### CloudWatch Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -393,6 +397,7 @@ class EventDestination(pulumi.CustomResource):
             )])
         ```
         ### Kinesis Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -410,6 +415,7 @@ class EventDestination(pulumi.CustomResource):
             ))
         ```
         ### SNS Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws

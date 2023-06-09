@@ -464,6 +464,7 @@ class ReplicationTask(pulumi.CustomResource):
         > **NOTE:** Changing most arguments will stop the task if it is running. You can set `start_replication_task` to resume the task afterwards.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -522,6 +523,7 @@ class ReplicationTask(pulumi.CustomResource):
         > **NOTE:** Changing most arguments will stop the task if it is running. You can set `start_replication_task` to resume the task afterwards.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

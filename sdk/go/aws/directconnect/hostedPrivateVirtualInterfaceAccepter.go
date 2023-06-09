@@ -15,6 +15,7 @@ import (
 // This resource accepts ownership of a private virtual interface created by another AWS account.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -14,6 +14,7 @@ import (
 // Provides an GameLift Game Server Group resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -55,6 +56,7 @@ import (
 // ```
 //
 // Full usage:
+//
 // ```go
 // package main
 //
@@ -113,6 +115,7 @@ import (
 //
 // ```
 // ### Example IAM Role for GameLift Game Server Group
+//
 // ```go
 // package main
 //

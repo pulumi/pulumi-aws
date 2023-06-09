@@ -14,6 +14,7 @@ import (
 // Provides a CodeStar Notifications Rule.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

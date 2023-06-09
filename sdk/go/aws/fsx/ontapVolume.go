@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -45,6 +46,7 @@ import (
 // ### Using Tiering Policy
 //
 // Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
+//
 // ```go
 // package main
 //

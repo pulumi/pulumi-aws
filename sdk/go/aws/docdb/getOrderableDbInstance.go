@@ -13,6 +13,7 @@ import (
 // Information about DocumentDB orderable DB instances.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

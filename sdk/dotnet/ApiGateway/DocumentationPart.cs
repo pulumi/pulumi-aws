@@ -13,6 +13,7 @@ namespace Pulumi.Aws.ApiGateway
     /// Provides a settings of an API Gateway Documentation Part.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

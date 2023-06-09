@@ -13,6 +13,7 @@ namespace Pulumi.Aws.RedShift
     /// Provides a Redshift event subscription resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

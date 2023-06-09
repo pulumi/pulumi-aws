@@ -14,6 +14,70 @@ import (
 // customer-managed prefix list in the current region.
 //
 // ## Example Usage
+// ### Find the regional DynamoDB prefix list
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.LookupManagedPrefixList(ctx, &ec2.LookupManagedPrefixListArgs{
+//				Name: pulumi.StringRef(fmt.Sprintf("com.amazonaws.%v.dynamodb", current.Name)),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Find a managed prefix list using filters
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.LookupManagedPrefixList(ctx, &ec2.LookupManagedPrefixListArgs{
+//				Filters: []ec2.GetManagedPrefixListFilter{
+//					{
+//						Name: "prefix-list-name",
+//						Values: []string{
+//							"my-prefix-list",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupManagedPrefixList(ctx *pulumi.Context, args *LookupManagedPrefixListArgs, opts ...pulumi.InvokeOption) (*LookupManagedPrefixListResult, error) {
 	var rv LookupManagedPrefixListResult
 	err := ctx.Invoke("aws:ec2/getManagedPrefixList:getManagedPrefixList", args, &rv, opts...)

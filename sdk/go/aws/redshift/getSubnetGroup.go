@@ -13,6 +13,7 @@ import (
 // Provides details about a specific redshift subnet group.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

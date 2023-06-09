@@ -109,6 +109,7 @@ class StandardsSubscription(pulumi.CustomResource):
         Subscribes to a Security Hub standard.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -161,6 +162,7 @@ class StandardsSubscription(pulumi.CustomResource):
         Subscribes to a Security Hub standard.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

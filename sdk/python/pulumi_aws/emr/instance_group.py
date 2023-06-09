@@ -33,27 +33,6 @@ class InstanceGroupArgs:
         :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               import * as aws from "@pulumi/aws";
-               
-               const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
-               
-               `});
-               ```
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -74,121 +53,6 @@ class InstanceGroupArgs:
                ]
                
                \"\"\")
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               using Aws = Pulumi.Aws;
-               
-               return await Deployment.RunAsync(() => 
-               {
-                   var task = new Aws.Emr.InstanceGroup("task", new()
-                   {
-                       ConfigurationsJson = @"[
-               {
-               ""Classification"": ""hadoop-env"",
-               ""Configurations"": [
-               {
-               ""Classification"": ""export"",
-               ""Properties"": {
-               ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
-               }
-               }
-               ],
-               ""Properties"": {}
-               }
-               ]
-               
-               ",
-                   });
-               
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-               			ConfigurationsJson: pulumi.String("[\\n{\\n\\"Classification\\": \\"hadoop-env\\",\\n\\"Configurations\\": [\\n{\\n\\"Classification\\": \\"export\\",\\n\\"Properties\\": {\\n\\"JAVA_HOME\\": \\"/usr/lib/jvm/java-1.8.0\\"\\n}\\n}\\n],\\n\\"Properties\\": {}\\n}\\n]\\n\\n"),
-               		})
-               		if err != nil {
-               			return err
-               		}
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import com.pulumi.aws.emr.InstanceGroup;
-               import com.pulumi.aws.emr.InstanceGroupArgs;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                       var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
-                           .configurationsJson(\"\"\"
-               [
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
-               
-                           \"\"\")
-                           .build());
-               
-                   }
-               }
-               ```
-               ```yaml
-               resources:
-                 task:
-                   type: aws:emr:InstanceGroup
-                   properties:
-                     configurationsJson: |+
-                       [
-                       {
-                       "Classification": "hadoop-env",
-                       "Configurations": [
-                       {
-                       "Classification": "export",
-                       "Properties": {
-                       "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-                       }
-                       }
-                       ],
-                       "Properties": {}
-                       }
-                       ]
                ```
         :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
@@ -266,27 +130,6 @@ class InstanceGroupArgs:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        import * as aws from "@pulumi/aws";
-
-        const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
-        {
-        "Classification": "hadoop-env",
-        "Configurations": [
-        {
-        "Classification": "export",
-        "Properties": {
-        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        }
-        }
-        ],
-        "Properties": {}
-        }
-        ]
-
-        `});
-        ```
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,121 +150,6 @@ class InstanceGroupArgs:
         ]
 
         \"\"\")
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-        using Aws = Pulumi.Aws;
-
-        return await Deployment.RunAsync(() => 
-        {
-            var task = new Aws.Emr.InstanceGroup("task", new()
-            {
-                ConfigurationsJson = @"[
-        {
-        ""Classification"": ""hadoop-env"",
-        ""Configurations"": [
-        {
-        ""Classification"": ""export"",
-        ""Properties"": {
-        ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
-        }
-        }
-        ],
-        ""Properties"": {}
-        }
-        ]
-
-        ",
-            });
-
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-        			ConfigurationsJson: pulumi.String("[\\n{\\n\\"Classification\\": \\"hadoop-env\\",\\n\\"Configurations\\": [\\n{\\n\\"Classification\\": \\"export\\",\\n\\"Properties\\": {\\n\\"JAVA_HOME\\": \\"/usr/lib/jvm/java-1.8.0\\"\\n}\\n}\\n],\\n\\"Properties\\": {}\\n}\\n]\\n\\n"),
-        		})
-        		if err != nil {
-        			return err
-        		}
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import com.pulumi.aws.emr.InstanceGroup;
-        import com.pulumi.aws.emr.InstanceGroupArgs;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-                var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
-                    .configurationsJson(\"\"\"
-        [
-        {
-        "Classification": "hadoop-env",
-        "Configurations": [
-        {
-        "Classification": "export",
-        "Properties": {
-        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        }
-        }
-        ],
-        "Properties": {}
-        }
-        ]
-
-                    \"\"\")
-                    .build());
-
-            }
-        }
-        ```
-        ```yaml
-        resources:
-          task:
-            type: aws:emr:InstanceGroup
-            properties:
-              configurationsJson: |+
-                [
-                {
-                "Classification": "hadoop-env",
-                "Configurations": [
-                {
-                "Classification": "export",
-                "Properties": {
-                "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-                }
-                }
-                ],
-                "Properties": {}
-                }
-                ]
         ```
         """
         return pulumi.get(self, "configurations_json")
@@ -500,27 +228,6 @@ class _InstanceGroupState:
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               import * as aws from "@pulumi/aws";
-               
-               const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
-               
-               `});
-               ```
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -541,121 +248,6 @@ class _InstanceGroupState:
                ]
                
                \"\"\")
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               using Aws = Pulumi.Aws;
-               
-               return await Deployment.RunAsync(() => 
-               {
-                   var task = new Aws.Emr.InstanceGroup("task", new()
-                   {
-                       ConfigurationsJson = @"[
-               {
-               ""Classification"": ""hadoop-env"",
-               ""Configurations"": [
-               {
-               ""Classification"": ""export"",
-               ""Properties"": {
-               ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
-               }
-               }
-               ],
-               ""Properties"": {}
-               }
-               ]
-               
-               ",
-                   });
-               
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-               			ConfigurationsJson: pulumi.String("[\\n{\\n\\"Classification\\": \\"hadoop-env\\",\\n\\"Configurations\\": [\\n{\\n\\"Classification\\": \\"export\\",\\n\\"Properties\\": {\\n\\"JAVA_HOME\\": \\"/usr/lib/jvm/java-1.8.0\\"\\n}\\n}\\n],\\n\\"Properties\\": {}\\n}\\n]\\n\\n"),
-               		})
-               		if err != nil {
-               			return err
-               		}
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import com.pulumi.aws.emr.InstanceGroup;
-               import com.pulumi.aws.emr.InstanceGroupArgs;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                       var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
-                           .configurationsJson(\"\"\"
-               [
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
-               
-                           \"\"\")
-                           .build());
-               
-                   }
-               }
-               ```
-               ```yaml
-               resources:
-                 task:
-                   type: aws:emr:InstanceGroup
-                   properties:
-                     configurationsJson: |+
-                       [
-                       {
-                       "Classification": "hadoop-env",
-                       "Configurations": [
-                       {
-                       "Classification": "export",
-                       "Properties": {
-                       "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-                       }
-                       }
-                       ],
-                       "Properties": {}
-                       }
-                       ]
                ```
         :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
@@ -730,27 +322,6 @@ class _InstanceGroupState:
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        import * as aws from "@pulumi/aws";
-
-        const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
-        {
-        "Classification": "hadoop-env",
-        "Configurations": [
-        {
-        "Classification": "export",
-        "Properties": {
-        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        }
-        }
-        ],
-        "Properties": {}
-        }
-        ]
-
-        `});
-        ```
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -771,121 +342,6 @@ class _InstanceGroupState:
         ]
 
         \"\"\")
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-        using Aws = Pulumi.Aws;
-
-        return await Deployment.RunAsync(() => 
-        {
-            var task = new Aws.Emr.InstanceGroup("task", new()
-            {
-                ConfigurationsJson = @"[
-        {
-        ""Classification"": ""hadoop-env"",
-        ""Configurations"": [
-        {
-        ""Classification"": ""export"",
-        ""Properties"": {
-        ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
-        }
-        }
-        ],
-        ""Properties"": {}
-        }
-        ]
-
-        ",
-            });
-
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-        			ConfigurationsJson: pulumi.String("[\\n{\\n\\"Classification\\": \\"hadoop-env\\",\\n\\"Configurations\\": [\\n{\\n\\"Classification\\": \\"export\\",\\n\\"Properties\\": {\\n\\"JAVA_HOME\\": \\"/usr/lib/jvm/java-1.8.0\\"\\n}\\n}\\n],\\n\\"Properties\\": {}\\n}\\n]\\n\\n"),
-        		})
-        		if err != nil {
-        			return err
-        		}
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import com.pulumi.aws.emr.InstanceGroup;
-        import com.pulumi.aws.emr.InstanceGroupArgs;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-                var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
-                    .configurationsJson(\"\"\"
-        [
-        {
-        "Classification": "hadoop-env",
-        "Configurations": [
-        {
-        "Classification": "export",
-        "Properties": {
-        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        }
-        }
-        ],
-        "Properties": {}
-        }
-        ]
-
-                    \"\"\")
-                    .build());
-
-            }
-        }
-        ```
-        ```yaml
-        resources:
-          task:
-            type: aws:emr:InstanceGroup
-            properties:
-              configurationsJson: |+
-                [
-                {
-                "Classification": "hadoop-env",
-                "Configurations": [
-                {
-                "Classification": "export",
-                "Properties": {
-                "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-                }
-                }
-                ],
-                "Properties": {}
-                }
-                ]
         ```
         """
         return pulumi.get(self, "configurations_json")
@@ -1003,6 +459,7 @@ class InstanceGroup(pulumi.CustomResource):
         this provider will resize any Instance Group to zero when destroying the resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1028,27 +485,6 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               import * as aws from "@pulumi/aws";
-               
-               const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
-               
-               `});
-               ```
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -1069,121 +505,6 @@ class InstanceGroup(pulumi.CustomResource):
                ]
                
                \"\"\")
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               using Aws = Pulumi.Aws;
-               
-               return await Deployment.RunAsync(() => 
-               {
-                   var task = new Aws.Emr.InstanceGroup("task", new()
-                   {
-                       ConfigurationsJson = @"[
-               {
-               ""Classification"": ""hadoop-env"",
-               ""Configurations"": [
-               {
-               ""Classification"": ""export"",
-               ""Properties"": {
-               ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
-               }
-               }
-               ],
-               ""Properties"": {}
-               }
-               ]
-               
-               ",
-                   });
-               
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-               			ConfigurationsJson: pulumi.String("[\\n{\\n\\"Classification\\": \\"hadoop-env\\",\\n\\"Configurations\\": [\\n{\\n\\"Classification\\": \\"export\\",\\n\\"Properties\\": {\\n\\"JAVA_HOME\\": \\"/usr/lib/jvm/java-1.8.0\\"\\n}\\n}\\n],\\n\\"Properties\\": {}\\n}\\n]\\n\\n"),
-               		})
-               		if err != nil {
-               			return err
-               		}
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import com.pulumi.aws.emr.InstanceGroup;
-               import com.pulumi.aws.emr.InstanceGroupArgs;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                       var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
-                           .configurationsJson(\"\"\"
-               [
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
-               
-                           \"\"\")
-                           .build());
-               
-                   }
-               }
-               ```
-               ```yaml
-               resources:
-                 task:
-                   type: aws:emr:InstanceGroup
-                   properties:
-                     configurationsJson: |+
-                       [
-                       {
-                       "Classification": "hadoop-env",
-                       "Configurations": [
-                       {
-                       "Classification": "export",
-                       "Properties": {
-                       "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-                       }
-                       }
-                       ],
-                       "Properties": {}
-                       }
-                       ]
                ```
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
@@ -1206,6 +527,7 @@ class InstanceGroup(pulumi.CustomResource):
         this provider will resize any Instance Group to zero when destroying the resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1305,27 +627,6 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               import * as aws from "@pulumi/aws";
-               
-               const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
-               
-               `});
-               ```
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -1346,121 +647,6 @@ class InstanceGroup(pulumi.CustomResource):
                ]
                
                \"\"\")
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               using Aws = Pulumi.Aws;
-               
-               return await Deployment.RunAsync(() => 
-               {
-                   var task = new Aws.Emr.InstanceGroup("task", new()
-                   {
-                       ConfigurationsJson = @"[
-               {
-               ""Classification"": ""hadoop-env"",
-               ""Configurations"": [
-               {
-               ""Classification"": ""export"",
-               ""Properties"": {
-               ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
-               }
-               }
-               ],
-               ""Properties"": {}
-               }
-               ]
-               
-               ",
-                   });
-               
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-               			ConfigurationsJson: pulumi.String("[\\n{\\n\\"Classification\\": \\"hadoop-env\\",\\n\\"Configurations\\": [\\n{\\n\\"Classification\\": \\"export\\",\\n\\"Properties\\": {\\n\\"JAVA_HOME\\": \\"/usr/lib/jvm/java-1.8.0\\"\\n}\\n}\\n],\\n\\"Properties\\": {}\\n}\\n]\\n\\n"),
-               		})
-               		if err != nil {
-               			return err
-               		}
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import com.pulumi.aws.emr.InstanceGroup;
-               import com.pulumi.aws.emr.InstanceGroupArgs;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                       var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
-                           .configurationsJson(\"\"\"
-               [
-               {
-               "Classification": "hadoop-env",
-               "Configurations": [
-               {
-               "Classification": "export",
-               "Properties": {
-               "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-               }
-               }
-               ],
-               "Properties": {}
-               }
-               ]
-               
-                           \"\"\")
-                           .build());
-               
-                   }
-               }
-               ```
-               ```yaml
-               resources:
-                 task:
-                   type: aws:emr:InstanceGroup
-                   properties:
-                     configurationsJson: |+
-                       [
-                       {
-                       "Classification": "hadoop-env",
-                       "Configurations": [
-                       {
-                       "Classification": "export",
-                       "Properties": {
-                       "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-                       }
-                       }
-                       ],
-                       "Properties": {}
-                       }
-                       ]
                ```
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
@@ -1517,27 +703,6 @@ class InstanceGroup(pulumi.CustomResource):
         """
         A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        import * as aws from "@pulumi/aws";
-
-        const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
-        {
-        "Classification": "hadoop-env",
-        "Configurations": [
-        {
-        "Classification": "export",
-        "Properties": {
-        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        }
-        }
-        ],
-        "Properties": {}
-        }
-        ]
-
-        `});
-        ```
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1558,121 +723,6 @@ class InstanceGroup(pulumi.CustomResource):
         ]
 
         \"\"\")
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-        using Aws = Pulumi.Aws;
-
-        return await Deployment.RunAsync(() => 
-        {
-            var task = new Aws.Emr.InstanceGroup("task", new()
-            {
-                ConfigurationsJson = @"[
-        {
-        ""Classification"": ""hadoop-env"",
-        ""Configurations"": [
-        {
-        ""Classification"": ""export"",
-        ""Properties"": {
-        ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
-        }
-        }
-        ],
-        ""Properties"": {}
-        }
-        ]
-
-        ",
-            });
-
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-        			ConfigurationsJson: pulumi.String("[\\n{\\n\\"Classification\\": \\"hadoop-env\\",\\n\\"Configurations\\": [\\n{\\n\\"Classification\\": \\"export\\",\\n\\"Properties\\": {\\n\\"JAVA_HOME\\": \\"/usr/lib/jvm/java-1.8.0\\"\\n}\\n}\\n],\\n\\"Properties\\": {}\\n}\\n]\\n\\n"),
-        		})
-        		if err != nil {
-        			return err
-        		}
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import com.pulumi.aws.emr.InstanceGroup;
-        import com.pulumi.aws.emr.InstanceGroupArgs;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-                var task = new InstanceGroup("task", InstanceGroupArgs.builder()        
-                    .configurationsJson(\"\"\"
-        [
-        {
-        "Classification": "hadoop-env",
-        "Configurations": [
-        {
-        "Classification": "export",
-        "Properties": {
-        "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        }
-        }
-        ],
-        "Properties": {}
-        }
-        ]
-
-                    \"\"\")
-                    .build());
-
-            }
-        }
-        ```
-        ```yaml
-        resources:
-          task:
-            type: aws:emr:InstanceGroup
-            properties:
-              configurationsJson: |+
-                [
-                {
-                "Classification": "hadoop-env",
-                "Configurations": [
-                {
-                "Classification": "export",
-                "Properties": {
-                "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-                }
-                }
-                ],
-                "Properties": {}
-                }
-                ]
         ```
         """
         return pulumi.get(self, "configurations_json")

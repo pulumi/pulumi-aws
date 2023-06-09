@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// connection into management.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

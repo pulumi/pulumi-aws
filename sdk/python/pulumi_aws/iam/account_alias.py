@@ -71,6 +71,7 @@ class AccountAlias(pulumi.CustomResource):
         Manages the account alias for the AWS Account.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -102,6 +103,7 @@ class AccountAlias(pulumi.CustomResource):
         Manages the account alias for the AWS Account.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

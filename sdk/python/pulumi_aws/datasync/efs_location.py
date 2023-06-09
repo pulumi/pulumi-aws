@@ -314,6 +314,7 @@ class EfsLocation(pulumi.CustomResource):
         > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -356,6 +357,7 @@ class EfsLocation(pulumi.CustomResource):
         > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

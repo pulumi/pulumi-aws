@@ -134,6 +134,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         Provides a Route53 Resolver rule association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -167,6 +168,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         Provides a Route53 Resolver rule association.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -676,6 +676,7 @@ class OntapFileSystem(pulumi.CustomResource):
         See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html) for more information.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -743,6 +744,7 @@ class OntapFileSystem(pulumi.CustomResource):
         See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html) for more information.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -135,6 +135,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
         ### Organization Account
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,6 +145,7 @@ class PolicyAttachment(pulumi.CustomResource):
             target_id="123456789012")
         ```
         ### Organization Root
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -153,6 +155,7 @@ class PolicyAttachment(pulumi.CustomResource):
             target_id=aws_organizations_organization["example"]["roots"][0]["id"])
         ```
         ### Organization Unit
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,6 +190,7 @@ class PolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
         ### Organization Account
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,6 +200,7 @@ class PolicyAttachment(pulumi.CustomResource):
             target_id="123456789012")
         ```
         ### Organization Root
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,6 +210,7 @@ class PolicyAttachment(pulumi.CustomResource):
             target_id=aws_organizations_organization["example"]["roots"][0]["id"])
         ```
         ### Organization Unit
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -184,6 +184,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
         Provides an AWS Backup vault lock configuration resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -220,6 +221,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
         Provides an AWS Backup vault lock configuration resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -201,6 +201,7 @@ class UserGroup(pulumi.CustomResource):
         Provides a Cognito User Group resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,6 +261,7 @@ class UserGroup(pulumi.CustomResource):
         Provides a Cognito User Group resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

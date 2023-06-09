@@ -208,6 +208,7 @@ class ResourceSet(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Readiness Resource Set.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,6 +248,7 @@ class ResourceSet(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Readiness Resource Set.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

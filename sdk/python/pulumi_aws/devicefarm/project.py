@@ -173,6 +173,7 @@ class Project(pulumi.CustomResource):
         > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,6 +210,7 @@ class Project(pulumi.CustomResource):
         > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

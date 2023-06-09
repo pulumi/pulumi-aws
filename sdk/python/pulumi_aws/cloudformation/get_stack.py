@@ -181,6 +181,7 @@ def get_stack(name: Optional[str] = None,
     outputs and other useful data including the template body.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -229,6 +230,7 @@ def get_stack_output(name: Optional[pulumi.Input[str]] = None,
     outputs and other useful data including the template body.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

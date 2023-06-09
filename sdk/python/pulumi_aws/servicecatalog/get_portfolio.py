@@ -130,6 +130,7 @@ def get_portfolio(accept_language: Optional[str] = None,
     Provides information for a Service Catalog Portfolio.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -171,6 +172,7 @@ def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[str]]] 
     Provides information for a Service Catalog Portfolio.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

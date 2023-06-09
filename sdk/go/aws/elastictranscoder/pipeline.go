@@ -14,6 +14,7 @@ import (
 // Provides an Elastic Transcoder pipeline resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

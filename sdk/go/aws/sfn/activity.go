@@ -13,6 +13,7 @@ import (
 // Provides a Step Function Activity resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

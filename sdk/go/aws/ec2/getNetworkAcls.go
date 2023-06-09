@@ -13,6 +13,7 @@ import (
 // ## Example Usage
 //
 // The following shows outputting all network ACL ids in a vpc.
+//
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //
 // The following example retrieves a list of all network ACL ids in a VPC with a custom
 // tag of `Tier` set to a value of "Private".
+//
 // ```go
 // package main
 //
@@ -69,6 +71,7 @@ import (
 //
 // The following example retrieves a network ACL id in a VPC which associated
 // with specific subnet.
+//
 // ```go
 // package main
 //

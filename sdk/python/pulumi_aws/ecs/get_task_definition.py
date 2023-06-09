@@ -156,6 +156,7 @@ def get_task_definition(task_definition: Optional[str] = None,
     a specific AWS ECS task definition.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -214,6 +215,7 @@ def get_task_definition_output(task_definition: Optional[pulumi.Input[str]] = No
     a specific AWS ECS task definition.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

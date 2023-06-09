@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Service with a Code Repository Source
+//
 // ```go
 // package main
 //
@@ -69,6 +70,7 @@ import (
 //
 // ```
 // ### Service with an Image Repository Source
+//
 // ```go
 // package main
 //
@@ -106,6 +108,7 @@ import (
 //
 // ```
 // ### Service with Observability Configuration
+//
 // ```go
 // package main
 //

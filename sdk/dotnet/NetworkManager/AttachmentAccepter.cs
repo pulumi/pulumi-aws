@@ -14,6 +14,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Example Usage
     /// ### Example with VPC attachment
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.NetworkManager
     /// });
     /// ```
     /// ### Example with site-to-site VPN attachment
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

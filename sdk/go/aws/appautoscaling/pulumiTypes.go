@@ -20,6 +20,7 @@ type PolicyStepScalingPolicyConfiguration struct {
 	// Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
 	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
 	// Set of adjustments that manage scaling. These have the following structure:
+	//
 	// ```go
 	// package main
 	//
@@ -77,6 +78,7 @@ type PolicyStepScalingPolicyConfigurationArgs struct {
 	// Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
 	MinAdjustmentMagnitude pulumi.IntPtrInput `pulumi:"minAdjustmentMagnitude"`
 	// Set of adjustments that manage scaling. These have the following structure:
+	//
 	// ```go
 	// package main
 	//
@@ -211,6 +213,7 @@ func (o PolicyStepScalingPolicyConfigurationOutput) MinAdjustmentMagnitude() pul
 }
 
 // Set of adjustments that manage scaling. These have the following structure:
+//
 // ```go
 // package main
 //
@@ -318,6 +321,7 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) MinAdjustmentMagnitude() 
 }
 
 // Set of adjustments that manage scaling. These have the following structure:
+//
 // ```go
 // package main
 //

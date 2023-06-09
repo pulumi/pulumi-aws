@@ -14,6 +14,7 @@ import (
 // Provides an AWS Route 53 Recovery Readiness Readiness Check.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

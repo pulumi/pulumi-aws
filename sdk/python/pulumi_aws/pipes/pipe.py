@@ -442,6 +442,7 @@ class Pipe(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import json
@@ -540,6 +541,7 @@ class Pipe(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import json

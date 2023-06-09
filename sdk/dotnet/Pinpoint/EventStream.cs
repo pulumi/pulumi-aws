@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Pinpoint
     /// Provides a Pinpoint Event Stream resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

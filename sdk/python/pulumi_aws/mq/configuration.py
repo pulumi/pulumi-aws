@@ -323,6 +323,7 @@ class Configuration(pulumi.CustomResource):
         For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -375,6 +376,7 @@ class Configuration(pulumi.CustomResource):
         For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

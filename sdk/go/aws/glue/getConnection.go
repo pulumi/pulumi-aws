@@ -13,6 +13,7 @@ import (
 // This data source can be used to fetch information about a specific Glue Connection.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -822,6 +822,7 @@ class NodejsAppLayer(pulumi.CustomResource):
         Provides an OpsWorks NodeJS application layer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -863,6 +864,7 @@ class NodejsAppLayer(pulumi.CustomResource):
         Provides an OpsWorks NodeJS application layer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

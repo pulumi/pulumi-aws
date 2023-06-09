@@ -667,6 +667,7 @@ class Cluster(pulumi.CustomResource):
         Provides a DAX Cluster resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -732,6 +733,7 @@ class Cluster(pulumi.CustomResource):
         Provides a DAX Cluster resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// ### Connectivity and HTTP Status Code Check
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,6 +40,7 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// ### Connectivity and String Matching Check
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,6 +63,7 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// ### Aggregate Check
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -86,6 +89,7 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// ### CloudWatch Alarm Check
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -253,6 +253,7 @@ def get_container_recipe(arn: Optional[str] = None,
     Provides details about an Image builder Container Recipe.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -299,6 +300,7 @@ def get_container_recipe_output(arn: Optional[pulumi.Input[str]] = None,
     Provides details about an Image builder Container Recipe.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

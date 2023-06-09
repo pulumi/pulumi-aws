@@ -299,6 +299,7 @@ class Link(pulumi.CustomResource):
         Creates a link for a site.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,6 +342,7 @@ class Link(pulumi.CustomResource):
         Creates a link for a site.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

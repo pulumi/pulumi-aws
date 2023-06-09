@@ -666,6 +666,7 @@ class Job(pulumi.CustomResource):
 
         ## Example Usage
         ### Python Job
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -677,6 +678,7 @@ class Job(pulumi.CustomResource):
             ))
         ```
         ### Scala Job
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -691,6 +693,7 @@ class Job(pulumi.CustomResource):
             })
         ```
         ### Streaming Job
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -703,6 +706,7 @@ class Job(pulumi.CustomResource):
             ))
         ```
         ### Enabling CloudWatch Logs and Metrics
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -759,6 +763,7 @@ class Job(pulumi.CustomResource):
 
         ## Example Usage
         ### Python Job
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -770,6 +775,7 @@ class Job(pulumi.CustomResource):
             ))
         ```
         ### Scala Job
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -784,6 +790,7 @@ class Job(pulumi.CustomResource):
             })
         ```
         ### Streaming Job
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -796,6 +803,7 @@ class Job(pulumi.CustomResource):
             ))
         ```
         ### Enabling CloudWatch Logs and Metrics
+
         ```python
         import pulumi
         import pulumi_aws as aws

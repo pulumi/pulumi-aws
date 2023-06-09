@@ -394,6 +394,7 @@ class CloudFormationType(pulumi.CustomResource):
         Manages a version of a CloudFormation Type.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -434,6 +435,7 @@ class CloudFormationType(pulumi.CustomResource):
         Manages a version of a CloudFormation Type.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

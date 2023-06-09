@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 // ### Basic
+//
 // ```go
 // package main
 //
@@ -48,6 +49,7 @@ import (
 //
 // ```
 // ### HTTP Proxy Integration
+//
 // ```go
 // package main
 //

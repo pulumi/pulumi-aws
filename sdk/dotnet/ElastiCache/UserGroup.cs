@@ -13,6 +13,7 @@ namespace Pulumi.Aws.ElastiCache
     /// Provides an ElastiCache user group resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

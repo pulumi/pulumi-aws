@@ -224,6 +224,7 @@ class Resource(pulumi.CustomResource):
         Manages a Cloud Control API Resource. The configuration and lifecycle handling of these resources is proxied through Cloud Control API handlers to the backend service.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -260,6 +261,7 @@ class Resource(pulumi.CustomResource):
         Manages a Cloud Control API Resource. The configuration and lifecycle handling of these resources is proxied through Cloud Control API handlers to the backend service.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -44,6 +45,7 @@ import (
 //
 // ```
 // ### Basic usage with Health check
+//
 // ```go
 // package main
 //
@@ -90,6 +92,7 @@ import (
 // ### Lambda
 //
 // If the type is Lambda, `config` block is not supported.
+//
 // ```go
 // package main
 //

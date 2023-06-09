@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Emr
     /// To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the `aws.emr.InstanceGroup` resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -153,6 +154,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Pulumi configuration at the bottom of this page.
     /// ### Instance Fleet
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -301,6 +303,7 @@ namespace Pulumi.Aws.Emr
     /// ### Enable Debug Logging
     /// 
     /// [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -335,6 +338,7 @@ namespace Pulumi.Aws.Emr
     /// ### Multiple Node Master Instance Group
     /// 
     /// Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -444,48 +448,6 @@ namespace Pulumi.Aws.Emr
         /// 
         /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// const cluster = new aws.emr.Cluster("cluster", {configurationsJson: `[
-        /// {
-        /// "Classification": "hadoop-env",
-        /// "Configurations": [
-        /// {
-        /// "Classification": "export",
-        /// "Properties": {
-        /// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        /// }
-        /// }
-        /// ],
-        /// "Properties": {}
-        /// }
-        /// ]
-        /// 
-        /// `});
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// cluster = aws.emr.Cluster("cluster", configurations_json="""[
-        /// {
-        /// "Classification": "hadoop-env",
-        /// "Configurations": [
-        /// {
-        /// "Classification": "export",
-        /// "Properties": {
-        /// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        /// }
-        /// }
-        /// ],
-        /// "Properties": {}
-        /// }
-        /// ]
-        /// 
-        /// """)
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -515,91 +477,6 @@ namespace Pulumi.Aws.Emr
         ///     });
         /// 
         /// });
-        /// ```
-        /// ```go
-        /// package main
-        /// 
-        /// import (
-        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        /// )
-        /// 
-        /// func main() {
-        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
-        /// 		_, err := emr.NewCluster(ctx, "cluster", &amp;emr.ClusterArgs{
-        /// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
-        /// 		})
-        /// 		if err != nil {
-        /// 			return err
-        /// 		}
-        /// 		return nil
-        /// 	})
-        /// }
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.emr.Cluster;
-        /// import com.pulumi.aws.emr.ClusterArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         var cluster = new Cluster("cluster", ClusterArgs.builder()        
-        ///             .configurationsJson("""
-        /// [
-        /// {
-        /// "Classification": "hadoop-env",
-        /// "Configurations": [
-        /// {
-        /// "Classification": "export",
-        /// "Properties": {
-        /// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        /// }
-        /// }
-        /// ],
-        /// "Properties": {}
-        /// }
-        /// ]
-        /// 
-        ///             """)
-        ///             .build());
-        /// 
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// resources:
-        ///   cluster:
-        ///     type: aws:emr:Cluster
-        ///     properties:
-        ///       configurationsJson: |+
-        ///         [
-        ///         {
-        ///         "Classification": "hadoop-env",
-        ///         "Configurations": [
-        ///         {
-        ///         "Classification": "export",
-        ///         "Properties": {
-        ///         "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        ///         }
-        ///         }
-        ///         ],
-        ///         "Properties": {}
-        ///         }
-        ///         ]
         /// ```
         /// </summary>
         [Output("configurationsJson")]
@@ -856,48 +733,6 @@ namespace Pulumi.Aws.Emr
         /// 
         /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// const cluster = new aws.emr.Cluster("cluster", {configurationsJson: `[
-        /// {
-        /// "Classification": "hadoop-env",
-        /// "Configurations": [
-        /// {
-        /// "Classification": "export",
-        /// "Properties": {
-        /// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        /// }
-        /// }
-        /// ],
-        /// "Properties": {}
-        /// }
-        /// ]
-        /// 
-        /// `});
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// cluster = aws.emr.Cluster("cluster", configurations_json="""[
-        /// {
-        /// "Classification": "hadoop-env",
-        /// "Configurations": [
-        /// {
-        /// "Classification": "export",
-        /// "Properties": {
-        /// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        /// }
-        /// }
-        /// ],
-        /// "Properties": {}
-        /// }
-        /// ]
-        /// 
-        /// """)
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -927,91 +762,6 @@ namespace Pulumi.Aws.Emr
         ///     });
         /// 
         /// });
-        /// ```
-        /// ```go
-        /// package main
-        /// 
-        /// import (
-        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        /// )
-        /// 
-        /// func main() {
-        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
-        /// 		_, err := emr.NewCluster(ctx, "cluster", &amp;emr.ClusterArgs{
-        /// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
-        /// 		})
-        /// 		if err != nil {
-        /// 			return err
-        /// 		}
-        /// 		return nil
-        /// 	})
-        /// }
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.emr.Cluster;
-        /// import com.pulumi.aws.emr.ClusterArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         var cluster = new Cluster("cluster", ClusterArgs.builder()        
-        ///             .configurationsJson("""
-        /// [
-        /// {
-        /// "Classification": "hadoop-env",
-        /// "Configurations": [
-        /// {
-        /// "Classification": "export",
-        /// "Properties": {
-        /// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        /// }
-        /// }
-        /// ],
-        /// "Properties": {}
-        /// }
-        /// ]
-        /// 
-        ///             """)
-        ///             .build());
-        /// 
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// resources:
-        ///   cluster:
-        ///     type: aws:emr:Cluster
-        ///     properties:
-        ///       configurationsJson: |+
-        ///         [
-        ///         {
-        ///         "Classification": "hadoop-env",
-        ///         "Configurations": [
-        ///         {
-        ///         "Classification": "export",
-        ///         "Properties": {
-        ///         "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        ///         }
-        ///         }
-        ///         ],
-        ///         "Properties": {}
-        ///         }
-        ///         ]
         /// ```
         /// </summary>
         [Input("configurationsJson")]
@@ -1251,48 +1001,6 @@ namespace Pulumi.Aws.Emr
         /// 
         /// &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// const cluster = new aws.emr.Cluster("cluster", {configurationsJson: `[
-        /// {
-        /// "Classification": "hadoop-env",
-        /// "Configurations": [
-        /// {
-        /// "Classification": "export",
-        /// "Properties": {
-        /// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        /// }
-        /// }
-        /// ],
-        /// "Properties": {}
-        /// }
-        /// ]
-        /// 
-        /// `});
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// cluster = aws.emr.Cluster("cluster", configurations_json="""[
-        /// {
-        /// "Classification": "hadoop-env",
-        /// "Configurations": [
-        /// {
-        /// "Classification": "export",
-        /// "Properties": {
-        /// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        /// }
-        /// }
-        /// ],
-        /// "Properties": {}
-        /// }
-        /// ]
-        /// 
-        /// """)
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -1322,91 +1030,6 @@ namespace Pulumi.Aws.Emr
         ///     });
         /// 
         /// });
-        /// ```
-        /// ```go
-        /// package main
-        /// 
-        /// import (
-        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        /// )
-        /// 
-        /// func main() {
-        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
-        /// 		_, err := emr.NewCluster(ctx, "cluster", &amp;emr.ClusterArgs{
-        /// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
-        /// 		})
-        /// 		if err != nil {
-        /// 			return err
-        /// 		}
-        /// 		return nil
-        /// 	})
-        /// }
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.emr.Cluster;
-        /// import com.pulumi.aws.emr.ClusterArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         var cluster = new Cluster("cluster", ClusterArgs.builder()        
-        ///             .configurationsJson("""
-        /// [
-        /// {
-        /// "Classification": "hadoop-env",
-        /// "Configurations": [
-        /// {
-        /// "Classification": "export",
-        /// "Properties": {
-        /// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        /// }
-        /// }
-        /// ],
-        /// "Properties": {}
-        /// }
-        /// ]
-        /// 
-        ///             """)
-        ///             .build());
-        /// 
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// resources:
-        ///   cluster:
-        ///     type: aws:emr:Cluster
-        ///     properties:
-        ///       configurationsJson: |+
-        ///         [
-        ///         {
-        ///         "Classification": "hadoop-env",
-        ///         "Configurations": [
-        ///         {
-        ///         "Classification": "export",
-        ///         "Properties": {
-        ///         "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
-        ///         }
-        ///         }
-        ///         ],
-        ///         "Properties": {}
-        ///         }
-        ///         ]
         /// ```
         /// </summary>
         [Input("configurationsJson")]

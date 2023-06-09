@@ -18,6 +18,31 @@ import (
 // propagation not explicitly listed in its value will be removed.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewVpnGatewayRoutePropagation(ctx, "example", &ec2.VpnGatewayRoutePropagationArgs{
+//				VpnGatewayId: pulumi.Any(aws_vpn_gateway.Example.Id),
+//				RouteTableId: pulumi.Any(aws_route_table.Example.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type VpnGatewayRoutePropagation struct {
 	pulumi.CustomResourceState
 

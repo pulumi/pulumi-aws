@@ -12,8 +12,6 @@ namespace Pulumi.Aws.LicenseManager
     /// <summary>
     /// Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
     /// 
-    /// ## Example Usage
-    /// 
     /// ## Import
     /// 
     /// `aws_licensemanager_grant_accepter` can be imported using the grant arn.

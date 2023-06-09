@@ -13,6 +13,7 @@ import (
 // Provides information about an RDS cluster.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

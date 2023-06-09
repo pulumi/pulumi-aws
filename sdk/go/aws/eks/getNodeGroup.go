@@ -13,6 +13,7 @@ import (
 // Retrieve information about an EKS Node Group.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

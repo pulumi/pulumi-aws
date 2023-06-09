@@ -13,6 +13,7 @@ import (
 // Provides information for a Service Catalog Portfolio.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -69,6 +69,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         Provides a resource to manage an [Amazon Macie Organization Admin Account](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -100,6 +101,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         Provides a resource to manage an [Amazon Macie Organization Admin Account](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

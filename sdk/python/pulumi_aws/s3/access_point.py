@@ -380,6 +380,7 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Example Usage
         ### AWS Partition Bucket
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,6 +389,7 @@ class AccessPoint(pulumi.CustomResource):
         example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
         ```
         ### S3 on Outposts Bucket
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -442,6 +444,7 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Example Usage
         ### AWS Partition Bucket
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -450,6 +453,7 @@ class AccessPoint(pulumi.CustomResource):
         example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
         ```
         ### S3 on Outposts Bucket
+
         ```python
         import pulumi
         import pulumi_aws as aws

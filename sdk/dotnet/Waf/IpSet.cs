@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Waf
     /// Provides a WAF IPSet Resource
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

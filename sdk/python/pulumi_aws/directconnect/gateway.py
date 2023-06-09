@@ -118,6 +118,7 @@ class Gateway(pulumi.CustomResource):
         Provides a Direct Connect Gateway.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -148,6 +149,7 @@ class Gateway(pulumi.CustomResource):
         Provides a Direct Connect Gateway.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

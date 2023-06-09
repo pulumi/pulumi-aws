@@ -118,6 +118,7 @@ class ResolverFirewallConfig(pulumi.CustomResource):
         Provides a Route 53 Resolver DNS Firewall config resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,6 +155,7 @@ class ResolverFirewallConfig(pulumi.CustomResource):
         Provides a Route 53 Resolver DNS Firewall config resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

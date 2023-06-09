@@ -85,6 +85,7 @@ def get_caller_identity(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     which this provider is authorized.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -13,6 +13,7 @@ import (
 // Provides an Athena database.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

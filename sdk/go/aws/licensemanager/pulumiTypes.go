@@ -14,6 +14,7 @@ type GetLicenseGrantsFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
+	//
 	// ```go
 	// package main
 	//
@@ -61,6 +62,7 @@ type GetLicenseGrantsFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
+	//
 	// ```go
 	// package main
 	//
@@ -147,6 +149,7 @@ func (o GetLicenseGrantsFilterOutput) ToGetLicenseGrantsFilterOutputWithContext(
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
 // For example, if filtering using `ProductSKU`, use:
+//
 // ```go
 // package main
 //
@@ -1108,6 +1111,7 @@ type GetReceivedLicensesFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
+	//
 	// ```go
 	// package main
 	//
@@ -1155,6 +1159,7 @@ type GetReceivedLicensesFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
+	//
 	// ```go
 	// package main
 	//
@@ -1241,6 +1246,7 @@ func (o GetReceivedLicensesFilterOutput) ToGetReceivedLicensesFilterOutputWithCo
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
 // For example, if filtering using `ProductSKU`, use:
+//
 // ```go
 // package main
 //

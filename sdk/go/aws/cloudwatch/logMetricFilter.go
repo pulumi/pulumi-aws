@@ -14,6 +14,7 @@ import (
 // Provides a CloudWatch Log Metric Filter resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -13,6 +13,7 @@ import (
 // Provides a WAF SQL Injection Match Set Resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -15,6 +15,7 @@ import (
 // More information about keyspaces can be found in the [Keyspaces User Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is-keyspaces.html).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

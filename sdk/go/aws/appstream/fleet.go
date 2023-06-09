@@ -14,6 +14,7 @@ import (
 // Provides an AppStream fleet.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

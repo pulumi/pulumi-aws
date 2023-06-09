@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -51,6 +52,7 @@ import (
 //
 // ```
 // ### Universal Target
+//
 // ```go
 // package main
 //

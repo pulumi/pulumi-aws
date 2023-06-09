@@ -13,6 +13,7 @@ namespace Pulumi.Aws.AppConfig
     /// Associates an AppConfig Extension with a Resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

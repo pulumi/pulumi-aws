@@ -13,6 +13,7 @@ import (
 // Provides information about a Launch Template.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -37,6 +38,7 @@ import (
 //
 // ```
 // ### Filter
+//
 // ```go
 // package main
 //

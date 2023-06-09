@@ -13,6 +13,7 @@ import (
 // ## Example Usage
 //
 // The following shows outputting all network interface ids in a region.
+//
 // ```go
 // package main
 //
@@ -37,6 +38,7 @@ import (
 // ```
 //
 // The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+//
 // ```go
 // package main
 //
@@ -66,6 +68,7 @@ import (
 //
 // The following example retrieves a network interface ids which associated
 // with specific subnet.
+//
 // ```go
 // package main
 //

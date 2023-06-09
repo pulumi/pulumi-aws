@@ -19,6 +19,58 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := ec2.NewVpc(ctx, "primary", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.6.0.0/16"),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			secondaryVpc, err := ec2.NewVpc(ctx, "secondaryVpc", &ec2.VpcArgs{
+//				CidrBlock:          pulumi.String("10.7.0.0/16"),
+//				EnableDnsHostnames: pulumi.Bool(true),
+//				EnableDnsSupport:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
+//				Vpcs: route53.ZoneVpcArray{
+//					&route53.ZoneVpcArgs{
+//						VpcId: primary.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = route53.NewZoneAssociation(ctx, "secondaryZoneAssociation", &route53.ZoneAssociationArgs{
+//				ZoneId: example.ZoneId,
+//				VpcId:  secondaryVpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Route 53 Hosted Zone Associations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,

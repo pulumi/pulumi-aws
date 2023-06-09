@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Basic S3
+//
 // ```go
 // package main
 //
@@ -44,6 +45,7 @@ import (
 //
 // ```
 // ### Basic EFS
+//
 // ```go
 // package main
 //

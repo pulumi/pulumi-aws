@@ -105,6 +105,7 @@ def get_spot_price(availability_zone: Optional[str] = None,
     Information about most recent Spot Price for a given EC2 instance.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -147,6 +148,7 @@ def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[str]
     Information about most recent Spot Price for a given EC2 instance.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

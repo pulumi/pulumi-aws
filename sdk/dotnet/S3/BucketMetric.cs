@@ -14,6 +14,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### Add metrics configuration for entire S3 bucket
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Add metrics configuration with S3 object filter
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

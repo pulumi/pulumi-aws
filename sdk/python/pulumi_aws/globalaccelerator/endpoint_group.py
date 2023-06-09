@@ -396,6 +396,7 @@ class EndpointGroup(pulumi.CustomResource):
         Provides a Global Accelerator endpoint group.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -442,6 +443,7 @@ class EndpointGroup(pulumi.CustomResource):
         Provides a Global Accelerator endpoint group.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

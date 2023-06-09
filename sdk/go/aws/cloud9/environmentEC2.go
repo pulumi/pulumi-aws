@@ -16,6 +16,7 @@ import (
 // ## Example Usage
 //
 // Basic usage:
+//
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 // ```
 //
 // Get the URL of the Cloud9 environment after creation:
+//
 // ```go
 // package main
 //
@@ -82,6 +84,7 @@ import (
 // ```
 //
 // Allocate a static IP to the Cloud9 environment:
+//
 // ```go
 // package main
 //

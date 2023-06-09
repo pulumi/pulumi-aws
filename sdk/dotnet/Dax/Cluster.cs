@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Dax
     /// Provides a DAX Cluster resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

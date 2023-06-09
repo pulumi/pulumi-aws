@@ -17,6 +17,59 @@ import (
 //
 // ## Example Usage
 //
+// This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `ram.ResourceShare` and uses a data source in the _receiver_ account to create a `ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `ram.ResourceShareAccepter`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aws.NewProvider(ctx, "alternate", &aws.ProviderArgs{
+//				Profile: pulumi.String("profile1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			senderShare, err := ram.NewResourceShare(ctx, "senderShare", &ram.ResourceShareArgs{
+//				AllowExternalPrincipals: pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("tf-test-resource-share"),
+//				},
+//			}, pulumi.Provider(aws.Alternate))
+//			if err != nil {
+//				return err
+//			}
+//			receiver, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			senderInvite, err := ram.NewPrincipalAssociation(ctx, "senderInvite", &ram.PrincipalAssociationArgs{
+//				Principal:        *pulumi.String(receiver.AccountId),
+//				ResourceShareArn: senderShare.Arn,
+//			}, pulumi.Provider(aws.Alternate))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ram.NewResourceShareAccepter(ctx, "receiverAccept", &ram.ResourceShareAccepterArgs{
+//				ShareArn: senderInvite.ResourceShareArn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Resource share accepters can be imported using the resource share ARN, e.g.,

@@ -21,6 +21,7 @@ namespace Pulumi.Aws.AutoScaling
     /// to ignore changes to the `load_balancers` and `target_group_arns` arguments.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,6 +39,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,6 +58,7 @@ namespace Pulumi.Aws.AutoScaling
     /// });
     /// ```
     /// ## With An AutoScaling Group Resource
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

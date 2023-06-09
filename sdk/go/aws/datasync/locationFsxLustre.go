@@ -14,6 +14,7 @@ import (
 // Manages an AWS DataSync FSx Lustre Location.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

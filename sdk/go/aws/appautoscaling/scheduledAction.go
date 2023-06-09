@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### DynamoDB Table Autoscaling
+//
 // ```go
 // package main
 //
@@ -56,6 +57,7 @@ import (
 //
 // ```
 // ### ECS Service Autoscaling
+//
 // ```go
 // package main
 //

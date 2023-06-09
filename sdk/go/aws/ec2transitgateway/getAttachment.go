@@ -13,6 +13,7 @@ import (
 // Get information on an EC2 Transit Gateway's attachment to a resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

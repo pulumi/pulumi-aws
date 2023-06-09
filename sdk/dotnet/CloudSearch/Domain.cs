@@ -15,6 +15,7 @@ namespace Pulumi.Aws.CloudSearch
     /// The provider waits for the domain to become `Active` when applying a configuration.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

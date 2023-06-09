@@ -14,6 +14,79 @@ import (
 // Provides an S3 bucket website configuration resource. For more information, see [Hosting Websites on S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
 //
 // ## Example Usage
+// ### With `routingRule` configured
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewBucketWebsiteConfigurationV2(ctx, "example", &s3.BucketWebsiteConfigurationV2Args{
+//				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
+//				IndexDocument: &s3.BucketWebsiteConfigurationV2IndexDocumentArgs{
+//					Suffix: pulumi.String("index.html"),
+//				},
+//				ErrorDocument: &s3.BucketWebsiteConfigurationV2ErrorDocumentArgs{
+//					Key: pulumi.String("error.html"),
+//				},
+//				RoutingRules: s3.BucketWebsiteConfigurationV2RoutingRuleArray{
+//					&s3.BucketWebsiteConfigurationV2RoutingRuleArgs{
+//						Condition: &s3.BucketWebsiteConfigurationV2RoutingRuleConditionArgs{
+//							KeyPrefixEquals: pulumi.String("docs/"),
+//						},
+//						Redirect: &s3.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs{
+//							ReplaceKeyPrefixWith: pulumi.String("documents/"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With `routingRules` configured
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := s3.NewBucketWebsiteConfigurationV2(ctx, "example", &s3.BucketWebsiteConfigurationV2Args{
+//				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
+//				IndexDocument: &s3.BucketWebsiteConfigurationV2IndexDocumentArgs{
+//					Suffix: pulumi.String("index.html"),
+//				},
+//				ErrorDocument: &s3.BucketWebsiteConfigurationV2ErrorDocumentArgs{
+//					Key: pulumi.String("error.html"),
+//				},
+//				RoutingRuleDetails: pulumi.String("[{\n    \"Condition\": {\n        \"KeyPrefixEquals\": \"docs/\"\n    },\n    \"Redirect\": {\n        \"ReplaceKeyPrefixWith\": \"\"\n    }\n}]\n"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

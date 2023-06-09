@@ -153,6 +153,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
 
         ## Example Usage
         ### Storage Config Kinesis Firehose Config
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,6 +169,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
             ))
         ```
         ### Storage Config Kinesis Stream Config
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -183,6 +185,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
             ))
         ```
         ### Storage Config Kinesis Video Stream Config
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,6 +206,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
             ))
         ```
         ### Storage Config S3 Config
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -219,6 +223,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
             ))
         ```
         ### Storage Config S3 Config with Encryption Config
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,6 +270,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
 
         ## Example Usage
         ### Storage Config Kinesis Firehose Config
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,6 +286,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
             ))
         ```
         ### Storage Config Kinesis Stream Config
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,6 +302,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
             ))
         ```
         ### Storage Config Kinesis Video Stream Config
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -315,6 +323,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
             ))
         ```
         ### Storage Config S3 Config
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,6 +340,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
             ))
         ```
         ### Storage Config S3 Config with Encryption Config
+
         ```python
         import pulumi
         import pulumi_aws as aws

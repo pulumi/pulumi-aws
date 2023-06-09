@@ -14,6 +14,7 @@ import (
 // Creates a transit gateway route table attachment.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

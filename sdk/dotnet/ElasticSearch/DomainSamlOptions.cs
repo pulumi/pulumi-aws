@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

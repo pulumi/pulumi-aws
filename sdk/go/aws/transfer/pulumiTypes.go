@@ -1172,6 +1172,7 @@ type UserHomeDirectoryMapping struct {
 	// Represents the map target.
 	//
 	// The `Restricted` option is achieved using the following mapping:
+	//
 	// ```go
 	// package main
 	//
@@ -1205,6 +1206,7 @@ type UserHomeDirectoryMappingArgs struct {
 	// Represents the map target.
 	//
 	// The `Restricted` option is achieved using the following mapping:
+	//
 	// ```go
 	// package main
 	//
@@ -1280,6 +1282,7 @@ func (o UserHomeDirectoryMappingOutput) Entry() pulumi.StringOutput {
 // Represents the map target.
 //
 // The `Restricted` option is achieved using the following mapping:
+//
 // ```go
 // package main
 //

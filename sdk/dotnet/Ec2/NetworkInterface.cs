@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ec2
     /// Provides an Elastic network interface (ENI) resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

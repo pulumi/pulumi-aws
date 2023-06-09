@@ -13,6 +13,7 @@ import (
 // Information about single EC2 Instance Type Offering.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

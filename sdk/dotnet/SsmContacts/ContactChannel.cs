@@ -14,6 +14,7 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,6 +36,7 @@ namespace Pulumi.Aws.SsmContacts
     /// });
     /// ```
     /// ### Usage with SSM Contact
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

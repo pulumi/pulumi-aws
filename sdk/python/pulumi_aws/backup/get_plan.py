@@ -108,6 +108,7 @@ def get_plan(plan_id: Optional[str] = None,
     Use this data source to get information on an existing backup plan.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -142,6 +143,7 @@ def get_plan_output(plan_id: Optional[pulumi.Input[str]] = None,
     Use this data source to get information on an existing backup plan.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -271,6 +271,7 @@ class ProxyTarget(pulumi.CustomResource):
         Provides an RDS DB proxy target resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,6 +342,7 @@ class ProxyTarget(pulumi.CustomResource):
         Provides an RDS DB proxy target resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

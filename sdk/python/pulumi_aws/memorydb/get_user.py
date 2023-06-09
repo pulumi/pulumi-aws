@@ -121,6 +121,7 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
     Provides information about a MemoryDB User.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,6 +157,7 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = 
     Provides information about a MemoryDB User.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

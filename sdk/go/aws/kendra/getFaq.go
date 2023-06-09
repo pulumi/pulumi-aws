@@ -13,6 +13,7 @@ import (
 // Provides details about a specific Amazon Kendra Faq.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

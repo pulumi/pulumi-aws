@@ -224,6 +224,7 @@ def get_layer_version(compatible_architecture: Optional[str] = None,
     Provides information about a Lambda Layer Version.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -276,6 +277,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
     Provides information about a Lambda Layer Version.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

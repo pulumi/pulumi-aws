@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
     /// connection into management.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

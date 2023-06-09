@@ -60,6 +60,7 @@ def get_billing_service_account(opts: Optional[pulumi.InvokeOptions] = None) -> 
     Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

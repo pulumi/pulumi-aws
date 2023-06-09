@@ -468,6 +468,7 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
         ### Create a connection
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -477,6 +478,7 @@ class Connection(pulumi.CustomResource):
             location="EqDC2")
         ```
         ### Request a MACsec-capable connection
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -489,6 +491,7 @@ class Connection(pulumi.CustomResource):
         ### Configure encryption mode for MACsec-capable connections
 
         > **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -532,6 +535,7 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
         ### Create a connection
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -541,6 +545,7 @@ class Connection(pulumi.CustomResource):
             location="EqDC2")
         ```
         ### Request a MACsec-capable connection
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -553,6 +558,7 @@ class Connection(pulumi.CustomResource):
         ### Configure encryption mode for MACsec-capable connections
 
         > **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
+
         ```python
         import pulumi
         import pulumi_aws as aws

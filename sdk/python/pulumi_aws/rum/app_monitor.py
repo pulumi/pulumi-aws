@@ -300,6 +300,7 @@ class AppMonitor(pulumi.CustomResource):
         Provides a CloudWatch RUM App Monitor resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -334,6 +335,7 @@ class AppMonitor(pulumi.CustomResource):
         Provides a CloudWatch RUM App Monitor resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

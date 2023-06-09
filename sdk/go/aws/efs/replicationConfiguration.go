@@ -18,6 +18,7 @@ import (
 // ## Example Usage
 //
 // Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
+//
 // ```go
 // package main
 //
@@ -50,6 +51,7 @@ import (
 // ```
 //
 // Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
+//
 // ```go
 // package main
 //

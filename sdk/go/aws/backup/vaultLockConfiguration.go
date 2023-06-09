@@ -14,6 +14,7 @@ import (
 // Provides an AWS Backup vault lock configuration resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

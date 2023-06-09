@@ -92,6 +92,7 @@ def get_instance_storage_config(association_id: Optional[str] = None,
     Provides details about a specific Amazon Connect Instance Storage Config.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -130,6 +131,7 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str
     Provides details about a specific Amazon Connect Instance Storage Config.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

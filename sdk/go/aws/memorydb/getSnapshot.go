@@ -13,6 +13,7 @@ import (
 // Provides information about a MemoryDB Snapshot.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //
 // ```
 // ### Extended Usage
+//
 // ```go
 // package main
 //

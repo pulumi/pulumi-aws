@@ -14,6 +14,7 @@ import (
 // Manages an App Runner VPC Ingress Connection.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

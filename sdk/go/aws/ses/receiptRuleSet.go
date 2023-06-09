@@ -14,6 +14,7 @@ import (
 // Provides an SES receipt rule set resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

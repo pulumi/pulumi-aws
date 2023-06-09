@@ -6107,47 +6107,6 @@ class FlowTriggerConfigTriggerPropertiesScheduledArgs:
         :param pulumi.Input[int] schedule_offset: Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
         :param pulumi.Input[str] schedule_start_time: Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
         :param pulumi.Input[str] timezone: Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
-               
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import com.pulumi.aws.appflow.Flow;
-               import com.pulumi.aws.appflow.FlowArgs;
-               import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                       var example = new Flow("example", FlowArgs.builder()        
-                           .triggerConfig(FlowTriggerConfigArgs.builder()
-                               .scheduled(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-                               .build())
-                           .build());
-               
-                   }
-               }
-               ```
-               ```yaml
-               resources:
-                 example:
-                   type: aws:appflow:Flow
-                   properties:
-                     triggerConfig:
-                       scheduled:
-                         - scheduleExpression: rate(1minutes)
-               ```
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
         if data_pull_mode is not None:
@@ -6240,47 +6199,6 @@ class FlowTriggerConfigTriggerPropertiesScheduledArgs:
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
         Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
-
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import com.pulumi.aws.appflow.Flow;
-        import com.pulumi.aws.appflow.FlowArgs;
-        import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-                var example = new Flow("example", FlowArgs.builder()        
-                    .triggerConfig(FlowTriggerConfigArgs.builder()
-                        .scheduled(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-                        .build())
-                    .build());
-
-            }
-        }
-        ```
-        ```yaml
-        resources:
-          example:
-            type: aws:appflow:Flow
-            properties:
-              triggerConfig:
-                scheduled:
-                  - scheduleExpression: rate(1minutes)
-        ```
         """
         return pulumi.get(self, "timezone")
 

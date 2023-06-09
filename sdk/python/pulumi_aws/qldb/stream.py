@@ -297,6 +297,7 @@ class Stream(pulumi.CustomResource):
         Provides an AWS Quantum Ledger Database (QLDB) Stream resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -335,6 +336,7 @@ class Stream(pulumi.CustomResource):
         Provides an AWS Quantum Ledger Database (QLDB) Stream resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

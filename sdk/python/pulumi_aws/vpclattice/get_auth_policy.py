@@ -86,6 +86,7 @@ def get_auth_policy(policy: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -122,6 +123,7 @@ def get_auth_policy_output(policy: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

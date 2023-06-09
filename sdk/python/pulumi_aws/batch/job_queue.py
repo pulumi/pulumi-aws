@@ -277,6 +277,7 @@ class JobQueue(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Job Queue
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -290,6 +291,7 @@ class JobQueue(pulumi.CustomResource):
             ])
         ```
         ### Job Queue with a fair share scheduling policy
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,6 +345,7 @@ class JobQueue(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Job Queue
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -356,6 +359,7 @@ class JobQueue(pulumi.CustomResource):
             ])
         ```
         ### Job Queue with a fair share scheduling policy
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -23,6 +23,7 @@ namespace Pulumi.Aws.Ec2
     /// block until the new AMI is available for use on new instances.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### AWS Account ID
+//
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //
 // ```
 // ### Public Access
+//
 // ```go
 // package main
 //
@@ -65,6 +67,7 @@ import (
 //
 // ```
 // ### Organization Access
+//
 // ```go
 // package main
 //

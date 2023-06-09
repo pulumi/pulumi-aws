@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
     /// it's better to use `aws.ec2.AmiLaunchPermission` instead.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

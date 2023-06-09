@@ -105,6 +105,7 @@ def get_stream_consumer(arn: Optional[str] = None,
     For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -145,6 +146,7 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

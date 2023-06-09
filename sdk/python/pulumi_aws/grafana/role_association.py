@@ -176,6 +176,7 @@ class RoleAssociation(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic configuration
+
         ```python
         import pulumi
         import json
@@ -226,6 +227,7 @@ class RoleAssociation(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic configuration
+
         ```python
         import pulumi
         import json

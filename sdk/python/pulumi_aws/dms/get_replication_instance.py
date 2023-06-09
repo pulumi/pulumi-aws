@@ -261,6 +261,7 @@ def get_replication_instance(replication_instance_id: Optional[str] = None,
     Data source for managing an AWS DMS (Database Migration) Replication Instance.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -312,6 +313,7 @@ def get_replication_instance_output(replication_instance_id: Optional[pulumi.Inp
     Data source for managing an AWS DMS (Database Migration) Replication Instance.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

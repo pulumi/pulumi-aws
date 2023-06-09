@@ -22,6 +22,7 @@ namespace Pulumi.Aws.DocDB
     /// &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

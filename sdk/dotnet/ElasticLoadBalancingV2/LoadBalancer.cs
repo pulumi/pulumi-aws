@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// ## Example Usage
     /// ### Specifying Elastic IPs
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,6 +46,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// });
     /// ```
     /// ### Specifying private IP addresses for an internal-facing load balancer
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

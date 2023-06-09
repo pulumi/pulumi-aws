@@ -17,6 +17,7 @@ namespace Pulumi.Aws.SecurityHub
     /// into management. When you _delete_ this resource configuration, the provider "abandons" resource as is and just removes it from the state.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

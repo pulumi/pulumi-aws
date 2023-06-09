@@ -203,6 +203,7 @@ class RiskConfiguration(pulumi.CustomResource):
         Provides a Cognito Risk Configuration resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,6 +245,7 @@ class RiskConfiguration(pulumi.CustomResource):
         Provides a Cognito Risk Configuration resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

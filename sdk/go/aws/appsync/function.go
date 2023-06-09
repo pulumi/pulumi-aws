@@ -14,6 +14,7 @@ import (
 // Provides an AppSync Function.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -60,6 +61,7 @@ import (
 //
 // ```
 // ### With Code
+//
 // ```go
 // package main
 //

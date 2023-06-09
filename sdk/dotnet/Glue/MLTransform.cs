@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue ML Transform resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

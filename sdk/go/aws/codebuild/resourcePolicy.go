@@ -14,6 +14,7 @@ import (
 // Provides a CodeBuild Resource Policy Resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -12,6 +12,7 @@ import (
 
 // ## Example Usage
 // ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 // ### AWS-Managed Policies
 //
 // AWS managed origin request policy names are prefixed with `Managed-`:
+//
 // ```go
 // package main
 //

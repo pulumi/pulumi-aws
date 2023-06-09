@@ -13,6 +13,7 @@ import (
 // Provides a Pinpoint App resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -14,6 +14,7 @@ import (
 // Provides an AWS Backup Report Plan resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

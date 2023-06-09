@@ -303,6 +303,7 @@ class NotificationRule(pulumi.CustomResource):
         Provides a CodeStar Notifications Rule.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,6 +359,7 @@ class NotificationRule(pulumi.CustomResource):
         Provides a CodeStar Notifications Rule.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 // ### Create New Key Pair
+//
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //
 // ```
 // ### Create New Key Pair with PGP Encrypted Private Key
+//
 // ```go
 // package main
 //
@@ -64,6 +66,7 @@ import (
 //
 // ```
 // ### Existing Public Key Import
+//
 // ```go
 // package main
 //

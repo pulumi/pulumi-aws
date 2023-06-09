@@ -94,6 +94,7 @@ def get_scheduling_policy(arn: Optional[str] = None,
     The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -127,6 +128,7 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
     The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

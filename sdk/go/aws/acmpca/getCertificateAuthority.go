@@ -13,6 +13,7 @@ import (
 // Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

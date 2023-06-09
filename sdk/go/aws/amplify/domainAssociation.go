@@ -14,6 +14,7 @@ import (
 // Provides an Amplify Domain Association resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -235,6 +235,7 @@ class Certificate(pulumi.CustomResource):
         Provides a lightsail certificate.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,6 +270,7 @@ class Certificate(pulumi.CustomResource):
         Provides a lightsail certificate.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

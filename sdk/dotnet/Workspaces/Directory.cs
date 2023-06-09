@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Workspaces
     /// &gt; **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -165,6 +166,7 @@ namespace Pulumi.Aws.Workspaces
     /// });
     /// ```
     /// ### IP Groups
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

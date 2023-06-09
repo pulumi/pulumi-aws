@@ -14,6 +14,7 @@ import (
 // Provides an Amplify Webhook resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

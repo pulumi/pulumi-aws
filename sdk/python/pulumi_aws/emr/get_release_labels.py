@@ -73,6 +73,7 @@ def get_release_labels(filters: Optional[pulumi.InputType['GetReleaseLabelsFilte
     Retrieve information about EMR Release Labels.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -104,6 +105,7 @@ def get_release_labels_output(filters: Optional[pulumi.Input[Optional[pulumi.Inp
     Retrieve information about EMR Release Labels.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -101,6 +101,7 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
         Associates a CodeCommit Approval Rule Template with a Repository.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -133,6 +134,7 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
         Associates a CodeCommit Approval Rule Template with a Repository.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

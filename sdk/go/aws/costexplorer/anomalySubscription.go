@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Basic Example
+//
 // ```go
 // package main
 //
@@ -56,6 +57,7 @@ import (
 //
 // ```
 // ### Threshold Expression
+//
 // ```go
 // package main
 //
@@ -100,6 +102,7 @@ import (
 //
 // ```
 // ### SNS Example
+//
 // ```go
 // package main
 //

@@ -198,6 +198,7 @@ class TrafficPolicyInstance(pulumi.CustomResource):
         Provides a Route53 traffic policy instance resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,6 +236,7 @@ class TrafficPolicyInstance(pulumi.CustomResource):
         Provides a Route53 traffic policy instance resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

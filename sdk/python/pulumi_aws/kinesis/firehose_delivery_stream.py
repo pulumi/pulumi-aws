@@ -560,6 +560,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
         ## Example Usage
         ### Extended S3 Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -611,6 +612,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         ### Extended S3 Destination with dynamic partitioning
 
         These examples use built-in Firehose functionality, rather than requiring a lambda.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -657,6 +659,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ))
         ```
         ### S3 Destination (deprecated)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -682,6 +685,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ))
         ```
         ### Redshift Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -721,6 +725,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ))
         ```
         ### Elasticsearch Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -753,6 +758,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ))
         ```
         ### Elasticsearch Destination With VPC
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -824,6 +830,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
         ```
         ### Opensearch Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -855,6 +862,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ))
         ```
         ### Opensearch Destination With VPC
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -932,6 +940,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
         ```
         ### Splunk Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -954,6 +963,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ))
         ```
         ### HTTP Endpoint (e.g., New Relic) Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1035,6 +1045,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
         ## Example Usage
         ### Extended S3 Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1086,6 +1097,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         ### Extended S3 Destination with dynamic partitioning
 
         These examples use built-in Firehose functionality, rather than requiring a lambda.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1132,6 +1144,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ))
         ```
         ### S3 Destination (deprecated)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1157,6 +1170,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ))
         ```
         ### Redshift Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1196,6 +1210,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ))
         ```
         ### Elasticsearch Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1228,6 +1243,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ))
         ```
         ### Elasticsearch Destination With VPC
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1299,6 +1315,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
         ```
         ### Opensearch Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1330,6 +1347,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ))
         ```
         ### Opensearch Destination With VPC
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1407,6 +1425,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
         ```
         ### Splunk Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1429,6 +1448,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ))
         ```
         ### HTTP Endpoint (e.g., New Relic) Destination
+
         ```python
         import pulumi
         import pulumi_aws as aws

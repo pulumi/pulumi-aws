@@ -13,6 +13,7 @@ import (
 // Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+//
 // ```go
 // package main
 //

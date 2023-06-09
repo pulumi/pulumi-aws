@@ -14,6 +14,7 @@ import (
 // Adds permission to create volumes off of a given EBS Snapshot.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

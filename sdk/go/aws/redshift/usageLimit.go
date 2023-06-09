@@ -14,6 +14,7 @@ import (
 // Creates a new Amazon Redshift Usage Limit.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

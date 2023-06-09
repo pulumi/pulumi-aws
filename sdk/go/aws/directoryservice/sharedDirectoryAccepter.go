@@ -16,6 +16,7 @@ import (
 // > **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

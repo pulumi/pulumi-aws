@@ -266,6 +266,7 @@ class DataIntegration(pulumi.CustomResource):
         Provides an Amazon AppIntegrations Data Integration resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -311,6 +312,7 @@ class DataIntegration(pulumi.CustomResource):
         Provides an Amazon AppIntegrations Data Integration resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

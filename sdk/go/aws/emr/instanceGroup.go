@@ -19,6 +19,7 @@ import (
 // this provider will resize any Instance Group to zero when destroying the resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -64,6 +65,7 @@ type InstanceGroup struct {
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	//
 	// ```go
 	// package main
 	//
@@ -143,6 +145,7 @@ type instanceGroupState struct {
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId *string `pulumi:"clusterId"`
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	//
 	// ```go
 	// package main
 	//
@@ -188,6 +191,7 @@ type InstanceGroupState struct {
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId pulumi.StringPtrInput
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	//
 	// ```go
 	// package main
 	//
@@ -237,6 +241,7 @@ type instanceGroupArgs struct {
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId string `pulumi:"clusterId"`
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	//
 	// ```go
 	// package main
 	//
@@ -279,6 +284,7 @@ type InstanceGroupArgs struct {
 	// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
 	ClusterId pulumi.StringInput
 	// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+	//
 	// ```go
 	// package main
 	//
@@ -415,6 +421,7 @@ func (o InstanceGroupOutput) ClusterId() pulumi.StringOutput {
 }
 
 // A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+//
 // ```go
 // package main
 //

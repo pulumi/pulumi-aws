@@ -274,6 +274,7 @@ def get_endpoint(elasticsearch_settings: Optional[Sequence[pulumi.InputType['Get
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -335,6 +336,7 @@ def get_endpoint_output(elasticsearch_settings: Optional[pulumi.Input[Optional[S
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -154,6 +154,7 @@ class Account(pulumi.CustomResource):
         > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,6 +188,7 @@ class Account(pulumi.CustomResource):
         > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -11,6 +11,7 @@ import (
 //
 // ## Example Usage
 // ### List all account IDs for the organization
+//
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //
 // ```
 // ### SNS topic that can be interacted by the organization only
+//
 // ```go
 // package main
 //

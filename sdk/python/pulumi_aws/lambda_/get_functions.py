@@ -72,6 +72,7 @@ def get_functions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFu
     Data resource to get a list of Lambda Functions.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

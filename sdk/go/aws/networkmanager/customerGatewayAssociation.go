@@ -15,6 +15,7 @@ import (
 // If you specify a link, it must be associated with the specified device.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

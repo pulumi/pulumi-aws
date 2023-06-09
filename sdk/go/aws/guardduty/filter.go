@@ -14,6 +14,7 @@ import (
 // Provides a resource to manage a GuardDuty filter.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -13,6 +13,7 @@ namespace Pulumi.Aws.AppIntegrations
     /// Provides an Amazon AppIntegrations Data Integration resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

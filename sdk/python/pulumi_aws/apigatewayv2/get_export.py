@@ -121,6 +121,7 @@ def get_export(api_id: Optional[str] = None,
     Exports a definition of an API in a particular output format and specification.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -171,6 +172,7 @@ def get_export_output(api_id: Optional[pulumi.Input[str]] = None,
     Exports a definition of an API in a particular output format and specification.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -120,6 +120,7 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
     Use this data source to get a list of AMI IDs matching the specified criteria.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -181,6 +182,7 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
     Use this data source to get a list of AMI IDs matching the specified criteria.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

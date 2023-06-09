@@ -109,6 +109,7 @@ def get_sink(sink_identifier: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -144,6 +145,7 @@ def get_sink_output(sink_identifier: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

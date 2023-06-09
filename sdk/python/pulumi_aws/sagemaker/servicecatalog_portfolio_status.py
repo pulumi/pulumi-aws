@@ -71,6 +71,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
         ## Example Usage
 
         Usage:
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -102,6 +103,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
         ## Example Usage
 
         Usage:
+
         ```python
         import pulumi
         import pulumi_aws as aws

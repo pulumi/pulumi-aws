@@ -350,6 +350,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         > **NOTE:** Data Repository Associations are only compatible with AWS FSx for Lustre File Systems and `PERSISTENT_2` deployment type.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -417,6 +418,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         > **NOTE:** Data Repository Associations are only compatible with AWS FSx for Lustre File Systems and `PERSISTENT_2` deployment type.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

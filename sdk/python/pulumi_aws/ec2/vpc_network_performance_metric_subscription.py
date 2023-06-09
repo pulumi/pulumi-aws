@@ -183,6 +183,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         Provides a resource to manage an Infrastructure Performance subscription.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,6 +210,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         Provides a resource to manage an Infrastructure Performance subscription.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

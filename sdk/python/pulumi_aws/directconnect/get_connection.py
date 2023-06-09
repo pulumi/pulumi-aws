@@ -168,6 +168,7 @@ def get_connection(name: Optional[str] = None,
     Retrieve information about a Direct Connect Connection.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -207,6 +208,7 @@ def get_connection_output(name: Optional[pulumi.Input[str]] = None,
     Retrieve information about a Direct Connect Connection.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

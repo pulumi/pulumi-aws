@@ -218,6 +218,7 @@ class UserLoginProfile(pulumi.CustomResource):
         > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,6 +277,7 @@ class UserLoginProfile(pulumi.CustomResource):
         > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

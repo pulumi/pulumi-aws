@@ -133,6 +133,7 @@ def get_export(accepts: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -179,6 +180,7 @@ def get_export_output(accepts: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
     """
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

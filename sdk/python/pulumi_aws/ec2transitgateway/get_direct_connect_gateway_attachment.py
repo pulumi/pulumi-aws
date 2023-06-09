@@ -95,6 +95,7 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[str] = None,
 
     ## Example Usage
     ### By Transit Gateway and Direct Connect Gateway Identifiers
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -136,6 +137,7 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
 
     ## Example Usage
     ### By Transit Gateway and Direct Connect Gateway Identifiers
+
     ```python
     import pulumi
     import pulumi_aws as aws

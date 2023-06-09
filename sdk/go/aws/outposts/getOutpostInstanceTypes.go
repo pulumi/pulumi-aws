@@ -13,6 +13,7 @@ import (
 // Information about Outposts Instance Types.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

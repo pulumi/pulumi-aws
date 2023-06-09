@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// Connection notifications notify subscribers of VPC Endpoint events.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

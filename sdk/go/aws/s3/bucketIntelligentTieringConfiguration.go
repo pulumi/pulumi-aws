@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Add intelligent tiering configuration for entire S3 bucket
+//
 // ```go
 // package main
 //
@@ -53,6 +54,7 @@ import (
 //
 // ```
 // ### Add intelligent tiering configuration with S3 object filter
+//
 // ```go
 // package main
 //

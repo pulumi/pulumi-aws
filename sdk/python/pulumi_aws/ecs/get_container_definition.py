@@ -166,6 +166,7 @@ def get_container_definition(container_name: Optional[str] = None,
     a specific container within an AWS ECS service.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -207,6 +208,7 @@ def get_container_definition_output(container_name: Optional[pulumi.Input[str]] 
     a specific container within an AWS ECS service.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

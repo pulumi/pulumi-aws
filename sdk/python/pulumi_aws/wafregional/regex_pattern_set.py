@@ -103,6 +103,7 @@ class RegexPatternSet(pulumi.CustomResource):
         Provides a WAF Regional Regex Pattern Set Resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -136,6 +137,7 @@ class RegexPatternSet(pulumi.CustomResource):
         Provides a WAF Regional Regex Pattern Set Resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

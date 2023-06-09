@@ -16,6 +16,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Example Usage
     /// ### New DocumentDB Global Cluster
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,6 +97,7 @@ namespace Pulumi.Aws.DocDB
     /// });
     /// ```
     /// ### New Global Cluster From Existing DB Cluster
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -17,6 +17,54 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleDetector, err := guardduty.NewDetector(ctx, "exampleDetector", &guardduty.DetectorArgs{
+//				Enable: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = guardduty.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &guardduty.OrganizationConfigurationArgs{
+//				AutoEnable: pulumi.Bool(true),
+//				DetectorId: exampleDetector.ID(),
+//				Datasources: &guardduty.OrganizationConfigurationDatasourcesArgs{
+//					S3Logs: &guardduty.OrganizationConfigurationDatasourcesS3LogsArgs{
+//						AutoEnable: pulumi.Bool(true),
+//					},
+//					Kubernetes: &guardduty.OrganizationConfigurationDatasourcesKubernetesArgs{
+//						AuditLogs: &guardduty.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{
+//							Enable: pulumi.Bool(true),
+//						},
+//					},
+//					MalwareProtection: &guardduty.OrganizationConfigurationDatasourcesMalwareProtectionArgs{
+//						ScanEc2InstanceWithFindings: &guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs{
+//							EbsVolumes: &guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs{
+//								AutoEnable: pulumi.Bool(true),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // GuardDuty Organization Configurations can be imported using the GuardDuty Detector ID, e.g.,

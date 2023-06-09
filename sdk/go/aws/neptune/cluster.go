@@ -22,6 +22,39 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := neptune.NewCluster(ctx, "default", &neptune.ClusterArgs{
+//				ApplyImmediately:                 pulumi.Bool(true),
+//				BackupRetentionPeriod:            pulumi.Int(5),
+//				ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
+//				Engine:                           pulumi.String("neptune"),
+//				IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
+//				PreferredBackupWindow:            pulumi.String("07:00-09:00"),
+//				SkipFinalSnapshot:                pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note:** AWS Neptune does not support user name/password–based access control.
+// See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
+//
 // ## Import
 //
 // `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.,

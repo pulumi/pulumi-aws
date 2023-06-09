@@ -115,6 +115,7 @@ def get_parameters_by_path(path: Optional[str] = None,
     Provides SSM Parameters by path.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -159,6 +160,7 @@ def get_parameters_by_path_output(path: Optional[pulumi.Input[str]] = None,
     Provides SSM Parameters by path.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

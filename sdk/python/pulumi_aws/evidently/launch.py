@@ -430,6 +430,7 @@ class Launch(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -451,6 +452,7 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With description
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -473,6 +475,7 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With multiple groups
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -504,6 +507,7 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With metric_monitors
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -545,6 +549,7 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With randomization_salt
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -567,6 +572,7 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With multiple steps
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -605,6 +611,7 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With segment overrides
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -687,6 +694,7 @@ class Launch(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -708,6 +716,7 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With description
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -730,6 +739,7 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With multiple groups
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -761,6 +771,7 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With metric_monitors
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -802,6 +813,7 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With randomization_salt
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -824,6 +836,7 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With multiple steps
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -862,6 +875,7 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With segment overrides
+
         ```python
         import pulumi
         import pulumi_aws as aws

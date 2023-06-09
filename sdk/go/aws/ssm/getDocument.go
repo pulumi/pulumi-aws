@@ -15,6 +15,7 @@ import (
 // ## Example Usage
 //
 // To get the contents of the document owned by AWS.
+//
 // ```go
 // package main
 //
@@ -42,6 +43,7 @@ import (
 // ```
 //
 // To get the contents of the custom document.
+//
 // ```go
 // package main
 //

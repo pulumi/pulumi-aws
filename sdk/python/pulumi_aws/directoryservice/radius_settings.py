@@ -326,6 +326,7 @@ class RadiusSettings(pulumi.CustomResource):
         Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -371,6 +372,7 @@ class RadiusSettings(pulumi.CustomResource):
         Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

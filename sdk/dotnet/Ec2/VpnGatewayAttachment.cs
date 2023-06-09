@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Ec2
     /// to an existing VPC by setting the `vpc_id` attribute accordingly.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

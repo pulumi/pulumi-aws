@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Iam
     /// Uploads an SSH public key and associates it with the specified IAM user.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

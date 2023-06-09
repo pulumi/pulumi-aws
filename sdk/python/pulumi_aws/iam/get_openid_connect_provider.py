@@ -108,12 +108,14 @@ def get_openid_connect_provider(arn: Optional[str] = None,
     the resource information by either its `arn` or `url`.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_openid_connect_provider(arn="arn:aws:iam::123456789012:oidc-provider/accounts.google.com")
     ```
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -153,12 +155,14 @@ def get_openid_connect_provider_output(arn: Optional[pulumi.Input[Optional[str]]
     the resource information by either its `arn` or `url`.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_openid_connect_provider(arn="arn:aws:iam::123456789012:oidc-provider/accounts.google.com")
     ```
+
     ```python
     import pulumi
     import pulumi_aws as aws

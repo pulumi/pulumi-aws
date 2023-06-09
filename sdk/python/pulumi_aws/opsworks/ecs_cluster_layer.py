@@ -817,6 +817,7 @@ class EcsClusterLayer(pulumi.CustomResource):
         Provides an OpsWorks ECS Cluster layer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -860,6 +861,7 @@ class EcsClusterLayer(pulumi.CustomResource):
         Provides an OpsWorks ECS Cluster layer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

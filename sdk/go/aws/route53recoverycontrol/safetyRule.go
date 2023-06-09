@@ -14,6 +14,7 @@ import (
 // Provides an AWS Route 53 Recovery Control Config Safety Rule
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -46,6 +47,7 @@ import (
 //	}
 //
 // ```
+//
 // ```go
 // package main
 //

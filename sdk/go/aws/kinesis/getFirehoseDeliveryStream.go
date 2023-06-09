@@ -15,6 +15,7 @@ import (
 // For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

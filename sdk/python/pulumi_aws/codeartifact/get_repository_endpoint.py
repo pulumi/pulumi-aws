@@ -101,6 +101,7 @@ def get_repository_endpoint(domain: Optional[str] = None,
     The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -143,6 +144,7 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[str]] = None,
     The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

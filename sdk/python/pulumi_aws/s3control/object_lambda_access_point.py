@@ -154,6 +154,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -198,6 +199,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

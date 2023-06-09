@@ -14,6 +14,7 @@ import (
 // Provides a DMS (Data Migration Service) event subscription resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

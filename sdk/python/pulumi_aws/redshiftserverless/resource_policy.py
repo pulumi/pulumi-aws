@@ -101,6 +101,7 @@ class ResourcePolicy(pulumi.CustomResource):
         Creates a new Amazon Redshift Serverless Resource Policy.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -144,6 +145,7 @@ class ResourcePolicy(pulumi.CustomResource):
         Creates a new Amazon Redshift Serverless Resource Policy.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json

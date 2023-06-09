@@ -14,6 +14,7 @@ import (
 // Provides an AppConfig Configuration Profile resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -336,6 +336,7 @@ class User(pulumi.CustomResource):
 
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -347,6 +348,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName")
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -360,6 +362,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName")
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -410,6 +413,7 @@ class User(pulumi.CustomResource):
 
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -421,6 +425,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName")
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -434,6 +439,7 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName")
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws

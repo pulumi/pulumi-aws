@@ -198,6 +198,7 @@ class SshKey(pulumi.CustomResource):
         Uploads an SSH public key and associates it with the specified IAM user.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,6 +235,7 @@ class SshKey(pulumi.CustomResource):
         Uploads an SSH public key and associates it with the specified IAM user.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

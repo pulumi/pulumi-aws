@@ -13,6 +13,7 @@ import (
 // Information about Neptune orderable DB instances.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

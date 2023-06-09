@@ -14,6 +14,7 @@ import (
 // Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -13,6 +13,7 @@ import (
 // Data source for managing an AWS Redshift Serverless Namespace.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

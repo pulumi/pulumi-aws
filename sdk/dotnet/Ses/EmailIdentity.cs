@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ses
     /// Provides an SES email identity resource
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

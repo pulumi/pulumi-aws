@@ -22,6 +22,7 @@ import (
 // * SSH public key file format as specified in RFC4716
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

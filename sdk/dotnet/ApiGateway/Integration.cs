@@ -13,6 +13,7 @@ namespace Pulumi.Aws.ApiGateway
     /// Provides an HTTP Method Integration for an API Gateway Integration.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,6 +70,7 @@ namespace Pulumi.Aws.ApiGateway
     /// });
     /// ```
     /// ## Lambda integration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -164,8 +166,6 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
-    /// 
-    /// ## VPC Link
     /// 
     /// ## Import
     /// 

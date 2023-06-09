@@ -32,6 +32,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Example Usage
     /// ### Memcached Cluster
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,6 +53,7 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// ### Redis Instance
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,6 +77,7 @@ namespace Pulumi.Aws.ElastiCache
     /// ### Redis Cluster Mode Disabled Read Replica Instance
     /// 
     /// These inherit their settings from the replication group.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -91,6 +94,7 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// ### Redis Log Delivery configuration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

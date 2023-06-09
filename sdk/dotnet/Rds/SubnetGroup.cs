@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Rds
     /// Provides an RDS DB subnet group resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

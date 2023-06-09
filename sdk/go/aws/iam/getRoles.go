@@ -14,6 +14,7 @@ import (
 //
 // ## Example Usage
 // ### All roles in an account
+//
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 // ### Roles filtered by name regex
 //
 // Roles whose role-name contains `project`
+//
 // ```go
 // package main
 //
@@ -62,6 +64,7 @@ import (
 //
 // ```
 // ### Roles filtered by path prefix
+//
 // ```go
 // package main
 //
@@ -87,7 +90,8 @@ import (
 // ```
 // ### Roles provisioned by AWS SSO
 //
-// Roles in the account filtered by path prefix
+// # Roles in the account filtered by path prefix
+//
 // ```go
 // package main
 //
@@ -112,7 +116,8 @@ import (
 //
 // ```
 //
-// Specific role in the account filtered by name regex and path prefix
+// # Specific role in the account filtered by name regex and path prefix
+//
 // ```go
 // package main
 //

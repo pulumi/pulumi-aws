@@ -13,6 +13,7 @@ import (
 // Retrieves the summary of a WAFv2 Rule Group.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

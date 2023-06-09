@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Iot
     /// Creates and manages an AWS IoT Authorizer.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

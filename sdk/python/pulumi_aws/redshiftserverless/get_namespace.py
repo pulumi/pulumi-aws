@@ -155,6 +155,7 @@ def get_namespace(namespace_name: Optional[str] = None,
     Data source for managing an AWS Redshift Serverless Namespace.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -190,6 +191,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS Redshift Serverless Namespace.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

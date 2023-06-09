@@ -14,6 +14,7 @@ import (
 // Provides a DAX Cluster resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

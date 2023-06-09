@@ -20,6 +20,35 @@ import (
 // > **NOTE:** The user or role that use this resource must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `templatePhysicalId` argument.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicecatalog.NewProvisioningArtifact(ctx, "example", &servicecatalog.ProvisioningArtifactArgs{
+//				ProductId:   pulumi.Any(aws_servicecatalog_product.Example.Id),
+//				Type:        pulumi.String("CLOUD_FORMATION_TEMPLATE"),
+//				TemplateUrl: pulumi.String(fmt.Sprintf("https://%v/%v", aws_s3_bucket.Example.Bucket_regional_domain_name, aws_s3_object.Example.Key)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

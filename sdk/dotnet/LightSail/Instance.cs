@@ -18,6 +18,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,6 +45,7 @@ namespace Pulumi.Aws.LightSail
     /// ### Example With User Data
     /// 
     /// Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,6 +65,7 @@ namespace Pulumi.Aws.LightSail
     /// });
     /// ```
     /// ### Enable Auto Snapshots
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

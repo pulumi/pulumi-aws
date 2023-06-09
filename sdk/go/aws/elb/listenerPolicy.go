@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Custom Policy
+//
 // ```go
 // package main
 //
@@ -83,6 +84,7 @@ import (
 //
 // This example shows how to customize the TLS settings of an HTTPS listener.
 // ### AWS Predefined Security Policy
+//
 // ```go
 // package main
 //

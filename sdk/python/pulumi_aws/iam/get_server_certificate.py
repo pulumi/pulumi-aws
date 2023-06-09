@@ -161,6 +161,7 @@ def get_server_certificate(latest: Optional[bool] = None,
     Use this data source to lookup information about IAM Server Certificates.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -214,6 +215,7 @@ def get_server_certificate_output(latest: Optional[pulumi.Input[Optional[bool]]]
     Use this data source to lookup information about IAM Server Certificates.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

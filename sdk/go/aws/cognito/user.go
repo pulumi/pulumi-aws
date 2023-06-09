@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Basic configuration
+//
 // ```go
 // package main
 //
@@ -44,6 +45,7 @@ import (
 //
 // ```
 // ### Setting user attributes
+//
 // ```go
 // package main
 //

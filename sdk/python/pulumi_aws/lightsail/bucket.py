@@ -243,6 +243,7 @@ class Bucket(pulumi.CustomResource):
         Provides a lightsail bucket.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -274,6 +275,7 @@ class Bucket(pulumi.CustomResource):
         Provides a lightsail bucket.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

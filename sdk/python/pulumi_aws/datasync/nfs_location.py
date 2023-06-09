@@ -247,6 +247,7 @@ class NfsLocation(pulumi.CustomResource):
         > **NOTE:** The DataSync Agents must be available before creating this resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,6 +288,7 @@ class NfsLocation(pulumi.CustomResource):
         > **NOTE:** The DataSync Agents must be available before creating this resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -170,6 +170,7 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
 
     ## Example Usage
     ### List all account IDs for the organization
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -178,6 +179,7 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     pulumi.export("accountIds", [__item.id for __item in example.accounts])
     ```
     ### SNS topic that can be interacted by the organization only
+
     ```python
     import pulumi
     import pulumi_aws as aws

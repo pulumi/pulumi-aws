@@ -169,6 +169,7 @@ class TableItem(pulumi.CustomResource):
           You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,6 +219,7 @@ class TableItem(pulumi.CustomResource):
           You should perform **regular backups** of all data in the table, see [AWS docs for more](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

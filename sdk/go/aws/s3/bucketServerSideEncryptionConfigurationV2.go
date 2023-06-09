@@ -14,6 +14,7 @@ import (
 // Provides a S3 bucket server-side encryption configuration resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -283,6 +283,7 @@ class LogGroup(pulumi.CustomResource):
         Provides a CloudWatch Log Group resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -324,6 +325,7 @@ class LogGroup(pulumi.CustomResource):
         Provides a CloudWatch Log Group resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

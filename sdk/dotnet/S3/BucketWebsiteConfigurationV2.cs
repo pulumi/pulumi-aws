@@ -14,6 +14,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### With `routing_rule` configured
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,6 +53,7 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### With `routing_rules` configured
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

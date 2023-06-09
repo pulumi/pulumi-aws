@@ -677,6 +677,7 @@ class Queue(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -696,6 +697,7 @@ class Queue(pulumi.CustomResource):
             })
         ```
         ## FIFO queue
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -706,6 +708,7 @@ class Queue(pulumi.CustomResource):
         ```
 
         ## High-throughput FIFO queue
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -717,6 +720,7 @@ class Queue(pulumi.CustomResource):
         ```
 
         ## Dead-letter queue
+
         ```python
         import pulumi
         import json
@@ -731,6 +735,7 @@ class Queue(pulumi.CustomResource):
         ## Server-side encryption (SSE)
 
         Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -739,6 +744,7 @@ class Queue(pulumi.CustomResource):
         ```
 
         Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -785,6 +791,7 @@ class Queue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -804,6 +811,7 @@ class Queue(pulumi.CustomResource):
             })
         ```
         ## FIFO queue
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -814,6 +822,7 @@ class Queue(pulumi.CustomResource):
         ```
 
         ## High-throughput FIFO queue
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -825,6 +834,7 @@ class Queue(pulumi.CustomResource):
         ```
 
         ## Dead-letter queue
+
         ```python
         import pulumi
         import json
@@ -839,6 +849,7 @@ class Queue(pulumi.CustomResource):
         ## Server-side encryption (SSE)
 
         Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -847,6 +858,7 @@ class Queue(pulumi.CustomResource):
         ```
 
         Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
+
         ```python
         import pulumi
         import pulumi_aws as aws

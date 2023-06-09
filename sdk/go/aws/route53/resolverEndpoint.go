@@ -14,6 +14,7 @@ import (
 // Provides a Route 53 Resolver endpoint resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

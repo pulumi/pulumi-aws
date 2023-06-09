@@ -15,6 +15,7 @@ import (
 // > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

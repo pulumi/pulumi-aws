@@ -215,6 +215,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         Provides a CodeArtifact Repostory Permissions Policy Resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -267,6 +268,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         Provides a CodeArtifact Repostory Permissions Policy Resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

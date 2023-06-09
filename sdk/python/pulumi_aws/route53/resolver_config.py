@@ -117,6 +117,7 @@ class ResolverConfig(pulumi.CustomResource):
         Provides a Route 53 Resolver config resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -153,6 +154,7 @@ class ResolverConfig(pulumi.CustomResource):
         Provides a Route 53 Resolver config resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

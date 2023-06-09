@@ -13,6 +13,7 @@ import (
 // Get a list of AWS accounts that are designated as delegated administrators in this organization
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

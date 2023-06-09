@@ -299,6 +299,7 @@ class ScheduledAction(pulumi.CustomResource):
         """
         ## Example Usage
         ### Pause Cluster Action
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -335,6 +336,7 @@ class ScheduledAction(pulumi.CustomResource):
             ))
         ```
         ### Resize Cluster Action
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -380,6 +382,7 @@ class ScheduledAction(pulumi.CustomResource):
         """
         ## Example Usage
         ### Pause Cluster Action
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -416,6 +419,7 @@ class ScheduledAction(pulumi.CustomResource):
             ))
         ```
         ### Resize Cluster Action
+
         ```python
         import pulumi
         import pulumi_aws as aws

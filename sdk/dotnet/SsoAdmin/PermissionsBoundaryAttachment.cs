@@ -16,6 +16,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// ## Example Usage
     /// ### Attaching an AWS-managed policy
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

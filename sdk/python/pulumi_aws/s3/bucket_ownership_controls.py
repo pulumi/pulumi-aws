@@ -103,6 +103,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
         Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -138,6 +139,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
         Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

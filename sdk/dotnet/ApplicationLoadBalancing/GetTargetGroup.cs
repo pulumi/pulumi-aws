@@ -25,32 +25,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// const config = new pulumi.Config();
-        /// const lbTgArn = config.get("lbTgArn") || "";
-        /// const lbTgName = config.get("lbTgName") || "";
-        /// const test = aws.lb.getTargetGroup({
-        ///     arn: lbTgArn,
-        ///     name: lbTgName,
-        /// });
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// config = pulumi.Config()
-        /// lb_tg_arn = config.get("lbTgArn")
-        /// if lb_tg_arn is None:
-        ///     lb_tg_arn = ""
-        /// lb_tg_name = config.get("lbTgName")
-        /// if lb_tg_name is None:
-        ///     lb_tg_name = ""
-        /// test = aws.lb.get_target_group(arn=lb_tg_arn,
-        ///     name=lb_tg_name)
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,85 +43,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         ///     });
         /// 
         /// });
-        /// ```
-        /// ```go
-        /// package main
-        /// 
-        /// import (
-        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-        /// )
-        /// 
-        /// func main() {
-        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
-        /// 		cfg := config.New(ctx, "")
-        /// 		lbTgArn := ""
-        /// 		if param := cfg.Get("lbTgArn"); param != "" {
-        /// 			lbTgArn = param
-        /// 		}
-        /// 		lbTgName := ""
-        /// 		if param := cfg.Get("lbTgName"); param != "" {
-        /// 			lbTgName = param
-        /// 		}
-        /// 		_, err := lb.LookupTargetGroup(ctx, &amp;lb.LookupTargetGroupArgs{
-        /// 			Arn:  pulumi.StringRef(lbTgArn),
-        /// 			Name: pulumi.StringRef(lbTgName),
-        /// 		}, nil)
-        /// 		if err != nil {
-        /// 			return err
-        /// 		}
-        /// 		return nil
-        /// 	})
-        /// }
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.lb.LbFunctions;
-        /// import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         final var config = ctx.config();
-        ///         final var lbTgArn = config.get("lbTgArn").orElse("");
-        ///         final var lbTgName = config.get("lbTgName").orElse("");
-        ///         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
-        ///             .arn(lbTgArn)
-        ///             .name(lbTgName)
-        ///             .build());
-        /// 
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// configuration:
-        ///   lbTgArn:
-        ///     type: string
-        ///     default:
-        ///   lbTgName:
-        ///     type: string
-        ///     default:
-        /// variables:
-        ///   test:
-        ///     fn::invoke:
-        ///       Function: aws:lb:getTargetGroup
-        ///       Arguments:
-        ///         arn: ${lbTgArn}
-        ///         name: ${lbTgName}
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -168,32 +63,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// const config = new pulumi.Config();
-        /// const lbTgArn = config.get("lbTgArn") || "";
-        /// const lbTgName = config.get("lbTgName") || "";
-        /// const test = aws.lb.getTargetGroup({
-        ///     arn: lbTgArn,
-        ///     name: lbTgName,
-        /// });
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// config = pulumi.Config()
-        /// lb_tg_arn = config.get("lbTgArn")
-        /// if lb_tg_arn is None:
-        ///     lb_tg_arn = ""
-        /// lb_tg_name = config.get("lbTgName")
-        /// if lb_tg_name is None:
-        ///     lb_tg_name = ""
-        /// test = aws.lb.get_target_group(arn=lb_tg_arn,
-        ///     name=lb_tg_name)
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -212,85 +81,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         ///     });
         /// 
         /// });
-        /// ```
-        /// ```go
-        /// package main
-        /// 
-        /// import (
-        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-        /// )
-        /// 
-        /// func main() {
-        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
-        /// 		cfg := config.New(ctx, "")
-        /// 		lbTgArn := ""
-        /// 		if param := cfg.Get("lbTgArn"); param != "" {
-        /// 			lbTgArn = param
-        /// 		}
-        /// 		lbTgName := ""
-        /// 		if param := cfg.Get("lbTgName"); param != "" {
-        /// 			lbTgName = param
-        /// 		}
-        /// 		_, err := lb.LookupTargetGroup(ctx, &amp;lb.LookupTargetGroupArgs{
-        /// 			Arn:  pulumi.StringRef(lbTgArn),
-        /// 			Name: pulumi.StringRef(lbTgName),
-        /// 		}, nil)
-        /// 		if err != nil {
-        /// 			return err
-        /// 		}
-        /// 		return nil
-        /// 	})
-        /// }
-        /// ```
-        /// ```java
-        /// package generated_program;
-        /// 
-        /// import com.pulumi.Context;
-        /// import com.pulumi.Pulumi;
-        /// import com.pulumi.core.Output;
-        /// import com.pulumi.aws.lb.LbFunctions;
-        /// import com.pulumi.aws.lb.inputs.GetTargetGroupArgs;
-        /// import java.util.List;
-        /// import java.util.ArrayList;
-        /// import java.util.Map;
-        /// import java.io.File;
-        /// import java.nio.file.Files;
-        /// import java.nio.file.Paths;
-        /// 
-        /// public class App {
-        ///     public static void main(String[] args) {
-        ///         Pulumi.run(App::stack);
-        ///     }
-        /// 
-        ///     public static void stack(Context ctx) {
-        ///         final var config = ctx.config();
-        ///         final var lbTgArn = config.get("lbTgArn").orElse("");
-        ///         final var lbTgName = config.get("lbTgName").orElse("");
-        ///         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
-        ///             .arn(lbTgArn)
-        ///             .name(lbTgName)
-        ///             .build());
-        /// 
-        ///     }
-        /// }
-        /// ```
-        /// ```yaml
-        /// configuration:
-        ///   lbTgArn:
-        ///     type: string
-        ///     default:
-        ///   lbTgName:
-        ///     type: string
-        ///     default:
-        /// variables:
-        ///   test:
-        ///     fn::invoke:
-        ///       Function: aws:lb:getTargetGroup
-        ///       Arguments:
-        ///         arn: ${lbTgArn}
-        ///         name: ${lbTgName}
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

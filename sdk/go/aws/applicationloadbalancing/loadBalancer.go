@@ -15,6 +15,76 @@ import (
 // > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
 //
 // ## Example Usage
+// ### Specifying Elastic IPs
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("network"),
+//				SubnetMappings: lb.LoadBalancerSubnetMappingArray{
+//					&lb.LoadBalancerSubnetMappingArgs{
+//						SubnetId:     pulumi.Any(aws_subnet.Example1.Id),
+//						AllocationId: pulumi.Any(aws_eip.Example1.Id),
+//					},
+//					&lb.LoadBalancerSubnetMappingArgs{
+//						SubnetId:     pulumi.Any(aws_subnet.Example2.Id),
+//						AllocationId: pulumi.Any(aws_eip.Example2.Id),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Specifying private IP addresses for an internal-facing load balancer
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("network"),
+//				SubnetMappings: lb.LoadBalancerSubnetMappingArray{
+//					&lb.LoadBalancerSubnetMappingArgs{
+//						SubnetId:           pulumi.Any(aws_subnet.Example1.Id),
+//						PrivateIpv4Address: pulumi.String("10.0.1.15"),
+//					},
+//					&lb.LoadBalancerSubnetMappingArgs{
+//						SubnetId:           pulumi.Any(aws_subnet.Example2.Id),
+//						PrivateIpv4Address: pulumi.String("10.0.2.15"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

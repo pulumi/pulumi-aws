@@ -234,6 +234,7 @@ class EventIntegration(pulumi.CustomResource):
         Provides an Amazon AppIntegrations Event Integration resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,6 +276,7 @@ class EventIntegration(pulumi.CustomResource):
         Provides an Amazon AppIntegrations Event Integration resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

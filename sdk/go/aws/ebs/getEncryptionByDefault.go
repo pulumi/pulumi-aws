@@ -10,6 +10,7 @@ import (
 // Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

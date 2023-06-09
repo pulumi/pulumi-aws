@@ -183,6 +183,7 @@ def get_role(name: Optional[str] = None,
     properties without having to hard code ARNs as input.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -225,6 +226,7 @@ def get_role_output(name: Optional[pulumi.Input[str]] = None,
     properties without having to hard code ARNs as input.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

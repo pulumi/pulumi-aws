@@ -121,6 +121,7 @@ def get_event_integration(name: Optional[str] = None,
     Use this data source to get information on an existing AppIntegrations Event Integration.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,6 +157,7 @@ def get_event_integration_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to get information on an existing AppIntegrations Event Integration.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -91,6 +91,7 @@ def get_local_gateway_virtual_interface_group(filters: Optional[Sequence[pulumi.
     Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -130,6 +131,7 @@ def get_local_gateway_virtual_interface_group_output(filters: Optional[pulumi.In
     Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

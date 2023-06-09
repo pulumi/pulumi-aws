@@ -15,6 +15,7 @@ namespace Pulumi.Aws.SecurityHub
     /// Accepts a Security Hub invitation.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

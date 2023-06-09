@@ -14,6 +14,7 @@ import (
 // Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

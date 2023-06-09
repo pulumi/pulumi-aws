@@ -72,6 +72,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -107,6 +108,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

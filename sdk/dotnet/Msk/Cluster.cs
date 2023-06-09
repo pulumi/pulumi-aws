@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Example Usage
     /// ### Basic
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -199,6 +200,7 @@ namespace Pulumi.Aws.Msk
     /// });
     /// ```
     /// ### With volume_throughput argument
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

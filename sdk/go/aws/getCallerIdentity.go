@@ -11,6 +11,7 @@ import (
 // which this provider is authorized.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

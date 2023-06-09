@@ -302,6 +302,7 @@ type Policy struct {
 	ScalingAdjustment pulumi.IntPtrOutput `pulumi:"scalingAdjustment"`
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
+	//
 	// ```go
 	// package main
 	//
@@ -337,6 +338,7 @@ type Policy struct {
 	// The following fields are available in step adjustments:
 	StepAdjustments PolicyStepAdjustmentArrayOutput `pulumi:"stepAdjustments"`
 	// Target tracking policy. These have the following structure:
+	//
 	// ```go
 	// package main
 	//
@@ -431,6 +433,7 @@ type policyState struct {
 	ScalingAdjustment *int `pulumi:"scalingAdjustment"`
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
+	//
 	// ```go
 	// package main
 	//
@@ -466,6 +469,7 @@ type policyState struct {
 	// The following fields are available in step adjustments:
 	StepAdjustments []PolicyStepAdjustment `pulumi:"stepAdjustments"`
 	// Target tracking policy. These have the following structure:
+	//
 	// ```go
 	// package main
 	//
@@ -529,6 +533,7 @@ type PolicyState struct {
 	ScalingAdjustment pulumi.IntPtrInput
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
+	//
 	// ```go
 	// package main
 	//
@@ -564,6 +569,7 @@ type PolicyState struct {
 	// The following fields are available in step adjustments:
 	StepAdjustments PolicyStepAdjustmentArrayInput
 	// Target tracking policy. These have the following structure:
+	//
 	// ```go
 	// package main
 	//
@@ -629,6 +635,7 @@ type policyArgs struct {
 	ScalingAdjustment *int `pulumi:"scalingAdjustment"`
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
+	//
 	// ```go
 	// package main
 	//
@@ -664,6 +671,7 @@ type policyArgs struct {
 	// The following fields are available in step adjustments:
 	StepAdjustments []PolicyStepAdjustment `pulumi:"stepAdjustments"`
 	// Target tracking policy. These have the following structure:
+	//
 	// ```go
 	// package main
 	//
@@ -726,6 +734,7 @@ type PolicyArgs struct {
 	ScalingAdjustment pulumi.IntPtrInput
 	// Set of adjustments that manage
 	// group scaling. These have the following structure:
+	//
 	// ```go
 	// package main
 	//
@@ -761,6 +770,7 @@ type PolicyArgs struct {
 	// The following fields are available in step adjustments:
 	StepAdjustments PolicyStepAdjustmentArrayInput
 	// Target tracking policy. These have the following structure:
+	//
 	// ```go
 	// package main
 	//
@@ -946,6 +956,7 @@ func (o PolicyOutput) ScalingAdjustment() pulumi.IntPtrOutput {
 
 // Set of adjustments that manage
 // group scaling. These have the following structure:
+//
 // ```go
 // package main
 //
@@ -987,6 +998,7 @@ func (o PolicyOutput) StepAdjustments() PolicyStepAdjustmentArrayOutput {
 }
 
 // Target tracking policy. These have the following structure:
+//
 // ```go
 // package main
 //

@@ -168,6 +168,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         Provides a load balancer policy, which can be attached to an ELB listener or backend server.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -249,6 +250,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         Provides a load balancer policy, which can be attached to an ELB listener or backend server.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

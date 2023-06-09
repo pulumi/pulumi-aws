@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Iam
     /// Provides an IAM Service Specific Credential.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

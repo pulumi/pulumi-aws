@@ -340,6 +340,7 @@ class Application(pulumi.CustomResource):
         Provides a ApplicationInsights Application resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -388,6 +389,7 @@ class Application(pulumi.CustomResource):
         Provides a ApplicationInsights Application resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import json

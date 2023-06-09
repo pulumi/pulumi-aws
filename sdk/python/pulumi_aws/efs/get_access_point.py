@@ -142,6 +142,7 @@ def get_access_point(access_point_id: Optional[str] = None,
     Provides information about an Elastic File System (EFS) Access Point.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -179,6 +180,7 @@ def get_access_point_output(access_point_id: Optional[pulumi.Input[str]] = None,
     Provides information about an Elastic File System (EFS) Access Point.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

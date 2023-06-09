@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Example Usage
     /// ### From Source Template
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

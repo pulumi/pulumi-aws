@@ -389,6 +389,7 @@ class Template(pulumi.CustomResource):
 
         ## Example Usage
         ### From Source Template
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -434,6 +435,7 @@ class Template(pulumi.CustomResource):
 
         ## Example Usage
         ### From Source Template
+
         ```python
         import pulumi
         import pulumi_aws as aws

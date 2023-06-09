@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ses
     /// Provides a resource to create a SES template.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

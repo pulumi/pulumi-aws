@@ -13,6 +13,7 @@ import (
 // Retrieve information about devices.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -138,6 +138,7 @@ def get_bundle(bundle_id: Optional[str] = None,
 
     ## Example Usage
     ### By ID
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -145,6 +146,7 @@ def get_bundle(bundle_id: Optional[str] = None,
     example = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
     ```
     ### By Owner & Name
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -186,6 +188,7 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
     ### By ID
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -193,6 +196,7 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[str]]] = None,
     example = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
     ```
     ### By Owner & Name
+
     ```python
     import pulumi
     import pulumi_aws as aws

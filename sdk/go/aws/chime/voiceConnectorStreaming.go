@@ -15,6 +15,7 @@ import (
 // It also sets the retention period, in hours, for the Amazon Kinesis data.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -50,6 +51,7 @@ import (
 //
 // ```
 // ### Example Usage With Media Insights
+//
 // ```go
 // package main
 //

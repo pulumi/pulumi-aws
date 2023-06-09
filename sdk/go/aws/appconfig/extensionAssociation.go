@@ -14,6 +14,7 @@ import (
 // Associates an AppConfig Extension with a Resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

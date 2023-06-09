@@ -468,6 +468,7 @@ class ClassificationJob(pulumi.CustomResource):
         Provides a resource to manage an [AWS Macie Classification Job](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -516,6 +517,7 @@ class ClassificationJob(pulumi.CustomResource):
         Provides a resource to manage an [AWS Macie Classification Job](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

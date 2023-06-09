@@ -15,6 +15,7 @@ import (
 // while referencing ARN of the queue within the policy.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

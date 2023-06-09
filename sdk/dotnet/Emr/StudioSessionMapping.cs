@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Emr
     /// Provides an Elastic MapReduce Studio Session Mapping.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

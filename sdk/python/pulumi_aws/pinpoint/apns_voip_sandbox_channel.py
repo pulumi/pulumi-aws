@@ -369,6 +369,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         Provides a Pinpoint APNs VoIP Sandbox Channel resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,6 +420,7 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         Provides a Pinpoint APNs VoIP Sandbox Channel resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -877,6 +877,7 @@ class BucketObject(pulumi.CustomResource):
 
         ## Example Usage
         ### Encrypting with KMS Key
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -895,6 +896,7 @@ class BucketObject(pulumi.CustomResource):
             kms_key_id=examplekms.arn)
         ```
         ### Server Side Encryption with S3 Default Master Key
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -910,6 +912,7 @@ class BucketObject(pulumi.CustomResource):
             server_side_encryption="aws:kms")
         ```
         ### Server Side Encryption with AWS-Managed Key
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -925,6 +928,7 @@ class BucketObject(pulumi.CustomResource):
             server_side_encryption="AES256")
         ```
         ### S3 Object Lock
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1005,6 +1009,7 @@ class BucketObject(pulumi.CustomResource):
 
         ## Example Usage
         ### Encrypting with KMS Key
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1023,6 +1028,7 @@ class BucketObject(pulumi.CustomResource):
             kms_key_id=examplekms.arn)
         ```
         ### Server Side Encryption with S3 Default Master Key
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1038,6 +1044,7 @@ class BucketObject(pulumi.CustomResource):
             server_side_encryption="aws:kms")
         ```
         ### Server Side Encryption with AWS-Managed Key
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1053,6 +1060,7 @@ class BucketObject(pulumi.CustomResource):
             server_side_encryption="AES256")
         ```
         ### S3 Object Lock
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// ## Example Usage
     /// ### Data Lake Admins
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,6 +37,7 @@ namespace Pulumi.Aws.LakeFormation
     /// });
     /// ```
     /// ### Create Default Permissions
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,6 +82,7 @@ namespace Pulumi.Aws.LakeFormation
     /// });
     /// ```
     /// ### Enable EMR access to LakeFormation resources
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -269,6 +269,7 @@ class Snapshot(pulumi.CustomResource):
         More information about snapshot and restore can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/snapshots.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -304,6 +305,7 @@ class Snapshot(pulumi.CustomResource):
         More information about snapshot and restore can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/snapshots.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

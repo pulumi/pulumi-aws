@@ -14,6 +14,7 @@ import (
 // in a given region for the purpose of allowing CloudTrail to store trail data in S3.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

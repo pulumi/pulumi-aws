@@ -61,6 +61,7 @@ def get_sinks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSinksR
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

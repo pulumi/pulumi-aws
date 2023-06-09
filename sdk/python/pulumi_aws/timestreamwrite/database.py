@@ -184,6 +184,7 @@ class Database(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -191,6 +192,7 @@ class Database(pulumi.CustomResource):
         example = aws.timestreamwrite.Database("example", database_name="database-example")
         ```
         ### Full usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,6 +230,7 @@ class Database(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,6 +238,7 @@ class Database(pulumi.CustomResource):
         example = aws.timestreamwrite.Database("example", database_name="database-example")
         ```
         ### Full usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

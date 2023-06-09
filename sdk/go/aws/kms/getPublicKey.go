@@ -13,6 +13,7 @@ import (
 // Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

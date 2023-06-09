@@ -13,6 +13,7 @@ namespace Pulumi.Aws.DataPipeline
     /// Provides a DataPipeline Pipeline resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

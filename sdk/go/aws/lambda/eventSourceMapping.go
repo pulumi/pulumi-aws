@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 // ### DynamoDB
+//
 // ```go
 // package main
 //
@@ -44,6 +45,7 @@ import (
 //
 // ```
 // ### Kinesis
+//
 // ```go
 // package main
 //
@@ -70,6 +72,7 @@ import (
 //
 // ```
 // ### Managed Streaming for Apache Kafka (MSK)
+//
 // ```go
 // package main
 //
@@ -99,6 +102,7 @@ import (
 //
 // ```
 // ### Self Managed Apache Kafka
+//
 // ```go
 // package main
 //
@@ -146,6 +150,7 @@ import (
 //
 // ```
 // ### SQS
+//
 // ```go
 // package main
 //
@@ -171,6 +176,7 @@ import (
 //
 // ```
 // ### SQS with event filter
+//
 // ```go
 // package main
 //
@@ -226,6 +232,7 @@ import (
 //
 // ```
 // ### Amazon MQ (ActiveMQ)
+//
 // ```go
 // package main
 //
@@ -262,6 +269,7 @@ import (
 //
 // ```
 // ### Amazon MQ (RabbitMQ)
+//
 // ```go
 // package main
 //

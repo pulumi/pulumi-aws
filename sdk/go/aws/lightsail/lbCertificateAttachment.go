@@ -14,6 +14,7 @@ import (
 // Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -13,6 +13,60 @@ import (
 // Provides details about a specific Amazon Connect Contact Flow.
 //
 // ## Example Usage
+//
+// # By name
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.LookupContactFlow(ctx, &connect.LookupContactFlowArgs{
+//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+//				Name:       pulumi.StringRef("Test"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # By contactFlowId
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := connect.LookupContactFlow(ctx, &connect.LookupContactFlowArgs{
+//				ContactFlowId: pulumi.StringRef("cccccccc-bbbb-cccc-dddd-111111111111"),
+//				InstanceId:    "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupContactFlow(ctx *pulumi.Context, args *LookupContactFlowArgs, opts ...pulumi.InvokeOption) (*LookupContactFlowResult, error) {
 	var rv LookupContactFlowResult
 	err := ctx.Invoke("aws:connect/getContactFlow:getContactFlow", args, &rv, opts...)

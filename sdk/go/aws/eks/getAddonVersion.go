@@ -13,6 +13,7 @@ import (
 // Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

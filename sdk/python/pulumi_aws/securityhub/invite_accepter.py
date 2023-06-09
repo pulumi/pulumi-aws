@@ -87,6 +87,7 @@ class InviteAccepter(pulumi.CustomResource):
         Accepts a Security Hub invitation.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -126,6 +127,7 @@ class InviteAccepter(pulumi.CustomResource):
         Accepts a Security Hub invitation.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

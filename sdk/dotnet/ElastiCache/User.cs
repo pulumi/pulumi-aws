@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,6 +37,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,6 +60,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

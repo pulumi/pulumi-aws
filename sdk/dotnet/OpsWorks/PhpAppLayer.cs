@@ -13,6 +13,7 @@ namespace Pulumi.Aws.OpsWorks
     /// Provides an OpsWorks PHP application layer resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

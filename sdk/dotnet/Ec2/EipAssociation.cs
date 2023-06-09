@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Ec2
     /// pre-existing or distributed to customers or users and therefore cannot be changed.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

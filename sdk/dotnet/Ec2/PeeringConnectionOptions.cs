@@ -23,6 +23,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,6 +66,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Cross-Account Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

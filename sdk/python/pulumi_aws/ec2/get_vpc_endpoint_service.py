@@ -226,6 +226,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
 
     ## Example Usage
     ### AWS Service
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -240,6 +241,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
         service_name=s3.service_name)
     ```
     ### Non-AWS Service
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -247,6 +249,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
     custome = aws.ec2.get_vpc_endpoint_service(service_name="com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
     ```
     ### Filter
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -307,6 +310,7 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
 
     ## Example Usage
     ### AWS Service
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -321,6 +325,7 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
         service_name=s3.service_name)
     ```
     ### Non-AWS Service
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -328,6 +333,7 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
     custome = aws.ec2.get_vpc_endpoint_service(service_name="com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
     ```
     ### Filter
+
     ```python
     import pulumi
     import pulumi_aws as aws

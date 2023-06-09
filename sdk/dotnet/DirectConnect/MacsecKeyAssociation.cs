@@ -19,6 +19,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Example Usage
     /// ### Create MACSec key with CKN and CAK
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,6 +43,7 @@ namespace Pulumi.Aws.DirectConnect
     /// });
     /// ```
     /// ### Create MACSec key with existing Secrets Manager secret
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

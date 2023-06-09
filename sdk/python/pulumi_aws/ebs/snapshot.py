@@ -395,6 +395,7 @@ class Snapshot(pulumi.CustomResource):
         Creates a Snapshot of an EBS Volume.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -440,6 +441,7 @@ class Snapshot(pulumi.CustomResource):
         Creates a Snapshot of an EBS Volume.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

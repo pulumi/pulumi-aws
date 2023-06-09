@@ -13,6 +13,7 @@ import (
 // The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

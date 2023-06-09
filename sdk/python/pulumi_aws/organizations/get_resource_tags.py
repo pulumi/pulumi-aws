@@ -72,6 +72,7 @@ def get_resource_tags(resource_id: Optional[str] = None,
     Get tags attached to the specified AWS Organizations resource.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -103,6 +104,7 @@ def get_resource_tags_output(resource_id: Optional[pulumi.Input[str]] = None,
     Get tags attached to the specified AWS Organizations resource.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

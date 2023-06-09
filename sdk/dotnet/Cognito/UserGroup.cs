@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Cognito
     /// Provides a Cognito User Group resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

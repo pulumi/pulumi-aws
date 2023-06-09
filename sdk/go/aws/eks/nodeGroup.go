@@ -14,6 +14,7 @@ import (
 // Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -51,6 +52,7 @@ import (
 // ### Ignoring Changes to Desired Size
 //
 // You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
+//
 // ```go
 // package main
 //
@@ -77,6 +79,7 @@ import (
 //
 // ```
 // ### Example IAM Role for EKS Node Group
+//
 // ```go
 // package main
 //

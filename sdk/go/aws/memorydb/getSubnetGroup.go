@@ -13,6 +13,7 @@ import (
 // Provides information about a MemoryDB Subnet Group.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

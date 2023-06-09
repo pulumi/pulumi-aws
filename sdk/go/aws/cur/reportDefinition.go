@@ -18,6 +18,7 @@ import (
 // > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -269,6 +269,7 @@ class CustomerGateway(pulumi.CustomResource):
         Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,6 +311,7 @@ class CustomerGateway(pulumi.CustomResource):
         Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

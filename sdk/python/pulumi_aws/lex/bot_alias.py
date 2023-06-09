@@ -267,6 +267,7 @@ class BotAlias(pulumi.CustomResource):
         [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -305,6 +306,7 @@ class BotAlias(pulumi.CustomResource):
         [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

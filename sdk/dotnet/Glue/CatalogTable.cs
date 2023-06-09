@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// ### Basic Table
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### Parquet Table for Athena
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

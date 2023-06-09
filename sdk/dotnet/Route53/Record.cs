@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// ### Simple routing policy
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,6 +40,7 @@ namespace Pulumi.Aws.Route53
     /// ### Weighted routing policy
     /// 
     /// Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,6 +98,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
     /// you cannot change this, therefore `ttl` has to be omitted in alias records.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -143,6 +146,7 @@ namespace Pulumi.Aws.Route53
     /// ### NS and SOA Record Management
     /// 
     /// When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

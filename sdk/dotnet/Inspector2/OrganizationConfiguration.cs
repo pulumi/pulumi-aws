@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// ## Example Usage
     /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

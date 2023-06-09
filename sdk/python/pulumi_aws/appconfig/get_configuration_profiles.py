@@ -73,6 +73,7 @@ def get_configuration_profiles(application_id: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -105,6 +106,7 @@ def get_configuration_profiles_output(application_id: Optional[pulumi.Input[str]
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

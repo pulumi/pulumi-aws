@@ -525,6 +525,7 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -542,6 +543,7 @@ class Instance(pulumi.CustomResource):
         ### Example With User Data
 
         Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -553,6 +555,7 @@ class Instance(pulumi.CustomResource):
             user_data="sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
         ```
         ### Enable Auto Snapshots
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -659,6 +662,7 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -676,6 +680,7 @@ class Instance(pulumi.CustomResource):
         ### Example With User Data
 
         Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -687,6 +692,7 @@ class Instance(pulumi.CustomResource):
             user_data="sudo yum install -y httpd && sudo systemctl start httpd && sudo systemctl enable httpd && echo '<h1>Deployed via Pulumi</h1>' | sudo tee /var/www/html/index.html")
         ```
         ### Enable Auto Snapshots
+
         ```python
         import pulumi
         import pulumi_aws as aws

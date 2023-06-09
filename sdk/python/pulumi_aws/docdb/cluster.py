@@ -1003,6 +1003,7 @@ class Cluster(pulumi.CustomResource):
         > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1081,6 +1082,7 @@ class Cluster(pulumi.CustomResource):
         > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

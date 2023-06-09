@@ -14,6 +14,7 @@ import (
 // Provides an OpsWorks custom layer resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

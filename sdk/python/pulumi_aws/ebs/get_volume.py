@@ -229,6 +229,7 @@ def get_volume(filters: Optional[Sequence[pulumi.InputType['GetVolumeFilterArgs'
     resources.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -290,6 +291,7 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.In
     resources.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

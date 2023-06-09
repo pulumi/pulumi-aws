@@ -16,6 +16,7 @@ namespace Pulumi.Aws.LightSail
     /// ### Basic Usage
     /// 
     /// Below is a basic example with a bucket as an origin.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,6 +69,7 @@ namespace Pulumi.Aws.LightSail
     /// ### instance origin example
     /// 
     /// Below is an example of an instance as the origin.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -132,6 +134,7 @@ namespace Pulumi.Aws.LightSail
     /// ### lb origin example
     /// 
     /// Below is an example with a load balancer as an origin
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

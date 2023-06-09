@@ -190,8 +190,6 @@ def get_device(device_id: Optional[str] = None,
     """
     Retrieve information about a device.
 
-    ## Example Usage
-
 
     :param str device_id: ID of the device.
     :param str global_network_id: ID of the global network.
@@ -227,8 +225,6 @@ def get_device_output(device_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
     """
     Retrieve information about a device.
-
-    ## Example Usage
 
 
     :param str device_id: ID of the device.

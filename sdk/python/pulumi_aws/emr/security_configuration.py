@@ -155,6 +155,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         Provides a resource to manage AWS EMR Security Configurations
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,6 +204,7 @@ class SecurityConfiguration(pulumi.CustomResource):
         Provides a resource to manage AWS EMR Security Configurations
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

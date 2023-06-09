@@ -13,6 +13,7 @@ namespace Pulumi.Aws.AppSync
     /// Provides an AppSync Type.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

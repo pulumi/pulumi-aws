@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// ### Amazon Cognito domain
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,6 +34,7 @@ namespace Pulumi.Aws.Cognito
     /// });
     /// ```
     /// ### Custom Cognito domain
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

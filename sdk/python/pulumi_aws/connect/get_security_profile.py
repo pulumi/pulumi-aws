@@ -142,6 +142,7 @@ def get_security_profile(instance_id: Optional[str] = None,
     ## Example Usage
 
     By `name`
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -151,6 +152,7 @@ def get_security_profile(instance_id: Optional[str] = None,
     ```
 
     By `security_profile_id`
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -197,6 +199,7 @@ def get_security_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
     ## Example Usage
 
     By `name`
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -206,6 +209,7 @@ def get_security_profile_output(instance_id: Optional[pulumi.Input[str]] = None,
     ```
 
     By `security_profile_id`
+
     ```python
     import pulumi
     import pulumi_aws as aws

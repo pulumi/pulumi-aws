@@ -134,6 +134,7 @@ class MulticastGroupSource(pulumi.CustomResource):
         A multicast source is a network interface attached to a supported instance that sends multicast traffic.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -161,6 +162,7 @@ class MulticastGroupSource(pulumi.CustomResource):
         A multicast source is a network interface attached to a supported instance that sends multicast traffic.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

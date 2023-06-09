@@ -269,6 +269,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,6 +302,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

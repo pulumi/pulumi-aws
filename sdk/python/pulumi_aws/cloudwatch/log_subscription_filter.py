@@ -232,6 +232,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         Provides a CloudWatch Logs subscription filter resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,6 +272,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         Provides a CloudWatch Logs subscription filter resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

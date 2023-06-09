@@ -13,6 +13,7 @@ namespace Pulumi.Aws.AppRunner
     /// Manages an App Runner VPC Connector.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

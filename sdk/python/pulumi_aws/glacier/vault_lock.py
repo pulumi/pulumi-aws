@@ -171,6 +171,7 @@ class VaultLock(pulumi.CustomResource):
 
         ## Example Usage
         ### Testing Glacier Vault Lock Policy
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -192,6 +193,7 @@ class VaultLock(pulumi.CustomResource):
             vault_name=example_vault.name)
         ```
         ### Permanently Applying Glacier Vault Lock Policy
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,6 +234,7 @@ class VaultLock(pulumi.CustomResource):
 
         ## Example Usage
         ### Testing Glacier Vault Lock Policy
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,6 +256,7 @@ class VaultLock(pulumi.CustomResource):
             vault_name=example_vault.name)
         ```
         ### Permanently Applying Glacier Vault Lock Policy
+
         ```python
         import pulumi
         import pulumi_aws as aws

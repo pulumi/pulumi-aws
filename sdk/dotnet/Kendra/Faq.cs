@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Example Usage
     /// ### Basic
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,6 +41,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With File Format
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,6 +65,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Language Code
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

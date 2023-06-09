@@ -13,6 +13,7 @@ namespace Pulumi.Aws.NetworkManager
     /// Creates a link for a site.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

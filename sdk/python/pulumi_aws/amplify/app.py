@@ -699,6 +699,7 @@ class App(pulumi.CustomResource):
         > **Note:** When you create/update an Amplify App from the provider, you may end up with the error "BadRequestException: You should at least provide one valid token" because of authentication issues. See the section "Repository with Tokens" below.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -735,6 +736,7 @@ class App(pulumi.CustomResource):
         ### Repository with Tokens
 
         If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -746,6 +748,7 @@ class App(pulumi.CustomResource):
 
         You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
         ### Auto Branch Creation
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -761,6 +764,7 @@ class App(pulumi.CustomResource):
             enable_auto_branch_creation=True)
         ```
         ### Rewrites and Redirects
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -779,6 +783,7 @@ class App(pulumi.CustomResource):
         ])
         ```
         ### Custom Image
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -831,6 +836,7 @@ class App(pulumi.CustomResource):
         > **Note:** When you create/update an Amplify App from the provider, you may end up with the error "BadRequestException: You should at least provide one valid token" because of authentication issues. See the section "Repository with Tokens" below.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -867,6 +873,7 @@ class App(pulumi.CustomResource):
         ### Repository with Tokens
 
         If you create a new Amplify App with the `repository` argument, you also need to set `oauth_token` or `access_token` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `access_token` as follows:
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -878,6 +885,7 @@ class App(pulumi.CustomResource):
 
         You can omit `access_token` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
         ### Auto Branch Creation
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -893,6 +901,7 @@ class App(pulumi.CustomResource):
             enable_auto_branch_creation=True)
         ```
         ### Rewrites and Redirects
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -911,6 +920,7 @@ class App(pulumi.CustomResource):
         ])
         ```
         ### Custom Image
+
         ```python
         import pulumi
         import pulumi_aws as aws

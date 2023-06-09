@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Basic
+//
 // ```go
 // package main
 //
@@ -42,6 +43,7 @@ import (
 //
 // ```
 // ### With JSON object in pattern
+//
 // ```go
 // package main
 //
@@ -69,6 +71,7 @@ import (
 //
 // ```
 // ### With Description
+//
 // ```go
 // package main
 //

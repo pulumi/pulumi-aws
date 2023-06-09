@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Emr
     /// Provides an Elastic MapReduce Studio.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

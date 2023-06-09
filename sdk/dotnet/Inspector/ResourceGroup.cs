@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Inspector
     /// Provides an Amazon Inspector Classic Resource Group.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

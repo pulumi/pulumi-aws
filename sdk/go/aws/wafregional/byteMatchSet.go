@@ -13,6 +13,7 @@ import (
 // Provides a WAF Regional Byte Match Set Resource for use with Application Load Balancer.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

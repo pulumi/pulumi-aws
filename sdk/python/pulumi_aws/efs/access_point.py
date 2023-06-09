@@ -230,6 +230,7 @@ class AccessPoint(pulumi.CustomResource):
         Provides an Elastic File System (EFS) access point.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -262,6 +263,7 @@ class AccessPoint(pulumi.CustomResource):
         Provides an Elastic File System (EFS) access point.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

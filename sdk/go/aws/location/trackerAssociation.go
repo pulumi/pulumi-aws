@@ -14,6 +14,7 @@ import (
 // Resource for managing an AWS Location Tracker Association.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

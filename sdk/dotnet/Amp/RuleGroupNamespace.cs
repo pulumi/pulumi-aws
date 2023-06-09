@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Amp
     /// Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

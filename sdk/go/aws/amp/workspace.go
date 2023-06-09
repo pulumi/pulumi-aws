@@ -13,6 +13,7 @@ import (
 // Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //
 // ```
 // ### CloudWatch Logging
+//
 // ```go
 // package main
 //

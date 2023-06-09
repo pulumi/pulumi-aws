@@ -10557,6 +10557,7 @@ type LaunchTemplateInstanceRequirements struct {
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount *LaunchTemplateInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
+	//
 	// ```go
 	// package main
 	//
@@ -10572,6 +10573,7 @@ type LaunchTemplateInstanceRequirements struct {
 	// ```
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
+	//
 	// ```go
 	// package main
 	//
@@ -10589,6 +10591,7 @@ type LaunchTemplateInstanceRequirements struct {
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
+	//
 	// ```go
 	// package main
 	//
@@ -10616,6 +10619,7 @@ type LaunchTemplateInstanceRequirements struct {
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	//
 	// ```go
 	// package main
 	//
@@ -10635,6 +10639,7 @@ type LaunchTemplateInstanceRequirements struct {
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
+	//
 	// ```go
 	// package main
 	//
@@ -10652,6 +10657,7 @@ type LaunchTemplateInstanceRequirements struct {
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage *string `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
+	//
 	// ```go
 	// package main
 	//
@@ -10705,6 +10711,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount LaunchTemplateInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
+	//
 	// ```go
 	// package main
 	//
@@ -10720,6 +10727,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// ```
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
+	//
 	// ```go
 	// package main
 	//
@@ -10737,6 +10745,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
+	//
 	// ```go
 	// package main
 	//
@@ -10764,6 +10773,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	//
 	// ```go
 	// package main
 	//
@@ -10783,6 +10793,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
+	//
 	// ```go
 	// package main
 	//
@@ -10800,6 +10811,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
+	//
 	// ```go
 	// package main
 	//
@@ -10923,6 +10935,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorCount() LaunchTempl
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
+//
 // ```go
 // package main
 //
@@ -10944,6 +10957,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorManufacturers() pul
 }
 
 // List of accelerator names. Default is any acclerator.
+//
 // ```go
 // package main
 //
@@ -10972,6 +10986,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMib() La
 }
 
 // List of accelerator types. Default is any accelerator type.
+//
 // ```go
 // package main
 //
@@ -11019,6 +11034,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) BurstablePerformance() pulumi.
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+//
 // ```go
 // package main
 //
@@ -11047,6 +11063,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi
 }
 
 // List of instance generation names. Default is any generation.
+//
 // ```go
 // package main
 //
@@ -11073,6 +11090,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) LocalStorage() pulumi.StringPt
 }
 
 // List of local storage type names. Default any storage type.
+//
 // ```go
 // package main
 //
@@ -11189,6 +11207,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorCount() LaunchTe
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
+//
 // ```go
 // package main
 //
@@ -11215,6 +11234,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() 
 }
 
 // List of accelerator names. Default is any acclerator.
+//
 // ```go
 // package main
 //
@@ -11251,6 +11271,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMib()
 }
 
 // List of accelerator types. Default is any accelerator type.
+//
 // ```go
 // package main
 //
@@ -11321,6 +11342,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) BurstablePerformance() pulu
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+//
 // ```go
 // package main
 //
@@ -11359,6 +11381,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pul
 }
 
 // List of instance generation names. Default is any generation.
+//
 // ```go
 // package main
 //
@@ -11395,6 +11418,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorage() pulumi.Strin
 }
 
 // List of local storage type names. Default any storage type.
+//
 // ```go
 // package main
 //
@@ -26478,6 +26502,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
+	//
 	// ```go
 	// package main
 	//
@@ -26493,6 +26518,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	// ```
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
+	//
 	// ```go
 	// package main
 	//
@@ -26510,6 +26536,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
+	//
 	// ```go
 	// package main
 	//
@@ -26537,6 +26564,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	//
 	// ```go
 	// package main
 	//
@@ -26556,6 +26584,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
+	//
 	// ```go
 	// package main
 	//
@@ -26573,6 +26602,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage *string `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
+	//
 	// ```go
 	// package main
 	//
@@ -26626,6 +26656,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
+	//
 	// ```go
 	// package main
 	//
@@ -26641,6 +26672,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	// ```
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
+	//
 	// ```go
 	// package main
 	//
@@ -26658,6 +26690,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
+	//
 	// ```go
 	// package main
 	//
@@ -26685,6 +26718,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	//
 	// ```go
 	// package main
 	//
@@ -26704,6 +26738,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
+	//
 	// ```go
 	// package main
 	//
@@ -26721,6 +26756,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
+	//
 	// ```go
 	// package main
 	//
@@ -26844,6 +26880,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
+//
 // ```go
 // package main
 //
@@ -26867,6 +26904,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of accelerator names. Default is any acclerator.
+//
 // ```go
 // package main
 //
@@ -26897,6 +26935,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of accelerator types. Default is any accelerator type.
+//
 // ```go
 // package main
 //
@@ -26950,6 +26989,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+//
 // ```go
 // package main
 //
@@ -26982,6 +27022,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of instance generation names. Default is any generation.
+//
 // ```go
 // package main
 //
@@ -27012,6 +27053,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 }
 
 // List of local storage type names. Default any storage type.
+//
 // ```go
 // package main
 //
@@ -27136,6 +27178,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
+//
 // ```go
 // package main
 //
@@ -27162,6 +27205,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of accelerator names. Default is any acclerator.
+//
 // ```go
 // package main
 //
@@ -27198,6 +27242,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of accelerator types. Default is any accelerator type.
+//
 // ```go
 // package main
 //
@@ -27268,6 +27313,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+//
 // ```go
 // package main
 //
@@ -27306,6 +27352,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of instance generation names. Default is any generation.
+//
 // ```go
 // package main
 //
@@ -27342,6 +27389,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 }
 
 // List of local storage type names. Default any storage type.
+//
 // ```go
 // package main
 //
@@ -54640,6 +54688,7 @@ type GetSubnetIdsFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
+	//
 	// ```go
 	// package main
 	//
@@ -54688,6 +54737,7 @@ type GetSubnetIdsFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
+	//
 	// ```go
 	// package main
 	//
@@ -54775,6 +54825,7 @@ func (o GetSubnetIdsFilterOutput) ToGetSubnetIdsFilterOutputWithContext(ctx cont
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 // For example, if matching against tag `Name`, use:
+//
 // ```go
 // package main
 //
@@ -54839,6 +54890,7 @@ type GetSubnetsFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
+	//
 	// ```go
 	// package main
 	//
@@ -54887,6 +54939,7 @@ type GetSubnetsFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 	// For example, if matching against tag `Name`, use:
+	//
 	// ```go
 	// package main
 	//
@@ -54974,6 +55027,7 @@ func (o GetSubnetsFilterOutput) ToGetSubnetsFilterOutputWithContext(ctx context.
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
 // For example, if matching against tag `Name`, use:
+//
 // ```go
 // package main
 //

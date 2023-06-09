@@ -13,6 +13,7 @@ namespace Pulumi.Aws.NetworkManager
     /// Creates a transit gateway route table attachment.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// 
     /// ## Example Usage
     /// ### Account Analyzer
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,6 +31,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// });
     /// ```
     /// ### Organization Analyzer
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

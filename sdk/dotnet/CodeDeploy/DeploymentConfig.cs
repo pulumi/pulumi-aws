@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// ## Example Usage
     /// ### Server Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,6 +81,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// });
     /// ```
     /// ### Lambda Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

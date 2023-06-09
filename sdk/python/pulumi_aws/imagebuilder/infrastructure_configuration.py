@@ -539,6 +539,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         Manages an Image Builder Infrastructure Configuration.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -602,6 +603,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         Manages an Image Builder Infrastructure Configuration.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

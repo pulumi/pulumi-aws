@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Example Usage
     /// ### New Neptune Global Cluster
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -98,6 +99,7 @@ namespace Pulumi.Aws.Neptune
     /// });
     /// ```
     /// ### New Global Cluster From Existing DB Cluster
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

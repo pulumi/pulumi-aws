@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Connect
     /// !&gt; **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits).  For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance.  Use care when creating or deleting instances.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,6 +36,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### With Existing Active Directory
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,6 +57,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### With SAML
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

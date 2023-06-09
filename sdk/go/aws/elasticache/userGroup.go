@@ -14,6 +14,7 @@ import (
 // Provides an ElastiCache user group resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ec2
     /// Provides a VPC Endpoint Policy resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

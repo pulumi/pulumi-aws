@@ -17,6 +17,54 @@ import (
 // can be shared via RAM and used to create vpcs with CIDRs from that pool.
 //
 // ## Example Usage
+//
+// The following example shows an account that has only 1 pool, perhaps shared
+// via RAM, and using that pool id to create a VPC with a CIDR derived from
+// AWS IPAM.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testVpcIamPool, err := ec2.GetVpcIamPool(ctx, &ec2.GetVpcIamPoolArgs{
+//				Filters: []ec2.GetVpcIamPoolFilter{
+//					{
+//						Name: "description",
+//						Values: []string{
+//							"*test*",
+//						},
+//					},
+//					{
+//						Name: "address-family",
+//						Values: []string{
+//							"ipv4",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
+//				Ipv4IpamPoolId:    *pulumi.String(testVpcIamPool.Id),
+//				Ipv4NetmaskLength: pulumi.Int(28),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetVpcIamPool(ctx *pulumi.Context, args *GetVpcIamPoolArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolResult, error) {
 	var rv GetVpcIamPoolResult
 	err := ctx.Invoke("aws:ec2/getVpcIamPool:getVpcIamPool", args, &rv, opts...)

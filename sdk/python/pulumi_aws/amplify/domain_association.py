@@ -233,6 +233,7 @@ class DomainAssociation(pulumi.CustomResource):
         Provides an Amplify Domain Association resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,6 +287,7 @@ class DomainAssociation(pulumi.CustomResource):
         Provides an Amplify Domain Association resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

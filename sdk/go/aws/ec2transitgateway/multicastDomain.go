@@ -14,6 +14,7 @@ import (
 // Manages an EC2 Transit Gateway Multicast Domain.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

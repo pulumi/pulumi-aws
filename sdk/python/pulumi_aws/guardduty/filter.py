@@ -298,6 +298,7 @@ class Filter(pulumi.CustomResource):
         Provides a resource to manage a GuardDuty filter.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -360,6 +361,7 @@ class Filter(pulumi.CustomResource):
         Provides a resource to manage a GuardDuty filter.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -1620,6 +1620,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct 
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
+	//
 	// ```go
 	// package main
 	//
@@ -1635,6 +1636,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct 
 	// ```
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
+	//
 	// ```go
 	// package main
 	//
@@ -1652,6 +1654,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct 
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
+	//
 	// ```go
 	// package main
 	//
@@ -1679,6 +1682,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct 
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	//
 	// ```go
 	// package main
 	//
@@ -1698,6 +1702,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct 
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
+	//
 	// ```go
 	// package main
 	//
@@ -1715,6 +1720,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct 
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage *string `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
+	//
 	// ```go
 	// package main
 	//
@@ -1768,6 +1774,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs str
 	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
 	AcceleratorCount GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
+	//
 	// ```go
 	// package main
 	//
@@ -1783,6 +1790,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs str
 	// ```
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
 	// List of accelerator names. Default is any acclerator.
+	//
 	// ```go
 	// package main
 	//
@@ -1800,6 +1808,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs str
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
 	// List of accelerator types. Default is any accelerator type.
+	//
 	// ```go
 	// package main
 	//
@@ -1827,6 +1836,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs str
 	// List of CPU manufacturer names. Default is any manufacturer.
 	//
 	// > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+	//
 	// ```go
 	// package main
 	//
@@ -1846,6 +1856,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs str
 	// > **NOTE:** If you specify `excludedInstanceTypes`, you can't specify `allowedInstanceTypes`.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 	// List of instance generation names. Default is any generation.
+	//
 	// ```go
 	// package main
 	//
@@ -1863,6 +1874,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs str
 	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
+	//
 	// ```go
 	// package main
 	//
@@ -1986,6 +1998,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
+//
 // ```go
 // package main
 //
@@ -2009,6 +2022,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 }
 
 // List of accelerator names. Default is any acclerator.
+//
 // ```go
 // package main
 //
@@ -2039,6 +2053,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 }
 
 // List of accelerator types. Default is any accelerator type.
+//
 // ```go
 // package main
 //
@@ -2094,6 +2109,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+//
 // ```go
 // package main
 //
@@ -2126,6 +2142,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 }
 
 // List of instance generation names. Default is any generation.
+//
 // ```go
 // package main
 //
@@ -2156,6 +2173,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 }
 
 // List of local storage type names. Default any storage type.
+//
 // ```go
 // package main
 //
@@ -2280,6 +2298,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 }
 
 // List of accelerator manufacturer names. Default is any manufacturer.
+//
 // ```go
 // package main
 //
@@ -2306,6 +2325,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 }
 
 // List of accelerator names. Default is any acclerator.
+//
 // ```go
 // package main
 //
@@ -2342,6 +2362,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 }
 
 // List of accelerator types. Default is any accelerator type.
+//
 // ```go
 // package main
 //
@@ -2412,6 +2433,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 // List of CPU manufacturer names. Default is any manufacturer.
 //
 // > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+//
 // ```go
 // package main
 //
@@ -2450,6 +2472,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 }
 
 // List of instance generation names. Default is any generation.
+//
 // ```go
 // package main
 //
@@ -2486,6 +2509,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 }
 
 // List of local storage type names. Default any storage type.
+//
 // ```go
 // package main
 //

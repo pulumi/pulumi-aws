@@ -207,6 +207,7 @@ class UserGroup(pulumi.CustomResource):
         Provides an ElastiCache user group resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,6 +251,7 @@ class UserGroup(pulumi.CustomResource):
         Provides an ElastiCache user group resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

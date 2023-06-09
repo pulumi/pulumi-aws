@@ -314,6 +314,7 @@ class GatewayRoute(pulumi.CustomResource):
         Provides an AWS App Mesh gateway route resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -367,6 +368,7 @@ class GatewayRoute(pulumi.CustomResource):
         Provides an AWS App Mesh gateway route resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

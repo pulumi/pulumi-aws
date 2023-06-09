@@ -14,6 +14,7 @@ import (
 // Attaches a policy to a KMS Key.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

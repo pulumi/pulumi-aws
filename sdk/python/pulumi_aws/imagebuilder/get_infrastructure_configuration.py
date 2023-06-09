@@ -239,6 +239,7 @@ def get_infrastructure_configuration(arn: Optional[str] = None,
     Provides details about an Image Builder Infrastructure Configuration.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -287,6 +288,7 @@ def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = N
     Provides details about an Image Builder Infrastructure Configuration.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

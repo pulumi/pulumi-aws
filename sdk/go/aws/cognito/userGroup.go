@@ -14,6 +14,7 @@ import (
 // Provides a Cognito User Group resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -178,6 +178,7 @@ class ResourceServer(pulumi.CustomResource):
 
         ## Example Usage
         ### Create a basic resource server
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,6 +189,7 @@ class ResourceServer(pulumi.CustomResource):
             user_pool_id=pool.id)
         ```
         ### Create a resource server with sample-scope
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,6 +229,7 @@ class ResourceServer(pulumi.CustomResource):
 
         ## Example Usage
         ### Create a basic resource server
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,6 +240,7 @@ class ResourceServer(pulumi.CustomResource):
             user_pool_id=pool.id)
         ```
         ### Create a resource server with sample-scope
+
         ```python
         import pulumi
         import pulumi_aws as aws

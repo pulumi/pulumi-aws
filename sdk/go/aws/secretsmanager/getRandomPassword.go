@@ -13,6 +13,7 @@ import (
 // Generate a random password.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

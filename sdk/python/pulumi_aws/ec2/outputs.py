@@ -5169,169 +5169,19 @@ class LaunchTemplateInstanceRequirements(dict):
         :param 'LaunchTemplateInstanceRequirementsAcceleratorCountArgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               ```
                ```python
                import pulumi
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               
-               return await Deployment.RunAsync(() => 
-               {
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                   }
-               }
-               ```
-               ```yaml
-               {}
                ```
         :param Sequence[str] accelerator_names: List of accelerator names. Default is any acclerator.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               ```
                ```python
                import pulumi
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               
-               return await Deployment.RunAsync(() => 
-               {
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                   }
-               }
-               ```
-               ```yaml
-               {}
                ```
         :param 'LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: List of accelerator types. Default is any accelerator type.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               ```
                ```python
                import pulumi
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               
-               return await Deployment.RunAsync(() => 
-               {
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                   }
-               }
-               ```
-               ```yaml
-               {}
                ```
         :param Sequence[str] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
                
@@ -5343,172 +5193,22 @@ class LaunchTemplateInstanceRequirements(dict):
                
                > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               ```
                ```python
                import pulumi
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               
-               return await Deployment.RunAsync(() => 
-               {
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                   }
-               }
-               ```
-               ```yaml
-               {}
                ```
         :param Sequence[str] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
                
                > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param Sequence[str] instance_generations: List of instance generation names. Default is any generation.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               ```
                ```python
                import pulumi
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               
-               return await Deployment.RunAsync(() => 
-               {
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                   }
-               }
-               ```
-               ```yaml
-               {}
                ```
         :param str local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param Sequence[str] local_storage_types: List of local storage type names. Default any storage type.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               ```
                ```python
                import pulumi
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               
-               return await Deployment.RunAsync(() => 
-               {
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                   }
-               }
-               ```
-               ```yaml
-               {}
                ```
         :param 'LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param 'LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
@@ -5597,58 +5297,8 @@ class LaunchTemplateInstanceRequirements(dict):
         """
         List of accelerator manufacturer names. Default is any manufacturer.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        ```
         ```python
         import pulumi
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-
-        return await Deployment.RunAsync(() => 
-        {
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-            }
-        }
-        ```
-        ```yaml
-        {}
         ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
@@ -5659,58 +5309,8 @@ class LaunchTemplateInstanceRequirements(dict):
         """
         List of accelerator names. Default is any acclerator.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        ```
         ```python
         import pulumi
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-
-        return await Deployment.RunAsync(() => 
-        {
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-            }
-        }
-        ```
-        ```yaml
-        {}
         ```
         """
         return pulumi.get(self, "accelerator_names")
@@ -5729,58 +5329,8 @@ class LaunchTemplateInstanceRequirements(dict):
         """
         List of accelerator types. Default is any accelerator type.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        ```
         ```python
         import pulumi
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-
-        return await Deployment.RunAsync(() => 
-        {
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-            }
-        }
-        ```
-        ```yaml
-        {}
         ```
         """
         return pulumi.get(self, "accelerator_types")
@@ -5827,58 +5377,8 @@ class LaunchTemplateInstanceRequirements(dict):
 
         > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        ```
         ```python
         import pulumi
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-
-        return await Deployment.RunAsync(() => 
-        {
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-            }
-        }
-        ```
-        ```yaml
-        {}
         ```
         """
         return pulumi.get(self, "cpu_manufacturers")
@@ -5899,58 +5399,8 @@ class LaunchTemplateInstanceRequirements(dict):
         """
         List of instance generation names. Default is any generation.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        ```
         ```python
         import pulumi
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-
-        return await Deployment.RunAsync(() => 
-        {
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-            }
-        }
-        ```
-        ```yaml
-        {}
         ```
         """
         return pulumi.get(self, "instance_generations")
@@ -5969,58 +5419,8 @@ class LaunchTemplateInstanceRequirements(dict):
         """
         List of local storage type names. Default any storage type.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        ```
         ```python
         import pulumi
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-
-        return await Deployment.RunAsync(() => 
-        {
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-            }
-        }
-        ```
-        ```yaml
-        {}
         ```
         """
         return pulumi.get(self, "local_storage_types")
@@ -13405,169 +12805,19 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               ```
                ```python
                import pulumi
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               
-               return await Deployment.RunAsync(() => 
-               {
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                   }
-               }
-               ```
-               ```yaml
-               {}
                ```
         :param Sequence[str] accelerator_names: List of accelerator names. Default is any acclerator.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               ```
                ```python
                import pulumi
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               
-               return await Deployment.RunAsync(() => 
-               {
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                   }
-               }
-               ```
-               ```yaml
-               {}
                ```
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: List of accelerator types. Default is any accelerator type.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               ```
                ```python
                import pulumi
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               
-               return await Deployment.RunAsync(() => 
-               {
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                   }
-               }
-               ```
-               ```yaml
-               {}
                ```
         :param Sequence[str] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
                
@@ -13579,172 +12829,22 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
                
                > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               ```
                ```python
                import pulumi
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               
-               return await Deployment.RunAsync(() => 
-               {
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                   }
-               }
-               ```
-               ```yaml
-               {}
                ```
         :param Sequence[str] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
                
                > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param Sequence[str] instance_generations: List of instance generation names. Default is any generation.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               ```
                ```python
                import pulumi
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               
-               return await Deployment.RunAsync(() => 
-               {
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                   }
-               }
-               ```
-               ```yaml
-               {}
                ```
         :param str local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param Sequence[str] local_storage_types: List of local storage type names. Default any storage type.
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               ```
                ```python
                import pulumi
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               
-               return await Deployment.RunAsync(() => 
-               {
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                   }
-               }
-               ```
-               ```yaml
-               {}
                ```
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs' memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
@@ -13821,58 +12921,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         """
         List of accelerator manufacturer names. Default is any manufacturer.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        ```
         ```python
         import pulumi
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-
-        return await Deployment.RunAsync(() => 
-        {
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-            }
-        }
-        ```
-        ```yaml
-        {}
         ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
@@ -13883,58 +12933,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         """
         List of accelerator names. Default is any acclerator.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        ```
         ```python
         import pulumi
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-
-        return await Deployment.RunAsync(() => 
-        {
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-            }
-        }
-        ```
-        ```yaml
-        {}
         ```
         """
         return pulumi.get(self, "accelerator_names")
@@ -13953,58 +12953,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         """
         List of accelerator types. Default is any accelerator type.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        ```
         ```python
         import pulumi
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-
-        return await Deployment.RunAsync(() => 
-        {
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-            }
-        }
-        ```
-        ```yaml
-        {}
         ```
         """
         return pulumi.get(self, "accelerator_types")
@@ -14051,58 +13001,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
 
         > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        ```
         ```python
         import pulumi
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-
-        return await Deployment.RunAsync(() => 
-        {
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-            }
-        }
-        ```
-        ```yaml
-        {}
         ```
         """
         return pulumi.get(self, "cpu_manufacturers")
@@ -14123,58 +13023,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         """
         List of instance generation names. Default is any generation.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        ```
         ```python
         import pulumi
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-
-        return await Deployment.RunAsync(() => 
-        {
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-            }
-        }
-        ```
-        ```yaml
-        {}
         ```
         """
         return pulumi.get(self, "instance_generations")
@@ -14193,58 +13043,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         """
         List of local storage type names. Default any storage type.
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        ```
         ```python
         import pulumi
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-
-        return await Deployment.RunAsync(() => 
-        {
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-            }
-        }
-        ```
-        ```yaml
-        {}
         ```
         """
         return pulumi.get(self, "local_storage_types")
@@ -23270,17 +22070,6 @@ class GetSubnetIdsFilterResult(dict):
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               import * as aws from "@pulumi/aws";
-               
-               const selected = aws.ec2.getSubnetIds({
-                   filters: [{
-                       name: "tag:Name",
-                       values: [""],
-                   }],
-               });
-               ```
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -23289,100 +22078,6 @@ class GetSubnetIdsFilterResult(dict):
                    name="tag:Name",
                    values=[""],
                )])
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               using Aws = Pulumi.Aws;
-               
-               return await Deployment.RunAsync(() => 
-               {
-                   var selected = Aws.Ec2.GetSubnetIds.Invoke(new()
-                   {
-                       Filters = new[]
-                       {
-                           new Aws.Ec2.Inputs.GetSubnetIdsFilterInputArgs
-                           {
-                               Name = "tag:Name",
-                               Values = new[]
-                               {
-                                   "",
-                               },
-                           },
-                       },
-                   });
-               
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
-               			Filters: []ec2.GetSubnetIdsFilter{
-               				{
-               					Name: "tag:Name",
-               					Values: []string{
-               						"",
-               					},
-               				},
-               			},
-               		}, nil)
-               		if err != nil {
-               			return err
-               		}
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import com.pulumi.aws.ec2.Ec2Functions;
-               import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                       final var selected = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
-                           .filters(GetSubnetIdsFilterArgs.builder()
-                               .name("tag:Name")
-                               .values("")
-                               .build())
-                           .build());
-               
-                   }
-               }
-               ```
-               ```yaml
-               variables:
-                 selected:
-                   fn::invoke:
-                     Function: aws:ec2:getSubnetIds
-                     Arguments:
-                       filters:
-                         - name: tag:Name
-                           values:
-                             -
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
@@ -23398,17 +22093,6 @@ class GetSubnetIdsFilterResult(dict):
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        import * as aws from "@pulumi/aws";
-
-        const selected = aws.ec2.getSubnetIds({
-            filters: [{
-                name: "tag:Name",
-                values: [""],
-            }],
-        });
-        ```
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -23417,100 +22101,6 @@ class GetSubnetIdsFilterResult(dict):
             name="tag:Name",
             values=[""],
         )])
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-        using Aws = Pulumi.Aws;
-
-        return await Deployment.RunAsync(() => 
-        {
-            var selected = Aws.Ec2.GetSubnetIds.Invoke(new()
-            {
-                Filters = new[]
-                {
-                    new Aws.Ec2.Inputs.GetSubnetIdsFilterInputArgs
-                    {
-                        Name = "tag:Name",
-                        Values = new[]
-                        {
-                            "",
-                        },
-                    },
-                },
-            });
-
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
-        			Filters: []ec2.GetSubnetIdsFilter{
-        				{
-        					Name: "tag:Name",
-        					Values: []string{
-        						"",
-        					},
-        				},
-        			},
-        		}, nil)
-        		if err != nil {
-        			return err
-        		}
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import com.pulumi.aws.ec2.Ec2Functions;
-        import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-                final var selected = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
-                    .filters(GetSubnetIdsFilterArgs.builder()
-                        .name("tag:Name")
-                        .values("")
-                        .build())
-                    .build());
-
-            }
-        }
-        ```
-        ```yaml
-        variables:
-          selected:
-            fn::invoke:
-              Function: aws:ec2:getSubnetIds
-              Arguments:
-                filters:
-                  - name: tag:Name
-                    values:
-                      -
         ```
         """
         return pulumi.get(self, "name")
@@ -23535,17 +22125,6 @@ class GetSubnetsFilterResult(dict):
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               import * as aws from "@pulumi/aws";
-               
-               const selected = aws.ec2.getSubnets({
-                   filters: [{
-                       name: "tag:Name",
-                       values: [""],
-                   }],
-               });
-               ```
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -23554,100 +22133,6 @@ class GetSubnetsFilterResult(dict):
                    name="tag:Name",
                    values=[""],
                )])
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               using Aws = Pulumi.Aws;
-               
-               return await Deployment.RunAsync(() => 
-               {
-                   var selected = Aws.Ec2.GetSubnets.Invoke(new()
-                   {
-                       Filters = new[]
-                       {
-                           new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
-                           {
-                               Name = "tag:Name",
-                               Values = new[]
-                               {
-                                   "",
-                               },
-                           },
-                       },
-                   });
-               
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-               			Filters: []ec2.GetSubnetsFilter{
-               				{
-               					Name: "tag:Name",
-               					Values: []string{
-               						"",
-               					},
-               				},
-               			},
-               		}, nil)
-               		if err != nil {
-               			return err
-               		}
-               		return nil
-               	})
-               }
-               ```
-               ```java
-               package generated_program;
-               
-               import com.pulumi.Context;
-               import com.pulumi.Pulumi;
-               import com.pulumi.core.Output;
-               import com.pulumi.aws.ec2.Ec2Functions;
-               import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-               import java.util.List;
-               import java.util.ArrayList;
-               import java.util.Map;
-               import java.io.File;
-               import java.nio.file.Files;
-               import java.nio.file.Paths;
-               
-               public class App {
-                   public static void main(String[] args) {
-                       Pulumi.run(App::stack);
-                   }
-               
-                   public static void stack(Context ctx) {
-                       final var selected = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-                           .filters(GetSubnetsFilterArgs.builder()
-                               .name("tag:Name")
-                               .values("")
-                               .build())
-                           .build());
-               
-                   }
-               }
-               ```
-               ```yaml
-               variables:
-                 selected:
-                   fn::invoke:
-                     Function: aws:ec2:getSubnets
-                     Arguments:
-                       filters:
-                         - name: tag:Name
-                           values:
-                             -
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
@@ -23663,17 +22148,6 @@ class GetSubnetsFilterResult(dict):
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        import * as aws from "@pulumi/aws";
-
-        const selected = aws.ec2.getSubnets({
-            filters: [{
-                name: "tag:Name",
-                values: [""],
-            }],
-        });
-        ```
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -23682,100 +22156,6 @@ class GetSubnetsFilterResult(dict):
             name="tag:Name",
             values=[""],
         )])
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-        using Aws = Pulumi.Aws;
-
-        return await Deployment.RunAsync(() => 
-        {
-            var selected = Aws.Ec2.GetSubnets.Invoke(new()
-            {
-                Filters = new[]
-                {
-                    new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
-                    {
-                        Name = "tag:Name",
-                        Values = new[]
-                        {
-                            "",
-                        },
-                    },
-                },
-            });
-
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
-        			Filters: []ec2.GetSubnetsFilter{
-        				{
-        					Name: "tag:Name",
-        					Values: []string{
-        						"",
-        					},
-        				},
-        			},
-        		}, nil)
-        		if err != nil {
-        			return err
-        		}
-        		return nil
-        	})
-        }
-        ```
-        ```java
-        package generated_program;
-
-        import com.pulumi.Context;
-        import com.pulumi.Pulumi;
-        import com.pulumi.core.Output;
-        import com.pulumi.aws.ec2.Ec2Functions;
-        import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
-        import java.util.List;
-        import java.util.ArrayList;
-        import java.util.Map;
-        import java.io.File;
-        import java.nio.file.Files;
-        import java.nio.file.Paths;
-
-        public class App {
-            public static void main(String[] args) {
-                Pulumi.run(App::stack);
-            }
-
-            public static void stack(Context ctx) {
-                final var selected = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
-                    .filters(GetSubnetsFilterArgs.builder()
-                        .name("tag:Name")
-                        .values("")
-                        .build())
-                    .build());
-
-            }
-        }
-        ```
-        ```yaml
-        variables:
-          selected:
-            fn::invoke:
-              Function: aws:ec2:getSubnets
-              Arguments:
-                filters:
-                  - name: tag:Name
-                    values:
-                      -
         ```
         """
         return pulumi.get(self, "name")

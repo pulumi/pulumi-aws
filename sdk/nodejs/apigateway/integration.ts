@@ -105,8 +105,6 @@ import {RestApi} from "./index";
  * });
  * ```
  *
- * ## VPC Link
- *
  * ## Import
  *
  * `aws_api_gateway_integration` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.,

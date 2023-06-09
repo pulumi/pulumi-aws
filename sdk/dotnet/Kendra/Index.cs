@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Example Usage
     /// ### Basic
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,6 +37,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With capacity units
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,6 +60,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With server side encryption configuration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,6 +82,7 @@ namespace Pulumi.Aws.Kendra
     /// ```
     /// ### With Document Metadata Configuration Updates
     /// ### Specifying the predefined elements
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -324,6 +328,7 @@ namespace Pulumi.Aws.Kendra
     /// ### Appending additional elements
     /// 
     /// The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -636,6 +641,7 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With JSON token type configuration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

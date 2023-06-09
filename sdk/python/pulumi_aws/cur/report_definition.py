@@ -413,6 +413,7 @@ class ReportDefinition(pulumi.CustomResource):
         > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -467,6 +468,7 @@ class ReportDefinition(pulumi.CustomResource):
         > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

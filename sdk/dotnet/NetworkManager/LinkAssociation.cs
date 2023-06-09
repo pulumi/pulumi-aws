@@ -15,6 +15,7 @@ namespace Pulumi.Aws.NetworkManager
     /// The device and link must be in the same global network and the same site.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

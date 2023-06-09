@@ -16,6 +16,7 @@ import (
 // The provider waits for the domain service access policy to become `Active` when applying a configuration.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

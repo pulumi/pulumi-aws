@@ -14,6 +14,7 @@ import (
 // Provides an OpsWorks haproxy layer resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

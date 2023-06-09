@@ -13,6 +13,7 @@ import (
 // Retrieves information about a Service Discovery Service.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

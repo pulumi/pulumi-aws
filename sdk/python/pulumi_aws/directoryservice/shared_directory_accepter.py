@@ -135,6 +135,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         > **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -173,6 +174,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         > **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

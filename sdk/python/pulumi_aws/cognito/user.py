@@ -495,6 +495,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic configuration
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -505,6 +506,7 @@ class User(pulumi.CustomResource):
             username="example")
         ```
         ### Setting user attributes
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -574,6 +576,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic configuration
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -584,6 +587,7 @@ class User(pulumi.CustomResource):
             username="example")
         ```
         ### Setting user attributes
+
         ```python
         import pulumi
         import pulumi_aws as aws

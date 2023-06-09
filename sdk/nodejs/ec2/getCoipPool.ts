@@ -13,8 +13,6 @@ import * as utilities from "../utilities";
  * This data source can prove useful when a module accepts a coip pool id as
  * an input variable and needs to, for example, determine the CIDR block of that
  * COIP Pool.
- *
- * ## Example Usage
  */
 export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetCoipPoolResult> {
     args = args || {};
@@ -78,8 +76,6 @@ export interface GetCoipPoolResult {
  * This data source can prove useful when a module accepts a coip pool id as
  * an input variable and needs to, for example, determine the CIDR block of that
  * COIP Pool.
- *
- * ## Example Usage
  */
 export function getCoipPoolOutput(args?: GetCoipPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCoipPoolResult> {
     return pulumi.output(args).apply((a: any) => getCoipPool(a, opts))

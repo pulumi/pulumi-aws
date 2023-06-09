@@ -15,6 +15,45 @@ import (
 //
 // ## Example Usage
 //
+// Basic usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamResourceDiscovery(ctx, "main", &ec2.VpcIpamResourceDiscoveryArgs{
+//				Description: pulumi.String("My IPAM Resource Discovery"),
+//				OperatingRegions: ec2.VpcIpamResourceDiscoveryOperatingRegionArray{
+//					&ec2.VpcIpamResourceDiscoveryOperatingRegionArgs{
+//						RegionName: *pulumi.String(current.Name),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Test": pulumi.String("Main"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // IPAMs can be imported using the `ipam resource discovery id`, e.g.

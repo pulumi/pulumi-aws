@@ -13,6 +13,7 @@ namespace Pulumi.Aws.WafV2
     /// Provides a WAFv2 IP Set Resource
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

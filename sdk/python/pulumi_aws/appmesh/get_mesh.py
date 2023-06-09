@@ -143,12 +143,14 @@ def get_mesh(mesh_owner: Optional[str] = None,
     The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
 
     simple = aws.appmesh.get_mesh(name="simpleapp")
     ```
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -191,12 +193,14 @@ def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
     The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
 
     simple = aws.appmesh.get_mesh(name="simpleapp")
     ```
+
     ```python
     import pulumi
     import pulumi_aws as aws

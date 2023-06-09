@@ -106,6 +106,7 @@ def get_script(dag_edges: Optional[Sequence[pulumi.InputType['GetScriptDagEdgeAr
 
     ## Example Usage
     ### Generate Python Script
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -196,6 +197,7 @@ def get_script(dag_edges: Optional[Sequence[pulumi.InputType['GetScriptDagEdgeAr
     pulumi.export("pythonScript", example.python_script)
     ```
     ### Generate Scala Code
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -317,6 +319,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[pulumi.InputType
 
     ## Example Usage
     ### Generate Python Script
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -407,6 +410,7 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[pulumi.InputType
     pulumi.export("pythonScript", example.python_script)
     ```
     ### Generate Scala Code
+
     ```python
     import pulumi
     import pulumi_aws as aws

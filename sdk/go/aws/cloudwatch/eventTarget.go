@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 // ### Kinesis Usage
+//
 // ```go
 // package main
 //
@@ -87,6 +88,7 @@ import (
 //
 // ```
 // ### SSM Document Usage
+//
 // ```go
 // package main
 //
@@ -232,6 +234,7 @@ import (
 //
 // ```
 // ### RunCommand Usage
+//
 // ```go
 // package main
 //
@@ -276,6 +279,7 @@ import (
 //
 // ```
 // ### API Gateway target
+//
 // ```go
 // package main
 //
@@ -331,6 +335,7 @@ import (
 //
 // ```
 // ### Cross-Account Event Bus target
+//
 // ```go
 // package main
 //
@@ -421,6 +426,7 @@ import (
 //
 // ```
 // ### Input Transformer Usage - JSON Object
+//
 // ```go
 // package main
 //
@@ -457,6 +463,7 @@ import (
 //
 // ```
 // ### Input Transformer Usage - Simple String
+//
 // ```go
 // package main
 //
@@ -493,6 +500,7 @@ import (
 //
 // ```
 // ### Cloudwatch Log Group Usage
+//
 // ```go
 // package main
 //

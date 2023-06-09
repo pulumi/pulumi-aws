@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// ## Example Usage
     /// ### Basic Example
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,6 +50,7 @@ namespace Pulumi.Aws.CostExplorer
     /// });
     /// ```
     /// ### Threshold Expression
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,6 +94,7 @@ namespace Pulumi.Aws.CostExplorer
     /// });
     /// ```
     /// ### SNS Example
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

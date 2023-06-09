@@ -71,6 +71,7 @@ def get_node_groups(cluster_name: Optional[str] = None,
     Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -101,6 +102,7 @@ def get_node_groups_output(cluster_name: Optional[pulumi.Input[str]] = None,
     Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

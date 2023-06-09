@@ -13,6 +13,7 @@ namespace Pulumi.Aws.WafRegional
     /// Provides a WAF Regional Regex Match Set Resource
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

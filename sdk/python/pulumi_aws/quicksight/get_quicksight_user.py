@@ -154,6 +154,7 @@ def get_quicksight_user(aws_account_id: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -200,6 +201,7 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[st
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

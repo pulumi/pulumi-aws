@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ssm
     /// ### Basic Usage
     /// 
     /// Using `approved_patches` only.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,6 +40,7 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// ### Advanced Usage, specifying patch filters
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -145,6 +147,7 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// ### Advanced usage, specifying Microsoft application and Windows patch rules
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -214,6 +217,7 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// ### Advanced usage, specifying alternate patch source repository
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

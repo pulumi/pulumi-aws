@@ -14,6 +14,7 @@ import (
 // Provides a Cognito Risk Configuration resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

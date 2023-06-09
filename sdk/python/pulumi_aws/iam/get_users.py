@@ -94,6 +94,7 @@ def get_users(name_regex: Optional[str] = None,
 
     ## Example Usage
     ### All users in an account
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -103,6 +104,7 @@ def get_users(name_regex: Optional[str] = None,
     ### Users filtered by name regex
 
     Users whose username contains `abc`
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -110,6 +112,7 @@ def get_users(name_regex: Optional[str] = None,
     users = aws.iam.get_users(name_regex=".*abc.*")
     ```
     ### Users filtered by path prefix
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -144,6 +147,7 @@ def get_users_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
     ### All users in an account
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -153,6 +157,7 @@ def get_users_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
     ### Users filtered by name regex
 
     Users whose username contains `abc`
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -160,6 +165,7 @@ def get_users_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
     users = aws.iam.get_users(name_regex=".*abc.*")
     ```
     ### Users filtered by path prefix
+
     ```python
     import pulumi
     import pulumi_aws as aws

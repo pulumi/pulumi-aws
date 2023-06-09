@@ -14,6 +14,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### Add intelligent tiering configuration for entire S3 bucket
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,6 +46,7 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Add intelligent tiering configuration with S3 object filter
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

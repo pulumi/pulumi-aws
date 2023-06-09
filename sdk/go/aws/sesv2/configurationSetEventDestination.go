@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Cloud Watch Destination
+//
 // ```go
 // package main
 //
@@ -61,6 +62,7 @@ import (
 //
 // ```
 // ### Kinesis Firehose Destination
+//
 // ```go
 // package main
 //
@@ -102,6 +104,7 @@ import (
 //
 // ```
 // ### Pinpoint Destination
+//
 // ```go
 // package main
 //
@@ -142,6 +145,7 @@ import (
 //
 // ```
 // ### SNS Destination
+//
 // ```go
 // package main
 //

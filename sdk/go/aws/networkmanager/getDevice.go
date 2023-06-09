@@ -11,8 +11,6 @@ import (
 )
 
 // Retrieve information about a device.
-//
-// ## Example Usage
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	var rv LookupDeviceResult
 	err := ctx.Invoke("aws:networkmanager/getDevice:getDevice", args, &rv, opts...)

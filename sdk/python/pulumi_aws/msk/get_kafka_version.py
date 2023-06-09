@@ -81,6 +81,7 @@ def get_kafka_version(preferred_versions: Optional[Sequence[str]] = None,
     Get information on a Amazon MSK Kafka Version
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -118,6 +119,7 @@ def get_kafka_version_output(preferred_versions: Optional[pulumi.Input[Optional[
     Get information on a Amazon MSK Kafka Version
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

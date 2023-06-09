@@ -14,6 +14,7 @@ import (
 // Provides an OpsWorks static web server layer resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

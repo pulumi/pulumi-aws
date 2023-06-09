@@ -16,6 +16,7 @@ import (
 // > **NOTE:** Data Repository Associations are only compatible with AWS FSx for Lustre File Systems and `PERSISTENT_2` deployment type.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

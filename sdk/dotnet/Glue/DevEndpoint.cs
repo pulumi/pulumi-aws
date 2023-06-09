@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Glue
     /// ## Example Usage
     /// 
     /// Basic usage:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

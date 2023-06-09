@@ -157,6 +157,7 @@ def get_connect_peer(filters: Optional[Sequence[pulumi.InputType['GetConnectPeer
 
     ## Example Usage
     ### By Filter
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -167,6 +168,7 @@ def get_connect_peer(filters: Optional[Sequence[pulumi.InputType['GetConnectPeer
     )])
     ```
     ### By Identifier
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -209,6 +211,7 @@ def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
 
     ## Example Usage
     ### By Filter
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -219,6 +222,7 @@ def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     )])
     ```
     ### By Identifier
+
     ```python
     import pulumi
     import pulumi_aws as aws

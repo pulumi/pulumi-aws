@@ -235,6 +235,7 @@ class DataCatalog(pulumi.CustomResource):
         > **Tip:** for a more detailed explanation on the usage of `parameters`, see the [DataCatalog API documentation](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html)
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,6 +251,7 @@ class DataCatalog(pulumi.CustomResource):
             type="LAMBDA")
         ```
         ### Hive based Data Catalog
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -262,6 +264,7 @@ class DataCatalog(pulumi.CustomResource):
             type="HIVE")
         ```
         ### Glue based Data Catalog
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -274,6 +277,7 @@ class DataCatalog(pulumi.CustomResource):
             type="GLUE")
         ```
         ### Lambda based Data Catalog
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,6 +321,7 @@ class DataCatalog(pulumi.CustomResource):
         > **Tip:** for a more detailed explanation on the usage of `parameters`, see the [DataCatalog API documentation](https://docs.aws.amazon.com/athena/latest/APIReference/API_DataCatalog.html)
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,6 +337,7 @@ class DataCatalog(pulumi.CustomResource):
             type="LAMBDA")
         ```
         ### Hive based Data Catalog
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,6 +350,7 @@ class DataCatalog(pulumi.CustomResource):
             type="HIVE")
         ```
         ### Glue based Data Catalog
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -356,6 +363,7 @@ class DataCatalog(pulumi.CustomResource):
             type="GLUE")
         ```
         ### Lambda based Data Catalog
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -175,6 +175,7 @@ class RecoveryGroup(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Readiness Recovery Group.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -208,6 +209,7 @@ class RecoveryGroup(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Readiness Recovery Group.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -167,6 +167,7 @@ class MetricsDestination(pulumi.CustomResource):
         Provides a CloudWatch RUM Metrics Destination resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -201,6 +202,7 @@ class MetricsDestination(pulumi.CustomResource):
         Provides a CloudWatch RUM Metrics Destination resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

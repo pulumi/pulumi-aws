@@ -16,6 +16,7 @@ import (
 // > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

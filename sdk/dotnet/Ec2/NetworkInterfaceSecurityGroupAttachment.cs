@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Ec2
     /// (provided by `sg`) and then attaching the security group to the instance's
     /// primary network interface via the `aws.ec2.NetworkInterfaceSecurityGroupAttachment` resource,
     /// named `sg_attachment`:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -86,6 +87,7 @@ namespace Pulumi.Aws.Ec2
     /// In this example, `instance` is provided by the `aws.ec2.Instance` data source,
     /// fetching an external instance, possibly not managed by this provider.
     /// `sg_attachment` then attaches to the output instance's `network_interface_id`:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

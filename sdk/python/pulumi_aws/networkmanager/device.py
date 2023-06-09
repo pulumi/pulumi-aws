@@ -401,6 +401,7 @@ class Device(pulumi.CustomResource):
         the location of the site is used for visualization in the Network Manager console.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -442,6 +443,7 @@ class Device(pulumi.CustomResource):
         the location of the site is used for visualization in the Network Manager console.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

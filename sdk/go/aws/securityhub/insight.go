@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Filter by AWS account ID
+//
 // ```go
 // package main
 //
@@ -57,6 +58,7 @@ import (
 //
 // ```
 // ### Filter by date range
+//
 // ```go
 // package main
 //
@@ -97,6 +99,7 @@ import (
 //
 // ```
 // ### Filter by destination IPv4 address
+//
 // ```go
 // package main
 //
@@ -134,6 +137,7 @@ import (
 //
 // ```
 // ### Filter by finding's confidence
+//
 // ```go
 // package main
 //
@@ -171,6 +175,7 @@ import (
 //
 // ```
 // ### Filter by resource tags
+//
 // ```go
 // package main
 //

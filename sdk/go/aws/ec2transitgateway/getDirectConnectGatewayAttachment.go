@@ -14,6 +14,7 @@ import (
 //
 // ## Example Usage
 // ### By Transit Gateway and Direct Connect Gateway Identifiers
+//
 // ```go
 // package main
 //

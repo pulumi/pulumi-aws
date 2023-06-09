@@ -283,6 +283,7 @@ class Authorizer(pulumi.CustomResource):
         Creates and manages an AWS IoT Authorizer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,6 +326,7 @@ class Authorizer(pulumi.CustomResource):
         Creates and manages an AWS IoT Authorizer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

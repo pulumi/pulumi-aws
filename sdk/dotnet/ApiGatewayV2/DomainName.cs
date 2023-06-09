@@ -18,6 +18,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Example Usage
     /// ### Basic
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,6 +41,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// });
     /// ```
     /// ### Associated Route 53 Resource Record
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -14,6 +14,7 @@ import (
 // Provides a resource to manage an API Gateway Documentation Version.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

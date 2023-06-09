@@ -101,6 +101,7 @@ class ConnectionAssociation(pulumi.CustomResource):
         Associates a Direct Connect Connection with a LAG.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -131,6 +132,7 @@ class ConnectionAssociation(pulumi.CustomResource):
         Associates a Direct Connect Connection with a LAG.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

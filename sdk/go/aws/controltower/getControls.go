@@ -11,8 +11,6 @@ import (
 )
 
 // List of Control Tower controls applied to an OU.
-//
-// ## Example Usage
 func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.InvokeOption) (*GetControlsResult, error) {
 	var rv GetControlsResult
 	err := ctx.Invoke("aws:controltower/getControls:getControls", args, &rv, opts...)

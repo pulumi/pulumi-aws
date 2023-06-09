@@ -158,6 +158,7 @@ def get_cluster(cluster_name: Optional[str] = None,
     cluster within an AWS ECS service.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -197,6 +198,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     cluster within an AWS ECS service.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

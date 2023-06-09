@@ -138,6 +138,7 @@ class UploadBuffer(pulumi.CustomResource):
 
         ## Example Usage
         ### Cached and VTL Gateway Type
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -149,6 +150,7 @@ class UploadBuffer(pulumi.CustomResource):
             gateway_arn=aws_storagegateway_gateway["test"]["arn"])
         ```
         ### Stored Gateway Type
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,6 +189,7 @@ class UploadBuffer(pulumi.CustomResource):
 
         ## Example Usage
         ### Cached and VTL Gateway Type
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -198,6 +201,7 @@ class UploadBuffer(pulumi.CustomResource):
             gateway_arn=aws_storagegateway_gateway["test"]["arn"])
         ```
         ### Stored Gateway Type
+
         ```python
         import pulumi
         import pulumi_aws as aws

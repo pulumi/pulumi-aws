@@ -167,6 +167,7 @@ class UserProfile(pulumi.CustomResource):
         Provides an OpsWorks User Profile resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,6 +194,7 @@ class UserProfile(pulumi.CustomResource):
         Provides an OpsWorks User Profile resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

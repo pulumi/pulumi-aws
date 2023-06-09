@@ -13,6 +13,7 @@ import (
 // Data source for managing an AWS DMS (Database Migration) Replication Instance.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

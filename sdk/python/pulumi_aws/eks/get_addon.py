@@ -152,6 +152,7 @@ def get_addon(addon_name: Optional[str] = None,
     Retrieve information about an EKS add-on.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -195,6 +196,7 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     Retrieve information about an EKS add-on.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -14,6 +14,42 @@ import (
 // Provides an Elastic network interface (ENI) resource.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewNetworkInterface(ctx, "test", &ec2.NetworkInterfaceArgs{
+//				SubnetId: pulumi.Any(aws_subnet.Public_a.Id),
+//				PrivateIps: pulumi.StringArray{
+//					pulumi.String("10.0.0.50"),
+//				},
+//				SecurityGroups: pulumi.StringArray{
+//					aws_security_group.Web.Id,
+//				},
+//				Attachments: ec2.NetworkInterfaceAttachmentTypeArray{
+//					&ec2.NetworkInterfaceAttachmentTypeArgs{
+//						Instance:    pulumi.Any(aws_instance.Test.Id),
+//						DeviceIndex: pulumi.Int(1),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Example of Managing Multiple IPs on a Network Interface
 //
 // By default, private IPs are managed through the `privateIps` and `privateIpsCount` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.

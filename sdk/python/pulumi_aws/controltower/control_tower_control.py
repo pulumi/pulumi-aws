@@ -102,6 +102,7 @@ class ControlTowerControl(pulumi.CustomResource):
         [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -138,6 +139,7 @@ class ControlTowerControl(pulumi.CustomResource):
         [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

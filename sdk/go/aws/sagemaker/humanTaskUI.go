@@ -14,6 +14,7 @@ import (
 // Provides a SageMaker Human Task UI resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

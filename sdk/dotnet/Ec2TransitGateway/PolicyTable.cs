@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// Manages an EC2 Transit Gateway Policy Table.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

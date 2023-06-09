@@ -15,6 +15,49 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleApplication, err := appconfig.NewApplication(ctx, "exampleApplication", &appconfig.ApplicationArgs{
+//				Description: pulumi.String("Example AppConfig Application"),
+//				Tags: pulumi.StringMap{
+//					"Type": pulumi.String("AppConfig Application"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appconfig.NewEnvironment(ctx, "exampleEnvironment", &appconfig.EnvironmentArgs{
+//				Description:   pulumi.String("Example AppConfig Environment"),
+//				ApplicationId: exampleApplication.ID(),
+//				Monitors: appconfig.EnvironmentMonitorArray{
+//					&appconfig.EnvironmentMonitorArgs{
+//						AlarmArn:     pulumi.Any(aws_cloudwatch_metric_alarm.Example.Arn),
+//						AlarmRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Type": pulumi.String("AppConfig Environment"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,

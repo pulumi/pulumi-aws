@@ -301,6 +301,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         Manages a Neptune database cluster snapshot.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -333,6 +334,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         Manages a Neptune database cluster snapshot.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

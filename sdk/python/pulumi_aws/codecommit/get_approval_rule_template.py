@@ -143,6 +143,7 @@ def get_approval_rule_template(name: Optional[str] = None,
     Provides details about a specific CodeCommit Approval Rule Template.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -177,6 +178,7 @@ def get_approval_rule_template_output(name: Optional[pulumi.Input[str]] = None,
     Provides details about a specific CodeCommit Approval Rule Template.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

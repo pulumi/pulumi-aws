@@ -93,6 +93,7 @@ def get_certificate(arn: Optional[str] = None,
     Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -127,6 +128,7 @@ def get_certificate_output(arn: Optional[pulumi.Input[str]] = None,
     Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

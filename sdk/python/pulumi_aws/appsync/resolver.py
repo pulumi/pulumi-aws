@@ -481,6 +481,7 @@ class Resolver(pulumi.CustomResource):
         Provides an AppSync Resolver.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -557,6 +558,7 @@ class Resolver(pulumi.CustomResource):
             ))
         ```
         ### JS
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -610,6 +612,7 @@ class Resolver(pulumi.CustomResource):
         Provides an AppSync Resolver.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -686,6 +689,7 @@ class Resolver(pulumi.CustomResource):
             ))
         ```
         ### JS
+
         ```python
         import pulumi
         import pulumi_aws as aws

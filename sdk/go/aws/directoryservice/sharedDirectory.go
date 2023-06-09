@@ -14,6 +14,7 @@ import (
 // Manages a directory in your account (directory owner) shared with another account (directory consumer).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -15,6 +15,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Example Usage
     /// ### Basic
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// });
     /// ```
     /// ### Lambda Integration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,6 +65,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// });
     /// ```
     /// ### AWS Service Integration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -88,6 +91,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// });
     /// ```
     /// ### Private Integration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

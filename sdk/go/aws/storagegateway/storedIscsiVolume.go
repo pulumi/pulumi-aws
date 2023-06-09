@@ -16,6 +16,65 @@ import (
 // > **NOTE:** The gateway must have a working storage added (e.g., via the `storagegateway.WorkingStorage` resource) before the volume is operational to clients, however the Storage Gateway API will allow volume creation without error in that case and return volume status as `WORKING STORAGE NOT CONFIGURED`.
 //
 // ## Example Usage
+// ### Create Empty Stored iSCSI Volume
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewStoredIscsiVolume(ctx, "example", &storagegateway.StoredIscsiVolumeArgs{
+//				GatewayArn:           pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
+//				NetworkInterfaceId:   pulumi.Any(aws_instance.Example.Private_ip),
+//				TargetName:           pulumi.String("example"),
+//				PreserveExistingData: pulumi.Bool(false),
+//				DiskId:               pulumi.Any(data.Aws_storagegateway_local_disk.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Create Stored iSCSI Volume From Snapshot
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewStoredIscsiVolume(ctx, "example", &storagegateway.StoredIscsiVolumeArgs{
+//				GatewayArn:           pulumi.Any(aws_storagegateway_cache.Example.Gateway_arn),
+//				NetworkInterfaceId:   pulumi.Any(aws_instance.Example.Private_ip),
+//				SnapshotId:           pulumi.Any(aws_ebs_snapshot.Example.Id),
+//				TargetName:           pulumi.String("example"),
+//				PreserveExistingData: pulumi.Bool(false),
+//				DiskId:               pulumi.Any(data.Aws_storagegateway_local_disk.Test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

@@ -71,6 +71,7 @@ def get_controls(target_identifier: Optional[str] = None,
     List of Control Tower controls applied to an OU.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -101,6 +102,7 @@ def get_controls_output(target_identifier: Optional[pulumi.Input[str]] = None,
     List of Control Tower controls applied to an OU.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

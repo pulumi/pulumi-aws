@@ -630,6 +630,7 @@ class Trail(pulumi.CustomResource):
 
         Enable CloudTrail to capture all compatible management events in region.
         For capturing events from services like IAM, `include_global_service_events` must be enabled.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -678,6 +679,7 @@ class Trail(pulumi.CustomResource):
         * [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html) (for basic event selector).
         * [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) (for advanced event selector).
         ### Logging All Lambda Function Invocations By Using Basic Event Selectors
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -692,6 +694,7 @@ class Trail(pulumi.CustomResource):
         )])
         ```
         ### Logging All S3 Object Events By Using Basic Event Selectors
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -706,6 +709,7 @@ class Trail(pulumi.CustomResource):
         )])
         ```
         ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -721,6 +725,7 @@ class Trail(pulumi.CustomResource):
         )])
         ```
         ### Sending Events to CloudWatch Logs
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -777,6 +782,7 @@ class Trail(pulumi.CustomResource):
 
         Enable CloudTrail to capture all compatible management events in region.
         For capturing events from services like IAM, `include_global_service_events` must be enabled.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -825,6 +831,7 @@ class Trail(pulumi.CustomResource):
         * [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html) (for basic event selector).
         * [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) (for advanced event selector).
         ### Logging All Lambda Function Invocations By Using Basic Event Selectors
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -839,6 +846,7 @@ class Trail(pulumi.CustomResource):
         )])
         ```
         ### Logging All S3 Object Events By Using Basic Event Selectors
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -853,6 +861,7 @@ class Trail(pulumi.CustomResource):
         )])
         ```
         ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -868,6 +877,7 @@ class Trail(pulumi.CustomResource):
         )])
         ```
         ### Sending Events to CloudWatch Logs
+
         ```python
         import pulumi
         import pulumi_aws as aws

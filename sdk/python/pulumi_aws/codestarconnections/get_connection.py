@@ -122,6 +122,7 @@ def get_connection(arn: Optional[str] = None,
 
     ## Example Usage
     ### By ARN
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -129,6 +130,7 @@ def get_connection(arn: Optional[str] = None,
     example = aws.codestarconnections.get_connection(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
     ### By Name
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -170,6 +172,7 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
     ### By ARN
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -177,6 +180,7 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     example = aws.codestarconnections.get_connection(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
     ### By Name
+
     ```python
     import pulumi
     import pulumi_aws as aws

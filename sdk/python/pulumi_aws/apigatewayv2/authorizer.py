@@ -417,6 +417,7 @@ class Authorizer(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic WebSocket API
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -428,6 +429,7 @@ class Authorizer(pulumi.CustomResource):
             identity_sources=["route.request.header.Auth"])
         ```
         ### Basic HTTP API
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -485,6 +487,7 @@ class Authorizer(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic WebSocket API
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -496,6 +499,7 @@ class Authorizer(pulumi.CustomResource):
             identity_sources=["route.request.header.Auth"])
         ```
         ### Basic HTTP API
+
         ```python
         import pulumi
         import pulumi_aws as aws

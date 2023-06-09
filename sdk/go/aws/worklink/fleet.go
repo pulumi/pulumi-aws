@@ -13,6 +13,7 @@ import (
 // ## Example Usage
 //
 // Basic usage:
+//
 // ```go
 // package main
 //
@@ -36,6 +37,7 @@ import (
 // ```
 //
 // Network Configuration Usage:
+//
 // ```go
 // package main
 //
@@ -66,6 +68,7 @@ import (
 // ```
 //
 // Identity Provider Configuration Usage:
+//
 // ```go
 // package main
 //

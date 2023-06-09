@@ -120,6 +120,7 @@ def get_firewall_policy(arn: Optional[str] = None,
 
     ## Example Usage
     ### Find firewall policy by name
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -127,6 +128,7 @@ def get_firewall_policy(arn: Optional[str] = None,
     example = aws.networkfirewall.get_firewall_policy(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
     ### Find firewall policy by ARN
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -134,6 +136,7 @@ def get_firewall_policy(arn: Optional[str] = None,
     example = aws.networkfirewall.get_firewall_policy(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
     ### Find firewall policy by name and ARN
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -178,6 +181,7 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None
 
     ## Example Usage
     ### Find firewall policy by name
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -185,6 +189,7 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     example = aws.networkfirewall.get_firewall_policy(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
     ### Find firewall policy by ARN
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -192,6 +197,7 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     example = aws.networkfirewall.get_firewall_policy(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
     ### Find firewall policy by name and ARN
+
     ```python
     import pulumi
     import pulumi_aws as aws

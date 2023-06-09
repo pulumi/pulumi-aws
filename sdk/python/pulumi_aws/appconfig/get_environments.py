@@ -73,6 +73,7 @@ def get_environments(application_id: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -103,6 +104,7 @@ def get_environments_output(application_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

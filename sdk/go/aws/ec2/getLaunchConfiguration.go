@@ -13,6 +13,7 @@ import (
 // Provides information about a Launch Configuration.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

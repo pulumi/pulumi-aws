@@ -62,25 +62,6 @@ class PolicyStepScalingPolicyConfiguration(dict):
         :param int min_adjustment_magnitude: Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
         :param Sequence['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs'] step_adjustments: Set of adjustments that manage scaling. These have the following structure:
                
-               ```typescript
-               import * as pulumi from "@pulumi/pulumi";
-               import * as aws from "@pulumi/aws";
-               
-               const ecsPolicy = new aws.appautoscaling.Policy("ecsPolicy", {stepScalingPolicyConfiguration: {
-                   stepAdjustments: [
-                       {
-                           metricIntervalLowerBound: "1",
-                           metricIntervalUpperBound: "2",
-                           scalingAdjustment: -1,
-                       },
-                       {
-                           metricIntervalLowerBound: "2",
-                           metricIntervalUpperBound: "3",
-                           scalingAdjustment: 1,
-                       },
-                   ],
-               }});
-               ```
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -99,71 +80,6 @@ class PolicyStepScalingPolicyConfiguration(dict):
                        ),
                    ],
                ))
-               ```
-               ```csharp
-               using System.Collections.Generic;
-               using System.Linq;
-               using Pulumi;
-               using Aws = Pulumi.Aws;
-               
-               return await Deployment.RunAsync(() => 
-               {
-                   var ecsPolicy = new Aws.AppAutoScaling.Policy("ecsPolicy", new()
-                   {
-                       StepScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationArgs
-                       {
-                           StepAdjustments = new[]
-                           {
-                               new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
-                               {
-                                   MetricIntervalLowerBound = "1",
-                                   MetricIntervalUpperBound = "2",
-                                   ScalingAdjustment = -1,
-                               },
-                               new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
-                               {
-                                   MetricIntervalLowerBound = "2",
-                                   MetricIntervalUpperBound = "3",
-                                   ScalingAdjustment = 1,
-                               },
-                           },
-                       },
-                   });
-               
-               });
-               ```
-               ```go
-               package main
-               
-               import (
-               	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
-               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-               )
-               
-               func main() {
-               	pulumi.Run(func(ctx *pulumi.Context) error {
-               		_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
-               			StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
-               				StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
-               					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
-               						MetricIntervalLowerBound: pulumi.String("1"),
-               						MetricIntervalUpperBound: pulumi.String("2"),
-               						ScalingAdjustment:        -1,
-               					},
-               					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
-               						MetricIntervalLowerBound: pulumi.String("2"),
-               						MetricIntervalUpperBound: pulumi.String("3"),
-               						ScalingAdjustment:        pulumi.Int(1),
-               					},
-               				},
-               			},
-               		})
-               		if err != nil {
-               			return err
-               		}
-               		return nil
-               	})
-               }
                ```
         """
         if adjustment_type is not None:
@@ -215,25 +131,6 @@ class PolicyStepScalingPolicyConfiguration(dict):
         """
         Set of adjustments that manage scaling. These have the following structure:
 
-        ```typescript
-        import * as pulumi from "@pulumi/pulumi";
-        import * as aws from "@pulumi/aws";
-
-        const ecsPolicy = new aws.appautoscaling.Policy("ecsPolicy", {stepScalingPolicyConfiguration: {
-            stepAdjustments: [
-                {
-                    metricIntervalLowerBound: "1",
-                    metricIntervalUpperBound: "2",
-                    scalingAdjustment: -1,
-                },
-                {
-                    metricIntervalLowerBound: "2",
-                    metricIntervalUpperBound: "3",
-                    scalingAdjustment: 1,
-                },
-            ],
-        }});
-        ```
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -252,71 +149,6 @@ class PolicyStepScalingPolicyConfiguration(dict):
                 ),
             ],
         ))
-        ```
-        ```csharp
-        using System.Collections.Generic;
-        using System.Linq;
-        using Pulumi;
-        using Aws = Pulumi.Aws;
-
-        return await Deployment.RunAsync(() => 
-        {
-            var ecsPolicy = new Aws.AppAutoScaling.Policy("ecsPolicy", new()
-            {
-                StepScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationArgs
-                {
-                    StepAdjustments = new[]
-                    {
-                        new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
-                        {
-                            MetricIntervalLowerBound = "1",
-                            MetricIntervalUpperBound = "2",
-                            ScalingAdjustment = -1,
-                        },
-                        new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
-                        {
-                            MetricIntervalLowerBound = "2",
-                            MetricIntervalUpperBound = "3",
-                            ScalingAdjustment = 1,
-                        },
-                    },
-                },
-            });
-
-        });
-        ```
-        ```go
-        package main
-
-        import (
-        	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
-        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        )
-
-        func main() {
-        	pulumi.Run(func(ctx *pulumi.Context) error {
-        		_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
-        			StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
-        				StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
-        					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
-        						MetricIntervalLowerBound: pulumi.String("1"),
-        						MetricIntervalUpperBound: pulumi.String("2"),
-        						ScalingAdjustment:        -1,
-        					},
-        					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
-        						MetricIntervalLowerBound: pulumi.String("2"),
-        						MetricIntervalUpperBound: pulumi.String("3"),
-        						ScalingAdjustment:        pulumi.Int(1),
-        					},
-        				},
-        			},
-        		})
-        		if err != nil {
-        			return err
-        		}
-        		return nil
-        	})
-        }
         ```
         """
         return pulumi.get(self, "step_adjustments")

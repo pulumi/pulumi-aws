@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// ### With CSR
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -32,6 +33,7 @@ namespace Pulumi.Aws.Iot
     /// });
     /// ```
     /// ### Without CSR
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,6 +50,7 @@ namespace Pulumi.Aws.Iot
     /// });
     /// ```
     /// ### From existing certificate without a CA
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

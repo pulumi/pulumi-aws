@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Iam
     /// Provides an IAM SAML provider.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

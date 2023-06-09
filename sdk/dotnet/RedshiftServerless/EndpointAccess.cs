@@ -13,6 +13,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// Creates a new Amazon Redshift Serverless Endpoint Access.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

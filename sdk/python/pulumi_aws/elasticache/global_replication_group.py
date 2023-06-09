@@ -502,6 +502,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         ### Global replication group with one secondary replication group
 
         The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -534,6 +535,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         the primary replication group will be created with Redis 6.0,
         and then upgraded to Redis 6.2 once added to the Global Replication Group.
         The secondary replication group will be created with Redis 6.2.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -600,6 +602,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         ### Global replication group with one secondary replication group
 
         The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -632,6 +635,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         the primary replication group will be created with Redis 6.0,
         and then upgraded to Redis 6.2 once added to the Global Replication Group.
         The secondary replication group will be created with Redis 6.2.
+
         ```python
         import pulumi
         import pulumi_aws as aws

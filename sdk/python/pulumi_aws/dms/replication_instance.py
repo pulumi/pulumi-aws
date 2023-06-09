@@ -636,6 +636,7 @@ class ReplicationInstance(pulumi.CustomResource):
         ## Example Usage
 
         Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -732,6 +733,7 @@ class ReplicationInstance(pulumi.CustomResource):
         ## Example Usage
 
         Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
+
         ```python
         import pulumi
         import pulumi_aws as aws

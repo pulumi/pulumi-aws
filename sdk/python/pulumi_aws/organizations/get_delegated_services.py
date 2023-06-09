@@ -72,6 +72,7 @@ def get_delegated_services(account_id: Optional[str] = None,
     Get a list the AWS services for which the specified account is a delegated administrator
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -100,6 +101,7 @@ def get_delegated_services_output(account_id: Optional[pulumi.Input[str]] = None
     Get a list the AWS services for which the specified account is a delegated administrator
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

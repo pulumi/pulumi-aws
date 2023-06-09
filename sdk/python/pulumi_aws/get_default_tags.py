@@ -65,6 +65,7 @@ def get_default_tags(tags: Optional[Mapping[str, str]] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -95,6 +96,7 @@ def get_default_tags_output(tags: Optional[pulumi.Input[Optional[Mapping[str, st
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

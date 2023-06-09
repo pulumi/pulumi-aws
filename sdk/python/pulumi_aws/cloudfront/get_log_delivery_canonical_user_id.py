@@ -60,6 +60,7 @@ def get_log_delivery_canonical_user_id(region: Optional[str] = None,
     See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -100,6 +101,7 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
     See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

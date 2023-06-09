@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Example Usage
     /// ### Basic
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,6 +48,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### With hierarchy_group_id
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,6 +82,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### With identity_info filled
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -113,6 +116,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### With phone_config phone type as desk phone
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -140,6 +144,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### With multiple Security profile ids specified in security_profile_ids
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

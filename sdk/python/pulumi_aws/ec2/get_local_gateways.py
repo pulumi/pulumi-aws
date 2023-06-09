@@ -85,6 +85,7 @@ def get_local_gateways(filters: Optional[Sequence[pulumi.InputType['GetLocalGate
     ## Example Usage
 
     The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -126,6 +127,7 @@ def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     ## Example Usage
 
     The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
+
     ```python
     import pulumi
     import pulumi_aws as aws

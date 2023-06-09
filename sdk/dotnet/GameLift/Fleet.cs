@@ -13,6 +13,7 @@ namespace Pulumi.Aws.GameLift
     /// Provides a GameLift Fleet resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

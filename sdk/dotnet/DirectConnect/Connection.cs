@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Example Usage
     /// ### Create a connection
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.DirectConnect
     /// });
     /// ```
     /// ### Request a MACsec-capable connection
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,6 +53,7 @@ namespace Pulumi.Aws.DirectConnect
     /// ### Configure encryption mode for MACsec-capable connections
     /// 
     /// &gt; **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

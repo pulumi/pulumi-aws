@@ -238,6 +238,7 @@ def get_load_balancer(name: Optional[str] = None,
     with it, etc.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -296,6 +297,7 @@ def get_load_balancer_output(name: Optional[pulumi.Input[str]] = None,
     with it, etc.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

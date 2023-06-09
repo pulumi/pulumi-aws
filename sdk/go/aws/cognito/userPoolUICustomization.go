@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 // ### UI customization settings for a single client
+//
 // ```go
 // package main
 //
@@ -72,6 +73,7 @@ import (
 //
 // ```
 // ### UI customization settings for all clients
+//
 // ```go
 // package main
 //

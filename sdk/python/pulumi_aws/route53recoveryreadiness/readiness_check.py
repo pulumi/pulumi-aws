@@ -174,6 +174,7 @@ class ReadinessCheck(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Readiness Readiness Check.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,6 +210,7 @@ class ReadinessCheck(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Readiness Readiness Check.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

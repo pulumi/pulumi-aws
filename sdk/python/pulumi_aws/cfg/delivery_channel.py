@@ -238,6 +238,7 @@ class DeliveryChannel(pulumi.CustomResource):
         > **Note:** Delivery Channel requires a Configuration Recorder to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,6 +298,7 @@ class DeliveryChannel(pulumi.CustomResource):
         > **Note:** Delivery Channel requires a Configuration Recorder to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

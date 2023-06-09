@@ -13,6 +13,7 @@ namespace Pulumi.Aws.CodeCommit
     /// Provides a CodeCommit Repository Resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

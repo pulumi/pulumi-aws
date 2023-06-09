@@ -15,6 +15,38 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appconfig.NewDeployment(ctx, "example", &appconfig.DeploymentArgs{
+//				ApplicationId:          pulumi.Any(aws_appconfig_application.Example.Id),
+//				ConfigurationProfileId: pulumi.Any(aws_appconfig_configuration_profile.Example.Configuration_profile_id),
+//				ConfigurationVersion:   pulumi.Any(aws_appconfig_hosted_configuration_version.Example.Version_number),
+//				DeploymentStrategyId:   pulumi.Any(aws_appconfig_deployment_strategy.Example.Id),
+//				Description:            pulumi.String("My example deployment"),
+//				EnvironmentId:          pulumi.Any(aws_appconfig_environment.Example.Environment_id),
+//				Tags: pulumi.StringMap{
+//					"Type": pulumi.String("AppConfig Deployment"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // AppConfig Deployments can be imported by using the application ID, environment ID, and deployment number separated by a slash (`/`), e.g.,

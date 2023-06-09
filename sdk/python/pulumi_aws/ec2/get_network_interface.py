@@ -273,6 +273,7 @@ def get_network_interface(filters: Optional[Sequence[pulumi.InputType['GetNetwor
     Use this data source to get information about a Network Interface.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -324,6 +325,7 @@ def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequenc
     Use this data source to get information about a Network Interface.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

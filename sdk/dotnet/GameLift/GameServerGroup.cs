@@ -13,6 +13,7 @@ namespace Pulumi.Aws.GameLift
     /// Provides an GameLift Game Server Group resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,6 +55,7 @@ namespace Pulumi.Aws.GameLift
     /// ```
     /// 
     /// Full usage:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -116,6 +118,7 @@ namespace Pulumi.Aws.GameLift
     /// });
     /// ```
     /// ### Example IAM Role for GameLift Game Server Group
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -737,6 +737,7 @@ class ClusterInstance(pulumi.CustomResource):
         ## Example Usage
 
         The following example will create a neptune cluster with two neptune instances(one writer and one reader).
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -803,6 +804,7 @@ class ClusterInstance(pulumi.CustomResource):
         ## Example Usage
 
         The following example will create a neptune cluster with two neptune instances(one writer and one reader).
+
         ```python
         import pulumi
         import pulumi_aws as aws

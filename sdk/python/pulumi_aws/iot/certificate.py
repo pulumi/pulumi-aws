@@ -249,6 +249,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
         ### With CSR
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,6 +259,7 @@ class Certificate(pulumi.CustomResource):
             active=True)
         ```
         ### Without CSR
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,6 +267,7 @@ class Certificate(pulumi.CustomResource):
         cert = aws.iot.Certificate("cert", active=True)
         ```
         ### From existing certificate without a CA
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -300,6 +303,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
         ### With CSR
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -309,6 +313,7 @@ class Certificate(pulumi.CustomResource):
             active=True)
         ```
         ### Without CSR
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,6 +321,7 @@ class Certificate(pulumi.CustomResource):
         cert = aws.iot.Certificate("cert", active=True)
         ```
         ### From existing certificate without a CA
+
         ```python
         import pulumi
         import pulumi_aws as aws

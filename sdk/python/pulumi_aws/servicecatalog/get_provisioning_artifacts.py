@@ -83,6 +83,7 @@ def get_provisioning_artifacts(accept_language: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -118,6 +119,7 @@ def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Opt
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

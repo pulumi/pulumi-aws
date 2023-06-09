@@ -22,6 +22,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Example Usage
     /// ### Lambda Layers
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,6 +47,7 @@ namespace Pulumi.Aws.Lambda
     /// ### Lambda Ephemeral Storage
     /// 
     /// Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -102,6 +104,7 @@ namespace Pulumi.Aws.Lambda
     /// ### Lambda File Systems
     /// 
     /// Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -187,6 +190,7 @@ namespace Pulumi.Aws.Lambda
     /// ## CloudWatch Logging and Permissions
     /// 
     /// For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

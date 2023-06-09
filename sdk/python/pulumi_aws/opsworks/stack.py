@@ -818,6 +818,7 @@ class Stack(pulumi.CustomResource):
         Provides an OpsWorks stack resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -884,6 +885,7 @@ class Stack(pulumi.CustomResource):
         Provides an OpsWorks stack resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

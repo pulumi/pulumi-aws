@@ -69,6 +69,7 @@ class GlobalSettings(pulumi.CustomResource):
         Provides an AWS Backup Global Settings resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -100,6 +101,7 @@ class GlobalSettings(pulumi.CustomResource):
         Provides an AWS Backup Global Settings resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

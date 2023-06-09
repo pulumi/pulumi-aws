@@ -14,6 +14,7 @@ import (
 // Provides an SSM Maintenance Window resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

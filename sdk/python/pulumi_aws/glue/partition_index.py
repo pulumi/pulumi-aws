@@ -166,6 +166,7 @@ class PartitionIndex(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,6 +272,7 @@ class PartitionIndex(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

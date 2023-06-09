@@ -15,6 +15,7 @@ import (
 // internet gateway or virtual private gateway.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+//
 // ```go
 // package main
 //

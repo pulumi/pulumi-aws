@@ -13,6 +13,7 @@ import (
 // Provides redshift cluster temporary credentials.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

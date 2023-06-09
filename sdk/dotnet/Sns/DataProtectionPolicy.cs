@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Sns
     /// Provides an SNS data protection topic policy resource
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

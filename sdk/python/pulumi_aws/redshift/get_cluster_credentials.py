@@ -133,6 +133,7 @@ def get_cluster_credentials(auto_create: Optional[bool] = None,
     Provides redshift cluster temporary credentials.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -183,6 +184,7 @@ def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[b
     Provides redshift cluster temporary credentials.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

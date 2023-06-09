@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Basic
+//
 // ```go
 // package main
 //
@@ -51,6 +52,7 @@ import (
 //
 // ```
 // ### With default variation
+//
 // ```go
 // package main
 //
@@ -90,6 +92,7 @@ import (
 //
 // ```
 // ### With entity overrides
+//
 // ```go
 // package main
 //
@@ -131,6 +134,7 @@ import (
 //
 // ```
 // ### With evaluation strategy
+//
 // ```go
 // package main
 //

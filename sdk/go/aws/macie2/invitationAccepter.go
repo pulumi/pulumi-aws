@@ -14,6 +14,7 @@ import (
 // Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

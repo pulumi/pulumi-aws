@@ -97,6 +97,7 @@ def get_alias(name: Optional[str] = None,
     without having to hard code the ARN as input.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -129,6 +130,7 @@ def get_alias_output(name: Optional[pulumi.Input[str]] = None,
     without having to hard code the ARN as input.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

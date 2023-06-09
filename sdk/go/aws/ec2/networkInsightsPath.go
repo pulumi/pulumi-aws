@@ -14,6 +14,7 @@ import (
 // Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

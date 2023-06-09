@@ -215,6 +215,7 @@ def get_file_system(creation_token: Optional[str] = None,
     Provides information about an Elastic File System (EFS) File System.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -268,6 +269,7 @@ def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[str]]]
     Provides information about an Elastic File System (EFS) File System.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

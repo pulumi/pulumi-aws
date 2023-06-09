@@ -175,12 +175,14 @@ class RoutingControl(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Control Config Routing Control.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53recoverycontrol.RoutingControl("example", cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,12 +218,14 @@ class RoutingControl(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Control Config Routing Control.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.route53recoverycontrol.RoutingControl("example", cluster_arn="arn:aws:route53-recovery-control::881188118811:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
         ```
+
         ```python
         import pulumi
         import pulumi_aws as aws

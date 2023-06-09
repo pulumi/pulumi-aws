@@ -192,6 +192,7 @@ def get_attachment(filters: Optional[Sequence[pulumi.InputType['GetAttachmentFil
     Get information on an EC2 Transit Gateway's attachment to a resource.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -245,6 +246,7 @@ def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
     Get information on an EC2 Transit Gateway's attachment to a resource.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

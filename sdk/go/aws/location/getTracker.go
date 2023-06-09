@@ -13,6 +13,7 @@ import (
 // Retrieve information about a Location Service Tracker.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

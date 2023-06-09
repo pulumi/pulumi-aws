@@ -13,6 +13,7 @@ namespace Pulumi.Aws.CodeStarNotifications
     /// Provides a CodeStar Notifications Rule.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

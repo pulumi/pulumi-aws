@@ -432,6 +432,7 @@ class Addon(pulumi.CustomResource):
         which is only available in Kubernetes 1.18 and later.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,6 +446,7 @@ class Addon(pulumi.CustomResource):
         `resolve_conflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
 
         > **Note:** `resolve_conflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -464,11 +466,13 @@ class Addon(pulumi.CustomResource):
 
         To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
         This below is an example for extracting the `configuration_values` schema for `coredns`.
+
         ```python
         import pulumi
         ```
 
         Example to create a `coredns` managed addon with custom `configuration_values`.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -531,6 +535,7 @@ class Addon(pulumi.CustomResource):
         which is only available in Kubernetes 1.18 and later.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -544,6 +549,7 @@ class Addon(pulumi.CustomResource):
         `resolve_conflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
 
         > **Note:** `resolve_conflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -563,11 +569,13 @@ class Addon(pulumi.CustomResource):
 
         To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
         This below is an example for extracting the `configuration_values` schema for `coredns`.
+
         ```python
         import pulumi
         ```
 
         Example to create a `coredns` managed addon with custom `configuration_values`.
+
         ```python
         import pulumi
         import pulumi_aws as aws

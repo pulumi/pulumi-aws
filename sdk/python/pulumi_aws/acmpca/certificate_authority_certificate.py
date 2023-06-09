@@ -135,6 +135,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
 
         ## Example Usage
         ### Self-Signed Root Certificate Authority Certificate
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,6 +167,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         ### Certificate for Subordinate Certificate Authority
 
         Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,6 +220,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
 
         ## Example Usage
         ### Self-Signed Root Certificate Authority Certificate
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -249,6 +252,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         ### Certificate for Subordinate Certificate Authority
 
         Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
+
         ```python
         import pulumi
         import pulumi_aws as aws

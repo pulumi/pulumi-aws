@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 // ### Create protection group for all resources
+//
 // ```go
 // package main
 //
@@ -43,6 +44,7 @@ import (
 //
 // ```
 // ### Create protection group for arbitrary number of resources
+//
 // ```go
 // package main
 //
@@ -102,6 +104,7 @@ import (
 //
 // ```
 // ### Create protection group for a type of resource
+//
 // ```go
 // package main
 //

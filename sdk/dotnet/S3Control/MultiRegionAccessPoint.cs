@@ -14,6 +14,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Example Usage
     /// ### Multiple AWS Buckets in Different Regions
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

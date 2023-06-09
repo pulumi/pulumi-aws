@@ -13,6 +13,7 @@ import (
 // Get all direct child accounts under a parent organizational unit. This provides all children.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

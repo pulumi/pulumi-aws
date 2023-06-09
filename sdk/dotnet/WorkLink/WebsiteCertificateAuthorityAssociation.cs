@@ -11,6 +11,7 @@ namespace Pulumi.Aws.WorkLink
 {
     /// <summary>
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

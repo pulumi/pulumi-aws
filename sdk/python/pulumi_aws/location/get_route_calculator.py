@@ -132,6 +132,7 @@ def get_route_calculator(calculator_name: Optional[str] = None,
     Retrieve information about a Location Service Route Calculator.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -168,6 +169,7 @@ def get_route_calculator_output(calculator_name: Optional[pulumi.Input[str]] = N
     Retrieve information about a Location Service Route Calculator.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

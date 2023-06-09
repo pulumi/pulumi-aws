@@ -17,6 +17,61 @@ import (
 //
 // ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//	"os"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleStage, err := apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+//				Deployment: pulumi.Any(aws_api_gateway_deployment.Example.Id),
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
+//				DomainName:            pulumi.String("example.com"),
+//				CertificateName:       pulumi.String("example-api"),
+//				CertificateBody:       readFileOrPanic(fmt.Sprintf("%v/example.com/example.crt", path.Module)),
+//				CertificateChain:      readFileOrPanic(fmt.Sprintf("%v/example.com/ca.crt", path.Module)),
+//				CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v/example.com/example.key", path.Module)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewBasePathMapping(ctx, "exampleBasePathMapping", &apigateway.BasePathMappingArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  exampleStage.StageName,
+//				DomainName: exampleDomainName.DomainName,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g., For empty `base_path` (e.g., root path (`/`))

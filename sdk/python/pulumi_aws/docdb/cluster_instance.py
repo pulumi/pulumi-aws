@@ -760,6 +760,7 @@ class ClusterInstance(pulumi.CustomResource):
         `instance_class` sizes.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -840,6 +841,7 @@ class ClusterInstance(pulumi.CustomResource):
         `instance_class` sizes.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

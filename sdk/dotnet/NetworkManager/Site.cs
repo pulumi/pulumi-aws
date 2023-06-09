@@ -13,6 +13,7 @@ namespace Pulumi.Aws.NetworkManager
     /// Creates a site in a global network.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

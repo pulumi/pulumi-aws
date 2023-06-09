@@ -13,6 +13,7 @@ namespace Pulumi.Aws.S3
     /// Provides a S3 bucket server-side encryption configuration resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

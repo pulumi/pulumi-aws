@@ -151,6 +151,7 @@ class KeyGroup(pulumi.CustomResource):
         ## Example Usage
 
         The following example below creates a CloudFront key group.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,6 +188,7 @@ class KeyGroup(pulumi.CustomResource):
         ## Example Usage
 
         The following example below creates a CloudFront key group.
+
         ```python
         import pulumi
         import pulumi_aws as aws

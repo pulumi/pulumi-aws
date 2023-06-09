@@ -20,6 +20,33 @@ import (
 // Group Association resource. Doing so will cause a conflict of associations and will overwrite the association.
 //
 // ## Example Usage
+//
+// Basic usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewSecurityGroupAssociation(ctx, "sgEc2", &ec2.SecurityGroupAssociationArgs{
+//				VpcEndpointId:   pulumi.Any(aws_vpc_endpoint.Ec2.Id),
+//				SecurityGroupId: pulumi.Any(aws_security_group.Sg.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type SecurityGroupAssociation struct {
 	pulumi.CustomResourceState
 

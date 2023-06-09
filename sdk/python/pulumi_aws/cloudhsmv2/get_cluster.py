@@ -124,6 +124,7 @@ def get_cluster(cluster_id: Optional[str] = None,
     Use this data source to get information about a CloudHSM v2 cluster
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -159,6 +160,7 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
     Use this data source to get information about a CloudHSM v2 cluster
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

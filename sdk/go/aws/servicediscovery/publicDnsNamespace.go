@@ -13,6 +13,7 @@ import (
 // Provides a Service Discovery Public DNS Namespace resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

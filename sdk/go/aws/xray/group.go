@@ -14,6 +14,7 @@ import (
 // Creates and manages an AWS XRay Group.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

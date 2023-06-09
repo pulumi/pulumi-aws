@@ -102,6 +102,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import json
@@ -154,6 +155,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import json

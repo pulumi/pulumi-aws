@@ -231,6 +231,7 @@ class LocationFsxLustre(pulumi.CustomResource):
         Manages an AWS DataSync FSx Lustre Location.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,6 +266,7 @@ class LocationFsxLustre(pulumi.CustomResource):
         Manages an AWS DataSync FSx Lustre Location.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -203,6 +203,7 @@ class EventConnection(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -218,6 +219,7 @@ class EventConnection(pulumi.CustomResource):
             description="A connection description")
         ```
         ### Basic Authorization
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,6 +262,7 @@ class EventConnection(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,6 +278,7 @@ class EventConnection(pulumi.CustomResource):
             description="A connection description")
         ```
         ### Basic Authorization
+
         ```python
         import pulumi
         import pulumi_aws as aws

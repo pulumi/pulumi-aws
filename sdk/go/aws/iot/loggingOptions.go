@@ -14,6 +14,7 @@ import (
 // Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

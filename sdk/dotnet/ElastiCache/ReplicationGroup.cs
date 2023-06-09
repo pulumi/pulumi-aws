@@ -35,6 +35,7 @@ namespace Pulumi.Aws.ElastiCache
     /// ### Redis Cluster Mode Disabled
     /// 
     /// To create a single shard primary with single read replica:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,6 +66,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// * Adjusting `num_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
     /// * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replication_group_id` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `number_cache_cluster` attribute.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -102,6 +104,7 @@ namespace Pulumi.Aws.ElastiCache
     /// ### Redis Cluster Mode Enabled
     /// 
     /// To create two shards with a primary and a single read replica each:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -124,6 +127,7 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// ### Redis Log Delivery configuration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -171,6 +175,7 @@ namespace Pulumi.Aws.ElastiCache
     /// ### Creating a secondary replication group for a global replication group
     /// 
     /// A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

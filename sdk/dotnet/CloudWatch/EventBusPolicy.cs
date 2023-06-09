@@ -18,6 +18,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// ### Account Access
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,6 +67,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### Organization Access
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -130,6 +132,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### Multiple Statements
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

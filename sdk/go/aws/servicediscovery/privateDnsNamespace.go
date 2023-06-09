@@ -14,6 +14,7 @@ import (
 // Provides a Service Discovery Private DNS Namespace resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

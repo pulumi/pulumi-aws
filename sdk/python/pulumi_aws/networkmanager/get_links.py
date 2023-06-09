@@ -111,6 +111,7 @@ def get_links(global_network_id: Optional[str] = None,
     Retrieve information about link.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -158,6 +159,7 @@ def get_links_output(global_network_id: Optional[pulumi.Input[str]] = None,
     Retrieve information about link.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

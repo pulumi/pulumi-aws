@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// ## Example Usage
     /// ### Basic
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,6 +42,7 @@ namespace Pulumi.Aws.Acmpca
     /// });
     /// ```
     /// ### Short-lived certificate
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,6 +68,7 @@ namespace Pulumi.Aws.Acmpca
     /// });
     /// ```
     /// ### Enable Certificate Revocation List
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

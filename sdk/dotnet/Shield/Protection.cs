@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Shield
     /// 
     /// ## Example Usage
     /// ### Create protection
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

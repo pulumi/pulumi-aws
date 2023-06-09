@@ -13,6 +13,7 @@ import (
 // Provides details about a specific Amazon Lex Bot.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

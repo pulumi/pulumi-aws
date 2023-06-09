@@ -419,6 +419,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -438,6 +439,7 @@ class User(pulumi.CustomResource):
             ))
         ```
         ### With hierarchy_group_id
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -458,6 +460,7 @@ class User(pulumi.CustomResource):
             ))
         ```
         ### With identity_info filled
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -478,6 +481,7 @@ class User(pulumi.CustomResource):
             ))
         ```
         ### With phone_config phone type as desk phone
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -493,6 +497,7 @@ class User(pulumi.CustomResource):
             ))
         ```
         ### With multiple Security profile ids specified in security_profile_ids
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -547,6 +552,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -566,6 +572,7 @@ class User(pulumi.CustomResource):
             ))
         ```
         ### With hierarchy_group_id
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -586,6 +593,7 @@ class User(pulumi.CustomResource):
             ))
         ```
         ### With identity_info filled
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -606,6 +614,7 @@ class User(pulumi.CustomResource):
             ))
         ```
         ### With phone_config phone type as desk phone
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -621,6 +630,7 @@ class User(pulumi.CustomResource):
             ))
         ```
         ### With multiple Security profile ids specified in security_profile_ids
+
         ```python
         import pulumi
         import pulumi_aws as aws

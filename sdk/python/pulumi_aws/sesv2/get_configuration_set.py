@@ -155,6 +155,7 @@ def get_configuration_set(configuration_set_name: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -194,6 +195,7 @@ def get_configuration_set_output(configuration_set_name: Optional[pulumi.Input[s
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

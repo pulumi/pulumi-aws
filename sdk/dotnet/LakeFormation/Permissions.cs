@@ -26,6 +26,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 2. Use `IAMAllowedPrincipals` without `aws.lakeformation.Permissions`
     /// 
     /// This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,6 +67,7 @@ namespace Pulumi.Aws.LakeFormation
     /// ### Problem Using `IAMAllowedPrincipals`
     /// 
     /// AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -133,6 +135,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// ## Example Usage
     /// ### Grant Permissions For A Lake Formation S3 Resource
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -157,6 +160,7 @@ namespace Pulumi.Aws.LakeFormation
     /// });
     /// ```
     /// ### Grant Permissions For A Glue Catalog Database
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -184,6 +188,7 @@ namespace Pulumi.Aws.LakeFormation
     /// });
     /// ```
     /// ### Grant Permissions Using Tag-Based Access Control
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

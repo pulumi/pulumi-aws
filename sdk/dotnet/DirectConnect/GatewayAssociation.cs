@@ -18,6 +18,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Example Usage
     /// ### VPN Gateway Association
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,6 +51,7 @@ namespace Pulumi.Aws.DirectConnect
     /// });
     /// ```
     /// ### Transit Gateway Association
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,6 +81,7 @@ namespace Pulumi.Aws.DirectConnect
     /// });
     /// ```
     /// ### Allowed Prefixes
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

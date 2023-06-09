@@ -915,6 +915,7 @@ class Cluster(pulumi.CustomResource):
         More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -977,6 +978,7 @@ class Cluster(pulumi.CustomResource):
         More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

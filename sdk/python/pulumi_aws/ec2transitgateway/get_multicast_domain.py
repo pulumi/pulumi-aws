@@ -214,6 +214,7 @@ def get_multicast_domain(filters: Optional[Sequence[pulumi.InputType['GetMultica
 
     ## Example Usage
     ### By Filter
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -224,6 +225,7 @@ def get_multicast_domain(filters: Optional[Sequence[pulumi.InputType['GetMultica
     )])
     ```
     ### By Identifier
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -271,6 +273,7 @@ def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence
 
     ## Example Usage
     ### By Filter
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -281,6 +284,7 @@ def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence
     )])
     ```
     ### By Identifier
+
     ```python
     import pulumi
     import pulumi_aws as aws

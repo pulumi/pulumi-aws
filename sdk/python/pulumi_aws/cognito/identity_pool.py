@@ -371,6 +371,7 @@ class IdentityPool(pulumi.CustomResource):
         Provides an AWS Cognito Identity Pool.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -431,6 +432,7 @@ class IdentityPool(pulumi.CustomResource):
         Provides an AWS Cognito Identity Pool.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -13,6 +13,7 @@ import (
 // Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

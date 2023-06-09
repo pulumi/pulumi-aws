@@ -115,6 +115,7 @@ def get_credentials(db_name: Optional[str] = None,
     Provides redshift serverless temporary credentials for a workgroup.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -153,6 +154,7 @@ def get_credentials_output(db_name: Optional[pulumi.Input[Optional[str]]] = None
     Provides redshift serverless temporary credentials for a workgroup.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

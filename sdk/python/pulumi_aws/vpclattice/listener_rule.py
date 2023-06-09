@@ -321,6 +321,7 @@ class ListenerRule(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Listener Rule.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -362,6 +363,7 @@ class ListenerRule(pulumi.CustomResource):
             ))
         ```
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -417,6 +419,7 @@ class ListenerRule(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Listener Rule.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -458,6 +461,7 @@ class ListenerRule(pulumi.CustomResource):
             ))
         ```
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -13,6 +13,7 @@ namespace Pulumi.Aws.AppSync
     /// Provides an AppSync Domain Name.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

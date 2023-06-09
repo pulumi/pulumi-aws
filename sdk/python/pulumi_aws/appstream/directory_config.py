@@ -151,6 +151,7 @@ class DirectoryConfig(pulumi.CustomResource):
         Provides an AppStream Directory Config.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,6 +189,7 @@ class DirectoryConfig(pulumi.CustomResource):
         Provides an AppStream Directory Config.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// ## Example Usage
     /// ### Service with a Code Repository Source
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,6 +70,7 @@ namespace Pulumi.Aws.AppRunner
     /// });
     /// ```
     /// ### Service with an Image Repository Source
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -102,6 +104,7 @@ namespace Pulumi.Aws.AppRunner
     /// });
     /// ```
     /// ### Service with Observability Configuration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

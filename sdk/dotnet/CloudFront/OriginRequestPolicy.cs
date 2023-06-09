@@ -13,6 +13,7 @@ namespace Pulumi.Aws.CloudFront
     /// ## Example Usage
     /// 
     /// The following example below creates a CloudFront origin request policy.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

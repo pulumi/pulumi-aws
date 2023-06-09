@@ -14,6 +14,7 @@ import (
 // Provides an AWS WAFv2 Regex Pattern Set Resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

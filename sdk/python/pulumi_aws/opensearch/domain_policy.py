@@ -100,8 +100,6 @@ class DomainPolicy(pulumi.CustomResource):
         """
         Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
 
-        ## Example Usage
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain
@@ -115,8 +113,6 @@ class DomainPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
-
-        ## Example Usage
 
         :param str resource_name: The name of the resource.
         :param DomainPolicyArgs args: The arguments to use to populate this resource's properties.

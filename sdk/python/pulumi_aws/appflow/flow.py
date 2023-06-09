@@ -330,8 +330,6 @@ class Flow(pulumi.CustomResource):
         """
         Provides an AppFlow flow resource.
 
-        ## Example Usage
-
         ## Import
 
         AppFlow flows can be imported using the `arn`, e.g.
@@ -359,8 +357,6 @@ class Flow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AppFlow flow resource.
-
-        ## Example Usage
 
         ## Import
 

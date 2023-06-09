@@ -104,6 +104,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         Provides a Glue Data Catalog Encryption Settings resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,6 +144,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         Provides a Glue Data Catalog Encryption Settings resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

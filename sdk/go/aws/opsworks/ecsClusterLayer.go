@@ -14,6 +14,7 @@ import (
 // Provides an OpsWorks ECS Cluster layer resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

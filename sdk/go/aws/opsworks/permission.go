@@ -14,6 +14,7 @@ import (
 // Provides an OpsWorks permission resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

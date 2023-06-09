@@ -210,6 +210,7 @@ def get_certificate_authority(arn: Optional[str] = None,
     Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -252,6 +253,7 @@ def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
     Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

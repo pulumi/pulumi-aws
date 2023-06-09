@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Dms
     /// ### Minimal Configuration
     /// 
     /// This is the minimal configuration for an `aws.dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,6 +46,7 @@ namespace Pulumi.Aws.Dms
     /// });
     /// ```
     /// ### Complete Configuration
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

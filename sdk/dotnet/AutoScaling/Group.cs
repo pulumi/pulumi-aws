@@ -24,6 +24,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Example Usage
     /// ### With Latest Version Of Launch Template
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,6 +59,7 @@ namespace Pulumi.Aws.AutoScaling
     /// });
     /// ```
     /// ### Mixed Instances Policy
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,6 +112,7 @@ namespace Pulumi.Aws.AutoScaling
     /// });
     /// ```
     /// ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -172,6 +175,7 @@ namespace Pulumi.Aws.AutoScaling
     /// ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
     /// 
     /// When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -236,6 +240,7 @@ namespace Pulumi.Aws.AutoScaling
     /// ### Mixed Instances Policy with Attribute-based Instance Type Selection
     /// 
     /// As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -292,6 +297,7 @@ namespace Pulumi.Aws.AutoScaling
     /// });
     /// ```
     /// ### Automatically refresh all instances after the group is updated
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -366,6 +372,7 @@ namespace Pulumi.Aws.AutoScaling
     /// });
     /// ```
     /// ### Auto Scaling group with Warm Pool
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

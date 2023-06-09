@@ -32,44 +32,6 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
         /// <summary>
         /// Set of adjustments that manage scaling. These have the following structure:
         /// 
-        /// ```typescript
-        /// import * as pulumi from "@pulumi/pulumi";
-        /// import * as aws from "@pulumi/aws";
-        /// 
-        /// const ecsPolicy = new aws.appautoscaling.Policy("ecsPolicy", {stepScalingPolicyConfiguration: {
-        ///     stepAdjustments: [
-        ///         {
-        ///             metricIntervalLowerBound: "1",
-        ///             metricIntervalUpperBound: "2",
-        ///             scalingAdjustment: -1,
-        ///         },
-        ///         {
-        ///             metricIntervalLowerBound: "2",
-        ///             metricIntervalUpperBound: "3",
-        ///             scalingAdjustment: 1,
-        ///         },
-        ///     ],
-        /// }});
-        /// ```
-        /// ```python
-        /// import pulumi
-        /// import pulumi_aws as aws
-        /// 
-        /// ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
-        ///     step_adjustments=[
-        ///         aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-        ///             metric_interval_lower_bound="1",
-        ///             metric_interval_upper_bound="2",
-        ///             scaling_adjustment=-1,
-        ///         ),
-        ///         aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-        ///             metric_interval_lower_bound="2",
-        ///             metric_interval_upper_bound="3",
-        ///             scaling_adjustment=1,
-        ///         ),
-        ///     ],
-        /// ))
-        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -101,39 +63,6 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
         ///     });
         /// 
         /// });
-        /// ```
-        /// ```go
-        /// package main
-        /// 
-        /// import (
-        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
-        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-        /// )
-        /// 
-        /// func main() {
-        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
-        /// 		_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &amp;appautoscaling.PolicyArgs{
-        /// 			StepScalingPolicyConfiguration: &amp;appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
-        /// 				StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
-        /// 					&amp;appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
-        /// 						MetricIntervalLowerBound: pulumi.String("1"),
-        /// 						MetricIntervalUpperBound: pulumi.String("2"),
-        /// 						ScalingAdjustment:        -1,
-        /// 					},
-        /// 					&amp;appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
-        /// 						MetricIntervalLowerBound: pulumi.String("2"),
-        /// 						MetricIntervalUpperBound: pulumi.String("3"),
-        /// 						ScalingAdjustment:        pulumi.Int(1),
-        /// 					},
-        /// 				},
-        /// 			},
-        /// 		})
-        /// 		if err != nil {
-        /// 			return err
-        /// 		}
-        /// 		return nil
-        /// 	})
-        /// }
         /// ```
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyStepScalingPolicyConfigurationStepAdjustment> StepAdjustments;

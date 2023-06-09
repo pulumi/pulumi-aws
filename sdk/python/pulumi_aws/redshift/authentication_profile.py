@@ -101,6 +101,7 @@ class AuthenticationProfile(pulumi.CustomResource):
         Creates a Redshift authentication profile
 
         ## Example Usage
+
         ```python
         import pulumi
         import json
@@ -138,6 +139,7 @@ class AuthenticationProfile(pulumi.CustomResource):
         Creates a Redshift authentication profile
 
         ## Example Usage
+
         ```python
         import pulumi
         import json

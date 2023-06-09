@@ -113,6 +113,7 @@ def get_outposts(availability_zone: Optional[str] = None,
     Provides details about multiple Outposts.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -154,6 +155,7 @@ def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[str]]]
     Provides details about multiple Outposts.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

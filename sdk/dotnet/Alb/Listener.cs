@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Alb
     /// 
     /// ## Example Usage
     /// ### Forward Action
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,6 +52,7 @@ namespace Pulumi.Aws.Alb
     /// ```
     /// 
     /// To a NLB:
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,6 +81,7 @@ namespace Pulumi.Aws.Alb
     /// });
     /// ```
     /// ### Redirect Action
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -113,6 +116,7 @@ namespace Pulumi.Aws.Alb
     /// });
     /// ```
     /// ### Fixed-response Action
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -147,6 +151,7 @@ namespace Pulumi.Aws.Alb
     /// });
     /// ```
     /// ### Authenticate-cognito Action
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -198,6 +203,7 @@ namespace Pulumi.Aws.Alb
     /// });
     /// ```
     /// ### Authenticate-OIDC Action
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -243,6 +249,7 @@ namespace Pulumi.Aws.Alb
     /// });
     /// ```
     /// ### Gateway Load Balancer Listener
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

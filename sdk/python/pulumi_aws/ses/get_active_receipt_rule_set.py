@@ -72,6 +72,7 @@ def get_active_receipt_rule_set(opts: Optional[pulumi.InvokeOptions] = None) -> 
     Retrieve the active SES receipt rule set
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

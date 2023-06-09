@@ -336,6 +336,7 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
         ### Non-VPC Connection
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -349,6 +350,7 @@ class Connection(pulumi.CustomResource):
         ### VPC Connection
 
         For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -396,6 +398,7 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
         ### Non-VPC Connection
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -409,6 +412,7 @@ class Connection(pulumi.CustomResource):
         ### VPC Connection
 
         For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -13,6 +13,7 @@ import (
 // Retrieve information about an EKS Cluster.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

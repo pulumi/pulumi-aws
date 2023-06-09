@@ -422,6 +422,7 @@ class OntapVolume(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,6 +436,7 @@ class OntapVolume(pulumi.CustomResource):
         ### Using Tiering Policy
 
         Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -481,6 +483,7 @@ class OntapVolume(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -494,6 +497,7 @@ class OntapVolume(pulumi.CustomResource):
         ### Using Tiering Policy
 
         Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
+
         ```python
         import pulumi
         import pulumi_aws as aws

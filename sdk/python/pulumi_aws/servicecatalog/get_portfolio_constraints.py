@@ -99,6 +99,7 @@ def get_portfolio_constraints(accept_language: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -138,6 +139,7 @@ def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Opti
 
     ## Example Usage
     ### Basic Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -175,6 +175,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         ## Example Usage
 
         Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,6 +189,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         ```
 
         Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,6 +230,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         ## Example Usage
 
         Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,6 +244,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         ```
 
         Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
+
         ```python
         import pulumi
         import pulumi_aws as aws

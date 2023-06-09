@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Kms
     /// Manages a KMS multi-Region replica key.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

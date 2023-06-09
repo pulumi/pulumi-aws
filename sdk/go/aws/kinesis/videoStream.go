@@ -15,6 +15,7 @@ import (
 // For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

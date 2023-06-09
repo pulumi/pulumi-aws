@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### Basic (Standard Workflow)
+//
 // ```go
 // package main
 //
@@ -55,6 +56,7 @@ import (
 //
 // ```
 // ### Basic (Express Workflow)
+//
 // ```go
 // package main
 //
@@ -98,6 +100,7 @@ import (
 // ### Logging
 //
 // > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
+//
 // ```go
 // package main
 //

@@ -71,6 +71,7 @@ def get_user_pool_signing_certificate(user_pool_id: Optional[str] = None,
     Use this data source to get the signing certificate for a Cognito IdP user pool.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -99,6 +100,7 @@ def get_user_pool_signing_certificate_output(user_pool_id: Optional[pulumi.Input
     Use this data source to get the signing certificate for a Cognito IdP user pool.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -14,6 +14,7 @@ import (
 // Manages a version of a CloudFormation Type.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

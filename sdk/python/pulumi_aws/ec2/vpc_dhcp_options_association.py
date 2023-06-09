@@ -101,6 +101,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         Provides a VPC DHCP Options Association resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -137,6 +138,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         Provides a VPC DHCP Options Association resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

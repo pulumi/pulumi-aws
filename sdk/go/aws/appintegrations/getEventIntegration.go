@@ -13,6 +13,7 @@ import (
 // Use this data source to get information on an existing AppIntegrations Event Integration.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

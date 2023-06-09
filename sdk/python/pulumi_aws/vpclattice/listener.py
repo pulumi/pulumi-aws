@@ -345,6 +345,7 @@ class Listener(pulumi.CustomResource):
 
         ## Example Usage
         ### Forward action
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -369,6 +370,7 @@ class Listener(pulumi.CustomResource):
             ))
         ```
         ### Forward action with weighted target groups
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -437,6 +439,7 @@ class Listener(pulumi.CustomResource):
 
         ## Example Usage
         ### Forward action
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -461,6 +464,7 @@ class Listener(pulumi.CustomResource):
             ))
         ```
         ### Forward action with weighted target groups
+
         ```python
         import pulumi
         import pulumi_aws as aws

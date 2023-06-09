@@ -14,6 +14,7 @@ import (
 // Provides an AWS Network Firewall Firewall Policy Resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -54,7 +55,6 @@ import (
 //	}
 //
 // ```
-// ## Policy with a Custom Action for Stateless Inspection
 //
 // ## Import
 //

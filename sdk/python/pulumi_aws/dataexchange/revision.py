@@ -183,6 +183,7 @@ class Revision(pulumi.CustomResource):
         Provides a resource to manage AWS Data Exchange Revisions.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,6 +215,7 @@ class Revision(pulumi.CustomResource):
         Provides a resource to manage AWS Data Exchange Revisions.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

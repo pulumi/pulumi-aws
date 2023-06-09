@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 // ### DynamoDB Target Example
+//
 // ```go
 // package main
 //
@@ -45,6 +46,7 @@ import (
 //
 // ```
 // ### JDBC Target Example
+//
 // ```go
 // package main
 //
@@ -76,6 +78,7 @@ import (
 //
 // ```
 // ### S3 Target Example
+//
 // ```go
 // package main
 //
@@ -108,6 +111,7 @@ import (
 //
 // ```
 // ### Catalog Target Example
+//
 // ```go
 // package main
 //
@@ -145,6 +149,7 @@ import (
 //
 // ```
 // ### MongoDB Target Example
+//
 // ```go
 // package main
 //
@@ -176,6 +181,7 @@ import (
 //
 // ```
 // ### Configuration Settings Example
+//
 // ```go
 // package main
 //

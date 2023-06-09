@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Chime
     /// Enable Termination settings to control outbound calling from your SIP infrastructure.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Account
     /// Manages the specified primary contact information associated with an AWS Account.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

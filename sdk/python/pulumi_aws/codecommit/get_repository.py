@@ -107,6 +107,7 @@ def get_repository(repository_name: Optional[str] = None,
     The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -138,6 +139,7 @@ def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
     The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

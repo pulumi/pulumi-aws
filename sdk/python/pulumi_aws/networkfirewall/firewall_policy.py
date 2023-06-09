@@ -251,6 +251,7 @@ class FirewallPolicy(pulumi.CustomResource):
         Provides an AWS Network Firewall Firewall Policy Resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,7 +270,6 @@ class FirewallPolicy(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
-        ## Policy with a Custom Action for Stateless Inspection
 
         ## Import
 
@@ -297,6 +297,7 @@ class FirewallPolicy(pulumi.CustomResource):
         Provides an AWS Network Firewall Firewall Policy Resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -315,7 +316,6 @@ class FirewallPolicy(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
-        ## Policy with a Custom Action for Stateless Inspection
 
         ## Import
 

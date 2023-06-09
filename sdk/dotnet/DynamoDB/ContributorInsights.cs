@@ -13,6 +13,7 @@ namespace Pulumi.Aws.DynamoDB
     /// Provides a DynamoDB contributor insights resource
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

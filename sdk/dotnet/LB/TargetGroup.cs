@@ -16,6 +16,7 @@ namespace Pulumi.Aws.LB
     /// 
     /// ## Example Usage
     /// ### Instance Target Group
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,6 +40,7 @@ namespace Pulumi.Aws.LB
     /// });
     /// ```
     /// ### IP Target Group
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,6 +65,7 @@ namespace Pulumi.Aws.LB
     /// });
     /// ```
     /// ### Lambda Target Group
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,6 +82,7 @@ namespace Pulumi.Aws.LB
     /// });
     /// ```
     /// ### ALB Target Group
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -90,6 +90,7 @@ class Account(pulumi.CustomResource):
         > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,6 +147,7 @@ class Account(pulumi.CustomResource):
         > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

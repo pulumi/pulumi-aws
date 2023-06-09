@@ -199,6 +199,7 @@ def get_mount_target(access_point_id: Optional[str] = None,
     Provides information about an Elastic File System Mount Target (EFS).
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -248,6 +249,7 @@ def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[str]
     Provides information about an Elastic File System Mount Target (EFS).
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

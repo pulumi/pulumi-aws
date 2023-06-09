@@ -339,6 +339,7 @@ class AnomalySubscription(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -356,6 +357,7 @@ class AnomalySubscription(pulumi.CustomResource):
             )])
         ```
         ### Threshold Expression
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -376,6 +378,7 @@ class AnomalySubscription(pulumi.CustomResource):
             ))
         ```
         ### SNS Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -466,6 +469,7 @@ class AnomalySubscription(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Example
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -483,6 +487,7 @@ class AnomalySubscription(pulumi.CustomResource):
             )])
         ```
         ### Threshold Expression
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -503,6 +508,7 @@ class AnomalySubscription(pulumi.CustomResource):
             ))
         ```
         ### SNS Example
+
         ```python
         import pulumi
         import pulumi_aws as aws

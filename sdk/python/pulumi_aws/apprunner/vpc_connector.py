@@ -230,6 +230,7 @@ class VpcConnector(pulumi.CustomResource):
         Manages an App Runner VPC Connector.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,6 +272,7 @@ class VpcConnector(pulumi.CustomResource):
         Manages an App Runner VPC Connector.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

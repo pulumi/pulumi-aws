@@ -153,6 +153,7 @@ def get_virtual_service(mesh_name: Optional[str] = None,
     The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -160,6 +161,7 @@ def get_virtual_service(mesh_name: Optional[str] = None,
     test = aws.appmesh.get_virtual_service(mesh_name="example-mesh",
         name="example.mesh.local")
     ```
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -207,6 +209,7 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[str]] = None,
     The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -214,6 +217,7 @@ def get_virtual_service_output(mesh_name: Optional[pulumi.Input[str]] = None,
     test = aws.appmesh.get_virtual_service(mesh_name="example-mesh",
         name="example.mesh.local")
     ```
+
     ```python
     import pulumi
     import pulumi_aws as aws

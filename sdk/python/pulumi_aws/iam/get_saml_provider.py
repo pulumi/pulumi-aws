@@ -122,6 +122,7 @@ def get_saml_provider(arn: Optional[str] = None,
     document of an existing SAML provider.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -159,6 +160,7 @@ def get_saml_provider_output(arn: Optional[pulumi.Input[str]] = None,
     document of an existing SAML provider.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -539,6 +539,7 @@ class ImageBuilder(pulumi.CustomResource):
         Provides an AppStream image builder.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -593,6 +594,7 @@ class ImageBuilder(pulumi.CustomResource):
         Provides an AppStream image builder.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -121,6 +121,7 @@ class IpSet(pulumi.CustomResource):
         Provides a WAF Regional IPSet Resource for use with Application Load Balancer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,6 +161,7 @@ class IpSet(pulumi.CustomResource):
         Provides a WAF Regional IPSet Resource for use with Application Load Balancer.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

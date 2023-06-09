@@ -14,6 +14,7 @@ import (
 // Provides a Redshift Cluster parameter group resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -14,6 +14,7 @@ import (
 // Manages an App Runner Observability Configuration.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

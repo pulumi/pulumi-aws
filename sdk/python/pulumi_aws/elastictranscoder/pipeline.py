@@ -411,6 +411,7 @@ class Pipeline(pulumi.CustomResource):
         Provides an Elastic Transcoder pipeline resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -466,6 +467,7 @@ class Pipeline(pulumi.CustomResource):
         Provides an Elastic Transcoder pipeline resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

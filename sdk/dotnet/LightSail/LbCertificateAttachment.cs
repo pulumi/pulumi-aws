@@ -13,6 +13,7 @@ namespace Pulumi.Aws.LightSail
     /// Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

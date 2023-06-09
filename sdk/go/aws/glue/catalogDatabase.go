@@ -13,6 +13,7 @@ import (
 // Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -37,6 +38,7 @@ import (
 //
 // ```
 // ### Create Table Default Permissions
+//
 // ```go
 // package main
 //

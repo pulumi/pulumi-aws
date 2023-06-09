@@ -122,6 +122,7 @@ def get_code_signing_config(arn: Optional[str] = None,
     For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,6 +157,7 @@ def get_code_signing_config_output(arn: Optional[pulumi.Input[str]] = None,
     For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -176,6 +176,7 @@ class Analyzer(pulumi.CustomResource):
 
         ## Example Usage
         ### Account Analyzer
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -183,6 +184,7 @@ class Analyzer(pulumi.CustomResource):
         example = aws.accessanalyzer.Analyzer("example", analyzer_name="example")
         ```
         ### Organization Analyzer
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,6 +223,7 @@ class Analyzer(pulumi.CustomResource):
 
         ## Example Usage
         ### Account Analyzer
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,6 +231,7 @@ class Analyzer(pulumi.CustomResource):
         example = aws.accessanalyzer.Analyzer("example", analyzer_name="example")
         ```
         ### Organization Analyzer
+
         ```python
         import pulumi
         import pulumi_aws as aws

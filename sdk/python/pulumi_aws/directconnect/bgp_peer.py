@@ -288,6 +288,7 @@ class BgpPeer(pulumi.CustomResource):
         Provides a Direct Connect BGP peer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -319,6 +320,7 @@ class BgpPeer(pulumi.CustomResource):
         Provides a Direct Connect BGP peer resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

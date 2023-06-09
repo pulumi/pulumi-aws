@@ -170,6 +170,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         Manages an EC2 Local Gateway Route Table VPC Association. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#vpc-associations).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,6 +208,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         Manages an EC2 Local Gateway Route Table VPC Association. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#vpc-associations).
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// ## Example Usage
     /// ### Basic usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,6 +32,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// });
     /// ```
     /// ### Full usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

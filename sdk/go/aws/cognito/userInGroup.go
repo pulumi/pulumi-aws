@@ -14,6 +14,7 @@ import (
 // Adds the specified user to the specified group.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

@@ -14,6 +14,7 @@ import (
 // Creates and manages an AWS IoT Authorizer.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

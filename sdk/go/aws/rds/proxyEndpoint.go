@@ -14,6 +14,7 @@ import (
 // Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

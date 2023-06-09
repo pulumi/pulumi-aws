@@ -943,6 +943,7 @@ class Topic(pulumi.CustomResource):
         Provides an SNS topic resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -950,6 +951,7 @@ class Topic(pulumi.CustomResource):
         user_updates = aws.sns.Topic("userUpdates")
         ```
         ## Example with Delivery Policy
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -976,6 +978,7 @@ class Topic(pulumi.CustomResource):
         ```
 
         ## Example with Server-side encryption (SSE)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -984,6 +987,7 @@ class Topic(pulumi.CustomResource):
         ```
 
         ## Example with First-In-First-Out (FIFO)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1044,6 +1048,7 @@ class Topic(pulumi.CustomResource):
         Provides an SNS topic resource
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1051,6 +1056,7 @@ class Topic(pulumi.CustomResource):
         user_updates = aws.sns.Topic("userUpdates")
         ```
         ## Example with Delivery Policy
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1077,6 +1083,7 @@ class Topic(pulumi.CustomResource):
         ```
 
         ## Example with Server-side encryption (SSE)
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1085,6 +1092,7 @@ class Topic(pulumi.CustomResource):
         ```
 
         ## Example with First-In-First-Out (FIFO)
+
         ```python
         import pulumi
         import pulumi_aws as aws

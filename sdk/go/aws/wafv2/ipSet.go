@@ -14,6 +14,7 @@ import (
 // Provides a WAFv2 IP Set Resource
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

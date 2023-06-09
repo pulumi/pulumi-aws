@@ -13,6 +13,7 @@ import (
 // Provides an SES configuration set resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //
@@ -35,6 +36,7 @@ import (
 //
 // ```
 // ### Require TLS Connections
+//
 // ```go
 // package main
 //

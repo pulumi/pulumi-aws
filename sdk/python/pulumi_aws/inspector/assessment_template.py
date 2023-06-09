@@ -266,6 +266,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         Provides an Inspector Classic Assessment Template
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -312,6 +313,7 @@ class AssessmentTemplate(pulumi.CustomResource):
         Provides an Inspector Classic Assessment Template
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

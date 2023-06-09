@@ -14,6 +14,7 @@ import (
 // Provides a Direct Connect public virtual interface resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

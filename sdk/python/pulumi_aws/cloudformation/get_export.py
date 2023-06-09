@@ -86,6 +86,7 @@ def get_export(name: Optional[str] = None,
      > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -122,6 +123,7 @@ def get_export_output(name: Optional[pulumi.Input[str]] = None,
      > Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Organizations
     /// Provides a resource to create an organizational unit.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

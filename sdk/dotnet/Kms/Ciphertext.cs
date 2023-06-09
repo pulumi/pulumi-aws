@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Kms
     /// the `aws.kms.Ciphertext` data source.
     /// 
     /// ## Example Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

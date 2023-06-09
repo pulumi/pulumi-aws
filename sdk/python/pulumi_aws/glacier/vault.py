@@ -225,6 +225,7 @@ class Vault(pulumi.CustomResource):
         > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,6 +286,7 @@ class Vault(pulumi.CustomResource):
         > **NOTE:** When removing a Glacier Vault, the Vault must be empty.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

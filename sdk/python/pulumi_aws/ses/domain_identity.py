@@ -116,6 +116,7 @@ class DomainIdentity(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -123,6 +124,7 @@ class DomainIdentity(pulumi.CustomResource):
         example = aws.ses.DomainIdentity("example", domain="example.com")
         ```
         ### With Route53 Record
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -159,6 +161,7 @@ class DomainIdentity(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,6 +169,7 @@ class DomainIdentity(pulumi.CustomResource):
         example = aws.ses.DomainIdentity("example", domain="example.com")
         ```
         ### With Route53 Record
+
         ```python
         import pulumi
         import pulumi_aws as aws

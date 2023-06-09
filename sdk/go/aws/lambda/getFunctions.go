@@ -10,6 +10,7 @@ import (
 // Data resource to get a list of Lambda Functions.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

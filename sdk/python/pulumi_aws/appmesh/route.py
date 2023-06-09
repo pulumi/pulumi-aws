@@ -315,6 +315,7 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
         ### HTTP Routing
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,6 +344,7 @@ class Route(pulumi.CustomResource):
             ))
         ```
         ### HTTP Header Routing
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -373,6 +375,7 @@ class Route(pulumi.CustomResource):
             ))
         ```
         ### Retry Policy
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,6 +406,7 @@ class Route(pulumi.CustomResource):
             ))
         ```
         ### TCP Routing
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -450,6 +454,7 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
         ### HTTP Routing
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -478,6 +483,7 @@ class Route(pulumi.CustomResource):
             ))
         ```
         ### HTTP Header Routing
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -508,6 +514,7 @@ class Route(pulumi.CustomResource):
             ))
         ```
         ### Retry Policy
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -538,6 +545,7 @@ class Route(pulumi.CustomResource):
             ))
         ```
         ### TCP Routing
+
         ```python
         import pulumi
         import pulumi_aws as aws

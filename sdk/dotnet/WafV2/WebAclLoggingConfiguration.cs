@@ -18,6 +18,7 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// ## Example Usage
     /// ### With Redacted Fields
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,6 +49,7 @@ namespace Pulumi.Aws.WafV2
     /// });
     /// ```
     /// ### With Logging Filter
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

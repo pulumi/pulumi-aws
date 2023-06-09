@@ -369,6 +369,7 @@ class ApnsChannel(pulumi.CustomResource):
         Provides a Pinpoint APNs Channel resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,6 +420,7 @@ class ApnsChannel(pulumi.CustomResource):
         Provides a Pinpoint APNs Channel resource.
 
         ## Example Usage
+
         ```python
         import pulumi
         import pulumi_aws as aws

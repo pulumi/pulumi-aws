@@ -14,6 +14,7 @@ import (
 // Provides an API Gateway Resource.
 //
 // ## Example Usage
+//
 // ```go
 // package main
 //

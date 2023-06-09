@@ -116,6 +116,7 @@ def get_custom_key_store(custom_key_store_id: Optional[str] = None,
     without having to hard code the ID as input.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -153,6 +154,7 @@ def get_custom_key_store_output(custom_key_store_id: Optional[pulumi.Input[Optio
     without having to hard code the ID as input.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws

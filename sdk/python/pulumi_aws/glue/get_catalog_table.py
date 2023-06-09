@@ -253,6 +253,7 @@ def get_catalog_table(catalog_id: Optional[str] = None,
     This data source can be used to fetch information about an AWS Glue Data Catalog Table.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -309,6 +310,7 @@ def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[str]]] =
     This data source can be used to fetch information about an AWS Glue Data Catalog Table.
 
     ## Example Usage
+
     ```python
     import pulumi
     import pulumi_aws as aws
