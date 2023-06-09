@@ -249,6 +249,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("throughputCapacity")]
         public Output<int> ThroughputCapacity { get; private set; } = null!;
@@ -439,6 +441,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("throughputCapacity", required: true)]
         public Input<int> ThroughputCapacity { get; set; } = null!;
@@ -639,6 +643,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("throughputCapacity")]
         public Input<int>? ThroughputCapacity { get; set; }

@@ -89,6 +89,8 @@ namespace Pulumi.Aws.Oam
 
         /// <summary>
         /// Identifier of the sink to use to create this link.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("sinkIdentifier")]
         public Output<string> SinkIdentifier { get; private set; } = null!;
@@ -168,6 +170,8 @@ namespace Pulumi.Aws.Oam
 
         /// <summary>
         /// Identifier of the sink to use to create this link.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("sinkIdentifier", required: true)]
         public Input<string> SinkIdentifier { get; set; } = null!;
@@ -236,6 +240,8 @@ namespace Pulumi.Aws.Oam
 
         /// <summary>
         /// Identifier of the sink to use to create this link.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("sinkIdentifier")]
         public Input<string>? SinkIdentifier { get; set; }

@@ -69,6 +69,10 @@ namespace Pulumi.Aws.Pinpoint
         /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+        /// 
+        /// One of the following sets of credentials is also required.
+        /// 
+        /// If you choose to use __Certificate credentials__ you will have to provide:
         /// </summary>
         [Output("defaultAuthenticationMethod")]
         public Output<string?> DefaultAuthenticationMethod { get; private set; } = null!;
@@ -81,6 +85,8 @@ namespace Pulumi.Aws.Pinpoint
 
         /// <summary>
         /// The Certificate Private Key file (ie. `.key` file).
+        /// 
+        /// If you choose to use __Key credentials__ you will have to provide:
         /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
@@ -201,6 +207,10 @@ namespace Pulumi.Aws.Pinpoint
         /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+        /// 
+        /// One of the following sets of credentials is also required.
+        /// 
+        /// If you choose to use __Certificate credentials__ you will have to provide:
         /// </summary>
         [Input("defaultAuthenticationMethod")]
         public Input<string>? DefaultAuthenticationMethod { get; set; }
@@ -216,6 +226,8 @@ namespace Pulumi.Aws.Pinpoint
 
         /// <summary>
         /// The Certificate Private Key file (ie. `.key` file).
+        /// 
+        /// If you choose to use __Key credentials__ you will have to provide:
         /// </summary>
         public Input<string>? PrivateKey
         {
@@ -326,6 +338,10 @@ namespace Pulumi.Aws.Pinpoint
         /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         /// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+        /// 
+        /// One of the following sets of credentials is also required.
+        /// 
+        /// If you choose to use __Certificate credentials__ you will have to provide:
         /// </summary>
         [Input("defaultAuthenticationMethod")]
         public Input<string>? DefaultAuthenticationMethod { get; set; }
@@ -341,6 +357,8 @@ namespace Pulumi.Aws.Pinpoint
 
         /// <summary>
         /// The Certificate Private Key file (ie. `.key` file).
+        /// 
+        /// If you choose to use __Key credentials__ you will have to provide:
         /// </summary>
         public Input<string>? PrivateKey
         {

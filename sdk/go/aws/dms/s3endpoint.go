@@ -226,6 +226,8 @@ type S3Endpoint struct {
 	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrOutput `pulumi:"serverSideEncryptionKmsKeyId"`
 	// ARN of the IAM role with permissions to the S3 Bucket.
+	//
+	// The following arguments are optional:
 	ServiceAccessRoleArn pulumi.StringOutput `pulumi:"serviceAccessRoleArn"`
 	// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
 	SslMode pulumi.StringOutput `pulumi:"sslMode"`
@@ -373,6 +375,8 @@ type s3endpointState struct {
 	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
 	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
 	// ARN of the IAM role with permissions to the S3 Bucket.
+	//
+	// The following arguments are optional:
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
 	// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
 	SslMode *string `pulumi:"sslMode"`
@@ -480,6 +484,8 @@ type S3EndpointState struct {
 	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput
 	// ARN of the IAM role with permissions to the S3 Bucket.
+	//
+	// The following arguments are optional:
 	ServiceAccessRoleArn pulumi.StringPtrInput
 	// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
 	SslMode pulumi.StringPtrInput
@@ -585,6 +591,8 @@ type s3endpointArgs struct {
 	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
 	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
 	// ARN of the IAM role with permissions to the S3 Bucket.
+	//
+	// The following arguments are optional:
 	ServiceAccessRoleArn string `pulumi:"serviceAccessRoleArn"`
 	// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
 	SslMode *string `pulumi:"sslMode"`
@@ -683,6 +691,8 @@ type S3EndpointArgs struct {
 	// When `encryptionMode` is `SSE_KMS`, ARN for the AWS KMS key. (Ignored for source endpoints -- only `SSE_S3` `encryptionMode` is valid.)
 	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput
 	// ARN of the IAM role with permissions to the S3 Bucket.
+	//
+	// The following arguments are optional:
 	ServiceAccessRoleArn pulumi.StringInput
 	// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`. (AWS default is `none`.)
 	SslMode pulumi.StringPtrInput
@@ -1004,6 +1014,8 @@ func (o S3EndpointOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput 
 }
 
 // ARN of the IAM role with permissions to the S3 Bucket.
+//
+// The following arguments are optional:
 func (o S3EndpointOutput) ServiceAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.ServiceAccessRoleArn }).(pulumi.StringOutput)
 }

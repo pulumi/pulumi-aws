@@ -23,6 +23,8 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
         /// <summary>
         /// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         public List<Inputs.GetPermissionsLfTagPolicyExpressionArgs> Expressions
         {

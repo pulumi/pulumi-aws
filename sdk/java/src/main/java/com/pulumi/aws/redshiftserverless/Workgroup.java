@@ -236,12 +236,16 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
     /**
      * The name of the workgroup.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="workgroupName", refs={String.class}, tree="[0]")
     private Output<String> workgroupName;
 
     /**
      * @return The name of the workgroup.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> workgroupName() {

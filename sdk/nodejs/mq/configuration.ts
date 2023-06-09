@@ -98,6 +98,8 @@ export class Configuration extends pulumi.CustomResource {
     public /*out*/ readonly latestRevision!: pulumi.Output<number>;
     /**
      * Name of the configuration.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -193,6 +195,8 @@ export interface ConfigurationState {
     latestRevision?: pulumi.Input<number>;
     /**
      * Name of the configuration.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -231,6 +235,8 @@ export interface ConfigurationArgs {
     engineVersion: pulumi.Input<string>;
     /**
      * Name of the configuration.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

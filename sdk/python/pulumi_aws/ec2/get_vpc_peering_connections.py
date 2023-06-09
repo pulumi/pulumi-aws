@@ -90,6 +90,9 @@ def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['Get
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -119,5 +122,8 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

@@ -141,6 +141,9 @@ def get_security_group(filters: Optional[Sequence[pulumi.InputType['GetSecurityG
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group.
     :param str vpc_id: Id of the VPC that the desired security group belongs to.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -200,5 +203,8 @@ def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group.
     :param str vpc_id: Id of the VPC that the desired security group belongs to.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

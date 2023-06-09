@@ -52,6 +52,8 @@ type GetLaunchPathsArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId string `pulumi:"productId"`
 }
 
@@ -83,6 +85,8 @@ type GetLaunchPathsOutputArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId pulumi.StringInput `pulumi:"productId"`
 }
 

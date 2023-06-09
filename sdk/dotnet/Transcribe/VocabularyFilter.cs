@@ -88,6 +88,8 @@ namespace Pulumi.Aws.Transcribe
 
         /// <summary>
         /// The name of the VocabularyFilter.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vocabularyFilterName")]
         public Output<string> VocabularyFilterName { get; private set; } = null!;
@@ -170,6 +172,8 @@ namespace Pulumi.Aws.Transcribe
 
         /// <summary>
         /// The name of the VocabularyFilter.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vocabularyFilterName", required: true)]
         public Input<string> VocabularyFilterName { get; set; } = null!;
@@ -240,6 +244,8 @@ namespace Pulumi.Aws.Transcribe
 
         /// <summary>
         /// The name of the VocabularyFilter.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vocabularyFilterName")]
         public Input<string>? VocabularyFilterName { get; set; }

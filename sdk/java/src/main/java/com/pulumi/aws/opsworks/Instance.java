@@ -659,12 +659,16 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of the stack the instance will belong to.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="stackId", refs={String.class}, tree="[0]")
     private Output<String> stackId;
 
     /**
      * @return Identifier of the stack the instance will belong to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> stackId() {

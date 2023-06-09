@@ -48,6 +48,8 @@ namespace Pulumi.Aws.Mq.Inputs
 
         /// <summary>
         /// Username of the user.
+        /// 
+        /// &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;

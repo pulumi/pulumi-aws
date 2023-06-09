@@ -70,6 +70,8 @@ type NetworkInsightsAnalysis struct {
 	// The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
 	ForwardPathComponents NetworkInsightsAnalysisForwardPathComponentArrayOutput `pulumi:"forwardPathComponents"`
 	// ID of the Network Insights Path to run an analysis on.
+	//
+	// The following arguments are optional:
 	NetworkInsightsPathId pulumi.StringOutput `pulumi:"networkInsightsPathId"`
 	// Set to `true` if the destination was reachable.
 	PathFound pulumi.BoolOutput `pulumi:"pathFound"`
@@ -134,6 +136,8 @@ type networkInsightsAnalysisState struct {
 	// The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
 	ForwardPathComponents []NetworkInsightsAnalysisForwardPathComponent `pulumi:"forwardPathComponents"`
 	// ID of the Network Insights Path to run an analysis on.
+	//
+	// The following arguments are optional:
 	NetworkInsightsPathId *string `pulumi:"networkInsightsPathId"`
 	// Set to `true` if the destination was reachable.
 	PathFound *bool `pulumi:"pathFound"`
@@ -167,6 +171,8 @@ type NetworkInsightsAnalysisState struct {
 	// The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
 	ForwardPathComponents NetworkInsightsAnalysisForwardPathComponentArrayInput
 	// ID of the Network Insights Path to run an analysis on.
+	//
+	// The following arguments are optional:
 	NetworkInsightsPathId pulumi.StringPtrInput
 	// Set to `true` if the destination was reachable.
 	PathFound pulumi.BoolPtrInput
@@ -196,6 +202,8 @@ type networkInsightsAnalysisArgs struct {
 	// A list of ARNs for resources the path must traverse.
 	FilterInArns []string `pulumi:"filterInArns"`
 	// ID of the Network Insights Path to run an analysis on.
+	//
+	// The following arguments are optional:
 	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -208,6 +216,8 @@ type NetworkInsightsAnalysisArgs struct {
 	// A list of ARNs for resources the path must traverse.
 	FilterInArns pulumi.StringArrayInput
 	// ID of the Network Insights Path to run an analysis on.
+	//
+	// The following arguments are optional:
 	NetworkInsightsPathId pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -332,6 +342,8 @@ func (o NetworkInsightsAnalysisOutput) ForwardPathComponents() NetworkInsightsAn
 }
 
 // ID of the Network Insights Path to run an analysis on.
+//
+// The following arguments are optional:
 func (o NetworkInsightsAnalysisOutput) NetworkInsightsPathId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.NetworkInsightsPathId }).(pulumi.StringOutput)
 }

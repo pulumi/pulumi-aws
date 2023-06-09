@@ -322,7 +322,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         test_instance = aws.ec2.Instance("testInstance",
             ami=aws_service_storagegateway_ami_files3_latest.value,
             associate_public_ip_address=True,
-            instance_type=aws.ec2/instancetype.InstanceType(data["aws_ec2_instance_type_offering"]["available"]["instance_type"]),
+            instance_type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             vpc_security_group_ids=[aws_security_group["test"]["id"]],
             subnet_id=aws_subnet["test"][0]["id"],
             opts=pulumi.ResourceOptions(depends_on=[
@@ -335,8 +335,8 @@ class FileSystemAssociation(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings=aws.storagegateway.GatewaySmbActiveDirectorySettingsArgs(
-                domain_name=aws_directory_service_directory["test"]["name"],
-                password=aws_directory_service_directory["test"]["password"],
+                domain_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                password=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 username="Admin",
             ))
         test_windows_file_system = aws.fsx.WindowsFileSystem("testWindowsFileSystem",
@@ -409,7 +409,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         test_instance = aws.ec2.Instance("testInstance",
             ami=aws_service_storagegateway_ami_files3_latest.value,
             associate_public_ip_address=True,
-            instance_type=aws.ec2/instancetype.InstanceType(data["aws_ec2_instance_type_offering"]["available"]["instance_type"]),
+            instance_type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             vpc_security_group_ids=[aws_security_group["test"]["id"]],
             subnet_id=aws_subnet["test"][0]["id"],
             opts=pulumi.ResourceOptions(depends_on=[
@@ -422,8 +422,8 @@ class FileSystemAssociation(pulumi.CustomResource):
             gateway_timezone="GMT",
             gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings=aws.storagegateway.GatewaySmbActiveDirectorySettingsArgs(
-                domain_name=aws_directory_service_directory["test"]["name"],
-                password=aws_directory_service_directory["test"]["password"],
+                domain_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                password=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 username="Admin",
             ))
         test_windows_file_system = aws.fsx.WindowsFileSystem("testWindowsFileSystem",

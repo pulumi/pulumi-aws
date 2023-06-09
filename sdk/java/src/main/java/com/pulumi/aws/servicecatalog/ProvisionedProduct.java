@@ -209,12 +209,16 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
     /**
      * User-friendly name of the provisioned product.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return User-friendly name of the provisioned product.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

@@ -91,6 +91,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// The name of the user that you want to match.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName", required: true)]
         public string UserName { get; set; } = null!;
@@ -117,6 +119,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// The name of the user that you want to match.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;

@@ -1805,6 +1805,8 @@ type ClusterEc2Attributes struct {
 	// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
 	SubnetId *string `pulumi:"subnetId"`
 	// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
+	//
+	// > **NOTE on EMR-Managed security groups:** These security groups will have any missing inbound or outbound access rules added and maintained by AWS, to ensure proper communication between instances in a cluster. The EMR service will maintain these rules for groups provided in `emrManagedMasterSecurityGroup` and `emrManagedSlaveSecurityGroup`; attempts to remove the required rules may succeed, only for the EMR service to re-add them in a matter of minutes. This may cause this provider to fail to destroy an environment that contains an EMR cluster, because the EMR service does not revoke rules added on deletion, leaving a cyclic dependency between the security groups that prevents their deletion. To avoid this, use the `revokeRulesOnDelete` optional attribute for any Security Group used in `emrManagedMasterSecurityGroup` and `emrManagedSlaveSecurityGroup`. See [Amazon EMR-Managed Security Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html) for more information about the EMR-managed security group rules.
 	SubnetIds []string `pulumi:"subnetIds"`
 }
 
@@ -1837,6 +1839,8 @@ type ClusterEc2AttributesArgs struct {
 	// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
+	//
+	// > **NOTE on EMR-Managed security groups:** These security groups will have any missing inbound or outbound access rules added and maintained by AWS, to ensure proper communication between instances in a cluster. The EMR service will maintain these rules for groups provided in `emrManagedMasterSecurityGroup` and `emrManagedSlaveSecurityGroup`; attempts to remove the required rules may succeed, only for the EMR service to re-add them in a matter of minutes. This may cause this provider to fail to destroy an environment that contains an EMR cluster, because the EMR service does not revoke rules added on deletion, leaving a cyclic dependency between the security groups that prevents their deletion. To avoid this, use the `revokeRulesOnDelete` optional attribute for any Security Group used in `emrManagedMasterSecurityGroup` and `emrManagedSlaveSecurityGroup`. See [Amazon EMR-Managed Security Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html) for more information about the EMR-managed security group rules.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
@@ -1958,6 +1962,8 @@ func (o ClusterEc2AttributesOutput) SubnetId() pulumi.StringPtrOutput {
 }
 
 // List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
+//
+// > **NOTE on EMR-Managed security groups:** These security groups will have any missing inbound or outbound access rules added and maintained by AWS, to ensure proper communication between instances in a cluster. The EMR service will maintain these rules for groups provided in `emrManagedMasterSecurityGroup` and `emrManagedSlaveSecurityGroup`; attempts to remove the required rules may succeed, only for the EMR service to re-add them in a matter of minutes. This may cause this provider to fail to destroy an environment that contains an EMR cluster, because the EMR service does not revoke rules added on deletion, leaving a cyclic dependency between the security groups that prevents their deletion. To avoid this, use the `revokeRulesOnDelete` optional attribute for any Security Group used in `emrManagedMasterSecurityGroup` and `emrManagedSlaveSecurityGroup`. See [Amazon EMR-Managed Security Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html) for more information about the EMR-managed security group rules.
 func (o ClusterEc2AttributesOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterEc2Attributes) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -2067,6 +2073,8 @@ func (o ClusterEc2AttributesPtrOutput) SubnetId() pulumi.StringPtrOutput {
 }
 
 // List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
+//
+// > **NOTE on EMR-Managed security groups:** These security groups will have any missing inbound or outbound access rules added and maintained by AWS, to ensure proper communication between instances in a cluster. The EMR service will maintain these rules for groups provided in `emrManagedMasterSecurityGroup` and `emrManagedSlaveSecurityGroup`; attempts to remove the required rules may succeed, only for the EMR service to re-add them in a matter of minutes. This may cause this provider to fail to destroy an environment that contains an EMR cluster, because the EMR service does not revoke rules added on deletion, leaving a cyclic dependency between the security groups that prevents their deletion. To avoid this, use the `revokeRulesOnDelete` optional attribute for any Security Group used in `emrManagedMasterSecurityGroup` and `emrManagedSlaveSecurityGroup`. See [Amazon EMR-Managed Security Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html) for more information about the EMR-managed security group rules.
 func (o ClusterEc2AttributesPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterEc2Attributes) []string {
 		if v == nil {

@@ -363,6 +363,8 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
      * Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
@@ -370,6 +372,8 @@ public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
     /**
      * @return Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

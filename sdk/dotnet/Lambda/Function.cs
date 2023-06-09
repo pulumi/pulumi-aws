@@ -427,6 +427,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
@@ -715,6 +717,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
@@ -969,6 +973,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

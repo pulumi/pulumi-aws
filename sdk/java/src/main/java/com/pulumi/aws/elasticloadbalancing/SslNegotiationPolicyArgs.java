@@ -88,12 +88,20 @@ public final class SslNegotiationPolicyArgs extends com.pulumi.resources.Resourc
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
+     * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+     * 
+     * &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
+     * 
      */
     @Import(name="triggers")
     private @Nullable Output<Map<String,String>> triggers;
 
     /**
      * @return Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     * 
+     * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+     * 
+     * &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
      * 
      */
     public Optional<Output<Map<String,String>>> triggers() {
@@ -231,6 +239,10 @@ public final class SslNegotiationPolicyArgs extends com.pulumi.resources.Resourc
         /**
          * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
          * 
+         * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+         * 
+         * &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
+         * 
          * @return builder
          * 
          */
@@ -241,6 +253,10 @@ public final class SslNegotiationPolicyArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+         * 
+         * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+         * 
+         * &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
          * 
          * @return builder
          * 

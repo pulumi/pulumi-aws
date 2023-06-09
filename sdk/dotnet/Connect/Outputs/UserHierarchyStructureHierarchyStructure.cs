@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Connect.Outputs
     {
         /// <summary>
         /// A block that defines the details of level five. The level block is documented below.
+        /// 
+        /// Each level block supports the following arguments:
         /// </summary>
         public readonly Outputs.UserHierarchyStructureHierarchyStructureLevelFive? LevelFive;
         /// <summary>

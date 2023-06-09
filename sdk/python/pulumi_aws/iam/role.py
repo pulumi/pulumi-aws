@@ -30,6 +30,10 @@ class RoleArgs:
         """
         The set of arguments for constructing a Role resource.
         :param pulumi.Input[str] assume_role_policy: Policy that grants an entity permission to assume the role.
+               
+               > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: Description of the role.
         :param pulumi.Input[bool] force_detach_policies: Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['RoleInlinePolicyArgs']]] inline_policies: Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
@@ -67,6 +71,10 @@ class RoleArgs:
     def assume_role_policy(self) -> pulumi.Input[str]:
         """
         Policy that grants an entity permission to assume the role.
+
+        > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "assume_role_policy")
 
@@ -215,6 +223,10 @@ class _RoleState:
         Input properties used for looking up and filtering Role resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) specifying the role.
         :param pulumi.Input[str] assume_role_policy: Policy that grants an entity permission to assume the role.
+               
+               > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] create_date: Creation date of the IAM role.
         :param pulumi.Input[str] description: Description of the role.
         :param pulumi.Input[bool] force_detach_policies: Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
@@ -279,6 +291,10 @@ class _RoleState:
     def assume_role_policy(self) -> Optional[pulumi.Input[str]]:
         """
         Policy that grants an entity permission to assume the role.
+
+        > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "assume_role_policy")
 
@@ -531,7 +547,7 @@ class Role(pulumi.CustomResource):
             resources=["*"],
         )])
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             inline_policies=[
                 aws.iam.RoleInlinePolicyArgs(
                     name="my_inline_policy",
@@ -559,7 +575,7 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             inline_policies=[aws.iam.RoleInlinePolicyArgs()])
         ```
         ### Example of Exclusive Managed Policies
@@ -592,7 +608,7 @@ class Role(pulumi.CustomResource):
             }],
         }))
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             managed_policy_arns=[
                 policy_one.arn,
                 policy_two.arn,
@@ -607,7 +623,7 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             managed_policy_arns=[])
         ```
 
@@ -622,6 +638,10 @@ class Role(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assume_role_policy: Policy that grants an entity permission to assume the role.
+               
+               > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: Description of the role.
         :param pulumi.Input[bool] force_detach_policies: Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleInlinePolicyArgs']]]] inline_policies: Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
@@ -700,7 +720,7 @@ class Role(pulumi.CustomResource):
             resources=["*"],
         )])
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             inline_policies=[
                 aws.iam.RoleInlinePolicyArgs(
                     name="my_inline_policy",
@@ -728,7 +748,7 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             inline_policies=[aws.iam.RoleInlinePolicyArgs()])
         ```
         ### Example of Exclusive Managed Policies
@@ -761,7 +781,7 @@ class Role(pulumi.CustomResource):
             }],
         }))
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             managed_policy_arns=[
                 policy_one.arn,
                 policy_two.arn,
@@ -776,7 +796,7 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
+            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             managed_policy_arns=[])
         ```
 
@@ -876,6 +896,10 @@ class Role(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) specifying the role.
         :param pulumi.Input[str] assume_role_policy: Policy that grants an entity permission to assume the role.
+               
+               > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] create_date: Creation date of the IAM role.
         :param pulumi.Input[str] description: Description of the role.
         :param pulumi.Input[bool] force_detach_policies: Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
@@ -925,6 +949,10 @@ class Role(pulumi.CustomResource):
     def assume_role_policy(self) -> pulumi.Output[str]:
         """
         Policy that grants an entity permission to assume the role.
+
+        > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "assume_role_policy")
 

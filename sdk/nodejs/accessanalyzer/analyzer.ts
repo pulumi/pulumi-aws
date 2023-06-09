@@ -69,6 +69,8 @@ export class Analyzer extends pulumi.CustomResource {
 
     /**
      * Name of the Analyzer.
+     *
+     * The following arguments are optional:
      */
     public readonly analyzerName!: pulumi.Output<string>;
     /**
@@ -128,6 +130,8 @@ export class Analyzer extends pulumi.CustomResource {
 export interface AnalyzerState {
     /**
      * Name of the Analyzer.
+     *
+     * The following arguments are optional:
      */
     analyzerName?: pulumi.Input<string>;
     /**
@@ -154,6 +158,8 @@ export interface AnalyzerState {
 export interface AnalyzerArgs {
     /**
      * Name of the Analyzer.
+     *
+     * The following arguments are optional:
      */
     analyzerName: pulumi.Input<string>;
     /**

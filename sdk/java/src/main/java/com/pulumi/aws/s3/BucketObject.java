@@ -408,12 +408,16 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
     /**
      * Name of the object once it is in the bucket.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
      * @return Name of the object once it is in the bucket.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> key() {
@@ -590,12 +594,16 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
+     * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+     * 
      */
     @Export(name="websiteRedirect", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> websiteRedirect;
 
     /**
      * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     * 
+     * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
      * 
      */
     public Output<Optional<String>> websiteRedirect() {

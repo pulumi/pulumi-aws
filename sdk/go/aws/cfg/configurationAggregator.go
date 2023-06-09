@@ -132,6 +132,8 @@ type ConfigurationAggregator struct {
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrOutput `pulumi:"organizationAggregationSource"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -175,6 +177,8 @@ type configurationAggregatorState struct {
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -190,6 +194,8 @@ type ConfigurationAggregatorState struct {
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -207,6 +213,8 @@ type configurationAggregatorArgs struct {
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource *ConfigurationAggregatorOrganizationAggregationSource `pulumi:"organizationAggregationSource"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -219,6 +227,8 @@ type ConfigurationAggregatorArgs struct {
 	// The organization to aggregate config data from as documented below.
 	OrganizationAggregationSource ConfigurationAggregatorOrganizationAggregationSourcePtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
 	Tags pulumi.StringMapInput
 }
 
@@ -334,6 +344,8 @@ func (o ConfigurationAggregatorOutput) OrganizationAggregationSource() Configura
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
 func (o ConfigurationAggregatorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationAggregator) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

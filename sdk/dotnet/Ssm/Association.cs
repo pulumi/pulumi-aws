@@ -232,6 +232,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// 
+        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Output("waitForSuccessTimeoutSeconds")]
         public Output<int?> WaitForSuccessTimeoutSeconds { get; private set; } = null!;
@@ -374,6 +376,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// 
+        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Input("waitForSuccessTimeoutSeconds")]
         public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }
@@ -490,6 +494,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// 
+        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Input("waitForSuccessTimeoutSeconds")]
         public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }

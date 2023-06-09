@@ -59,6 +59,8 @@ type RouteCalculation struct {
 	// The timestamp for when the route calculator resource was created in ISO 8601 format.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// Specifies the data provider of traffic and road network data.
+	//
+	// The following arguments are optional:
 	DataSource pulumi.StringOutput `pulumi:"dataSource"`
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -112,6 +114,8 @@ type routeCalculationState struct {
 	// The timestamp for when the route calculator resource was created in ISO 8601 format.
 	CreateTime *string `pulumi:"createTime"`
 	// Specifies the data provider of traffic and road network data.
+	//
+	// The following arguments are optional:
 	DataSource *string `pulumi:"dataSource"`
 	// The optional description for the route calculator resource.
 	Description *string `pulumi:"description"`
@@ -131,6 +135,8 @@ type RouteCalculationState struct {
 	// The timestamp for when the route calculator resource was created in ISO 8601 format.
 	CreateTime pulumi.StringPtrInput
 	// Specifies the data provider of traffic and road network data.
+	//
+	// The following arguments are optional:
 	DataSource pulumi.StringPtrInput
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrInput
@@ -150,6 +156,8 @@ type routeCalculationArgs struct {
 	// The name of the route calculator resource.
 	CalculatorName string `pulumi:"calculatorName"`
 	// Specifies the data provider of traffic and road network data.
+	//
+	// The following arguments are optional:
 	DataSource string `pulumi:"dataSource"`
 	// The optional description for the route calculator resource.
 	Description *string `pulumi:"description"`
@@ -162,6 +170,8 @@ type RouteCalculationArgs struct {
 	// The name of the route calculator resource.
 	CalculatorName pulumi.StringInput
 	// Specifies the data provider of traffic and road network data.
+	//
+	// The following arguments are optional:
 	DataSource pulumi.StringInput
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrInput
@@ -272,6 +282,8 @@ func (o RouteCalculationOutput) CreateTime() pulumi.StringOutput {
 }
 
 // Specifies the data provider of traffic and road network data.
+//
+// The following arguments are optional:
 func (o RouteCalculationOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringOutput { return v.DataSource }).(pulumi.StringOutput)
 }

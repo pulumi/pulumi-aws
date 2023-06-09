@@ -68,6 +68,8 @@ type Image struct {
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	//
+	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringOutput `pulumi:"infrastructureConfigurationArn"`
 	// Name of the AMI.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -132,6 +134,8 @@ type imageState struct {
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	//
+	// The following arguments are optional:
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
 	// Name of the AMI.
 	Name *string `pulumi:"name"`
@@ -165,6 +169,8 @@ type ImageState struct {
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	//
+	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringPtrInput
 	// Name of the AMI.
 	Name pulumi.StringPtrInput
@@ -198,6 +204,8 @@ type imageArgs struct {
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	//
+	// The following arguments are optional:
 	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -216,6 +224,8 @@ type ImageArgs struct {
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+	//
+	// The following arguments are optional:
 	InfrastructureConfigurationArn pulumi.StringInput
 	// Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -344,6 +354,8 @@ func (o ImageOutput) ImageTestsConfiguration() ImageImageTestsConfigurationOutpu
 }
 
 // Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+//
+// The following arguments are optional:
 func (o ImageOutput) InfrastructureConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.InfrastructureConfigurationArn }).(pulumi.StringOutput)
 }

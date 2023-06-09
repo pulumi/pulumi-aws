@@ -242,6 +242,8 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     public readonly imageId!: pulumi.Output<string>;
     /**
      * The size of instance to launch.
+     *
+     * The following arguments are optional:
      */
     public readonly instanceType!: pulumi.Output<string>;
     /**
@@ -404,6 +406,8 @@ export interface LaunchConfigurationState {
     imageId?: pulumi.Input<string>;
     /**
      * The size of instance to launch.
+     *
+     * The following arguments are optional:
      */
     instanceType?: pulumi.Input<string>;
     /**
@@ -494,6 +498,8 @@ export interface LaunchConfigurationArgs {
     imageId: pulumi.Input<string>;
     /**
      * The size of instance to launch.
+     *
+     * The following arguments are optional:
      */
     instanceType: pulumi.Input<string>;
     /**

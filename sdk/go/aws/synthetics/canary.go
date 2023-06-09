@@ -89,6 +89,8 @@ type Canary struct {
 	// S3 version ID of your script. **Conflicts with `zipFile`.**
 	S3Version pulumi.StringPtrOutput `pulumi:"s3Version"`
 	// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+	//
+	// The following arguments are optional:
 	Schedule CanaryScheduleOutput `pulumi:"schedule"`
 	// ARN of the Lambda layer where Synthetics stores the canary script code.
 	SourceLocationArn pulumi.StringOutput `pulumi:"sourceLocationArn"`
@@ -183,6 +185,8 @@ type canaryState struct {
 	// S3 version ID of your script. **Conflicts with `zipFile`.**
 	S3Version *string `pulumi:"s3Version"`
 	// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+	//
+	// The following arguments are optional:
 	Schedule *CanarySchedule `pulumi:"schedule"`
 	// ARN of the Lambda layer where Synthetics stores the canary script code.
 	SourceLocationArn *string `pulumi:"sourceLocationArn"`
@@ -234,6 +238,8 @@ type CanaryState struct {
 	// S3 version ID of your script. **Conflicts with `zipFile`.**
 	S3Version pulumi.StringPtrInput
 	// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+	//
+	// The following arguments are optional:
 	Schedule CanarySchedulePtrInput
 	// ARN of the Lambda layer where Synthetics stores the canary script code.
 	SourceLocationArn pulumi.StringPtrInput
@@ -285,6 +291,8 @@ type canaryArgs struct {
 	// S3 version ID of your script. **Conflicts with `zipFile`.**
 	S3Version *string `pulumi:"s3Version"`
 	// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+	//
+	// The following arguments are optional:
 	Schedule CanarySchedule `pulumi:"schedule"`
 	// Whether to run or stop the canary.
 	StartCanary *bool `pulumi:"startCanary"`
@@ -325,6 +333,8 @@ type CanaryArgs struct {
 	// S3 version ID of your script. **Conflicts with `zipFile`.**
 	S3Version pulumi.StringPtrInput
 	// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+	//
+	// The following arguments are optional:
 	Schedule CanaryScheduleInput
 	// Whether to run or stop the canary.
 	StartCanary pulumi.BoolPtrInput
@@ -496,6 +506,8 @@ func (o CanaryOutput) S3Version() pulumi.StringPtrOutput {
 }
 
 // Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+//
+// The following arguments are optional:
 func (o CanaryOutput) Schedule() CanaryScheduleOutput {
 	return o.ApplyT(func(v *Canary) CanaryScheduleOutput { return v.Schedule }).(CanaryScheduleOutput)
 }

@@ -123,12 +123,16 @@ public class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.C
     /**
      * Identifier of EC2 VPC.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
      * @return Identifier of EC2 VPC.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vpcId() {

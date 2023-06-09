@@ -50,6 +50,8 @@ export interface GetConnectionArgs {
     arn?: string;
     /**
      * CodeStar Connection name.
+     *
+     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
     name?: string;
     /**
@@ -127,6 +129,8 @@ export interface GetConnectionOutputArgs {
     arn?: pulumi.Input<string>;
     /**
      * CodeStar Connection name.
+     *
+     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
     name?: pulumi.Input<string>;
     /**

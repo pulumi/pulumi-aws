@@ -43,6 +43,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
         public readonly string UserPoolClientId;
         /// <summary>
         /// Domain prefix or fully-qualified domain name of the Cognito user pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string UserPoolDomain;
 

@@ -210,12 +210,16 @@ public class InfrastructureConfiguration extends com.pulumi.resources.CustomReso
     /**
      * Name for the configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name for the configuration.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

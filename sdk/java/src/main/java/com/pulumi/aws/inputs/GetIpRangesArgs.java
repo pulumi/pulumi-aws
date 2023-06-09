@@ -42,6 +42,9 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
      * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
      * [`service` attribute][2] documentation for other possible values.
      * 
+     * &gt; **NOTE:** If the specified combination of regions and services does not yield any
+     * CIDR blocks, this call will fail.
+     * 
      */
     @Import(name="services", required=true)
     private Output<List<String>> services;
@@ -52,6 +55,9 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
      * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
      * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
      * [`service` attribute][2] documentation for other possible values.
+     * 
+     * &gt; **NOTE:** If the specified combination of regions and services does not yield any
+     * CIDR blocks, this call will fail.
      * 
      */
     public Output<List<String>> services() {
@@ -143,6 +149,9 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
          * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
          * [`service` attribute][2] documentation for other possible values.
          * 
+         * &gt; **NOTE:** If the specified combination of regions and services does not yield any
+         * CIDR blocks, this call will fail.
+         * 
          * @return builder
          * 
          */
@@ -158,6 +167,9 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
          * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
          * [`service` attribute][2] documentation for other possible values.
          * 
+         * &gt; **NOTE:** If the specified combination of regions and services does not yield any
+         * CIDR blocks, this call will fail.
+         * 
          * @return builder
          * 
          */
@@ -171,6 +183,9 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
          * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
          * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
          * [`service` attribute][2] documentation for other possible values.
+         * 
+         * &gt; **NOTE:** If the specified combination of regions and services does not yield any
+         * CIDR blocks, this call will fail.
          * 
          * @return builder
          * 

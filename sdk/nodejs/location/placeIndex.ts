@@ -80,6 +80,8 @@ export class PlaceIndex extends pulumi.CustomResource {
     public /*out*/ readonly indexArn!: pulumi.Output<string>;
     /**
      * The name of the place index resource.
+     *
+     * The following arguments are optional:
      */
     public readonly indexName!: pulumi.Output<string>;
     /**
@@ -166,6 +168,8 @@ export interface PlaceIndexState {
     indexArn?: pulumi.Input<string>;
     /**
      * The name of the place index resource.
+     *
+     * The following arguments are optional:
      */
     indexName?: pulumi.Input<string>;
     /**
@@ -200,6 +204,8 @@ export interface PlaceIndexArgs {
     description?: pulumi.Input<string>;
     /**
      * The name of the place index resource.
+     *
+     * The following arguments are optional:
      */
     indexName: pulumi.Input<string>;
     /**

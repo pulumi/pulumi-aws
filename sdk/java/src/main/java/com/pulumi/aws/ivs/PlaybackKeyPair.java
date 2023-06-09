@@ -105,12 +105,16 @@ public class PlaybackKeyPair extends com.pulumi.resources.CustomResource {
     /**
      * Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output<String> publicKey;
 
     /**
      * @return Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> publicKey() {

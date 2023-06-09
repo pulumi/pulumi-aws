@@ -42,6 +42,9 @@ export function getLicenseGrants(args?: GetLicenseGrantsArgs, opts?: pulumi.Invo
 export interface GetLicenseGrantsArgs {
     /**
      * Custom filter block as described below.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     filters?: inputs.licensemanager.GetLicenseGrantsFilter[];
 }
@@ -90,6 +93,9 @@ export function getLicenseGrantsOutput(args?: GetLicenseGrantsOutputArgs, opts?:
 export interface GetLicenseGrantsOutputArgs {
     /**
      * Custom filter block as described below.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.licensemanager.GetLicenseGrantsFilterArgs>[]>;
 }

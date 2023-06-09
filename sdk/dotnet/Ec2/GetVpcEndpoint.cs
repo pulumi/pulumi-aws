@@ -132,6 +132,9 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the VPC in which the specific VPC Endpoint is used.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         [Input("vpcId")]
         public string? VpcId { get; set; }
@@ -189,6 +192,9 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the VPC in which the specific VPC Endpoint is used.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

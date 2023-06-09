@@ -31,6 +31,8 @@ class TableArgs:
         :param pulumi.Input[str] keyspace_name: The name of the keyspace that the table is going to be created in.
         :param pulumi.Input['TableSchemaDefinitionArgs'] schema_definition: Describes the schema of the table.
         :param pulumi.Input[str] table_name: The name of the table.
+               
+               The following arguments are optional:
         :param pulumi.Input['TableCapacitySpecificationArgs'] capacity_specification: Specifies the read/write throughput capacity mode for the table.
         :param pulumi.Input['TableCommentArgs'] comment: A description of the table.
         :param pulumi.Input[int] default_time_to_live: The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -86,6 +88,8 @@ class TableArgs:
     def table_name(self) -> pulumi.Input[str]:
         """
         The name of the table.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "table_name")
 
@@ -204,6 +208,8 @@ class _TableState:
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
         :param pulumi.Input['TableSchemaDefinitionArgs'] schema_definition: Describes the schema of the table.
         :param pulumi.Input[str] table_name: The name of the table.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['TableTtlArgs'] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
@@ -334,6 +340,8 @@ class _TableState:
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the table.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "table_name")
 
@@ -437,6 +445,8 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
         :param pulumi.Input[pulumi.InputType['TableSchemaDefinitionArgs']] schema_definition: Describes the schema of the table.
         :param pulumi.Input[str] table_name: The name of the table.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         """
@@ -569,6 +579,8 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
         :param pulumi.Input[pulumi.InputType['TableSchemaDefinitionArgs']] schema_definition: Describes the schema of the table.
         :param pulumi.Input[str] table_name: The name of the table.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
@@ -660,6 +672,8 @@ class Table(pulumi.CustomResource):
     def table_name(self) -> pulumi.Output[str]:
         """
         The name of the table.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "table_name")
 

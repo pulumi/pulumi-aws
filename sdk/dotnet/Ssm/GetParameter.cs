@@ -83,6 +83,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Whether to return decrypted `SecureString` value. Defaults to `true`.
+        /// 
+        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         [Input("withDecryption")]
         public bool? WithDecryption { get; set; }
@@ -103,6 +105,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Whether to return decrypted `SecureString` value. Defaults to `true`.
+        /// 
+        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         [Input("withDecryption")]
         public Input<bool>? WithDecryption { get; set; }

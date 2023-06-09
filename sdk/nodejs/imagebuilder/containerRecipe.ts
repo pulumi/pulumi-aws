@@ -154,6 +154,8 @@ export class ContainerRecipe extends pulumi.CustomResource {
     public readonly targetRepository!: pulumi.Output<outputs.imagebuilder.ContainerRecipeTargetRepository>;
     /**
      * Version of the container recipe.
+     *
+     * The following attributes are optional:
      */
     public readonly version!: pulumi.Output<string>;
     /**
@@ -315,6 +317,8 @@ export interface ContainerRecipeState {
     targetRepository?: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetRepository>;
     /**
      * Version of the container recipe.
+     *
+     * The following attributes are optional:
      */
     version?: pulumi.Input<string>;
     /**
@@ -377,6 +381,8 @@ export interface ContainerRecipeArgs {
     targetRepository: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetRepository>;
     /**
      * Version of the container recipe.
+     *
+     * The following attributes are optional:
      */
     version: pulumi.Input<string>;
     /**

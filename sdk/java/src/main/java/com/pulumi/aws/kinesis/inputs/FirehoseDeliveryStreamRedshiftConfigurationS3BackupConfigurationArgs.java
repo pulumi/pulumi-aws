@@ -67,12 +67,16 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
     /**
      * The CloudWatch Logging Options for the delivery stream. More details are given below
      * 
+     * The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
+     * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
      * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * 
+     * The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -256,6 +260,8 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
         /**
          * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
          * 
+         * The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
+         * 
          * @return builder
          * 
          */
@@ -266,6 +272,8 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
 
         /**
          * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
+         * 
+         * The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
          * 
          * @return builder
          * 

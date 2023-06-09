@@ -77,6 +77,18 @@ namespace Pulumi.Aws.DirectConnect
     {
         /// <summary>
         /// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+        /// 
+        /// There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("routerTypeIdentifier", required: true)]
         public string RouterTypeIdentifier { get; set; } = null!;
@@ -97,6 +109,18 @@ namespace Pulumi.Aws.DirectConnect
     {
         /// <summary>
         /// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+        /// 
+        /// There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("routerTypeIdentifier", required: true)]
         public Input<string> RouterTypeIdentifier { get; set; } = null!;

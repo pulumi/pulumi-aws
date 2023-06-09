@@ -108,6 +108,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Unique name for your Lambda Layer
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("layerName")]
         public Output<string> LayerName { get; private set; } = null!;
@@ -256,6 +258,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Unique name for your Lambda Layer
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("layerName", required: true)]
         public Input<string> LayerName { get; set; } = null!;
@@ -360,6 +364,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Unique name for your Lambda Layer
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("layerName")]
         public Input<string>? LayerName { get; set; }

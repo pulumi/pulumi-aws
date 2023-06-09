@@ -86,6 +86,9 @@ def get_managed_prefix_lists(filters: Optional[Sequence[pulumi.InputType['GetMan
     :param Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired .
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -111,5 +114,8 @@ def get_managed_prefix_lists_output(filters: Optional[pulumi.Input[Optional[Sequ
     :param Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired .
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

@@ -232,6 +232,10 @@ export class Instance extends pulumi.CustomResource {
     public readonly customIamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+     *
+     * > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+     * Replicate database managed by the provider will promote the database to a fully
+     * standalone database.
      */
     public readonly customerOwnedIpEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -784,6 +788,10 @@ export interface InstanceState {
     customIamInstanceProfile?: pulumi.Input<string>;
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+     *
+     * > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+     * Replicate database managed by the provider will promote the database to a fully
+     * standalone database.
      */
     customerOwnedIpEnabled?: pulumi.Input<boolean>;
     /**
@@ -1155,6 +1163,10 @@ export interface InstanceArgs {
     customIamInstanceProfile?: pulumi.Input<string>;
     /**
      * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+     *
+     * > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+     * Replicate database managed by the provider will promote the database to a fully
+     * standalone database.
      */
     customerOwnedIpEnabled?: pulumi.Input<boolean>;
     /**

@@ -56,6 +56,9 @@ class LoadBalancerArgs:
                instances. Use this for Classic or Default VPC only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               Exactly one of `availability_zones` or `subnets` must be specified: this
+               determines if the ELB exists in a VPC or in EC2-classic.
         """
         pulumi.set(__self__, "listeners", listeners)
         if access_logs is not None:
@@ -292,6 +295,9 @@ class LoadBalancerArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        Exactly one of `availability_zones` or `subnets` must be specified: this
+        determines if the ELB exists in a VPC or in EC2-classic.
         """
         return pulumi.get(self, "tags")
 
@@ -353,6 +359,9 @@ class _LoadBalancerState:
                instances. Only available on ELBs launched in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               Exactly one of `availability_zones` or `subnets` must be specified: this
+               determines if the ELB exists in a VPC or in EC2-classic.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
         """
@@ -640,6 +649,9 @@ class _LoadBalancerState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        Exactly one of `availability_zones` or `subnets` must be specified: this
+        determines if the ELB exists in a VPC or in EC2-classic.
         """
         return pulumi.get(self, "tags")
 
@@ -800,6 +812,9 @@ class LoadBalancer(pulumi.CustomResource):
                instances. Use this for Classic or Default VPC only.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               Exactly one of `availability_zones` or `subnets` must be specified: this
+               determines if the ELB exists in a VPC or in EC2-classic.
         """
         ...
     @overload
@@ -1015,6 +1030,9 @@ class LoadBalancer(pulumi.CustomResource):
                instances. Only available on ELBs launched in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the ELB.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               Exactly one of `availability_zones` or `subnets` must be specified: this
+               determines if the ELB exists in a VPC or in EC2-classic.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
         """
@@ -1209,6 +1227,9 @@ class LoadBalancer(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        Exactly one of `availability_zones` or `subnets` must be specified: this
+        determines if the ELB exists in a VPC or in EC2-classic.
         """
         return pulumi.get(self, "tags")
 

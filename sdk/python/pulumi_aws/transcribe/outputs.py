@@ -44,6 +44,8 @@ class LanguageModelInputDataConfig(dict):
         :param str data_access_role_arn: IAM role with access to S3 bucket.
         :param str s3_uri: S3 URI where training data is located.
         :param str tuning_data_s3_uri: S3 URI where tuning data is located.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -71,6 +73,8 @@ class LanguageModelInputDataConfig(dict):
     def tuning_data_s3_uri(self) -> Optional[str]:
         """
         S3 URI where tuning data is located.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "tuning_data_s3_uri")
 

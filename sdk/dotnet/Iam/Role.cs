@@ -294,6 +294,10 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Policy that grants an entity permission to assume the role.
+        /// 
+        /// &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("assumeRolePolicy")]
         public Output<string> AssumeRolePolicy { get; private set; } = null!;
@@ -427,6 +431,10 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// Policy that grants an entity permission to assume the role.
+        /// 
+        /// &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("assumeRolePolicy", required: true)]
         public Input<string> AssumeRolePolicy { get; set; } = null!;
@@ -521,6 +529,10 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Policy that grants an entity permission to assume the role.
+        /// 
+        /// &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("assumeRolePolicy")]
         public Input<string>? AssumeRolePolicy { get; set; }

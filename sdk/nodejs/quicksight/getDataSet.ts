@@ -44,6 +44,8 @@ export interface GetDataSetArgs {
     columnLevelPermissionRules?: inputs.quicksight.GetDataSetColumnLevelPermissionRule[];
     /**
      * Identifier for the data set.
+     *
+     * The following arguments are optional:
      */
     dataSetId: string;
     tags?: {[key: string]: string};
@@ -104,6 +106,8 @@ export interface GetDataSetOutputArgs {
     columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.GetDataSetColumnLevelPermissionRuleArgs>[]>;
     /**
      * Identifier for the data set.
+     *
+     * The following arguments are optional:
      */
     dataSetId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

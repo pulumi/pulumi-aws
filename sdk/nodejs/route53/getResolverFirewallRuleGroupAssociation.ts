@@ -36,6 +36,8 @@ export function getResolverFirewallRuleGroupAssociation(args: GetResolverFirewal
 export interface GetResolverFirewallRuleGroupAssociationArgs {
     /**
      * The identifier for the association.
+     *
+     * The following attribute is additionally exported:
      */
     firewallRuleGroupAssociationId: string;
 }
@@ -90,6 +92,8 @@ export function getResolverFirewallRuleGroupAssociationOutput(args: GetResolverF
 export interface GetResolverFirewallRuleGroupAssociationOutputArgs {
     /**
      * The identifier for the association.
+     *
+     * The following attribute is additionally exported:
      */
     firewallRuleGroupAssociationId: pulumi.Input<string>;
 }

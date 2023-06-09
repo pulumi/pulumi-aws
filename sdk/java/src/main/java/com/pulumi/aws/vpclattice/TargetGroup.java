@@ -237,12 +237,16 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
     /**
      * The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

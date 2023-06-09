@@ -30,6 +30,8 @@ class ConnectionArgs:
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[str] provider_name: The name of the service provider associated with the connection.
         :param pulumi.Input[bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+               
+               > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -113,6 +115,8 @@ class ConnectionArgs:
     def request_macsec(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+
+        > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "request_macsec")
 
@@ -182,6 +186,8 @@ class _ConnectionState:
         :param pulumi.Input[str] port_encryption_status: The MAC Security (MACsec) port link status of the connection.
         :param pulumi.Input[str] provider_name: The name of the service provider associated with the connection.
         :param pulumi.Input[bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+               
+               > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -385,6 +391,8 @@ class _ConnectionState:
     def request_macsec(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+
+        > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "request_macsec")
 
@@ -511,6 +519,8 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[str] provider_name: The name of the service provider associated with the connection.
         :param pulumi.Input[bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+               
+               > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -671,6 +681,8 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] port_encryption_status: The MAC Security (MACsec) port link status of the connection.
         :param pulumi.Input[str] provider_name: The name of the service provider associated with the connection.
         :param pulumi.Input[bool] request_macsec: Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+               
+               > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[bool] skip_destroy: Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -809,6 +821,8 @@ class Connection(pulumi.CustomResource):
     def request_macsec(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+
+        > **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "request_macsec")
 

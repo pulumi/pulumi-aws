@@ -91,6 +91,8 @@ type LookupRouteArgs struct {
 	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// ID of the specific Route Table containing the Route entry.
+	//
+	// The following arguments are optional:
 	RouteTableId string `pulumi:"routeTableId"`
 	// EC2 Transit Gateway ID of the Route belonging to the Route Table.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
@@ -156,6 +158,8 @@ type LookupRouteOutputArgs struct {
 	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 	// ID of the specific Route Table containing the Route entry.
+	//
+	// The following arguments are optional:
 	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// EC2 Transit Gateway ID of the Route belonging to the Route Table.
 	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`

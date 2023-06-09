@@ -35,6 +35,8 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         public readonly string Name;
         /// <summary>
         /// Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly bool? Wildcard;
 

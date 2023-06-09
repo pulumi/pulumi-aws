@@ -37,10 +37,14 @@ export interface GetGroupArgs {
     filter?: inputs.identitystore.GetGroupFilter;
     /**
      * The identifier for a group in the Identity Store.
+     *
+     * > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
      */
     groupId?: string;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
+     *
+     * The following arguments are optional:
      */
     identityStoreId: string;
 }
@@ -96,10 +100,14 @@ export interface GetGroupOutputArgs {
     filter?: pulumi.Input<inputs.identitystore.GetGroupFilterArgs>;
     /**
      * The identifier for a group in the Identity Store.
+     *
+     * > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
      */
     groupId?: pulumi.Input<string>;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
+     *
+     * The following arguments are optional:
      */
     identityStoreId: pulumi.Input<string>;
 }

@@ -116,7 +116,7 @@ def get_links(global_network_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_links(global_network_id=var["global_network_id"],
+    example = aws.networkmanager.get_links(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         tags={
             "Env": "test",
         })
@@ -164,7 +164,7 @@ def get_links_output(global_network_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_links(global_network_id=var["global_network_id"],
+    example = aws.networkmanager.get_links(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         tags={
             "Env": "test",
         })

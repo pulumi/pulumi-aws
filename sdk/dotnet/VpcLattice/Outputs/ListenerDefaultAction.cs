@@ -16,6 +16,8 @@ namespace Pulumi.Aws.VpcLattice.Outputs
         public readonly Outputs.ListenerDefaultActionFixedResponse? FixedResponse;
         /// <summary>
         /// Route requests to one or more target groups. See Forward blocks below.
+        /// 
+        /// &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
         /// </summary>
         public readonly ImmutableArray<Outputs.ListenerDefaultActionForward> Forwards;
 

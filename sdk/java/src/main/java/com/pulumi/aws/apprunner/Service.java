@@ -346,12 +346,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="sourceConfiguration", refs={ServiceSourceConfiguration.class}, tree="[0]")
     private Output<ServiceSourceConfiguration> sourceConfiguration;
 
     /**
      * @return The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<ServiceSourceConfiguration> sourceConfiguration() {

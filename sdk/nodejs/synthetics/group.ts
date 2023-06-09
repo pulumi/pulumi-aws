@@ -63,6 +63,8 @@ export class Group extends pulumi.CustomResource {
     public /*out*/ readonly groupId!: pulumi.Output<string>;
     /**
      * Name of the group.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -119,6 +121,8 @@ export interface GroupState {
     groupId?: pulumi.Input<string>;
     /**
      * Name of the group.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -137,6 +141,8 @@ export interface GroupState {
 export interface GroupArgs {
     /**
      * Name of the group.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

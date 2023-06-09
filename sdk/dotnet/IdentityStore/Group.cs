@@ -51,6 +51,8 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// The globally unique identifier for the identity store.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("identityStoreId")]
         public Output<string> IdentityStoreId { get; private set; } = null!;
@@ -115,6 +117,8 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// The globally unique identifier for the identity store.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
@@ -159,6 +163,8 @@ namespace Pulumi.Aws.IdentityStore
 
         /// <summary>
         /// The globally unique identifier for the identity store.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("identityStoreId")]
         public Input<string>? IdentityStoreId { get; set; }

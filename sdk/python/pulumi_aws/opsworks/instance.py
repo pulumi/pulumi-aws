@@ -50,6 +50,8 @@ class InstanceArgs:
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layer_ids: List of the layers the instance will belong to.
         :param pulumi.Input[str] stack_id: Identifier of the stack the instance will belong to.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] agent_version: OpsWorks agent to install. Default is `INHERIT`.
         :param pulumi.Input[str] ami_id: AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
         :param pulumi.Input[str] architecture: Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.
@@ -155,6 +157,8 @@ class InstanceArgs:
     def stack_id(self) -> pulumi.Input[str]:
         """
         Identifier of the stack the instance will belong to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "stack_id")
 
@@ -589,6 +593,8 @@ class _InstanceState:
         :param pulumi.Input[str] ssh_host_rsa_key_fingerprint: SSH key's RSA fingerprint.
         :param pulumi.Input[str] ssh_key_name: Name of the SSH keypair that instances will have by default.
         :param pulumi.Input[str] stack_id: Identifier of the stack the instance will belong to.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] state: Desired state of the instance. Valid values are `running` or `stopped`.
         :param pulumi.Input[str] status: Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to.
@@ -1159,6 +1165,8 @@ class _InstanceState:
     def stack_id(self) -> Optional[pulumi.Input[str]]:
         """
         Identifier of the stack the instance will belong to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "stack_id")
 
@@ -1358,6 +1366,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Associated security groups.
         :param pulumi.Input[str] ssh_key_name: Name of the SSH keypair that instances will have by default.
         :param pulumi.Input[str] stack_id: Identifier of the stack the instance will belong to.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] state: Desired state of the instance. Valid values are `running` or `stopped`.
         :param pulumi.Input[str] status: Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to.
@@ -1643,6 +1653,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] ssh_host_rsa_key_fingerprint: SSH key's RSA fingerprint.
         :param pulumi.Input[str] ssh_key_name: Name of the SSH keypair that instances will have by default.
         :param pulumi.Input[str] stack_id: Identifier of the stack the instance will belong to.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] state: Desired state of the instance. Valid values are `running` or `stopped`.
         :param pulumi.Input[str] status: Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
         :param pulumi.Input[str] subnet_id: Subnet ID to attach to.
@@ -2017,6 +2029,8 @@ class Instance(pulumi.CustomResource):
     def stack_id(self) -> pulumi.Output[str]:
         """
         Identifier of the stack the instance will belong to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "stack_id")
 

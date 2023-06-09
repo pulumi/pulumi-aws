@@ -66,12 +66,16 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
     /**
      * Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
      * 
+     * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+     * 
      */
     @Import(name="resourceTags")
     private @Nullable Output<List<ExperimentTemplateTargetResourceTagArgs>> resourceTags;
 
     /**
      * @return Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+     * 
+     * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
      * 
      */
     public Optional<Output<List<ExperimentTemplateTargetResourceTagArgs>>> resourceTags() {
@@ -223,6 +227,8 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         /**
          * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
          * 
+         * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+         * 
          * @return builder
          * 
          */
@@ -234,6 +240,8 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         /**
          * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
          * 
+         * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+         * 
          * @return builder
          * 
          */
@@ -243,6 +251,8 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
 
         /**
          * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+         * 
+         * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
          * 
          * @return builder
          * 

@@ -266,6 +266,8 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
     :param str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param str service_type: Service type, `Gateway` or `Interface`.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+           
+           > **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `service_name` pattern of `com.amazonaws.<region>.<service>`.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -348,5 +350,7 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
     :param str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param str service_type: Service type, `Gateway` or `Interface`.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+           
+           > **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `service_name` pattern of `com.amazonaws.<region>.<service>`.
     """
     ...

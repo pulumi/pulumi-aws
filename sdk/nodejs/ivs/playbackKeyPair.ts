@@ -68,6 +68,8 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+     *
+     * The following arguments are optional:
      */
     public readonly publicKey!: pulumi.Output<string>;
     /**
@@ -133,6 +135,8 @@ export interface PlaybackKeyPairState {
     name?: pulumi.Input<string>;
     /**
      * Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+     *
+     * The following arguments are optional:
      */
     publicKey?: pulumi.Input<string>;
     /**
@@ -155,6 +159,8 @@ export interface PlaybackKeyPairArgs {
     name?: pulumi.Input<string>;
     /**
      * Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+     *
+     * The following arguments are optional:
      */
     publicKey: pulumi.Input<string>;
     /**

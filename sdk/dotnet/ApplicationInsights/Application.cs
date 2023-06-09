@@ -111,6 +111,8 @@ namespace Pulumi.Aws.ApplicationInsights
 
         /// <summary>
         /// Name of the resource group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -211,6 +213,8 @@ namespace Pulumi.Aws.ApplicationInsights
 
         /// <summary>
         /// Name of the resource group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -279,6 +283,8 @@ namespace Pulumi.Aws.ApplicationInsights
 
         /// <summary>
         /// Name of the resource group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

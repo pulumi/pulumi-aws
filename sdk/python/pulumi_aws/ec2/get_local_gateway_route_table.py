@@ -133,6 +133,9 @@ def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['G
     :param str state: State of the local gateway route table.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired local gateway route table.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -188,5 +191,8 @@ def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional
     :param str state: State of the local gateway route table.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired local gateway route table.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

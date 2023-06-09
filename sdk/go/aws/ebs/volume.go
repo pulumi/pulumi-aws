@@ -82,6 +82,8 @@ type Volume struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	//
+	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Throughput pulumi.IntOutput `pulumi:"throughput"`
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -144,6 +146,8 @@ type volumeState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	//
+	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Throughput *int `pulumi:"throughput"`
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type *string `pulumi:"type"`
@@ -175,6 +179,8 @@ type VolumeState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	//
+	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Throughput pulumi.IntPtrInput
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type pulumi.StringPtrInput
@@ -206,6 +212,8 @@ type volumeArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	//
+	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Throughput *int `pulumi:"throughput"`
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type *string `pulumi:"type"`
@@ -234,6 +242,8 @@ type VolumeArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+	//
+	// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 	Throughput pulumi.IntPtrInput
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
 	Type pulumi.StringPtrInput
@@ -387,6 +397,8 @@ func (o VolumeOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+//
+// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
 func (o VolumeOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v *Volume) pulumi.IntOutput { return v.Throughput }).(pulumi.IntOutput)
 }

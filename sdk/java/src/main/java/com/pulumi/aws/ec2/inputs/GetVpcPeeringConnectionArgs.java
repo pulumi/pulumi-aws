@@ -172,6 +172,9 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
      * Map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
@@ -179,6 +182,9 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
     /**
      * @return Map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -459,6 +465,9 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
          * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired VPC Peering Connection.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -470,6 +479,9 @@ public final class GetVpcPeeringConnectionArgs extends com.pulumi.resources.Invo
         /**
          * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired VPC Peering Connection.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

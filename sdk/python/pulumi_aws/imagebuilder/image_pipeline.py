@@ -37,6 +37,8 @@ class ImagePipelineArgs:
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
         :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] name: Name of the image pipeline.
+               
+               The following arguments are optional:
         :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -152,6 +154,8 @@ class ImagePipelineArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the image pipeline.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -232,6 +236,8 @@ class _ImagePipelineState:
         :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         :param pulumi.Input[str] name: Name of the image pipeline.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] platform: Platform of the image pipeline.
         :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -424,6 +430,8 @@ class _ImagePipelineState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the image pipeline.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -544,6 +552,8 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ImagePipelineImageTestsConfigurationArgs']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         :param pulumi.Input[str] name: Name of the image pipeline.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -682,6 +692,8 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ImagePipelineImageTestsConfigurationArgs']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         :param pulumi.Input[str] name: Name of the image pipeline.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] platform: Platform of the image pipeline.
         :param pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -813,6 +825,8 @@ class ImagePipeline(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name of the image pipeline.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

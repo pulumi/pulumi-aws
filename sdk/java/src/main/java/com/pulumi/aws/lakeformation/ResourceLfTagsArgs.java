@@ -53,12 +53,16 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Set of LF-tags to attach to the resource. See below.
      * 
+     * Exactly one of the following is required:
+     * 
      */
     @Import(name="lfTags", required=true)
     private Output<List<ResourceLfTagsLfTagArgs>> lfTags;
 
     /**
      * @return Set of LF-tags to attach to the resource. See below.
+     * 
+     * Exactly one of the following is required:
      * 
      */
     public Output<List<ResourceLfTagsLfTagArgs>> lfTags() {
@@ -83,12 +87,16 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Configuration block for a table with columns resource. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="tableWithColumns")
     private @Nullable Output<ResourceLfTagsTableWithColumnsArgs> tableWithColumns;
 
     /**
      * @return Configuration block for a table with columns resource. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<ResourceLfTagsTableWithColumnsArgs>> tableWithColumns() {
@@ -168,6 +176,8 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param lfTags Set of LF-tags to attach to the resource. See below.
          * 
+         * Exactly one of the following is required:
+         * 
          * @return builder
          * 
          */
@@ -179,6 +189,8 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param lfTags Set of LF-tags to attach to the resource. See below.
          * 
+         * Exactly one of the following is required:
+         * 
          * @return builder
          * 
          */
@@ -188,6 +200,8 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param lfTags Set of LF-tags to attach to the resource. See below.
+         * 
+         * Exactly one of the following is required:
          * 
          * @return builder
          * 
@@ -220,6 +234,8 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param tableWithColumns Configuration block for a table with columns resource. See below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -230,6 +246,8 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param tableWithColumns Configuration block for a table with columns resource. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

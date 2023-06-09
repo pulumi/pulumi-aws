@@ -35,12 +35,16 @@ public final class RecoveryGroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A unique name describing the recovery group.
      * 
+     * The following argument are optional:
+     * 
      */
     @Import(name="recoveryGroupName", required=true)
     private Output<String> recoveryGroupName;
 
     /**
      * @return A unique name describing the recovery group.
+     * 
+     * The following argument are optional:
      * 
      */
     public Output<String> recoveryGroupName() {
@@ -122,6 +126,8 @@ public final class RecoveryGroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param recoveryGroupName A unique name describing the recovery group.
          * 
+         * The following argument are optional:
+         * 
          * @return builder
          * 
          */
@@ -132,6 +138,8 @@ public final class RecoveryGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param recoveryGroupName A unique name describing the recovery group.
+         * 
+         * The following argument are optional:
          * 
          * @return builder
          * 

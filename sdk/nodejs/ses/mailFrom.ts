@@ -100,6 +100,8 @@ export class MailFrom extends pulumi.CustomResource {
     public readonly domain!: pulumi.Output<string>;
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+     *
+     * The following arguments are optional:
      */
     public readonly mailFromDomain!: pulumi.Output<string>;
 
@@ -150,6 +152,8 @@ export interface MailFromState {
     domain?: pulumi.Input<string>;
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+     *
+     * The following arguments are optional:
      */
     mailFromDomain?: pulumi.Input<string>;
 }
@@ -168,6 +172,8 @@ export interface MailFromArgs {
     domain: pulumi.Input<string>;
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+     *
+     * The following arguments are optional:
      */
     mailFromDomain: pulumi.Input<string>;
 }

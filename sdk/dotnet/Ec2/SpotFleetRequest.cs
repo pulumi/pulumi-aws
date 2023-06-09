@@ -255,6 +255,12 @@ namespace Pulumi.Aws.Ec2
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
         /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// 
+        /// **Note**: This takes in similar but not
+        /// identical inputs as `aws.ec2.Instance`.  There are limitations on
+        /// what you can specify. See the list of officially supported inputs in the
+        /// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
         /// </summary>
         [Output("launchSpecifications")]
         public Output<ImmutableArray<Outputs.SpotFleetRequestLaunchSpecification>> LaunchSpecifications { get; private set; } = null!;
@@ -488,6 +494,12 @@ namespace Pulumi.Aws.Ec2
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
         /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// 
+        /// **Note**: This takes in similar but not
+        /// identical inputs as `aws.ec2.Instance`.  There are limitations on
+        /// what you can specify. See the list of officially supported inputs in the
+        /// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
         /// </summary>
         public InputList<Inputs.SpotFleetRequestLaunchSpecificationArgs> LaunchSpecifications
         {
@@ -701,6 +713,12 @@ namespace Pulumi.Aws.Ec2
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
         /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// 
+        /// **Note**: This takes in similar but not
+        /// identical inputs as `aws.ec2.Instance`.  There are limitations on
+        /// what you can specify. See the list of officially supported inputs in the
+        /// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
         /// </summary>
         public InputList<Inputs.SpotFleetRequestLaunchSpecificationGetArgs> LaunchSpecifications
         {

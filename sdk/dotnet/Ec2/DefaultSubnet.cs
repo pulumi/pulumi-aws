@@ -62,6 +62,8 @@ namespace Pulumi.Aws.Ec2
         /// is required
         /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         /// * The default value for `map_public_ip_on_launch` is `true`
+        /// 
+        /// The following additional arguments are supported:
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -191,6 +193,8 @@ namespace Pulumi.Aws.Ec2
         /// is required
         /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         /// * The default value for `map_public_ip_on_launch` is `true`
+        /// 
+        /// The following additional arguments are supported:
         /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
@@ -254,6 +258,8 @@ namespace Pulumi.Aws.Ec2
         /// is required
         /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         /// * The default value for `map_public_ip_on_launch` is `true`
+        /// 
+        /// The following additional arguments are supported:
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }

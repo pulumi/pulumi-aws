@@ -16,12 +16,16 @@ public final class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationAr
     /**
      * ARN for KMS Key.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
     /**
      * @return ARN for KMS Key.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> kmsKeyArn() {
@@ -55,6 +59,8 @@ public final class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationAr
         /**
          * @param kmsKeyArn ARN for KMS Key.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -65,6 +71,8 @@ public final class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationAr
 
         /**
          * @param kmsKeyArn ARN for KMS Key.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

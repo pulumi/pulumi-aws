@@ -87,6 +87,8 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// Unique name of the Global Accelerator.
+        /// 
+        /// &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -115,6 +117,8 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// Unique name of the Global Accelerator.
+        /// 
+        /// &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

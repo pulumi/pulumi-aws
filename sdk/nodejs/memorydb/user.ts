@@ -95,6 +95,8 @@ export class User extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Name of the MemoryDB user. Up to 40 characters.
+     *
+     * The following arguments are optional:
      */
     public readonly userName!: pulumi.Output<string>;
 
@@ -172,6 +174,8 @@ export interface UserState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the MemoryDB user. Up to 40 characters.
+     *
+     * The following arguments are optional:
      */
     userName?: pulumi.Input<string>;
 }
@@ -194,6 +198,8 @@ export interface UserArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the MemoryDB user. Up to 40 characters.
+     *
+     * The following arguments are optional:
      */
     userName: pulumi.Input<string>;
 }

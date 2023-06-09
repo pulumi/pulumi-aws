@@ -227,12 +227,16 @@ public class Stack extends com.pulumi.resources.CustomResource {
     /**
      * Unique name for the AppStream stack.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Unique name for the AppStream stack.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

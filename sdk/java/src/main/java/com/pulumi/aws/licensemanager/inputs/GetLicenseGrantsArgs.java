@@ -19,12 +19,18 @@ public final class GetLicenseGrantsArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * Custom filter block as described below.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetLicenseGrantsFilterArgs>> filters;
 
     /**
      * @return Custom filter block as described below.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<Output<List<GetLicenseGrantsFilterArgs>>> filters() {
@@ -58,6 +64,9 @@ public final class GetLicenseGrantsArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param filters Custom filter block as described below.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -69,6 +78,9 @@ public final class GetLicenseGrantsArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param filters Custom filter block as described below.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -78,6 +90,9 @@ public final class GetLicenseGrantsArgs extends com.pulumi.resources.InvokeArgs 
 
         /**
          * @param filters Custom filter block as described below.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

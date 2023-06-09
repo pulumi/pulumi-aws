@@ -145,6 +145,8 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -221,6 +223,8 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -283,6 +287,8 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

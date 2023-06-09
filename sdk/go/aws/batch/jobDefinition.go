@@ -222,6 +222,8 @@ type JobDefinition struct {
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrOutput `pulumi:"timeout"`
 	// The type of job definition. Must be `container`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -282,6 +284,8 @@ type jobDefinitionState struct {
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
 	// The type of job definition. Must be `container`.
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
@@ -311,6 +315,8 @@ type JobDefinitionState struct {
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrInput
 	// The type of job definition. Must be `container`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -338,6 +344,8 @@ type jobDefinitionArgs struct {
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
 	// The type of job definition. Must be `container`.
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -362,6 +370,8 @@ type JobDefinitionArgs struct {
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrInput
 	// The type of job definition. Must be `container`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -510,6 +520,8 @@ func (o JobDefinitionOutput) Timeout() JobDefinitionTimeoutPtrOutput {
 }
 
 // The type of job definition. Must be `container`.
+//
+// The following arguments are optional:
 func (o JobDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

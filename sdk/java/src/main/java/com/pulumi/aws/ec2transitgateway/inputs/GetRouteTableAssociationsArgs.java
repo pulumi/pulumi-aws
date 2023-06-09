@@ -20,12 +20,18 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
     /**
      * Custom filter block as described below.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetRouteTableAssociationsFilterArgs>> filters;
 
     /**
      * @return Custom filter block as described below.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<Output<List<GetRouteTableAssociationsFilterArgs>>> filters() {
@@ -35,12 +41,16 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="transitGatewayRouteTableId", required=true)
     private Output<String> transitGatewayRouteTableId;
 
     /**
      * @return Identifier of EC2 Transit Gateway Route Table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> transitGatewayRouteTableId() {
@@ -75,6 +85,9 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
         /**
          * @param filters Custom filter block as described below.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -86,6 +99,9 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
         /**
          * @param filters Custom filter block as described below.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -95,6 +111,9 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
 
         /**
          * @param filters Custom filter block as described below.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 
@@ -106,6 +125,8 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
         /**
          * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -116,6 +137,8 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
 
         /**
          * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

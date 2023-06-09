@@ -435,6 +435,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// User-created description for the replication group. Must not be empty.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("replicationGroupDescription")]
         public Output<string> ReplicationGroupDescription { get; private set; } = null!;
@@ -756,6 +758,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// User-created description for the replication group. Must not be empty.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("replicationGroupDescription")]
         public Input<string>? ReplicationGroupDescription { get; set; }
@@ -1107,6 +1111,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// User-created description for the replication group. Must not be empty.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("replicationGroupDescription")]
         public Input<string>? ReplicationGroupDescription { get; set; }

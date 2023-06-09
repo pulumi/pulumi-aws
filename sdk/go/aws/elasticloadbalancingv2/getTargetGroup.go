@@ -72,6 +72,8 @@ type LookupTargetGroupArgs struct {
 	// Unique name of the target group.
 	Name *string `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -120,6 +122,8 @@ type LookupTargetGroupOutputArgs struct {
 	// Unique name of the target group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

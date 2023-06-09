@@ -586,12 +586,16 @@ public class Domain extends com.pulumi.resources.CustomResource {
     /**
      * Name of the domain.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
      * @return Name of the domain.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> domainName() {

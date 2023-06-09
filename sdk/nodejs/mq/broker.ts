@@ -196,6 +196,8 @@ export class Broker extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+     *
+     * The following arguments are optional:
      */
     public readonly users!: pulumi.Output<outputs.mq.BrokerUser[]>;
 
@@ -377,6 +379,8 @@ export interface BrokerState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+     *
+     * The following arguments are optional:
      */
     users?: pulumi.Input<pulumi.Input<inputs.mq.BrokerUser>[]>;
 }
@@ -459,6 +463,8 @@ export interface BrokerArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+     *
+     * The following arguments are optional:
      */
     users: pulumi.Input<pulumi.Input<inputs.mq.BrokerUser>[]>;
 }

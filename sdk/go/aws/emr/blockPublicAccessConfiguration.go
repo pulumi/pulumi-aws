@@ -152,6 +152,8 @@ type BlockPublicAccessConfiguration struct {
 	pulumi.CustomResourceState
 
 	// Enable or disable EMR Block Public Access.
+	//
+	// The following arguments are optional:
 	BlockPublicSecurityGroupRules pulumi.BoolOutput `pulumi:"blockPublicSecurityGroupRules"`
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput `pulumi:"permittedPublicSecurityGroupRuleRanges"`
@@ -190,6 +192,8 @@ func GetBlockPublicAccessConfiguration(ctx *pulumi.Context,
 // Input properties used for looking up and filtering BlockPublicAccessConfiguration resources.
 type blockPublicAccessConfigurationState struct {
 	// Enable or disable EMR Block Public Access.
+	//
+	// The following arguments are optional:
 	BlockPublicSecurityGroupRules *bool `pulumi:"blockPublicSecurityGroupRules"`
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges []BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange `pulumi:"permittedPublicSecurityGroupRuleRanges"`
@@ -197,6 +201,8 @@ type blockPublicAccessConfigurationState struct {
 
 type BlockPublicAccessConfigurationState struct {
 	// Enable or disable EMR Block Public Access.
+	//
+	// The following arguments are optional:
 	BlockPublicSecurityGroupRules pulumi.BoolPtrInput
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput
@@ -208,6 +214,8 @@ func (BlockPublicAccessConfigurationState) ElementType() reflect.Type {
 
 type blockPublicAccessConfigurationArgs struct {
 	// Enable or disable EMR Block Public Access.
+	//
+	// The following arguments are optional:
 	BlockPublicSecurityGroupRules bool `pulumi:"blockPublicSecurityGroupRules"`
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges []BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange `pulumi:"permittedPublicSecurityGroupRuleRanges"`
@@ -216,6 +224,8 @@ type blockPublicAccessConfigurationArgs struct {
 // The set of arguments for constructing a BlockPublicAccessConfiguration resource.
 type BlockPublicAccessConfigurationArgs struct {
 	// Enable or disable EMR Block Public Access.
+	//
+	// The following arguments are optional:
 	BlockPublicSecurityGroupRules pulumi.BoolInput
 	// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
 	PermittedPublicSecurityGroupRuleRanges BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput
@@ -309,6 +319,8 @@ func (o BlockPublicAccessConfigurationOutput) ToBlockPublicAccessConfigurationOu
 }
 
 // Enable or disable EMR Block Public Access.
+//
+// The following arguments are optional:
 func (o BlockPublicAccessConfigurationOutput) BlockPublicSecurityGroupRules() pulumi.BoolOutput {
 	return o.ApplyT(func(v *BlockPublicAccessConfiguration) pulumi.BoolOutput { return v.BlockPublicSecurityGroupRules }).(pulumi.BoolOutput)
 }

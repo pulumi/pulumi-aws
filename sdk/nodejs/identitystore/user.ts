@@ -111,6 +111,8 @@ export class User extends pulumi.CustomResource {
     public /*out*/ readonly userId!: pulumi.Output<string>;
     /**
      * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+     *
+     * The following arguments are optional:
      */
     public readonly userName!: pulumi.Output<string>;
     /**
@@ -242,6 +244,8 @@ export interface UserState {
     userId?: pulumi.Input<string>;
     /**
      * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+     *
+     * The following arguments are optional:
      */
     userName?: pulumi.Input<string>;
     /**
@@ -304,6 +308,8 @@ export interface UserArgs {
     title?: pulumi.Input<string>;
     /**
      * A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+     *
+     * The following arguments are optional:
      */
     userName: pulumi.Input<string>;
     /**

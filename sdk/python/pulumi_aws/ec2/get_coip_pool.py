@@ -123,6 +123,9 @@ def get_coip_pool(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolFilter
     :param str pool_id: ID of the specific COIP Pool to retrieve.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired COIP Pool.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -160,5 +163,8 @@ def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     :param str pool_id: ID of the specific COIP Pool to retrieve.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired COIP Pool.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

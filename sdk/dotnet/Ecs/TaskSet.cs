@@ -152,6 +152,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("taskDefinition")]
         public Output<string> TaskDefinition { get; private set; } = null!;
@@ -312,6 +314,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("taskDefinition", required: true)]
         public Input<string> TaskDefinition { get; set; } = null!;
@@ -458,6 +462,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("taskDefinition")]
         public Input<string>? TaskDefinition { get; set; }

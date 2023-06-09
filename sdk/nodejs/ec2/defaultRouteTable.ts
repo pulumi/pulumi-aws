@@ -97,6 +97,8 @@ export class DefaultRouteTable extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ID of the default route table.
+     *
+     * The following arguments are optional:
      */
     public readonly defaultRouteTableId!: pulumi.Output<string>;
     /**
@@ -174,6 +176,8 @@ export interface DefaultRouteTableState {
     arn?: pulumi.Input<string>;
     /**
      * ID of the default route table.
+     *
+     * The following arguments are optional:
      */
     defaultRouteTableId?: pulumi.Input<string>;
     /**
@@ -208,6 +212,8 @@ export interface DefaultRouteTableState {
 export interface DefaultRouteTableArgs {
     /**
      * ID of the default route table.
+     *
+     * The following arguments are optional:
      */
     defaultRouteTableId: pulumi.Input<string>;
     /**

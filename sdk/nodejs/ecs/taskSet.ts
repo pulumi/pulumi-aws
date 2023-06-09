@@ -132,6 +132,8 @@ export class TaskSet extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     *
+     * The following arguments are optional:
      */
     public readonly taskDefinition!: pulumi.Output<string>;
     /**
@@ -287,6 +289,8 @@ export interface TaskSetState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     *
+     * The following arguments are optional:
      */
     taskDefinition?: pulumi.Input<string>;
     /**
@@ -357,6 +361,8 @@ export interface TaskSetArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     *
+     * The following arguments are optional:
      */
     taskDefinition: pulumi.Input<string>;
     /**

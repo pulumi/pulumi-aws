@@ -62,6 +62,8 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
         /// <summary>
         /// AWS Region for the distribution.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;

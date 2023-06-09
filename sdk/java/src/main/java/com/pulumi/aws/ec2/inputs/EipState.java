@@ -293,6 +293,11 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
      * Boolean if the EIP is in a VPC or not.
      * Defaults to `true` unless the region supports EC2-Classic.
      * 
+     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+     * 
+     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
+     * case both options are defined as the api only requires one or the other.
+     * 
      */
     @Import(name="vpc")
     private @Nullable Output<Boolean> vpc;
@@ -300,6 +305,11 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Boolean if the EIP is in a VPC or not.
      * Defaults to `true` unless the region supports EC2-Classic.
+     * 
+     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+     * 
+     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
+     * case both options are defined as the api only requires one or the other.
      * 
      */
     public Optional<Output<Boolean>> vpc() {
@@ -732,6 +742,11 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
          * @param vpc Boolean if the EIP is in a VPC or not.
          * Defaults to `true` unless the region supports EC2-Classic.
          * 
+         * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+         * 
+         * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
+         * case both options are defined as the api only requires one or the other.
+         * 
          * @return builder
          * 
          */
@@ -743,6 +758,11 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param vpc Boolean if the EIP is in a VPC or not.
          * Defaults to `true` unless the region supports EC2-Classic.
+         * 
+         * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+         * 
+         * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
+         * case both options are defined as the api only requires one or the other.
          * 
          * @return builder
          * 

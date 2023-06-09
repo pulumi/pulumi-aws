@@ -51,6 +51,8 @@ type TransitGateway struct {
 	pulumi.CustomResourceState
 
 	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
+	//
+	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 	AmazonSideAsn pulumi.IntPtrOutput `pulumi:"amazonSideAsn"`
 	// EC2 Transit Gateway Amazon Resource Name (ARN)
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -112,6 +114,8 @@ func GetTransitGateway(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TransitGateway resources.
 type transitGatewayState struct {
 	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
+	//
+	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 	AmazonSideAsn *int `pulumi:"amazonSideAsn"`
 	// EC2 Transit Gateway Amazon Resource Name (ARN)
 	Arn *string `pulumi:"arn"`
@@ -145,6 +149,8 @@ type transitGatewayState struct {
 
 type TransitGatewayState struct {
 	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
+	//
+	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 	AmazonSideAsn pulumi.IntPtrInput
 	// EC2 Transit Gateway Amazon Resource Name (ARN)
 	Arn pulumi.StringPtrInput
@@ -182,6 +188,8 @@ func (TransitGatewayState) ElementType() reflect.Type {
 
 type transitGatewayArgs struct {
 	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
+	//
+	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 	AmazonSideAsn *int `pulumi:"amazonSideAsn"`
 	// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
 	AutoAcceptSharedAttachments *string `pulumi:"autoAcceptSharedAttachments"`
@@ -206,6 +214,8 @@ type transitGatewayArgs struct {
 // The set of arguments for constructing a TransitGateway resource.
 type TransitGatewayArgs struct {
 	// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
+	//
+	// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 	AmazonSideAsn pulumi.IntPtrInput
 	// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
 	AutoAcceptSharedAttachments pulumi.StringPtrInput
@@ -315,6 +325,8 @@ func (o TransitGatewayOutput) ToTransitGatewayOutputWithContext(ctx context.Cont
 }
 
 // Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
+//
+// > **NOTE:** Modifying `amazonSideAsn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazonSideAsn`.
 func (o TransitGatewayOutput) AmazonSideAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.IntPtrOutput { return v.AmazonSideAsn }).(pulumi.IntPtrOutput)
 }

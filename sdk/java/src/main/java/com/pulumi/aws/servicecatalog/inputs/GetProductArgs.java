@@ -34,12 +34,16 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Product ID.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="id", required=true)
     private Output<String> id;
 
     /**
      * @return Product ID.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> id() {
@@ -111,6 +115,8 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param id Product ID.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -121,6 +127,8 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param id Product ID.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

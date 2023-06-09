@@ -135,6 +135,8 @@ export class Fleet extends pulumi.CustomResource {
     public readonly maxUserDurationInSeconds!: pulumi.Output<number>;
     /**
      * Unique name for the fleet.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -290,6 +292,8 @@ export interface FleetState {
     maxUserDurationInSeconds?: pulumi.Input<number>;
     /**
      * Unique name for the fleet.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -369,6 +373,8 @@ export interface FleetArgs {
     maxUserDurationInSeconds?: pulumi.Input<number>;
     /**
      * Unique name for the fleet.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

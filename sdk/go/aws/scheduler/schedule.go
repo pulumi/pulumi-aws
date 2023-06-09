@@ -140,6 +140,8 @@ type Schedule struct {
 	// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// Configures the target of the schedule. Detailed below.
+	//
+	// The following arguments are optional:
 	Target ScheduleTargetOutput `pulumi:"target"`
 }
 
@@ -206,6 +208,8 @@ type scheduleState struct {
 	// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
 	State *string `pulumi:"state"`
 	// Configures the target of the schedule. Detailed below.
+	//
+	// The following arguments are optional:
 	Target *ScheduleTarget `pulumi:"target"`
 }
 
@@ -235,6 +239,8 @@ type ScheduleState struct {
 	// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
 	State pulumi.StringPtrInput
 	// Configures the target of the schedule. Detailed below.
+	//
+	// The following arguments are optional:
 	Target ScheduleTargetPtrInput
 }
 
@@ -266,6 +272,8 @@ type scheduleArgs struct {
 	// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
 	State *string `pulumi:"state"`
 	// Configures the target of the schedule. Detailed below.
+	//
+	// The following arguments are optional:
 	Target ScheduleTarget `pulumi:"target"`
 }
 
@@ -294,6 +302,8 @@ type ScheduleArgs struct {
 	// Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
 	State pulumi.StringPtrInput
 	// Configures the target of the schedule. Detailed below.
+	//
+	// The following arguments are optional:
 	Target ScheduleTargetInput
 }
 
@@ -445,6 +455,8 @@ func (o ScheduleOutput) State() pulumi.StringPtrOutput {
 }
 
 // Configures the target of the schedule. Detailed below.
+//
+// The following arguments are optional:
 func (o ScheduleOutput) Target() ScheduleTargetOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleTargetOutput { return v.Target }).(ScheduleTargetOutput)
 }

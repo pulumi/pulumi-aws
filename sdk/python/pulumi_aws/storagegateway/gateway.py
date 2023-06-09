@@ -723,7 +723,7 @@ class Gateway(pulumi.CustomResource):
             volume_id=aws_ebs_volume["test"]["id"],
             instance_id=aws_instance["test"]["id"])
         test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk_output(disk_node=device_name,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"]))
+            gateway_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)))
         test_cache = aws.storagegateway.Cache("testCache",
             disk_id=test_local_disk.disk_id,
             gateway_arn=aws_storagegateway_gateway["test"]["arn"])
@@ -861,7 +861,7 @@ class Gateway(pulumi.CustomResource):
             volume_id=aws_ebs_volume["test"]["id"],
             instance_id=aws_instance["test"]["id"])
         test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk_output(disk_node=device_name,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"]))
+            gateway_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)))
         test_cache = aws.storagegateway.Cache("testCache",
             disk_id=test_local_disk.disk_id,
             gateway_arn=aws_storagegateway_gateway["test"]["arn"])

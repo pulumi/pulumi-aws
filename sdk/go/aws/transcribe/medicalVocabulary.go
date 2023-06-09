@@ -93,6 +93,8 @@ type MedicalVocabulary struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri pulumi.StringOutput `pulumi:"vocabularyFileUri"`
 	// The name of the Medical Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName pulumi.StringOutput `pulumi:"vocabularyName"`
 }
 
@@ -146,6 +148,8 @@ type medicalVocabularyState struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
 	// The name of the Medical Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName *string `pulumi:"vocabularyName"`
 }
 
@@ -162,6 +166,8 @@ type MedicalVocabularyState struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri pulumi.StringPtrInput
 	// The name of the Medical Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName pulumi.StringPtrInput
 }
 
@@ -177,6 +183,8 @@ type medicalVocabularyArgs struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri string `pulumi:"vocabularyFileUri"`
 	// The name of the Medical Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName string `pulumi:"vocabularyName"`
 }
 
@@ -189,6 +197,8 @@ type MedicalVocabularyArgs struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
 	VocabularyFileUri pulumi.StringInput
 	// The name of the Medical Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName pulumi.StringInput
 }
 
@@ -309,6 +319,8 @@ func (o MedicalVocabularyOutput) VocabularyFileUri() pulumi.StringOutput {
 }
 
 // The name of the Medical Vocabulary.
+//
+// The following arguments are optional:
 func (o MedicalVocabularyOutput) VocabularyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MedicalVocabulary) pulumi.StringOutput { return v.VocabularyName }).(pulumi.StringOutput)
 }

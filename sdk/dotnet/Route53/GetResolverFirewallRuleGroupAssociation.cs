@@ -81,6 +81,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The identifier for the association.
+        /// 
+        /// The following attribute is additionally exported:
         /// </summary>
         [Input("firewallRuleGroupAssociationId", required: true)]
         public string FirewallRuleGroupAssociationId { get; set; } = null!;
@@ -95,6 +97,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The identifier for the association.
+        /// 
+        /// The following attribute is additionally exported:
         /// </summary>
         [Input("firewallRuleGroupAssociationId", required: true)]
         public Input<string> FirewallRuleGroupAssociationId { get; set; } = null!;

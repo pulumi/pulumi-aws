@@ -62,6 +62,8 @@ type LookupAcceleratorArgs struct {
 	// Full ARN of the Global Accelerator.
 	Arn *string `pulumi:"arn"`
 	// Unique name of the Global Accelerator.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
 	Name *string           `pulumi:"name"`
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -99,6 +101,8 @@ type LookupAcceleratorOutputArgs struct {
 	// Full ARN of the Global Accelerator.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Unique name of the Global Accelerator.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

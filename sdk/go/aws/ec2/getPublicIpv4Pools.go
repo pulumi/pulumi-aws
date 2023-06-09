@@ -82,6 +82,9 @@ type GetPublicIpv4PoolsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetPublicIpv4PoolsFilter `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match a pair on the desired pools.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -113,6 +116,9 @@ type GetPublicIpv4PoolsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetPublicIpv4PoolsFilterArrayInput `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match a pair on the desired pools.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

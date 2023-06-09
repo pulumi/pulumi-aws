@@ -26,6 +26,10 @@ class KeyPairArgs:
                key material. Only used when creating a new key pair
         :param pulumi.Input[str] public_key: The public key material. This public key will be
                imported into Lightsail
+               
+               > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+               Without a PGP key, the private key material will be stored in state unencrypted.
+               `pgp_key` is ignored if `public_key` is supplied.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -77,6 +81,10 @@ class KeyPairArgs:
         """
         The public key material. This public key will be
         imported into Lightsail
+
+        > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+        Without a PGP key, the private key material will be stored in state unencrypted.
+        `pgp_key` is ignored if `public_key` is supplied.
         """
         return pulumi.get(self, "public_key")
 
@@ -114,6 +122,10 @@ class _KeyPairState:
                when creating a new key, and when no `pgp_key` is provided
         :param pulumi.Input[str] public_key: The public key material. This public key will be
                imported into Lightsail
+               
+               > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+               Without a PGP key, the private key material will be stored in state unencrypted.
+               `pgp_key` is ignored if `public_key` is supplied.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -239,6 +251,10 @@ class _KeyPairState:
         """
         The public key material. This public key will be
         imported into Lightsail
+
+        > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+        Without a PGP key, the private key material will be stored in state unencrypted.
+        `pgp_key` is ignored if `public_key` is supplied.
         """
         return pulumi.get(self, "public_key")
 
@@ -303,6 +319,10 @@ class KeyPair(pulumi.CustomResource):
                key material. Only used when creating a new key pair
         :param pulumi.Input[str] public_key: The public key material. This public key will be
                imported into Lightsail
+               
+               > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+               Without a PGP key, the private key material will be stored in state unencrypted.
+               `pgp_key` is ignored if `public_key` is supplied.
         """
         ...
     @overload
@@ -426,6 +446,10 @@ class KeyPair(pulumi.CustomResource):
                when creating a new key, and when no `pgp_key` is provided
         :param pulumi.Input[str] public_key: The public key material. This public key will be
                imported into Lightsail
+               
+               > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+               Without a PGP key, the private key material will be stored in state unencrypted.
+               `pgp_key` is ignored if `public_key` is supplied.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -515,6 +539,10 @@ class KeyPair(pulumi.CustomResource):
         """
         The public key material. This public key will be
         imported into Lightsail
+
+        > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+        Without a PGP key, the private key material will be stored in state unencrypted.
+        `pgp_key` is ignored if `public_key` is supplied.
         """
         return pulumi.get(self, "public_key")
 

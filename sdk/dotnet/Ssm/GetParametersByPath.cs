@@ -85,6 +85,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Whether to recursively return parameters under `path`. Defaults to `false`.
+        /// 
+        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         [Input("recursive")]
         public bool? Recursive { get; set; }
@@ -111,6 +113,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Whether to recursively return parameters under `path`. Defaults to `false`.
+        /// 
+        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         [Input("recursive")]
         public Input<bool>? Recursive { get; set; }

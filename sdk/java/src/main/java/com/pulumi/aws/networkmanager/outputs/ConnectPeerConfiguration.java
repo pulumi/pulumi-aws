@@ -27,6 +27,8 @@ public final class ConnectPeerConfiguration {
     /**
      * @return The Connect peer address.
      * 
+     * The following arguments are optional:
+     * 
      */
     private @Nullable String peerAddress;
     private @Nullable String protocol;
@@ -51,6 +53,8 @@ public final class ConnectPeerConfiguration {
     }
     /**
      * @return The Connect peer address.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<String> peerAddress() {

@@ -218,12 +218,26 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
     /**
      * The permissions for the `thumbnail_config` object. (documented below)
      * 
+     * The `content_config` object specifies information about the Amazon S3 bucket in
+     * which you want Elastic Transcoder to save transcoded files and playlists: which
+     * bucket to use, and the storage class that you want to assign to the files. If
+     * you specify values for `content_config`, you must also specify values for
+     * `thumbnail_config`. If you specify values for `content_config` and
+     * `thumbnail_config`, omit the `output_bucket` object.
+     * 
      */
     @Export(name="thumbnailConfigPermissions", refs={List.class,PipelineThumbnailConfigPermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PipelineThumbnailConfigPermission>> thumbnailConfigPermissions;
 
     /**
      * @return The permissions for the `thumbnail_config` object. (documented below)
+     * 
+     * The `content_config` object specifies information about the Amazon S3 bucket in
+     * which you want Elastic Transcoder to save transcoded files and playlists: which
+     * bucket to use, and the storage class that you want to assign to the files. If
+     * you specify values for `content_config`, you must also specify values for
+     * `thumbnail_config`. If you specify values for `content_config` and
+     * `thumbnail_config`, omit the `output_bucket` object.
      * 
      */
     public Output<Optional<List<PipelineThumbnailConfigPermission>>> thumbnailConfigPermissions() {

@@ -68,6 +68,37 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var task = new Aws.Emr.InstanceGroup("task", new()
+        ///     {
+        ///         ConfigurationsJson = @"[
+        /// {
+        /// ""Classification"": ""hadoop-env"",
+        /// ""Configurations"": [
+        /// {
+        /// ""Classification"": ""export"",
+        /// ""Properties"": {
+        /// ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+        /// }
+        /// }
+        /// ],
+        /// ""Properties"": {}
+        /// }
+        /// ]
+        /// 
+        /// ",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         [Output("configurationsJson")]
         public Output<string?> ConfigurationsJson { get; private set; } = null!;
@@ -180,6 +211,37 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var task = new Aws.Emr.InstanceGroup("task", new()
+        ///     {
+        ///         ConfigurationsJson = @"[
+        /// {
+        /// ""Classification"": ""hadoop-env"",
+        /// ""Configurations"": [
+        /// {
+        /// ""Classification"": ""export"",
+        /// ""Properties"": {
+        /// ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+        /// }
+        /// }
+        /// ],
+        /// ""Properties"": {}
+        /// }
+        /// ]
+        /// 
+        /// ",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         [Input("configurationsJson")]
         public Input<string>? ConfigurationsJson { get; set; }
@@ -248,6 +310,37 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var task = new Aws.Emr.InstanceGroup("task", new()
+        ///     {
+        ///         ConfigurationsJson = @"[
+        /// {
+        /// ""Classification"": ""hadoop-env"",
+        /// ""Configurations"": [
+        /// {
+        /// ""Classification"": ""export"",
+        /// ""Properties"": {
+        /// ""JAVA_HOME"": ""/usr/lib/jvm/java-1.8.0""
+        /// }
+        /// }
+        /// ],
+        /// ""Properties"": {}
+        /// }
+        /// ]
+        /// 
+        /// ",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         [Input("configurationsJson")]
         public Input<string>? ConfigurationsJson { get; set; }

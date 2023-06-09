@@ -161,6 +161,9 @@ def get_ip_ranges(regions: Optional[Sequence[str]] = None,
            `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
            `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
            [`service` attribute][2] documentation for other possible values.
+           
+           > **NOTE:** If the specified combination of regions and services does not yield any
+           CIDR blocks, this call will fail.
     :param str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
     """
     __args__ = dict()
@@ -223,6 +226,9 @@ def get_ip_ranges_output(regions: Optional[pulumi.Input[Optional[Sequence[str]]]
            `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
            `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
            [`service` attribute][2] documentation for other possible values.
+           
+           > **NOTE:** If the specified combination of regions and services does not yield any
+           CIDR blocks, this call will fail.
     :param str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
     """
     ...

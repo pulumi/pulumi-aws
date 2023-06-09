@@ -30,6 +30,8 @@ class ParameterArgs:
         """
         The set of arguments for constructing a Parameter resource.
         :param pulumi.Input[Union[str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] allowed_pattern: Regular expression used to validate the parameter value.
         :param pulumi.Input[str] arn: ARN of the parameter.
         :param pulumi.Input[str] data_type: Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
@@ -41,6 +43,8 @@ class ParameterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         pulumi.set(__self__, "type", type)
         if allowed_pattern is not None:
@@ -71,6 +75,8 @@ class ParameterArgs:
     def type(self) -> pulumi.Input[Union[str, 'ParameterType']]:
         """
         Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -203,6 +209,8 @@ class ParameterArgs:
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+
+        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         return pulumi.get(self, "value")
 
@@ -242,7 +250,11 @@ class _ParameterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[Union[str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         :param pulumi.Input[int] version: Version of the parameter.
         """
         if allowed_pattern is not None:
@@ -411,6 +423,8 @@ class _ParameterState:
     def type(self) -> Optional[pulumi.Input[Union[str, 'ParameterType']]]:
         """
         Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -423,6 +437,8 @@ class _ParameterState:
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+
+        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         return pulumi.get(self, "value")
 
@@ -524,7 +540,11 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[Union[str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         ...
     @overload
@@ -679,7 +699,11 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[Union[str, 'ParameterType']] type: Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] value: Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+               
+               > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         :param pulumi.Input[int] version: Version of the parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -795,6 +819,8 @@ class Parameter(pulumi.CustomResource):
     def type(self) -> pulumi.Output[str]:
         """
         Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -803,6 +829,8 @@ class Parameter(pulumi.CustomResource):
     def value(self) -> pulumi.Output[str]:
         """
         Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+
+        > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
         return pulumi.get(self, "value")
 

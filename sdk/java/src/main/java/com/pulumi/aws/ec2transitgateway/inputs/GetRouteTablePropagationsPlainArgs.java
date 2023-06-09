@@ -19,12 +19,18 @@ public final class GetRouteTablePropagationsPlainArgs extends com.pulumi.resourc
     /**
      * Custom filter block as described below.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="filters")
     private @Nullable List<GetRouteTablePropagationsFilter> filters;
 
     /**
      * @return Custom filter block as described below.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<List<GetRouteTablePropagationsFilter>> filters() {
@@ -34,12 +40,16 @@ public final class GetRouteTablePropagationsPlainArgs extends com.pulumi.resourc
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="transitGatewayRouteTableId", required=true)
     private String transitGatewayRouteTableId;
 
     /**
      * @return Identifier of EC2 Transit Gateway Route Table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String transitGatewayRouteTableId() {
@@ -74,6 +84,9 @@ public final class GetRouteTablePropagationsPlainArgs extends com.pulumi.resourc
         /**
          * @param filters Custom filter block as described below.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -85,6 +98,9 @@ public final class GetRouteTablePropagationsPlainArgs extends com.pulumi.resourc
         /**
          * @param filters Custom filter block as described below.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -94,6 +110,8 @@ public final class GetRouteTablePropagationsPlainArgs extends com.pulumi.resourc
 
         /**
          * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

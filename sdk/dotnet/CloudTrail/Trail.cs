@@ -353,6 +353,8 @@ namespace Pulumi.Aws.CloudTrail
 
         /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("s3BucketName")]
         public Output<string> S3BucketName { get; private set; } = null!;
@@ -519,6 +521,8 @@ namespace Pulumi.Aws.CloudTrail
 
         /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("s3BucketName", required: true)]
         public Input<string> S3BucketName { get; set; } = null!;
@@ -659,6 +663,8 @@ namespace Pulumi.Aws.CloudTrail
 
         /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("s3BucketName")]
         public Input<string>? S3BucketName { get; set; }

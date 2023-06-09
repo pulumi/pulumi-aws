@@ -73,6 +73,8 @@ export class TrafficPolicy extends pulumi.CustomResource {
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+     *
+     * The following arguments are optional:
      */
     public readonly document!: pulumi.Output<string>;
     /**
@@ -132,6 +134,8 @@ export interface TrafficPolicyState {
     comment?: pulumi.Input<string>;
     /**
      * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+     *
+     * The following arguments are optional:
      */
     document?: pulumi.Input<string>;
     /**
@@ -158,6 +162,8 @@ export interface TrafficPolicyArgs {
     comment?: pulumi.Input<string>;
     /**
      * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+     *
+     * The following arguments are optional:
      */
     document: pulumi.Input<string>;
     /**

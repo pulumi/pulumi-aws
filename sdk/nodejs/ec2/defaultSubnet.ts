@@ -70,6 +70,8 @@ export class DefaultSubnet extends pulumi.CustomResource {
      * is required
      * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
      * * The default value for `mapPublicIpOnLaunch` is `true`
+     *
+     * The following additional arguments are supported:
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
@@ -185,6 +187,8 @@ export interface DefaultSubnetState {
      * is required
      * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
      * * The default value for `mapPublicIpOnLaunch` is `true`
+     *
+     * The following additional arguments are supported:
      */
     availabilityZone?: pulumi.Input<string>;
     /**
@@ -230,6 +234,8 @@ export interface DefaultSubnetArgs {
      * is required
      * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
      * * The default value for `mapPublicIpOnLaunch` is `true`
+     *
+     * The following additional arguments are supported:
      */
     availabilityZone: pulumi.Input<string>;
     customerOwnedIpv4Pool?: pulumi.Input<string>;

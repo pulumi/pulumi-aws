@@ -327,6 +327,8 @@ namespace Pulumi.Aws.OpsWorks
 
         /// <summary>
         /// Identifier of the stack the instance will belong to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("stackId")]
         public Output<string> StackId { get; private set; } = null!;
@@ -583,6 +585,8 @@ namespace Pulumi.Aws.OpsWorks
 
         /// <summary>
         /// Identifier of the stack the instance will belong to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("stackId", required: true)]
         public Input<string> StackId { get; set; } = null!;
@@ -891,6 +895,8 @@ namespace Pulumi.Aws.OpsWorks
 
         /// <summary>
         /// Identifier of the stack the instance will belong to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("stackId")]
         public Input<string>? StackId { get; set; }

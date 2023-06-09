@@ -118,6 +118,8 @@ export class VpcAttachment extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ARN of the VPC.
+     *
+     * The following arguments are optional:
      */
     public readonly vpcArn!: pulumi.Output<string>;
 
@@ -243,6 +245,8 @@ export interface VpcAttachmentState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the VPC.
+     *
+     * The following arguments are optional:
      */
     vpcArn?: pulumi.Input<string>;
 }
@@ -269,6 +273,8 @@ export interface VpcAttachmentArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the VPC.
+     *
+     * The following arguments are optional:
      */
     vpcArn: pulumi.Input<string>;
 }

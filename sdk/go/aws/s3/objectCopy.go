@@ -120,6 +120,8 @@ type ObjectCopy struct {
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
 	ServerSideEncryption pulumi.StringOutput `pulumi:"serverSideEncryption"`
 	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+	//
+	// The following arguments are optional:
 	Source pulumi.StringOutput `pulumi:"source"`
 	// Specifies the algorithm to use when decrypting the source object (for example, AES256).
 	SourceCustomerAlgorithm pulumi.StringPtrOutput `pulumi:"sourceCustomerAlgorithm"`
@@ -268,6 +270,8 @@ type objectCopyState struct {
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+	//
+	// The following arguments are optional:
 	Source *string `pulumi:"source"`
 	// Specifies the algorithm to use when decrypting the source object (for example, AES256).
 	SourceCustomerAlgorithm *string `pulumi:"sourceCustomerAlgorithm"`
@@ -360,6 +364,8 @@ type ObjectCopyState struct {
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
 	ServerSideEncryption pulumi.StringPtrInput
 	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+	//
+	// The following arguments are optional:
 	Source pulumi.StringPtrInput
 	// Specifies the algorithm to use when decrypting the source object (for example, AES256).
 	SourceCustomerAlgorithm pulumi.StringPtrInput
@@ -448,6 +454,8 @@ type objectCopyArgs struct {
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+	//
+	// The following arguments are optional:
 	Source string `pulumi:"source"`
 	// Specifies the algorithm to use when decrypting the source object (for example, AES256).
 	SourceCustomerAlgorithm *string `pulumi:"sourceCustomerAlgorithm"`
@@ -527,6 +535,8 @@ type ObjectCopyArgs struct {
 	// Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
 	ServerSideEncryption pulumi.StringPtrInput
 	// Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+	//
+	// The following arguments are optional:
 	Source pulumi.StringInput
 	// Specifies the algorithm to use when decrypting the source object (for example, AES256).
 	SourceCustomerAlgorithm pulumi.StringPtrInput
@@ -801,6 +811,8 @@ func (o ObjectCopyOutput) ServerSideEncryption() pulumi.StringOutput {
 }
 
 // Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+//
+// The following arguments are optional:
 func (o ObjectCopyOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }

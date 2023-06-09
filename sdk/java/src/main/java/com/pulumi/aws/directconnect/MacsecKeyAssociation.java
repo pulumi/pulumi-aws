@@ -151,12 +151,16 @@ public class MacsecKeyAssociation extends com.pulumi.resources.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
      * 
+     * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
+     * 
      */
     @Export(name="secretArn", refs={String.class}, tree="[0]")
     private Output<String> secretArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+     * 
+     * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
      * 
      */
     public Output<String> secretArn() {

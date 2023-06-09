@@ -249,7 +249,7 @@ class ListenerRule(pulumi.CustomResource):
             priority=100,
             actions=[aws.lb.ListenerRuleActionArgs(
                 type="forward",
-                target_group_arn=aws_lb_target_group["static"]["arn"],
+                target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             conditions=[
                 aws.lb.ListenerRuleConditionArgs(
@@ -269,7 +269,7 @@ class ListenerRule(pulumi.CustomResource):
             priority=99,
             actions=[aws.lb.ListenerRuleActionArgs(
                 type="forward",
-                target_group_arn=aws_lb_target_group["static"]["arn"],
+                target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             conditions=[aws.lb.ListenerRuleConditionArgs(
                 host_header=aws.lb.ListenerRuleConditionHostHeaderArgs(
@@ -285,11 +285,11 @@ class ListenerRule(pulumi.CustomResource):
                 forward=aws.lb.ListenerRuleActionForwardArgs(
                     target_groups=[
                         aws.lb.ListenerRuleActionForwardTargetGroupArgs(
-                            arn=aws_lb_target_group["main"]["arn"],
+                            arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weight=80,
                         ),
                         aws.lb.ListenerRuleActionForwardTargetGroupArgs(
-                            arn=aws_lb_target_group["canary"]["arn"],
+                            arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weight=20,
                         ),
                     ],
@@ -363,7 +363,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
                 aws.lb.ListenerRuleActionArgs(
                     type="forward",
-                    target_group_arn=aws_lb_target_group["static"]["arn"],
+                    target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ])
         # Authenticate-oidc Action
@@ -383,7 +383,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
                 aws.lb.ListenerRuleActionArgs(
                     type="forward",
-                    target_group_arn=aws_lb_target_group["static"]["arn"],
+                    target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ])
         ```
@@ -430,7 +430,7 @@ class ListenerRule(pulumi.CustomResource):
             priority=100,
             actions=[aws.lb.ListenerRuleActionArgs(
                 type="forward",
-                target_group_arn=aws_lb_target_group["static"]["arn"],
+                target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             conditions=[
                 aws.lb.ListenerRuleConditionArgs(
@@ -450,7 +450,7 @@ class ListenerRule(pulumi.CustomResource):
             priority=99,
             actions=[aws.lb.ListenerRuleActionArgs(
                 type="forward",
-                target_group_arn=aws_lb_target_group["static"]["arn"],
+                target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             conditions=[aws.lb.ListenerRuleConditionArgs(
                 host_header=aws.lb.ListenerRuleConditionHostHeaderArgs(
@@ -466,11 +466,11 @@ class ListenerRule(pulumi.CustomResource):
                 forward=aws.lb.ListenerRuleActionForwardArgs(
                     target_groups=[
                         aws.lb.ListenerRuleActionForwardTargetGroupArgs(
-                            arn=aws_lb_target_group["main"]["arn"],
+                            arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weight=80,
                         ),
                         aws.lb.ListenerRuleActionForwardTargetGroupArgs(
-                            arn=aws_lb_target_group["canary"]["arn"],
+                            arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weight=20,
                         ),
                     ],
@@ -544,7 +544,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
                 aws.lb.ListenerRuleActionArgs(
                     type="forward",
-                    target_group_arn=aws_lb_target_group["static"]["arn"],
+                    target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ])
         # Authenticate-oidc Action
@@ -564,7 +564,7 @@ class ListenerRule(pulumi.CustomResource):
                 ),
                 aws.lb.ListenerRuleActionArgs(
                     type="forward",
-                    target_group_arn=aws_lb_target_group["static"]["arn"],
+                    target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ])
         ```

@@ -212,6 +212,8 @@ namespace Pulumi.Aws.Pipes
 
         /// <summary>
         /// Parameters required to set up a target for your pipe. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("targetParameters")]
         public Output<Outputs.PipeTargetParameters> TargetParameters { get; private set; } = null!;
@@ -330,6 +332,8 @@ namespace Pulumi.Aws.Pipes
 
         /// <summary>
         /// Parameters required to set up a target for your pipe. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("targetParameters", required: true)]
         public Input<Inputs.PipeTargetParametersArgs> TargetParameters { get; set; } = null!;
@@ -428,6 +432,8 @@ namespace Pulumi.Aws.Pipes
 
         /// <summary>
         /// Parameters required to set up a target for your pipe. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("targetParameters")]
         public Input<Inputs.PipeTargetParametersGetArgs>? TargetParameters { get; set; }

@@ -118,12 +118,16 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
     /**
      * A unique name for your task definition.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="family")
     private @Nullable Output<String> family;
 
     /**
      * @return A unique name for your task definition.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> family() {
@@ -529,6 +533,8 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
         /**
          * @param family A unique name for your task definition.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -539,6 +545,8 @@ public final class TaskDefinitionState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param family A unique name for your task definition.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

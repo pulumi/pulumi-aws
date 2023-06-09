@@ -2680,6 +2680,8 @@ type InstancePublicPortsPortInfo struct {
 	// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
 	Protocol string `pulumi:"protocol"`
 	// Last port in a range of open ports on an instance.
+	//
+	// The following arguments are optional:
 	ToPort int `pulumi:"toPort"`
 }
 
@@ -2705,6 +2707,8 @@ type InstancePublicPortsPortInfoArgs struct {
 	// IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// Last port in a range of open ports on an instance.
+	//
+	// The following arguments are optional:
 	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
@@ -2784,6 +2788,8 @@ func (o InstancePublicPortsPortInfoOutput) Protocol() pulumi.StringOutput {
 }
 
 // Last port in a range of open ports on an instance.
+//
+// The following arguments are optional:
 func (o InstancePublicPortsPortInfoOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v InstancePublicPortsPortInfo) int { return v.ToPort }).(pulumi.IntOutput)
 }

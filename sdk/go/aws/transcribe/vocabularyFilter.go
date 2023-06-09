@@ -73,6 +73,8 @@ type VocabularyFilter struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
 	VocabularyFilterFileUri pulumi.StringPtrOutput `pulumi:"vocabularyFilterFileUri"`
 	// The name of the VocabularyFilter.
+	//
+	// The following arguments are optional:
 	VocabularyFilterName pulumi.StringOutput `pulumi:"vocabularyFilterName"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
 	Words pulumi.StringArrayOutput `pulumi:"words"`
@@ -125,6 +127,8 @@ type vocabularyFilterState struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
 	VocabularyFilterFileUri *string `pulumi:"vocabularyFilterFileUri"`
 	// The name of the VocabularyFilter.
+	//
+	// The following arguments are optional:
 	VocabularyFilterName *string `pulumi:"vocabularyFilterName"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
 	Words []string `pulumi:"words"`
@@ -143,6 +147,8 @@ type VocabularyFilterState struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
 	VocabularyFilterFileUri pulumi.StringPtrInput
 	// The name of the VocabularyFilter.
+	//
+	// The following arguments are optional:
 	VocabularyFilterName pulumi.StringPtrInput
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
 	Words pulumi.StringArrayInput
@@ -160,6 +166,8 @@ type vocabularyFilterArgs struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
 	VocabularyFilterFileUri *string `pulumi:"vocabularyFilterFileUri"`
 	// The name of the VocabularyFilter.
+	//
+	// The following arguments are optional:
 	VocabularyFilterName string `pulumi:"vocabularyFilterName"`
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
 	Words []string `pulumi:"words"`
@@ -174,6 +182,8 @@ type VocabularyFilterArgs struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
 	VocabularyFilterFileUri pulumi.StringPtrInput
 	// The name of the VocabularyFilter.
+	//
+	// The following arguments are optional:
 	VocabularyFilterName pulumi.StringInput
 	// A list of terms to include in the vocabulary. Conflicts with `vocabularyFilterFileUri` argument.
 	Words pulumi.StringArrayInput
@@ -296,6 +306,8 @@ func (o VocabularyFilterOutput) VocabularyFilterFileUri() pulumi.StringPtrOutput
 }
 
 // The name of the VocabularyFilter.
+//
+// The following arguments are optional:
 func (o VocabularyFilterOutput) VocabularyFilterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VocabularyFilter) pulumi.StringOutput { return v.VocabularyFilterName }).(pulumi.StringOutput)
 }

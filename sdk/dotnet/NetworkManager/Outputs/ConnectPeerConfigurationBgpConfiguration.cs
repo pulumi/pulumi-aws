@@ -20,6 +20,8 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         public readonly int? CoreNetworkAsn;
         /// <summary>
         /// The Connect peer address.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string? PeerAddress;
         public readonly int? PeerAsn;

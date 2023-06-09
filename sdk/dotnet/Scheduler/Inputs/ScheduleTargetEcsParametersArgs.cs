@@ -116,6 +116,8 @@ namespace Pulumi.Aws.Scheduler.Inputs
 
         /// <summary>
         /// ARN of the task definition to use.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("taskDefinitionArn", required: true)]
         public Input<string> TaskDefinitionArn { get; set; } = null!;

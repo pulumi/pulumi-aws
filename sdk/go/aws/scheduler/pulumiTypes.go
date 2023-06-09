@@ -182,6 +182,8 @@ type ScheduleTarget struct {
 	// Information about the retry policy settings. Detailed below.
 	RetryPolicy *ScheduleTargetRetryPolicy `pulumi:"retryPolicy"`
 	// ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
+	//
+	// The following arguments are optional:
 	RoleArn string `pulumi:"roleArn"`
 	// Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
 	SagemakerPipelineParameters *ScheduleTargetSagemakerPipelineParameters `pulumi:"sagemakerPipelineParameters"`
@@ -216,6 +218,8 @@ type ScheduleTargetArgs struct {
 	// Information about the retry policy settings. Detailed below.
 	RetryPolicy ScheduleTargetRetryPolicyPtrInput `pulumi:"retryPolicy"`
 	// ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
+	//
+	// The following arguments are optional:
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
 	SagemakerPipelineParameters ScheduleTargetSagemakerPipelineParametersPtrInput `pulumi:"sagemakerPipelineParameters"`
@@ -336,6 +340,8 @@ func (o ScheduleTargetOutput) RetryPolicy() ScheduleTargetRetryPolicyPtrOutput {
 }
 
 // ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
+//
+// The following arguments are optional:
 func (o ScheduleTargetOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTarget) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -447,6 +453,8 @@ func (o ScheduleTargetPtrOutput) RetryPolicy() ScheduleTargetRetryPolicyPtrOutpu
 }
 
 // ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
+//
+// The following arguments are optional:
 func (o ScheduleTargetPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTarget) *string {
 		if v == nil {
@@ -641,6 +649,8 @@ type ScheduleTargetEcsParameters struct {
 	// The number of tasks to create. Ranges from `1` (default) to `10`.
 	TaskCount *int `pulumi:"taskCount"`
 	// ARN of the task definition to use.
+	//
+	// The following arguments are optional:
 	TaskDefinitionArn string `pulumi:"taskDefinitionArn"`
 }
 
@@ -683,6 +693,8 @@ type ScheduleTargetEcsParametersArgs struct {
 	// The number of tasks to create. Ranges from `1` (default) to `10`.
 	TaskCount pulumi.IntPtrInput `pulumi:"taskCount"`
 	// ARN of the task definition to use.
+	//
+	// The following arguments are optional:
 	TaskDefinitionArn pulumi.StringInput `pulumi:"taskDefinitionArn"`
 }
 
@@ -837,6 +849,8 @@ func (o ScheduleTargetEcsParametersOutput) TaskCount() pulumi.IntPtrOutput {
 }
 
 // ARN of the task definition to use.
+//
+// The following arguments are optional:
 func (o ScheduleTargetEcsParametersOutput) TaskDefinitionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetEcsParameters) string { return v.TaskDefinitionArn }).(pulumi.StringOutput)
 }
@@ -996,6 +1010,8 @@ func (o ScheduleTargetEcsParametersPtrOutput) TaskCount() pulumi.IntPtrOutput {
 }
 
 // ARN of the task definition to use.
+//
+// The following arguments are optional:
 func (o ScheduleTargetEcsParametersPtrOutput) TaskDefinitionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleTargetEcsParameters) *string {
 		if v == nil {

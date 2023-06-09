@@ -36,6 +36,9 @@ public final class GetSubnetIdsPlainArgs extends com.pulumi.resources.InvokeArgs
      * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
@@ -43,6 +46,9 @@ public final class GetSubnetIdsPlainArgs extends com.pulumi.resources.InvokeArgs
     /**
      * @return Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -114,6 +120,9 @@ public final class GetSubnetIdsPlainArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param tags Map of tags, each pair of which must exactly match
          * a pair on the desired subnets.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

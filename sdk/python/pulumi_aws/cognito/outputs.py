@@ -1009,6 +1009,8 @@ class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
                  priority: int):
         """
         :param str name: Name of the user pool.
+               
+               The following arguments are optional:
         :param int priority: Positive integer specifying priority of a method with 1 being the highest priority.
         """
         pulumi.set(__self__, "name", name)
@@ -1019,6 +1021,8 @@ class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
     def name(self) -> str:
         """
         Name of the user pool.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

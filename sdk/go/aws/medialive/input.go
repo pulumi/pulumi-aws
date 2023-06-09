@@ -99,6 +99,8 @@ type Input struct {
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Settings for a private VPC Input. See VPC for more details.
 	Vpc InputVpcPtrOutput `pulumi:"vpc"`
@@ -164,6 +166,8 @@ type inputState struct {
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 	// Settings for a private VPC Input. See VPC for more details.
 	Vpc *InputVpc `pulumi:"vpc"`
@@ -198,6 +202,8 @@ type InputState struct {
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The different types of inputs that AWS Elemental MediaLive supports.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 	// Settings for a private VPC Input. See VPC for more details.
 	Vpc InputVpcPtrInput
@@ -225,6 +231,8 @@ type inputArgs struct {
 	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 	// Settings for a private VPC Input. See VPC for more details.
 	Vpc *InputVpc `pulumi:"vpc"`
@@ -249,6 +257,8 @@ type InputArgs struct {
 	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The different types of inputs that AWS Elemental MediaLive supports.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 	// Settings for a private VPC Input. See VPC for more details.
 	Vpc InputVpcPtrInput
@@ -411,6 +421,8 @@ func (o InputOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The different types of inputs that AWS Elemental MediaLive supports.
+//
+// The following arguments are optional:
 func (o InputOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

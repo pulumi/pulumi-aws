@@ -94,12 +94,16 @@ public final class DefaultNetworkAclEgressArgs extends com.pulumi.resources.Reso
     /**
      * The IPv6 CIDR block.
      * 
+     * &gt; For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
+     * 
      */
     @Import(name="ipv6CidrBlock")
     private @Nullable Output<String> ipv6CidrBlock;
 
     /**
      * @return The IPv6 CIDR block.
+     * 
+     * &gt; For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
      * 
      */
     public Optional<Output<String>> ipv6CidrBlock() {
@@ -139,12 +143,16 @@ public final class DefaultNetworkAclEgressArgs extends com.pulumi.resources.Reso
     /**
      * The to port to match.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="toPort", required=true)
     private Output<Integer> toPort;
 
     /**
      * @return The to port to match.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> toPort() {
@@ -291,6 +299,8 @@ public final class DefaultNetworkAclEgressArgs extends com.pulumi.resources.Reso
         /**
          * @param ipv6CidrBlock The IPv6 CIDR block.
          * 
+         * &gt; For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
+         * 
          * @return builder
          * 
          */
@@ -301,6 +311,8 @@ public final class DefaultNetworkAclEgressArgs extends com.pulumi.resources.Reso
 
         /**
          * @param ipv6CidrBlock The IPv6 CIDR block.
+         * 
+         * &gt; For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
          * 
          * @return builder
          * 
@@ -354,6 +366,8 @@ public final class DefaultNetworkAclEgressArgs extends com.pulumi.resources.Reso
         /**
          * @param toPort The to port to match.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -364,6 +378,8 @@ public final class DefaultNetworkAclEgressArgs extends com.pulumi.resources.Reso
 
         /**
          * @param toPort The to port to match.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

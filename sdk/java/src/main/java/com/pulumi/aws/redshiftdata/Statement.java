@@ -161,12 +161,16 @@ public class Statement extends com.pulumi.resources.CustomResource {
     /**
      * The SQL statement text to run.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="sql", refs={String.class}, tree="[0]")
     private Output<String> sql;
 
     /**
      * @return The SQL statement text to run.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> sql() {

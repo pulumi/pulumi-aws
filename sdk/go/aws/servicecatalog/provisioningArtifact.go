@@ -83,6 +83,8 @@ type ProvisioningArtifact struct {
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId pulumi.StringPtrOutput `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
+	//
+	// The following arguments are optional:
 	TemplateUrl pulumi.StringPtrOutput `pulumi:"templateUrl"`
 	// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -141,6 +143,8 @@ type provisioningArtifactState struct {
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
+	//
+	// The following arguments are optional:
 	TemplateUrl *string `pulumi:"templateUrl"`
 	// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 	Type *string `pulumi:"type"`
@@ -168,6 +172,8 @@ type ProvisioningArtifactState struct {
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId pulumi.StringPtrInput
 	// Template source as URL of the CloudFormation template in Amazon S3.
+	//
+	// The following arguments are optional:
 	TemplateUrl pulumi.StringPtrInput
 	// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 	Type pulumi.StringPtrInput
@@ -195,6 +201,8 @@ type provisioningArtifactArgs struct {
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
+	//
+	// The following arguments are optional:
 	TemplateUrl *string `pulumi:"templateUrl"`
 	// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 	Type *string `pulumi:"type"`
@@ -219,6 +227,8 @@ type ProvisioningArtifactArgs struct {
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId pulumi.StringPtrInput
 	// Template source as URL of the CloudFormation template in Amazon S3.
+	//
+	// The following arguments are optional:
 	TemplateUrl pulumi.StringPtrInput
 	// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
 	Type pulumi.StringPtrInput
@@ -362,6 +372,8 @@ func (o ProvisioningArtifactOutput) TemplatePhysicalId() pulumi.StringPtrOutput 
 }
 
 // Template source as URL of the CloudFormation template in Amazon S3.
+//
+// The following arguments are optional:
 func (o ProvisioningArtifactOutput) TemplateUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringPtrOutput { return v.TemplateUrl }).(pulumi.StringPtrOutput)
 }

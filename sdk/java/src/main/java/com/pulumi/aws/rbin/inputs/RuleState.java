@@ -120,12 +120,16 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     /**
      * Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="retentionPeriod")
     private @Nullable Output<RuleRetentionPeriodArgs> retentionPeriod;
 
     /**
      * @return Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<RuleRetentionPeriodArgs>> retentionPeriod() {
@@ -343,6 +347,8 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param retentionPeriod Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -353,6 +359,8 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param retentionPeriod Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

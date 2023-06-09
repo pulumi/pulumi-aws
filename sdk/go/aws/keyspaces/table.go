@@ -84,6 +84,8 @@ type Table struct {
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinitionOutput `pulumi:"schemaDefinition"`
 	// The name of the table.
+	//
+	// The following arguments are optional:
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -148,6 +150,8 @@ type tableState struct {
 	// Describes the schema of the table.
 	SchemaDefinition *TableSchemaDefinition `pulumi:"schemaDefinition"`
 	// The name of the table.
+	//
+	// The following arguments are optional:
 	TableName *string `pulumi:"tableName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -175,6 +179,8 @@ type TableState struct {
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinitionPtrInput
 	// The name of the table.
+	//
+	// The following arguments are optional:
 	TableName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -204,6 +210,8 @@ type tableArgs struct {
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinition `pulumi:"schemaDefinition"`
 	// The name of the table.
+	//
+	// The following arguments are optional:
 	TableName string `pulumi:"tableName"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -228,6 +236,8 @@ type TableArgs struct {
 	// Describes the schema of the table.
 	SchemaDefinition TableSchemaDefinitionInput
 	// The name of the table.
+	//
+	// The following arguments are optional:
 	TableName pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -363,6 +373,8 @@ func (o TableOutput) SchemaDefinition() TableSchemaDefinitionOutput {
 }
 
 // The name of the table.
+//
+// The following arguments are optional:
 func (o TableOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
 }

@@ -257,6 +257,8 @@ type Instance struct {
 	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification InstanceCapacityReservationSpecificationOutput `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -340,6 +342,8 @@ type Instance struct {
 	SecondaryPrivateIps pulumi.StringArrayOutput `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
 	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -359,6 +363,8 @@ type Instance struct {
 	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange pulumi.BoolPtrOutput `pulumi:"userDataReplaceOnChange"`
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags pulumi.StringMapOutput `pulumi:"volumeTags"`
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -402,6 +408,8 @@ type instanceState struct {
 	// AZ to start the instance in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification *InstanceCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -485,6 +493,8 @@ type instanceState struct {
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
 	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -504,6 +514,8 @@ type instanceState struct {
 	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange *bool `pulumi:"userDataReplaceOnChange"`
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags map[string]string `pulumi:"volumeTags"`
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -519,6 +531,8 @@ type InstanceState struct {
 	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringPtrInput
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification InstanceCapacityReservationSpecificationPtrInput
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -602,6 +616,8 @@ type InstanceState struct {
 	SecondaryPrivateIps pulumi.StringArrayInput
 	// List of security group names to associate with.
 	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayInput
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -621,6 +637,8 @@ type InstanceState struct {
 	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange pulumi.BoolPtrInput
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags pulumi.StringMapInput
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -638,6 +656,8 @@ type instanceArgs struct {
 	// AZ to start the instance in.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification *InstanceCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -707,6 +727,8 @@ type instanceArgs struct {
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
 	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -724,6 +746,8 @@ type instanceArgs struct {
 	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange *bool `pulumi:"userDataReplaceOnChange"`
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags map[string]string `pulumi:"volumeTags"`
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -738,6 +762,8 @@ type InstanceArgs struct {
 	// AZ to start the instance in.
 	AvailabilityZone pulumi.StringPtrInput
 	// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+	//
+	// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 	CapacityReservationSpecification InstanceCapacityReservationSpecificationPtrInput
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	//
@@ -807,6 +833,8 @@ type InstanceArgs struct {
 	SecondaryPrivateIps pulumi.StringArrayInput
 	// List of security group names to associate with.
 	//
+	// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayInput
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
@@ -824,6 +852,8 @@ type InstanceArgs struct {
 	// When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
 	UserDataReplaceOnChange pulumi.BoolPtrInput
 	// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+	//
+	// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 	VolumeTags pulumi.StringMapInput
 	// List of security group IDs to associate with.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -937,6 +967,8 @@ func (o InstanceOutput) AvailabilityZone() pulumi.StringOutput {
 }
 
 // Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+//
+// > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
 func (o InstanceOutput) CapacityReservationSpecification() InstanceCapacityReservationSpecificationOutput {
 	return o.ApplyT(func(v *Instance) InstanceCapacityReservationSpecificationOutput {
 		return v.CapacityReservationSpecification
@@ -1139,6 +1171,8 @@ func (o InstanceOutput) SecondaryPrivateIps() pulumi.StringArrayOutput {
 
 // List of security group names to associate with.
 //
+// > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+//
 // Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 func (o InstanceOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
@@ -1185,6 +1219,8 @@ func (o InstanceOutput) UserDataReplaceOnChange() pulumi.BoolPtrOutput {
 }
 
 // Map of tags to assign, at instance-creation time, to root and EBS volumes.
+//
+// > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
 func (o InstanceOutput) VolumeTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.VolumeTags }).(pulumi.StringMapOutput)
 }

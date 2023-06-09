@@ -67,6 +67,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// JSON payload to the lambda function.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("input")]
         public Output<string> Input { get; private set; } = null!;
@@ -143,6 +145,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// JSON payload to the lambda function.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("input", required: true)]
         public Input<string> Input { get; set; } = null!;
@@ -181,6 +185,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// JSON payload to the lambda function.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("input")]
         public Input<string>? Input { get; set; }

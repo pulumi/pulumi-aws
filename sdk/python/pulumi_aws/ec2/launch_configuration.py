@@ -40,6 +40,8 @@ class LaunchConfigurationArgs:
         The set of arguments for constructing a LaunchConfiguration resource.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
@@ -121,6 +123,8 @@ class LaunchConfigurationArgs:
     def instance_type(self) -> pulumi.Input[str]:
         """
         The size of instance to launch.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "instance_type")
 
@@ -380,6 +384,8 @@ class _LaunchConfigurationState:
         :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input['LaunchConfigurationMetadataOptionsArgs'] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
@@ -543,6 +549,8 @@ class _LaunchConfigurationState:
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
         The size of instance to launch.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "instance_type")
 
@@ -892,6 +900,8 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
@@ -1194,6 +1204,8 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
@@ -1303,6 +1315,8 @@ class LaunchConfiguration(pulumi.CustomResource):
     def instance_type(self) -> pulumi.Output[str]:
         """
         The size of instance to launch.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "instance_type")
 

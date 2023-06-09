@@ -539,6 +539,8 @@ type Bucket struct {
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
 	Loggings BucketLoggingArrayOutput `pulumi:"loggings"`
 	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	//
+	// > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
 	ObjectLockConfiguration BucketObjectLockConfigurationPtrOutput `pulumi:"objectLockConfiguration"`
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
@@ -623,6 +625,8 @@ type bucketState struct {
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
 	Loggings []BucketLogging `pulumi:"loggings"`
 	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	//
+	// > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
 	ObjectLockConfiguration *BucketObjectLockConfiguration `pulumi:"objectLockConfiguration"`
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy interface{} `pulumi:"policy"`
@@ -679,6 +683,8 @@ type BucketState struct {
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
 	Loggings BucketLoggingArrayInput
 	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	//
+	// > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
 	ObjectLockConfiguration BucketObjectLockConfigurationPtrInput
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy pulumi.Input
@@ -735,6 +741,8 @@ type bucketArgs struct {
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
 	Loggings []BucketLogging `pulumi:"loggings"`
 	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	//
+	// > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
 	ObjectLockConfiguration *BucketObjectLockConfiguration `pulumi:"objectLockConfiguration"`
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy interface{} `pulumi:"policy"`
@@ -784,6 +792,8 @@ type BucketArgs struct {
 	// A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
 	Loggings BucketLoggingArrayInput
 	// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+	//
+	// > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
 	ObjectLockConfiguration BucketObjectLockConfigurationPtrInput
 	// A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
 	Policy pulumi.Input
@@ -961,6 +971,8 @@ func (o BucketOutput) Loggings() BucketLoggingArrayOutput {
 }
 
 // A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+//
+// > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
 func (o BucketOutput) ObjectLockConfiguration() BucketObjectLockConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketObjectLockConfigurationPtrOutput { return v.ObjectLockConfiguration }).(BucketObjectLockConfigurationPtrOutput)
 }

@@ -33,12 +33,16 @@ public final class GetAcceleratorPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * Unique name of the Global Accelerator.
      * 
+     * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
      * @return Unique name of the Global Accelerator.
+     * 
+     * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      * 
      */
     public Optional<String> name() {
@@ -91,6 +95,8 @@ public final class GetAcceleratorPlainArgs extends com.pulumi.resources.InvokeAr
 
         /**
          * @param name Unique name of the Global Accelerator.
+         * 
+         * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
          * 
          * @return builder
          * 

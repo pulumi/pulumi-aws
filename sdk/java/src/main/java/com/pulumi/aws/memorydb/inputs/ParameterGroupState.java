@@ -51,12 +51,16 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
     /**
      * The engine version that the parameter group can be used with.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="family")
     private @Nullable Output<String> family;
 
     /**
      * @return The engine version that the parameter group can be used with.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> family() {
@@ -214,6 +218,8 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         /**
          * @param family The engine version that the parameter group can be used with.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -224,6 +230,8 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param family The engine version that the parameter group can be used with.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

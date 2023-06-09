@@ -126,12 +126,16 @@ public class ConnectAttachment extends com.pulumi.resources.CustomResource {
     /**
      * Options for creating an attachment.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="options", refs={ConnectAttachmentOptions.class}, tree="[0]")
     private Output<ConnectAttachmentOptions> options;
 
     /**
      * @return Options for creating an attachment.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<ConnectAttachmentOptions> options() {

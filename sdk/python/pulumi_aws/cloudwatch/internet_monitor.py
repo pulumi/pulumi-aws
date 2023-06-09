@@ -26,6 +26,8 @@ class InternetMonitorArgs:
         """
         The set of arguments for constructing a InternetMonitor resource.
         :param pulumi.Input[str] monitor_name: The name of the monitor.
+               
+               The following arguments are optional:
         :param pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs'] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         :param pulumi.Input[int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
@@ -52,6 +54,8 @@ class InternetMonitorArgs:
     def monitor_name(self) -> pulumi.Input[str]:
         """
         The name of the monitor.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "monitor_name")
 
@@ -150,6 +154,8 @@ class _InternetMonitorState:
         :param pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs'] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         :param pulumi.Input[int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
         :param pulumi.Input[str] monitor_name: The name of the monitor.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         :param pulumi.Input[str] status: The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -216,6 +222,8 @@ class _InternetMonitorState:
     def monitor_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the monitor.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "monitor_name")
 
@@ -322,6 +330,8 @@ class InternetMonitor(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InternetMonitorInternetMeasurementsLogDeliveryArgs']] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         :param pulumi.Input[int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
         :param pulumi.Input[str] monitor_name: The name of the monitor.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         :param pulumi.Input[str] status: The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -425,6 +435,8 @@ class InternetMonitor(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InternetMonitorInternetMeasurementsLogDeliveryArgs']] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         :param pulumi.Input[int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
         :param pulumi.Input[str] monitor_name: The name of the monitor.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         :param pulumi.Input[str] status: The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -475,6 +487,8 @@ class InternetMonitor(pulumi.CustomResource):
     def monitor_name(self) -> pulumi.Output[str]:
         """
         The name of the monitor.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "monitor_name")
 

@@ -26,6 +26,8 @@ public final class ConfigurationAggregatorOrganizationAggregationSource {
     /**
      * @return ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
      * 
+     * Either `regions` or `all_regions` (as true) must be specified.
+     * 
      */
     private String roleArn;
 
@@ -46,6 +48,8 @@ public final class ConfigurationAggregatorOrganizationAggregationSource {
     }
     /**
      * @return ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+     * 
+     * Either `regions` or `all_regions` (as true) must be specified.
      * 
      */
     public String roleArn() {

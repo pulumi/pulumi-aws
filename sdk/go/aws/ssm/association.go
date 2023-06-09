@@ -194,6 +194,8 @@ type Association struct {
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayOutput `pulumi:"targets"`
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+	//
+	// Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
 	WaitForSuccessTimeoutSeconds pulumi.IntPtrOutput `pulumi:"waitForSuccessTimeoutSeconds"`
 }
 
@@ -259,6 +261,8 @@ type associationState struct {
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets []AssociationTarget `pulumi:"targets"`
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+	//
+	// Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
 	WaitForSuccessTimeoutSeconds *int `pulumi:"waitForSuccessTimeoutSeconds"`
 }
 
@@ -296,6 +300,8 @@ type AssociationState struct {
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayInput
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+	//
+	// Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
 	WaitForSuccessTimeoutSeconds pulumi.IntPtrInput
 }
 
@@ -333,6 +339,8 @@ type associationArgs struct {
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets []AssociationTarget `pulumi:"targets"`
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+	//
+	// Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
 	WaitForSuccessTimeoutSeconds *int `pulumi:"waitForSuccessTimeoutSeconds"`
 }
 
@@ -367,6 +375,8 @@ type AssociationArgs struct {
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayInput
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+	//
+	// Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
 	WaitForSuccessTimeoutSeconds pulumi.IntPtrInput
 }
 
@@ -535,6 +545,8 @@ func (o AssociationOutput) Targets() AssociationTargetArrayOutput {
 }
 
 // The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+//
+// Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
 func (o AssociationOutput) WaitForSuccessTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.IntPtrOutput { return v.WaitForSuccessTimeoutSeconds }).(pulumi.IntPtrOutput)
 }

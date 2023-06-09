@@ -48,12 +48,16 @@ public final class LanguageModelInputDataConfigArgs extends com.pulumi.resources
     /**
      * S3 URI where tuning data is located.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="tuningDataS3Uri")
     private @Nullable Output<String> tuningDataS3Uri;
 
     /**
      * @return S3 URI where tuning data is located.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> tuningDataS3Uri() {
@@ -131,6 +135,8 @@ public final class LanguageModelInputDataConfigArgs extends com.pulumi.resources
         /**
          * @param tuningDataS3Uri S3 URI where tuning data is located.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -141,6 +147,8 @@ public final class LanguageModelInputDataConfigArgs extends com.pulumi.resources
 
         /**
          * @param tuningDataS3Uri S3 URI where tuning data is located.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

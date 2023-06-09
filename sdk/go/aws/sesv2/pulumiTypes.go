@@ -174,6 +174,8 @@ type ConfigurationSetEventDestinationEventDestination struct {
 	// An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesisFirehoseDestination below.
 	KinesisFirehoseDestination *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination `pulumi:"kinesisFirehoseDestination"`
 	// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+	//
+	// The following arguments are optional:
 	MatchingEventTypes []string `pulumi:"matchingEventTypes"`
 	// An object that defines an Amazon Pinpoint project destination for email events. See pinpointDestination below.
 	PinpointDestination *ConfigurationSetEventDestinationEventDestinationPinpointDestination `pulumi:"pinpointDestination"`
@@ -200,6 +202,8 @@ type ConfigurationSetEventDestinationEventDestinationArgs struct {
 	// An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesisFirehoseDestination below.
 	KinesisFirehoseDestination ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrInput `pulumi:"kinesisFirehoseDestination"`
 	// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+	//
+	// The following arguments are optional:
 	MatchingEventTypes pulumi.StringArrayInput `pulumi:"matchingEventTypes"`
 	// An object that defines an Amazon Pinpoint project destination for email events. See pinpointDestination below.
 	PinpointDestination ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrInput `pulumi:"pinpointDestination"`
@@ -304,6 +308,8 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) KinesisFirehoseD
 }
 
 // An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+//
+// The following arguments are optional:
 func (o ConfigurationSetEventDestinationEventDestinationOutput) MatchingEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) []string { return v.MatchingEventTypes }).(pulumi.StringArrayOutput)
 }
@@ -377,6 +383,8 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) KinesisFireho
 }
 
 // An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+//
+// The following arguments are optional:
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) []string {
 		if v == nil {
@@ -2107,6 +2115,8 @@ type ContactListTopic struct {
 	// The name of the topic the contact will see.
 	DisplayName string `pulumi:"displayName"`
 	// The name of the topic.
+	//
+	// The following arguments are optional:
 	TopicName string `pulumi:"topicName"`
 }
 
@@ -2129,6 +2139,8 @@ type ContactListTopicArgs struct {
 	// The name of the topic the contact will see.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The name of the topic.
+	//
+	// The following arguments are optional:
 	TopicName pulumi.StringInput `pulumi:"topicName"`
 }
 
@@ -2199,6 +2211,8 @@ func (o ContactListTopicOutput) DisplayName() pulumi.StringOutput {
 }
 
 // The name of the topic.
+//
+// The following arguments are optional:
 func (o ContactListTopicOutput) TopicName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactListTopic) string { return v.TopicName }).(pulumi.StringOutput)
 }
@@ -2227,6 +2241,8 @@ type EmailIdentityDkimSigningAttributes struct {
 	// [Easy DKIM] The key length of the DKIM key pair in use.
 	CurrentSigningKeyLength *string `pulumi:"currentSigningKeyLength"`
 	// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+	//
+	// > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
 	DomainSigningPrivateKey *string `pulumi:"domainSigningPrivateKey"`
 	// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
 	DomainSigningSelector *string `pulumi:"domainSigningSelector"`
@@ -2257,6 +2273,8 @@ type EmailIdentityDkimSigningAttributesArgs struct {
 	// [Easy DKIM] The key length of the DKIM key pair in use.
 	CurrentSigningKeyLength pulumi.StringPtrInput `pulumi:"currentSigningKeyLength"`
 	// [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+	//
+	// > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
 	DomainSigningPrivateKey pulumi.StringPtrInput `pulumi:"domainSigningPrivateKey"`
 	// [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
 	DomainSigningSelector pulumi.StringPtrInput `pulumi:"domainSigningSelector"`
@@ -2355,6 +2373,8 @@ func (o EmailIdentityDkimSigningAttributesOutput) CurrentSigningKeyLength() pulu
 }
 
 // [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+//
+// > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
 func (o EmailIdentityDkimSigningAttributesOutput) DomainSigningPrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailIdentityDkimSigningAttributes) *string { return v.DomainSigningPrivateKey }).(pulumi.StringPtrOutput)
 }
@@ -2424,6 +2444,8 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) CurrentSigningKeyLength() p
 }
 
 // [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+//
+// > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
 func (o EmailIdentityDkimSigningAttributesPtrOutput) DomainSigningPrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailIdentityDkimSigningAttributes) *string {
 		if v == nil {

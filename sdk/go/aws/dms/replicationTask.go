@@ -74,6 +74,11 @@ type ReplicationTask struct {
 	// The Amazon Resource Name (ARN) for the replication task.
 	ReplicationTaskArn pulumi.StringOutput `pulumi:"replicationTaskArn"`
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId pulumi.StringOutput `pulumi:"replicationTaskId"`
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings pulumi.StringPtrOutput `pulumi:"replicationTaskSettings"`
@@ -151,6 +156,11 @@ type replicationTaskState struct {
 	// The Amazon Resource Name (ARN) for the replication task.
 	ReplicationTaskArn *string `pulumi:"replicationTaskArn"`
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId *string `pulumi:"replicationTaskId"`
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings *string `pulumi:"replicationTaskSettings"`
@@ -182,6 +192,11 @@ type ReplicationTaskState struct {
 	// The Amazon Resource Name (ARN) for the replication task.
 	ReplicationTaskArn pulumi.StringPtrInput
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId pulumi.StringPtrInput
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings pulumi.StringPtrInput
@@ -215,6 +230,11 @@ type replicationTaskArgs struct {
 	// The Amazon Resource Name (ARN) of the replication instance.
 	ReplicationInstanceArn string `pulumi:"replicationInstanceArn"`
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId string `pulumi:"replicationTaskId"`
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings *string `pulumi:"replicationTaskSettings"`
@@ -241,6 +261,11 @@ type ReplicationTaskArgs struct {
 	// The Amazon Resource Name (ARN) of the replication instance.
 	ReplicationInstanceArn pulumi.StringInput
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId pulumi.StringInput
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings pulumi.StringPtrInput
@@ -369,6 +394,11 @@ func (o ReplicationTaskOutput) ReplicationTaskArn() pulumi.StringOutput {
 }
 
 // The replication task identifier.
+//
+// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+// - First character must be a letter.
+// - Cannot end with a hyphen.
+// - Cannot contain two consecutive hyphens.
 func (o ReplicationTaskOutput) ReplicationTaskId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.ReplicationTaskId }).(pulumi.StringOutput)
 }

@@ -233,6 +233,8 @@ type Record struct {
 	// Documented below.
 	Aliases RecordAliasArrayOutput `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite pulumi.BoolOutput `pulumi:"allowOverwrite"`
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrOutput `pulumi:"cidrRoutingPolicy"`
@@ -306,6 +308,8 @@ type recordState struct {
 	// Documented below.
 	Aliases []RecordAlias `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite *bool `pulumi:"allowOverwrite"`
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy *RecordCidrRoutingPolicy `pulumi:"cidrRoutingPolicy"`
@@ -342,6 +346,8 @@ type RecordState struct {
 	// Documented below.
 	Aliases RecordAliasArrayInput
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite pulumi.BoolPtrInput
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrInput
@@ -382,6 +388,8 @@ type recordArgs struct {
 	// Documented below.
 	Aliases []RecordAlias `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite *bool `pulumi:"allowOverwrite"`
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy *RecordCidrRoutingPolicy `pulumi:"cidrRoutingPolicy"`
@@ -417,6 +425,8 @@ type RecordArgs struct {
 	// Documented below.
 	Aliases RecordAliasArrayInput
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite pulumi.BoolPtrInput
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrInput
@@ -540,6 +550,8 @@ func (o RecordOutput) Aliases() RecordAliasArrayOutput {
 }
 
 // Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+//
+// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 func (o RecordOutput) AllowOverwrite() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Record) pulumi.BoolOutput { return v.AllowOverwrite }).(pulumi.BoolOutput)
 }

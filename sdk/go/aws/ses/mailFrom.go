@@ -127,6 +127,8 @@ type MailFrom struct {
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+	//
+	// The following arguments are optional:
 	MailFromDomain pulumi.StringOutput `pulumi:"mailFromDomain"`
 }
 
@@ -170,6 +172,8 @@ type mailFromState struct {
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain *string `pulumi:"domain"`
 	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+	//
+	// The following arguments are optional:
 	MailFromDomain *string `pulumi:"mailFromDomain"`
 }
 
@@ -179,6 +183,8 @@ type MailFromState struct {
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain pulumi.StringPtrInput
 	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+	//
+	// The following arguments are optional:
 	MailFromDomain pulumi.StringPtrInput
 }
 
@@ -192,6 +198,8 @@ type mailFromArgs struct {
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain string `pulumi:"domain"`
 	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+	//
+	// The following arguments are optional:
 	MailFromDomain string `pulumi:"mailFromDomain"`
 }
 
@@ -202,6 +210,8 @@ type MailFromArgs struct {
 	// Verified domain name or email identity to generate DKIM tokens for.
 	Domain pulumi.StringInput
 	// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+	//
+	// The following arguments are optional:
 	MailFromDomain pulumi.StringInput
 }
 
@@ -303,6 +313,8 @@ func (o MailFromOutput) Domain() pulumi.StringOutput {
 }
 
 // Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+//
+// The following arguments are optional:
 func (o MailFromOutput) MailFromDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *MailFrom) pulumi.StringOutput { return v.MailFromDomain }).(pulumi.StringOutput)
 }

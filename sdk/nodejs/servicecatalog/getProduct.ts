@@ -41,6 +41,8 @@ export interface GetProductArgs {
     acceptLanguage?: string;
     /**
      * Product ID.
+     *
+     * The following arguments are optional:
      */
     id: string;
     /**
@@ -139,6 +141,8 @@ export interface GetProductOutputArgs {
     acceptLanguage?: pulumi.Input<string>;
     /**
      * Product ID.
+     *
+     * The following arguments are optional:
      */
     id: pulumi.Input<string>;
     /**

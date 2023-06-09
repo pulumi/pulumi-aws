@@ -19,12 +19,16 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
     /**
      * DB cluster identifier.
      * 
+     * **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
+     * 
      */
     @Import(name="dbClusterIdentifier")
     private @Nullable Output<String> dbClusterIdentifier;
 
     /**
      * @return DB cluster identifier.
+     * 
+     * **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
      * 
      */
     public Optional<Output<String>> dbClusterIdentifier() {
@@ -202,6 +206,8 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param dbClusterIdentifier DB cluster identifier.
          * 
+         * **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
+         * 
          * @return builder
          * 
          */
@@ -212,6 +218,8 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param dbClusterIdentifier DB cluster identifier.
+         * 
+         * **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
          * 
          * @return builder
          * 

@@ -15,6 +15,8 @@ public final class ListenerDefaultActionForwardTargetGroup {
     /**
      * @return ARN of the target group.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String arn;
     /**
@@ -26,6 +28,8 @@ public final class ListenerDefaultActionForwardTargetGroup {
     private ListenerDefaultActionForwardTargetGroup() {}
     /**
      * @return ARN of the target group.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String arn() {

@@ -32,11 +32,15 @@ class RouteArgs:
         """
         The set of arguments for constructing a Route resource.
         :param pulumi.Input[str] route_table_id: The ID of the routing table.
+               
+               One of the following destination arguments must be supplied:
         :param pulumi.Input[str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         :param pulumi.Input[str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
+               
+               One of the following target arguments must be supplied:
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
@@ -46,6 +50,8 @@ class RouteArgs:
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
+               
+               Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         pulumi.set(__self__, "route_table_id", route_table_id)
         if carrier_gateway_id is not None:
@@ -85,6 +91,8 @@ class RouteArgs:
     def route_table_id(self) -> pulumi.Input[str]:
         """
         The ID of the routing table.
+
+        One of the following destination arguments must be supplied:
         """
         return pulumi.get(self, "route_table_id")
 
@@ -145,6 +153,8 @@ class RouteArgs:
     def destination_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of a managed prefix list destination.
+
+        One of the following target arguments must be supplied:
         """
         return pulumi.get(self, "destination_prefix_list_id")
 
@@ -253,6 +263,8 @@ class RouteArgs:
     def vpc_peering_connection_id(self) -> Optional[pulumi.Input[str]]:
         """
         Identifier of a VPC peering connection.
+
+        Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         return pulumi.get(self, "vpc_peering_connection_id")
 
@@ -289,6 +301,8 @@ class _RouteState:
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
+               
+               One of the following target arguments must be supplied:
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
@@ -298,10 +312,14 @@ class _RouteState:
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
         :param pulumi.Input[str] origin: How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         :param pulumi.Input[str] route_table_id: The ID of the routing table.
+               
+               One of the following destination arguments must be supplied:
         :param pulumi.Input[str] state: The state of the route - `active` or `blackhole`.
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
+               
+               Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         if carrier_gateway_id is not None:
             pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
@@ -396,6 +414,8 @@ class _RouteState:
     def destination_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of a managed prefix list destination.
+
+        One of the following target arguments must be supplied:
         """
         return pulumi.get(self, "destination_prefix_list_id")
 
@@ -504,6 +524,8 @@ class _RouteState:
     def route_table_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the routing table.
+
+        One of the following destination arguments must be supplied:
         """
         return pulumi.get(self, "route_table_id")
 
@@ -552,6 +574,8 @@ class _RouteState:
     def vpc_peering_connection_id(self) -> Optional[pulumi.Input[str]]:
         """
         Identifier of a VPC peering connection.
+
+        Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         return pulumi.get(self, "vpc_peering_connection_id")
 
@@ -643,6 +667,8 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
+               
+               One of the following target arguments must be supplied:
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
@@ -650,9 +676,13 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
         :param pulumi.Input[str] route_table_id: The ID of the routing table.
+               
+               One of the following destination arguments must be supplied:
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
+               
+               Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         ...
     @overload
@@ -817,6 +847,8 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
+               
+               One of the following target arguments must be supplied:
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
@@ -826,10 +858,14 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
         :param pulumi.Input[str] origin: How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         :param pulumi.Input[str] route_table_id: The ID of the routing table.
+               
+               One of the following destination arguments must be supplied:
         :param pulumi.Input[str] state: The state of the route - `active` or `blackhole`.
         :param pulumi.Input[str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[str] vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param pulumi.Input[str] vpc_peering_connection_id: Identifier of a VPC peering connection.
+               
+               Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -892,6 +928,8 @@ class Route(pulumi.CustomResource):
     def destination_prefix_list_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of a managed prefix list destination.
+
+        One of the following target arguments must be supplied:
         """
         return pulumi.get(self, "destination_prefix_list_id")
 
@@ -964,6 +1002,8 @@ class Route(pulumi.CustomResource):
     def route_table_id(self) -> pulumi.Output[str]:
         """
         The ID of the routing table.
+
+        One of the following destination arguments must be supplied:
         """
         return pulumi.get(self, "route_table_id")
 
@@ -996,6 +1036,8 @@ class Route(pulumi.CustomResource):
     def vpc_peering_connection_id(self) -> pulumi.Output[Optional[str]]:
         """
         Identifier of a VPC peering connection.
+
+        Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         return pulumi.get(self, "vpc_peering_connection_id")
 

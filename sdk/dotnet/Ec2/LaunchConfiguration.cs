@@ -302,6 +302,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The size of instance to launch.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -480,6 +482,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The size of instance to launch.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
@@ -639,6 +643,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The size of instance to launch.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }

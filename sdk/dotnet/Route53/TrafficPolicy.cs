@@ -62,6 +62,8 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("document")]
         public Output<string> Document { get; private set; } = null!;
@@ -138,6 +140,8 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("document", required: true)]
         public Input<string> Document { get; set; } = null!;
@@ -164,6 +168,8 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("document")]
         public Input<string>? Document { get; set; }

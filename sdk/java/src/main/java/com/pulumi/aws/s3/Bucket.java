@@ -743,12 +743,16 @@ public class Bucket extends com.pulumi.resources.CustomResource {
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      * 
+     * &gt; **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
+     * 
      */
     @Export(name="objectLockConfiguration", refs={BucketObjectLockConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ BucketObjectLockConfiguration> objectLockConfiguration;
 
     /**
      * @return A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+     * 
+     * &gt; **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
      * 
      */
     public Output<Optional<BucketObjectLockConfiguration>> objectLockConfiguration() {

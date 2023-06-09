@@ -133,6 +133,8 @@ export class ImageRecipe extends pulumi.CustomResource {
     public readonly userDataBase64!: pulumi.Output<string>;
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+     *
+     * The following attributes are optional:
      */
     public readonly version!: pulumi.Output<string>;
     /**
@@ -258,6 +260,8 @@ export interface ImageRecipeState {
     userDataBase64?: pulumi.Input<string>;
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+     *
+     * The following attributes are optional:
      */
     version?: pulumi.Input<string>;
     /**
@@ -304,6 +308,8 @@ export interface ImageRecipeArgs {
     userDataBase64?: pulumi.Input<string>;
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+     *
+     * The following attributes are optional:
      */
     version: pulumi.Input<string>;
     /**

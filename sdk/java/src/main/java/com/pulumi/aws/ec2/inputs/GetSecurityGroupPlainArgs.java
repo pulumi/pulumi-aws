@@ -84,12 +84,18 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
     /**
      * Id of the VPC that the desired security group belongs to.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="vpcId")
     private @Nullable String vpcId;
 
     /**
      * @return Id of the VPC that the desired security group belongs to.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<String> vpcId() {
@@ -182,6 +188,9 @@ public final class GetSecurityGroupPlainArgs extends com.pulumi.resources.Invoke
 
         /**
          * @param vpcId Id of the VPC that the desired security group belongs to.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

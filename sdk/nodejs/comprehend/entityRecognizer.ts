@@ -107,6 +107,8 @@ export class EntityRecognizer extends pulumi.CustomResource {
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -228,6 +230,8 @@ export interface EntityRecognizerState {
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -292,6 +296,8 @@ export interface EntityRecognizerArgs {
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

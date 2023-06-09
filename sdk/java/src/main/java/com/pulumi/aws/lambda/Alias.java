@@ -155,12 +155,16 @@ public class Alias extends com.pulumi.resources.CustomResource {
     /**
      * The Lambda alias&#39; route configuration settings. Fields documented below
      * 
+     * For **routing_config** the following attributes are supported:
+     * 
      */
     @Export(name="routingConfig", refs={AliasRoutingConfig.class}, tree="[0]")
     private Output</* @Nullable */ AliasRoutingConfig> routingConfig;
 
     /**
      * @return The Lambda alias&#39; route configuration settings. Fields documented below
+     * 
+     * For **routing_config** the following attributes are supported:
      * 
      */
     public Output<Optional<AliasRoutingConfig>> routingConfig() {

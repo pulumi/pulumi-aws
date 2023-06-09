@@ -94,6 +94,8 @@ type Application struct {
 	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
 	OpsItemSnsTopicArn pulumi.StringPtrOutput `pulumi:"opsItemSnsTopicArn"`
 	// Name of the resource group.
+	//
+	// The following arguments are optional:
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -148,6 +150,8 @@ type applicationState struct {
 	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
 	OpsItemSnsTopicArn *string `pulumi:"opsItemSnsTopicArn"`
 	// Name of the resource group.
+	//
+	// The following arguments are optional:
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -171,6 +175,8 @@ type ApplicationState struct {
 	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
 	OpsItemSnsTopicArn pulumi.StringPtrInput
 	// Name of the resource group.
+	//
+	// The following arguments are optional:
 	ResourceGroupName pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -196,6 +202,8 @@ type applicationArgs struct {
 	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
 	OpsItemSnsTopicArn *string `pulumi:"opsItemSnsTopicArn"`
 	// Name of the resource group.
+	//
+	// The following arguments are optional:
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -216,6 +224,8 @@ type ApplicationArgs struct {
 	// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
 	OpsItemSnsTopicArn pulumi.StringPtrInput
 	// Name of the resource group.
+	//
+	// The following arguments are optional:
 	ResourceGroupName pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -344,6 +354,8 @@ func (o ApplicationOutput) OpsItemSnsTopicArn() pulumi.StringPtrOutput {
 }
 
 // Name of the resource group.
+//
+// The following arguments are optional:
 func (o ApplicationOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

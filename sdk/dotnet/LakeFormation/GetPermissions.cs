@@ -257,6 +257,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+        /// 
+        /// One of the following is required:
         /// </summary>
         [Input("principal", required: true)]
         public string Principal { get; set; } = null!;
@@ -269,6 +271,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Configuration block for a table with columns resource. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableWithColumns")]
         public Inputs.GetPermissionsTableWithColumnsArgs? TableWithColumns { get; set; }
@@ -319,6 +323,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+        /// 
+        /// One of the following is required:
         /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
@@ -331,6 +337,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Configuration block for a table with columns resource. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableWithColumns")]
         public Input<Inputs.GetPermissionsTableWithColumnsInputArgs>? TableWithColumns { get; set; }

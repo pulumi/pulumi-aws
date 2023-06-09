@@ -103,6 +103,8 @@ type DefaultRouteTable struct {
 	// The ARN of the route table.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the default route table.
+	//
+	// The following arguments are optional:
 	DefaultRouteTableId pulumi.StringOutput `pulumi:"defaultRouteTableId"`
 	// ID of the AWS account that owns the route table.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
@@ -153,6 +155,8 @@ type defaultRouteTableState struct {
 	// The ARN of the route table.
 	Arn *string `pulumi:"arn"`
 	// ID of the default route table.
+	//
+	// The following arguments are optional:
 	DefaultRouteTableId *string `pulumi:"defaultRouteTableId"`
 	// ID of the AWS account that owns the route table.
 	OwnerId *string `pulumi:"ownerId"`
@@ -172,6 +176,8 @@ type DefaultRouteTableState struct {
 	// The ARN of the route table.
 	Arn pulumi.StringPtrInput
 	// ID of the default route table.
+	//
+	// The following arguments are optional:
 	DefaultRouteTableId pulumi.StringPtrInput
 	// ID of the AWS account that owns the route table.
 	OwnerId pulumi.StringPtrInput
@@ -193,6 +199,8 @@ func (DefaultRouteTableState) ElementType() reflect.Type {
 
 type defaultRouteTableArgs struct {
 	// ID of the default route table.
+	//
+	// The following arguments are optional:
 	DefaultRouteTableId string `pulumi:"defaultRouteTableId"`
 	// List of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
@@ -205,6 +213,8 @@ type defaultRouteTableArgs struct {
 // The set of arguments for constructing a DefaultRouteTable resource.
 type DefaultRouteTableArgs struct {
 	// ID of the default route table.
+	//
+	// The following arguments are optional:
 	DefaultRouteTableId pulumi.StringInput
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
@@ -307,6 +317,8 @@ func (o DefaultRouteTableOutput) Arn() pulumi.StringOutput {
 }
 
 // ID of the default route table.
+//
+// The following arguments are optional:
 func (o DefaultRouteTableOutput) DefaultRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringOutput { return v.DefaultRouteTableId }).(pulumi.StringOutput)
 }

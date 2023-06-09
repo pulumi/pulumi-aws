@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Cognito.Outputs
     {
         /// <summary>
         /// Name of the user pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Name;
         /// <summary>

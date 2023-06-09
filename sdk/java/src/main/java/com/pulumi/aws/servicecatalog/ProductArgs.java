@@ -170,12 +170,16 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -429,6 +433,8 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -439,6 +445,8 @@ public final class ProductArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

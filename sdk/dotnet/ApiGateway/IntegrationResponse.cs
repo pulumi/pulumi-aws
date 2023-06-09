@@ -136,6 +136,8 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// HTTP status code.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("statusCode")]
         public Output<string> StatusCode { get; private set; } = null!;
@@ -242,6 +244,8 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// HTTP status code.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;
@@ -310,6 +314,8 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// HTTP status code.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }

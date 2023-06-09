@@ -71,6 +71,8 @@ class AssociationOutputLocation(dict):
         :param str s3_bucket_name: The S3 bucket name.
         :param str s3_key_prefix: The S3 bucket prefix. Results stored in the root if not configured.
         :param str s3_region: The S3 bucket region.
+               
+               Targets specify what instance IDs or tags to apply the document to and has these keys:
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
@@ -99,6 +101,8 @@ class AssociationOutputLocation(dict):
     def s3_region(self) -> Optional[str]:
         """
         The S3 bucket region.
+
+        Targets specify what instance IDs or tags to apply the document to and has these keys:
         """
         return pulumi.get(self, "s3_region")
 

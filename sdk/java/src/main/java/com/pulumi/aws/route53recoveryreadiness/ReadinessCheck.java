@@ -91,12 +91,16 @@ public class ReadinessCheck extends com.pulumi.resources.CustomResource {
     /**
      * Name describing the resource set that will be monitored for readiness.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="resourceSetName", refs={String.class}, tree="[0]")
     private Output<String> resourceSetName;
 
     /**
      * @return Name describing the resource set that will be monitored for readiness.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> resourceSetName() {

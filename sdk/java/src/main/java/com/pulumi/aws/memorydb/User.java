@@ -164,12 +164,16 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * Name of the MemoryDB user. Up to 40 characters.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
      * @return Name of the MemoryDB user. Up to 40 characters.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userName() {

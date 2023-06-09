@@ -155,12 +155,16 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     /**
      * The S3 path where your block list text file sits in S3. Detailed below.
      * 
+     * The `source_s3_path` configuration block supports the following arguments:
+     * 
      */
     @Export(name="sourceS3Path", refs={QuerySuggestionsBlockListSourceS3Path.class}, tree="[0]")
     private Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path;
 
     /**
      * @return The S3 path where your block list text file sits in S3. Detailed below.
+     * 
+     * The `source_s3_path` configuration block supports the following arguments:
      * 
      */
     public Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path() {

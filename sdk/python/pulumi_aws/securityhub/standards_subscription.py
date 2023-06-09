@@ -18,6 +18,16 @@ class StandardsSubscriptionArgs:
         """
         The set of arguments for constructing a StandardsSubscription resource.
         :param pulumi.Input[str] standards_arn: The ARN of a standard - see below.
+               
+               Currently available standards (remember to replace `${var.region}` as appropriate):
+               
+               | Name                                     | ARN                                                                                             |
+               |------------------------------------------|-------------------------------------------------------------------------------------------------|
+               | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+               | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+               | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+               | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+               | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         """
         pulumi.set(__self__, "standards_arn", standards_arn)
 
@@ -26,6 +36,16 @@ class StandardsSubscriptionArgs:
     def standards_arn(self) -> pulumi.Input[str]:
         """
         The ARN of a standard - see below.
+
+        Currently available standards (remember to replace `${var.region}` as appropriate):
+
+        | Name                                     | ARN                                                                                             |
+        |------------------------------------------|-------------------------------------------------------------------------------------------------|
+        | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+        | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+        | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+        | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+        | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         """
         return pulumi.get(self, "standards_arn")
 
@@ -41,6 +61,16 @@ class _StandardsSubscriptionState:
         """
         Input properties used for looking up and filtering StandardsSubscription resources.
         :param pulumi.Input[str] standards_arn: The ARN of a standard - see below.
+               
+               Currently available standards (remember to replace `${var.region}` as appropriate):
+               
+               | Name                                     | ARN                                                                                             |
+               |------------------------------------------|-------------------------------------------------------------------------------------------------|
+               | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+               | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+               | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+               | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+               | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         """
         if standards_arn is not None:
             pulumi.set(__self__, "standards_arn", standards_arn)
@@ -50,6 +80,16 @@ class _StandardsSubscriptionState:
     def standards_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The ARN of a standard - see below.
+
+        Currently available standards (remember to replace `${var.region}` as appropriate):
+
+        | Name                                     | ARN                                                                                             |
+        |------------------------------------------|-------------------------------------------------------------------------------------------------|
+        | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+        | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+        | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+        | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+        | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         """
         return pulumi.get(self, "standards_arn")
 
@@ -101,6 +141,16 @@ class StandardsSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] standards_arn: The ARN of a standard - see below.
+               
+               Currently available standards (remember to replace `${var.region}` as appropriate):
+               
+               | Name                                     | ARN                                                                                             |
+               |------------------------------------------|-------------------------------------------------------------------------------------------------|
+               | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+               | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+               | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+               | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+               | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         """
         ...
     @overload
@@ -188,6 +238,16 @@ class StandardsSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] standards_arn: The ARN of a standard - see below.
+               
+               Currently available standards (remember to replace `${var.region}` as appropriate):
+               
+               | Name                                     | ARN                                                                                             |
+               |------------------------------------------|-------------------------------------------------------------------------------------------------|
+               | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+               | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+               | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+               | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+               | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -201,6 +261,16 @@ class StandardsSubscription(pulumi.CustomResource):
     def standards_arn(self) -> pulumi.Output[str]:
         """
         The ARN of a standard - see below.
+
+        Currently available standards (remember to replace `${var.region}` as appropriate):
+
+        | Name                                     | ARN                                                                                             |
+        |------------------------------------------|-------------------------------------------------------------------------------------------------|
+        | AWS Foundational Security Best Practices | `arn:aws:securityhub:${var.region}::standards/aws-foundational-security-best-practices/v/1.0.0` |
+        | CIS AWS Foundations Benchmark v1.2.0     | `arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0`                           |
+        | CIS AWS Foundations Benchmark v1.4.0     | `arn:aws:securityhub:${var.region}::standards/cis-aws-foundations-benchmark/v/1.4.0`            |
+        | NIST SP 800-53 Rev. 5                    | `arn:aws:securityhub:${var.region}::standards/nist-800-53/v/5.0.0`                              |
+        | PCI DSS                                  | `arn:aws:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
         """
         return pulumi.get(self, "standards_arn")
 

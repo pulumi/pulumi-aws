@@ -189,6 +189,8 @@ export class JobDefinition extends pulumi.CustomResource {
     public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
     /**
      * The type of job definition. Must be `container`.
+     *
+     * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -292,6 +294,8 @@ export interface JobDefinitionState {
     timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
     /**
      * The type of job definition. Must be `container`.
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
 }
@@ -336,6 +340,8 @@ export interface JobDefinitionArgs {
     timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
     /**
      * The type of job definition. Must be `container`.
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

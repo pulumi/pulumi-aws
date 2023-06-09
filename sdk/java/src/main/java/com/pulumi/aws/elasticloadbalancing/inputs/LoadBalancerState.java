@@ -322,12 +322,18 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * Exactly one of `availability_zones` or `subnets` must be specified: this
+     * determines if the ELB exists in a VPC or in EC2-classic.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * Exactly one of `availability_zones` or `subnets` must be specified: this
+     * determines if the ELB exists in a VPC or in EC2-classic.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -874,6 +880,9 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * Exactly one of `availability_zones` or `subnets` must be specified: this
+         * determines if the ELB exists in a VPC or in EC2-classic.
+         * 
          * @return builder
          * 
          */
@@ -884,6 +893,9 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * Exactly one of `availability_zones` or `subnets` must be specified: this
+         * determines if the ELB exists in a VPC or in EC2-classic.
          * 
          * @return builder
          * 

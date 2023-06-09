@@ -38,6 +38,8 @@ public final class AmiFromInstanceEbsBlockDevice {
     /**
      * @return ARN of the Outpost on which the snapshot is stored.
      * 
+     * &gt; **Note:** You can specify `encrypted` or `snapshot_id` but not both.
+     * 
      */
     private @Nullable String outpostArn;
     /**
@@ -98,6 +100,8 @@ public final class AmiFromInstanceEbsBlockDevice {
     }
     /**
      * @return ARN of the Outpost on which the snapshot is stored.
+     * 
+     * &gt; **Note:** You can specify `encrypted` or `snapshot_id` but not both.
      * 
      */
     public Optional<String> outpostArn() {

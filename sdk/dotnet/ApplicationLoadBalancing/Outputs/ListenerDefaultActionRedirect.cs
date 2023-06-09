@@ -35,6 +35,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Outputs
         public readonly string? Query;
         /// <summary>
         /// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string StatusCode;
 

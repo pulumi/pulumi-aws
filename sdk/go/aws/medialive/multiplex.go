@@ -79,6 +79,8 @@ type Multiplex struct {
 	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings MultiplexMultiplexSettingsPtrOutput `pulumi:"multiplexSettings"`
 	// name of Multiplex.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex pulumi.BoolPtrOutput `pulumi:"startMultiplex"`
@@ -126,6 +128,8 @@ type multiplexState struct {
 	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings *MultiplexMultiplexSettings `pulumi:"multiplexSettings"`
 	// name of Multiplex.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex *bool `pulumi:"startMultiplex"`
@@ -142,6 +146,8 @@ type MultiplexState struct {
 	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings MultiplexMultiplexSettingsPtrInput
 	// name of Multiplex.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex pulumi.BoolPtrInput
@@ -160,6 +166,8 @@ type multiplexArgs struct {
 	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings *MultiplexMultiplexSettings `pulumi:"multiplexSettings"`
 	// name of Multiplex.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex *bool `pulumi:"startMultiplex"`
@@ -174,6 +182,8 @@ type MultiplexArgs struct {
 	// Multiplex settings. See Multiplex Settings for more details.
 	MultiplexSettings MultiplexMultiplexSettingsPtrInput
 	// name of Multiplex.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Whether to start the Multiplex. Defaults to `false`.
 	StartMultiplex pulumi.BoolPtrInput
@@ -284,6 +294,8 @@ func (o MultiplexOutput) MultiplexSettings() MultiplexMultiplexSettingsPtrOutput
 }
 
 // name of Multiplex.
+//
+// The following arguments are optional:
 func (o MultiplexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Multiplex) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

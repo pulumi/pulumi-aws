@@ -113,12 +113,16 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
     /**
      * Send the events to an SNS Topic destination
      * 
+     * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both
+     * 
      */
     @Import(name="snsDestination")
     private @Nullable Output<EventDestinationSnsDestinationArgs> snsDestination;
 
     /**
      * @return Send the events to an SNS Topic destination
+     * 
+     * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both
      * 
      */
     public Optional<Output<EventDestinationSnsDestinationArgs>> snsDestination() {
@@ -304,6 +308,8 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param snsDestination Send the events to an SNS Topic destination
          * 
+         * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both
+         * 
          * @return builder
          * 
          */
@@ -314,6 +320,8 @@ public final class EventDestinationArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param snsDestination Send the events to an SNS Topic destination
+         * 
+         * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both
          * 
          * @return builder
          * 

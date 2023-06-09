@@ -91,12 +91,16 @@ public class Group extends com.pulumi.resources.CustomResource {
     /**
      * The globally unique identifier for the identity store.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="identityStoreId", refs={String.class}, tree="[0]")
     private Output<String> identityStoreId;
 
     /**
      * @return The globally unique identifier for the identity store.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> identityStoreId() {

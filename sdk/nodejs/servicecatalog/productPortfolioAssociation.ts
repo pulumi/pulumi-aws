@@ -66,6 +66,8 @@ export class ProductPortfolioAssociation extends pulumi.CustomResource {
     public readonly portfolioId!: pulumi.Output<string>;
     /**
      * Product identifier.
+     *
+     * The following arguments are optional:
      */
     public readonly productId!: pulumi.Output<string>;
     /**
@@ -122,6 +124,8 @@ export interface ProductPortfolioAssociationState {
     portfolioId?: pulumi.Input<string>;
     /**
      * Product identifier.
+     *
+     * The following arguments are optional:
      */
     productId?: pulumi.Input<string>;
     /**
@@ -144,6 +148,8 @@ export interface ProductPortfolioAssociationArgs {
     portfolioId: pulumi.Input<string>;
     /**
      * Product identifier.
+     *
+     * The following arguments are optional:
      */
     productId: pulumi.Input<string>;
     /**

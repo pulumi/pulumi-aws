@@ -94,6 +94,8 @@ namespace Pulumi.Aws.DirectConnect
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+        /// 
+        /// &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
         /// </summary>
         [Output("secretArn")]
         public Output<string> SecretArn { get; private set; } = null!;
@@ -176,6 +178,8 @@ namespace Pulumi.Aws.DirectConnect
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+        /// 
+        /// &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
@@ -208,6 +212,8 @@ namespace Pulumi.Aws.DirectConnect
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+        /// 
+        /// &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }

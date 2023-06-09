@@ -42,12 +42,16 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Identifier for the data set.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="dataSetId", required=true)
     private String dataSetId;
 
     /**
      * @return Identifier for the data set.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String dataSetId() {
@@ -110,6 +114,8 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param dataSetId Identifier for the data set.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

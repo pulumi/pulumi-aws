@@ -87,6 +87,12 @@ type NetworkAclRule struct {
 	// The from port to match.
 	FromPort pulumi.IntPtrOutput `pulumi:"fromPort"`
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+	//
+	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+	//
+	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+	//
+	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 	IcmpCode pulumi.IntPtrOutput `pulumi:"icmpCode"`
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType pulumi.IntPtrOutput `pulumi:"icmpType"`
@@ -152,6 +158,12 @@ type networkAclRuleState struct {
 	// The from port to match.
 	FromPort *int `pulumi:"fromPort"`
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+	//
+	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+	//
+	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+	//
+	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 	IcmpCode *int `pulumi:"icmpCode"`
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType *int `pulumi:"icmpType"`
@@ -177,6 +189,12 @@ type NetworkAclRuleState struct {
 	// The from port to match.
 	FromPort pulumi.IntPtrInput
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+	//
+	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+	//
+	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+	//
+	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 	IcmpCode pulumi.IntPtrInput
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType pulumi.IntPtrInput
@@ -206,6 +224,12 @@ type networkAclRuleArgs struct {
 	// The from port to match.
 	FromPort *int `pulumi:"fromPort"`
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+	//
+	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+	//
+	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+	//
+	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 	IcmpCode *int `pulumi:"icmpCode"`
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType *int `pulumi:"icmpType"`
@@ -232,6 +256,12 @@ type NetworkAclRuleArgs struct {
 	// The from port to match.
 	FromPort pulumi.IntPtrInput
 	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+	//
+	// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+	//
+	// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+	//
+	// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 	IcmpCode pulumi.IntPtrInput
 	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType pulumi.IntPtrInput
@@ -352,6 +382,12 @@ func (o NetworkAclRuleOutput) FromPort() pulumi.IntPtrOutput {
 }
 
 // ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+//
+// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+//
+// > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+//
+// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
 func (o NetworkAclRuleOutput) IcmpCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkAclRule) pulumi.IntPtrOutput { return v.IcmpCode }).(pulumi.IntPtrOutput)
 }

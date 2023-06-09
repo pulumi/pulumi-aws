@@ -408,12 +408,16 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     /**
      * Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="role")
     private @Nullable Output<String> role;
 
     /**
      * @return Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> role() {
@@ -1287,6 +1291,8 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param role Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -1297,6 +1303,8 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param role Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

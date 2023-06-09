@@ -49,12 +49,16 @@ public final class ServiceNetworkState extends com.pulumi.resources.ResourceArgs
     /**
      * Name of the service network
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the service network
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -164,6 +168,8 @@ public final class ServiceNetworkState extends com.pulumi.resources.ResourceArgs
         /**
          * @param name Name of the service network
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -174,6 +180,8 @@ public final class ServiceNetworkState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param name Name of the service network
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

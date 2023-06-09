@@ -561,6 +561,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+        /// 
+        /// &gt; **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
         /// </summary>
         [Output("objectLockConfiguration")]
         public Output<Outputs.BucketObjectLockConfiguration?> ObjectLockConfiguration { get; private set; } = null!;
@@ -772,6 +774,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+        /// 
+        /// &gt; **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
         /// </summary>
         [Input("objectLockConfiguration")]
         public Input<Inputs.BucketObjectLockConfigurationArgs>? ObjectLockConfiguration { get; set; }
@@ -951,6 +955,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+        /// 
+        /// &gt; **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
         /// </summary>
         [Input("objectLockConfiguration")]
         public Input<Inputs.BucketObjectLockConfigurationGetArgs>? ObjectLockConfiguration { get; set; }

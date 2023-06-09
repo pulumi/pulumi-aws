@@ -134,12 +134,16 @@ public class PlaceIndex extends com.pulumi.resources.CustomResource {
     /**
      * The name of the place index resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="indexName", refs={String.class}, tree="[0]")
     private Output<String> indexName;
 
     /**
      * @return The name of the place index resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> indexName() {

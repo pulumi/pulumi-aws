@@ -386,6 +386,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// ARN of the SNS topic to subscribe to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("topic")]
         public Output<string> Topic { get; private set; } = null!;
@@ -498,6 +500,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// ARN of the SNS topic to subscribe to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("topic", required: true)]
         public Input<string> Topic { get; set; } = null!;
@@ -596,6 +600,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// ARN of the SNS topic to subscribe to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("topic")]
         public Input<string>? Topic { get; set; }

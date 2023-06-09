@@ -116,6 +116,8 @@ type IntegrationResponse struct {
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrOutput `pulumi:"selectionPattern"`
 	// HTTP status code.
+	//
+	// The following arguments are optional:
 	StatusCode pulumi.StringOutput `pulumi:"statusCode"`
 }
 
@@ -175,6 +177,8 @@ type integrationResponseState struct {
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern *string `pulumi:"selectionPattern"`
 	// HTTP status code.
+	//
+	// The following arguments are optional:
 	StatusCode *string `pulumi:"statusCode"`
 }
 
@@ -194,6 +198,8 @@ type IntegrationResponseState struct {
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrInput
 	// HTTP status code.
+	//
+	// The following arguments are optional:
 	StatusCode pulumi.StringPtrInput
 }
 
@@ -217,6 +223,8 @@ type integrationResponseArgs struct {
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern *string `pulumi:"selectionPattern"`
 	// HTTP status code.
+	//
+	// The following arguments are optional:
 	StatusCode string `pulumi:"statusCode"`
 }
 
@@ -237,6 +245,8 @@ type IntegrationResponseArgs struct {
 	// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
 	SelectionPattern pulumi.StringPtrInput
 	// HTTP status code.
+	//
+	// The following arguments are optional:
 	StatusCode pulumi.StringInput
 }
 
@@ -363,6 +373,8 @@ func (o IntegrationResponseOutput) SelectionPattern() pulumi.StringPtrOutput {
 }
 
 // HTTP status code.
+//
+// The following arguments are optional:
 func (o IntegrationResponseOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringOutput { return v.StatusCode }).(pulumi.StringOutput)
 }

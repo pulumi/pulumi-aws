@@ -176,7 +176,7 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     import pulumi_aws as aws
 
     example = aws.organizations.get_organization()
-    pulumi.export("accountIds", [__item.id for __item in [example.accounts]])
+    pulumi.export("accountIds", [__item.id for __item in example.accounts])
     ```
     ### SNS topic that can be interacted by the organization only
 

@@ -84,6 +84,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -175,6 +177,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -231,6 +235,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SubnetIds
         {

@@ -41,6 +41,8 @@ export interface GetLaunchPathsArgs {
     acceptLanguage?: string;
     /**
      * Product identifier.
+     *
+     * The following arguments are optional:
      */
     productId: string;
 }
@@ -89,6 +91,8 @@ export interface GetLaunchPathsOutputArgs {
     acceptLanguage?: pulumi.Input<string>;
     /**
      * Product identifier.
+     *
+     * The following arguments are optional:
      */
     productId: pulumi.Input<string>;
 }

@@ -96,6 +96,8 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * When an ongoing experiment should be stopped. See below.
+     *
+     * The following arguments are optional:
      */
     public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
     /**
@@ -173,6 +175,8 @@ export interface ExperimentTemplateState {
     roleArn?: pulumi.Input<string>;
     /**
      * When an ongoing experiment should be stopped. See below.
+     *
+     * The following arguments are optional:
      */
     stopConditions?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopCondition>[]>;
     /**
@@ -204,6 +208,8 @@ export interface ExperimentTemplateArgs {
     roleArn: pulumi.Input<string>;
     /**
      * When an ongoing experiment should be stopped. See below.
+     *
+     * The following arguments are optional:
      */
     stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopCondition>[]>;
     /**

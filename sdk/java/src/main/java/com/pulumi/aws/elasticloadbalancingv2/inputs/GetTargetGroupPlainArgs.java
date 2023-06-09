@@ -48,12 +48,16 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
     /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired target group.
      * 
+     * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
+     * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
      * @return Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+     * 
+     * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -110,6 +114,8 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
 
         /**
          * @param tags Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+         * 
+         * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
          * 
          * @return builder
          * 

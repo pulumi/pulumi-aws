@@ -308,12 +308,12 @@ class FlowDefinition(pulumi.CustomResource):
             flow_definition_name="example",
             role_arn=aws_iam_role["example"]["arn"],
             human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
+                human_task_ui_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 task_availability_lifetime_in_seconds=1,
                 task_count=1,
                 task_description="example",
                 task_title="example",
-                workteam_arn=aws_sagemaker_workteam["example"]["arn"],
+                workteam_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
                 s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
@@ -329,7 +329,7 @@ class FlowDefinition(pulumi.CustomResource):
             flow_definition_name="example",
             role_arn=aws_iam_role["example"]["arn"],
             human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
+                human_task_ui_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 task_availability_lifetime_in_seconds=1,
                 task_count=1,
                 task_description="example",
@@ -356,12 +356,12 @@ class FlowDefinition(pulumi.CustomResource):
             flow_definition_name="example",
             role_arn=aws_iam_role["example"]["arn"],
             human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
+                human_task_ui_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 task_availability_lifetime_in_seconds=1,
                 task_count=1,
                 task_description="example",
                 task_title="example",
-                workteam_arn=aws_sagemaker_workteam["example"]["arn"],
+                workteam_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             human_loop_request_source=aws.sagemaker.FlowDefinitionHumanLoopRequestSourceArgs(
                 aws_managed_human_loop_request_source="AWS/Textract/AnalyzeDocument/Forms/V1",
@@ -424,12 +424,12 @@ class FlowDefinition(pulumi.CustomResource):
             flow_definition_name="example",
             role_arn=aws_iam_role["example"]["arn"],
             human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
+                human_task_ui_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 task_availability_lifetime_in_seconds=1,
                 task_count=1,
                 task_description="example",
                 task_title="example",
-                workteam_arn=aws_sagemaker_workteam["example"]["arn"],
+                workteam_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
                 s3_output_path=f"s3://{aws_s3_bucket['example']['bucket']}/",
@@ -445,7 +445,7 @@ class FlowDefinition(pulumi.CustomResource):
             flow_definition_name="example",
             role_arn=aws_iam_role["example"]["arn"],
             human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
+                human_task_ui_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 task_availability_lifetime_in_seconds=1,
                 task_count=1,
                 task_description="example",
@@ -472,12 +472,12 @@ class FlowDefinition(pulumi.CustomResource):
             flow_definition_name="example",
             role_arn=aws_iam_role["example"]["arn"],
             human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=aws_sagemaker_human_task_ui["example"]["arn"],
+                human_task_ui_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 task_availability_lifetime_in_seconds=1,
                 task_count=1,
                 task_description="example",
                 task_title="example",
-                workteam_arn=aws_sagemaker_workteam["example"]["arn"],
+                workteam_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             human_loop_request_source=aws.sagemaker.FlowDefinitionHumanLoopRequestSourceArgs(
                 aws_managed_human_loop_request_source="AWS/Textract/AnalyzeDocument/Forms/V1",

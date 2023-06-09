@@ -20,6 +20,8 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperation {
     /**
      * @return Configures the masking of sensitive data.
      * 
+     * &gt; Every policy statement must specify exactly one operation.
+     * 
      */
     private @Nullable GetLogDataProtectionPolicyDocumentStatementOperationDeidentify deidentify;
 
@@ -33,6 +35,8 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperation {
     }
     /**
      * @return Configures the masking of sensitive data.
+     * 
+     * &gt; Every policy statement must specify exactly one operation.
      * 
      */
     public Optional<GetLogDataProtectionPolicyDocumentStatementOperationDeidentify> deidentify() {

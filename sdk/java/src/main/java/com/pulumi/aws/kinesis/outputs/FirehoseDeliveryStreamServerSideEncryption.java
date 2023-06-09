@@ -20,6 +20,10 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
     /**
      * @return Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
      * 
+     * The `s3_configuration` object supports the following:
+     * 
+     * &gt; **NOTE:** This configuration block is deprecated for the `s3` destination.
+     * 
      */
     private @Nullable String keyArn;
     /**
@@ -38,6 +42,10 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
     }
     /**
      * @return Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
+     * 
+     * The `s3_configuration` object supports the following:
+     * 
+     * &gt; **NOTE:** This configuration block is deprecated for the `s3` destination.
      * 
      */
     public Optional<String> keyArn() {

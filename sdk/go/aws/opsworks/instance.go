@@ -179,6 +179,8 @@ type Instance struct {
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName pulumi.StringOutput `pulumi:"sshKeyName"`
 	// Identifier of the stack the instance will belong to.
+	//
+	// The following arguments are optional:
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// Desired state of the instance. Valid values are `running` or `stopped`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
@@ -306,6 +308,8 @@ type instanceState struct {
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName *string `pulumi:"sshKeyName"`
 	// Identifier of the stack the instance will belong to.
+	//
+	// The following arguments are optional:
 	StackId *string `pulumi:"stackId"`
 	// Desired state of the instance. Valid values are `running` or `stopped`.
 	State *string `pulumi:"state"`
@@ -399,6 +403,8 @@ type InstanceState struct {
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName pulumi.StringPtrInput
 	// Identifier of the stack the instance will belong to.
+	//
+	// The following arguments are optional:
 	StackId pulumi.StringPtrInput
 	// Desired state of the instance. Valid values are `running` or `stopped`.
 	State pulumi.StringPtrInput
@@ -466,6 +472,8 @@ type instanceArgs struct {
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName *string `pulumi:"sshKeyName"`
 	// Identifier of the stack the instance will belong to.
+	//
+	// The following arguments are optional:
 	StackId string `pulumi:"stackId"`
 	// Desired state of the instance. Valid values are `running` or `stopped`.
 	State *string `pulumi:"state"`
@@ -530,6 +538,8 @@ type InstanceArgs struct {
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName pulumi.StringPtrInput
 	// Identifier of the stack the instance will belong to.
+	//
+	// The following arguments are optional:
 	StackId pulumi.StringInput
 	// Desired state of the instance. Valid values are `running` or `stopped`.
 	State pulumi.StringPtrInput
@@ -826,6 +836,8 @@ func (o InstanceOutput) SshKeyName() pulumi.StringOutput {
 }
 
 // Identifier of the stack the instance will belong to.
+//
+// The following arguments are optional:
 func (o InstanceOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }

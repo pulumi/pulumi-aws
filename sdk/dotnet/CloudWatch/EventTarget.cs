@@ -664,6 +664,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name of the rule you want to add targets to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("rule")]
         public Output<string> Rule { get; private set; } = null!;
@@ -813,6 +815,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name of the rule you want to add targets to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("rule", required: true)]
         public Input<string> Rule { get; set; } = null!;
@@ -930,6 +934,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name of the rule you want to add targets to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("rule")]
         public Input<string>? Rule { get; set; }

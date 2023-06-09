@@ -156,12 +156,16 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -393,6 +397,8 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -403,6 +409,8 @@ public final class DataSourceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

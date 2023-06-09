@@ -58,6 +58,8 @@ class ReplicationSetRegion(dict):
         """
         :param str name: The name of the Region, such as `ap-southeast-2`.
         :param str kms_key_arn: The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+               
+               The following arguments are optional:
         :param str status: The current status of the Region.
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         :param str status_message: More information about the status of a Region.
@@ -83,6 +85,8 @@ class ReplicationSetRegion(dict):
     def kms_key_arn(self) -> Optional[str]:
         """
         The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -392,6 +396,8 @@ class ResponsePlanIncidentTemplateNotificationTarget(dict):
                  sns_topic_arn: str):
         """
         :param str sns_topic_arn: The ARN of the Amazon SNS topic.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
@@ -400,6 +406,8 @@ class ResponsePlanIncidentTemplateNotificationTarget(dict):
     def sns_topic_arn(self) -> str:
         """
         The ARN of the Amazon SNS topic.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -451,6 +459,8 @@ class ResponsePlanIntegrationPagerduty(dict):
         """
         :param str name: The name of the response plan.
         :param str secret_id: The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
+               
+               For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
         :param str service_id: The ID of the PagerDuty service that the response plan associated with the incident at launch.
         """
         pulumi.set(__self__, "name", name)
@@ -470,6 +480,8 @@ class ResponsePlanIntegrationPagerduty(dict):
     def secret_id(self) -> str:
         """
         The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
+
+        For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
         """
         return pulumi.get(self, "secret_id")
 

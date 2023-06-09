@@ -36,6 +36,8 @@ export function getResolverFirewallRuleGroup(args: GetResolverFirewallRuleGroupA
 export interface GetResolverFirewallRuleGroupArgs {
     /**
      * The ID of the rule group.
+     *
+     * The following attribute is additionally exported:
      */
     firewallRuleGroupId: string;
 }
@@ -88,6 +90,8 @@ export function getResolverFirewallRuleGroupOutput(args: GetResolverFirewallRule
 export interface GetResolverFirewallRuleGroupOutputArgs {
     /**
      * The ID of the rule group.
+     *
+     * The following attribute is additionally exported:
      */
     firewallRuleGroupId: pulumi.Input<string>;
 }

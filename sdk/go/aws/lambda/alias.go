@@ -74,6 +74,8 @@ type Alias struct {
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Lambda alias' route configuration settings. Fields documented below
+	//
+	// For **routing_config** the following attributes are supported:
 	RoutingConfig AliasRoutingConfigPtrOutput `pulumi:"routingConfig"`
 }
 
@@ -125,6 +127,8 @@ type aliasState struct {
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name *string `pulumi:"name"`
 	// The Lambda alias' route configuration settings. Fields documented below
+	//
+	// For **routing_config** the following attributes are supported:
 	RoutingConfig *AliasRoutingConfig `pulumi:"routingConfig"`
 }
 
@@ -142,6 +146,8 @@ type AliasState struct {
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name pulumi.StringPtrInput
 	// The Lambda alias' route configuration settings. Fields documented below
+	//
+	// For **routing_config** the following attributes are supported:
 	RoutingConfig AliasRoutingConfigPtrInput
 }
 
@@ -159,6 +165,8 @@ type aliasArgs struct {
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name *string `pulumi:"name"`
 	// The Lambda alias' route configuration settings. Fields documented below
+	//
+	// For **routing_config** the following attributes are supported:
 	RoutingConfig *AliasRoutingConfig `pulumi:"routingConfig"`
 }
 
@@ -173,6 +181,8 @@ type AliasArgs struct {
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name pulumi.StringPtrInput
 	// The Lambda alias' route configuration settings. Fields documented below
+	//
+	// For **routing_config** the following attributes are supported:
 	RoutingConfig AliasRoutingConfigPtrInput
 }
 
@@ -294,6 +304,8 @@ func (o AliasOutput) Name() pulumi.StringOutput {
 }
 
 // The Lambda alias' route configuration settings. Fields documented below
+//
+// For **routing_config** the following attributes are supported:
 func (o AliasOutput) RoutingConfig() AliasRoutingConfigPtrOutput {
 	return o.ApplyT(func(v *Alias) AliasRoutingConfigPtrOutput { return v.RoutingConfig }).(AliasRoutingConfigPtrOutput)
 }

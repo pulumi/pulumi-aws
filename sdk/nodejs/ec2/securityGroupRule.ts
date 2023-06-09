@@ -204,6 +204,8 @@ export class SecurityGroupRule extends pulumi.CustomResource {
     /**
      * Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
+     *
+     * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -318,6 +320,8 @@ export interface SecurityGroupRuleState {
     /**
      * Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
 }
@@ -369,6 +373,8 @@ export interface SecurityGroupRuleArgs {
     /**
      * Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

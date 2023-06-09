@@ -460,7 +460,7 @@ class AnalyticsApplication(pulumi.CustomResource):
             name_prefix="test_prefix",
             kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
                 resource_arn=test_stream.arn,
-                role_arn=aws_iam_role["test"]["arn"],
+                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             parallelism=aws.kinesis.AnalyticsApplicationInputsParallelismArgs(
                 count=1,
@@ -494,13 +494,13 @@ class AnalyticsApplication(pulumi.CustomResource):
         example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
             destination="extended_s3",
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                bucket_arn=aws_s3_bucket["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
+                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         test = aws.kinesis.AnalyticsApplication("test",
             cloudwatch_logging_options=aws.kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArgs(
                 log_stream_arn=example_log_stream.arn,
-                role_arn=aws_iam_role["example"]["arn"],
+                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             inputs=aws.kinesis.AnalyticsApplicationInputsArgs(
                 name_prefix="example_prefix",
@@ -520,7 +520,7 @@ class AnalyticsApplication(pulumi.CustomResource):
                 ),
                 kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
                     resource_arn=example_stream.arn,
-                    role_arn=aws_iam_role["example"]["arn"],
+                    role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 starting_position_configurations=[aws.kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArgs(
                     starting_position="NOW",
@@ -533,7 +533,7 @@ class AnalyticsApplication(pulumi.CustomResource):
                 ),
                 kinesis_firehose=aws.kinesis.AnalyticsApplicationOutputKinesisFirehoseArgs(
                     resource_arn=example_firehose_delivery_stream.arn,
-                    role_arn=aws_iam_role["example"]["arn"],
+                    role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             )],
             start_application=True)
@@ -588,7 +588,7 @@ class AnalyticsApplication(pulumi.CustomResource):
             name_prefix="test_prefix",
             kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
                 resource_arn=test_stream.arn,
-                role_arn=aws_iam_role["test"]["arn"],
+                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             parallelism=aws.kinesis.AnalyticsApplicationInputsParallelismArgs(
                 count=1,
@@ -622,13 +622,13 @@ class AnalyticsApplication(pulumi.CustomResource):
         example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
             destination="extended_s3",
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                bucket_arn=aws_s3_bucket["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
+                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         test = aws.kinesis.AnalyticsApplication("test",
             cloudwatch_logging_options=aws.kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArgs(
                 log_stream_arn=example_log_stream.arn,
-                role_arn=aws_iam_role["example"]["arn"],
+                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             inputs=aws.kinesis.AnalyticsApplicationInputsArgs(
                 name_prefix="example_prefix",
@@ -648,7 +648,7 @@ class AnalyticsApplication(pulumi.CustomResource):
                 ),
                 kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
                     resource_arn=example_stream.arn,
-                    role_arn=aws_iam_role["example"]["arn"],
+                    role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 starting_position_configurations=[aws.kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArgs(
                     starting_position="NOW",
@@ -661,7 +661,7 @@ class AnalyticsApplication(pulumi.CustomResource):
                 ),
                 kinesis_firehose=aws.kinesis.AnalyticsApplicationOutputKinesisFirehoseArgs(
                     resource_arn=example_firehose_delivery_stream.arn,
-                    role_arn=aws_iam_role["example"]["arn"],
+                    role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             )],
             start_application=True)

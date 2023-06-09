@@ -154,6 +154,10 @@ namespace Pulumi.Aws.OpsWorks
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The following extra optional arguments, all lists of Chef recipe names, allow
+        /// custom Chef recipes to be applied to layer instances at the five different
+        /// lifecycle events, if custom cookbooks are enabled on the layer's stack:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -369,6 +373,10 @@ namespace Pulumi.Aws.OpsWorks
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The following extra optional arguments, all lists of Chef recipe names, allow
+        /// custom Chef recipes to be applied to layer instances at the five different
+        /// lifecycle events, if custom cookbooks are enabled on the layer's stack:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -549,6 +557,10 @@ namespace Pulumi.Aws.OpsWorks
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The following extra optional arguments, all lists of Chef recipe names, allow
+        /// custom Chef recipes to be applied to layer instances at the five different
+        /// lifecycle events, if custom cookbooks are enabled on the layer's stack:
         /// </summary>
         public InputMap<string> Tags
         {

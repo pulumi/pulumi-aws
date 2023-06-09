@@ -30,6 +30,8 @@ class TopicSubscriptionArgs:
         :param pulumi.Input[str] endpoint: Endpoint to send data to. The contents vary with the protocol. See details below.
         :param pulumi.Input[str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] confirmation_timeout_in_minutes: Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         :param pulumi.Input[str] delivery_policy: JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         :param pulumi.Input[bool] endpoint_auto_confirms: Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
@@ -88,6 +90,8 @@ class TopicSubscriptionArgs:
     def topic(self) -> pulumi.Input[str]:
         """
         ARN of the SNS topic to subscribe to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "topic")
 
@@ -227,6 +231,8 @@ class _TopicSubscriptionState:
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -432,6 +438,8 @@ class _TopicSubscriptionState:
     def topic(self) -> Optional[pulumi.Input[str]]:
         """
         ARN of the SNS topic to subscribe to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "topic")
 
@@ -585,21 +593,21 @@ class TopicSubscription(pulumi.CustomResource):
             )])
         # provider to manage SNS topics
         aws_sns = aws.Provider("awsSns",
-            region=sns["region"],
+            region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
                 session_name=f"sns-{sns['region']}",
             ))
         # provider to manage SQS queues
         aws_sqs = aws.Provider("awsSqs",
-            region=sqs["region"],
+            region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sqs-{sqs['region']}",
             ))
         # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
         sns2sqs = aws.Provider("sns2sqs",
-            region=sns["region"],
+            region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sns2sqs-{sns['region']}",
@@ -638,6 +646,8 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -773,21 +783,21 @@ class TopicSubscription(pulumi.CustomResource):
             )])
         # provider to manage SNS topics
         aws_sns = aws.Provider("awsSns",
-            region=sns["region"],
+            region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
                 session_name=f"sns-{sns['region']}",
             ))
         # provider to manage SQS queues
         aws_sqs = aws.Provider("awsSqs",
-            region=sqs["region"],
+            region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sqs-{sqs['region']}",
             ))
         # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
         sns2sqs = aws.Provider("sns2sqs",
-            region=sns["region"],
+            region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sns2sqs-{sns['region']}",
@@ -916,6 +926,8 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1055,6 +1067,8 @@ class TopicSubscription(pulumi.CustomResource):
     def topic(self) -> pulumi.Output[str]:
         """
         ARN of the SNS topic to subscribe to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "topic")
 

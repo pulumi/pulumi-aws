@@ -11,6 +11,39 @@ import (
 )
 
 // `ec2.InternetGateway` provides details about a specific Internet Gateway.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// cfg := config.New(ctx, "")
+// vpcId := cfg.RequireObject("vpcId")
+// _, err := ec2.LookupInternetGateway(ctx, &ec2.LookupInternetGatewayArgs{
+// Filters: []ec2.GetInternetGatewayFilter{
+// {
+// Name: "attachment.vpc-id",
+// Values: interface{}{
+// vpcId,
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs, opts ...pulumi.InvokeOption) (*LookupInternetGatewayResult, error) {
 	var rv LookupInternetGatewayResult
 	err := ctx.Invoke("aws:ec2/getInternetGateway:getInternetGateway", args, &rv, opts...)
@@ -23,6 +56,9 @@ func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs,
 // A collection of arguments for invoking getInternetGateway.
 type LookupInternetGatewayArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetInternetGatewayFilter `pulumi:"filters"`
 	// ID of the specific Internet Gateway to retrieve.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
@@ -61,6 +97,9 @@ func LookupInternetGatewayOutput(ctx *pulumi.Context, args LookupInternetGateway
 // A collection of arguments for invoking getInternetGateway.
 type LookupInternetGatewayOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetInternetGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the specific Internet Gateway to retrieve.
 	InternetGatewayId pulumi.StringPtrInput `pulumi:"internetGatewayId"`

@@ -467,6 +467,8 @@ func (o LoggingConfigurationDestinationConfigurationFirehosePtrOutput) DeliveryS
 
 type LoggingConfigurationDestinationConfigurationS3 struct {
 	// Name of the Amazon S3 bucket where chat activity will be logged.
+	//
+	// The following arguments are optional:
 	BucketName string `pulumi:"bucketName"`
 }
 
@@ -483,6 +485,8 @@ type LoggingConfigurationDestinationConfigurationS3Input interface {
 
 type LoggingConfigurationDestinationConfigurationS3Args struct {
 	// Name of the Amazon S3 bucket where chat activity will be logged.
+	//
+	// The following arguments are optional:
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
@@ -564,6 +568,8 @@ func (o LoggingConfigurationDestinationConfigurationS3Output) ToLoggingConfigura
 }
 
 // Name of the Amazon S3 bucket where chat activity will be logged.
+//
+// The following arguments are optional:
 func (o LoggingConfigurationDestinationConfigurationS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfigurationS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -593,6 +599,8 @@ func (o LoggingConfigurationDestinationConfigurationS3PtrOutput) Elem() LoggingC
 }
 
 // Name of the Amazon S3 bucket where chat activity will be logged.
+//
+// The following arguments are optional:
 func (o LoggingConfigurationDestinationConfigurationS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggingConfigurationDestinationConfigurationS3) *string {
 		if v == nil {

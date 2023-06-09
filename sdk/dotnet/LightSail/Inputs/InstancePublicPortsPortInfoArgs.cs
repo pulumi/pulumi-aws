@@ -58,6 +58,8 @@ namespace Pulumi.Aws.LightSail.Inputs
 
         /// <summary>
         /// Last port in a range of open ports on an instance.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;

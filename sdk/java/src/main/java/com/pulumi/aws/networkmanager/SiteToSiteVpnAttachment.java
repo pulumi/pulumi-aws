@@ -233,12 +233,16 @@ public class SiteToSiteVpnAttachment extends com.pulumi.resources.CustomResource
     /**
      * The ARN of the site-to-site VPN connection.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vpnConnectionArn", refs={String.class}, tree="[0]")
     private Output<String> vpnConnectionArn;
 
     /**
      * @return The ARN of the site-to-site VPN connection.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vpnConnectionArn() {

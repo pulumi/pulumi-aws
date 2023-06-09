@@ -248,6 +248,10 @@ type Instance struct {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile pulumi.StringPtrOutput `pulumi:"customIamInstanceProfile"`
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	//
+	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+	// Replicate database managed by the provider will promote the database to a fully
+	// standalone database.
 	CustomerOwnedIpEnabled pulumi.BoolPtrOutput `pulumi:"customerOwnedIpEnabled"`
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName pulumi.StringOutput `pulumi:"dbName"`
@@ -516,6 +520,10 @@ type instanceState struct {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile *string `pulumi:"customIamInstanceProfile"`
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	//
+	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+	// Replicate database managed by the provider will promote the database to a fully
+	// standalone database.
 	CustomerOwnedIpEnabled *bool `pulumi:"customerOwnedIpEnabled"`
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName *string `pulumi:"dbName"`
@@ -746,6 +754,10 @@ type InstanceState struct {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile pulumi.StringPtrInput
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	//
+	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+	// Replicate database managed by the provider will promote the database to a fully
+	// standalone database.
 	CustomerOwnedIpEnabled pulumi.BoolPtrInput
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName pulumi.StringPtrInput
@@ -976,6 +988,10 @@ type instanceArgs struct {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile *string `pulumi:"customIamInstanceProfile"`
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	//
+	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+	// Replicate database managed by the provider will promote the database to a fully
+	// standalone database.
 	CustomerOwnedIpEnabled *bool `pulumi:"customerOwnedIpEnabled"`
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName *string `pulumi:"dbName"`
@@ -1184,6 +1200,10 @@ type InstanceArgs struct {
 	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
 	CustomIamInstanceProfile pulumi.StringPtrInput
 	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	//
+	// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+	// Replicate database managed by the provider will promote the database to a fully
+	// standalone database.
 	CustomerOwnedIpEnabled pulumi.BoolPtrInput
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
 	DbName pulumi.StringPtrInput
@@ -1523,6 +1543,10 @@ func (o InstanceOutput) CustomIamInstanceProfile() pulumi.StringPtrOutput {
 }
 
 // Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+//
+// > **NOTE:** Removing the `replicateSourceDb` attribute from an existing RDS
+// Replicate database managed by the provider will promote the database to a fully
+// standalone database.
 func (o InstanceOutput) CustomerOwnedIpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.CustomerOwnedIpEnabled }).(pulumi.BoolPtrOutput)
 }

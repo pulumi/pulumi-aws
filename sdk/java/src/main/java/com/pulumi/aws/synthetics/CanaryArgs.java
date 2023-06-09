@@ -205,12 +205,16 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="schedule", required=true)
     private Output<CanaryScheduleArgs> schedule;
 
     /**
      * @return Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<CanaryScheduleArgs> schedule() {
@@ -588,6 +592,8 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param schedule Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -598,6 +604,8 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param schedule Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

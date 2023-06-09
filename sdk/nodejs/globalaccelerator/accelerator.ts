@@ -104,6 +104,8 @@ export class Accelerator extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **attributes** supports the following attributes:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -198,6 +200,8 @@ export interface AcceleratorState {
     name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **attributes** supports the following attributes:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -232,6 +236,8 @@ export interface AcceleratorArgs {
     name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **attributes** supports the following attributes:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

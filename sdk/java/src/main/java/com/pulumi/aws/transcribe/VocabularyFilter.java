@@ -148,12 +148,16 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
     /**
      * The name of the VocabularyFilter.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vocabularyFilterName", refs={String.class}, tree="[0]")
     private Output<String> vocabularyFilterName;
 
     /**
      * @return The name of the VocabularyFilter.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vocabularyFilterName() {

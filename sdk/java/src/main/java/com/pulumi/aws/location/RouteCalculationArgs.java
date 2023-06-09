@@ -34,12 +34,16 @@ public final class RouteCalculationArgs extends com.pulumi.resources.ResourceArg
     /**
      * Specifies the data provider of traffic and road network data.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
      * @return Specifies the data provider of traffic and road network data.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> dataSource() {
@@ -127,6 +131,8 @@ public final class RouteCalculationArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param dataSource Specifies the data provider of traffic and road network data.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -137,6 +143,8 @@ public final class RouteCalculationArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param dataSource Specifies the data provider of traffic and road network data.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

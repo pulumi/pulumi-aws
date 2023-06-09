@@ -78,6 +78,8 @@ export class PublicKey extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The name for the public key. Conflicts with `name`.
+     *
+     * **NOTE:** When setting `encodedKey` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
      */
     public readonly namePrefix!: pulumi.Output<string>;
 
@@ -143,6 +145,8 @@ export interface PublicKeyState {
     name?: pulumi.Input<string>;
     /**
      * The name for the public key. Conflicts with `name`.
+     *
+     * **NOTE:** When setting `encodedKey` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
      */
     namePrefix?: pulumi.Input<string>;
 }
@@ -165,6 +169,8 @@ export interface PublicKeyArgs {
     name?: pulumi.Input<string>;
     /**
      * The name for the public key. Conflicts with `name`.
+     *
+     * **NOTE:** When setting `encodedKey` value, there needs a newline at the end of string. Otherwise, multiple runs of pulumi will want to recreate the `aws.cloudfront.PublicKey` resource.
      */
     namePrefix?: pulumi.Input<string>;
 }

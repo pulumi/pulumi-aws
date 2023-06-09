@@ -75,6 +75,8 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// The name of the contact list.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("contactListName")]
         public Output<string> ContactListName { get; private set; } = null!;
@@ -160,6 +162,8 @@ namespace Pulumi.Aws.SesV2
     {
         /// <summary>
         /// The name of the contact list.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("contactListName", required: true)]
         public Input<string> ContactListName { get; set; } = null!;
@@ -207,6 +211,8 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// The name of the contact list.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("contactListName")]
         public Input<string>? ContactListName { get; set; }

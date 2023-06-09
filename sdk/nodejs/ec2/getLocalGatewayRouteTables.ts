@@ -38,6 +38,9 @@ export function getLocalGatewayRouteTables(args?: GetLocalGatewayRouteTablesArgs
 export interface GetLocalGatewayRouteTablesArgs {
     /**
      * Custom filter block as described below.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     filters?: inputs.ec2.GetLocalGatewayRouteTablesFilter[];
     /**
@@ -87,6 +90,9 @@ export function getLocalGatewayRouteTablesOutput(args?: GetLocalGatewayRouteTabl
 export interface GetLocalGatewayRouteTablesOutputArgs {
     /**
      * Custom filter block as described below.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayRouteTablesFilterArgs>[]>;
     /**

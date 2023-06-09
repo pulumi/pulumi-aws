@@ -55,6 +55,8 @@ namespace Pulumi.Aws.LB.Outputs
         public readonly string TokenEndpoint;
         /// <summary>
         /// User info endpoint of the IdP.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string UserInfoEndpoint;
 

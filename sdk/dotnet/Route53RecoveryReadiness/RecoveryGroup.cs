@@ -55,6 +55,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// A unique name describing the recovery group.
+        /// 
+        /// The following argument are optional:
         /// </summary>
         [Output("recoveryGroupName")]
         public Output<string> RecoveryGroupName { get; private set; } = null!;
@@ -131,6 +133,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// A unique name describing the recovery group.
+        /// 
+        /// The following argument are optional:
         /// </summary>
         [Input("recoveryGroupName", required: true)]
         public Input<string> RecoveryGroupName { get; set; } = null!;
@@ -175,6 +179,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// A unique name describing the recovery group.
+        /// 
+        /// The following argument are optional:
         /// </summary>
         [Input("recoveryGroupName")]
         public Input<string>? RecoveryGroupName { get; set; }

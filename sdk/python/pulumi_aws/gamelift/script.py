@@ -242,9 +242,9 @@ class Script(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.gamelift.Script("example", storage_location=aws.gamelift.ScriptStorageLocationArgs(
-            bucket=aws_s3_bucket["example"]["id"],
-            key=aws_s3_object["example"]["key"],
-            role_arn=aws_iam_role["example"]["arn"],
+            bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         ))
         ```
 
@@ -280,9 +280,9 @@ class Script(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.gamelift.Script("example", storage_location=aws.gamelift.ScriptStorageLocationArgs(
-            bucket=aws_s3_bucket["example"]["id"],
-            key=aws_s3_object["example"]["key"],
-            role_arn=aws_iam_role["example"]["arn"],
+            bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         ))
         ```
 

@@ -55,12 +55,24 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
      * 
+     * &gt; **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
+     * 
+     * &gt; **NOTE:** If anything other than a single match is returned by the search,
+     * this call will fail. Ensure that your search is specific enough to return
+     * a single Instance ID only.
+     * 
      */
     @Import(name="getUserData")
     private @Nullable Boolean getUserData;
 
     /**
      * @return Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+     * 
+     * &gt; **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
+     * 
+     * &gt; **NOTE:** If anything other than a single match is returned by the search,
+     * this call will fail. Ensure that your search is specific enough to return
+     * a single Instance ID only.
      * 
      */
     public Optional<Boolean> getUserData() {
@@ -181,6 +193,12 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
 
         /**
          * @param getUserData Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+         * 
+         * &gt; **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
+         * 
+         * &gt; **NOTE:** If anything other than a single match is returned by the search,
+         * this call will fail. Ensure that your search is specific enough to return
+         * a single Instance ID only.
          * 
          * @return builder
          * 

@@ -152,6 +152,10 @@ namespace Pulumi.Aws.WorkLink
 
         /// <summary>
         /// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+        /// 
+        /// **network** requires the following:
+        /// 
+        /// &gt; **NOTE:** `network` is cannot removed without force recreating.
         /// </summary>
         [Output("optimizeForEndUserLocation")]
         public Output<bool?> OptimizeForEndUserLocation { get; private set; } = null!;
@@ -240,6 +244,10 @@ namespace Pulumi.Aws.WorkLink
 
         /// <summary>
         /// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+        /// 
+        /// **network** requires the following:
+        /// 
+        /// &gt; **NOTE:** `network` is cannot removed without force recreating.
         /// </summary>
         [Input("optimizeForEndUserLocation")]
         public Input<bool>? OptimizeForEndUserLocation { get; set; }
@@ -314,6 +322,10 @@ namespace Pulumi.Aws.WorkLink
 
         /// <summary>
         /// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+        /// 
+        /// **network** requires the following:
+        /// 
+        /// &gt; **NOTE:** `network` is cannot removed without force recreating.
         /// </summary>
         [Input("optimizeForEndUserLocation")]
         public Input<bool>? OptimizeForEndUserLocation { get; set; }

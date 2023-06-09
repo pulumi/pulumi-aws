@@ -38,6 +38,8 @@ export interface GetPortfolioArgs {
     acceptLanguage?: string;
     /**
      * Portfolio identifier.
+     *
+     * The following arguments are optional:
      */
     id: string;
     /**
@@ -105,6 +107,8 @@ export interface GetPortfolioOutputArgs {
     acceptLanguage?: pulumi.Input<string>;
     /**
      * Portfolio identifier.
+     *
+     * The following arguments are optional:
      */
     id: pulumi.Input<string>;
     /**

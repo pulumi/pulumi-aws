@@ -134,6 +134,8 @@ namespace Pulumi.Aws.Route53
         /// One or more name/value pairs to use as filters. There are
         /// several valid keys, for a full reference, check out
         /// [Route53resolver Filter value in the AWS API reference][1].
+        /// 
+        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         public List<Inputs.GetResolverEndpointFilterArgs> Filters
         {
@@ -162,6 +164,8 @@ namespace Pulumi.Aws.Route53
         /// One or more name/value pairs to use as filters. There are
         /// several valid keys, for a full reference, check out
         /// [Route53resolver Filter value in the AWS API reference][1].
+        /// 
+        /// In addition to all arguments above, the following attributes are exported:
         /// </summary>
         public InputList<Inputs.GetResolverEndpointFilterInputArgs> Filters
         {

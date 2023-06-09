@@ -330,12 +330,20 @@ public class Role extends com.pulumi.resources.CustomResource {
     /**
      * Policy that grants an entity permission to assume the role.
      * 
+     * &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+     * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="assumeRolePolicy", refs={String.class}, tree="[0]")
     private Output<String> assumeRolePolicy;
 
     /**
      * @return Policy that grants an entity permission to assume the role.
+     * 
+     * &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> assumeRolePolicy() {

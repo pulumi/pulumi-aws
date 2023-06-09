@@ -64,12 +64,16 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
     /**
      * The formatting way for web request.
      * 
+     * FieldToMatch(field_to_match) support following:
+     * 
      */
     @Import(name="textTransformation", required=true)
     private Output<String> textTransformation;
 
     /**
      * @return The formatting way for web request.
+     * 
+     * FieldToMatch(field_to_match) support following:
      * 
      */
     public Output<String> textTransformation() {
@@ -169,6 +173,8 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
         /**
          * @param textTransformation The formatting way for web request.
          * 
+         * FieldToMatch(field_to_match) support following:
+         * 
          * @return builder
          * 
          */
@@ -179,6 +185,8 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
 
         /**
          * @param textTransformation The formatting way for web request.
+         * 
+         * FieldToMatch(field_to_match) support following:
          * 
          * @return builder
          * 

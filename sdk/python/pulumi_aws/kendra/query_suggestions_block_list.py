@@ -27,6 +27,8 @@ class QuerySuggestionsBlockListArgs:
         :param pulumi.Input[str] index_id: The identifier of the index for a block list.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: The S3 path where your block list text file sits in S3. Detailed below.
+               
+               The `source_s3_path` configuration block supports the following arguments:
         :param pulumi.Input[str] description: The description for a block list.
         :param pulumi.Input[str] name: The name for the block list.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -70,6 +72,8 @@ class QuerySuggestionsBlockListArgs:
     def source_s3_path(self) -> pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs']:
         """
         The S3 path where your block list text file sits in S3. Detailed below.
+
+        The `source_s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "source_s3_path")
 
@@ -136,6 +140,8 @@ class _QuerySuggestionsBlockListState:
         :param pulumi.Input[str] query_suggestions_block_list_id: The unique indentifier of the block list.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: The S3 path where your block list text file sits in S3. Detailed below.
+               
+               The `source_s3_path` configuration block supports the following arguments:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -237,6 +243,8 @@ class _QuerySuggestionsBlockListState:
     def source_s3_path(self) -> Optional[pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs']]:
         """
         The S3 path where your block list text file sits in S3. Detailed below.
+
+        The `source_s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "source_s3_path")
 
@@ -304,7 +312,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
             index_id=aws_kendra_index["example"]["id"],
             role_arn=aws_iam_role["example"]["arn"],
             source_s3_path=aws.kendra.QuerySuggestionsBlockListSourceS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
+                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 key="example/suggestions.txt",
             ),
             tags={
@@ -327,6 +335,8 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the block list.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']] source_s3_path: The S3 path where your block list text file sits in S3. Detailed below.
+               
+               The `source_s3_path` configuration block supports the following arguments:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -349,7 +359,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
             index_id=aws_kendra_index["example"]["id"],
             role_arn=aws_iam_role["example"]["arn"],
             source_s3_path=aws.kendra.QuerySuggestionsBlockListSourceS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
+                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 key="example/suggestions.txt",
             ),
             tags={
@@ -445,6 +455,8 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[str] query_suggestions_block_list_id: The unique indentifier of the block list.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']] source_s3_path: The S3 path where your block list text file sits in S3. Detailed below.
+               
+               The `source_s3_path` configuration block supports the following arguments:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -517,6 +529,8 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
     def source_s3_path(self) -> pulumi.Output['outputs.QuerySuggestionsBlockListSourceS3Path']:
         """
         The S3 path where your block list text file sits in S3. Detailed below.
+
+        The `source_s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "source_s3_path")
 

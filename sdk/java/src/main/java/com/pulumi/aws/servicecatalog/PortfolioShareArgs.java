@@ -94,12 +94,16 @@ public final class PortfolioShareArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -259,6 +263,8 @@ public final class PortfolioShareArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param type Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -269,6 +275,8 @@ public final class PortfolioShareArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param type Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

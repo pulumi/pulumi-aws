@@ -143,12 +143,16 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the workgroup.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="workgroupName", required=true)
     private Output<String> workgroupName;
 
     /**
      * @return The name of the workgroup.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> workgroupName() {
@@ -388,6 +392,8 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param workgroupName The name of the workgroup.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -398,6 +404,8 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param workgroupName The name of the workgroup.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

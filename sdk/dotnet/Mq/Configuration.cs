@@ -99,6 +99,8 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Name of the configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -193,6 +195,8 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Name of the configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -261,6 +265,8 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Name of the configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

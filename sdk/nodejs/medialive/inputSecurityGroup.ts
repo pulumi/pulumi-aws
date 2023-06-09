@@ -78,6 +78,8 @@ export class InputSecurityGroup extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whitelist rules. See Whitelist Rules for more details.
+     *
+     * The following arguments are optional:
      */
     public readonly whitelistRules!: pulumi.Output<outputs.medialive.InputSecurityGroupWhitelistRule[]>;
 
@@ -134,6 +136,8 @@ export interface InputSecurityGroupState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whitelist rules. See Whitelist Rules for more details.
+     *
+     * The following arguments are optional:
      */
     whitelistRules?: pulumi.Input<pulumi.Input<inputs.medialive.InputSecurityGroupWhitelistRule>[]>;
 }
@@ -148,6 +152,8 @@ export interface InputSecurityGroupArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whitelist rules. See Whitelist Rules for more details.
+     *
+     * The following arguments are optional:
      */
     whitelistRules: pulumi.Input<pulumi.Input<inputs.medialive.InputSecurityGroupWhitelistRule>[]>;
 }

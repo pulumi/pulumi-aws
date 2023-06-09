@@ -153,6 +153,8 @@ def get_accelerator(arn: Optional[str] = None,
 
     :param str arn: Full ARN of the Global Accelerator.
     :param str name: Unique name of the Global Accelerator.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -202,5 +204,7 @@ def get_accelerator_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str arn: Full ARN of the Global Accelerator.
     :param str name: Unique name of the Global Accelerator.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
     """
     ...

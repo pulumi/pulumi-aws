@@ -269,6 +269,10 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        /// 
+        /// &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        /// Replicate database managed by the provider will promote the database to a fully
+        /// standalone database.
         /// </summary>
         [Output("customerOwnedIpEnabled")]
         public Output<bool?> CustomerOwnedIpEnabled { get; private set; } = null!;
@@ -826,6 +830,10 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        /// 
+        /// &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        /// Replicate database managed by the provider will promote the database to a fully
+        /// standalone database.
         /// </summary>
         [Input("customerOwnedIpEnabled")]
         public Input<bool>? CustomerOwnedIpEnabled { get; set; }
@@ -1331,6 +1339,10 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        /// 
+        /// &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        /// Replicate database managed by the provider will promote the database to a fully
+        /// standalone database.
         /// </summary>
         [Input("customerOwnedIpEnabled")]
         public Input<bool>? CustomerOwnedIpEnabled { get; set; }

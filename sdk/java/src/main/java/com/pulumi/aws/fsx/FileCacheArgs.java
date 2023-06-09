@@ -146,12 +146,16 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
      * @return A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -410,6 +414,8 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnetIds A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -421,6 +427,8 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subnetIds A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -430,6 +438,8 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param subnetIds A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

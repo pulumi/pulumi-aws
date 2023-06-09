@@ -384,12 +384,16 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="throughputCapacity")
     private @Nullable Output<Integer> throughputCapacity;
 
     /**
      * @return Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<Integer>> throughputCapacity() {
@@ -1023,6 +1027,8 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         /**
          * @param throughputCapacity Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -1033,6 +1039,8 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
 
         /**
          * @param throughputCapacity Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

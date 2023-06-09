@@ -23,6 +23,8 @@ namespace Pulumi.Aws.Transcribe.Outputs
         public readonly string S3Uri;
         /// <summary>
         /// S3 URI where tuning data is located.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string? TuningDataS3Uri;
 

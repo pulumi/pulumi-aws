@@ -95,6 +95,8 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
      * The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
@@ -102,6 +104,8 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> type() {
@@ -246,6 +250,8 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
          * @param type The type of contact engaged. A single contact is type PERSONAL and an escalation
          * plan is type ESCALATION.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -257,6 +263,8 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The type of contact engaged. A single contact is type PERSONAL and an escalation
          * plan is type ESCALATION.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

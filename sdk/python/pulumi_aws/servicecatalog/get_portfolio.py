@@ -141,6 +141,8 @@ def get_portfolio(accept_language: Optional[str] = None,
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str id: Portfolio identifier.
+           
+           The following arguments are optional:
     :param Mapping[str, str] tags: Tags applied to the portfolio.
     """
     __args__ = dict()
@@ -181,6 +183,8 @@ def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[str]]] 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str id: Portfolio identifier.
+           
+           The following arguments are optional:
     :param Mapping[str, str] tags: Tags applied to the portfolio.
     """
     ...

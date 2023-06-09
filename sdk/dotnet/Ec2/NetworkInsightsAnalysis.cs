@@ -80,6 +80,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the Network Insights Path to run an analysis on.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("networkInsightsPathId")]
         public Output<string> NetworkInsightsPathId { get; private set; } = null!;
@@ -198,6 +200,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the Network Insights Path to run an analysis on.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("networkInsightsPathId", required: true)]
         public Input<string> NetworkInsightsPathId { get; set; } = null!;
@@ -284,6 +288,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the Network Insights Path to run an analysis on.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("networkInsightsPathId")]
         public Input<string>? NetworkInsightsPathId { get; set; }

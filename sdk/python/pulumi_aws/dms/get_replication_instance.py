@@ -266,11 +266,16 @@ def get_replication_instance(replication_instance_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_instance(replication_instance_id=aws_dms_replication_instance["test"]["replication_instance_id"])
+    test = aws.dms.get_replication_instance(replication_instance_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
     :param str replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
+           
+           - Must contain from 1 to 63 alphanumeric characters or hyphens.
+           - First character must be a letter.
+           - Cannot end with a hyphen
+           - Cannot contain two consecutive hyphens.
     """
     __args__ = dict()
     __args__['replicationInstanceId'] = replication_instance_id
@@ -313,10 +318,15 @@ def get_replication_instance_output(replication_instance_id: Optional[pulumi.Inp
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_instance(replication_instance_id=aws_dms_replication_instance["test"]["replication_instance_id"])
+    test = aws.dms.get_replication_instance(replication_instance_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
     :param str replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
+           
+           - Must contain from 1 to 63 alphanumeric characters or hyphens.
+           - First character must be a letter.
+           - Cannot end with a hyphen
+           - Cannot contain two consecutive hyphens.
     """
     ...

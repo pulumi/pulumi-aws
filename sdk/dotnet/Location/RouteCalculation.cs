@@ -62,6 +62,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// Specifies the data provider of traffic and road network data.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("dataSource")]
         public Output<string> DataSource { get; private set; } = null!;
@@ -144,6 +146,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// Specifies the data provider of traffic and road network data.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
@@ -194,6 +198,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// Specifies the data provider of traffic and road network data.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("dataSource")]
         public Input<string>? DataSource { get; set; }

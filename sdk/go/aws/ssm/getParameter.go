@@ -53,6 +53,8 @@ type LookupParameterArgs struct {
 	// Name of the parameter.
 	Name string `pulumi:"name"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	WithDecryption *bool `pulumi:"withDecryption"`
 }
 
@@ -86,6 +88,8 @@ type LookupParameterOutputArgs struct {
 	// Name of the parameter.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	WithDecryption pulumi.BoolPtrInput `pulumi:"withDecryption"`
 }
 

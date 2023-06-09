@@ -81,12 +81,16 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The Connect peer address.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="peerAddress", required=true)
     private Output<String> peerAddress;
 
     /**
      * @return The Connect peer address.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> peerAddress() {
@@ -234,6 +238,8 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param peerAddress The Connect peer address.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -244,6 +250,8 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param peerAddress The Connect peer address.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

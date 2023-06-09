@@ -118,6 +118,12 @@ def get_router_configuration(router_type_identifier: Optional[str] = None,
 
 
     :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+           
+           There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
+           
+           ```python
+           import pulumi
+           ```
     :param str virtual_interface_id: ID of the Direct Connect Virtual Interface
     """
     __args__ = dict()
@@ -155,6 +161,12 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
 
 
     :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+           
+           There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
+           
+           ```python
+           import pulumi
+           ```
     :param str virtual_interface_id: ID of the Direct Connect Virtual Interface
     """
     ...

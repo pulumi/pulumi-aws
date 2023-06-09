@@ -95,6 +95,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the default route table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("defaultRouteTableId")]
         public Output<string> DefaultRouteTableId { get; private set; } = null!;
@@ -183,6 +185,8 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// ID of the default route table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("defaultRouteTableId", required: true)]
         public Input<string> DefaultRouteTableId { get; set; } = null!;
@@ -239,6 +243,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the default route table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("defaultRouteTableId")]
         public Input<string>? DefaultRouteTableId { get; set; }

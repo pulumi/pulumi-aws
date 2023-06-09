@@ -182,6 +182,8 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly url!: pulumi.Output<string>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     *
+     * The following arguments are optional:
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -328,6 +330,8 @@ export interface DomainState {
     url?: pulumi.Input<string>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     *
+     * The following arguments are optional:
      */
     vpcId?: pulumi.Input<string>;
 }
@@ -379,6 +383,8 @@ export interface DomainArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     *
+     * The following arguments are optional:
      */
     vpcId: pulumi.Input<string>;
 }

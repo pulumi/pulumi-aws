@@ -88,10 +88,14 @@ type Schedule struct {
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence pulumi.StringOutput `pulumi:"recurrence"`
 	// The name of this scaling action.
+	//
+	// The following arguments are optional:
 	ScheduledActionName pulumi.StringOutput `pulumi:"scheduledActionName"`
 	// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
 	// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+	//
+	// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
 }
 
@@ -145,10 +149,14 @@ type scheduleState struct {
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence *string `pulumi:"recurrence"`
 	// The name of this scaling action.
+	//
+	// The following arguments are optional:
 	ScheduledActionName *string `pulumi:"scheduledActionName"`
 	// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
 	StartTime *string `pulumi:"startTime"`
 	// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+	//
+	// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -168,10 +176,14 @@ type ScheduleState struct {
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence pulumi.StringPtrInput
 	// The name of this scaling action.
+	//
+	// The following arguments are optional:
 	ScheduledActionName pulumi.StringPtrInput
 	// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
 	StartTime pulumi.StringPtrInput
 	// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+	//
+	// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
 	TimeZone pulumi.StringPtrInput
 }
 
@@ -193,10 +205,14 @@ type scheduleArgs struct {
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence *string `pulumi:"recurrence"`
 	// The name of this scaling action.
+	//
+	// The following arguments are optional:
 	ScheduledActionName string `pulumi:"scheduledActionName"`
 	// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
 	StartTime *string `pulumi:"startTime"`
 	// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+	//
+	// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
 	TimeZone *string `pulumi:"timeZone"`
 }
 
@@ -215,10 +231,14 @@ type ScheduleArgs struct {
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence pulumi.StringPtrInput
 	// The name of this scaling action.
+	//
+	// The following arguments are optional:
 	ScheduledActionName pulumi.StringInput
 	// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
 	StartTime pulumi.StringPtrInput
 	// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+	//
+	// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
 	TimeZone pulumi.StringPtrInput
 }
 
@@ -345,6 +365,8 @@ func (o ScheduleOutput) Recurrence() pulumi.StringOutput {
 }
 
 // The name of this scaling action.
+//
+// The following arguments are optional:
 func (o ScheduleOutput) ScheduledActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.ScheduledActionName }).(pulumi.StringOutput)
 }
@@ -355,6 +377,8 @@ func (o ScheduleOutput) StartTime() pulumi.StringOutput {
 }
 
 // Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+//
+// > **NOTE:** When `startTime` and `endTime` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
 func (o ScheduleOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.TimeZone }).(pulumi.StringOutput)
 }

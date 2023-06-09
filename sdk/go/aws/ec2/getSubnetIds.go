@@ -30,6 +30,9 @@ type GetSubnetIdsArgs struct {
 	Filters []GetSubnetIdsFilter `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired subnets.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 	// VPC ID that you want to filter from.
 	VpcId string `pulumi:"vpcId"`
@@ -65,6 +68,9 @@ type GetSubnetIdsOutputArgs struct {
 	Filters GetSubnetIdsFilterArrayInput `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired subnets.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// VPC ID that you want to filter from.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`

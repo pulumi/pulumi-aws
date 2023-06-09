@@ -14,6 +14,8 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
     {
         /// <summary>
         /// Name of the S3 Bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("s3BucketName", required: true)]
         public Input<string> S3BucketName { get; set; } = null!;

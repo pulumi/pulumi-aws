@@ -113,6 +113,8 @@ type SafetyRule struct {
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls pulumi.StringArrayOutput `pulumi:"targetControls"`
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+	//
+	// The following arguments are optional:
 	WaitPeriodMs pulumi.IntOutput `pulumi:"waitPeriodMs"`
 }
 
@@ -171,6 +173,8 @@ type safetyRuleState struct {
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls []string `pulumi:"targetControls"`
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+	//
+	// The following arguments are optional:
 	WaitPeriodMs *int `pulumi:"waitPeriodMs"`
 }
 
@@ -192,6 +196,8 @@ type SafetyRuleState struct {
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls pulumi.StringArrayInput
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+	//
+	// The following arguments are optional:
 	WaitPeriodMs pulumi.IntPtrInput
 }
 
@@ -213,6 +219,8 @@ type safetyRuleArgs struct {
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls []string `pulumi:"targetControls"`
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+	//
+	// The following arguments are optional:
 	WaitPeriodMs int `pulumi:"waitPeriodMs"`
 }
 
@@ -231,6 +239,8 @@ type SafetyRuleArgs struct {
 	// Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
 	TargetControls pulumi.StringArrayInput
 	// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+	//
+	// The following arguments are optional:
 	WaitPeriodMs pulumi.IntInput
 }
 
@@ -362,6 +372,8 @@ func (o SafetyRuleOutput) TargetControls() pulumi.StringArrayOutput {
 }
 
 // Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+//
+// The following arguments are optional:
 func (o SafetyRuleOutput) WaitPeriodMs() pulumi.IntOutput {
 	return o.ApplyT(func(v *SafetyRule) pulumi.IntOutput { return v.WaitPeriodMs }).(pulumi.IntOutput)
 }

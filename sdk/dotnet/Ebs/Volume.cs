@@ -122,6 +122,8 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        /// 
+        /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
@@ -246,6 +248,8 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        /// 
+        /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
@@ -350,6 +354,8 @@ namespace Pulumi.Aws.Ebs
 
         /// <summary>
         /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+        /// 
+        /// &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }

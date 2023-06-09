@@ -43,6 +43,8 @@ class DatabaseAclConfiguration(dict):
                  s3_acl_option: str):
         """
         :param str s3_acl_option: Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+               
+               > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `force_destroy` on the bucket too in order to avoid any problems when destroying the bucket.
         """
         pulumi.set(__self__, "s3_acl_option", s3_acl_option)
 
@@ -51,6 +53,8 @@ class DatabaseAclConfiguration(dict):
     def s3_acl_option(self) -> str:
         """
         Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+
+        > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `force_destroy` on the bucket too in order to avoid any problems when destroying the bucket.
         """
         return pulumi.get(self, "s3_acl_option")
 

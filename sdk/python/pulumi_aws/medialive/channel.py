@@ -40,6 +40,8 @@ class ChannelArgs:
         :param pulumi.Input[str] log_level: The log level to write to Cloudwatch logs.
         :param pulumi.Input['ChannelMaintenanceArgs'] maintenance: Maintenance settings for this channel. See Maintenance for more details.
         :param pulumi.Input[str] name: Name of the Channel.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] role_arn: Concise argument description.
         :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -168,6 +170,8 @@ class ChannelArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the Channel.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -256,6 +260,8 @@ class _ChannelState:
         :param pulumi.Input[str] log_level: The log level to write to Cloudwatch logs.
         :param pulumi.Input['ChannelMaintenanceArgs'] maintenance: Maintenance settings for this channel. See Maintenance for more details.
         :param pulumi.Input[str] name: Name of the Channel.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] role_arn: Concise argument description.
         :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -419,6 +425,8 @@ class _ChannelState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the Channel.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -523,7 +531,7 @@ class Channel(pulumi.CustomResource):
             ),
             input_attachments=[aws.medialive.ChannelInputAttachmentArgs(
                 input_attachment_name="example-input",
-                input_id=aws_medialive_input["example"]["id"],
+                input_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             destinations=[aws.medialive.ChannelDestinationArgs(
                 id="destination",
@@ -596,6 +604,8 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] log_level: The log level to write to Cloudwatch logs.
         :param pulumi.Input[pulumi.InputType['ChannelMaintenanceArgs']] maintenance: Maintenance settings for this channel. See Maintenance for more details.
         :param pulumi.Input[str] name: Name of the Channel.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] role_arn: Concise argument description.
         :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -627,7 +637,7 @@ class Channel(pulumi.CustomResource):
             ),
             input_attachments=[aws.medialive.ChannelInputAttachmentArgs(
                 input_attachment_name="example-input",
-                input_id=aws_medialive_input["example"]["id"],
+                input_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             destinations=[aws.medialive.ChannelDestinationArgs(
                 id="destination",
@@ -796,6 +806,8 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] log_level: The log level to write to Cloudwatch logs.
         :param pulumi.Input[pulumi.InputType['ChannelMaintenanceArgs']] maintenance: Maintenance settings for this channel. See Maintenance for more details.
         :param pulumi.Input[str] name: Name of the Channel.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] role_arn: Concise argument description.
         :param pulumi.Input[bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -908,6 +920,8 @@ class Channel(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name of the Channel.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

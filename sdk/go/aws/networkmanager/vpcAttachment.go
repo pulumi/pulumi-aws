@@ -85,6 +85,8 @@ type VpcAttachment struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ARN of the VPC.
+	//
+	// The following arguments are optional:
 	VpcArn pulumi.StringOutput `pulumi:"vpcArn"`
 }
 
@@ -155,6 +157,8 @@ type vpcAttachmentState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ARN of the VPC.
+	//
+	// The following arguments are optional:
 	VpcArn *string `pulumi:"vpcArn"`
 }
 
@@ -188,6 +192,8 @@ type VpcAttachmentState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ARN of the VPC.
+	//
+	// The following arguments are optional:
 	VpcArn pulumi.StringPtrInput
 }
 
@@ -205,6 +211,8 @@ type vpcAttachmentArgs struct {
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ARN of the VPC.
+	//
+	// The following arguments are optional:
 	VpcArn string `pulumi:"vpcArn"`
 }
 
@@ -219,6 +227,8 @@ type VpcAttachmentArgs struct {
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ARN of the VPC.
+	//
+	// The following arguments are optional:
 	VpcArn pulumi.StringInput
 }
 
@@ -380,6 +390,8 @@ func (o VpcAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The ARN of the VPC.
+//
+// The following arguments are optional:
 func (o VpcAttachmentOutput) VpcArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.VpcArn }).(pulumi.StringOutput)
 }

@@ -21,6 +21,8 @@ public final class PermissionsLfTagPolicy {
     /**
      * @return A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
      * 
+     * The following argument is optional:
+     * 
      */
     private List<PermissionsLfTagPolicyExpression> expressions;
     /**
@@ -39,6 +41,8 @@ public final class PermissionsLfTagPolicy {
     }
     /**
      * @return A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+     * 
+     * The following argument is optional:
      * 
      */
     public List<PermissionsLfTagPolicyExpression> expressions() {

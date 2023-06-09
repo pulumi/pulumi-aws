@@ -47,6 +47,8 @@ public final class BucketLifecycleRule {
     /**
      * @return Specifies when noncurrent object versions transitions (documented below).
      * 
+     * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
+     * 
      */
     private @Nullable List<BucketLifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions;
     /**
@@ -103,6 +105,8 @@ public final class BucketLifecycleRule {
     }
     /**
      * @return Specifies when noncurrent object versions transitions (documented below).
+     * 
+     * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
      * 
      */
     public List<BucketLifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions() {

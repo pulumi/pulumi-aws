@@ -226,12 +226,16 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the rule you want to add targets to.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="rule", required=true)
     private Output<String> rule;
 
     /**
      * @return The name of the rule you want to add targets to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> rule() {
@@ -601,6 +605,8 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param rule The name of the rule you want to add targets to.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -611,6 +617,8 @@ public final class EventTargetArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param rule The name of the rule you want to add targets to.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

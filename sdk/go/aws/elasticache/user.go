@@ -140,6 +140,8 @@ type User struct {
 	// The ID of the user.
 	UserId pulumi.StringOutput `pulumi:"userId"`
 	// The username of the user.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -209,6 +211,8 @@ type userState struct {
 	// The ID of the user.
 	UserId *string `pulumi:"userId"`
 	// The username of the user.
+	//
+	// The following arguments are optional:
 	UserName *string `pulumi:"userName"`
 }
 
@@ -231,6 +235,8 @@ type UserState struct {
 	// The ID of the user.
 	UserId pulumi.StringPtrInput
 	// The username of the user.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringPtrInput
 }
 
@@ -254,6 +260,8 @@ type userArgs struct {
 	// The ID of the user.
 	UserId string `pulumi:"userId"`
 	// The username of the user.
+	//
+	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
 }
 
@@ -274,6 +282,8 @@ type UserArgs struct {
 	// The ID of the user.
 	UserId pulumi.StringInput
 	// The username of the user.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringInput
 }
 
@@ -409,6 +419,8 @@ func (o UserOutput) UserId() pulumi.StringOutput {
 }
 
 // The username of the user.
+//
+// The following arguments are optional:
 func (o UserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

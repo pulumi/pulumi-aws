@@ -80,6 +80,8 @@ type Rule struct {
 	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+	//
+	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriodOutput `pulumi:"retentionPeriod"`
 	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
 	Status  pulumi.StringOutput    `pulumi:"status"`
@@ -136,6 +138,8 @@ type ruleState struct {
 	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType *string `pulumi:"resourceType"`
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+	//
+	// The following arguments are optional:
 	RetentionPeriod *RuleRetentionPeriod `pulumi:"retentionPeriod"`
 	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
 	Status  *string           `pulumi:"status"`
@@ -158,6 +162,8 @@ type RuleState struct {
 	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType pulumi.StringPtrInput
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+	//
+	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriodPtrInput
 	// (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
 	Status  pulumi.StringPtrInput
@@ -179,6 +185,8 @@ type ruleArgs struct {
 	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType string `pulumi:"resourceType"`
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+	//
+	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriod `pulumi:"retentionPeriod"`
 	Tags            map[string]string   `pulumi:"tags"`
 }
@@ -194,6 +202,8 @@ type RuleArgs struct {
 	// The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
 	ResourceType pulumi.StringInput
 	// Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+	//
+	// The following arguments are optional:
 	RetentionPeriod RuleRetentionPeriodInput
 	Tags            pulumi.StringMapInput
 }
@@ -320,6 +330,8 @@ func (o RuleOutput) ResourceType() pulumi.StringOutput {
 }
 
 // Information about the retention period for which the retention rule is to retain resources. See `retentionPeriod` below.
+//
+// The following arguments are optional:
 func (o RuleOutput) RetentionPeriod() RuleRetentionPeriodOutput {
 	return o.ApplyT(func(v *Rule) RuleRetentionPeriodOutput { return v.RetentionPeriod }).(RuleRetentionPeriodOutput)
 }

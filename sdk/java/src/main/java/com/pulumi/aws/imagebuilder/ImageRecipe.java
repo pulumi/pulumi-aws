@@ -272,12 +272,16 @@ public class ImageRecipe extends com.pulumi.resources.CustomResource {
     /**
      * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
      * 
+     * The following attributes are optional:
+     * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
      * @return The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+     * 
+     * The following attributes are optional:
      * 
      */
     public Output<String> version() {

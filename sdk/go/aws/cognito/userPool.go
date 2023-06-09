@@ -156,6 +156,8 @@ type UserPool struct {
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration pulumi.StringPtrOutput `pulumi:"mfaConfiguration"`
 	// Name of the user pool.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration blocked for information about the user pool password policy. Detailed below.
 	PasswordPolicy UserPoolPasswordPolicyOutput `pulumi:"passwordPolicy"`
@@ -251,6 +253,8 @@ type userPoolState struct {
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration *string `pulumi:"mfaConfiguration"`
 	// Name of the user pool.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Configuration blocked for information about the user pool password policy. Detailed below.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
@@ -318,6 +322,8 @@ type UserPoolState struct {
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration pulumi.StringPtrInput
 	// Name of the user pool.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Configuration blocked for information about the user pool password policy. Detailed below.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput
@@ -375,6 +381,8 @@ type userPoolArgs struct {
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration *string `pulumi:"mfaConfiguration"`
 	// Name of the user pool.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Configuration blocked for information about the user pool password policy. Detailed below.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
@@ -427,6 +435,8 @@ type UserPoolArgs struct {
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).
 	MfaConfiguration pulumi.StringPtrInput
 	// Name of the user pool.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Configuration blocked for information about the user pool password policy. Detailed below.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput
@@ -632,6 +642,8 @@ func (o UserPoolOutput) MfaConfiguration() pulumi.StringPtrOutput {
 }
 
 // Name of the user pool.
+//
+// The following arguments are optional:
 func (o UserPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

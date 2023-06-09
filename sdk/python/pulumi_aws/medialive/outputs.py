@@ -8849,6 +8849,8 @@ class ChannelInputAttachmentInputSettingsAudioSelector(dict):
                  selector_settings: Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings'] = None):
         """
         :param str name: Name of the Channel.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "name", name)
         if selector_settings is not None:
@@ -8859,6 +8861,8 @@ class ChannelInputAttachmentInputSettingsAudioSelector(dict):
     def name(self) -> str:
         """
         Name of the Channel.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -8952,6 +8956,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
                  name: str):
         """
         :param str name: Name of the Channel.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "name", name)
@@ -8966,6 +8972,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
     def name(self) -> str:
         """
         Name of the Channel.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -9078,6 +9086,8 @@ class ChannelInputAttachmentInputSettingsCaptionSelector(dict):
                  selector_settings: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings'] = None):
         """
         :param str name: Name of the Channel.
+               
+               The following arguments are optional:
         :param str language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
         """
         pulumi.set(__self__, "name", name)
@@ -9091,6 +9101,8 @@ class ChannelInputAttachmentInputSettingsCaptionSelector(dict):
     def name(self) -> str:
         """
         Name of the Channel.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

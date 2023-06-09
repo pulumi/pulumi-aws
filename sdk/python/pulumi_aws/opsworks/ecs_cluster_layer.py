@@ -58,6 +58,10 @@ class EcsClusterLayerArgs:
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               The following extra optional arguments, all lists of Chef recipe names, allow
+               custom Chef recipes to be applied to layer instances at the five different
+               lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
         pulumi.set(__self__, "ecs_cluster_arn", ecs_cluster_arn)
@@ -355,6 +359,10 @@ class EcsClusterLayerArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+        The following extra optional arguments, all lists of Chef recipe names, allow
+        custom Chef recipes to be applied to layer instances at the five different
+        lifecycle events, if custom cookbooks are enabled on the layer's stack:
         """
         return pulumi.get(self, "tags")
 
@@ -423,6 +431,10 @@ class _EcsClusterLayerState:
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               The following extra optional arguments, all lists of Chef recipe names, allow
+               custom Chef recipes to be applied to layer instances at the five different
+               lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
         if arn is not None:
@@ -738,6 +750,10 @@ class _EcsClusterLayerState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+        The following extra optional arguments, all lists of Chef recipe names, allow
+        custom Chef recipes to be applied to layer instances at the five different
+        lifecycle events, if custom cookbooks are enabled on the layer's stack:
         """
         return pulumi.get(self, "tags")
 
@@ -829,6 +845,10 @@ class EcsClusterLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               The following extra optional arguments, all lists of Chef recipe names, allow
+               custom Chef recipes to be applied to layer instances at the five different
+               lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
         ...
@@ -989,6 +1009,10 @@ class EcsClusterLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               The following extra optional arguments, all lists of Chef recipe names, allow
+               custom Chef recipes to be applied to layer instances at the five different
+               lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1191,6 +1215,10 @@ class EcsClusterLayer(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
+
+        The following extra optional arguments, all lists of Chef recipe names, allow
+        custom Chef recipes to be applied to layer instances at the five different
+        lifecycle events, if custom cookbooks are enabled on the layer's stack:
         """
         return pulumi.get(self, "tags")
 

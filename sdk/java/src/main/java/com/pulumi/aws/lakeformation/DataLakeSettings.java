@@ -183,12 +183,16 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
     /**
      * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
      * 
+     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
+     * 
      */
     @Export(name="authorizedSessionTagValueLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> authorizedSessionTagValueLists;
 
     /**
      * @return Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
+     * 
+     * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
      * 
      */
     public Output<List<String>> authorizedSessionTagValueLists() {

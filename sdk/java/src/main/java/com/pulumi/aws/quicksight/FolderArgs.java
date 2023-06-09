@@ -66,12 +66,16 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Display name for the folder.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Display name for the folder.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -219,6 +223,8 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Display name for the folder.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -229,6 +235,8 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Display name for the folder.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

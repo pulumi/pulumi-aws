@@ -330,6 +330,8 @@ namespace Pulumi.Aws.Cognito
 
         /// <summary>
         /// User pool the client belongs to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
@@ -560,6 +562,8 @@ namespace Pulumi.Aws.Cognito
 
         /// <summary>
         /// User pool the client belongs to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
@@ -770,6 +774,8 @@ namespace Pulumi.Aws.Cognito
 
         /// <summary>
         /// User pool the client belongs to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userPoolId")]
         public Input<string>? UserPoolId { get; set; }

@@ -88,6 +88,8 @@ type ContactList struct {
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the contact list.
+	//
+	// The following arguments are optional:
 	ContactListName pulumi.StringOutput `pulumi:"contactListName"`
 	// A timestamp noting when the contact list was created in ISO 8601 format.
 	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
@@ -136,6 +138,8 @@ func GetContactList(ctx *pulumi.Context,
 type contactListState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the contact list.
+	//
+	// The following arguments are optional:
 	ContactListName *string `pulumi:"contactListName"`
 	// A timestamp noting when the contact list was created in ISO 8601 format.
 	CreatedTimestamp *string `pulumi:"createdTimestamp"`
@@ -153,6 +157,8 @@ type contactListState struct {
 type ContactListState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the contact list.
+	//
+	// The following arguments are optional:
 	ContactListName pulumi.StringPtrInput
 	// A timestamp noting when the contact list was created in ISO 8601 format.
 	CreatedTimestamp pulumi.StringPtrInput
@@ -173,6 +179,8 @@ func (ContactListState) ElementType() reflect.Type {
 
 type contactListArgs struct {
 	// The name of the contact list.
+	//
+	// The following arguments are optional:
 	ContactListName string `pulumi:"contactListName"`
 	// A description of what the contact list is about.
 	Description *string `pulumi:"description"`
@@ -185,6 +193,8 @@ type contactListArgs struct {
 // The set of arguments for constructing a ContactList resource.
 type ContactListArgs struct {
 	// The name of the contact list.
+	//
+	// The following arguments are optional:
 	ContactListName pulumi.StringInput
 	// A description of what the contact list is about.
 	Description pulumi.StringPtrInput
@@ -286,6 +296,8 @@ func (o ContactListOutput) Arn() pulumi.StringOutput {
 }
 
 // The name of the contact list.
+//
+// The following arguments are optional:
 func (o ContactListOutput) ContactListName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringOutput { return v.ContactListName }).(pulumi.StringOutput)
 }

@@ -86,6 +86,8 @@ export class Link extends pulumi.CustomResource {
     public /*out*/ readonly sinkArn!: pulumi.Output<string>;
     /**
      * Identifier of the sink to use to create this link.
+     *
+     * The following arguments are optional:
      */
     public readonly sinkIdentifier!: pulumi.Output<string>;
     /**
@@ -172,6 +174,8 @@ export interface LinkState {
     sinkArn?: pulumi.Input<string>;
     /**
      * Identifier of the sink to use to create this link.
+     *
+     * The following arguments are optional:
      */
     sinkIdentifier?: pulumi.Input<string>;
     /**
@@ -195,6 +199,8 @@ export interface LinkArgs {
     resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Identifier of the sink to use to create this link.
+     *
+     * The following arguments are optional:
      */
     sinkIdentifier: pulumi.Input<string>;
     /**

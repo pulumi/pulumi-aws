@@ -67,6 +67,9 @@ type GetLocalGatewayRouteTableArgs struct {
 	State *string `pulumi:"state"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -108,6 +111,9 @@ type GetLocalGatewayRouteTableOutputArgs struct {
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

@@ -655,6 +655,8 @@ type EventTarget struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
+	//
+	// The following arguments are optional:
 	Rule pulumi.StringOutput `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets EventTargetRunCommandTargetArrayOutput `pulumi:"runCommandTargets"`
@@ -727,6 +729,8 @@ type eventTargetState struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
+	//
+	// The following arguments are optional:
 	Rule *string `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets []EventTargetRunCommandTarget `pulumi:"runCommandTargets"`
@@ -765,6 +769,8 @@ type EventTargetState struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn pulumi.StringPtrInput
 	// The name of the rule you want to add targets to.
+	//
+	// The following arguments are optional:
 	Rule pulumi.StringPtrInput
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets EventTargetRunCommandTargetArrayInput
@@ -807,6 +813,8 @@ type eventTargetArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
+	//
+	// The following arguments are optional:
 	Rule string `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets []EventTargetRunCommandTarget `pulumi:"runCommandTargets"`
@@ -846,6 +854,8 @@ type EventTargetArgs struct {
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
 	RoleArn pulumi.StringPtrInput
 	// The name of the rule you want to add targets to.
+	//
+	// The following arguments are optional:
 	Rule pulumi.StringInput
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets EventTargetRunCommandTargetArrayInput
@@ -1009,6 +1019,8 @@ func (o EventTargetOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // The name of the rule you want to add targets to.
+//
+// The following arguments are optional:
 func (o EventTargetOutput) Rule() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventTarget) pulumi.StringOutput { return v.Rule }).(pulumi.StringOutput)
 }

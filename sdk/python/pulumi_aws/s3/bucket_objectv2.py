@@ -53,6 +53,8 @@ class BucketObjectv2Args:
         :param pulumi.Input[str] etag: Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: Name of the object once it is in the bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         :param pulumi.Input[str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
@@ -64,6 +66,10 @@ class BucketObjectv2Args:
         :param pulumi.Input[str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+               
+               If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               
+               > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
         pulumi.set(__self__, "bucket", bucket)
         if acl is not None:
@@ -262,6 +268,8 @@ class BucketObjectv2Args:
     def key(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the object once it is in the bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "key")
 
@@ -394,6 +402,10 @@ class BucketObjectv2Args:
     def website_redirect(self) -> Optional[pulumi.Input[str]]:
         """
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+
+        If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+
+        > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
         return pulumi.get(self, "website_redirect")
 
@@ -446,6 +458,8 @@ class _BucketObjectv2State:
         :param pulumi.Input[str] etag: Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: Name of the object once it is in the bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         :param pulumi.Input[str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
@@ -459,6 +473,10 @@ class _BucketObjectv2State:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version_id: Unique version ID value for the object, if bucket versioning is enabled.
         :param pulumi.Input[str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+               
+               If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               
+               > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
         if acl is not None:
             pulumi.set(__self__, "acl", acl)
@@ -662,6 +680,8 @@ class _BucketObjectv2State:
     def key(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the object once it is in the bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "key")
 
@@ -818,6 +838,10 @@ class _BucketObjectv2State:
     def website_redirect(self) -> Optional[pulumi.Input[str]]:
         """
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+
+        If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+
+        > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
         return pulumi.get(self, "website_redirect")
 
@@ -966,6 +990,8 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: Name of the object once it is in the bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         :param pulumi.Input[str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
@@ -977,6 +1003,10 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+               
+               If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               
+               > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
         ...
     @overload
@@ -1213,6 +1243,8 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: Name of the object once it is in the bucket.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] kms_key_id: ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         :param pulumi.Input[str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
@@ -1226,6 +1258,10 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version_id: Unique version ID value for the object, if bucket versioning is enabled.
         :param pulumi.Input[str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+               
+               If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+               
+               > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1360,6 +1396,8 @@ class BucketObjectv2(pulumi.CustomResource):
     def key(self) -> pulumi.Output[str]:
         """
         Name of the object once it is in the bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "key")
 
@@ -1464,6 +1502,10 @@ class BucketObjectv2(pulumi.CustomResource):
     def website_redirect(self) -> pulumi.Output[Optional[str]]:
         """
         Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+
+        If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+
+        > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         """
         return pulumi.get(self, "website_redirect")
 

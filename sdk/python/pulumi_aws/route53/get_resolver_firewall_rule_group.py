@@ -163,6 +163,8 @@ def get_resolver_firewall_rule_group(firewall_rule_group_id: Optional[str] = Non
 
 
     :param str firewall_rule_group_id: The ID of the rule group.
+           
+           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['firewallRuleGroupId'] = firewall_rule_group_id
@@ -205,5 +207,7 @@ def get_resolver_firewall_rule_group_output(firewall_rule_group_id: Optional[pul
 
 
     :param str firewall_rule_group_id: The ID of the rule group.
+           
+           The following attribute is additionally exported:
     """
     ...

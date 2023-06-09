@@ -128,6 +128,8 @@ type AccessPoint struct {
 	// Indicates whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
 	// Name you want to assign to this access point.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
 	NetworkOrigin pulumi.StringOutput `pulumi:"networkOrigin"`
@@ -189,6 +191,8 @@ type accessPointState struct {
 	// Indicates whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy *bool `pulumi:"hasPublicAccessPolicy"`
 	// Name you want to assign to this access point.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
 	NetworkOrigin *string `pulumi:"networkOrigin"`
@@ -219,6 +223,8 @@ type AccessPointState struct {
 	// Indicates whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy pulumi.BoolPtrInput
 	// Name you want to assign to this access point.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
 	NetworkOrigin pulumi.StringPtrInput
@@ -242,6 +248,8 @@ type accessPointArgs struct {
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId *string `pulumi:"bucketAccountId"`
 	// Name you want to assign to this access point.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
 	Policy *string `pulumi:"policy"`
@@ -260,6 +268,8 @@ type AccessPointArgs struct {
 	// AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringPtrInput
 	// Name you want to assign to this access point.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
 	Policy pulumi.StringPtrInput
@@ -398,6 +408,8 @@ func (o AccessPointOutput) HasPublicAccessPolicy() pulumi.BoolOutput {
 }
 
 // Name you want to assign to this access point.
+//
+// The following arguments are optional:
 func (o AccessPointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

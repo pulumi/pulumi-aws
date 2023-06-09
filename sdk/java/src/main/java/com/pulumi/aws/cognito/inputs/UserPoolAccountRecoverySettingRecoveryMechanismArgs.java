@@ -17,12 +17,16 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanismArgs extends c
     /**
      * Name of the user pool.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
      * @return Name of the user pool.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -72,6 +76,8 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanismArgs extends c
         /**
          * @param name Name of the user pool.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -82,6 +88,8 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanismArgs extends c
 
         /**
          * @param name Name of the user pool.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -170,12 +170,16 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
     /**
      * The S3 location of the FAQ input data. Detailed below.
      * 
+     * The `s3_path` configuration block supports the following arguments:
+     * 
      */
     @Import(name="s3Path")
     private @Nullable Output<FaqS3PathArgs> s3Path;
 
     /**
      * @return The S3 location of the FAQ input data. Detailed below.
+     * 
+     * The `s3_path` configuration block supports the following arguments:
      * 
      */
     public Optional<Output<FaqS3PathArgs>> s3Path() {
@@ -493,6 +497,8 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param s3Path The S3 location of the FAQ input data. Detailed below.
          * 
+         * The `s3_path` configuration block supports the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -503,6 +509,8 @@ public final class FaqState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param s3Path The S3 location of the FAQ input data. Detailed below.
+         * 
+         * The `s3_path` configuration block supports the following arguments:
          * 
          * @return builder
          * 

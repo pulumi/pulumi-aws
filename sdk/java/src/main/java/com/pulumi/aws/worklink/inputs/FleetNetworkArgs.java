@@ -17,12 +17,20 @@ public final class FleetNetworkArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A list of security group IDs associated with access to the provided subnets.
      * 
+     * **identity_provider** requires the following:
+     * 
+     * &gt; **NOTE:** `identity_provider` cannot be removed without force recreating.
+     * 
      */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
     /**
      * @return A list of security group IDs associated with access to the provided subnets.
+     * 
+     * **identity_provider** requires the following:
+     * 
+     * &gt; **NOTE:** `identity_provider` cannot be removed without force recreating.
      * 
      */
     public Output<List<String>> securityGroupIds() {
@@ -88,6 +96,10 @@ public final class FleetNetworkArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param securityGroupIds A list of security group IDs associated with access to the provided subnets.
          * 
+         * **identity_provider** requires the following:
+         * 
+         * &gt; **NOTE:** `identity_provider` cannot be removed without force recreating.
+         * 
          * @return builder
          * 
          */
@@ -99,6 +111,10 @@ public final class FleetNetworkArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param securityGroupIds A list of security group IDs associated with access to the provided subnets.
          * 
+         * **identity_provider** requires the following:
+         * 
+         * &gt; **NOTE:** `identity_provider` cannot be removed without force recreating.
+         * 
          * @return builder
          * 
          */
@@ -108,6 +124,10 @@ public final class FleetNetworkArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param securityGroupIds A list of security group IDs associated with access to the provided subnets.
+         * 
+         * **identity_provider** requires the following:
+         * 
+         * &gt; **NOTE:** `identity_provider` cannot be removed without force recreating.
          * 
          * @return builder
          * 

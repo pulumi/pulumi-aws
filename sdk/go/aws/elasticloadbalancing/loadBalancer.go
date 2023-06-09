@@ -155,6 +155,9 @@ type LoadBalancer struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Exactly one of `availabilityZones` or `subnets` must be specified: this
+	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -239,6 +242,9 @@ type loadBalancerState struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Exactly one of `availabilityZones` or `subnets` must be specified: this
+	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -292,6 +298,9 @@ type LoadBalancerState struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Exactly one of `availabilityZones` or `subnets` must be specified: this
+	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -341,6 +350,9 @@ type loadBalancerArgs struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Exactly one of `availabilityZones` or `subnets` must be specified: this
+	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -383,6 +395,9 @@ type LoadBalancerArgs struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// Exactly one of `availabilityZones` or `subnets` must be specified: this
+	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags pulumi.StringMapInput
 }
 
@@ -575,6 +590,9 @@ func (o LoadBalancerOutput) Subnets() pulumi.StringArrayOutput {
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// Exactly one of `availabilityZones` or `subnets` must be specified: this
+// determines if the ELB exists in a VPC or in EC2-classic.
 func (o LoadBalancerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

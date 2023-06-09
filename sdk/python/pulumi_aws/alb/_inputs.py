@@ -54,6 +54,8 @@ class ListenerDefaultActionArgs:
                  target_group_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+               
+               The following arguments are optional:
         :param pulumi.Input['ListenerDefaultActionAuthenticateCognitoArgs'] authenticate_cognito: Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
         :param pulumi.Input['ListenerDefaultActionAuthenticateOidcArgs'] authenticate_oidc: Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
         :param pulumi.Input['ListenerDefaultActionFixedResponseArgs'] fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
@@ -83,6 +85,8 @@ class ListenerDefaultActionArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -190,6 +194,8 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
         :param pulumi.Input[str] user_pool_arn: ARN of the Cognito user pool.
         :param pulumi.Input[str] user_pool_client_id: ID of the Cognito user pool client.
         :param pulumi.Input[str] user_pool_domain: Domain prefix or fully-qualified domain name of the Cognito user pool.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authentication_request_extra_params: Query parameters to include in the redirect request to the authorization endpoint. Max: 10. Detailed below.
         :param pulumi.Input[str] on_unauthenticated_request: Behavior if the user is not authenticated. Valid values are `deny`, `allow` and `authenticate`.
         :param pulumi.Input[str] scope: Set of user claims to be requested from the IdP.
@@ -239,6 +245,8 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
     def user_pool_domain(self) -> pulumi.Input[str]:
         """
         Domain prefix or fully-qualified domain name of the Cognito user pool.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_pool_domain")
 
@@ -328,6 +336,8 @@ class ListenerDefaultActionAuthenticateOidcArgs:
         :param pulumi.Input[str] issuer: OIDC issuer identifier of the IdP.
         :param pulumi.Input[str] token_endpoint: Token endpoint of the IdP.
         :param pulumi.Input[str] user_info_endpoint: User info endpoint of the IdP.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authentication_request_extra_params: Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
         :param pulumi.Input[str] on_unauthenticated_request: Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         :param pulumi.Input[str] scope: Set of user claims to be requested from the IdP.
@@ -416,6 +426,8 @@ class ListenerDefaultActionAuthenticateOidcArgs:
     def user_info_endpoint(self) -> pulumi.Input[str]:
         """
         User info endpoint of the IdP.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_info_endpoint")
 
@@ -492,6 +504,8 @@ class ListenerDefaultActionFixedResponseArgs:
                  status_code: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] content_type: Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] message_body: Message body.
         :param pulumi.Input[str] status_code: HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
         """
@@ -506,6 +520,8 @@ class ListenerDefaultActionFixedResponseArgs:
     def content_type(self) -> pulumi.Input[str]:
         """
         Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "content_type")
 
@@ -545,6 +561,8 @@ class ListenerDefaultActionForwardArgs:
                  stickiness: Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]] target_groups: Set of 1-5 target group blocks. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input['ListenerDefaultActionForwardStickinessArgs'] stickiness: Configuration block for target group stickiness for the rule. Detailed below.
         """
         pulumi.set(__self__, "target_groups", target_groups)
@@ -556,6 +574,8 @@ class ListenerDefaultActionForwardArgs:
     def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]:
         """
         Set of 1-5 target group blocks. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target_groups")
 
@@ -583,6 +603,8 @@ class ListenerDefaultActionForwardStickinessArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] duration: Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] enabled: Whether target group stickiness is enabled. Default is `false`.
         """
         pulumi.set(__self__, "duration", duration)
@@ -594,6 +616,8 @@ class ListenerDefaultActionForwardStickinessArgs:
     def duration(self) -> pulumi.Input[int]:
         """
         Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "duration")
 
@@ -621,6 +645,8 @@ class ListenerDefaultActionForwardTargetGroupArgs:
                  weight: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] arn: ARN of the target group.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] weight: Weight. The range is 0 to 999.
         """
         pulumi.set(__self__, "arn", arn)
@@ -632,6 +658,8 @@ class ListenerDefaultActionForwardTargetGroupArgs:
     def arn(self) -> pulumi.Input[str]:
         """
         ARN of the target group.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "arn")
 
@@ -663,6 +691,8 @@ class ListenerDefaultActionRedirectArgs:
                  query: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] status_code: HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+               
+               The following arguments are optional:
         :param pulumi.Input[str] host: Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
         :param pulumi.Input[str] path: Absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
         :param pulumi.Input[str] port: Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
@@ -686,6 +716,8 @@ class ListenerDefaultActionRedirectArgs:
     def status_code(self) -> pulumi.Input[str]:
         """
         HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "status_code")
 
@@ -1479,6 +1511,8 @@ class ListenerRuleConditionArgs:
         :param pulumi.Input['ListenerRuleConditionPathPatternArgs'] path_pattern: Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]] query_strings: Query strings to match. Query String block fields documented below.
         :param pulumi.Input['ListenerRuleConditionSourceIpArgs'] source_ip: Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
+               
+               > **NOTE::** Exactly one of `host_header`, `http_header`, `http_request_method`, `path_pattern`, `query_string` or `source_ip` must be set per condition.
         """
         if host_header is not None:
             pulumi.set(__self__, "host_header", host_header)
@@ -1558,6 +1592,8 @@ class ListenerRuleConditionArgs:
     def source_ip(self) -> Optional[pulumi.Input['ListenerRuleConditionSourceIpArgs']]:
         """
         Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
+
+        > **NOTE::** Exactly one of `host_header`, `http_header`, `http_request_method`, `path_pattern`, `query_string` or `source_ip` must be set per condition.
         """
         return pulumi.get(self, "source_ip")
 
@@ -1572,6 +1608,9 @@ class ListenerRuleConditionHostHeaderArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+               
+               
+               Query String Value Blocks (for `query_string.values`) support the following:
         """
         pulumi.set(__self__, "values", values)
 
@@ -1580,6 +1619,9 @@ class ListenerRuleConditionHostHeaderArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+
+
+        Query String Value Blocks (for `query_string.values`) support the following:
         """
         return pulumi.get(self, "values")
 
@@ -1631,6 +1673,9 @@ class ListenerRuleConditionHttpRequestMethodArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+               
+               
+               Query String Value Blocks (for `query_string.values`) support the following:
         """
         pulumi.set(__self__, "values", values)
 
@@ -1639,6 +1684,9 @@ class ListenerRuleConditionHttpRequestMethodArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+
+
+        Query String Value Blocks (for `query_string.values`) support the following:
         """
         return pulumi.get(self, "values")
 
@@ -1653,6 +1701,9 @@ class ListenerRuleConditionPathPatternArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+               
+               
+               Query String Value Blocks (for `query_string.values`) support the following:
         """
         pulumi.set(__self__, "values", values)
 
@@ -1661,6 +1712,9 @@ class ListenerRuleConditionPathPatternArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+
+
+        Query String Value Blocks (for `query_string.values`) support the following:
         """
         return pulumi.get(self, "values")
 
@@ -1713,6 +1767,9 @@ class ListenerRuleConditionSourceIpArgs:
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+               
+               
+               Query String Value Blocks (for `query_string.values`) support the following:
         """
         pulumi.set(__self__, "values", values)
 
@@ -1721,6 +1778,9 @@ class ListenerRuleConditionSourceIpArgs:
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+
+
+        Query String Value Blocks (for `query_string.values`) support the following:
         """
         return pulumi.get(self, "values")
 

@@ -535,12 +535,16 @@ public class UserPoolClient extends com.pulumi.resources.CustomResource {
     /**
      * User pool the client belongs to.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
     /**
      * @return User pool the client belongs to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userPoolId() {

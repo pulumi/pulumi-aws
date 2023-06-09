@@ -14,6 +14,34 @@ type GetLicenseGrantsFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := licensemanager.GetLicenseGrants(ctx, &licensemanager.GetLicenseGrantsArgs{
+	// 			Filters: []licensemanager.GetLicenseGrantsFilter{
+	// 				{
+	// 					Name: "ProductSKU",
+	// 					Values: []string{
+	// 						"",
+	// 					},
+	// 				},
+	// 			},
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values []string `pulumi:"values"`
@@ -34,6 +62,34 @@ type GetLicenseGrantsFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := licensemanager.GetLicenseGrants(ctx, &licensemanager.GetLicenseGrantsArgs{
+	// 			Filters: []licensemanager.GetLicenseGrantsFilter{
+	// 				{
+	// 					Name: "ProductSKU",
+	// 					Values: []string{
+	// 						"",
+	// 					},
+	// 				},
+	// 			},
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -93,6 +149,37 @@ func (o GetLicenseGrantsFilterOutput) ToGetLicenseGrantsFilterOutputWithContext(
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
 // For example, if filtering using `ProductSKU`, use:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := licensemanager.GetLicenseGrants(ctx, &licensemanager.GetLicenseGrantsArgs{
+//				Filters: []licensemanager.GetLicenseGrantsFilter{
+//					{
+//						Name: "ProductSKU",
+//						Values: []string{
+//							"",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o GetLicenseGrantsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLicenseGrantsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1024,6 +1111,34 @@ type GetReceivedLicensesFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := licensemanager.GetReceivedLicenses(ctx, &licensemanager.GetReceivedLicensesArgs{
+	// 			Filters: []licensemanager.GetReceivedLicensesFilter{
+	// 				{
+	// 					Name: "ProductSKU",
+	// 					Values: []string{
+	// 						"",
+	// 					},
+	// 				},
+	// 			},
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values []string `pulumi:"values"`
@@ -1044,6 +1159,34 @@ type GetReceivedLicensesFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := licensemanager.GetReceivedLicenses(ctx, &licensemanager.GetReceivedLicensesArgs{
+	// 			Filters: []licensemanager.GetReceivedLicensesFilter{
+	// 				{
+	// 					Name: "ProductSKU",
+	// 					Values: []string{
+	// 						"",
+	// 					},
+	// 				},
+	// 			},
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -1103,6 +1246,37 @@ func (o GetReceivedLicensesFilterOutput) ToGetReceivedLicensesFilterOutputWithCo
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
 // For example, if filtering using `ProductSKU`, use:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := licensemanager.GetReceivedLicenses(ctx, &licensemanager.GetReceivedLicensesArgs{
+//				Filters: []licensemanager.GetReceivedLicensesFilter{
+//					{
+//						Name: "ProductSKU",
+//						Values: []string{
+//							"",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o GetReceivedLicensesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicensesFilter) string { return v.Name }).(pulumi.StringOutput)
 }

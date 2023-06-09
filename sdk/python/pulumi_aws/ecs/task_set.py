@@ -36,6 +36,8 @@ class TaskSetArgs:
         :param pulumi.Input[str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[str] service: The short name or ARN of the ECS service.
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         :param pulumi.Input[str] external_id: The external ID associated with the task set.
         :param pulumi.Input[bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
@@ -106,6 +108,8 @@ class TaskSetArgs:
     def task_definition(self) -> pulumi.Input[str]:
         """
         The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "task_definition")
 
@@ -300,6 +304,8 @@ class _TaskSetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] task_set_id: The ID of the task set.
         :param pulumi.Input[bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
         :param pulumi.Input[str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
@@ -542,6 +548,8 @@ class _TaskSetState:
     def task_definition(self) -> Optional[pulumi.Input[str]]:
         """
         The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "task_definition")
 
@@ -623,7 +631,7 @@ class TaskSet(pulumi.CustomResource):
             cluster=aws_ecs_cluster["example"]["id"],
             task_definition=aws_ecs_task_definition["example"]["arn"],
             load_balancers=[aws.ecs.TaskSetLoadBalancerArgs(
-                target_group_arn=aws_lb_target_group["example"]["arn"],
+                target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 container_name="mongo",
                 container_port=8080,
             )])
@@ -652,6 +660,8 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TaskSetServiceRegistriesArgs']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
         :param pulumi.Input[str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         """
@@ -677,7 +687,7 @@ class TaskSet(pulumi.CustomResource):
             cluster=aws_ecs_cluster["example"]["id"],
             task_definition=aws_ecs_task_definition["example"]["arn"],
             load_balancers=[aws.ecs.TaskSetLoadBalancerArgs(
-                target_group_arn=aws_lb_target_group["example"]["arn"],
+                target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 container_name="mongo",
                 container_port=8080,
             )])
@@ -810,6 +820,8 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] task_set_id: The ID of the task set.
         :param pulumi.Input[bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
         :param pulumi.Input[str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
@@ -973,6 +985,8 @@ class TaskSet(pulumi.CustomResource):
     def task_definition(self) -> pulumi.Output[str]:
         """
         The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "task_definition")
 

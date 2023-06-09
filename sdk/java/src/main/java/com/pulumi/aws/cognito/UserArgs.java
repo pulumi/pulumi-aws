@@ -156,12 +156,16 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
      * @return The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> username() {
@@ -171,12 +175,16 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The user&#39;s validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
      * 
+     * &gt; **NOTE:** Clearing `password` or `temporary_password` does not reset user&#39;s password in Cognito.
+     * 
      */
     @Import(name="validationData")
     private @Nullable Output<Map<String,String>> validationData;
 
     /**
      * @return The user&#39;s validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+     * 
+     * &gt; **NOTE:** Clearing `password` or `temporary_password` does not reset user&#39;s password in Cognito.
      * 
      */
     public Optional<Output<Map<String,String>>> validationData() {
@@ -419,6 +427,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param username The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -430,6 +440,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param username The username for the user. Must be unique within the user pool. Must be a UTF-8 string between 1 and 128 characters. After the user is created, the username cannot be changed.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -439,6 +451,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param validationData The user&#39;s validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+         * 
+         * &gt; **NOTE:** Clearing `password` or `temporary_password` does not reset user&#39;s password in Cognito.
          * 
          * @return builder
          * 
@@ -450,6 +464,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param validationData The user&#39;s validation data. This is an array of name-value pairs that contain user attributes and attribute values that you can use for custom validation, such as restricting the types of user accounts that can be registered. Amazon Cognito does not store the `validation_data` value. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
+         * 
+         * &gt; **NOTE:** Clearing `password` or `temporary_password` does not reset user&#39;s password in Cognito.
          * 
          * @return builder
          * 

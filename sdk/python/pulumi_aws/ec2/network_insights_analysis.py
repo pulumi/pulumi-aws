@@ -23,6 +23,8 @@ class NetworkInsightsAnalysisArgs:
         """
         The set of arguments for constructing a NetworkInsightsAnalysis resource.
         :param pulumi.Input[str] network_insights_path_id: ID of the Network Insights Path to run an analysis on.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_in_arns: A list of ARNs for resources the path must traverse.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] wait_for_completion: If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
@@ -40,6 +42,8 @@ class NetworkInsightsAnalysisArgs:
     def network_insights_path_id(self) -> pulumi.Input[str]:
         """
         ID of the Network Insights Path to run an analysis on.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "network_insights_path_id")
 
@@ -110,6 +114,8 @@ class _NetworkInsightsAnalysisState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_in_arns: A list of ARNs for resources the path must traverse.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentArgs']]] forward_path_components: The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         :param pulumi.Input[str] network_insights_path_id: ID of the Network Insights Path to run an analysis on.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] path_found: Set to `true` if the destination was reachable.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentArgs']]] return_path_components: The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         :param pulumi.Input[str] start_date: The date/time the analysis was started.
@@ -216,6 +222,8 @@ class _NetworkInsightsAnalysisState:
     def network_insights_path_id(self) -> Optional[pulumi.Input[str]]:
         """
         ID of the Network Insights Path to run an analysis on.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "network_insights_path_id")
 
@@ -370,6 +378,8 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_in_arns: A list of ARNs for resources the path must traverse.
         :param pulumi.Input[str] network_insights_path_id: ID of the Network Insights Path to run an analysis on.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] wait_for_completion: If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
         """
@@ -486,6 +496,8 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_in_arns: A list of ARNs for resources the path must traverse.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsAnalysisForwardPathComponentArgs']]]] forward_path_components: The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         :param pulumi.Input[str] network_insights_path_id: ID of the Network Insights Path to run an analysis on.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] path_found: Set to `true` if the destination was reachable.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsAnalysisReturnPathComponentArgs']]]] return_path_components: The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         :param pulumi.Input[str] start_date: The date/time the analysis was started.
@@ -562,6 +574,8 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
     def network_insights_path_id(self) -> pulumi.Output[str]:
         """
         ID of the Network Insights Path to run an analysis on.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "network_insights_path_id")
 

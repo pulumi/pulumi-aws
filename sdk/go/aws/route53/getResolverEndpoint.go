@@ -84,6 +84,8 @@ type LookupResolverEndpointArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	Filters []GetResolverEndpointFilter `pulumi:"filters"`
 	// ID of the Route53 Resolver Endpoint.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
@@ -121,6 +123,8 @@ type LookupResolverEndpointOutputArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	Filters GetResolverEndpointFilterArrayInput `pulumi:"filters"`
 	// ID of the Route53 Resolver Endpoint.
 	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`

@@ -88,6 +88,9 @@ def get_received_licenses(filters: Optional[Sequence[pulumi.InputType['GetReceiv
 
 
     :param Sequence[pulumi.InputType['GetReceivedLicensesFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -122,5 +125,8 @@ def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
 
     :param Sequence[pulumi.InputType['GetReceivedLicensesFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

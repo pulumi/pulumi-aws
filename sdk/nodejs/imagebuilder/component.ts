@@ -121,10 +121,14 @@ export class Component extends pulumi.CustomResource {
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+     *
+     * > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
      */
     public readonly uri!: pulumi.Output<string | undefined>;
     /**
      * Version of the component.
+     *
+     * The following attributes are optional:
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -255,10 +259,14 @@ export interface ComponentState {
     type?: pulumi.Input<string>;
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+     *
+     * > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
      */
     uri?: pulumi.Input<string>;
     /**
      * Version of the component.
+     *
+     * The following attributes are optional:
      */
     version?: pulumi.Input<string>;
 }
@@ -305,10 +313,14 @@ export interface ComponentArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+     *
+     * > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
      */
     uri?: pulumi.Input<string>;
     /**
      * Version of the component.
+     *
+     * The following attributes are optional:
      */
     version: pulumi.Input<string>;
 }

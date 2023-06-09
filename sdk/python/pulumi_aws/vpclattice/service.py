@@ -27,6 +27,8 @@ class ServiceArgs:
         :param pulumi.Input[str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[str] custom_domain_name: Custom domain name of the service.
         :param pulumi.Input[str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if auth_type is not None:
@@ -81,6 +83,8 @@ class ServiceArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -121,6 +125,8 @@ class _ServiceState:
         :param pulumi.Input[str] custom_domain_name: Custom domain name of the service.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArgs']]] dns_entries: Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         :param pulumi.Input[str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: Status of the service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -209,6 +215,8 @@ class _ServiceState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -293,6 +301,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[str] custom_domain_name: Custom domain name of the service.
         :param pulumi.Input[str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -394,6 +404,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] custom_domain_name: Custom domain name of the service.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDnsEntryArgs']]]] dns_entries: Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         :param pulumi.Input[str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: Status of the service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -458,6 +470,8 @@ class Service(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

@@ -133,6 +133,8 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
         /// <summary>
         /// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("waitPeriodMs")]
         public Output<int> WaitPeriodMs { get; private set; } = null!;
@@ -239,6 +241,8 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
         /// <summary>
         /// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("waitPeriodMs", required: true)]
         public Input<int> WaitPeriodMs { get; set; } = null!;
@@ -319,6 +323,8 @@ namespace Pulumi.Aws.Route53RecoveryControl
 
         /// <summary>
         /// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("waitPeriodMs")]
         public Input<int>? WaitPeriodMs { get; set; }

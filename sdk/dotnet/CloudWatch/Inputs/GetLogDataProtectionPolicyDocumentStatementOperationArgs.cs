@@ -20,6 +20,8 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
         /// <summary>
         /// Configures the masking of sensitive data.
+        /// 
+        /// &gt; Every policy statement must specify exactly one operation.
         /// </summary>
         [Input("deidentify")]
         public Input<Inputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInputArgs>? Deidentify { get; set; }

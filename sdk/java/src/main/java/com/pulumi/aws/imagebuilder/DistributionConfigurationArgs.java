@@ -36,12 +36,16 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Re
     /**
      * One or more configuration blocks with distribution settings. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="distributions", required=true)
     private Output<List<DistributionConfigurationDistributionArgs>> distributions;
 
     /**
      * @return One or more configuration blocks with distribution settings. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<DistributionConfigurationDistributionArgs>> distributions() {
@@ -129,6 +133,8 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Re
         /**
          * @param distributions One or more configuration blocks with distribution settings. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -140,6 +146,8 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Re
         /**
          * @param distributions One or more configuration blocks with distribution settings. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -149,6 +157,8 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Re
 
         /**
          * @param distributions One or more configuration blocks with distribution settings. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

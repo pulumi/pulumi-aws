@@ -111,6 +111,8 @@ namespace Pulumi.Aws.CostExplorer
 
         /// <summary>
         /// Configuration block for the start and end dates for retrieving the dimension values.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("timePeriod", required: true)]
         public Inputs.GetTagsTimePeriodArgs TimePeriod { get; set; } = null!;
@@ -155,6 +157,8 @@ namespace Pulumi.Aws.CostExplorer
 
         /// <summary>
         /// Configuration block for the start and end dates for retrieving the dimension values.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("timePeriod", required: true)]
         public Input<Inputs.GetTagsTimePeriodInputArgs> TimePeriod { get; set; } = null!;

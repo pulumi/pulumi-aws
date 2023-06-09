@@ -92,6 +92,8 @@ type Statement struct {
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn pulumi.StringPtrOutput `pulumi:"secretArn"`
 	// The SQL statement text to run.
+	//
+	// The following arguments are optional:
 	Sql pulumi.StringOutput `pulumi:"sql"`
 	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 	StatementName pulumi.StringPtrOutput `pulumi:"statementName"`
@@ -146,6 +148,8 @@ type statementState struct {
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn *string `pulumi:"secretArn"`
 	// The SQL statement text to run.
+	//
+	// The following arguments are optional:
 	Sql *string `pulumi:"sql"`
 	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 	StatementName *string `pulumi:"statementName"`
@@ -166,6 +170,8 @@ type StatementState struct {
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn pulumi.StringPtrInput
 	// The SQL statement text to run.
+	//
+	// The following arguments are optional:
 	Sql pulumi.StringPtrInput
 	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 	StatementName pulumi.StringPtrInput
@@ -190,6 +196,8 @@ type statementArgs struct {
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn *string `pulumi:"secretArn"`
 	// The SQL statement text to run.
+	//
+	// The following arguments are optional:
 	Sql string `pulumi:"sql"`
 	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 	StatementName *string `pulumi:"statementName"`
@@ -211,6 +219,8 @@ type StatementArgs struct {
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn pulumi.StringPtrInput
 	// The SQL statement text to run.
+	//
+	// The following arguments are optional:
 	Sql pulumi.StringInput
 	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 	StatementName pulumi.StringPtrInput
@@ -332,6 +342,8 @@ func (o StatementOutput) SecretArn() pulumi.StringPtrOutput {
 }
 
 // The SQL statement text to run.
+//
+// The following arguments are optional:
 func (o StatementOutput) Sql() pulumi.StringOutput {
 	return o.ApplyT(func(v *Statement) pulumi.StringOutput { return v.Sql }).(pulumi.StringOutput)
 }

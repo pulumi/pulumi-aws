@@ -142,6 +142,8 @@ export class Schedule extends pulumi.CustomResource {
     public readonly state!: pulumi.Output<string | undefined>;
     /**
      * Configures the target of the schedule. Detailed below.
+     *
+     * The following arguments are optional:
      */
     public readonly target!: pulumi.Output<outputs.scheduler.ScheduleTarget>;
 
@@ -255,6 +257,8 @@ export interface ScheduleState {
     state?: pulumi.Input<string>;
     /**
      * Configures the target of the schedule. Detailed below.
+     *
+     * The following arguments are optional:
      */
     target?: pulumi.Input<inputs.scheduler.ScheduleTarget>;
 }
@@ -309,6 +313,8 @@ export interface ScheduleArgs {
     state?: pulumi.Input<string>;
     /**
      * Configures the target of the schedule. Detailed below.
+     *
+     * The following arguments are optional:
      */
     target: pulumi.Input<inputs.scheduler.ScheduleTarget>;
 }

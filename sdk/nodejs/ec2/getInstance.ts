@@ -61,6 +61,12 @@ export interface GetInstanceArgs {
     getPasswordData?: boolean;
     /**
      * Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
+     *
+     * > **NOTE:** At least one of `filter`, `instanceTags`, or `instanceId` must be specified.
+     *
+     * > **NOTE:** If anything other than a single match is returned by the search,
+     * this call will fail. Ensure that your search is specific enough to return
+     * a single Instance ID only.
      */
     getUserData?: boolean;
     /**
@@ -300,6 +306,12 @@ export interface GetInstanceOutputArgs {
     getPasswordData?: pulumi.Input<boolean>;
     /**
      * Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
+     *
+     * > **NOTE:** At least one of `filter`, `instanceTags`, or `instanceId` must be specified.
+     *
+     * > **NOTE:** If anything other than a single match is returned by the search,
+     * this call will fail. Ensure that your search is specific enough to return
+     * a single Instance ID only.
      */
     getUserData?: pulumi.Input<boolean>;
     /**

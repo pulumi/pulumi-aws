@@ -116,6 +116,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("mailFromDomain")]
         public Output<string> MailFromDomain { get; private set; } = null!;
@@ -180,6 +182,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("mailFromDomain", required: true)]
         public Input<string> MailFromDomain { get; set; } = null!;
@@ -206,6 +210,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("mailFromDomain")]
         public Input<string>? MailFromDomain { get; set; }

@@ -448,6 +448,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     /**
      * User-created description for the replication group. Must not be empty.
      * 
+     * The following arguments are optional:
+     * 
      * @deprecated
      * Use description instead
      * 
@@ -458,6 +460,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @return User-created description for the replication group. Must not be empty.
+     * 
+     * The following arguments are optional:
      * 
      * @deprecated
      * Use description instead
@@ -1307,6 +1311,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param replicationGroupDescription User-created description for the replication group. Must not be empty.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          * @deprecated
@@ -1321,6 +1327,8 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param replicationGroupDescription User-created description for the replication group. Must not be empty.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

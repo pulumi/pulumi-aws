@@ -13,6 +13,32 @@ import (
 
 // Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := rds.NewProxyEndpoint(ctx, "example", &rds.ProxyEndpointArgs{
+// DbProxyName: pulumi.Any(aws_db_proxy.Test.Name),
+// DbProxyEndpointName: pulumi.String("example"),
+// VpcSubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:rds-proxyEndpoint:ProxyEndpoint.pp:3,26-47),
+// TargetRole: pulumi.String("READ_ONLY"),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,

@@ -439,7 +439,7 @@ class Firewall(pulumi.CustomResource):
             firewall_policy_arn=aws_networkfirewall_firewall_policy["example"]["arn"],
             vpc_id=aws_vpc["example"]["id"],
             subnet_mappings=[aws.networkfirewall.FirewallSubnetMappingArgs(
-                subnet_id=aws_subnet["example"]["id"],
+                subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             tags={
                 "Tag1": "Value1",
@@ -487,7 +487,7 @@ class Firewall(pulumi.CustomResource):
             firewall_policy_arn=aws_networkfirewall_firewall_policy["example"]["arn"],
             vpc_id=aws_vpc["example"]["id"],
             subnet_mappings=[aws.networkfirewall.FirewallSubnetMappingArgs(
-                subnet_id=aws_subnet["example"]["id"],
+                subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             tags={
                 "Tag1": "Value1",

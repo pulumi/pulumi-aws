@@ -110,12 +110,16 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> type() {
@@ -281,6 +285,8 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -291,6 +297,8 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

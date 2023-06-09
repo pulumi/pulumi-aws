@@ -45,6 +45,8 @@ export interface GetQuicksightUserArgs {
     namespace?: string;
     /**
      * The name of the user that you want to match.
+     *
+     * The following arguments are optional:
      */
     userName: string;
 }
@@ -120,6 +122,8 @@ export interface GetQuicksightUserOutputArgs {
     namespace?: pulumi.Input<string>;
     /**
      * The name of the user that you want to match.
+     *
+     * The following arguments are optional:
      */
     userName: pulumi.Input<string>;
 }

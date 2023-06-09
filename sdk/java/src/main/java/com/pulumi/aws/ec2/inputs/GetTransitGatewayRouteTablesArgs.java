@@ -37,6 +37,9 @@ public final class GetTransitGatewayRouteTablesArgs extends com.pulumi.resources
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired transit gateway route table.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
@@ -44,6 +47,9 @@ public final class GetTransitGatewayRouteTablesArgs extends com.pulumi.resources
     /**
      * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired transit gateway route table.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -110,6 +116,9 @@ public final class GetTransitGatewayRouteTablesArgs extends com.pulumi.resources
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired transit gateway route table.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -121,6 +130,9 @@ public final class GetTransitGatewayRouteTablesArgs extends com.pulumi.resources
         /**
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired transit gateway route table.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

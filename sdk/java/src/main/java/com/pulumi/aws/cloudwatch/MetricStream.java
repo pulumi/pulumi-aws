@@ -350,12 +350,16 @@ public class MetricStream extends com.pulumi.resources.CustomResource {
     /**
      * Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="outputFormat", refs={String.class}, tree="[0]")
     private Output<String> outputFormat;
 
     /**
      * @return Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> outputFormat() {

@@ -91,6 +91,8 @@ namespace Pulumi.Aws.DynamoDB
 
         /// <summary>
         /// ARN of the _main_ or global table which this resource will replicate.
+        /// 
+        /// Optional arguments:
         /// </summary>
         [Output("globalTableArn")]
         public Output<string> GlobalTableArn { get; private set; } = null!;
@@ -173,6 +175,8 @@ namespace Pulumi.Aws.DynamoDB
     {
         /// <summary>
         /// ARN of the _main_ or global table which this resource will replicate.
+        /// 
+        /// Optional arguments:
         /// </summary>
         [Input("globalTableArn", required: true)]
         public Input<string> GlobalTableArn { get; set; } = null!;
@@ -223,6 +227,8 @@ namespace Pulumi.Aws.DynamoDB
 
         /// <summary>
         /// ARN of the _main_ or global table which this resource will replicate.
+        /// 
+        /// Optional arguments:
         /// </summary>
         [Input("globalTableArn")]
         public Input<string>? GlobalTableArn { get; set; }

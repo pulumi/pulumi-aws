@@ -3721,6 +3721,8 @@ func (o EventTargetEcsTargetCapacityProviderStrategyArrayOutput) Index(i pulumi.
 
 type EventTargetEcsTargetNetworkConfiguration struct {
 	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
+	//
+	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 	AssignPublicIp *bool `pulumi:"assignPublicIp"`
 	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -3741,6 +3743,8 @@ type EventTargetEcsTargetNetworkConfigurationInput interface {
 
 type EventTargetEcsTargetNetworkConfigurationArgs struct {
 	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
+	//
+	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
 	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -3826,6 +3830,8 @@ func (o EventTargetEcsTargetNetworkConfigurationOutput) ToEventTargetEcsTargetNe
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
+//
+// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 func (o EventTargetEcsTargetNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTargetNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -3865,6 +3871,8 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) Elem() EventTargetEcs
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
+//
+// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTargetNetworkConfiguration) *bool {
 		if v == nil {
@@ -5763,6 +5771,8 @@ type MetricAlarmMetricQuery struct {
 	// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
 	Period *int `pulumi:"period"`
 	// Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
+	//
+	// > **NOTE:**  You must specify either `metric` or `expression`. Not both.
 	ReturnData *bool `pulumi:"returnData"`
 }
 
@@ -5793,6 +5803,8 @@ type MetricAlarmMetricQueryArgs struct {
 	// For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
 	Period pulumi.IntPtrInput `pulumi:"period"`
 	// Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
+	//
+	// > **NOTE:**  You must specify either `metric` or `expression`. Not both.
 	ReturnData pulumi.BoolPtrInput `pulumi:"returnData"`
 }
 
@@ -5880,6 +5892,8 @@ func (o MetricAlarmMetricQueryOutput) Period() pulumi.IntPtrOutput {
 }
 
 // Specify exactly one `metricQuery` to be `true` to use that `metricQuery` result as the alarm.
+//
+// > **NOTE:**  You must specify either `metric` or `expression`. Not both.
 func (o MetricAlarmMetricQueryOutput) ReturnData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQuery) *bool { return v.ReturnData }).(pulumi.BoolPtrOutput)
 }
@@ -6703,6 +6717,8 @@ type GetLogDataProtectionPolicyDocumentStatementOperation struct {
 	// Configures the detection of sensitive data.
 	Audit *GetLogDataProtectionPolicyDocumentStatementOperationAudit `pulumi:"audit"`
 	// Configures the masking of sensitive data.
+	//
+	// > Every policy statement must specify exactly one operation.
 	Deidentify *GetLogDataProtectionPolicyDocumentStatementOperationDeidentify `pulumi:"deidentify"`
 }
 
@@ -6721,6 +6737,8 @@ type GetLogDataProtectionPolicyDocumentStatementOperationArgs struct {
 	// Configures the detection of sensitive data.
 	Audit GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrInput `pulumi:"audit"`
 	// Configures the masking of sensitive data.
+	//
+	// > Every policy statement must specify exactly one operation.
 	Deidentify GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrInput `pulumi:"deidentify"`
 }
 
@@ -6758,6 +6776,8 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) Audit() GetL
 }
 
 // Configures the masking of sensitive data.
+//
+// > Every policy statement must specify exactly one operation.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) Deidentify() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperation) *GetLogDataProtectionPolicyDocumentStatementOperationDeidentify {
 		return v.Deidentify

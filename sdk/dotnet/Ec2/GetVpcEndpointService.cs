@@ -234,6 +234,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+        /// 
+        /// &gt; **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `service_name` pattern of `com.amazonaws.&lt;region&gt;.&lt;service&gt;`.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -284,6 +286,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+        /// 
+        /// &gt; **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `service_name` pattern of `com.amazonaws.&lt;region&gt;.&lt;service&gt;`.
         /// </summary>
         public InputMap<string> Tags
         {

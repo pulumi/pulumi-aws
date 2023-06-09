@@ -48,6 +48,8 @@ export function getSessionContext(args: GetSessionContextArgs, opts?: pulumi.Inv
 export interface GetSessionContextArgs {
     /**
      * ARN for an assumed role.
+     *
+     * > If `arn` is a non-role ARN, the provider gives no error and `issuerArn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
      */
     arn: string;
 }
@@ -118,6 +120,8 @@ export function getSessionContextOutput(args: GetSessionContextOutputArgs, opts?
 export interface GetSessionContextOutputArgs {
     /**
      * ARN for an assumed role.
+     *
+     * > If `arn` is a non-role ARN, the provider gives no error and `issuerArn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
      */
     arn: pulumi.Input<string>;
 }

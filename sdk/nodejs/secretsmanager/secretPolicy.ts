@@ -79,6 +79,8 @@ export class SecretPolicy extends pulumi.CustomResource {
     public readonly policy!: pulumi.Output<string>;
     /**
      * Secret ARN.
+     *
+     * The following arguments are optional:
      */
     public readonly secretArn!: pulumi.Output<string>;
 
@@ -129,6 +131,8 @@ export interface SecretPolicyState {
     policy?: pulumi.Input<string>;
     /**
      * Secret ARN.
+     *
+     * The following arguments are optional:
      */
     secretArn?: pulumi.Input<string>;
 }
@@ -147,6 +151,8 @@ export interface SecretPolicyArgs {
     policy: pulumi.Input<string>;
     /**
      * Secret ARN.
+     *
+     * The following arguments are optional:
      */
     secretArn: pulumi.Input<string>;
 }

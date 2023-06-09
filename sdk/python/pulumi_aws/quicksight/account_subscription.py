@@ -35,6 +35,8 @@ class AccountSubscriptionArgs:
         :param pulumi.Input[str] authentication_method: Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
         :param pulumi.Input[str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
         :param pulumi.Input[str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] active_directory_name: Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_groups: Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] author_groups: Author group associated with your Active Directory.
@@ -115,6 +117,8 @@ class AccountSubscriptionArgs:
     def notification_email(self) -> pulumi.Input[str]:
         """
         Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "notification_email")
 
@@ -290,6 +294,8 @@ class _AccountSubscriptionState:
         :param pulumi.Input[str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Direcrtory.
         :param pulumi.Input[str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         """
@@ -487,6 +493,8 @@ class _AccountSubscriptionState:
     def notification_email(self) -> Optional[pulumi.Input[str]]:
         """
         Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "notification_email")
 
@@ -575,6 +583,8 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Direcrtory.
         :param pulumi.Input[str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         """
@@ -714,6 +724,8 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Direcrtory.
         :param pulumi.Input[str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
         """
@@ -848,6 +860,8 @@ class AccountSubscription(pulumi.CustomResource):
     def notification_email(self) -> pulumi.Output[str]:
         """
         Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "notification_email")
 

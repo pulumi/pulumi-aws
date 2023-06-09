@@ -63,12 +63,16 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
     /**
      * The name of the topic.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="topicName", required=true)
     private Output<String> topicName;
 
     /**
      * @return The name of the topic.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> topicName() {
@@ -168,6 +172,8 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param topicName The name of the topic.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -178,6 +184,8 @@ public final class ContactListTopicArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param topicName The name of the topic.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

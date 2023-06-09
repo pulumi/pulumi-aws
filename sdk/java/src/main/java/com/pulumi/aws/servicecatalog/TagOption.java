@@ -98,12 +98,16 @@ public class TagOption extends com.pulumi.resources.CustomResource {
     /**
      * Tag option value.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
      * @return Tag option value.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> value() {

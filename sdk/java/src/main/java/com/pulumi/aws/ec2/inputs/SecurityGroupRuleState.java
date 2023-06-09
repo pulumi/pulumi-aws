@@ -189,6 +189,8 @@ public final class SecurityGroupRuleState extends com.pulumi.resources.ResourceA
      * Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
@@ -196,6 +198,8 @@ public final class SecurityGroupRuleState extends com.pulumi.resources.ResourceA
     /**
      * @return Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> type() {
@@ -522,6 +526,8 @@ public final class SecurityGroupRuleState extends com.pulumi.resources.ResourceA
          * @param type Type of rule being created. Valid options are `ingress` (inbound)
          * or `egress` (outbound).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -533,6 +539,8 @@ public final class SecurityGroupRuleState extends com.pulumi.resources.ResourceA
         /**
          * @param type Type of rule being created. Valid options are `ingress` (inbound)
          * or `egress` (outbound).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

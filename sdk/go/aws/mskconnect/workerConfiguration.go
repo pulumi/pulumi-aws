@@ -61,6 +61,8 @@ type WorkerConfiguration struct {
 	// The name of the worker configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	//
+	// The following arguments are optional:
 	PropertiesFileContent pulumi.StringOutput `pulumi:"propertiesFileContent"`
 }
 
@@ -105,6 +107,8 @@ type workerConfigurationState struct {
 	// The name of the worker configuration.
 	Name *string `pulumi:"name"`
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	//
+	// The following arguments are optional:
 	PropertiesFileContent *string `pulumi:"propertiesFileContent"`
 }
 
@@ -118,6 +122,8 @@ type WorkerConfigurationState struct {
 	// The name of the worker configuration.
 	Name pulumi.StringPtrInput
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	//
+	// The following arguments are optional:
 	PropertiesFileContent pulumi.StringPtrInput
 }
 
@@ -131,6 +137,8 @@ type workerConfigurationArgs struct {
 	// The name of the worker configuration.
 	Name *string `pulumi:"name"`
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	//
+	// The following arguments are optional:
 	PropertiesFileContent string `pulumi:"propertiesFileContent"`
 }
 
@@ -141,6 +149,8 @@ type WorkerConfigurationArgs struct {
 	// The name of the worker configuration.
 	Name pulumi.StringPtrInput
 	// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+	//
+	// The following arguments are optional:
 	PropertiesFileContent pulumi.StringInput
 }
 
@@ -252,6 +262,8 @@ func (o WorkerConfigurationOutput) Name() pulumi.StringOutput {
 }
 
 // Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+//
+// The following arguments are optional:
 func (o WorkerConfigurationOutput) PropertiesFileContent() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringOutput { return v.PropertiesFileContent }).(pulumi.StringOutput)
 }

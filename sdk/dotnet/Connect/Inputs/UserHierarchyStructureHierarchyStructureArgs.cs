@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Connect.Inputs
     {
         /// <summary>
         /// A block that defines the details of level five. The level block is documented below.
+        /// 
+        /// Each level block supports the following arguments:
         /// </summary>
         [Input("levelFive")]
         public Input<Inputs.UserHierarchyStructureHierarchyStructureLevelFiveArgs>? LevelFive { get; set; }

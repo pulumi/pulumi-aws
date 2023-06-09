@@ -49,12 +49,86 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.InternetGateway;
+     * import com.pulumi.aws.ec2.InternetGatewayArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var gw = new InternetGateway(&#34;gw&#34;, InternetGatewayArgs.builder()        
+     *             .vpcId(aws_vpc.main().id())
+     *             .build());
+     * 
+     *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.Empty, CustomResourceOptions.builder()
+     *             .dependsOn(gw)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.InternetGateway;
+     * import com.pulumi.aws.ec2.InternetGatewayArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var gw = new InternetGateway(&#34;gw&#34;, InternetGatewayArgs.builder()        
+     *             .vpcId(aws_vpc.main().id())
+     *             .build());
+     * 
+     *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.Empty, CustomResourceOptions.builder()
+     *             .dependsOn(gw)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -164,6 +238,43 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
         /**
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.ec2.InternetGateway;
+         * import com.pulumi.aws.ec2.InternetGatewayArgs;
+         * import com.pulumi.aws.ec2.Instance;
+         * import com.pulumi.aws.ec2.InstanceArgs;
+         * import com.pulumi.resources.CustomResourceOptions;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var gw = new InternetGateway(&#34;gw&#34;, InternetGatewayArgs.builder()        
+         *             .vpcId(aws_vpc.main().id())
+         *             .build());
+         * 
+         *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.Empty, CustomResourceOptions.builder()
+         *             .dependsOn(gw)
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
+         * 
          * @return builder
          * 
          */
@@ -174,6 +285,43 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.ec2.InternetGateway;
+         * import com.pulumi.aws.ec2.InternetGatewayArgs;
+         * import com.pulumi.aws.ec2.Instance;
+         * import com.pulumi.aws.ec2.InstanceArgs;
+         * import com.pulumi.resources.CustomResourceOptions;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var gw = new InternetGateway(&#34;gw&#34;, InternetGatewayArgs.builder()        
+         *             .vpcId(aws_vpc.main().id())
+         *             .build());
+         * 
+         *         var foo = new Instance(&#34;foo&#34;, InstanceArgs.Empty, CustomResourceOptions.builder()
+         *             .dependsOn(gw)
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 

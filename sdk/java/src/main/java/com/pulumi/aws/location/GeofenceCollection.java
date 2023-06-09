@@ -76,12 +76,16 @@ public class GeofenceCollection extends com.pulumi.resources.CustomResource {
     /**
      * The name of the geofence collection.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="collectionName", refs={String.class}, tree="[0]")
     private Output<String> collectionName;
 
     /**
      * @return The name of the geofence collection.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> collectionName() {

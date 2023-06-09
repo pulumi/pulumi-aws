@@ -10,6 +10,96 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// The following shows outputting all network ACL ids in a vpc.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleNetworkAcls, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
+//				VpcId: pulumi.StringRef(_var.Vpc_id),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("example", exampleNetworkAcls.Ids)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The following example retrieves a list of all network ACL ids in a VPC with a custom
+// tag of `Tier` set to a value of "Private".
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
+//				VpcId: pulumi.StringRef(_var.Vpc_id),
+//				Tags: map[string]interface{}{
+//					"Tier": "Private",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The following example retrieves a network ACL id in a VPC which associated
+// with specific subnet.
+//
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
+// VpcId: pulumi.StringRef(_var.Vpc_id),
+// Filters: []ec2.GetNetworkAclsFilter{
+// {
+// Name: "association.subnet-id",
+// Values: interface{}{
+// aws_subnet.Test.Id,
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulumi.InvokeOption) (*GetNetworkAclsResult, error) {
 	var rv GetNetworkAclsResult
 	err := ctx.Invoke("aws:ec2/getNetworkAcls:getNetworkAcls", args, &rv, opts...)
@@ -22,6 +112,9 @@ func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulum
 // A collection of arguments for invoking getNetworkAcls.
 type GetNetworkAclsArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetNetworkAclsFilter `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.
@@ -57,6 +150,9 @@ func GetNetworkAclsOutput(ctx *pulumi.Context, args GetNetworkAclsOutputArgs, op
 // A collection of arguments for invoking getNetworkAcls.
 type GetNetworkAclsOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetNetworkAclsFilterArrayInput `pulumi:"filters"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired network ACLs.

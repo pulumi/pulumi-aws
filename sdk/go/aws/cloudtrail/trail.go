@@ -328,6 +328,8 @@ type Trail struct {
 	// Name of the trail.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix pulumi.StringPtrOutput `pulumi:"s3KeyPrefix"`
@@ -400,6 +402,8 @@ type trailState struct {
 	// Name of the trail.
 	Name *string `pulumi:"name"`
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName *string `pulumi:"s3BucketName"`
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
@@ -441,6 +445,8 @@ type TrailState struct {
 	// Name of the trail.
 	Name pulumi.StringPtrInput
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName pulumi.StringPtrInput
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix pulumi.StringPtrInput
@@ -482,6 +488,8 @@ type trailArgs struct {
 	// Name of the trail.
 	Name *string `pulumi:"name"`
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName string `pulumi:"s3BucketName"`
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
@@ -518,6 +526,8 @@ type TrailArgs struct {
 	// Name of the trail.
 	Name pulumi.StringPtrInput
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName pulumi.StringInput
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix pulumi.StringPtrInput
@@ -685,6 +695,8 @@ func (o TrailOutput) Name() pulumi.StringOutput {
 }
 
 // Name of the S3 bucket designated for publishing log files.
+//
+// The following arguments are optional:
 func (o TrailOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.S3BucketName }).(pulumi.StringOutput)
 }

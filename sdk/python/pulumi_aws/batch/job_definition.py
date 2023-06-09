@@ -28,6 +28,8 @@ class JobDefinitionArgs:
         """
         The set of arguments for constructing a JobDefinition resource.
         :param pulumi.Input[str] type: The type of job definition. Must be `container`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] container_properties: A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
                provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
         :param pulumi.Input[str] name: Specifies the name of the job definition.
@@ -62,6 +64,8 @@ class JobDefinitionArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of job definition. Must be `container`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -199,6 +203,8 @@ class _JobDefinitionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['JobDefinitionTimeoutArgs'] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         :param pulumi.Input[str] type: The type of job definition. Must be `container`.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -364,6 +370,8 @@ class _JobDefinitionState:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of job definition. Must be `container`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -503,6 +511,8 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         :param pulumi.Input[str] type: The type of job definition. Must be `container`.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -703,6 +713,8 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['JobDefinitionTimeoutArgs']] timeout: Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         :param pulumi.Input[str] type: The type of job definition. Must be `container`.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -817,6 +829,8 @@ class JobDefinition(pulumi.CustomResource):
     def type(self) -> pulumi.Output[str]:
         """
         The type of job definition. Must be `container`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

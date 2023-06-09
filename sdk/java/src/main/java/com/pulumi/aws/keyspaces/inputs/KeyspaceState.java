@@ -34,12 +34,16 @@ public final class KeyspaceState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the keyspace to be created.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return The name of the keyspace to be created.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -127,6 +131,8 @@ public final class KeyspaceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name The name of the keyspace to be created.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -137,6 +143,8 @@ public final class KeyspaceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name The name of the keyspace to be created.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

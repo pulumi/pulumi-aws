@@ -19,6 +19,8 @@ public final class ImagePipelineSchedule {
     /**
      * @return Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
      * 
+     * The following arguments are optional:
+     * 
      */
     private String scheduleExpression;
     /**
@@ -37,6 +39,8 @@ public final class ImagePipelineSchedule {
     }
     /**
      * @return Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+     * 
+     * The following arguments are optional:
      * 
      */
     public String scheduleExpression() {

@@ -85,6 +85,8 @@ namespace Pulumi.Aws.MskConnect
 
         /// <summary>
         /// Information about the location of a custom plugin. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("location")]
         public Output<Outputs.CustomPluginLocation> Location { get; private set; } = null!;
@@ -161,6 +163,8 @@ namespace Pulumi.Aws.MskConnect
 
         /// <summary>
         /// Information about the location of a custom plugin. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("location", required: true)]
         public Input<Inputs.CustomPluginLocationArgs> Location { get; set; } = null!;
@@ -205,6 +209,8 @@ namespace Pulumi.Aws.MskConnect
 
         /// <summary>
         /// Information about the location of a custom plugin. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("location")]
         public Input<Inputs.CustomPluginLocationGetArgs>? Location { get; set; }

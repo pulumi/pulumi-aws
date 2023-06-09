@@ -34,6 +34,8 @@ public final class InstanceS3Import {
     /**
      * @return Version of the source engine used to make the backup
      * 
+     * This will not recreate the resource if the S3 object changes in some way.  It&#39;s only used to initialize the database.
+     * 
      */
     private String sourceEngineVersion;
 
@@ -68,6 +70,8 @@ public final class InstanceS3Import {
     }
     /**
      * @return Version of the source engine used to make the backup
+     * 
+     * This will not recreate the resource if the S3 object changes in some way.  It&#39;s only used to initialize the database.
      * 
      */
     public String sourceEngineVersion() {

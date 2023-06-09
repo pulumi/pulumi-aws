@@ -110,12 +110,16 @@ public final class ApplicationVersionState extends com.pulumi.resources.Resource
     /**
      * Unique name for the this Application Version.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Unique name for the this Application Version.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -313,6 +317,8 @@ public final class ApplicationVersionState extends com.pulumi.resources.Resource
         /**
          * @param name Unique name for the this Application Version.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -323,6 +329,8 @@ public final class ApplicationVersionState extends com.pulumi.resources.Resource
 
         /**
          * @param name Unique name for the this Application Version.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

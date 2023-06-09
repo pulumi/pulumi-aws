@@ -25,6 +25,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// The number of threads per CPU core.
         /// To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
         /// Otherwise, specify the default value of 2.
+        /// 
+        /// Both number of CPU cores and threads per core must be specified. Valid number of CPU cores and threads per core for the instance type can be found in the [CPU Options Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html?shortFooter=true#cpu-options-supported-instances-values)
         /// </summary>
         public readonly int? ThreadsPerCore;
 

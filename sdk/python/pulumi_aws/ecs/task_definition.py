@@ -38,6 +38,8 @@ class TaskDefinitionArgs:
         The set of arguments for constructing a TaskDefinition resource.
         :param pulumi.Input[str] container_definitions: A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[str] family: A unique name for your task definition.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
@@ -107,6 +109,8 @@ class TaskDefinitionArgs:
     def family(self) -> pulumi.Input[str]:
         """
         A unique name for your task definition.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "family")
 
@@ -341,6 +345,8 @@ class _TaskDefinitionState:
         :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
@@ -479,6 +485,8 @@ class _TaskDefinitionState:
     def family(self) -> Optional[pulumi.Input[str]]:
         """
         A unique name for your task definition.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "family")
 
@@ -793,12 +801,12 @@ class TaskDefinition(pulumi.CustomResource):
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 efs_volume_configuration=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationArgs(
-                    file_system_id=aws_efs_file_system["fs"]["id"],
+                    file_system_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     root_directory="/opt/data",
                     transit_encryption="ENABLED",
                     transit_encryption_port=2999,
                     authorization_config=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs(
-                        access_point_id=aws_efs_access_point["test"]["id"],
+                        access_point_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         iam="ENABLED",
                     ),
                 ),
@@ -823,11 +831,11 @@ class TaskDefinition(pulumi.CustomResource):
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 fsx_windows_file_server_volume_configuration=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs(
-                    file_system_id=aws_fsx_windows_file_system["test"]["id"],
+                    file_system_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     root_directory="\\\\data",
                     authorization_config=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs(
                         credentials_parameter=test.arn,
-                        domain=aws_directory_service_directory["test"]["name"],
+                        domain=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             )])
@@ -917,6 +925,8 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
@@ -1039,12 +1049,12 @@ class TaskDefinition(pulumi.CustomResource):
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 efs_volume_configuration=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationArgs(
-                    file_system_id=aws_efs_file_system["fs"]["id"],
+                    file_system_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     root_directory="/opt/data",
                     transit_encryption="ENABLED",
                     transit_encryption_port=2999,
                     authorization_config=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs(
-                        access_point_id=aws_efs_access_point["test"]["id"],
+                        access_point_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         iam="ENABLED",
                     ),
                 ),
@@ -1069,11 +1079,11 @@ class TaskDefinition(pulumi.CustomResource):
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 fsx_windows_file_server_volume_configuration=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs(
-                    file_system_id=aws_fsx_windows_file_system["test"]["id"],
+                    file_system_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     root_directory="\\\\data",
                     authorization_config=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs(
                         credentials_parameter=test.arn,
-                        domain=aws_directory_service_directory["test"]["name"],
+                        domain=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             )])
@@ -1270,6 +1280,8 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
@@ -1367,6 +1379,8 @@ class TaskDefinition(pulumi.CustomResource):
     def family(self) -> pulumi.Output[str]:
         """
         A unique name for your task definition.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "family")
 

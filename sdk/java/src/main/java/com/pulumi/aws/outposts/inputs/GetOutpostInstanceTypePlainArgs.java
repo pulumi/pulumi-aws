@@ -18,12 +18,16 @@ public final class GetOutpostInstanceTypePlainArgs extends com.pulumi.resources.
     /**
      * Outpost ARN.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="arn", required=true)
     private String arn;
 
     /**
      * @return Outpost ARN.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String arn() {
@@ -88,6 +92,8 @@ public final class GetOutpostInstanceTypePlainArgs extends com.pulumi.resources.
 
         /**
          * @param arn Outpost ARN.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

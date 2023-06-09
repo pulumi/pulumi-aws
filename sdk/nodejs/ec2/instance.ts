@@ -193,6 +193,8 @@ export class Instance extends pulumi.CustomResource {
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     *
+     * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
     public readonly capacityReservationSpecification!: pulumi.Output<outputs.ec2.InstanceCapacityReservationSpecification>;
     /**
@@ -354,6 +356,8 @@ export class Instance extends pulumi.CustomResource {
     /**
      * List of security group names to associate with.
      *
+     * > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+     *
      * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
@@ -391,6 +395,8 @@ export class Instance extends pulumi.CustomResource {
     public readonly userDataReplaceOnChange!: pulumi.Output<boolean | undefined>;
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
+     *
+     * > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      */
     public readonly volumeTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -549,6 +555,8 @@ export interface InstanceState {
     availabilityZone?: pulumi.Input<string>;
     /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     *
+     * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
     capacityReservationSpecification?: pulumi.Input<inputs.ec2.InstanceCapacityReservationSpecification>;
     /**
@@ -710,6 +718,8 @@ export interface InstanceState {
     /**
      * List of security group names to associate with.
      *
+     * > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+     *
      * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -747,6 +757,8 @@ export interface InstanceState {
     userDataReplaceOnChange?: pulumi.Input<boolean>;
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
+     *
+     * > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      */
     volumeTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -773,6 +785,8 @@ export interface InstanceArgs {
     availabilityZone?: pulumi.Input<string>;
     /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     *
+     * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
     capacityReservationSpecification?: pulumi.Input<inputs.ec2.InstanceCapacityReservationSpecification>;
     /**
@@ -906,6 +920,8 @@ export interface InstanceArgs {
     /**
      * List of security group names to associate with.
      *
+     * > **NOTE:** If you are creating Instances in a VPC, use `vpcSecurityGroupIds` instead.
+     *
      * @deprecated Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -939,6 +955,8 @@ export interface InstanceArgs {
     userDataReplaceOnChange?: pulumi.Input<boolean>;
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
+     *
+     * > **NOTE:** Do not use `volumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      */
     volumeTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -185,12 +185,16 @@ public class EndpointGroup extends com.pulumi.resources.CustomResource {
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
      * 
+     * **endpoint_configuration** supports the following attributes:
+     * 
      */
     @Export(name="portOverrides", refs={List.class,EndpointGroupPortOverride.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EndpointGroupPortOverride>> portOverrides;
 
     /**
      * @return Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+     * 
+     * **endpoint_configuration** supports the following attributes:
      * 
      */
     public Output<Optional<List<EndpointGroupPortOverride>>> portOverrides() {

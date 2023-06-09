@@ -246,6 +246,8 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -373,6 +375,8 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
@@ -504,6 +508,8 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

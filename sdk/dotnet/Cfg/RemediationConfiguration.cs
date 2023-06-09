@@ -143,6 +143,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// Type of the target. Target executes remediation. For example, SSM document.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("targetType")]
         public Output<string> TargetType { get; private set; } = null!;
@@ -255,6 +257,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// Type of the target. Target executes remediation. For example, SSM document.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("targetType", required: true)]
         public Input<string> TargetType { get; set; } = null!;
@@ -335,6 +339,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// Type of the target. Target executes remediation. For example, SSM document.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }

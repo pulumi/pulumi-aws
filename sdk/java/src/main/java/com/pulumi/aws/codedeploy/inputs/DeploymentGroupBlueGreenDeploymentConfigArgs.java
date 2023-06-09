@@ -50,12 +50,16 @@ public final class DeploymentGroupBlueGreenDeploymentConfigArgs extends com.pulu
     /**
      * Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
      * 
+     * _Only one `blue_green_deployment_config` is allowed_.
+     * 
      */
     @Import(name="terminateBlueInstancesOnDeploymentSuccess")
     private @Nullable Output<DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs> terminateBlueInstancesOnDeploymentSuccess;
 
     /**
      * @return Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+     * 
+     * _Only one `blue_green_deployment_config` is allowed_.
      * 
      */
     public Optional<Output<DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs>> terminateBlueInstancesOnDeploymentSuccess() {
@@ -133,6 +137,8 @@ public final class DeploymentGroupBlueGreenDeploymentConfigArgs extends com.pulu
         /**
          * @param terminateBlueInstancesOnDeploymentSuccess Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
          * 
+         * _Only one `blue_green_deployment_config` is allowed_.
+         * 
          * @return builder
          * 
          */
@@ -143,6 +149,8 @@ public final class DeploymentGroupBlueGreenDeploymentConfigArgs extends com.pulu
 
         /**
          * @param terminateBlueInstancesOnDeploymentSuccess Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+         * 
+         * _Only one `blue_green_deployment_config` is allowed_.
          * 
          * @return builder
          * 

@@ -73,6 +73,11 @@ namespace Pulumi.Aws.Dms
     {
         /// <summary>
         /// The replication instance identifier. This parameter is stored as a lowercase string.
+        /// 
+        /// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+        /// - First character must be a letter.
+        /// - Cannot end with a hyphen
+        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationInstanceId", required: true)]
         public string ReplicationInstanceId { get; set; } = null!;
@@ -95,6 +100,11 @@ namespace Pulumi.Aws.Dms
     {
         /// <summary>
         /// The replication instance identifier. This parameter is stored as a lowercase string.
+        /// 
+        /// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+        /// - First character must be a letter.
+        /// - Cannot end with a hyphen
+        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationInstanceId", required: true)]
         public Input<string> ReplicationInstanceId { get; set; } = null!;

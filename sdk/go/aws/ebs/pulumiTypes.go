@@ -558,6 +558,35 @@ type GetEbsVolumesFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 	// For example, if matching against the `size` filter, use:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := ebs.GetEbsVolumes(ctx, &ebs.GetEbsVolumesArgs{
+	// 			Filters: []ebs.GetEbsVolumesFilter{
+	// 				{
+	// 					Name: "size",
+	// 					Values: []string{
+	// 						"10",
+	// 						"20",
+	// 					},
+	// 				},
+	// 			},
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// EBS Volume IDs will be selected if any one of the given values match.
@@ -579,6 +608,35 @@ type GetEbsVolumesFilterArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 	// For example, if matching against the `size` filter, use:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := ebs.GetEbsVolumes(ctx, &ebs.GetEbsVolumesArgs{
+	// 			Filters: []ebs.GetEbsVolumesFilter{
+	// 				{
+	// 					Name: "size",
+	// 					Values: []string{
+	// 						"10",
+	// 						"20",
+	// 					},
+	// 				},
+	// 			},
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	// EBS Volume IDs will be selected if any one of the given values match.
@@ -639,6 +697,38 @@ func (o GetEbsVolumesFilterOutput) ToGetEbsVolumesFilterOutputWithContext(ctx co
 // Name of the field to filter by, as defined by
 // [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
 // For example, if matching against the `size` filter, use:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ebs.GetEbsVolumes(ctx, &ebs.GetEbsVolumesArgs{
+//				Filters: []ebs.GetEbsVolumesFilter{
+//					{
+//						Name: "size",
+//						Values: []string{
+//							"10",
+//							"20",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o GetEbsVolumesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEbsVolumesFilter) string { return v.Name }).(pulumi.StringOutput)
 }

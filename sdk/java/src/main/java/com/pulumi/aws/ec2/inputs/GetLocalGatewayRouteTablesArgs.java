@@ -21,12 +21,18 @@ public final class GetLocalGatewayRouteTablesArgs extends com.pulumi.resources.I
     /**
      * Custom filter block as described below.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetLocalGatewayRouteTablesFilterArgs>> filters;
 
     /**
      * @return Custom filter block as described below.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<Output<List<GetLocalGatewayRouteTablesFilterArgs>>> filters() {
@@ -78,6 +84,9 @@ public final class GetLocalGatewayRouteTablesArgs extends com.pulumi.resources.I
         /**
          * @param filters Custom filter block as described below.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -89,6 +98,9 @@ public final class GetLocalGatewayRouteTablesArgs extends com.pulumi.resources.I
         /**
          * @param filters Custom filter block as described below.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -98,6 +110,9 @@ public final class GetLocalGatewayRouteTablesArgs extends com.pulumi.resources.I
 
         /**
          * @param filters Custom filter block as described below.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

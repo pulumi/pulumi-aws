@@ -24,6 +24,8 @@ public final class DeploymentGroupEc2TagSetEc2TagFilter {
     /**
      * @return The value of the tag filter.
      * 
+     * Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
+     * 
      */
     private @Nullable String value;
 
@@ -44,6 +46,8 @@ public final class DeploymentGroupEc2TagSetEc2TagFilter {
     }
     /**
      * @return The value of the tag filter.
+     * 
+     * Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
      * 
      */
     public Optional<String> value() {

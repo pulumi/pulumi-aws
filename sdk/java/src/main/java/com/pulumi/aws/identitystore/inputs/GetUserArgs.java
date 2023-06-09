@@ -58,12 +58,16 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="identityStoreId", required=true)
     private Output<String> identityStoreId;
 
     /**
      * @return Identity Store ID associated with the Single Sign-On Instance.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> identityStoreId() {
@@ -73,12 +77,16 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The identifier for a user in the Identity Store.
      * 
+     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+     * 
      */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
     /**
      * @return The identifier for a user in the Identity Store.
+     * 
+     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
      * 
      */
     public Optional<Output<String>> userId() {
@@ -165,6 +173,8 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -176,6 +186,8 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -185,6 +197,8 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param userId The identifier for a user in the Identity Store.
+         * 
+         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
          * 
          * @return builder
          * 
@@ -196,6 +210,8 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param userId The identifier for a user in the Identity Store.
+         * 
+         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
          * 
          * @return builder
          * 

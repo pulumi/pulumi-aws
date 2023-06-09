@@ -12,6 +12,8 @@ import (
 
 type SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration struct {
 	// ARN for KMS Key.
+	//
+	// The following arguments are optional:
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 }
 
@@ -28,6 +30,8 @@ type SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput interface 
 
 type SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs struct {
 	// ARN for KMS Key.
+	//
+	// The following arguments are optional:
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 }
 
@@ -109,6 +113,8 @@ func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) ToSdk
 }
 
 // ARN for KMS Key.
+//
+// The following arguments are optional:
 func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -138,6 +144,8 @@ func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) El
 }
 
 // ARN for KMS Key.
+//
+// The following arguments are optional:
 func (o SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration) *string {
 		if v == nil {

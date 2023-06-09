@@ -23,6 +23,8 @@ class ProxyTargetArgs:
         :param pulumi.Input[str] db_proxy_name: The name of the DB proxy.
         :param pulumi.Input[str] target_group_name: The name of the target group.
         :param pulumi.Input[str] db_cluster_identifier: DB cluster identifier.
+               
+               **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         :param pulumi.Input[str] db_instance_identifier: DB instance identifier.
         """
         pulumi.set(__self__, "db_proxy_name", db_proxy_name)
@@ -61,6 +63,8 @@ class ProxyTargetArgs:
     def db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         DB cluster identifier.
+
+        **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         """
         return pulumi.get(self, "db_cluster_identifier")
 
@@ -97,6 +101,8 @@ class _ProxyTargetState:
         """
         Input properties used for looking up and filtering ProxyTarget resources.
         :param pulumi.Input[str] db_cluster_identifier: DB cluster identifier.
+               
+               **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         :param pulumi.Input[str] db_instance_identifier: DB instance identifier.
         :param pulumi.Input[str] db_proxy_name: The name of the DB proxy.
         :param pulumi.Input[str] endpoint: Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
@@ -133,6 +139,8 @@ class _ProxyTargetState:
     def db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         DB cluster identifier.
+
+        **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         """
         return pulumi.get(self, "db_cluster_identifier")
 
@@ -280,7 +288,7 @@ class ProxyTarget(pulumi.CustomResource):
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
-                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+                secret_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             tags={
                 "Name": "example",
@@ -318,6 +326,8 @@ class ProxyTarget(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_cluster_identifier: DB cluster identifier.
+               
+               **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         :param pulumi.Input[str] db_instance_identifier: DB instance identifier.
         :param pulumi.Input[str] db_proxy_name: The name of the DB proxy.
         :param pulumi.Input[str] target_group_name: The name of the target group.
@@ -349,7 +359,7 @@ class ProxyTarget(pulumi.CustomResource):
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
-                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+                secret_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             tags={
                 "Name": "example",
@@ -454,6 +464,8 @@ class ProxyTarget(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] db_cluster_identifier: DB cluster identifier.
+               
+               **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         :param pulumi.Input[str] db_instance_identifier: DB instance identifier.
         :param pulumi.Input[str] db_proxy_name: The name of the DB proxy.
         :param pulumi.Input[str] endpoint: Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
@@ -485,6 +497,8 @@ class ProxyTarget(pulumi.CustomResource):
     def db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         DB cluster identifier.
+
+        **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         """
         return pulumi.get(self, "db_cluster_identifier")
 

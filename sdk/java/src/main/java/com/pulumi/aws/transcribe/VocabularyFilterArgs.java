@@ -65,12 +65,16 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
     /**
      * The name of the VocabularyFilter.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="vocabularyFilterName", required=true)
     private Output<String> vocabularyFilterName;
 
     /**
      * @return The name of the VocabularyFilter.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vocabularyFilterName() {
@@ -186,6 +190,8 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param vocabularyFilterName The name of the VocabularyFilter.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -196,6 +202,8 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param vocabularyFilterName The name of the VocabularyFilter.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

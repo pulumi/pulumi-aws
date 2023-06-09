@@ -40,6 +40,8 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
         /// <summary>
         /// The Connect peer address.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("peerAddress")]
         public Input<string>? PeerAddress { get; set; }

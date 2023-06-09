@@ -16,12 +16,16 @@ public final class ResponsePlanIncidentTemplateNotificationTargetArgs extends co
     /**
      * The ARN of the Amazon SNS topic.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="snsTopicArn", required=true)
     private Output<String> snsTopicArn;
 
     /**
      * @return The ARN of the Amazon SNS topic.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> snsTopicArn() {
@@ -55,6 +59,8 @@ public final class ResponsePlanIncidentTemplateNotificationTargetArgs extends co
         /**
          * @param snsTopicArn The ARN of the Amazon SNS topic.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -65,6 +71,8 @@ public final class ResponsePlanIncidentTemplateNotificationTargetArgs extends co
 
         /**
          * @param snsTopicArn The ARN of the Amazon SNS topic.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

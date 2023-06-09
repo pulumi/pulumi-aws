@@ -70,6 +70,8 @@ type LookupLoadBalancerArgs struct {
 	// Unique name of the load balancer.
 	Name *string `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -125,6 +127,8 @@ type LookupLoadBalancerOutputArgs struct {
 	// Unique name of the load balancer.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

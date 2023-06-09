@@ -310,12 +310,16 @@ public class Pipe extends com.pulumi.resources.CustomResource {
     /**
      * Parameters required to set up a target for your pipe. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="targetParameters", refs={PipeTargetParameters.class}, tree="[0]")
     private Output<PipeTargetParameters> targetParameters;
 
     /**
      * @return Parameters required to set up a target for your pipe. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<PipeTargetParameters> targetParameters() {

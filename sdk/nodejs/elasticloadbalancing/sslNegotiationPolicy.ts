@@ -114,6 +114,10 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     *
+     * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+     *
+     * > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
      */
     public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -182,6 +186,10 @@ export interface SslNegotiationPolicyState {
     name?: pulumi.Input<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     *
+     * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+     *
+     * > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -211,6 +219,10 @@ export interface SslNegotiationPolicyArgs {
     name?: pulumi.Input<string>;
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+     *
+     * To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+     *
+     * > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
      */
     triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

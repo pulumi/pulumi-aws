@@ -27,6 +27,8 @@ class AddonArgs:
         :param pulumi.Input[str] addon_name: Name of the EKS add-on. The name must match one of
                the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+               
+               The following arguments are optional:
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
@@ -39,6 +41,11 @@ class AddonArgs:
                assigned the IAM permissions required by the add-on. If you don't specify
                an existing IAM role, then the add-on uses the permissions assigned to the node
                IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+               in the Amazon EKS User Guide.
+               
+               > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+               provider created for your cluster. For more information, [see Enabling IAM roles
+               for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
                in the Amazon EKS User Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -75,6 +82,8 @@ class AddonArgs:
     def cluster_name(self) -> pulumi.Input[str]:
         """
         Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "cluster_name")
 
@@ -143,6 +152,11 @@ class AddonArgs:
         an existing IAM role, then the add-on uses the permissions assigned to the node
         IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
         in the Amazon EKS User Guide.
+
+        > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+        provider created for your cluster. For more information, [see Enabling IAM roles
+        for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
+        in the Amazon EKS User Guide.
         """
         return pulumi.get(self, "service_account_role_arn")
 
@@ -186,6 +200,8 @@ class _AddonState:
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS add-on.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+               
+               The following arguments are optional:
         :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         :param pulumi.Input[str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
@@ -198,6 +214,11 @@ class _AddonState:
                assigned the IAM permissions required by the add-on. If you don't specify
                an existing IAM role, then the add-on uses the permissions assigned to the node
                IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+               in the Amazon EKS User Guide.
+               
+               > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+               provider created for your cluster. For more information, [see Enabling IAM roles
+               for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
                in the Amazon EKS User Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
@@ -270,6 +291,8 @@ class _AddonState:
     def cluster_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "cluster_name")
 
@@ -348,6 +371,11 @@ class _AddonState:
         assigned the IAM permissions required by the add-on. If you don't specify
         an existing IAM role, then the add-on uses the permissions assigned to the node
         IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+        in the Amazon EKS User Guide.
+
+        > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+        provider created for your cluster. For more information, [see Enabling IAM roles
+        for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
         in the Amazon EKS User Guide.
         """
         return pulumi.get(self, "service_account_role_arn")
@@ -472,6 +500,8 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[str] addon_version: The version of the EKS add-on. The version must
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+               
+               The following arguments are optional:
         :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         :param pulumi.Input[bool] preserve: Indicates if you want to preserve the created resources when deleting the EKS add-on.
         :param pulumi.Input[str] resolve_conflicts: Define how to resolve parameter value conflicts
@@ -482,6 +512,11 @@ class Addon(pulumi.CustomResource):
                assigned the IAM permissions required by the add-on. If you don't specify
                an existing IAM role, then the add-on uses the permissions assigned to the node
                IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+               in the Amazon EKS User Guide.
+               
+               > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+               provider created for your cluster. For more information, [see Enabling IAM roles
+               for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
                in the Amazon EKS User Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -644,6 +679,8 @@ class Addon(pulumi.CustomResource):
                match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS add-on.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+               
+               The following arguments are optional:
         :param pulumi.Input[str] configuration_values: custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         :param pulumi.Input[str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
@@ -656,6 +693,11 @@ class Addon(pulumi.CustomResource):
                assigned the IAM permissions required by the add-on. If you don't specify
                an existing IAM role, then the add-on uses the permissions assigned to the node
                IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+               in the Amazon EKS User Guide.
+               
+               > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+               provider created for your cluster. For more information, [see Enabling IAM roles
+               for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
                in the Amazon EKS User Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
@@ -709,6 +751,8 @@ class Addon(pulumi.CustomResource):
     def cluster_name(self) -> pulumi.Output[str]:
         """
         Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "cluster_name")
 
@@ -763,6 +807,11 @@ class Addon(pulumi.CustomResource):
         assigned the IAM permissions required by the add-on. If you don't specify
         an existing IAM role, then the add-on uses the permissions assigned to the node
         IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+        in the Amazon EKS User Guide.
+
+        > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+        provider created for your cluster. For more information, [see Enabling IAM roles
+        for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
         in the Amazon EKS User Guide.
         """
         return pulumi.get(self, "service_account_role_arn")

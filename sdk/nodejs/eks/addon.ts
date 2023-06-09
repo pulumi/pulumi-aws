@@ -121,6 +121,8 @@ export class Addon extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     *
+     * The following arguments are optional:
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
@@ -151,6 +153,11 @@ export class Addon extends pulumi.CustomResource {
      * assigned the IAM permissions required by the add-on. If you don't specify
      * an existing IAM role, then the add-on uses the permissions assigned to the node
      * IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+     * in the Amazon EKS User Guide.
+     *
+     * > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+     * provider created for your cluster. For more information, [see Enabling IAM roles
+     * for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
      * in the Amazon EKS User Guide.
      */
     public readonly serviceAccountRoleArn!: pulumi.Output<string | undefined>;
@@ -234,6 +241,8 @@ export interface AddonState {
     arn?: pulumi.Input<string>;
     /**
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     *
+     * The following arguments are optional:
      */
     clusterName?: pulumi.Input<string>;
     /**
@@ -265,6 +274,11 @@ export interface AddonState {
      * an existing IAM role, then the add-on uses the permissions assigned to the node
      * IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
      * in the Amazon EKS User Guide.
+     *
+     * > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+     * provider created for your cluster. For more information, [see Enabling IAM roles
+     * for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
+     * in the Amazon EKS User Guide.
      */
     serviceAccountRoleArn?: pulumi.Input<string>;
     /**
@@ -293,6 +307,8 @@ export interface AddonArgs {
     addonVersion?: pulumi.Input<string>;
     /**
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     *
+     * The following arguments are optional:
      */
     clusterName: pulumi.Input<string>;
     /**
@@ -315,6 +331,11 @@ export interface AddonArgs {
      * assigned the IAM permissions required by the add-on. If you don't specify
      * an existing IAM role, then the add-on uses the permissions assigned to the node
      * IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+     * in the Amazon EKS User Guide.
+     *
+     * > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+     * provider created for your cluster. For more information, [see Enabling IAM roles
+     * for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
      * in the Amazon EKS User Guide.
      */
     serviceAccountRoleArn?: pulumi.Input<string>;

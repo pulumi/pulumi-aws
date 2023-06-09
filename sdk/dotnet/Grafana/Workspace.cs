@@ -150,6 +150,8 @@ namespace Pulumi.Aws.Grafana
 
         /// <summary>
         /// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("permissionType")]
         public Output<string> PermissionType { get; private set; } = null!;
@@ -325,6 +327,8 @@ namespace Pulumi.Aws.Grafana
 
         /// <summary>
         /// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("permissionType", required: true)]
         public Input<string> PermissionType { get; set; } = null!;
@@ -471,6 +475,8 @@ namespace Pulumi.Aws.Grafana
 
         /// <summary>
         /// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("permissionType")]
         public Input<string>? PermissionType { get; set; }

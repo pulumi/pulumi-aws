@@ -93,12 +93,16 @@ public final class ListenerDefaultActionRedirectArgs extends com.pulumi.resource
     /**
      * HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="statusCode", required=true)
     private Output<String> statusCode;
 
     /**
      * @return HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> statusCode() {
@@ -242,6 +246,8 @@ public final class ListenerDefaultActionRedirectArgs extends com.pulumi.resource
         /**
          * @param statusCode HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -252,6 +258,8 @@ public final class ListenerDefaultActionRedirectArgs extends com.pulumi.resource
 
         /**
          * @param statusCode HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

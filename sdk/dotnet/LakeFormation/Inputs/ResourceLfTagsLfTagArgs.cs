@@ -26,6 +26,8 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
         /// <summary>
         /// Value from the possible values for the LF-tag.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

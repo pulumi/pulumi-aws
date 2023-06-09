@@ -123,12 +123,16 @@ public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
     /**
      * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="propertiesFileContent", refs={String.class}, tree="[0]")
     private Output<String> propertiesFileContent;
 
     /**
      * @return Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> propertiesFileContent() {

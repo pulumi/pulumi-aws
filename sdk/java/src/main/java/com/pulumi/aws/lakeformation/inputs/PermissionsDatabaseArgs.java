@@ -33,12 +33,16 @@ public final class PermissionsDatabaseArgs extends com.pulumi.resources.Resource
     /**
      * Name of the database resource. Unique to the Data Catalog.
      * 
+     * The following argument is optional:
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
      * @return Name of the database resource. Unique to the Data Catalog.
+     * 
+     * The following argument is optional:
      * 
      */
     public Output<String> name() {
@@ -94,6 +98,8 @@ public final class PermissionsDatabaseArgs extends com.pulumi.resources.Resource
         /**
          * @param name Name of the database resource. Unique to the Data Catalog.
          * 
+         * The following argument is optional:
+         * 
          * @return builder
          * 
          */
@@ -104,6 +110,8 @@ public final class PermissionsDatabaseArgs extends com.pulumi.resources.Resource
 
         /**
          * @param name Name of the database resource. Unique to the Data Catalog.
+         * 
+         * The following argument is optional:
          * 
          * @return builder
          * 

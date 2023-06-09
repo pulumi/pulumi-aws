@@ -89,6 +89,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Constraint identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -115,6 +117,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Constraint identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;

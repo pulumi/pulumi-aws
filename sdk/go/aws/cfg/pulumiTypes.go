@@ -16,6 +16,8 @@ type ConfigurationAggregatorAccountAggregationSource struct {
 	// If true, aggregate existing AWS Config regions and future regions.
 	AllRegions *bool `pulumi:"allRegions"`
 	// List of source regions being aggregated.
+	//
+	// Either `regions` or `allRegions` (as true) must be specified.
 	Regions []string `pulumi:"regions"`
 }
 
@@ -36,6 +38,8 @@ type ConfigurationAggregatorAccountAggregationSourceArgs struct {
 	// If true, aggregate existing AWS Config regions and future regions.
 	AllRegions pulumi.BoolPtrInput `pulumi:"allRegions"`
 	// List of source regions being aggregated.
+	//
+	// Either `regions` or `allRegions` (as true) must be specified.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 }
 
@@ -127,6 +131,8 @@ func (o ConfigurationAggregatorAccountAggregationSourceOutput) AllRegions() pulu
 }
 
 // List of source regions being aggregated.
+//
+// Either `regions` or `allRegions` (as true) must be specified.
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -176,6 +182,8 @@ func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) AllRegions() p
 }
 
 // List of source regions being aggregated.
+//
+// Either `regions` or `allRegions` (as true) must be specified.
 func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorAccountAggregationSource) []string {
 		if v == nil {
@@ -191,6 +199,8 @@ type ConfigurationAggregatorOrganizationAggregationSource struct {
 	// List of source regions being aggregated.
 	Regions []string `pulumi:"regions"`
 	// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+	//
+	// Either `regions` or `allRegions` (as true) must be specified.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -211,6 +221,8 @@ type ConfigurationAggregatorOrganizationAggregationSourceArgs struct {
 	// List of source regions being aggregated.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+	//
+	// Either `regions` or `allRegions` (as true) must be specified.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -302,6 +314,8 @@ func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) Regions() pu
 }
 
 // ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+//
+// Either `regions` or `allRegions` (as true) must be specified.
 func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -351,6 +365,8 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) Regions()
 }
 
 // ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+//
+// Either `regions` or `allRegions` (as true) must be specified.
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) *string {
 		if v == nil {

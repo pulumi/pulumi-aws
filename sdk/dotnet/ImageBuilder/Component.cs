@@ -138,12 +138,16 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+        /// 
+        /// &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         /// </summary>
         [Output("uri")]
         public Output<string?> Uri { get; private set; } = null!;
 
         /// <summary>
         /// Version of the component.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -262,12 +266,16 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+        /// 
+        /// &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 
         /// <summary>
         /// Version of the component.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -390,12 +398,16 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+        /// 
+        /// &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 
         /// <summary>
         /// Version of the component.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

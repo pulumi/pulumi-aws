@@ -19,12 +19,16 @@ public final class DedicatedIpPoolArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Name of the dedicated IP pool.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="poolName", required=true)
     private Output<String> poolName;
 
     /**
      * @return Name of the dedicated IP pool.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> poolName() {
@@ -90,6 +94,8 @@ public final class DedicatedIpPoolArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param poolName Name of the dedicated IP pool.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -100,6 +106,8 @@ public final class DedicatedIpPoolArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param poolName Name of the dedicated IP pool.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

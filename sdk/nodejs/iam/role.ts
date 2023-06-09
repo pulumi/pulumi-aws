@@ -200,6 +200,10 @@ export class Role extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Policy that grants an entity permission to assume the role.
+     *
+     * > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+     *
+     * The following arguments are optional:
      */
     public readonly assumeRolePolicy!: pulumi.Output<string>;
     /**
@@ -322,6 +326,10 @@ export interface RoleState {
     arn?: pulumi.Input<string>;
     /**
      * Policy that grants an entity permission to assume the role.
+     *
+     * > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+     *
+     * The following arguments are optional:
      */
     assumeRolePolicy?: pulumi.Input<string | PolicyDocument>;
     /**
@@ -385,6 +393,10 @@ export interface RoleState {
 export interface RoleArgs {
     /**
      * Policy that grants an entity permission to assume the role.
+     *
+     * > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+     *
+     * The following arguments are optional:
      */
     assumeRolePolicy: pulumi.Input<string | PolicyDocument>;
     /**

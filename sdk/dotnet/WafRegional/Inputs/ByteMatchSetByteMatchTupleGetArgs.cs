@@ -32,6 +32,8 @@ namespace Pulumi.Aws.WafRegional.Inputs
 
         /// <summary>
         /// The formatting way for web request.
+        /// 
+        /// FieldToMatch(field_to_match) support following:
         /// </summary>
         [Input("textTransformation", required: true)]
         public Input<string> TextTransformation { get; set; } = null!;

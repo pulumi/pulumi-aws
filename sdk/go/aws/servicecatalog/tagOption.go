@@ -59,6 +59,8 @@ type TagOption struct {
 	Key   pulumi.StringOutput `pulumi:"key"`
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Tag option value.
+	//
+	// The following arguments are optional:
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
@@ -103,6 +105,8 @@ type tagOptionState struct {
 	Key   *string `pulumi:"key"`
 	Owner *string `pulumi:"owner"`
 	// Tag option value.
+	//
+	// The following arguments are optional:
 	Value *string `pulumi:"value"`
 }
 
@@ -113,6 +117,8 @@ type TagOptionState struct {
 	Key   pulumi.StringPtrInput
 	Owner pulumi.StringPtrInput
 	// Tag option value.
+	//
+	// The following arguments are optional:
 	Value pulumi.StringPtrInput
 }
 
@@ -126,6 +132,8 @@ type tagOptionArgs struct {
 	// Tag option key.
 	Key string `pulumi:"key"`
 	// Tag option value.
+	//
+	// The following arguments are optional:
 	Value string `pulumi:"value"`
 }
 
@@ -136,6 +144,8 @@ type TagOptionArgs struct {
 	// Tag option key.
 	Key pulumi.StringInput
 	// Tag option value.
+	//
+	// The following arguments are optional:
 	Value pulumi.StringInput
 }
 
@@ -241,6 +251,8 @@ func (o TagOptionOutput) Owner() pulumi.StringOutput {
 }
 
 // Tag option value.
+//
+// The following arguments are optional:
 func (o TagOptionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

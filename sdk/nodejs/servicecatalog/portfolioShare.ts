@@ -91,6 +91,8 @@ export class PortfolioShare extends pulumi.CustomResource {
     public readonly shareTagOptions!: pulumi.Output<boolean | undefined>;
     /**
      * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+     *
+     * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -174,6 +176,8 @@ export interface PortfolioShareState {
     shareTagOptions?: pulumi.Input<boolean>;
     /**
      * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
     /**
@@ -208,6 +212,8 @@ export interface PortfolioShareArgs {
     shareTagOptions?: pulumi.Input<boolean>;
     /**
      * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
     /**

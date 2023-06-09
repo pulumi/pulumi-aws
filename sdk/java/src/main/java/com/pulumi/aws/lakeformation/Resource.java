@@ -88,12 +88,16 @@ public class Resource extends com.pulumi.resources.CustomResource {
     /**
      * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
      * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
      * @return Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      * 
      */
     public Output<String> roleArn() {

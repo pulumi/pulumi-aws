@@ -183,7 +183,7 @@ def get_certificate(certificate_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.dms.get_certificate(certificate_id=aws_dms_certificate["test"]["certificate_id"])
+    example = aws.dms.get_certificate(certificate_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -224,7 +224,7 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.dms.get_certificate(certificate_id=aws_dms_certificate["test"]["certificate_id"])
+    example = aws.dms.get_certificate(certificate_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

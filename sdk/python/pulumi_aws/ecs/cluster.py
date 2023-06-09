@@ -355,7 +355,7 @@ class Cluster(pulumi.CustomResource):
 
         example_cluster = aws.ecs.Cluster("exampleCluster")
         example_capacity_provider = aws.ecs.CapacityProvider("exampleCapacityProvider", auto_scaling_group_provider=aws.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-            auto_scaling_group_arn=aws_autoscaling_group["example"]["arn"],
+            auto_scaling_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         ))
         example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
             cluster_name=example_cluster.name,
@@ -436,7 +436,7 @@ class Cluster(pulumi.CustomResource):
 
         example_cluster = aws.ecs.Cluster("exampleCluster")
         example_capacity_provider = aws.ecs.CapacityProvider("exampleCapacityProvider", auto_scaling_group_provider=aws.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-            auto_scaling_group_arn=aws_autoscaling_group["example"]["arn"],
+            auto_scaling_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         ))
         example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
             cluster_name=example_cluster.name,

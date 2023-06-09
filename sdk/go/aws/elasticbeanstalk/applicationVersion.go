@@ -86,6 +86,8 @@ type ApplicationVersion struct {
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -144,6 +146,8 @@ type applicationVersionState struct {
 	// S3 object that is the Application Version source bundle.
 	Key *string `pulumi:"key"`
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -165,6 +169,8 @@ type ApplicationVersionState struct {
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringPtrInput
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -188,6 +194,8 @@ type applicationVersionArgs struct {
 	// S3 object that is the Application Version source bundle.
 	Key string `pulumi:"key"`
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -206,6 +214,8 @@ type ApplicationVersionArgs struct {
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringInput
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -329,6 +339,8 @@ func (o ApplicationVersionOutput) Key() pulumi.StringOutput {
 }
 
 // Unique name for the this Application Version.
+//
+// The following arguments are optional:
 func (o ApplicationVersionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -487,7 +487,7 @@ class Connector(pulumi.CustomResource):
             },
             kafka_cluster=aws.mskconnect.ConnectorKafkaClusterArgs(
                 apache_kafka_cluster=aws.mskconnect.ConnectorKafkaClusterApacheKafkaClusterArgs(
-                    bootstrap_servers=aws_msk_cluster["example"]["bootstrap_brokers_tls"],
+                    bootstrap_servers=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     vpc=aws.mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpcArgs(
                         security_groups=[aws_security_group["example"]["id"]],
                         subnets=[
@@ -506,8 +506,8 @@ class Connector(pulumi.CustomResource):
             ),
             plugins=[aws.mskconnect.ConnectorPluginArgs(
                 custom_plugin=aws.mskconnect.ConnectorPluginCustomPluginArgs(
-                    arn=aws_mskconnect_custom_plugin["example"]["arn"],
-                    revision=aws_mskconnect_custom_plugin["example"]["latest_revision"],
+                    arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    revision=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             )],
             service_execution_role_arn=aws_iam_role["example"]["arn"])
@@ -574,7 +574,7 @@ class Connector(pulumi.CustomResource):
             },
             kafka_cluster=aws.mskconnect.ConnectorKafkaClusterArgs(
                 apache_kafka_cluster=aws.mskconnect.ConnectorKafkaClusterApacheKafkaClusterArgs(
-                    bootstrap_servers=aws_msk_cluster["example"]["bootstrap_brokers_tls"],
+                    bootstrap_servers=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     vpc=aws.mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpcArgs(
                         security_groups=[aws_security_group["example"]["id"]],
                         subnets=[
@@ -593,8 +593,8 @@ class Connector(pulumi.CustomResource):
             ),
             plugins=[aws.mskconnect.ConnectorPluginArgs(
                 custom_plugin=aws.mskconnect.ConnectorPluginCustomPluginArgs(
-                    arn=aws_mskconnect_custom_plugin["example"]["arn"],
-                    revision=aws_mskconnect_custom_plugin["example"]["latest_revision"],
+                    arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    revision=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             )],
             service_execution_role_arn=aws_iam_role["example"]["arn"])

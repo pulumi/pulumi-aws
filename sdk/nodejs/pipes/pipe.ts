@@ -165,6 +165,8 @@ export class Pipe extends pulumi.CustomResource {
     public readonly target!: pulumi.Output<string>;
     /**
      * Parameters required to set up a target for your pipe. Detailed below.
+     *
+     * The following arguments are optional:
      */
     public readonly targetParameters!: pulumi.Output<outputs.pipes.PipeTargetParameters>;
 
@@ -284,6 +286,8 @@ export interface PipeState {
     target?: pulumi.Input<string>;
     /**
      * Parameters required to set up a target for your pipe. Detailed below.
+     *
+     * The following arguments are optional:
      */
     targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParameters>;
 }
@@ -334,6 +338,8 @@ export interface PipeArgs {
     target: pulumi.Input<string>;
     /**
      * Parameters required to set up a target for your pipe. Detailed below.
+     *
+     * The following arguments are optional:
      */
     targetParameters: pulumi.Input<inputs.pipes.PipeTargetParameters>;
 }

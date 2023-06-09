@@ -95,6 +95,8 @@ type Vocabulary struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringOutput `pulumi:"vocabularyFileUri"`
 	// The name of the Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName pulumi.StringOutput `pulumi:"vocabularyName"`
 }
 
@@ -147,6 +149,8 @@ type vocabularyState struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
 	// The name of the Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName *string `pulumi:"vocabularyName"`
 }
 
@@ -165,6 +169,8 @@ type VocabularyState struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringPtrInput
 	// The name of the Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName pulumi.StringPtrInput
 }
 
@@ -182,6 +188,8 @@ type vocabularyArgs struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri *string `pulumi:"vocabularyFileUri"`
 	// The name of the Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName string `pulumi:"vocabularyName"`
 }
 
@@ -196,6 +204,8 @@ type VocabularyArgs struct {
 	// The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
 	VocabularyFileUri pulumi.StringPtrInput
 	// The name of the Vocabulary.
+	//
+	// The following arguments are optional:
 	VocabularyName pulumi.StringInput
 }
 
@@ -321,6 +331,8 @@ func (o VocabularyOutput) VocabularyFileUri() pulumi.StringOutput {
 }
 
 // The name of the Vocabulary.
+//
+// The following arguments are optional:
 func (o VocabularyOutput) VocabularyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.VocabularyName }).(pulumi.StringOutput)
 }

@@ -91,12 +91,16 @@ public class ProductPortfolioAssociation extends com.pulumi.resources.CustomReso
     /**
      * Product identifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="productId", refs={String.class}, tree="[0]")
     private Output<String> productId;
 
     /**
      * @return Product identifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> productId() {

@@ -120,6 +120,9 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
 
 
     :param Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network interfaces.
     """
@@ -181,6 +184,9 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
 
 
     :param Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network interfaces.
     """

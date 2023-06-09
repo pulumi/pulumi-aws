@@ -140,6 +140,8 @@ export class FileCache extends pulumi.CustomResource {
     public readonly storageCapacity!: pulumi.Output<number>;
     /**
      * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+     *
+     * The following arguments are optional:
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
@@ -281,6 +283,8 @@ export interface FileCacheState {
     storageCapacity?: pulumi.Input<number>;
     /**
      * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+     *
+     * The following arguments are optional:
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -333,6 +337,8 @@ export interface FileCacheArgs {
     storageCapacity: pulumi.Input<number>;
     /**
      * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+     *
+     * The following arguments are optional:
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**

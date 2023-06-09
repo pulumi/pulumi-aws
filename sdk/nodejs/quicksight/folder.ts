@@ -121,6 +121,8 @@ export class Folder extends pulumi.CustomResource {
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * Display name for the folder.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -222,6 +224,8 @@ export interface FolderState {
     lastUpdatedTime?: pulumi.Input<string>;
     /**
      * Display name for the folder.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -260,6 +264,8 @@ export interface FolderArgs {
     folderType?: pulumi.Input<string>;
     /**
      * Display name for the folder.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

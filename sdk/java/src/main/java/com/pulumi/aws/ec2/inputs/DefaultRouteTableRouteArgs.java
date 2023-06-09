@@ -48,12 +48,16 @@ public final class DefaultRouteTableRouteArgs extends com.pulumi.resources.Resou
     /**
      * The ID of a managed prefix list destination of the route.
      * 
+     * One of the following target arguments must be supplied:
+     * 
      */
     @Import(name="destinationPrefixListId")
     private @Nullable Output<String> destinationPrefixListId;
 
     /**
      * @return The ID of a managed prefix list destination of the route.
+     * 
+     * One of the following target arguments must be supplied:
      * 
      */
     public Optional<Output<String>> destinationPrefixListId() {
@@ -183,12 +187,16 @@ public final class DefaultRouteTableRouteArgs extends com.pulumi.resources.Resou
     /**
      * Identifier of a VPC peering connection.
      * 
+     * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
+     * 
      */
     @Import(name="vpcPeeringConnectionId")
     private @Nullable Output<String> vpcPeeringConnectionId;
 
     /**
      * @return Identifier of a VPC peering connection.
+     * 
+     * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
      * 
      */
     public Optional<Output<String>> vpcPeeringConnectionId() {
@@ -275,6 +283,8 @@ public final class DefaultRouteTableRouteArgs extends com.pulumi.resources.Resou
         /**
          * @param destinationPrefixListId The ID of a managed prefix list destination of the route.
          * 
+         * One of the following target arguments must be supplied:
+         * 
          * @return builder
          * 
          */
@@ -285,6 +295,8 @@ public final class DefaultRouteTableRouteArgs extends com.pulumi.resources.Resou
 
         /**
          * @param destinationPrefixListId The ID of a managed prefix list destination of the route.
+         * 
+         * One of the following target arguments must be supplied:
          * 
          * @return builder
          * 
@@ -464,6 +476,8 @@ public final class DefaultRouteTableRouteArgs extends com.pulumi.resources.Resou
         /**
          * @param vpcPeeringConnectionId Identifier of a VPC peering connection.
          * 
+         * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
+         * 
          * @return builder
          * 
          */
@@ -474,6 +488,8 @@ public final class DefaultRouteTableRouteArgs extends com.pulumi.resources.Resou
 
         /**
          * @param vpcPeeringConnectionId Identifier of a VPC peering connection.
+         * 
+         * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
          * 
          * @return builder
          * 

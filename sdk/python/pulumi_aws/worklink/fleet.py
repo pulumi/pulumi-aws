@@ -32,6 +32,10 @@ class FleetArgs:
         :param pulumi.Input[str] name: A region-unique name for the AMI.
         :param pulumi.Input['FleetNetworkArgs'] network: Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         :param pulumi.Input[bool] optimize_for_end_user_location: The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+               
+               **network** requires the following:
+               
+               > **NOTE:** `network` is cannot removed without force recreating.
         """
         if audit_stream_arn is not None:
             pulumi.set(__self__, "audit_stream_arn", audit_stream_arn)
@@ -125,6 +129,10 @@ class FleetArgs:
     def optimize_for_end_user_location(self) -> Optional[pulumi.Input[bool]]:
         """
         The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+
+        **network** requires the following:
+
+        > **NOTE:** `network` is cannot removed without force recreating.
         """
         return pulumi.get(self, "optimize_for_end_user_location")
 
@@ -160,6 +168,10 @@ class _FleetState:
         :param pulumi.Input[str] name: A region-unique name for the AMI.
         :param pulumi.Input['FleetNetworkArgs'] network: Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         :param pulumi.Input[bool] optimize_for_end_user_location: The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+               
+               **network** requires the following:
+               
+               > **NOTE:** `network` is cannot removed without force recreating.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -309,6 +321,10 @@ class _FleetState:
     def optimize_for_end_user_location(self) -> Optional[pulumi.Input[bool]]:
         """
         The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+
+        **network** requires the following:
+
+        > **NOTE:** `network` is cannot removed without force recreating.
         """
         return pulumi.get(self, "optimize_for_end_user_location")
 
@@ -349,7 +365,7 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.worklink.Fleet("example", network=aws.worklink.FleetNetworkArgs(
-            vpc_id=aws_vpc["test"]["id"],
+            vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             subnet_ids=[[__item["id"] for __item in aws_subnet["test"]]],
             security_group_ids=[aws_security_group["test"]["id"]],
         ))
@@ -384,6 +400,10 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] name: A region-unique name for the AMI.
         :param pulumi.Input[pulumi.InputType['FleetNetworkArgs']] network: Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         :param pulumi.Input[bool] optimize_for_end_user_location: The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+               
+               **network** requires the following:
+               
+               > **NOTE:** `network` is cannot removed without force recreating.
         """
         ...
     @overload
@@ -410,7 +430,7 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.worklink.Fleet("example", network=aws.worklink.FleetNetworkArgs(
-            vpc_id=aws_vpc["test"]["id"],
+            vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             subnet_ids=[[__item["id"] for __item in aws_subnet["test"]]],
             security_group_ids=[aws_security_group["test"]["id"]],
         ))
@@ -517,6 +537,10 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] name: A region-unique name for the AMI.
         :param pulumi.Input[pulumi.InputType['FleetNetworkArgs']] network: Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         :param pulumi.Input[bool] optimize_for_end_user_location: The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+               
+               **network** requires the following:
+               
+               > **NOTE:** `network` is cannot removed without force recreating.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -620,6 +644,10 @@ class Fleet(pulumi.CustomResource):
     def optimize_for_end_user_location(self) -> pulumi.Output[Optional[bool]]:
         """
         The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+
+        **network** requires the following:
+
+        > **NOTE:** `network` is cannot removed without force recreating.
         """
         return pulumi.get(self, "optimize_for_end_user_location")
 

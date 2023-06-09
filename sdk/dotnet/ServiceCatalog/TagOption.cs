@@ -60,6 +60,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Tag option value.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -124,6 +126,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Tag option value.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
@@ -153,6 +157,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Tag option value.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

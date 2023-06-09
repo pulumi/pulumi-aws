@@ -78,12 +78,16 @@ public final class ClusterS3ImportArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Version of the source engine used to make the backup
      * 
+     * This will not recreate the resource if the S3 object changes in some way. It&#39;s only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+     * 
      */
     @Import(name="sourceEngineVersion", required=true)
     private Output<String> sourceEngineVersion;
 
     /**
      * @return Version of the source engine used to make the backup
+     * 
+     * This will not recreate the resource if the S3 object changes in some way. It&#39;s only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
      * 
      */
     public Output<String> sourceEngineVersion() {
@@ -205,6 +209,8 @@ public final class ClusterS3ImportArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param sourceEngineVersion Version of the source engine used to make the backup
          * 
+         * This will not recreate the resource if the S3 object changes in some way. It&#39;s only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+         * 
          * @return builder
          * 
          */
@@ -215,6 +221,8 @@ public final class ClusterS3ImportArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param sourceEngineVersion Version of the source engine used to make the backup
+         * 
+         * This will not recreate the resource if the S3 object changes in some way. It&#39;s only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
          * 
          * @return builder
          * 

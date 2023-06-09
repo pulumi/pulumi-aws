@@ -19,6 +19,8 @@ namespace Pulumi.Aws.Eks.Outputs
         public readonly ImmutableDictionary<string, string>? Labels;
         /// <summary>
         /// Kubernetes namespace for selection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Namespace;
 

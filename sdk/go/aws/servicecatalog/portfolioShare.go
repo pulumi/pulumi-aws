@@ -75,6 +75,8 @@ type PortfolioShare struct {
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
 	ShareTagOptions pulumi.BoolPtrOutput `pulumi:"shareTagOptions"`
 	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
 	WaitForAcceptance pulumi.BoolPtrOutput `pulumi:"waitForAcceptance"`
@@ -131,6 +133,8 @@ type portfolioShareState struct {
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
 	ShareTagOptions *bool `pulumi:"shareTagOptions"`
 	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 	// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
 	WaitForAcceptance *bool `pulumi:"waitForAcceptance"`
@@ -150,6 +154,8 @@ type PortfolioShareState struct {
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
 	ShareTagOptions pulumi.BoolPtrInput
 	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 	// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
 	WaitForAcceptance pulumi.BoolPtrInput
@@ -171,6 +177,8 @@ type portfolioShareArgs struct {
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
 	ShareTagOptions *bool `pulumi:"shareTagOptions"`
 	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 	// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
 	WaitForAcceptance *bool `pulumi:"waitForAcceptance"`
@@ -189,6 +197,8 @@ type PortfolioShareArgs struct {
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
 	ShareTagOptions pulumi.BoolPtrInput
 	// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 	// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
 	WaitForAcceptance pulumi.BoolPtrInput
@@ -312,6 +322,8 @@ func (o PortfolioShareOutput) ShareTagOptions() pulumi.BoolPtrOutput {
 }
 
 // Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+//
+// The following arguments are optional:
 func (o PortfolioShareOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

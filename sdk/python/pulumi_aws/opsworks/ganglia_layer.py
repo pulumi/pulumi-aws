@@ -60,6 +60,10 @@ class GangliaLayerArgs:
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following extra optional arguments, all lists of Chef recipe names, allow
+               custom Chef recipes to be applied to layer instances at the five different
+               lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
@@ -363,6 +367,10 @@ class GangliaLayerArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        The following extra optional arguments, all lists of Chef recipe names, allow
+        custom Chef recipes to be applied to layer instances at the five different
+        lifecycle events, if custom cookbooks are enabled on the layer's stack:
         """
         return pulumi.get(self, "tags")
 
@@ -457,6 +465,10 @@ class _GangliaLayerState:
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following extra optional arguments, all lists of Chef recipe names, allow
+               custom Chef recipes to be applied to layer instances at the five different
+               lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
@@ -779,6 +791,10 @@ class _GangliaLayerState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        The following extra optional arguments, all lists of Chef recipe names, allow
+        custom Chef recipes to be applied to layer instances at the five different
+        lifecycle events, if custom cookbooks are enabled on the layer's stack:
         """
         return pulumi.get(self, "tags")
 
@@ -899,6 +915,10 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following extra optional arguments, all lists of Chef recipe names, allow
+               custom Chef recipes to be applied to layer instances at the five different
+               lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
@@ -1067,6 +1087,10 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following extra optional arguments, all lists of Chef recipe names, allow
+               custom Chef recipes to be applied to layer instances at the five different
+               lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
@@ -1274,6 +1298,10 @@ class GangliaLayer(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        The following extra optional arguments, all lists of Chef recipe names, allow
+        custom Chef recipes to be applied to layer instances at the five different
+        lifecycle events, if custom cookbooks are enabled on the layer's stack:
         """
         return pulumi.get(self, "tags")
 

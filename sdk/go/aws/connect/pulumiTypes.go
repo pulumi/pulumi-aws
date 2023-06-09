@@ -3464,6 +3464,8 @@ func (o UserHierarchyGroupHierarchyPathLevelTwoArrayOutput) Index(i pulumi.IntIn
 
 type UserHierarchyStructureHierarchyStructure struct {
 	// A block that defines the details of level five. The level block is documented below.
+	//
+	// Each level block supports the following arguments:
 	LevelFive *UserHierarchyStructureHierarchyStructureLevelFive `pulumi:"levelFive"`
 	// A block that defines the details of level four. The level block is documented below.
 	LevelFour *UserHierarchyStructureHierarchyStructureLevelFour `pulumi:"levelFour"`
@@ -3488,6 +3490,8 @@ type UserHierarchyStructureHierarchyStructureInput interface {
 
 type UserHierarchyStructureHierarchyStructureArgs struct {
 	// A block that defines the details of level five. The level block is documented below.
+	//
+	// Each level block supports the following arguments:
 	LevelFive UserHierarchyStructureHierarchyStructureLevelFivePtrInput `pulumi:"levelFive"`
 	// A block that defines the details of level four. The level block is documented below.
 	LevelFour UserHierarchyStructureHierarchyStructureLevelFourPtrInput `pulumi:"levelFour"`
@@ -3577,6 +3581,8 @@ func (o UserHierarchyStructureHierarchyStructureOutput) ToUserHierarchyStructure
 }
 
 // A block that defines the details of level five. The level block is documented below.
+//
+// Each level block supports the following arguments:
 func (o UserHierarchyStructureHierarchyStructureOutput) LevelFive() UserHierarchyStructureHierarchyStructureLevelFivePtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructure) *UserHierarchyStructureHierarchyStructureLevelFive {
 		return v.LevelFive
@@ -3636,6 +3642,8 @@ func (o UserHierarchyStructureHierarchyStructurePtrOutput) Elem() UserHierarchyS
 }
 
 // A block that defines the details of level five. The level block is documented below.
+//
+// Each level block supports the following arguments:
 func (o UserHierarchyStructureHierarchyStructurePtrOutput) LevelFive() UserHierarchyStructureHierarchyStructureLevelFivePtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureHierarchyStructure) *UserHierarchyStructureHierarchyStructureLevelFive {
 		if v == nil {

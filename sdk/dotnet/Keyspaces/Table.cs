@@ -112,6 +112,8 @@ namespace Pulumi.Aws.Keyspaces
 
         /// <summary>
         /// The name of the table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
@@ -224,6 +226,8 @@ namespace Pulumi.Aws.Keyspaces
 
         /// <summary>
         /// The name of the table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
@@ -304,6 +308,8 @@ namespace Pulumi.Aws.Keyspaces
 
         /// <summary>
         /// The name of the table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }

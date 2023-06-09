@@ -22,6 +22,8 @@ class RoutingControlArgs:
         :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this routing control will reside.
         :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this routing control will reside.
         :param pulumi.Input[str] name: The name describing the routing control.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         if control_panel_arn is not None:
@@ -58,6 +60,8 @@ class RoutingControlArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name describing the routing control.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -80,6 +84,8 @@ class _RoutingControlState:
         :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this routing control will reside.
         :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this routing control will reside.
         :param pulumi.Input[str] name: The name describing the routing control.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """
         if arn is not None:
@@ -134,6 +140,8 @@ class _RoutingControlState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name describing the routing control.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -197,6 +205,8 @@ class RoutingControl(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this routing control will reside.
         :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this routing control will reside.
         :param pulumi.Input[str] name: The name describing the routing control.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -293,6 +303,8 @@ class RoutingControl(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this routing control will reside.
         :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this routing control will reside.
         :param pulumi.Input[str] name: The name describing the routing control.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -335,6 +347,8 @@ class RoutingControl(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         The name describing the routing control.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

@@ -135,12 +135,16 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
     /**
      * Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
      * @return Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<String>> subnetIds() {

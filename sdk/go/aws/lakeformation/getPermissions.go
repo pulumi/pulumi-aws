@@ -139,10 +139,14 @@ type LookupPermissionsArgs struct {
 	// Configuration block for an LF-tag policy resource. Detailed below.
 	LfTagPolicy *GetPermissionsLfTagPolicy `pulumi:"lfTagPolicy"`
 	// Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+	//
+	// One of the following is required:
 	Principal string `pulumi:"principal"`
 	// Configuration block for a table resource. Detailed below.
 	Table *GetPermissionsTable `pulumi:"table"`
 	// Configuration block for a table with columns resource. Detailed below.
+	//
+	// The following arguments are optional:
 	TableWithColumns *GetPermissionsTableWithColumns `pulumi:"tableWithColumns"`
 }
 
@@ -193,10 +197,14 @@ type LookupPermissionsOutputArgs struct {
 	// Configuration block for an LF-tag policy resource. Detailed below.
 	LfTagPolicy GetPermissionsLfTagPolicyPtrInput `pulumi:"lfTagPolicy"`
 	// Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+	//
+	// One of the following is required:
 	Principal pulumi.StringInput `pulumi:"principal"`
 	// Configuration block for a table resource. Detailed below.
 	Table GetPermissionsTablePtrInput `pulumi:"table"`
 	// Configuration block for a table with columns resource. Detailed below.
+	//
+	// The following arguments are optional:
 	TableWithColumns GetPermissionsTableWithColumnsPtrInput `pulumi:"tableWithColumns"`
 }
 

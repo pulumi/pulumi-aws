@@ -69,6 +69,12 @@ type LookupInstanceArgs struct {
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData *bool `pulumi:"getPasswordData"`
 	// Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
+	//
+	// > **NOTE:** At least one of `filter`, `instanceTags`, or `instanceId` must be specified.
+	//
+	// > **NOTE:** If anything other than a single match is returned by the search,
+	// this call will fail. Ensure that your search is specific enough to return
+	// a single Instance ID only.
 	GetUserData *bool `pulumi:"getUserData"`
 	// Specify the exact Instance ID with which to populate the data source.
 	InstanceId *string `pulumi:"instanceId"`
@@ -194,6 +200,12 @@ type LookupInstanceOutputArgs struct {
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
 	GetPasswordData pulumi.BoolPtrInput `pulumi:"getPasswordData"`
 	// Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
+	//
+	// > **NOTE:** At least one of `filter`, `instanceTags`, or `instanceId` must be specified.
+	//
+	// > **NOTE:** If anything other than a single match is returned by the search,
+	// this call will fail. Ensure that your search is specific enough to return
+	// a single Instance ID only.
 	GetUserData pulumi.BoolPtrInput `pulumi:"getUserData"`
 	// Specify the exact Instance ID with which to populate the data source.
 	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`

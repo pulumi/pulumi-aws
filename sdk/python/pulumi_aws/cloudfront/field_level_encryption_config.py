@@ -188,7 +188,7 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
                 forward_when_query_arg_profile_is_unknown=True,
                 query_arg_profiles=aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs(
                     items=[aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs(
-                        profile_id=aws_cloudfront_field_level_encryption_profile["test"]["id"],
+                        profile_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         query_arg="Arg1",
                     )],
                 ),
@@ -239,7 +239,7 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
                 forward_when_query_arg_profile_is_unknown=True,
                 query_arg_profiles=aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs(
                     items=[aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs(
-                        profile_id=aws_cloudfront_field_level_encryption_profile["test"]["id"],
+                        profile_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         query_arg="Arg1",
                     )],
                 ),

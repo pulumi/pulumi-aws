@@ -50,8 +50,13 @@ func GetRouteTableAssociations(ctx *pulumi.Context, args *GetRouteTableAssociati
 // A collection of arguments for invoking getRouteTableAssociations.
 type GetRouteTableAssociationsArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetRouteTableAssociationsFilter `pulumi:"filters"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -81,8 +86,13 @@ func GetRouteTableAssociationsOutput(ctx *pulumi.Context, args GetRouteTableAsso
 // A collection of arguments for invoking getRouteTableAssociations.
 type GetRouteTableAssociationsOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetRouteTableAssociationsFilterArrayInput `pulumi:"filters"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringInput `pulumi:"transitGatewayRouteTableId"`
 }
 

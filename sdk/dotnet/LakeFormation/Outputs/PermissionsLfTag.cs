@@ -23,6 +23,8 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         public readonly string Key;
         /// <summary>
         /// A list of possible values an attribute can take.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

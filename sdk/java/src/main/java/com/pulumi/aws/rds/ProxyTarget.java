@@ -107,12 +107,16 @@ public class ProxyTarget extends com.pulumi.resources.CustomResource {
     /**
      * DB cluster identifier.
      * 
+     * **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
+     * 
      */
     @Export(name="dbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dbClusterIdentifier;
 
     /**
      * @return DB cluster identifier.
+     * 
+     * **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
      * 
      */
     public Output<Optional<String>> dbClusterIdentifier() {

@@ -22,6 +22,8 @@ class ProductPortfolioAssociationArgs:
         The set of arguments for constructing a ProductPortfolioAssociation resource.
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] product_id: Product identifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] source_portfolio_id: Identifier of the source portfolio.
         """
@@ -49,6 +51,8 @@ class ProductPortfolioAssociationArgs:
     def product_id(self) -> pulumi.Input[str]:
         """
         Product identifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "product_id")
 
@@ -93,6 +97,8 @@ class _ProductPortfolioAssociationState:
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] product_id: Product identifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] source_portfolio_id: Identifier of the source portfolio.
         """
         if accept_language is not None:
@@ -133,6 +139,8 @@ class _ProductPortfolioAssociationState:
     def product_id(self) -> Optional[pulumi.Input[str]]:
         """
         Product identifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "product_id")
 
@@ -191,6 +199,8 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] product_id: Product identifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] source_portfolio_id: Identifier of the source portfolio.
         """
         ...
@@ -282,6 +292,8 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] product_id: Product identifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] source_portfolio_id: Identifier of the source portfolio.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -315,6 +327,8 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
     def product_id(self) -> pulumi.Output[str]:
         """
         Product identifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "product_id")
 

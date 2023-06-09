@@ -51,6 +51,8 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
     /**
      * @return The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
      * 
+     * If you specify `AllowedInstanceTypes`, you can&#39;t specify `ExcludedInstanceTypes`.
+     * 
      */
     private @Nullable List<String> allowedInstanceTypes;
     /**
@@ -76,6 +78,8 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
     private @Nullable List<String> cpuManufacturers;
     /**
      * @return The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+     * 
+     * If you specify `AllowedInstanceTypes`, you can&#39;t specify `ExcludedInstanceTypes`.
      * 
      */
     private @Nullable List<String> excludedInstanceTypes;
@@ -117,6 +121,8 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
     /**
      * @return The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
      * 
+     * If you set `target_capacity_unit_type` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+     * 
      */
     private @Nullable Integer onDemandMaxPricePercentageOverLowestPrice;
     /**
@@ -126,6 +132,8 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
     private @Nullable Boolean requireHibernateSupport;
     /**
      * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+     * 
+     * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
      */
     private @Nullable Integer spotMaxPricePercentageOverLowestPrice;
@@ -179,6 +187,8 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
     /**
      * @return The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
      * 
+     * If you specify `AllowedInstanceTypes`, you can&#39;t specify `ExcludedInstanceTypes`.
+     * 
      */
     public List<String> allowedInstanceTypes() {
         return this.allowedInstanceTypes == null ? List.of() : this.allowedInstanceTypes;
@@ -214,6 +224,8 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
     }
     /**
      * @return The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+     * 
+     * If you specify `AllowedInstanceTypes`, you can&#39;t specify `ExcludedInstanceTypes`.
      * 
      */
     public List<String> excludedInstanceTypes() {
@@ -271,6 +283,8 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
     /**
      * @return The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
      * 
+     * If you set `target_capacity_unit_type` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+     * 
      */
     public Optional<Integer> onDemandMaxPricePercentageOverLowestPrice() {
         return Optional.ofNullable(this.onDemandMaxPricePercentageOverLowestPrice);
@@ -284,6 +298,8 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
     }
     /**
      * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+     * 
+     * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
      */
     public Optional<Integer> spotMaxPricePercentageOverLowestPrice() {

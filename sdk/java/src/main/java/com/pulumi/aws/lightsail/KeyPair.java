@@ -234,6 +234,10 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
      * The public key material. This public key will be
      * imported into Lightsail
      * 
+     * &gt; **NOTE:** a PGP key is not required, however it is strongly encouraged.
+     * Without a PGP key, the private key material will be stored in state unencrypted.
+     * `pgp_key` is ignored if `public_key` is supplied.
+     * 
      */
     @Export(name="publicKey", refs={String.class}, tree="[0]")
     private Output<String> publicKey;
@@ -241,6 +245,10 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
     /**
      * @return The public key material. This public key will be
      * imported into Lightsail
+     * 
+     * &gt; **NOTE:** a PGP key is not required, however it is strongly encouraged.
+     * Without a PGP key, the private key material will be stored in state unencrypted.
+     * `pgp_key` is ignored if `public_key` is supplied.
      * 
      */
     public Output<String> publicKey() {

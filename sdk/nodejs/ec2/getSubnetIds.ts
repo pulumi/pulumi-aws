@@ -13,6 +13,49 @@ import * as utilities from "../utilities";
  * This resource can be useful for getting back a set of subnet ids for a vpc.
  *
  * > **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
+ *
+ * ## Example Usage
+ *
+ * The following shows outputting all cidr blocks for every subnet id in a vpc.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleSubnetIds = aws.ec2.getSubnetIds({
+ *     vpcId: _var.vpc_id,
+ * });
+ * const exampleSubnet = exampleSubnetIds.then(exampleSubnetIds => .map(([, ]) => (aws.ec2.getSubnet({
+ *     id: __value,
+ * }))));
+ * export const subnetCidrBlocks = exampleSubnet.map(s => (s.cidrBlock));
+ * ```
+ *
+ * The following example retrieves a set of all subnets in a VPC with a custom
+ * tag of `Tier` set to a value of "Private" so that the `aws.ec2.Instance` resource
+ * can loop through the subnets, putting instances across availability zones.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const private = await aws.ec2.getSubnetIds({
+ *         vpcId: _var.vpc_id,
+ *         tags: {
+ *             Tier: "Private",
+ *         },
+ *     });
+ *     const app: aws.ec2.Instance[] = [];
+ *     for (const range of _private.ids.map((v, k) => ({key: k, value: v}))) {
+ *         app.push(new aws.ec2.Instance(`app-${range.key}`, {
+ *             ami: _var.ami,
+ *             instanceType: "t2.micro",
+ *             subnetId: range.value,
+ *         }));
+ *     }
+ * }
+ * ```
  */
 export function getSubnetIds(args: GetSubnetIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetIdsResult> {
 
@@ -35,6 +78,9 @@ export interface GetSubnetIdsArgs {
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     tags?: {[key: string]: string};
     /**
@@ -65,6 +111,49 @@ export interface GetSubnetIdsResult {
  * This resource can be useful for getting back a set of subnet ids for a vpc.
  *
  * > **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
+ *
+ * ## Example Usage
+ *
+ * The following shows outputting all cidr blocks for every subnet id in a vpc.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleSubnetIds = aws.ec2.getSubnetIds({
+ *     vpcId: _var.vpc_id,
+ * });
+ * const exampleSubnet = exampleSubnetIds.then(exampleSubnetIds => .map(([, ]) => (aws.ec2.getSubnet({
+ *     id: __value,
+ * }))));
+ * export const subnetCidrBlocks = exampleSubnet.map(s => (s.cidrBlock));
+ * ```
+ *
+ * The following example retrieves a set of all subnets in a VPC with a custom
+ * tag of `Tier` set to a value of "Private" so that the `aws.ec2.Instance` resource
+ * can loop through the subnets, putting instances across availability zones.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * export = async () => {
+ *     const private = await aws.ec2.getSubnetIds({
+ *         vpcId: _var.vpc_id,
+ *         tags: {
+ *             Tier: "Private",
+ *         },
+ *     });
+ *     const app: aws.ec2.Instance[] = [];
+ *     for (const range of _private.ids.map((v, k) => ({key: k, value: v}))) {
+ *         app.push(new aws.ec2.Instance(`app-${range.key}`, {
+ *             ami: _var.ami,
+ *             instanceType: "t2.micro",
+ *             subnetId: range.value,
+ *         }));
+ *     }
+ * }
+ * ```
  */
 export function getSubnetIdsOutput(args: GetSubnetIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetIdsResult> {
     return pulumi.output(args).apply((a: any) => getSubnetIds(a, opts))
@@ -81,6 +170,9 @@ export interface GetSubnetIdsOutputArgs {
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

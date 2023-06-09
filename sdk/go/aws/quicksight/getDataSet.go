@@ -53,6 +53,8 @@ type LookupDataSetArgs struct {
 	AwsAccountId               *string                               `pulumi:"awsAccountId"`
 	ColumnLevelPermissionRules []GetDataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
 	// Identifier for the data set.
+	//
+	// The following arguments are optional:
 	DataSetId string            `pulumi:"dataSetId"`
 	Tags      map[string]string `pulumi:"tags"`
 }
@@ -98,6 +100,8 @@ type LookupDataSetOutputArgs struct {
 	AwsAccountId               pulumi.StringPtrInput                         `pulumi:"awsAccountId"`
 	ColumnLevelPermissionRules GetDataSetColumnLevelPermissionRuleArrayInput `pulumi:"columnLevelPermissionRules"`
 	// Identifier for the data set.
+	//
+	// The following arguments are optional:
 	DataSetId pulumi.StringInput    `pulumi:"dataSetId"`
 	Tags      pulumi.StringMapInput `pulumi:"tags"`
 }

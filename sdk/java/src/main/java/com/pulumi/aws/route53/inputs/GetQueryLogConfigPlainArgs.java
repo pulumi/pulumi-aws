@@ -22,6 +22,8 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
      * 
+     * In addition to all arguments above, the following attributes are exported:
+     * 
      */
     @Import(name="filters")
     private @Nullable List<GetQueryLogConfigFilter> filters;
@@ -30,6 +32,8 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
      * @return One or more name/value pairs to use as filters. There are
      * several valid keys, for a full reference, check out
      * [Route53resolver Filter value in the AWS API reference][1].
+     * 
+     * In addition to all arguments above, the following attributes are exported:
      * 
      */
     public Optional<List<GetQueryLogConfigFilter>> filters() {
@@ -69,12 +73,16 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
     /**
      * Map of tags to assign to the service.
      * 
+     * [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
+     * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
      * @return Map of tags to assign to the service.
+     * 
+     * [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -113,6 +121,8 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
          * several valid keys, for a full reference, check out
          * [Route53resolver Filter value in the AWS API reference][1].
          * 
+         * In addition to all arguments above, the following attributes are exported:
+         * 
          * @return builder
          * 
          */
@@ -125,6 +135,8 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
          * @param filters One or more name/value pairs to use as filters. There are
          * several valid keys, for a full reference, check out
          * [Route53resolver Filter value in the AWS API reference][1].
+         * 
+         * In addition to all arguments above, the following attributes are exported:
          * 
          * @return builder
          * 
@@ -157,6 +169,8 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
 
         /**
          * @param tags Map of tags to assign to the service.
+         * 
+         * [1]: https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html
          * 
          * @return builder
          * 

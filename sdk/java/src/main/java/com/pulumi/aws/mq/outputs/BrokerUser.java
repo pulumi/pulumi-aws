@@ -31,6 +31,8 @@ public final class BrokerUser {
     /**
      * @return Username of the user.
      * 
+     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+     * 
      */
     private String username;
 
@@ -58,6 +60,8 @@ public final class BrokerUser {
     }
     /**
      * @return Username of the user.
+     * 
+     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
      * 
      */
     public String username() {

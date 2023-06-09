@@ -18,12 +18,16 @@ public final class ReplicationSetRegionArgs extends com.pulumi.resources.Resourc
     /**
      * The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
      * @return The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -107,6 +111,8 @@ public final class ReplicationSetRegionArgs extends com.pulumi.resources.Resourc
         /**
          * @param kmsKeyArn The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -117,6 +123,8 @@ public final class ReplicationSetRegionArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param kmsKeyArn The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

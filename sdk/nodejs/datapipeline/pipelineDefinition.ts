@@ -126,6 +126,8 @@ export class PipelineDefinition extends pulumi.CustomResource {
     public readonly pipelineId!: pulumi.Output<string>;
     /**
      * Configuration block for the objects that define the pipeline. See below
+     *
+     * The following arguments are optional:
      */
     public readonly pipelineObjects!: pulumi.Output<outputs.datapipeline.PipelineDefinitionPipelineObject[]>;
 
@@ -182,6 +184,8 @@ export interface PipelineDefinitionState {
     pipelineId?: pulumi.Input<string>;
     /**
      * Configuration block for the objects that define the pipeline. See below
+     *
+     * The following arguments are optional:
      */
     pipelineObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionPipelineObject>[]>;
 }
@@ -204,6 +208,8 @@ export interface PipelineDefinitionArgs {
     pipelineId: pulumi.Input<string>;
     /**
      * Configuration block for the objects that define the pipeline. See below
+     *
+     * The following arguments are optional:
      */
     pipelineObjects: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionPipelineObject>[]>;
 }

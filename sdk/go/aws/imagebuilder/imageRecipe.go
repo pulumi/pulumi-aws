@@ -106,6 +106,8 @@ type ImageRecipe struct {
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrOutput `pulumi:"workingDirectory"`
@@ -176,6 +178,8 @@ type imageRecipeState struct {
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+	//
+	// The following attributes are optional:
 	Version *string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
@@ -209,6 +213,8 @@ type ImageRecipeState struct {
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 pulumi.StringPtrInput
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringPtrInput
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrInput
@@ -236,6 +242,8 @@ type imageRecipeArgs struct {
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+	//
+	// The following attributes are optional:
 	Version string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
@@ -260,6 +268,8 @@ type ImageRecipeArgs struct {
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 pulumi.StringPtrInput
 	// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringInput
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrInput
@@ -418,6 +428,8 @@ func (o ImageRecipeOutput) UserDataBase64() pulumi.StringOutput {
 }
 
 // The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+//
+// The following attributes are optional:
 func (o ImageRecipeOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

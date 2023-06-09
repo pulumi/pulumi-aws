@@ -119,12 +119,16 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Unique within a region name of the table.
      * 
+     * Optional arguments:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Unique within a region name of the table.
+     * 
+     * Optional arguments:
      * 
      */
     public Optional<Output<String>> name() {
@@ -548,6 +552,8 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Unique within a region name of the table.
          * 
+         * Optional arguments:
+         * 
          * @return builder
          * 
          */
@@ -558,6 +564,8 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Unique within a region name of the table.
+         * 
+         * Optional arguments:
          * 
          * @return builder
          * 

@@ -85,6 +85,8 @@ type Function struct {
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
 	// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+	//
+	// The following arguments are optional:
 	Runtime pulumi.StringOutput `pulumi:"runtime"`
 	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -140,6 +142,8 @@ type functionState struct {
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 	Publish *bool `pulumi:"publish"`
 	// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+	//
+	// The following arguments are optional:
 	Runtime *string `pulumi:"runtime"`
 	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
 	Status *string `pulumi:"status"`
@@ -161,6 +165,8 @@ type FunctionState struct {
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 	Publish pulumi.BoolPtrInput
 	// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+	//
+	// The following arguments are optional:
 	Runtime pulumi.StringPtrInput
 	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
 	Status pulumi.StringPtrInput
@@ -180,6 +186,8 @@ type functionArgs struct {
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 	Publish *bool `pulumi:"publish"`
 	// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+	//
+	// The following arguments are optional:
 	Runtime string `pulumi:"runtime"`
 }
 
@@ -194,6 +202,8 @@ type FunctionArgs struct {
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 	Publish pulumi.BoolPtrInput
 	// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+	//
+	// The following arguments are optional:
 	Runtime pulumi.StringInput
 }
 
@@ -320,6 +330,8 @@ func (o FunctionOutput) Publish() pulumi.BoolPtrOutput {
 }
 
 // Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+//
+// The following arguments are optional:
 func (o FunctionOutput) Runtime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Runtime }).(pulumi.StringOutput)
 }

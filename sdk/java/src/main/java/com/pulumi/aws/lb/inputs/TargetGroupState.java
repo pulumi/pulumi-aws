@@ -340,12 +340,28 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
      * 
+     * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
+     * 
+     * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
+     * 
+     * Network Load Balancers do not support the `lambda` target type.
+     * 
+     * Application Load Balancers do not support the `alb` target type.
+     * 
      */
     @Import(name="targetType")
     private @Nullable Output<String> targetType;
 
     /**
      * @return Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+     * 
+     * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
+     * 
+     * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
+     * 
+     * Network Load Balancers do not support the `lambda` target type.
+     * 
+     * Application Load Balancers do not support the `alb` target type.
      * 
      */
     public Optional<Output<String>> targetType() {
@@ -867,6 +883,14 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param targetType Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
          * 
+         * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
+         * 
+         * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
+         * 
+         * Network Load Balancers do not support the `lambda` target type.
+         * 
+         * Application Load Balancers do not support the `alb` target type.
+         * 
          * @return builder
          * 
          */
@@ -877,6 +901,14 @@ public final class TargetGroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param targetType Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+         * 
+         * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
+         * 
+         * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
+         * 
+         * Network Load Balancers do not support the `lambda` target type.
+         * 
+         * Application Load Balancers do not support the `alb` target type.
          * 
          * @return builder
          * 

@@ -36,12 +36,16 @@ public final class RepositoryAssociationArgs extends com.pulumi.resources.Resour
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="repository", required=true)
     private Output<RepositoryAssociationRepositoryArgs> repository;
 
     /**
      * @return An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<RepositoryAssociationRepositoryArgs> repository() {
@@ -105,6 +109,8 @@ public final class RepositoryAssociationArgs extends com.pulumi.resources.Resour
         /**
          * @param repository An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -115,6 +121,8 @@ public final class RepositoryAssociationArgs extends com.pulumi.resources.Resour
 
         /**
          * @param repository An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

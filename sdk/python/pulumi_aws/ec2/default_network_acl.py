@@ -24,6 +24,8 @@ class DefaultNetworkAclArgs:
         """
         The set of arguments for constructing a DefaultNetworkAcl resource.
         :param pulumi.Input[str] default_network_acl_id: Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclEgressArgs']]] egress: Configuration block for an egress rule. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclIngressArgs']]] ingress: Configuration block for an ingress rule. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
@@ -44,6 +46,8 @@ class DefaultNetworkAclArgs:
     def default_network_acl_id(self) -> pulumi.Input[str]:
         """
         Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "default_network_acl_id")
 
@@ -116,6 +120,8 @@ class _DefaultNetworkAclState:
         Input properties used for looking up and filtering DefaultNetworkAcl resources.
         :param pulumi.Input[str] arn: ARN of the Default Network ACL
         :param pulumi.Input[str] default_network_acl_id: Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclEgressArgs']]] egress: Configuration block for an egress rule. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclIngressArgs']]] ingress: Configuration block for an ingress rule. Detailed below.
         :param pulumi.Input[str] owner_id: ID of the AWS account that owns the Default Network ACL
@@ -160,6 +166,8 @@ class _DefaultNetworkAclState:
     def default_network_acl_id(self) -> Optional[pulumi.Input[str]]:
         """
         Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "default_network_acl_id")
 
@@ -318,7 +326,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 protocol="-1",
                 rule_no=100,
                 action="allow",
-                cidr_block=aws_default_vpc["mainvpc"]["cidr_block"],
+                cidr_block=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 from_port=0,
                 to_port=0,
             )])
@@ -367,6 +375,8 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_network_acl_id: Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultNetworkAclEgressArgs']]]] egress: Configuration block for an egress rule. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultNetworkAclIngressArgs']]]] ingress: Configuration block for an ingress rule. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
@@ -433,7 +443,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 protocol="-1",
                 rule_no=100,
                 action="allow",
-                cidr_block=aws_default_vpc["mainvpc"]["cidr_block"],
+                cidr_block=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 from_port=0,
                 to_port=0,
             )])
@@ -547,6 +557,8 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Default Network ACL
         :param pulumi.Input[str] default_network_acl_id: Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultNetworkAclEgressArgs']]]] egress: Configuration block for an egress rule. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultNetworkAclIngressArgs']]]] ingress: Configuration block for an ingress rule. Detailed below.
         :param pulumi.Input[str] owner_id: ID of the AWS account that owns the Default Network ACL
@@ -583,6 +595,8 @@ class DefaultNetworkAcl(pulumi.CustomResource):
     def default_network_acl_id(self) -> pulumi.Output[str]:
         """
         Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "default_network_acl_id")
 

@@ -124,6 +124,8 @@ export class IntegrationResponse extends pulumi.CustomResource {
     public readonly selectionPattern!: pulumi.Output<string | undefined>;
     /**
      * HTTP status code.
+     *
+     * The following arguments are optional:
      */
     public readonly statusCode!: pulumi.Output<string>;
 
@@ -210,6 +212,8 @@ export interface IntegrationResponseState {
     selectionPattern?: pulumi.Input<string>;
     /**
      * HTTP status code.
+     *
+     * The following arguments are optional:
      */
     statusCode?: pulumi.Input<string>;
 }
@@ -248,6 +252,8 @@ export interface IntegrationResponseArgs {
     selectionPattern?: pulumi.Input<string>;
     /**
      * HTTP status code.
+     *
+     * The following arguments are optional:
      */
     statusCode: pulumi.Input<string>;
 }

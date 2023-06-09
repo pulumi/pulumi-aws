@@ -89,6 +89,8 @@ export interface GetVpcEndpointServiceArgs {
     serviceType?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+     *
+     * > **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `serviceName` pattern of `com.amazonaws.<region>.<service>`.
      */
     tags?: {[key: string]: string};
 }
@@ -223,6 +225,8 @@ export interface GetVpcEndpointServiceOutputArgs {
     serviceType?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+     *
+     * > **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `serviceName` pattern of `com.amazonaws.<region>.<service>`.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

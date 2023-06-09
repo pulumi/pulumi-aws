@@ -26,6 +26,9 @@ export function getCoipPools(args?: GetCoipPoolsArgs, opts?: pulumi.InvokeOption
 export interface GetCoipPoolsArgs {
     /**
      * Custom filter block as described below.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     filters?: inputs.ec2.GetCoipPoolsFilter[];
     /**
@@ -63,6 +66,9 @@ export function getCoipPoolsOutput(args?: GetCoipPoolsOutputArgs, opts?: pulumi.
 export interface GetCoipPoolsOutputArgs {
     /**
      * Custom filter block as described below.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCoipPoolsFilterArgs>[]>;
     /**

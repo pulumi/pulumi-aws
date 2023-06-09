@@ -38,6 +38,12 @@ export function getRouterConfiguration(args: GetRouterConfigurationArgs, opts?: 
 export interface GetRouterConfigurationArgs {
     /**
      * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+     *
+     * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     routerTypeIdentifier: string;
     /**
@@ -95,6 +101,12 @@ export function getRouterConfigurationOutput(args: GetRouterConfigurationOutputA
 export interface GetRouterConfigurationOutputArgs {
     /**
      * ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+     *
+     * There is currently no AWS API to retrieve the full list of `routerTypeIdentifier` values. Here is a list of known `RouterType` objects that can be used:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     routerTypeIdentifier: pulumi.Input<string>;
     /**

@@ -111,12 +111,16 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="waitPeriodMs", required=true)
     private Output<Integer> waitPeriodMs;
 
     /**
      * @return Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> waitPeriodMs() {
@@ -312,6 +316,8 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param waitPeriodMs Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -322,6 +328,8 @@ public final class SafetyRuleArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param waitPeriodMs Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

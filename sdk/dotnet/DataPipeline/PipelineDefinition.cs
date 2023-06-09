@@ -135,6 +135,8 @@ namespace Pulumi.Aws.DataPipeline
 
         /// <summary>
         /// Configuration block for the objects that define the pipeline. See below
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("pipelineObjects")]
         public Output<ImmutableArray<Outputs.PipelineDefinitionPipelineObject>> PipelineObjects { get; private set; } = null!;
@@ -220,6 +222,8 @@ namespace Pulumi.Aws.DataPipeline
 
         /// <summary>
         /// Configuration block for the objects that define the pipeline. See below
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.PipelineDefinitionPipelineObjectArgs> PipelineObjects
         {
@@ -270,6 +274,8 @@ namespace Pulumi.Aws.DataPipeline
 
         /// <summary>
         /// Configuration block for the objects that define the pipeline. See below
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.PipelineDefinitionPipelineObjectGetArgs> PipelineObjects
         {

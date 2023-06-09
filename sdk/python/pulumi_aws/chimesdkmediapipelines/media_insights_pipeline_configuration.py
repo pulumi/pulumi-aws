@@ -316,7 +316,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ])
@@ -339,7 +339,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ],
@@ -402,7 +402,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ])
@@ -444,7 +444,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["test"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ])
@@ -577,7 +577,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ])
@@ -600,7 +600,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ],
@@ -663,7 +663,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ])
@@ -705,7 +705,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["test"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ])

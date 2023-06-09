@@ -94,6 +94,8 @@ def get_launch_paths(accept_language: Optional[str] = None,
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str product_id: Product identifier.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -128,5 +130,7 @@ def get_launch_paths_output(accept_language: Optional[pulumi.Input[Optional[str]
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str product_id: Product identifier.
+           
+           The following arguments are optional:
     """
     ...

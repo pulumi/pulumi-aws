@@ -34,12 +34,16 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
     /**
      * Port on the container to associate with the load balancer.
      * 
+     * &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+     * 
      */
     @Import(name="containerPort", required=true)
     private Output<Integer> containerPort;
 
     /**
      * @return Port on the container to associate with the load balancer.
+     * 
+     * &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
      * 
      */
     public Output<Integer> containerPort() {
@@ -127,6 +131,8 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
         /**
          * @param containerPort Port on the container to associate with the load balancer.
          * 
+         * &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
+         * 
          * @return builder
          * 
          */
@@ -137,6 +143,8 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
 
         /**
          * @param containerPort Port on the container to associate with the load balancer.
+         * 
+         * &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
          * 
          * @return builder
          * 

@@ -84,6 +84,8 @@ type ReservedInstance struct {
 	// Whether the reservation applies to Multi-AZ deployments.
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
 	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
+	//
+	// The following arguments are optional:
 	OfferingId pulumi.StringOutput `pulumi:"offeringId"`
 	// Offering type of this reserved DB instance.
 	OfferingType pulumi.StringOutput `pulumi:"offeringType"`
@@ -154,6 +156,8 @@ type reservedInstanceState struct {
 	// Whether the reservation applies to Multi-AZ deployments.
 	MultiAz *bool `pulumi:"multiAz"`
 	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
+	//
+	// The following arguments are optional:
 	OfferingId *string `pulumi:"offeringId"`
 	// Offering type of this reserved DB instance.
 	OfferingType *string `pulumi:"offeringType"`
@@ -193,6 +197,8 @@ type ReservedInstanceState struct {
 	// Whether the reservation applies to Multi-AZ deployments.
 	MultiAz pulumi.BoolPtrInput
 	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
+	//
+	// The following arguments are optional:
 	OfferingId pulumi.StringPtrInput
 	// Offering type of this reserved DB instance.
 	OfferingType pulumi.StringPtrInput
@@ -222,6 +228,8 @@ type reservedInstanceArgs struct {
 	// Number of instances to reserve. Default value is `1`.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
+	//
+	// The following arguments are optional:
 	OfferingId string `pulumi:"offeringId"`
 	// Customer-specified identifier to track this reservation.
 	ReservationId *string `pulumi:"reservationId"`
@@ -234,6 +242,8 @@ type ReservedInstanceArgs struct {
 	// Number of instances to reserve. Default value is `1`.
 	InstanceCount pulumi.IntPtrInput
 	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
+	//
+	// The following arguments are optional:
 	OfferingId pulumi.StringInput
 	// Customer-specified identifier to track this reservation.
 	ReservationId pulumi.StringPtrInput
@@ -369,6 +379,8 @@ func (o ReservedInstanceOutput) MultiAz() pulumi.BoolOutput {
 }
 
 // ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
+//
+// The following arguments are optional:
 func (o ReservedInstanceOutput) OfferingId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.OfferingId }).(pulumi.StringOutput)
 }

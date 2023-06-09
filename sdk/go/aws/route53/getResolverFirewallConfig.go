@@ -53,6 +53,8 @@ func LookupResolverFirewallConfig(ctx *pulumi.Context, args *LookupResolverFirew
 // A collection of arguments for invoking getResolverFirewallConfig.
 type LookupResolverFirewallConfigArgs struct {
 	// The ID of the VPC from Amazon VPC that the configuration is for.
+	//
+	// The following attribute is additionally exported:
 	ResourceId string `pulumi:"resourceId"`
 }
 
@@ -81,6 +83,8 @@ func LookupResolverFirewallConfigOutput(ctx *pulumi.Context, args LookupResolver
 // A collection of arguments for invoking getResolverFirewallConfig.
 type LookupResolverFirewallConfigOutputArgs struct {
 	// The ID of the VPC from Amazon VPC that the configuration is for.
+	//
+	// The following attribute is additionally exported:
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 }
 

@@ -58,6 +58,8 @@ export interface GetTargetGroupArgs {
     name?: string;
     /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+     *
+     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
      */
     tags?: {[key: string]: string};
 }
@@ -133,6 +135,8 @@ export interface GetTargetGroupOutputArgs {
     name?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+     *
+     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

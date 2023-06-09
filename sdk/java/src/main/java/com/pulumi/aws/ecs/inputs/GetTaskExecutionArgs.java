@@ -267,12 +267,16 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn&#39;t specified, the latest `ACTIVE` revision is used.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="taskDefinition", required=true)
     private Output<String> taskDefinition;
 
     /**
      * @return The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn&#39;t specified, the latest `ACTIVE` revision is used.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> taskDefinition() {
@@ -688,6 +692,8 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param taskDefinition The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn&#39;t specified, the latest `ACTIVE` revision is used.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -698,6 +704,8 @@ public final class GetTaskExecutionArgs extends com.pulumi.resources.InvokeArgs 
 
         /**
          * @param taskDefinition The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn&#39;t specified, the latest `ACTIVE` revision is used.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

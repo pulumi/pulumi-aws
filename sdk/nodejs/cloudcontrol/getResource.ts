@@ -44,6 +44,8 @@ export interface GetResourceArgs {
     roleArn?: string;
     /**
      * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     *
+     * The following arguments are optional:
      */
     typeName: string;
     /**
@@ -102,6 +104,8 @@ export interface GetResourceOutputArgs {
     roleArn?: pulumi.Input<string>;
     /**
      * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     *
+     * The following arguments are optional:
      */
     typeName: pulumi.Input<string>;
     /**

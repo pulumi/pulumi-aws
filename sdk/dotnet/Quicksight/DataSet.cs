@@ -356,6 +356,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("physicalTableMaps")]
         public Output<ImmutableArray<Outputs.DataSetPhysicalTableMap>> PhysicalTableMaps { get; private set; } = null!;
@@ -531,6 +533,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapArgs> PhysicalTableMaps
         {
@@ -685,6 +689,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapGetArgs> PhysicalTableMaps
         {

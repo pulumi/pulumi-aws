@@ -124,12 +124,16 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     /**
      * Email address of the user.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
      * @return Email address of the user.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> userName() {
@@ -317,6 +321,8 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userName Email address of the user.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -327,6 +333,8 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param userName Email address of the user.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

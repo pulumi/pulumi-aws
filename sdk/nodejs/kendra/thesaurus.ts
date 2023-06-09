@@ -87,6 +87,8 @@ export class Thesaurus extends pulumi.CustomResource {
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
+     *
+     * The `sourceS3Path` configuration block supports the following arguments:
      */
     public readonly sourceS3Path!: pulumi.Output<outputs.kendra.ThesaurusSourceS3Path>;
     /**
@@ -179,6 +181,8 @@ export interface ThesaurusState {
     roleArn?: pulumi.Input<string>;
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
+     *
+     * The `sourceS3Path` configuration block supports the following arguments:
      */
     sourceS3Path?: pulumi.Input<inputs.kendra.ThesaurusSourceS3Path>;
     /**
@@ -218,6 +222,8 @@ export interface ThesaurusArgs {
     roleArn: pulumi.Input<string>;
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
+     *
+     * The `sourceS3Path` configuration block supports the following arguments:
      */
     sourceS3Path: pulumi.Input<inputs.kendra.ThesaurusSourceS3Path>;
     /**

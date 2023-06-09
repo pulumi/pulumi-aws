@@ -201,12 +201,16 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
     /**
      * Name of the object once it is in the bucket.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="key")
     private @Nullable Output<String> key;
 
     /**
      * @return Name of the object once it is in the bucket.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> key() {
@@ -366,12 +370,20 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
+     * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+     * 
+     * &gt; **Note:** The provider ignores all leading `/`s in the object&#39;s `key` and treats multiple `/`s in the rest of the object&#39;s `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
+     * 
      */
     @Import(name="websiteRedirect")
     private @Nullable Output<String> websiteRedirect;
 
     /**
      * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     * 
+     * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+     * 
+     * &gt; **Note:** The provider ignores all leading `/`s in the object&#39;s `key` and treats multiple `/`s in the rest of the object&#39;s `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
      * 
      */
     public Optional<Output<String>> websiteRedirect() {
@@ -680,6 +692,8 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
         /**
          * @param key Name of the object once it is in the bucket.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -690,6 +704,8 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param key Name of the object once it is in the bucket.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -911,6 +927,10 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
         /**
          * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
          * 
+         * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+         * 
+         * &gt; **Note:** The provider ignores all leading `/`s in the object&#39;s `key` and treats multiple `/`s in the rest of the object&#39;s `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
+         * 
          * @return builder
          * 
          */
@@ -921,6 +941,10 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+         * 
+         * If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
+         * 
+         * &gt; **Note:** The provider ignores all leading `/`s in the object&#39;s `key` and treats multiple `/`s in the rest of the object&#39;s `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
          * 
          * @return builder
          * 

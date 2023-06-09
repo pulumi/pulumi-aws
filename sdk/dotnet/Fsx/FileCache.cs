@@ -173,6 +173,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -310,6 +312,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -454,6 +458,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SubnetIds
         {

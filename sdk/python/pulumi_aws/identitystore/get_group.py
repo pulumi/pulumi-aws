@@ -134,7 +134,11 @@ def get_group(alternate_identifier: Optional[pulumi.InputType['GetGroupAlternate
     :param pulumi.InputType['GetGroupAlternateIdentifierArgs'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
     :param pulumi.InputType['GetGroupFilterArgs'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
     :param str group_id: The identifier for a group in the Identity Store.
+           
+           > Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
@@ -168,6 +172,10 @@ def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi
     :param pulumi.InputType['GetGroupAlternateIdentifierArgs'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
     :param pulumi.InputType['GetGroupFilterArgs'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
     :param str group_id: The identifier for a group in the Identity Store.
+           
+           > Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+           
+           The following arguments are optional:
     """
     ...

@@ -21938,6 +21938,8 @@ func (o ChannelInputAttachmentInputSettingsPtrOutput) VideoSelector() ChannelInp
 
 type ChannelInputAttachmentInputSettingsAudioSelector struct {
 	// Name of the Channel.
+	//
+	// The following arguments are optional:
 	Name             string                                                            `pulumi:"name"`
 	SelectorSettings *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings `pulumi:"selectorSettings"`
 }
@@ -21955,6 +21957,8 @@ type ChannelInputAttachmentInputSettingsAudioSelectorInput interface {
 
 type ChannelInputAttachmentInputSettingsAudioSelectorArgs struct {
 	// Name of the Channel.
+	//
+	// The following arguments are optional:
 	Name             pulumi.StringInput                                                       `pulumi:"name"`
 	SelectorSettings ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrInput `pulumi:"selectorSettings"`
 }
@@ -22011,6 +22015,8 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorOutput) ToChannelInputAt
 }
 
 // Name of the Channel.
+//
+// The following arguments are optional:
 func (o ChannelInputAttachmentInputSettingsAudioSelectorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelector) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -22230,6 +22236,8 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutpu
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection struct {
 	GroupId string `pulumi:"groupId"`
 	// Name of the Channel.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
 }
 
@@ -22247,6 +22255,8 @@ type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRen
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs struct {
 	GroupId pulumi.StringInput `pulumi:"groupId"`
 	// Name of the Channel.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -22334,6 +22344,8 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHls
 }
 
 // Name of the Channel.
+//
+// The following arguments are optional:
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection) string {
 		return v.Name
@@ -22374,6 +22386,8 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHls
 }
 
 // Name of the Channel.
+//
+// The following arguments are optional:
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection) *string {
 		if v == nil {
@@ -22909,6 +22923,8 @@ type ChannelInputAttachmentInputSettingsCaptionSelector struct {
 	// When specified this field indicates the three letter language code of the caption track to extract from the source.
 	LanguageCode *string `pulumi:"languageCode"`
 	// Name of the Channel.
+	//
+	// The following arguments are optional:
 	Name             string                                                              `pulumi:"name"`
 	SelectorSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings `pulumi:"selectorSettings"`
 }
@@ -22928,6 +22944,8 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorArgs struct {
 	// When specified this field indicates the three letter language code of the caption track to extract from the source.
 	LanguageCode pulumi.StringPtrInput `pulumi:"languageCode"`
 	// Name of the Channel.
+	//
+	// The following arguments are optional:
 	Name             pulumi.StringInput                                                         `pulumi:"name"`
 	SelectorSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrInput `pulumi:"selectorSettings"`
 }
@@ -22989,6 +23007,8 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorOutput) LanguageCode()
 }
 
 // Name of the Channel.
+//
+// The following arguments are optional:
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelector) string { return v.Name }).(pulumi.StringOutput)
 }

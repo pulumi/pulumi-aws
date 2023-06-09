@@ -426,6 +426,8 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Configuration block. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("source")]
         public Output<Outputs.ProjectSource> Source { get; private set; } = null!;
@@ -640,6 +642,8 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Configuration block. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.ProjectSourceArgs> Source { get; set; } = null!;
@@ -834,6 +838,8 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Configuration block. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("source")]
         public Input<Inputs.ProjectSourceGetArgs>? Source { get; set; }

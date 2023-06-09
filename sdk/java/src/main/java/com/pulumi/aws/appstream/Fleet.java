@@ -293,12 +293,16 @@ public class Fleet extends com.pulumi.resources.CustomResource {
     /**
      * Unique name for the fleet.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Unique name for the fleet.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

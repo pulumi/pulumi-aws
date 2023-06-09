@@ -19,6 +19,8 @@ public final class GetTaskExecutionPlacementStrategy {
     /**
      * @return The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
      * 
+     * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+     * 
      */
     private String type;
 
@@ -32,6 +34,8 @@ public final class GetTaskExecutionPlacementStrategy {
     }
     /**
      * @return The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+     * 
+     * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
      * 
      */
     public String type() {

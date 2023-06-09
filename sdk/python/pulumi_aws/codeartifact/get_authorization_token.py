@@ -108,7 +108,7 @@ def get_authorization_token(domain: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.codeartifact.get_authorization_token(domain=aws_codeartifact_domain["test"]["domain"])
+    test = aws.codeartifact.get_authorization_token(domain=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -146,7 +146,7 @@ def get_authorization_token_output(domain: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.codeartifact.get_authorization_token(domain=aws_codeartifact_domain["test"]["domain"])
+    test = aws.codeartifact.get_authorization_token(domain=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

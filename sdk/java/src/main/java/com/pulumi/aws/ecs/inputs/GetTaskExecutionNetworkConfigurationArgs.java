@@ -20,12 +20,16 @@ public final class GetTaskExecutionNetworkConfigurationArgs extends com.pulumi.r
     /**
      * Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
      * 
+     * For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
+     * 
      */
     @Import(name="assignPublicIp")
     private @Nullable Output<Boolean> assignPublicIp;
 
     /**
      * @return Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+     * 
+     * For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
      * 
      */
     public Optional<Output<Boolean>> assignPublicIp() {
@@ -91,6 +95,8 @@ public final class GetTaskExecutionNetworkConfigurationArgs extends com.pulumi.r
         /**
          * @param assignPublicIp Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
          * 
+         * For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
+         * 
          * @return builder
          * 
          */
@@ -101,6 +107,8 @@ public final class GetTaskExecutionNetworkConfigurationArgs extends com.pulumi.r
 
         /**
          * @param assignPublicIp Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+         * 
+         * For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
          * 
          * @return builder
          * 

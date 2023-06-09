@@ -95,12 +95,16 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
      * 
+     * &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
+     * 
      */
     @Import(name="requestMacsec")
     private @Nullable Output<Boolean> requestMacsec;
 
     /**
      * @return Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+     * 
+     * &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
      * 
      */
     public Optional<Output<Boolean>> requestMacsec() {
@@ -276,6 +280,8 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param requestMacsec Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
          * 
+         * &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
+         * 
          * @return builder
          * 
          */
@@ -286,6 +292,8 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param requestMacsec Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+         * 
+         * &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
          * 
          * @return builder
          * 

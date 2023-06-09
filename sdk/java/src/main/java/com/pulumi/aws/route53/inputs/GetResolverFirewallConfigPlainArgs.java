@@ -15,12 +15,16 @@ public final class GetResolverFirewallConfigPlainArgs extends com.pulumi.resourc
     /**
      * The ID of the VPC from Amazon VPC that the configuration is for.
      * 
+     * The following attribute is additionally exported:
+     * 
      */
     @Import(name="resourceId", required=true)
     private String resourceId;
 
     /**
      * @return The ID of the VPC from Amazon VPC that the configuration is for.
+     * 
+     * The following attribute is additionally exported:
      * 
      */
     public String resourceId() {
@@ -53,6 +57,8 @@ public final class GetResolverFirewallConfigPlainArgs extends com.pulumi.resourc
 
         /**
          * @param resourceId The ID of the VPC from Amazon VPC that the configuration is for.
+         * 
+         * The following attribute is additionally exported:
          * 
          * @return builder
          * 

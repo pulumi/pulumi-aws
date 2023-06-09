@@ -161,6 +161,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("taskDefinition", required: true)]
         public string TaskDefinition { get; set; } = null!;
@@ -295,6 +297,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("taskDefinition", required: true)]
         public Input<string> TaskDefinition { get; set; } = null!;

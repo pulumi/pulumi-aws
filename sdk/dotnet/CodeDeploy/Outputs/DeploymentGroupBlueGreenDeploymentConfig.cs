@@ -23,6 +23,8 @@ namespace Pulumi.Aws.CodeDeploy.Outputs
         public readonly Outputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption? GreenFleetProvisioningOption;
         /// <summary>
         /// Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+        /// 
+        /// _Only one `blue_green_deployment_config` is allowed_.
         /// </summary>
         public readonly Outputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess? TerminateBlueInstancesOnDeploymentSuccess;
 

@@ -128,8 +128,8 @@ def get_sdk(parameters: Optional[Mapping[str, str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_sdk(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
+    example = aws.apigateway.get_sdk(rest_api_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        stage_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         sdk_type="android",
         parameters={
             "groupId": "example",
@@ -177,8 +177,8 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_sdk(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
+    example = aws.apigateway.get_sdk(rest_api_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        stage_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         sdk_type="android",
         parameters={
             "groupId": "example",

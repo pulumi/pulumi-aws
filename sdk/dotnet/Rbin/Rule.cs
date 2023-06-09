@@ -101,6 +101,8 @@ namespace Pulumi.Aws.Rbin
 
         /// <summary>
         /// Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("retentionPeriod")]
         public Output<Outputs.RuleRetentionPeriod> RetentionPeriod { get; private set; } = null!;
@@ -195,6 +197,8 @@ namespace Pulumi.Aws.Rbin
 
         /// <summary>
         /// Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("retentionPeriod", required: true)]
         public Input<Inputs.RuleRetentionPeriodArgs> RetentionPeriod { get; set; } = null!;
@@ -262,6 +266,8 @@ namespace Pulumi.Aws.Rbin
 
         /// <summary>
         /// Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("retentionPeriod")]
         public Input<Inputs.RuleRetentionPeriodGetArgs>? RetentionPeriod { get; set; }

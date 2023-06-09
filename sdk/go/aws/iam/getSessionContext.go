@@ -84,6 +84,8 @@ func GetSessionContext(ctx *pulumi.Context, args *GetSessionContextArgs, opts ..
 // A collection of arguments for invoking getSessionContext.
 type GetSessionContextArgs struct {
 	// ARN for an assumed role.
+	//
+	// > If `arn` is a non-role ARN, the provider gives no error and `issuerArn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
 	Arn string `pulumi:"arn"`
 }
 
@@ -118,6 +120,8 @@ func GetSessionContextOutput(ctx *pulumi.Context, args GetSessionContextOutputAr
 // A collection of arguments for invoking getSessionContext.
 type GetSessionContextOutputArgs struct {
 	// ARN for an assumed role.
+	//
+	// > If `arn` is a non-role ARN, the provider gives no error and `issuerArn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 

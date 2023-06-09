@@ -53,6 +53,8 @@ namespace Pulumi.Aws.Oam
 
         /// <summary>
         /// Name for the sink.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -120,6 +122,8 @@ namespace Pulumi.Aws.Oam
     {
         /// <summary>
         /// Name for the sink.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -152,6 +156,8 @@ namespace Pulumi.Aws.Oam
 
         /// <summary>
         /// Name for the sink.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

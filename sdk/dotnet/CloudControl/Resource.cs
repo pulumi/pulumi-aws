@@ -72,6 +72,8 @@ namespace Pulumi.Aws.CloudControl
 
         /// <summary>
         /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("typeName")]
         public Output<string> TypeName { get; private set; } = null!;
@@ -162,6 +164,8 @@ namespace Pulumi.Aws.CloudControl
 
         /// <summary>
         /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
@@ -216,6 +220,8 @@ namespace Pulumi.Aws.CloudControl
 
         /// <summary>
         /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }

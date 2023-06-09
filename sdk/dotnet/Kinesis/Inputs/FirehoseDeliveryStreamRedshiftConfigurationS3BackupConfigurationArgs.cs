@@ -33,6 +33,8 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
         /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. More details are given below
+        /// 
+        /// The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }

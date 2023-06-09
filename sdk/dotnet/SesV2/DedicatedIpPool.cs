@@ -68,6 +68,8 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// Name of the dedicated IP pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("poolName")]
         public Output<string> PoolName { get; private set; } = null!;
@@ -135,6 +137,8 @@ namespace Pulumi.Aws.SesV2
     {
         /// <summary>
         /// Name of the dedicated IP pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("poolName", required: true)]
         public Input<string> PoolName { get; set; } = null!;
@@ -173,6 +177,8 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// Name of the dedicated IP pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("poolName")]
         public Input<string>? PoolName { get; set; }

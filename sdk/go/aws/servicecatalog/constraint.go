@@ -81,6 +81,8 @@ type Constraint struct {
 	ProductId pulumi.StringOutput `pulumi:"productId"`
 	Status    pulumi.StringOutput `pulumi:"status"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -139,6 +141,8 @@ type constraintState struct {
 	ProductId *string `pulumi:"productId"`
 	Status    *string `pulumi:"status"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
@@ -157,6 +161,8 @@ type ConstraintState struct {
 	ProductId pulumi.StringPtrInput
 	Status    pulumi.StringPtrInput
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -176,6 +182,8 @@ type constraintArgs struct {
 	// Product identifier.
 	ProductId string `pulumi:"productId"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -192,6 +200,8 @@ type ConstraintArgs struct {
 	// Product identifier.
 	ProductId pulumi.StringInput
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -317,6 +327,8 @@ func (o ConstraintOutput) Status() pulumi.StringOutput {
 }
 
 // Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+//
+// The following arguments are optional:
 func (o ConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

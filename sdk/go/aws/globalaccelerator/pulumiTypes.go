@@ -298,6 +298,8 @@ type EndpointGroupEndpointConfiguration struct {
 	// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
 	EndpointId *string `pulumi:"endpointId"`
 	// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
+	//
+	// **port_override** supports the following attributes:
 	Weight *int `pulumi:"weight"`
 }
 
@@ -319,6 +321,8 @@ type EndpointGroupEndpointConfigurationArgs struct {
 	// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
 	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
 	// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
+	//
+	// **port_override** supports the following attributes:
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
@@ -385,6 +389,8 @@ func (o EndpointGroupEndpointConfigurationOutput) EndpointId() pulumi.StringPtrO
 }
 
 // The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
+//
+// **port_override** supports the following attributes:
 func (o EndpointGroupEndpointConfigurationOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }

@@ -90,6 +90,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 path where your block list text file sits in S3. Detailed below.
+        /// 
+        /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
         [Output("sourceS3Path")]
         public Output<Outputs.QuerySuggestionsBlockListSourceS3Path> SourceS3Path { get; private set; } = null!;
@@ -181,6 +183,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 path where your block list text file sits in S3. Detailed below.
+        /// 
+        /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("sourceS3Path", required: true)]
         public Input<Inputs.QuerySuggestionsBlockListSourceS3PathArgs> SourceS3Path { get; set; } = null!;
@@ -243,6 +247,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 path where your block list text file sits in S3. Detailed below.
+        /// 
+        /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("sourceS3Path")]
         public Input<Inputs.QuerySuggestionsBlockListSourceS3PathGetArgs>? SourceS3Path { get; set; }

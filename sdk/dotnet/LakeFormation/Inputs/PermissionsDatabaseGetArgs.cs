@@ -20,6 +20,8 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
         /// <summary>
         /// Name of the database resource. Unique to the Data Catalog.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

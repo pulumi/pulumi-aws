@@ -1012,7 +1012,7 @@ class EventSourceMapping(pulumi.CustomResource):
             queues=["example"],
             source_access_configurations=[aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
                 type="BASIC_AUTH",
-                uri=aws_secretsmanager_secret_version["example"]["arn"],
+                uri=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### Amazon MQ (RabbitMQ)
@@ -1034,7 +1034,7 @@ class EventSourceMapping(pulumi.CustomResource):
                 ),
                 aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
                     type="BASIC_AUTH",
-                    uri=aws_secretsmanager_secret_version["example"]["arn"],
+                    uri=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ])
         ```
@@ -1202,7 +1202,7 @@ class EventSourceMapping(pulumi.CustomResource):
             queues=["example"],
             source_access_configurations=[aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
                 type="BASIC_AUTH",
-                uri=aws_secretsmanager_secret_version["example"]["arn"],
+                uri=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### Amazon MQ (RabbitMQ)
@@ -1224,7 +1224,7 @@ class EventSourceMapping(pulumi.CustomResource):
                 ),
                 aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
                     type="BASIC_AUTH",
-                    uri=aws_secretsmanager_secret_version["example"]["arn"],
+                    uri=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ])
         ```

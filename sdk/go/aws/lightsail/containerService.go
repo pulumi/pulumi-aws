@@ -84,6 +84,64 @@ import (
 //	}
 //
 // ```
+// ### Private Registry Access
+//
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// defaultContainerService, err := lightsail.NewContainerService(ctx, "defaultContainerService", &lightsail.ContainerServiceArgs{
+// PrivateRegistryAccess: &lightsail.ContainerServicePrivateRegistryAccessArgs{
+// EcrImagePullerRole: &lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs{
+// IsActive: pulumi.Bool(true),
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// defaultPolicyDocument := defaultContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: interface{}{
+// privateRegistryAccess.EcrImagePullerRole.PrincipalArn,
+// },
+// },
+// },
+// Actions: []string{
+// "ecr:BatchGetImage",
+// "ecr:GetDownloadUrlForLayer",
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = ecr.NewRepositoryPolicy(ctx, "defaultRepositoryPolicy", &ecr.RepositoryPolicyArgs{
+// Repository: pulumi.Any(aws_ecr_repository.Default.Name),
+// Policy: defaultPolicyDocument.ApplyT(func(defaultPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &defaultPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //

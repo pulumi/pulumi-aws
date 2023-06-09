@@ -18,12 +18,16 @@ public final class ProjectDataDeliveryCloudwatchLogsArgs extends com.pulumi.reso
     /**
      * The name of the log group where the project stores evaluation events.
      * 
+     * The `s3_destination` block supports the following arguments:
+     * 
      */
     @Import(name="logGroup")
     private @Nullable Output<String> logGroup;
 
     /**
      * @return The name of the log group where the project stores evaluation events.
+     * 
+     * The `s3_destination` block supports the following arguments:
      * 
      */
     public Optional<Output<String>> logGroup() {
@@ -57,6 +61,8 @@ public final class ProjectDataDeliveryCloudwatchLogsArgs extends com.pulumi.reso
         /**
          * @param logGroup The name of the log group where the project stores evaluation events.
          * 
+         * The `s3_destination` block supports the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -67,6 +73,8 @@ public final class ProjectDataDeliveryCloudwatchLogsArgs extends com.pulumi.reso
 
         /**
          * @param logGroup The name of the log group where the project stores evaluation events.
+         * 
+         * The `s3_destination` block supports the following arguments:
          * 
          * @return builder
          * 

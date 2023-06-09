@@ -63,6 +63,8 @@ type Service struct {
 	// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
 	DnsEntries ServiceDnsEntryArrayOutput `pulumi:"dnsEntries"`
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of the service.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -112,6 +114,8 @@ type serviceState struct {
 	// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
 	DnsEntries []ServiceDnsEntry `pulumi:"dnsEntries"`
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Status of the service.
 	Status *string `pulumi:"status"`
@@ -133,6 +137,8 @@ type ServiceState struct {
 	// Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
 	DnsEntries ServiceDnsEntryArrayInput
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Status of the service.
 	Status pulumi.StringPtrInput
@@ -154,6 +160,8 @@ type serviceArgs struct {
 	// Custom domain name of the service.
 	CustomDomainName *string `pulumi:"customDomainName"`
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -168,6 +176,8 @@ type ServiceArgs struct {
 	// Custom domain name of the service.
 	CustomDomainName pulumi.StringPtrInput
 	// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -286,6 +296,8 @@ func (o ServiceOutput) DnsEntries() ServiceDnsEntryArrayOutput {
 }
 
 // Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
+//
+// The following arguments are optional:
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

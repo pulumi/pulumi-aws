@@ -564,12 +564,16 @@ public class Project extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="source", refs={ProjectSource.class}, tree="[0]")
     private Output<ProjectSource> source;
 
     /**
      * @return Configuration block. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<ProjectSource> source() {

@@ -80,12 +80,16 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the Vocabulary.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="vocabularyName", required=true)
     private Output<String> vocabularyName;
 
     /**
      * @return The name of the Vocabulary.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vocabularyName() {
@@ -217,6 +221,8 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param vocabularyName The name of the Vocabulary.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -227,6 +233,8 @@ public final class VocabularyArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vocabularyName The name of the Vocabulary.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

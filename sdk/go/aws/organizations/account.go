@@ -90,6 +90,8 @@ type Account struct {
 	JoinedMethod           pulumi.StringOutput    `pulumi:"joinedMethod"`
 	JoinedTimestamp        pulumi.StringOutput    `pulumi:"joinedTimestamp"`
 	// Friendly name for the member account.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
@@ -149,6 +151,8 @@ type accountState struct {
 	JoinedMethod           *string `pulumi:"joinedMethod"`
 	JoinedTimestamp        *string `pulumi:"joinedTimestamp"`
 	// Friendly name for the member account.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId *string `pulumi:"parentId"`
@@ -177,6 +181,8 @@ type AccountState struct {
 	JoinedMethod           pulumi.StringPtrInput
 	JoinedTimestamp        pulumi.StringPtrInput
 	// Friendly name for the member account.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId pulumi.StringPtrInput
@@ -203,6 +209,8 @@ type accountArgs struct {
 	// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
 	IamUserAccessToBilling *string `pulumi:"iamUserAccessToBilling"`
 	// Friendly name for the member account.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId *string `pulumi:"parentId"`
@@ -223,6 +231,8 @@ type AccountArgs struct {
 	// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
 	IamUserAccessToBilling pulumi.StringPtrInput
 	// Friendly name for the member account.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId pulumi.StringPtrInput
@@ -358,6 +368,8 @@ func (o AccountOutput) JoinedTimestamp() pulumi.StringOutput {
 }
 
 // Friendly name for the member account.
+//
+// The following arguments are optional:
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

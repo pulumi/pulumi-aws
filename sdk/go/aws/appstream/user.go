@@ -69,6 +69,8 @@ type User struct {
 	// Send an email notification.
 	SendEmailNotification pulumi.BoolPtrOutput `pulumi:"sendEmailNotification"`
 	// Email address of the user.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -122,6 +124,8 @@ type userState struct {
 	// Send an email notification.
 	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
 	// Email address of the user.
+	//
+	// The following arguments are optional:
 	UserName *string `pulumi:"userName"`
 }
 
@@ -141,6 +145,8 @@ type UserState struct {
 	// Send an email notification.
 	SendEmailNotification pulumi.BoolPtrInput
 	// Email address of the user.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringPtrInput
 }
 
@@ -160,6 +166,8 @@ type userArgs struct {
 	// Send an email notification.
 	SendEmailNotification *bool `pulumi:"sendEmailNotification"`
 	// Email address of the user.
+	//
+	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
 }
 
@@ -176,6 +184,8 @@ type UserArgs struct {
 	// Send an email notification.
 	SendEmailNotification pulumi.BoolPtrInput
 	// Email address of the user.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringInput
 }
 
@@ -302,6 +312,8 @@ func (o UserOutput) SendEmailNotification() pulumi.BoolPtrOutput {
 }
 
 // Email address of the user.
+//
+// The following arguments are optional:
 func (o UserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

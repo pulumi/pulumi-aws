@@ -54,6 +54,8 @@ type LookupProductArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	// Product ID.
+	//
+	// The following arguments are optional:
 	Id string `pulumi:"id"`
 	// Tags to apply to the product.
 	Tags map[string]string `pulumi:"tags"`
@@ -109,6 +111,8 @@ type LookupProductOutputArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
 	// Product ID.
+	//
+	// The following arguments are optional:
 	Id pulumi.StringInput `pulumi:"id"`
 	// Tags to apply to the product.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

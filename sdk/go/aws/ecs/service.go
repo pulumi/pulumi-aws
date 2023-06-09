@@ -223,6 +223,8 @@ type Service struct {
 	// Configuration block for load balancers. See below.
 	LoadBalancers ServiceLoadBalancerArrayOutput `pulumi:"loadBalancers"`
 	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
 	NetworkConfiguration ServiceNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
@@ -312,6 +314,8 @@ type serviceState struct {
 	// Configuration block for load balancers. See below.
 	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
 	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
@@ -373,6 +377,8 @@ type ServiceState struct {
 	// Configuration block for load balancers. See below.
 	LoadBalancers ServiceLoadBalancerArrayInput
 	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
@@ -438,6 +444,8 @@ type serviceArgs struct {
 	// Configuration block for load balancers. See below.
 	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
 	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
@@ -498,6 +506,8 @@ type ServiceArgs struct {
 	// Configuration block for load balancers. See below.
 	LoadBalancers ServiceLoadBalancerArrayInput
 	// Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
@@ -688,6 +698,8 @@ func (o ServiceOutput) LoadBalancers() ServiceLoadBalancerArrayOutput {
 }
 
 // Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+//
+// The following arguments are optional:
 func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

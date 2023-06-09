@@ -112,6 +112,8 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     public /*out*/ readonly launchRoleArn!: pulumi.Output<string>;
     /**
      * User-friendly name of the provisioned product.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -294,6 +296,8 @@ export interface ProvisionedProductState {
     launchRoleArn?: pulumi.Input<string>;
     /**
      * User-friendly name of the provisioned product.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -376,6 +380,8 @@ export interface ProvisionedProductArgs {
     ignoreErrors?: pulumi.Input<boolean>;
     /**
      * User-friendly name of the provisioned product.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

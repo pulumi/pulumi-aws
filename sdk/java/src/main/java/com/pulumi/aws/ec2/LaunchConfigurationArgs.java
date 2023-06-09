@@ -129,12 +129,16 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
     /**
      * The size of instance to launch.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="instanceType", required=true)
     private Output<String> instanceType;
 
     /**
      * @return The size of instance to launch.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> instanceType() {
@@ -550,6 +554,8 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
         /**
          * @param instanceType The size of instance to launch.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -560,6 +566,8 @@ public final class LaunchConfigurationArgs extends com.pulumi.resources.Resource
 
         /**
          * @param instanceType The size of instance to launch.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -117,6 +117,8 @@ export class ImageBuilder extends pulumi.CustomResource {
     public readonly instanceType!: pulumi.Output<string>;
     /**
      * Unique name for the image builder.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -248,6 +250,8 @@ export interface ImageBuilderState {
     instanceType?: pulumi.Input<string>;
     /**
      * Unique name for the image builder.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -314,6 +318,8 @@ export interface ImageBuilderArgs {
     instanceType: pulumi.Input<string>;
     /**
      * Unique name for the image builder.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

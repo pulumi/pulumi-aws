@@ -53,6 +53,8 @@ public final class BucketReplicationConfigurationRule {
     /**
      * @return The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
      * 
+     * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
+     * 
      */
     private String status;
 
@@ -108,6 +110,8 @@ public final class BucketReplicationConfigurationRule {
     }
     /**
      * @return The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * 
+     * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
      * 
      */
     public String status() {

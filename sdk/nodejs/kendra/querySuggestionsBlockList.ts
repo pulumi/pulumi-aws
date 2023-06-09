@@ -92,6 +92,8 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
     public readonly roleArn!: pulumi.Output<string>;
     /**
      * The S3 path where your block list text file sits in S3. Detailed below.
+     *
+     * The `sourceS3Path` configuration block supports the following arguments:
      */
     public readonly sourceS3Path!: pulumi.Output<outputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -184,6 +186,8 @@ export interface QuerySuggestionsBlockListState {
     roleArn?: pulumi.Input<string>;
     /**
      * The S3 path where your block list text file sits in S3. Detailed below.
+     *
+     * The `sourceS3Path` configuration block supports the following arguments:
      */
     sourceS3Path?: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
     status?: pulumi.Input<string>;
@@ -219,6 +223,8 @@ export interface QuerySuggestionsBlockListArgs {
     roleArn: pulumi.Input<string>;
     /**
      * The S3 path where your block list text file sits in S3. Detailed below.
+     *
+     * The `sourceS3Path` configuration block supports the following arguments:
      */
     sourceS3Path: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
     /**

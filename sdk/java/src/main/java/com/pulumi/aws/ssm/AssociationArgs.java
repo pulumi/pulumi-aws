@@ -227,12 +227,16 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      * 
+     * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
+     * 
      */
     @Import(name="waitForSuccessTimeoutSeconds")
     private @Nullable Output<Integer> waitForSuccessTimeoutSeconds;
 
     /**
      * @return The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     * 
+     * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
      * 
      */
     public Optional<Output<Integer>> waitForSuccessTimeoutSeconds() {
@@ -570,6 +574,8 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param waitForSuccessTimeoutSeconds The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
          * 
+         * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
+         * 
          * @return builder
          * 
          */
@@ -580,6 +586,8 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param waitForSuccessTimeoutSeconds The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+         * 
+         * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
          * 
          * @return builder
          * 

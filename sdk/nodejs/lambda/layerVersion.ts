@@ -104,6 +104,8 @@ export class LayerVersion extends pulumi.CustomResource {
     public /*out*/ readonly layerArn!: pulumi.Output<string>;
     /**
      * Unique name for your Lambda Layer
+     *
+     * The following arguments are optional:
      */
     public readonly layerName!: pulumi.Output<string>;
     /**
@@ -241,6 +243,8 @@ export interface LayerVersionState {
     layerArn?: pulumi.Input<string>;
     /**
      * Unique name for your Lambda Layer
+     *
+     * The following arguments are optional:
      */
     layerName?: pulumi.Input<string>;
     /**
@@ -307,6 +311,8 @@ export interface LayerVersionArgs {
     description?: pulumi.Input<string>;
     /**
      * Unique name for your Lambda Layer
+     *
+     * The following arguments are optional:
      */
     layerName: pulumi.Input<string>;
     /**

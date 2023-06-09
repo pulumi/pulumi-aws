@@ -114,7 +114,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             logging_configuration=aws.networkfirewall.LoggingConfigurationLoggingConfigurationArgs(
                 log_destination_configs=[aws.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(
                     log_destination={
-                        "bucketName": aws_s3_bucket["example"]["bucket"],
+                        "bucketName": %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         "prefix": "/example",
                     },
                     log_destination_type="S3",
@@ -133,7 +133,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             logging_configuration=aws.networkfirewall.LoggingConfigurationLoggingConfigurationArgs(
                 log_destination_configs=[aws.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(
                     log_destination={
-                        "logGroup": aws_cloudwatch_log_group["example"]["name"],
+                        "logGroup": %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     },
                     log_destination_type="CloudWatchLogs",
                     log_type="ALERT",
@@ -151,7 +151,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             logging_configuration=aws.networkfirewall.LoggingConfigurationLoggingConfigurationArgs(
                 log_destination_configs=[aws.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(
                     log_destination={
-                        "deliveryStream": aws_kinesis_firehose_delivery_stream["example"]["name"],
+                        "deliveryStream": %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     },
                     log_destination_type="KinesisDataFirehose",
                     log_type="ALERT",
@@ -193,7 +193,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             logging_configuration=aws.networkfirewall.LoggingConfigurationLoggingConfigurationArgs(
                 log_destination_configs=[aws.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(
                     log_destination={
-                        "bucketName": aws_s3_bucket["example"]["bucket"],
+                        "bucketName": %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         "prefix": "/example",
                     },
                     log_destination_type="S3",
@@ -212,7 +212,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             logging_configuration=aws.networkfirewall.LoggingConfigurationLoggingConfigurationArgs(
                 log_destination_configs=[aws.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(
                     log_destination={
-                        "logGroup": aws_cloudwatch_log_group["example"]["name"],
+                        "logGroup": %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     },
                     log_destination_type="CloudWatchLogs",
                     log_type="ALERT",
@@ -230,7 +230,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             logging_configuration=aws.networkfirewall.LoggingConfigurationLoggingConfigurationArgs(
                 log_destination_configs=[aws.networkfirewall.LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs(
                     log_destination={
-                        "deliveryStream": aws_kinesis_firehose_delivery_stream["example"]["name"],
+                        "deliveryStream": %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     },
                     log_destination_type="KinesisDataFirehose",
                     log_type="ALERT",

@@ -230,12 +230,16 @@ public class FunctionEventInvokeConfig extends com.pulumi.resources.CustomResour
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
     /**
      * @return Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> functionName() {

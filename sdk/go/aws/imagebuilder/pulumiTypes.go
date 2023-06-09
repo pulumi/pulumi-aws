@@ -946,6 +946,8 @@ type DistributionConfigurationDistribution struct {
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
 	// AWS Region for the distribution.
+	//
+	// The following arguments are optional:
 	Region string `pulumi:"region"`
 }
 
@@ -972,6 +974,8 @@ type DistributionConfigurationDistributionArgs struct {
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
 	// AWS Region for the distribution.
+	//
+	// The following arguments are optional:
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -1060,6 +1064,8 @@ func (o DistributionConfigurationDistributionOutput) LicenseConfigurationArns() 
 }
 
 // AWS Region for the distribution.
+//
+// The following arguments are optional:
 func (o DistributionConfigurationDistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -3104,6 +3110,8 @@ type ImagePipelineSchedule struct {
 	// Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
 	PipelineExecutionStartCondition *string `pulumi:"pipelineExecutionStartCondition"`
 	// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+	//
+	// The following arguments are optional:
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 	// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
 	Timezone *string `pulumi:"timezone"`
@@ -3124,6 +3132,8 @@ type ImagePipelineScheduleArgs struct {
 	// Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
 	PipelineExecutionStartCondition pulumi.StringPtrInput `pulumi:"pipelineExecutionStartCondition"`
 	// Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+	//
+	// The following arguments are optional:
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 	// The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
@@ -3212,6 +3222,8 @@ func (o ImagePipelineScheduleOutput) PipelineExecutionStartCondition() pulumi.St
 }
 
 // Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+//
+// The following arguments are optional:
 func (o ImagePipelineScheduleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v ImagePipelineSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
@@ -3256,6 +3268,8 @@ func (o ImagePipelineSchedulePtrOutput) PipelineExecutionStartCondition() pulumi
 }
 
 // Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+//
+// The following arguments are optional:
 func (o ImagePipelineSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipelineSchedule) *string {
 		if v == nil {
@@ -4313,6 +4327,8 @@ func (o InfrastructureConfigurationLoggingPtrOutput) S3Logs() InfrastructureConf
 
 type InfrastructureConfigurationLoggingS3Logs struct {
 	// Name of the S3 Bucket.
+	//
+	// The following arguments are optional:
 	S3BucketName string `pulumi:"s3BucketName"`
 	// Prefix to use for S3 logs. Defaults to `/`.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
@@ -4331,6 +4347,8 @@ type InfrastructureConfigurationLoggingS3LogsInput interface {
 
 type InfrastructureConfigurationLoggingS3LogsArgs struct {
 	// Name of the S3 Bucket.
+	//
+	// The following arguments are optional:
 	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
 	// Prefix to use for S3 logs. Defaults to `/`.
 	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
@@ -4414,6 +4432,8 @@ func (o InfrastructureConfigurationLoggingS3LogsOutput) ToInfrastructureConfigur
 }
 
 // Name of the S3 Bucket.
+//
+// The following arguments are optional:
 func (o InfrastructureConfigurationLoggingS3LogsOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationLoggingS3Logs) string { return v.S3BucketName }).(pulumi.StringOutput)
 }
@@ -4448,6 +4468,8 @@ func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) Elem() Infrastructure
 }
 
 // Name of the S3 Bucket.
+//
+// The following arguments are optional:
 func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfigurationLoggingS3Logs) *string {
 		if v == nil {

@@ -698,7 +698,7 @@ class Integration(pulumi.CustomResource):
 
         example_function = aws.lambda_.Function("exampleFunction",
             code=pulumi.FileArchive("example.zip"),
-            role=aws_iam_role["example"]["arn"],
+            role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             handler="index.handler",
             runtime="nodejs16.x")
         example_integration = aws.apigatewayv2.Integration("exampleIntegration",
@@ -832,7 +832,7 @@ class Integration(pulumi.CustomResource):
 
         example_function = aws.lambda_.Function("exampleFunction",
             code=pulumi.FileArchive("example.zip"),
-            role=aws_iam_role["example"]["arn"],
+            role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             handler="index.handler",
             runtime="nodejs16.x")
         example_integration = aws.apigatewayv2.Integration("exampleIntegration",

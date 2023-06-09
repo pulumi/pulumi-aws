@@ -26,6 +26,8 @@ class ConnectAttachmentArgs:
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
         :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Options for creating an attachment.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] transport_attachment_id: The ID of the attachment between the two connections.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -65,6 +67,8 @@ class ConnectAttachmentArgs:
     def options(self) -> pulumi.Input['ConnectAttachmentOptionsArgs']:
         """
         Options for creating an attachment.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "options")
 
@@ -124,6 +128,8 @@ class _ConnectAttachmentState:
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
         :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Options for creating an attachment.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] owner_account_id: The ID of the attachment account owner.
         :param pulumi.Input[str] resource_arn: The attachment resource ARN.
         :param pulumi.Input[str] segment_name: The name of the segment attachment.
@@ -249,6 +255,8 @@ class _ConnectAttachmentState:
     def options(self) -> Optional[pulumi.Input['ConnectAttachmentOptionsArgs']]:
         """
         Options for creating an attachment.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "options")
 
@@ -370,6 +378,8 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
         :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']] options: Options for creating an attachment.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] transport_attachment_id: The ID of the attachment between the two connections.
         """
@@ -483,6 +493,8 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
         :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']] options: Options for creating an attachment.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] owner_account_id: The ID of the attachment account owner.
         :param pulumi.Input[str] resource_arn: The attachment resource ARN.
         :param pulumi.Input[str] segment_name: The name of the segment attachment.
@@ -570,6 +582,8 @@ class ConnectAttachment(pulumi.CustomResource):
     def options(self) -> pulumi.Output['outputs.ConnectAttachmentOptions']:
         """
         Options for creating an attachment.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "options")
 

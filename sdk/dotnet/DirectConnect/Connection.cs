@@ -164,6 +164,8 @@ namespace Pulumi.Aws.DirectConnect
 
         /// <summary>
         /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+        /// 
+        /// &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Output("requestMacsec")]
         public Output<bool?> RequestMacsec { get; private set; } = null!;
@@ -270,6 +272,8 @@ namespace Pulumi.Aws.DirectConnect
 
         /// <summary>
         /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+        /// 
+        /// &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("requestMacsec")]
         public Input<bool>? RequestMacsec { get; set; }
@@ -380,6 +384,8 @@ namespace Pulumi.Aws.DirectConnect
 
         /// <summary>
         /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+        /// 
+        /// &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("requestMacsec")]
         public Input<bool>? RequestMacsec { get; set; }

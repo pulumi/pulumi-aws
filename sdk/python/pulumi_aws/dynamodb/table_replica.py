@@ -22,6 +22,8 @@ class TableReplicaInitArgs:
         """
         The set of arguments for constructing a TableReplica resource.
         :param pulumi.Input[str] global_table_arn: ARN of the _main_ or global table which this resource will replicate.
+               
+               Optional arguments:
         :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
         :param pulumi.Input[str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
@@ -42,6 +44,8 @@ class TableReplicaInitArgs:
     def global_table_arn(self) -> pulumi.Input[str]:
         """
         ARN of the _main_ or global table which this resource will replicate.
+
+        Optional arguments:
         """
         return pulumi.get(self, "global_table_arn")
 
@@ -112,6 +116,8 @@ class _TableReplicaState:
         Input properties used for looking up and filtering TableReplica resources.
         :param pulumi.Input[str] arn: ARN of the table replica.
         :param pulumi.Input[str] global_table_arn: ARN of the _main_ or global table which this resource will replicate.
+               
+               Optional arguments:
         :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
         :param pulumi.Input[str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
@@ -150,6 +156,8 @@ class _TableReplicaState:
     def global_table_arn(self) -> Optional[pulumi.Input[str]]:
         """
         ARN of the _main_ or global table which this resource will replicate.
+
+        Optional arguments:
         """
         return pulumi.get(self, "global_table_arn")
 
@@ -275,6 +283,8 @@ class TableReplica(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] global_table_arn: ARN of the _main_ or global table which this resource will replicate.
+               
+               Optional arguments:
         :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
         :param pulumi.Input[str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
@@ -393,6 +403,8 @@ class TableReplica(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the table replica.
         :param pulumi.Input[str] global_table_arn: ARN of the _main_ or global table which this resource will replicate.
+               
+               Optional arguments:
         :param pulumi.Input[str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         :param pulumi.Input[bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica. Default is `false`.
         :param pulumi.Input[str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
@@ -425,6 +437,8 @@ class TableReplica(pulumi.CustomResource):
     def global_table_arn(self) -> pulumi.Output[str]:
         """
         ARN of the _main_ or global table which this resource will replicate.
+
+        Optional arguments:
         """
         return pulumi.get(self, "global_table_arn")
 

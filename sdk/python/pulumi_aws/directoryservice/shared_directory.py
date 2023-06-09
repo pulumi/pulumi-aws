@@ -24,6 +24,8 @@ class SharedDirectoryArgs:
         The set of arguments for constructing a SharedDirectory resource.
         :param pulumi.Input[str] directory_id: Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
         :param pulumi.Input['SharedDirectoryTargetArgs'] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         :param pulumi.Input[str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         """
@@ -51,6 +53,8 @@ class SharedDirectoryArgs:
     def target(self) -> pulumi.Input['SharedDirectoryTargetArgs']:
         """
         Identifier for the directory consumer account with whom the directory is to be shared. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target")
 
@@ -98,6 +102,8 @@ class _SharedDirectoryState:
         :param pulumi.Input[str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         :param pulumi.Input[str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         :param pulumi.Input['SharedDirectoryTargetArgs'] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
+               
+               The following arguments are optional:
         """
         if directory_id is not None:
             pulumi.set(__self__, "directory_id", directory_id)
@@ -163,6 +169,8 @@ class _SharedDirectoryState:
     def target(self) -> Optional[pulumi.Input['SharedDirectoryTargetArgs']]:
         """
         Identifier for the directory consumer account with whom the directory is to be shared. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target")
 
@@ -196,14 +204,14 @@ class SharedDirectory(pulumi.CustomResource):
             type="MicrosoftAD",
             edition="Standard",
             vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=aws_vpc["example"]["id"],
+                vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
             ))
         example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
             directory_id=example_directory.id,
             notes="You wanna have a catch?",
             target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=data["aws_caller_identity"]["receiver"]["account_id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -221,6 +229,8 @@ class SharedDirectory(pulumi.CustomResource):
         :param pulumi.Input[str] method: Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         :param pulumi.Input[str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         :param pulumi.Input[pulumi.InputType['SharedDirectoryTargetArgs']] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -243,14 +253,14 @@ class SharedDirectory(pulumi.CustomResource):
             type="MicrosoftAD",
             edition="Standard",
             vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=aws_vpc["example"]["id"],
+                vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
             ))
         example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
             directory_id=example_directory.id,
             notes="You wanna have a catch?",
             target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=data["aws_caller_identity"]["receiver"]["account_id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -328,6 +338,8 @@ class SharedDirectory(pulumi.CustomResource):
         :param pulumi.Input[str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         :param pulumi.Input[str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         :param pulumi.Input[pulumi.InputType['SharedDirectoryTargetArgs']] target: Identifier for the directory consumer account with whom the directory is to be shared. See below.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -377,6 +389,8 @@ class SharedDirectory(pulumi.CustomResource):
     def target(self) -> pulumi.Output['outputs.SharedDirectoryTarget']:
         """
         Identifier for the directory consumer account with whom the directory is to be shared. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target")
 

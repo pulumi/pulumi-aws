@@ -37,6 +37,8 @@ class EndpointGroupArgs:
                the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]] port_overrides: Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+               
+               **endpoint_configuration** supports the following attributes:
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
         """
@@ -150,6 +152,8 @@ class EndpointGroupArgs:
     def port_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]]:
         """
         Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+
+        **endpoint_configuration** supports the following attributes:
         """
         return pulumi.get(self, "port_overrides")
 
@@ -208,6 +212,8 @@ class _EndpointGroupState:
         :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]] port_overrides: Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+               
+               **endpoint_configuration** supports the following attributes:
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
         """
@@ -336,6 +342,8 @@ class _EndpointGroupState:
     def port_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]]:
         """
         Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+
+        **endpoint_configuration** supports the following attributes:
         """
         return pulumi.get(self, "port_overrides")
 
@@ -396,7 +404,7 @@ class EndpointGroup(pulumi.CustomResource):
         example = aws.globalaccelerator.EndpointGroup("example",
             listener_arn=aws_globalaccelerator_listener["example"]["id"],
             endpoint_configurations=[aws.globalaccelerator.EndpointGroupEndpointConfigurationArgs(
-                endpoint_id=aws_lb["example"]["arn"],
+                endpoint_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 weight=100,
             )])
         ```
@@ -420,6 +428,8 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]] port_overrides: Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+               
+               **endpoint_configuration** supports the following attributes:
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
         """
@@ -441,7 +451,7 @@ class EndpointGroup(pulumi.CustomResource):
         example = aws.globalaccelerator.EndpointGroup("example",
             listener_arn=aws_globalaccelerator_listener["example"]["id"],
             endpoint_configurations=[aws.globalaccelerator.EndpointGroupEndpointConfigurationArgs(
-                endpoint_id=aws_lb["example"]["arn"],
+                endpoint_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 weight=100,
             )])
         ```
@@ -539,6 +549,8 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]] port_overrides: Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+               
+               **endpoint_configuration** supports the following attributes:
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
         """
@@ -629,6 +641,8 @@ class EndpointGroup(pulumi.CustomResource):
     def port_overrides(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointGroupPortOverride']]]:
         """
         Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+
+        **endpoint_configuration** supports the following attributes:
         """
         return pulumi.get(self, "port_overrides")
 

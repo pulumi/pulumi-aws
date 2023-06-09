@@ -66,6 +66,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// Options for creating an attachment.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("options")]
         public Output<Outputs.ConnectAttachmentOptions> Options { get; private set; } = null!;
@@ -172,6 +174,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// Options for creating an attachment.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("options", required: true)]
         public Input<Inputs.ConnectAttachmentOptionsArgs> Options { get; set; } = null!;
@@ -243,6 +247,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// Options for creating an attachment.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("options")]
         public Input<Inputs.ConnectAttachmentOptionsGetArgs>? Options { get; set; }

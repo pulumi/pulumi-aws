@@ -124,6 +124,8 @@ namespace Pulumi.Aws.Emr
     {
         /// <summary>
         /// Enable or disable EMR Block Public Access.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("blockPublicSecurityGroupRules")]
         public Output<bool> BlockPublicSecurityGroupRules { get; private set; } = null!;
@@ -182,6 +184,8 @@ namespace Pulumi.Aws.Emr
     {
         /// <summary>
         /// Enable or disable EMR Block Public Access.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("blockPublicSecurityGroupRules", required: true)]
         public Input<bool> BlockPublicSecurityGroupRules { get; set; } = null!;
@@ -208,6 +212,8 @@ namespace Pulumi.Aws.Emr
     {
         /// <summary>
         /// Enable or disable EMR Block Public Access.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("blockPublicSecurityGroupRules")]
         public Input<bool>? BlockPublicSecurityGroupRules { get; set; }

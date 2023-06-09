@@ -49,12 +49,16 @@ public final class LocalGatewayRouteTableVpcAssociationArgs extends com.pulumi.r
     /**
      * Identifier of EC2 VPC.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
     /**
      * @return Identifier of EC2 VPC.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vpcId() {
@@ -132,6 +136,8 @@ public final class LocalGatewayRouteTableVpcAssociationArgs extends com.pulumi.r
         /**
          * @param vpcId Identifier of EC2 VPC.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -142,6 +148,8 @@ public final class LocalGatewayRouteTableVpcAssociationArgs extends com.pulumi.r
 
         /**
          * @param vpcId Identifier of EC2 VPC.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

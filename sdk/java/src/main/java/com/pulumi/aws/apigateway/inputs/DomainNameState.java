@@ -216,12 +216,16 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
      * 
+     * When uploading a certificate, the following arguments are supported:
+     * 
      */
     @Import(name="regionalCertificateArn")
     private @Nullable Output<String> regionalCertificateArn;
 
     /**
      * @return ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+     * 
+     * When uploading a certificate, the following arguments are supported:
      * 
      */
     public Optional<Output<String>> regionalCertificateArn() {
@@ -291,12 +295,16 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * When referencing an AWS-managed certificate, the following arguments are supported:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * When referencing an AWS-managed certificate, the following arguments are supported:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -637,6 +645,8 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param regionalCertificateArn ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
          * 
+         * When uploading a certificate, the following arguments are supported:
+         * 
          * @return builder
          * 
          */
@@ -647,6 +657,8 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param regionalCertificateArn ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+         * 
+         * When uploading a certificate, the following arguments are supported:
          * 
          * @return builder
          * 
@@ -742,6 +754,8 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * When referencing an AWS-managed certificate, the following arguments are supported:
+         * 
          * @return builder
          * 
          */
@@ -752,6 +766,8 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * When referencing an AWS-managed certificate, the following arguments are supported:
          * 
          * @return builder
          * 

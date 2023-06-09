@@ -25,6 +25,12 @@ class GetRouterConfigurationRouterResult(dict):
         """
         :param str platform: Router platform
         :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+               
+               There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
+               
+               ```python
+               import pulumi
+               ```
         :param str software: Router operating system
         :param str vendor: Router vendor
         :param str xslt_template_name: Router XSLT Template Name
@@ -49,6 +55,12 @@ class GetRouterConfigurationRouterResult(dict):
     def router_type_identifier(self) -> str:
         """
         ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+
+        There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "router_type_identifier")
 

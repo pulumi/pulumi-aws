@@ -305,6 +305,8 @@ func (o RuleLockConfigurationUnlockDelayPtrOutput) UnlockDelayValue() pulumi.Int
 
 type RuleResourceTag struct {
 	// The tag key.
+	//
+	// The following argument is optional:
 	ResourceTagKey string `pulumi:"resourceTagKey"`
 	// The tag value.
 	ResourceTagValue *string `pulumi:"resourceTagValue"`
@@ -323,6 +325,8 @@ type RuleResourceTagInput interface {
 
 type RuleResourceTagArgs struct {
 	// The tag key.
+	//
+	// The following argument is optional:
 	ResourceTagKey pulumi.StringInput `pulumi:"resourceTagKey"`
 	// The tag value.
 	ResourceTagValue pulumi.StringPtrInput `pulumi:"resourceTagValue"`
@@ -380,6 +384,8 @@ func (o RuleResourceTagOutput) ToRuleResourceTagOutputWithContext(ctx context.Co
 }
 
 // The tag key.
+//
+// The following argument is optional:
 func (o RuleResourceTagOutput) ResourceTagKey() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleResourceTag) string { return v.ResourceTagKey }).(pulumi.StringOutput)
 }

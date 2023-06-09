@@ -173,6 +173,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the specific Route Table containing the Route entry.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("routeTableId", required: true)]
         public string RouteTableId { get; set; } = null!;
@@ -265,6 +267,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// ID of the specific Route Table containing the Route entry.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;

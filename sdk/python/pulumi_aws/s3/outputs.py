@@ -390,6 +390,8 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestination(dict):
                  s3_bucket_destination: 'outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination'):
         """
         :param 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs' s3_bucket_destination: Analytics data export currently only supports an S3 bucket destination (documented below).
+               
+               The `s3_bucket_destination` configuration supports the following:
         """
         pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
 
@@ -398,6 +400,8 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestination(dict):
     def s3_bucket_destination(self) -> 'outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination':
         """
         Analytics data export currently only supports an S3 bucket destination (documented below).
+
+        The `s3_bucket_destination` configuration supports the following:
         """
         return pulumi.get(self, "s3_bucket_destination")
 
@@ -1622,6 +1626,8 @@ class BucketLifecycleRule(dict):
         :param str id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         :param 'BucketLifecycleRuleNoncurrentVersionExpirationArgs' noncurrent_version_expiration: Specifies when noncurrent object versions expire (documented below).
         :param Sequence['BucketLifecycleRuleNoncurrentVersionTransitionArgs'] noncurrent_version_transitions: Specifies when noncurrent object versions transitions (documented below).
+               
+               At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
         :param str prefix: Object key prefix identifying one or more objects to which the rule applies.
         :param Mapping[str, str] tags: Specifies object tags key and value.
         :param Sequence['BucketLifecycleRuleTransitionArgs'] transitions: Specifies a period in the object's transitions (documented below).
@@ -1689,6 +1695,8 @@ class BucketLifecycleRule(dict):
     def noncurrent_version_transitions(self) -> Optional[Sequence['outputs.BucketLifecycleRuleNoncurrentVersionTransition']]:
         """
         Specifies when noncurrent object versions transitions (documented below).
+
+        At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
         """
         return pulumi.get(self, "noncurrent_version_transitions")
 
@@ -2443,6 +2451,12 @@ class BucketObjectLockConfigurationRuleDefaultRetention(dict):
         :param str mode: The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param int days: The number of days that you want to specify for the default retention period.
         :param int years: The number of years that you want to specify for the default retention period.
+               
+               Either `days` or `years` must be specified, but not both.
+               
+               > **NOTE on `object_lock_configuration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
+               When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
+               Once you create a bucket with S3 Object Lock enabled, you can't disable Object Lock or suspend versioning for the bucket.
         """
         pulumi.set(__self__, "mode", mode)
         if days is not None:
@@ -2471,6 +2485,12 @@ class BucketObjectLockConfigurationRuleDefaultRetention(dict):
     def years(self) -> Optional[int]:
         """
         The number of years that you want to specify for the default retention period.
+
+        Either `days` or `years` must be specified, but not both.
+
+        > **NOTE on `object_lock_configuration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
+        When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
+        Once you create a bucket with S3 Object Lock enabled, you can't disable Object Lock or suspend versioning for the bucket.
         """
         return pulumi.get(self, "years")
 
@@ -3304,6 +3324,8 @@ class BucketReplicationConfigurationRule(dict):
         """
         :param 'BucketReplicationConfigurationRuleDestinationArgs' destination: Specifies the destination for the rule (documented below).
         :param str status: The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+               
+               > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
         :param str delete_marker_replication_status: Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
         :param 'BucketReplicationConfigurationRuleFilterArgs' filter: Filter that identifies subset of objects to which the replication rule applies (documented below).
         :param str id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
@@ -3339,6 +3361,8 @@ class BucketReplicationConfigurationRule(dict):
     def status(self) -> str:
         """
         The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+
+        > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
         """
         return pulumi.get(self, "status")
 
@@ -5333,6 +5357,8 @@ class BucketWebsite(dict):
         :param str redirect_all_requests_to: A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
         :param Union[str, Sequence[str]] routing_rules: A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
                describing redirect behavior and when redirects are applied.
+               
+               The `CORS` object supports the following:
         """
         if error_document is not None:
             pulumi.set(__self__, "error_document", error_document)
@@ -5373,6 +5399,8 @@ class BucketWebsite(dict):
         """
         A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         describing redirect behavior and when redirects are applied.
+
+        The `CORS` object supports the following:
         """
         return pulumi.get(self, "routing_rules")
 
@@ -5875,6 +5903,8 @@ class ObjectCopyGrant(dict):
         """
         :param Sequence[str] permissions: List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
         :param str type: Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+               
+               This configuration block has the following optional arguments (one of the three is required):
         :param str email: Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
         :param str id: Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
         :param str uri: URI of the grantee group. Used only when `type` is `Group`.
@@ -5901,6 +5931,8 @@ class ObjectCopyGrant(dict):
     def type(self) -> str:
         """
         Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+
+        This configuration block has the following optional arguments (one of the three is required):
         """
         return pulumi.get(self, "type")
 

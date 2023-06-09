@@ -59,6 +59,35 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
+        ///     {
+        ///         VpcId = aws_vpc.Main.Id,
+        ///     });
+        /// 
+        ///     // ... other arguments ...
+        ///     var foo = new Aws.Ec2.Instance("foo", new()
+        ///     {
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         DependsOn = new[]
+        ///         {
+        ///             gw,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -126,6 +155,35 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
+        ///     {
+        ///         VpcId = aws_vpc.Main.Id,
+        ///     });
+        /// 
+        ///     // ... other arguments ...
+        ///     var foo = new Aws.Ec2.Instance("foo", new()
+        ///     {
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         DependsOn = new[]
+        ///         {
+        ///             gw,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public InputMap<string> Tags
         {
@@ -164,6 +222,35 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var gw = new Aws.Ec2.InternetGateway("gw", new()
+        ///     {
+        ///         VpcId = aws_vpc.Main.Id,
+        ///     });
+        /// 
+        ///     // ... other arguments ...
+        ///     var foo = new Aws.Ec2.Instance("foo", new()
+        ///     {
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         DependsOn = new[]
+        ///         {
+        ///             gw,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public InputMap<string> Tags
         {

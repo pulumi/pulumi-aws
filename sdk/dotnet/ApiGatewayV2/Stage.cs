@@ -110,6 +110,8 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// Name of the stage. Must be between 1 and 128 characters in length.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -230,6 +232,8 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// Name of the stage. Must be between 1 and 128 characters in length.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -345,6 +349,8 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// Name of the stage. Must be between 1 and 128 characters in length.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -35,12 +35,16 @@ public final class PermissionsLfTagPolicyArgs extends com.pulumi.resources.Resou
     /**
      * A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
      * 
+     * The following argument is optional:
+     * 
      */
     @Import(name="expressions", required=true)
     private Output<List<PermissionsLfTagPolicyExpressionArgs>> expressions;
 
     /**
      * @return A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+     * 
+     * The following argument is optional:
      * 
      */
     public Output<List<PermissionsLfTagPolicyExpressionArgs>> expressions() {
@@ -112,6 +116,8 @@ public final class PermissionsLfTagPolicyArgs extends com.pulumi.resources.Resou
         /**
          * @param expressions A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
          * 
+         * The following argument is optional:
+         * 
          * @return builder
          * 
          */
@@ -123,6 +129,8 @@ public final class PermissionsLfTagPolicyArgs extends com.pulumi.resources.Resou
         /**
          * @param expressions A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
          * 
+         * The following argument is optional:
+         * 
          * @return builder
          * 
          */
@@ -132,6 +140,8 @@ public final class PermissionsLfTagPolicyArgs extends com.pulumi.resources.Resou
 
         /**
          * @param expressions A list of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+         * 
+         * The following argument is optional:
          * 
          * @return builder
          * 

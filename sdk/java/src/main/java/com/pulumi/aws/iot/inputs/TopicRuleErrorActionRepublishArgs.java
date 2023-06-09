@@ -19,12 +19,16 @@ public final class TopicRuleErrorActionRepublishArgs extends com.pulumi.resource
     /**
      * The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
      * 
+     * The `s3` object takes the following arguments:
+     * 
      */
     @Import(name="qos")
     private @Nullable Output<Integer> qos;
 
     /**
      * @return The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+     * 
+     * The `s3` object takes the following arguments:
      * 
      */
     public Optional<Output<Integer>> qos() {
@@ -90,6 +94,8 @@ public final class TopicRuleErrorActionRepublishArgs extends com.pulumi.resource
         /**
          * @param qos The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
          * 
+         * The `s3` object takes the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -100,6 +106,8 @@ public final class TopicRuleErrorActionRepublishArgs extends com.pulumi.resource
 
         /**
          * @param qos The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+         * 
+         * The `s3` object takes the following arguments:
          * 
          * @return builder
          * 

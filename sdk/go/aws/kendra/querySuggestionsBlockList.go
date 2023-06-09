@@ -73,6 +73,8 @@ type QuerySuggestionsBlockList struct {
 	// The IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The S3 path where your block list text file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathOutput `pulumi:"sourceS3Path"`
 	Status       pulumi.StringOutput                         `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -132,6 +134,8 @@ type querySuggestionsBlockListState struct {
 	// The IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn *string `pulumi:"roleArn"`
 	// The S3 path where your block list text file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path *QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
 	Status       *string                                `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -154,6 +158,8 @@ type QuerySuggestionsBlockListState struct {
 	// The IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn pulumi.StringPtrInput
 	// The S3 path where your block list text file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathPtrInput
 	Status       pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -176,6 +182,8 @@ type querySuggestionsBlockListArgs struct {
 	// The IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn string `pulumi:"roleArn"`
 	// The S3 path where your block list text file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path QuerySuggestionsBlockListSourceS3Path `pulumi:"sourceS3Path"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -192,6 +200,8 @@ type QuerySuggestionsBlockListArgs struct {
 	// The IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn pulumi.StringInput
 	// The S3 path where your block list text file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path QuerySuggestionsBlockListSourceS3PathInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -315,6 +325,8 @@ func (o QuerySuggestionsBlockListOutput) RoleArn() pulumi.StringOutput {
 }
 
 // The S3 path where your block list text file sits in S3. Detailed below.
+//
+// The `sourceS3Path` configuration block supports the following arguments:
 func (o QuerySuggestionsBlockListOutput) SourceS3Path() QuerySuggestionsBlockListSourceS3PathOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) QuerySuggestionsBlockListSourceS3PathOutput { return v.SourceS3Path }).(QuerySuggestionsBlockListSourceS3PathOutput)
 }

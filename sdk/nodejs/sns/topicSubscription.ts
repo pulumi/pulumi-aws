@@ -270,6 +270,8 @@ export class TopicSubscription extends pulumi.CustomResource {
     public readonly subscriptionRoleArn!: pulumi.Output<string | undefined>;
     /**
      * ARN of the SNS topic to subscribe to.
+     *
+     * The following arguments are optional:
      */
     public readonly topic!: pulumi.Output<string>;
 
@@ -395,6 +397,8 @@ export interface TopicSubscriptionState {
     subscriptionRoleArn?: pulumi.Input<string>;
     /**
      * ARN of the SNS topic to subscribe to.
+     *
+     * The following arguments are optional:
      */
     topic?: pulumi.Input<string | Topic>;
 }
@@ -445,6 +449,8 @@ export interface TopicSubscriptionArgs {
     subscriptionRoleArn?: pulumi.Input<string>;
     /**
      * ARN of the SNS topic to subscribe to.
+     *
+     * The following arguments are optional:
      */
     topic: pulumi.Input<string | Topic>;
 }

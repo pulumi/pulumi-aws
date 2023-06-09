@@ -279,12 +279,16 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="throughputCapacity", required=true)
     private Output<Integer> throughputCapacity;
 
     /**
      * @return Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> throughputCapacity() {
@@ -738,6 +742,8 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param throughputCapacity Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -748,6 +754,8 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param throughputCapacity Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

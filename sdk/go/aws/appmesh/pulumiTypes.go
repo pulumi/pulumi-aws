@@ -7291,6 +7291,8 @@ type RouteSpecGrpcRouteRetryPolicy struct {
 	// Per-retry timeout.
 	PerRetryTimeout RouteSpecGrpcRouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeout"`
 	// List of TCP retry events. The only valid value is `connection-error`.
+	//
+	// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 	TcpRetryEvents []string `pulumi:"tcpRetryEvents"`
 }
 
@@ -7318,6 +7320,8 @@ type RouteSpecGrpcRouteRetryPolicyArgs struct {
 	// Per-retry timeout.
 	PerRetryTimeout RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutInput `pulumi:"perRetryTimeout"`
 	// List of TCP retry events. The only valid value is `connection-error`.
+	//
+	// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 	TcpRetryEvents pulumi.StringArrayInput `pulumi:"tcpRetryEvents"`
 }
 
@@ -7424,6 +7428,8 @@ func (o RouteSpecGrpcRouteRetryPolicyOutput) PerRetryTimeout() RouteSpecGrpcRout
 }
 
 // List of TCP retry events. The only valid value is `connection-error`.
+//
+// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 func (o RouteSpecGrpcRouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
 }
@@ -7496,6 +7502,8 @@ func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecGrpcR
 }
 
 // List of TCP retry events. The only valid value is `connection-error`.
+//
+// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) []string {
 		if v == nil {
@@ -9733,6 +9741,8 @@ type RouteSpecHttp2RouteRetryPolicy struct {
 	// Per-retry timeout.
 	PerRetryTimeout RouteSpecHttp2RouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeout"`
 	// List of TCP retry events. The only valid value is `connection-error`.
+	//
+	// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 	TcpRetryEvents []string `pulumi:"tcpRetryEvents"`
 }
 
@@ -9757,6 +9767,8 @@ type RouteSpecHttp2RouteRetryPolicyArgs struct {
 	// Per-retry timeout.
 	PerRetryTimeout RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutInput `pulumi:"perRetryTimeout"`
 	// List of TCP retry events. The only valid value is `connection-error`.
+	//
+	// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 	TcpRetryEvents pulumi.StringArrayInput `pulumi:"tcpRetryEvents"`
 }
 
@@ -9857,6 +9869,8 @@ func (o RouteSpecHttp2RouteRetryPolicyOutput) PerRetryTimeout() RouteSpecHttp2Ro
 }
 
 // List of TCP retry events. The only valid value is `connection-error`.
+//
+// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 func (o RouteSpecHttp2RouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
 }
@@ -9918,6 +9932,8 @@ func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecHttp
 }
 
 // List of TCP retry events. The only valid value is `connection-error`.
+//
+// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) []string {
 		if v == nil {
@@ -12155,6 +12171,8 @@ type RouteSpecHttpRouteRetryPolicy struct {
 	// Per-retry timeout.
 	PerRetryTimeout RouteSpecHttpRouteRetryPolicyPerRetryTimeout `pulumi:"perRetryTimeout"`
 	// List of TCP retry events. The only valid value is `connection-error`.
+	//
+	// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 	TcpRetryEvents []string `pulumi:"tcpRetryEvents"`
 }
 
@@ -12179,6 +12197,8 @@ type RouteSpecHttpRouteRetryPolicyArgs struct {
 	// Per-retry timeout.
 	PerRetryTimeout RouteSpecHttpRouteRetryPolicyPerRetryTimeoutInput `pulumi:"perRetryTimeout"`
 	// List of TCP retry events. The only valid value is `connection-error`.
+	//
+	// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 	TcpRetryEvents pulumi.StringArrayInput `pulumi:"tcpRetryEvents"`
 }
 
@@ -12279,6 +12299,8 @@ func (o RouteSpecHttpRouteRetryPolicyOutput) PerRetryTimeout() RouteSpecHttpRout
 }
 
 // List of TCP retry events. The only valid value is `connection-error`.
+//
+// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 func (o RouteSpecHttpRouteRetryPolicyOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicy) []string { return v.TcpRetryEvents }).(pulumi.StringArrayOutput)
 }
@@ -12340,6 +12362,8 @@ func (o RouteSpecHttpRouteRetryPolicyPtrOutput) PerRetryTimeout() RouteSpecHttpR
 }
 
 // List of TCP retry events. The only valid value is `connection-error`.
+//
+// You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
 func (o RouteSpecHttpRouteRetryPolicyPtrOutput) TcpRetryEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) []string {
 		if v == nil {
@@ -16627,6 +16651,8 @@ type VirtualGatewaySpecListenerConnectionPoolHttp struct {
 	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 	MaxConnections int `pulumi:"maxConnections"`
 	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	//
+	// The `http2` connection pool object supports the following:
 	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
 }
 
@@ -16645,6 +16671,8 @@ type VirtualGatewaySpecListenerConnectionPoolHttpArgs struct {
 	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
 	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	//
+	// The `http2` connection pool object supports the following:
 	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
 }
 
@@ -16731,6 +16759,8 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxConnections() pul
 }
 
 // Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+//
+// The `http2` connection pool object supports the following:
 func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolHttp) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
 }
@@ -16770,6 +16800,8 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) MaxConnections() 
 }
 
 // Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+//
+// The `http2` connection pool object supports the following:
 func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolHttp) *int {
 		if v == nil {
@@ -24412,6 +24444,8 @@ type VirtualNodeSpecListenerConnectionPoolHttp struct {
 	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 	MaxConnections int `pulumi:"maxConnections"`
 	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	//
+	// The `http2` connection pool object supports the following:
 	MaxPendingRequests *int `pulumi:"maxPendingRequests"`
 }
 
@@ -24430,6 +24464,8 @@ type VirtualNodeSpecListenerConnectionPoolHttpArgs struct {
 	// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
 	MaxConnections pulumi.IntInput `pulumi:"maxConnections"`
 	// Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+	//
+	// The `http2` connection pool object supports the following:
 	MaxPendingRequests pulumi.IntPtrInput `pulumi:"maxPendingRequests"`
 }
 
@@ -24516,6 +24552,8 @@ func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) MaxConnections() pulumi
 }
 
 // Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+//
+// The `http2` connection pool object supports the following:
 func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) MaxPendingRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp) *int { return v.MaxPendingRequests }).(pulumi.IntPtrOutput)
 }
@@ -24555,6 +24593,8 @@ func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) MaxConnections() pul
 }
 
 // Number of overflowing requests after `maxConnections` Envoy will queue to upstream cluster. Minimum value of `1`.
+//
+// The `http2` connection pool object supports the following:
 func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) MaxPendingRequests() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp) *int {
 		if v == nil {

@@ -58,6 +58,8 @@ export interface GetTagsArgs {
     tagKey?: string;
     /**
      * Configuration block for the start and end dates for retrieving the dimension values.
+     *
+     * The following arguments are optional:
      */
     timePeriod: inputs.costexplorer.GetTagsTimePeriod;
 }
@@ -123,6 +125,8 @@ export interface GetTagsOutputArgs {
     tagKey?: pulumi.Input<string>;
     /**
      * Configuration block for the start and end dates for retrieving the dimension values.
+     *
+     * The following arguments are optional:
      */
     timePeriod: pulumi.Input<inputs.costexplorer.GetTagsTimePeriodArgs>;
 }

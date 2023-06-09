@@ -122,12 +122,16 @@ public class Map extends com.pulumi.resources.CustomResource {
     /**
      * The name for the map resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="mapName", refs={String.class}, tree="[0]")
     private Output<String> mapName;
 
     /**
      * @return The name for the map resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> mapName() {

@@ -328,6 +328,8 @@ namespace Pulumi.Aws.ElasticSearch
 
         /// <summary>
         /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -496,6 +498,8 @@ namespace Pulumi.Aws.ElasticSearch
 
         /// <summary>
         /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -630,6 +634,8 @@ namespace Pulumi.Aws.ElasticSearch
 
         /// <summary>
         /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

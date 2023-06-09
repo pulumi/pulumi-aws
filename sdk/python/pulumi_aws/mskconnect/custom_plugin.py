@@ -24,6 +24,8 @@ class CustomPluginArgs:
         The set of arguments for constructing a CustomPlugin resource.
         :param pulumi.Input[str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: A summary description of the custom plugin.
         :param pulumi.Input[str] name: The name of the custom plugin..
         """
@@ -51,6 +53,8 @@ class CustomPluginArgs:
     def location(self) -> pulumi.Input['CustomPluginLocationArgs']:
         """
         Information about the location of a custom plugin. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "location")
 
@@ -100,6 +104,8 @@ class _CustomPluginState:
         :param pulumi.Input[str] description: A summary description of the custom plugin.
         :param pulumi.Input[int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
         :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: The name of the custom plugin..
         :param pulumi.Input[str] state: the state of the custom plugin.
         """
@@ -171,6 +177,8 @@ class _CustomPluginState:
     def location(self) -> Optional[pulumi.Input['CustomPluginLocationArgs']]:
         """
         Information about the location of a custom plugin. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "location")
 
@@ -251,6 +259,8 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.Input[str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input[str] description: A summary description of the custom plugin.
         :param pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']] location: Information about the location of a custom plugin. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: The name of the custom plugin..
         """
         ...
@@ -360,6 +370,8 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.Input[str] description: A summary description of the custom plugin.
         :param pulumi.Input[int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
         :param pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']] location: Information about the location of a custom plugin. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: The name of the custom plugin..
         :param pulumi.Input[str] state: the state of the custom plugin.
         """
@@ -413,6 +425,8 @@ class CustomPlugin(pulumi.CustomResource):
     def location(self) -> pulumi.Output['outputs.CustomPluginLocation']:
         """
         Information about the location of a custom plugin. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "location")
 

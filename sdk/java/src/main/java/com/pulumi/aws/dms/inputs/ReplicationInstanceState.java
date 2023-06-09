@@ -142,12 +142,22 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      * 
+     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+     * - Constraints: Minimum 30-minute window.
+     * 
      */
     @Import(name="preferredMaintenanceWindow")
     private @Nullable Output<String> preferredMaintenanceWindow;
 
     /**
      * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+     * 
+     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+     * - Constraints: Minimum 30-minute window.
      * 
      */
     public Optional<Output<String>> preferredMaintenanceWindow() {
@@ -202,12 +212,22 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
      * 
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
+     * 
      */
     @Import(name="replicationInstanceId")
     private @Nullable Output<String> replicationInstanceId;
 
     /**
      * @return The replication instance identifier. This parameter is stored as a lowercase string.
+     * 
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
      * 
      */
     public Optional<Output<String>> replicationInstanceId() {
@@ -517,6 +537,11 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
         /**
          * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
          * 
+         * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+         * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+         * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+         * - Constraints: Minimum 30-minute window.
+         * 
          * @return builder
          * 
          */
@@ -527,6 +552,11 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
 
         /**
          * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+         * 
+         * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+         * - Format: `ddd:hh24:mi-ddd:hh24:mi`
+         * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+         * - Constraints: Minimum 30-minute window.
          * 
          * @return builder
          * 
@@ -601,6 +631,11 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
         /**
          * @param replicationInstanceId The replication instance identifier. This parameter is stored as a lowercase string.
          * 
+         * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+         * - First character must be a letter.
+         * - Cannot end with a hyphen
+         * - Cannot contain two consecutive hyphens.
+         * 
          * @return builder
          * 
          */
@@ -611,6 +646,11 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
 
         /**
          * @param replicationInstanceId The replication instance identifier. This parameter is stored as a lowercase string.
+         * 
+         * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+         * - First character must be a letter.
+         * - Cannot end with a hyphen
+         * - Cannot contain two consecutive hyphens.
          * 
          * @return builder
          * 

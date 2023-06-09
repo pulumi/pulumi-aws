@@ -144,6 +144,8 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+     *
+     * The following arguments are optional:
      */
     public readonly defaultNetworkAclId!: pulumi.Output<string>;
     /**
@@ -227,6 +229,8 @@ export interface DefaultNetworkAclState {
     arn?: pulumi.Input<string>;
     /**
      * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+     *
+     * The following arguments are optional:
      */
     defaultNetworkAclId?: pulumi.Input<string>;
     /**
@@ -265,6 +269,8 @@ export interface DefaultNetworkAclState {
 export interface DefaultNetworkAclArgs {
     /**
      * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+     *
+     * The following arguments are optional:
      */
     defaultNetworkAclId: pulumi.Input<string>;
     /**

@@ -30,6 +30,8 @@ class DataSourceArgs:
         The set of arguments for constructing a DataSource resource.
         :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra data_source.
         :param pulumi.Input[str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+               
+               The following arguments are optional:
         :param pulumi.Input['DataSourceConfigurationArgs'] configuration: A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
         :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs'] custom_document_enrichment_configuration: A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
         :param pulumi.Input[str] description: A description for the Data Source connector.
@@ -75,6 +77,8 @@ class DataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -217,6 +221,8 @@ class _DataSourceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+               
+               The following arguments are optional:
         :param pulumi.Input[str] updated_at: The Unix timestamp of when the Data Source was last updated.
         """
         if arn is not None:
@@ -439,6 +445,8 @@ class _DataSourceState:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -508,7 +516,7 @@ class DataSource(pulumi.CustomResource):
             schedule="cron(9 10 1 * ? *)",
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ))
         ```
@@ -527,7 +535,7 @@ class DataSource(pulumi.CustomResource):
                     access_control_list_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs(
                         key_path=f"s3://{aws_s3_bucket['example']['id']}/path-1",
                     ),
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ))
         ```
@@ -607,7 +615,7 @@ class DataSource(pulumi.CustomResource):
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     authentication_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs(
                         basic_authentications=[aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs(
-                            credentials=aws_secretsmanager_secret["example"]["arn"],
+                            credentials=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             host="a.example.com",
                             port=443,
                         )],
@@ -697,7 +705,7 @@ class DataSource(pulumi.CustomResource):
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     proxy_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs(
-                        credentials=aws_secretsmanager_secret["example"]["arn"],
+                        credentials=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         host="a.example.com",
                         port=443,
                     ),
@@ -753,6 +761,8 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] schedule: Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -793,7 +803,7 @@ class DataSource(pulumi.CustomResource):
             schedule="cron(9 10 1 * ? *)",
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ))
         ```
@@ -812,7 +822,7 @@ class DataSource(pulumi.CustomResource):
                     access_control_list_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs(
                         key_path=f"s3://{aws_s3_bucket['example']['id']}/path-1",
                     ),
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ))
         ```
@@ -892,7 +902,7 @@ class DataSource(pulumi.CustomResource):
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     authentication_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs(
                         basic_authentications=[aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs(
-                            credentials=aws_secretsmanager_secret["example"]["arn"],
+                            credentials=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             host="a.example.com",
                             port=443,
                         )],
@@ -982,7 +992,7 @@ class DataSource(pulumi.CustomResource):
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     proxy_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs(
-                        credentials=aws_secretsmanager_secret["example"]["arn"],
+                        credentials=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         host="a.example.com",
                         port=443,
                     ),
@@ -1131,6 +1141,8 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+               
+               The following arguments are optional:
         :param pulumi.Input[str] updated_at: The Unix timestamp of when the Data Source was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1281,6 +1293,8 @@ class DataSource(pulumi.CustomResource):
     def type(self) -> pulumi.Output[str]:
         """
         The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

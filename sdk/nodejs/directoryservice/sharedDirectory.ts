@@ -89,6 +89,8 @@ export class SharedDirectory extends pulumi.CustomResource {
     public /*out*/ readonly sharedDirectoryId!: pulumi.Output<string>;
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
+     *
+     * The following arguments are optional:
      */
     public readonly target!: pulumi.Output<outputs.directoryservice.SharedDirectoryTarget>;
 
@@ -153,6 +155,8 @@ export interface SharedDirectoryState {
     sharedDirectoryId?: pulumi.Input<string>;
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
+     *
+     * The following arguments are optional:
      */
     target?: pulumi.Input<inputs.directoryservice.SharedDirectoryTarget>;
 }
@@ -175,6 +179,8 @@ export interface SharedDirectoryArgs {
     notes?: pulumi.Input<string>;
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
+     *
+     * The following arguments are optional:
      */
     target: pulumi.Input<inputs.directoryservice.SharedDirectoryTarget>;
 }

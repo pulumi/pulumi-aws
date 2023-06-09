@@ -66,6 +66,8 @@ export class PrincipalPortfolioAssociation extends pulumi.CustomResource {
     public readonly portfolioId!: pulumi.Output<string>;
     /**
      * Principal ARN.
+     *
+     * The following arguments are optional:
      */
     public readonly principalArn!: pulumi.Output<string>;
     /**
@@ -122,6 +124,8 @@ export interface PrincipalPortfolioAssociationState {
     portfolioId?: pulumi.Input<string>;
     /**
      * Principal ARN.
+     *
+     * The following arguments are optional:
      */
     principalArn?: pulumi.Input<string>;
     /**
@@ -144,6 +148,8 @@ export interface PrincipalPortfolioAssociationArgs {
     portfolioId: pulumi.Input<string>;
     /**
      * Principal ARN.
+     *
+     * The following arguments are optional:
      */
     principalArn: pulumi.Input<string>;
     /**

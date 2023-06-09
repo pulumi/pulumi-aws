@@ -77,12 +77,16 @@ public class Cell extends com.pulumi.resources.CustomResource {
     /**
      * Unique name describing the cell.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="cellName", refs={String.class}, tree="[0]")
     private Output<String> cellName;
 
     /**
      * @return Unique name describing the cell.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> cellName() {

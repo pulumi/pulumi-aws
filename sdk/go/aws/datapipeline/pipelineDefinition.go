@@ -118,6 +118,8 @@ type PipelineDefinition struct {
 	// ID of the pipeline.
 	PipelineId pulumi.StringOutput `pulumi:"pipelineId"`
 	// Configuration block for the objects that define the pipeline. See below
+	//
+	// The following arguments are optional:
 	PipelineObjects PipelineDefinitionPipelineObjectArrayOutput `pulumi:"pipelineObjects"`
 }
 
@@ -163,6 +165,8 @@ type pipelineDefinitionState struct {
 	// ID of the pipeline.
 	PipelineId *string `pulumi:"pipelineId"`
 	// Configuration block for the objects that define the pipeline. See below
+	//
+	// The following arguments are optional:
 	PipelineObjects []PipelineDefinitionPipelineObject `pulumi:"pipelineObjects"`
 }
 
@@ -174,6 +178,8 @@ type PipelineDefinitionState struct {
 	// ID of the pipeline.
 	PipelineId pulumi.StringPtrInput
 	// Configuration block for the objects that define the pipeline. See below
+	//
+	// The following arguments are optional:
 	PipelineObjects PipelineDefinitionPipelineObjectArrayInput
 }
 
@@ -189,6 +195,8 @@ type pipelineDefinitionArgs struct {
 	// ID of the pipeline.
 	PipelineId string `pulumi:"pipelineId"`
 	// Configuration block for the objects that define the pipeline. See below
+	//
+	// The following arguments are optional:
 	PipelineObjects []PipelineDefinitionPipelineObject `pulumi:"pipelineObjects"`
 }
 
@@ -201,6 +209,8 @@ type PipelineDefinitionArgs struct {
 	// ID of the pipeline.
 	PipelineId pulumi.StringInput
 	// Configuration block for the objects that define the pipeline. See below
+	//
+	// The following arguments are optional:
 	PipelineObjects PipelineDefinitionPipelineObjectArrayInput
 }
 
@@ -307,6 +317,8 @@ func (o PipelineDefinitionOutput) PipelineId() pulumi.StringOutput {
 }
 
 // Configuration block for the objects that define the pipeline. See below
+//
+// The following arguments are optional:
 func (o PipelineDefinitionOutput) PipelineObjects() PipelineDefinitionPipelineObjectArrayOutput {
 	return o.ApplyT(func(v *PipelineDefinition) PipelineDefinitionPipelineObjectArrayOutput { return v.PipelineObjects }).(PipelineDefinitionPipelineObjectArrayOutput)
 }

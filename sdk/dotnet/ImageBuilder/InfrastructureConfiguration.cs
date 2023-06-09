@@ -123,6 +123,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Name for the configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -259,6 +261,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Name for the configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -387,6 +391,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Name for the configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

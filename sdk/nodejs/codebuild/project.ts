@@ -314,6 +314,8 @@ export class Project extends pulumi.CustomResource {
     public readonly serviceRole!: pulumi.Output<string>;
     /**
      * Configuration block. Detailed below.
+     *
+     * The following arguments are optional:
      */
     public readonly source!: pulumi.Output<outputs.codebuild.ProjectSource>;
     /**
@@ -514,6 +516,8 @@ export interface ProjectState {
     serviceRole?: pulumi.Input<string>;
     /**
      * Configuration block. Detailed below.
+     *
+     * The following arguments are optional:
      */
     source?: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**
@@ -616,6 +620,8 @@ export interface ProjectArgs {
     serviceRole: pulumi.Input<string>;
     /**
      * Configuration block. Detailed below.
+     *
+     * The following arguments are optional:
      */
     source: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**

@@ -100,7 +100,7 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test_ipam_preview_next_cidr = aws.ec2.get_ipam_preview_next_cidr(ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
+    test_ipam_preview_next_cidr = aws.ec2.get_ipam_preview_next_cidr(ipam_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         netmask_length=28)
     test_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation",
         ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
@@ -145,7 +145,7 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Op
     import pulumi
     import pulumi_aws as aws
 
-    test_ipam_preview_next_cidr = aws.ec2.get_ipam_preview_next_cidr(ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
+    test_ipam_preview_next_cidr = aws.ec2.get_ipam_preview_next_cidr(ipam_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         netmask_length=28)
     test_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation",
         ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],

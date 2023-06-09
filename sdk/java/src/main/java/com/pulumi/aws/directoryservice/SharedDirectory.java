@@ -138,12 +138,16 @@ public class SharedDirectory extends com.pulumi.resources.CustomResource {
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="target", refs={SharedDirectoryTarget.class}, tree="[0]")
     private Output<SharedDirectoryTarget> target;
 
     /**
      * @return Identifier for the directory consumer account with whom the directory is to be shared. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<SharedDirectoryTarget> target() {

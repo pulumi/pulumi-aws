@@ -47,6 +47,9 @@ export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOpti
 export interface GetVpnGatewayArgs {
     /**
      * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     amazonSideAsn?: string;
     /**
@@ -118,6 +121,9 @@ export function getVpnGatewayOutput(args?: GetVpnGatewayOutputArgs, opts?: pulum
 export interface GetVpnGatewayOutputArgs {
     /**
      * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     amazonSideAsn?: pulumi.Input<string>;
     /**

@@ -27,6 +27,8 @@ namespace Pulumi.Aws.Fis.Outputs
         public readonly ImmutableArray<string> ResourceArns;
         /// <summary>
         /// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+        /// 
+        /// &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTemplateTargetResourceTag> ResourceTags;
         /// <summary>

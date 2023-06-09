@@ -156,6 +156,8 @@ type ExperimentTemplateActionParameter struct {
 	// Parameter name.
 	Key string `pulumi:"key"`
 	// Parameter value.
+	//
+	// For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
 	Value string `pulumi:"value"`
 }
 
@@ -174,6 +176,8 @@ type ExperimentTemplateActionParameterArgs struct {
 	// Parameter name.
 	Key pulumi.StringInput `pulumi:"key"`
 	// Parameter value.
+	//
+	// For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -234,6 +238,8 @@ func (o ExperimentTemplateActionParameterOutput) Key() pulumi.StringOutput {
 }
 
 // Parameter value.
+//
+// For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
 func (o ExperimentTemplateActionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateActionParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -528,6 +534,8 @@ type ExperimentTemplateTarget struct {
 	// Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
 	ResourceArns []string `pulumi:"resourceArns"`
 	// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
+	//
+	// > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
 	ResourceTags []ExperimentTemplateTargetResourceTag `pulumi:"resourceTags"`
 	// AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
 	ResourceType string `pulumi:"resourceType"`
@@ -554,6 +562,8 @@ type ExperimentTemplateTargetArgs struct {
 	// Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
 	ResourceArns pulumi.StringArrayInput `pulumi:"resourceArns"`
 	// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
+	//
+	// > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
 	ResourceTags ExperimentTemplateTargetResourceTagArrayInput `pulumi:"resourceTags"`
 	// AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
@@ -628,6 +638,8 @@ func (o ExperimentTemplateTargetOutput) ResourceArns() pulumi.StringArrayOutput 
 }
 
 // Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
+//
+// > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
 func (o ExperimentTemplateTargetOutput) ResourceTags() ExperimentTemplateTargetResourceTagArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) []ExperimentTemplateTargetResourceTag { return v.ResourceTags }).(ExperimentTemplateTargetResourceTagArrayOutput)
 }
@@ -666,6 +678,8 @@ type ExperimentTemplateTargetFilter struct {
 	// Attribute path for the filter.
 	Path string `pulumi:"path"`
 	// Set of attribute values for the filter.
+	//
+	// > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
 	Values []string `pulumi:"values"`
 }
 
@@ -684,6 +698,8 @@ type ExperimentTemplateTargetFilterArgs struct {
 	// Attribute path for the filter.
 	Path pulumi.StringInput `pulumi:"path"`
 	// Set of attribute values for the filter.
+	//
+	// > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -744,6 +760,8 @@ func (o ExperimentTemplateTargetFilterOutput) Path() pulumi.StringOutput {
 }
 
 // Set of attribute values for the filter.
+//
+// > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
 func (o ExperimentTemplateTargetFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateTargetFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

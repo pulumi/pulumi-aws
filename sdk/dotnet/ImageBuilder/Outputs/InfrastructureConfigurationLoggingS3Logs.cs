@@ -15,6 +15,8 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     {
         /// <summary>
         /// Name of the S3 Bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string S3BucketName;
         /// <summary>

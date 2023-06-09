@@ -48,12 +48,16 @@ public final class AssociationOutputLocationArgs extends com.pulumi.resources.Re
     /**
      * The S3 bucket region.
      * 
+     * Targets specify what instance IDs or tags to apply the document to and has these keys:
+     * 
      */
     @Import(name="s3Region")
     private @Nullable Output<String> s3Region;
 
     /**
      * @return The S3 bucket region.
+     * 
+     * Targets specify what instance IDs or tags to apply the document to and has these keys:
      * 
      */
     public Optional<Output<String>> s3Region() {
@@ -131,6 +135,8 @@ public final class AssociationOutputLocationArgs extends com.pulumi.resources.Re
         /**
          * @param s3Region The S3 bucket region.
          * 
+         * Targets specify what instance IDs or tags to apply the document to and has these keys:
+         * 
          * @return builder
          * 
          */
@@ -141,6 +147,8 @@ public final class AssociationOutputLocationArgs extends com.pulumi.resources.Re
 
         /**
          * @param s3Region The S3 bucket region.
+         * 
+         * Targets specify what instance IDs or tags to apply the document to and has these keys:
          * 
          * @return builder
          * 

@@ -227,7 +227,7 @@ class Project(pulumi.CustomResource):
         example = aws.sagemaker.Project("example",
             project_name="example",
             service_catalog_provisioning_details=aws.sagemaker.ProjectServiceCatalogProvisioningDetailsArgs(
-                product_id=aws_servicecatalog_product["example"]["id"],
+                product_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -266,7 +266,7 @@ class Project(pulumi.CustomResource):
         example = aws.sagemaker.Project("example",
             project_name="example",
             service_catalog_provisioning_details=aws.sagemaker.ProjectServiceCatalogProvisioningDetailsArgs(
-                product_id=aws_servicecatalog_product["example"]["id"],
+                product_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 

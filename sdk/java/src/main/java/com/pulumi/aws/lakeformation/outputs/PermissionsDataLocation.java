@@ -14,6 +14,8 @@ public final class PermissionsDataLocation {
     /**
      * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
      * 
+     * The following argument is optional:
+     * 
      */
     private String arn;
     /**
@@ -25,6 +27,8 @@ public final class PermissionsDataLocation {
     private PermissionsDataLocation() {}
     /**
      * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+     * 
+     * The following argument is optional:
      * 
      */
     public String arn() {

@@ -653,12 +653,16 @@ public class Function extends com.pulumi.resources.CustomResource {
     /**
      * Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
      * @return Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> role() {

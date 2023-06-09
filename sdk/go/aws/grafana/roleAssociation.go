@@ -91,6 +91,8 @@ type RoleAssociation struct {
 	// The AWS SSO user ids to be assigned the role given in `role`.
 	UserIds pulumi.StringArrayOutput `pulumi:"userIds"`
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -136,6 +138,8 @@ type roleAssociationState struct {
 	// The AWS SSO user ids to be assigned the role given in `role`.
 	UserIds []string `pulumi:"userIds"`
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -147,6 +151,8 @@ type RoleAssociationState struct {
 	// The AWS SSO user ids to be assigned the role given in `role`.
 	UserIds pulumi.StringArrayInput
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -162,6 +168,8 @@ type roleAssociationArgs struct {
 	// The AWS SSO user ids to be assigned the role given in `role`.
 	UserIds []string `pulumi:"userIds"`
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -174,6 +182,8 @@ type RoleAssociationArgs struct {
 	// The AWS SSO user ids to be assigned the role given in `role`.
 	UserIds pulumi.StringArrayInput
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId pulumi.StringInput
 }
 
@@ -280,6 +290,8 @@ func (o RoleAssociationOutput) UserIds() pulumi.StringArrayOutput {
 }
 
 // The workspace id.
+//
+// The following arguments are optional:
 func (o RoleAssociationOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAssociation) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

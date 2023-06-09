@@ -21,12 +21,16 @@ public final class GetCustomerGatewayArgs extends com.pulumi.resources.InvokeArg
     /**
      * One or more [name-value pairs][dcg-filters] to filter by.
      * 
+     * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetCustomerGatewayFilterArgs>> filters;
 
     /**
      * @return One or more [name-value pairs][dcg-filters] to filter by.
+     * 
+     * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
      * 
      */
     public Optional<Output<List<GetCustomerGatewayFilterArgs>>> filters() {
@@ -92,6 +96,8 @@ public final class GetCustomerGatewayArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param filters One or more [name-value pairs][dcg-filters] to filter by.
          * 
+         * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
+         * 
          * @return builder
          * 
          */
@@ -103,6 +109,8 @@ public final class GetCustomerGatewayArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param filters One or more [name-value pairs][dcg-filters] to filter by.
          * 
+         * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
+         * 
          * @return builder
          * 
          */
@@ -112,6 +120,8 @@ public final class GetCustomerGatewayArgs extends com.pulumi.resources.InvokeArg
 
         /**
          * @param filters One or more [name-value pairs][dcg-filters] to filter by.
+         * 
+         * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
          * 
          * @return builder
          * 

@@ -1154,6 +1154,8 @@ type GetPortfolioConstraintsDetail struct {
 	Description string `pulumi:"description"`
 	Owner       string `pulumi:"owner"`
 	// Portfolio identifier.
+	//
+	// The following arguments are optional:
 	PortfolioId string `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId string `pulumi:"productId"`
@@ -1179,6 +1181,8 @@ type GetPortfolioConstraintsDetailArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	Owner       pulumi.StringInput `pulumi:"owner"`
 	// Portfolio identifier.
+	//
+	// The following arguments are optional:
 	PortfolioId pulumi.StringInput `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId pulumi.StringInput `pulumi:"productId"`
@@ -1252,6 +1256,8 @@ func (o GetPortfolioConstraintsDetailOutput) Owner() pulumi.StringOutput {
 }
 
 // Portfolio identifier.
+//
+// The following arguments are optional:
 func (o GetPortfolioConstraintsDetailOutput) PortfolioId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.PortfolioId }).(pulumi.StringOutput)
 }

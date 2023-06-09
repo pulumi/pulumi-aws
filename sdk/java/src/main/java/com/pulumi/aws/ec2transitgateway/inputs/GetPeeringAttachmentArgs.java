@@ -52,6 +52,9 @@ public final class GetPeeringAttachmentArgs extends com.pulumi.resources.InvokeA
      * Mapping of tags, each pair of which must exactly match
      * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
@@ -59,6 +62,9 @@ public final class GetPeeringAttachmentArgs extends com.pulumi.resources.InvokeA
     /**
      * @return Mapping of tags, each pair of which must exactly match
      * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -147,6 +153,9 @@ public final class GetPeeringAttachmentArgs extends com.pulumi.resources.InvokeA
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -158,6 +167,9 @@ public final class GetPeeringAttachmentArgs extends com.pulumi.resources.InvokeA
         /**
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

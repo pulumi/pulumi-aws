@@ -64,12 +64,16 @@ public final class UserStackAssociationArgs extends com.pulumi.resources.Resourc
     /**
      * Email address of the user who is associated with the stack.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
     /**
      * @return Email address of the user who is associated with the stack.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userName() {
@@ -169,6 +173,8 @@ public final class UserStackAssociationArgs extends com.pulumi.resources.Resourc
         /**
          * @param userName Email address of the user who is associated with the stack.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -179,6 +185,8 @@ public final class UserStackAssociationArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param userName Email address of the user who is associated with the stack.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

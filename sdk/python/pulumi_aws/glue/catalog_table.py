@@ -33,6 +33,8 @@ class CatalogTableArgs:
         """
         The set of arguments for constructing a CatalogTable resource.
         :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+               
+               The follow arguments are optional:
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[str] description: Description of the table.
         :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
@@ -80,6 +82,8 @@ class CatalogTableArgs:
     def database_name(self) -> pulumi.Input[str]:
         """
         Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+
+        The follow arguments are optional:
         """
         return pulumi.get(self, "database_name")
 
@@ -267,6 +271,8 @@ class _CatalogTableState:
         :param pulumi.Input[str] arn: The ARN of the Glue Table.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+               
+               The follow arguments are optional:
         :param pulumi.Input[str] description: Description of the table.
         :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input[str] owner: Owner of the table.
@@ -340,6 +346,8 @@ class _CatalogTableState:
     def database_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+
+        The follow arguments are optional:
         """
         return pulumi.get(self, "database_name")
 
@@ -591,6 +599,8 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+               
+               The follow arguments are optional:
         :param pulumi.Input[str] description: Description of the table.
         :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input[str] owner: Owner of the table.
@@ -775,6 +785,8 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the Glue Table.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+               
+               The follow arguments are optional:
         :param pulumi.Input[str] description: Description of the table.
         :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input[str] owner: Owner of the table.
@@ -830,6 +842,8 @@ class CatalogTable(pulumi.CustomResource):
     def database_name(self) -> pulumi.Output[str]:
         """
         Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+
+        The follow arguments are optional:
         """
         return pulumi.get(self, "database_name")
 

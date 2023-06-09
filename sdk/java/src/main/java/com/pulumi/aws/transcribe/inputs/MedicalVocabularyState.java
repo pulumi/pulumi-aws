@@ -101,12 +101,16 @@ public final class MedicalVocabularyState extends com.pulumi.resources.ResourceA
     /**
      * The name of the Medical Vocabulary.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="vocabularyName")
     private @Nullable Output<String> vocabularyName;
 
     /**
      * @return The name of the Medical Vocabulary.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> vocabularyName() {
@@ -260,6 +264,8 @@ public final class MedicalVocabularyState extends com.pulumi.resources.ResourceA
         /**
          * @param vocabularyName The name of the Medical Vocabulary.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -270,6 +276,8 @@ public final class MedicalVocabularyState extends com.pulumi.resources.ResourceA
 
         /**
          * @param vocabularyName The name of the Medical Vocabulary.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

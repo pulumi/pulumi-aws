@@ -111,12 +111,16 @@ public class Listener extends com.pulumi.resources.CustomResource {
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      * 
+     * **port_range** supports the following attributes:
+     * 
      */
     @Export(name="portRanges", refs={List.class,ListenerPortRange.class}, tree="[0,1]")
     private Output<List<ListenerPortRange>> portRanges;
 
     /**
      * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * 
+     * **port_range** supports the following attributes:
      * 
      */
     public Output<List<ListenerPortRange>> portRanges() {

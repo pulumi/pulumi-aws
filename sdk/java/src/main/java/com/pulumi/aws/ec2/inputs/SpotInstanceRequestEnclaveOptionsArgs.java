@@ -18,12 +18,16 @@ public final class SpotInstanceRequestEnclaveOptionsArgs extends com.pulumi.reso
     /**
      * Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
      * 
+     * For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
+     * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
      * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+     * 
+     * For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -57,6 +61,8 @@ public final class SpotInstanceRequestEnclaveOptionsArgs extends com.pulumi.reso
         /**
          * @param enabled Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
          * 
+         * For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
+         * 
          * @return builder
          * 
          */
@@ -67,6 +73,8 @@ public final class SpotInstanceRequestEnclaveOptionsArgs extends com.pulumi.reso
 
         /**
          * @param enabled Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+         * 
+         * For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
          * 
          * @return builder
          * 

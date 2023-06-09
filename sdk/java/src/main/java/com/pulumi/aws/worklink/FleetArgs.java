@@ -111,12 +111,20 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
      * 
+     * **network** requires the following:
+     * 
+     * &gt; **NOTE:** `network` is cannot removed without force recreating.
+     * 
      */
     @Import(name="optimizeForEndUserLocation")
     private @Nullable Output<Boolean> optimizeForEndUserLocation;
 
     /**
      * @return The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+     * 
+     * **network** requires the following:
+     * 
+     * &gt; **NOTE:** `network` is cannot removed without force recreating.
      * 
      */
     public Optional<Output<Boolean>> optimizeForEndUserLocation() {
@@ -282,6 +290,10 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param optimizeForEndUserLocation The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
          * 
+         * **network** requires the following:
+         * 
+         * &gt; **NOTE:** `network` is cannot removed without force recreating.
+         * 
          * @return builder
          * 
          */
@@ -292,6 +304,10 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param optimizeForEndUserLocation The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+         * 
+         * **network** requires the following:
+         * 
+         * &gt; **NOTE:** `network` is cannot removed without force recreating.
          * 
          * @return builder
          * 

@@ -95,6 +95,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// One or more configuration blocks with distribution settings. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("distributions")]
         public Output<ImmutableArray<Outputs.DistributionConfigurationDistribution>> Distributions { get; private set; } = null!;
@@ -174,6 +176,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// One or more configuration blocks with distribution settings. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.DistributionConfigurationDistributionArgs> Distributions
         {
@@ -236,6 +240,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// One or more configuration blocks with distribution settings. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.DistributionConfigurationDistributionGetArgs> Distributions
         {

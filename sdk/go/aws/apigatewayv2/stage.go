@@ -79,6 +79,8 @@ type Stage struct {
 	// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
 	// Name of the stage. Must be between 1 and 128 characters in length.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Route settings for the stage.
 	RouteSettings StageRouteSettingArrayOutput `pulumi:"routeSettings"`
@@ -148,6 +150,8 @@ type stageState struct {
 	// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl *string `pulumi:"invokeUrl"`
 	// Name of the stage. Must be between 1 and 128 characters in length.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Route settings for the stage.
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
@@ -186,6 +190,8 @@ type StageState struct {
 	// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl pulumi.StringPtrInput
 	// Name of the stage. Must be between 1 and 128 characters in length.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Route settings for the stage.
 	RouteSettings StageRouteSettingArrayInput
@@ -219,6 +225,8 @@ type stageArgs struct {
 	// Description for the stage. Must be less than or equal to 1024 characters in length.
 	Description *string `pulumi:"description"`
 	// Name of the stage. Must be between 1 and 128 characters in length.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Route settings for the stage.
 	RouteSettings []StageRouteSetting `pulumi:"routeSettings"`
@@ -247,6 +255,8 @@ type StageArgs struct {
 	// Description for the stage. Must be less than or equal to 1024 characters in length.
 	Description pulumi.StringPtrInput
 	// Name of the stage. Must be between 1 and 128 characters in length.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Route settings for the stage.
 	RouteSettings StageRouteSettingArrayInput
@@ -399,6 +409,8 @@ func (o StageOutput) InvokeUrl() pulumi.StringOutput {
 }
 
 // Name of the stage. Must be between 1 and 128 characters in length.
+//
+// The following arguments are optional:
 func (o StageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

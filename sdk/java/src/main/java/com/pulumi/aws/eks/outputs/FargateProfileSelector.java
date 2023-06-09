@@ -19,6 +19,8 @@ public final class FargateProfileSelector {
     /**
      * @return Kubernetes namespace for selection.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String namespace;
 
@@ -32,6 +34,8 @@ public final class FargateProfileSelector {
     }
     /**
      * @return Kubernetes namespace for selection.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String namespace() {

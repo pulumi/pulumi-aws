@@ -81,6 +81,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The ID of the VPC from Amazon VPC that the configuration is for.
+        /// 
+        /// The following attribute is additionally exported:
         /// </summary>
         [Input("resourceId", required: true)]
         public string ResourceId { get; set; } = null!;
@@ -95,6 +97,8 @@ namespace Pulumi.Aws.Route53
     {
         /// <summary>
         /// The ID of the VPC from Amazon VPC that the configuration is for.
+        /// 
+        /// The following attribute is additionally exported:
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;

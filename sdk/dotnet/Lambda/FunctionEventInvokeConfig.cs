@@ -157,6 +157,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
@@ -233,6 +235,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
@@ -271,6 +275,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }

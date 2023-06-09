@@ -115,12 +115,16 @@ public final class ConstraintState extends com.pulumi.resources.ResourceArgs {
     /**
      * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> type() {
@@ -296,6 +300,8 @@ public final class ConstraintState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -306,6 +312,8 @@ public final class ConstraintState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

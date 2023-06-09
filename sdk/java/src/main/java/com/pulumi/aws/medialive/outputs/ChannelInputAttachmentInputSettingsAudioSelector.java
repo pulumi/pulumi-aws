@@ -15,6 +15,8 @@ public final class ChannelInputAttachmentInputSettingsAudioSelector {
     /**
      * @return Name of the Channel.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String name;
     private @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings selectorSettings;
@@ -22,6 +24,8 @@ public final class ChannelInputAttachmentInputSettingsAudioSelector {
     private ChannelInputAttachmentInputSettingsAudioSelector() {}
     /**
      * @return Name of the Channel.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {

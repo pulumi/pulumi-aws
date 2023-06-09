@@ -52,6 +52,8 @@ class FunctionArgs:
         """
         The set of arguments for constructing a Function resource.
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -153,6 +155,8 @@ class FunctionArgs:
     def role(self) -> pulumi.Input[str]:
         """
         Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role")
 
@@ -606,6 +610,8 @@ class _FunctionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replacement_security_group_ids: List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+               
+               The following arguments are optional:
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
@@ -1015,6 +1021,8 @@ class _FunctionState:
     def role(self) -> Optional[pulumi.Input[str]]:
         """
         Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role")
 
@@ -1380,7 +1388,7 @@ class Function(pulumi.CustomResource):
             description="IAM policy for logging from a lambda",
             policy=lambda_logging_policy_document.json)
         lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
-            role=aws_iam_role["iam_for_lambda"]["name"],
+            role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             policy_arn=lambda_logging_policy.arn)
         test_lambda = aws.lambda_.Function("testLambda", opts=pulumi.ResourceOptions(depends_on=[
                 lambda_logs,
@@ -1427,6 +1435,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replacement_security_group_ids: List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+               
+               The following arguments are optional:
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
@@ -1570,7 +1580,7 @@ class Function(pulumi.CustomResource):
             description="IAM policy for logging from a lambda",
             policy=lambda_logging_policy_document.json)
         lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
-            role=aws_iam_role["iam_for_lambda"]["name"],
+            role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             policy_arn=lambda_logging_policy.arn)
         test_lambda = aws.lambda_.Function("testLambda", opts=pulumi.ResourceOptions(depends_on=[
                 lambda_logs,
@@ -1779,6 +1789,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replacement_security_group_ids: List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         :param pulumi.Input[int] reserved_concurrent_executions: Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+               
+               The following arguments are optional:
         :param pulumi.Input[Union[str, 'Runtime']] runtime: Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         :param pulumi.Input[str] s3_bucket: S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
         :param pulumi.Input[str] s3_key: S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
@@ -2051,6 +2063,8 @@ class Function(pulumi.CustomResource):
     def role(self) -> pulumi.Output[str]:
         """
         Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "role")
 

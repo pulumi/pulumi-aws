@@ -21,6 +21,8 @@ class LocalGatewayRouteTableVpcAssociationArgs:
         The set of arguments for constructing a LocalGatewayRouteTableVpcAssociation resource.
         :param pulumi.Input[str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
         :param pulumi.Input[str] vpc_id: Identifier of EC2 VPC.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
@@ -45,6 +47,8 @@ class LocalGatewayRouteTableVpcAssociationArgs:
     def vpc_id(self) -> pulumi.Input[str]:
         """
         Identifier of EC2 VPC.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_id")
 
@@ -79,6 +83,8 @@ class _LocalGatewayRouteTableVpcAssociationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: Identifier of EC2 VPC.
+               
+               The following arguments are optional:
         """
         if local_gateway_id is not None:
             pulumi.set(__self__, "local_gateway_id", local_gateway_id)
@@ -141,6 +147,8 @@ class _LocalGatewayRouteTableVpcAssociationState:
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
         Identifier of EC2 VPC.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_id")
 
@@ -187,6 +195,8 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: Identifier of EC2 VPC.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -280,6 +290,8 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: Identifier of EC2 VPC.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -326,6 +338,8 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
     def vpc_id(self) -> pulumi.Output[str]:
         """
         Identifier of EC2 VPC.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vpc_id")
 

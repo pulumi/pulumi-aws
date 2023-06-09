@@ -240,6 +240,8 @@ type BucketObject struct {
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Name of the object once it is in the bucket.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringOutput `pulumi:"key"`
 	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
@@ -266,6 +268,8 @@ type BucketObject struct {
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	//
+	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	WebsiteRedirect pulumi.StringPtrOutput `pulumi:"websiteRedirect"`
 }
 
@@ -326,6 +330,8 @@ type bucketObjectState struct {
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the object once it is in the bucket.
+	//
+	// The following arguments are optional:
 	Key *string `pulumi:"key"`
 	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -352,6 +358,8 @@ type bucketObjectState struct {
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId *string `pulumi:"versionId"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	//
+	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
 
@@ -381,6 +389,8 @@ type BucketObjectState struct {
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the object once it is in the bucket.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringPtrInput
 	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId pulumi.StringPtrInput
@@ -407,6 +417,8 @@ type BucketObjectState struct {
 	// Unique version ID value for the object, if bucket versioning is enabled.
 	VersionId pulumi.StringPtrInput
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	//
+	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	WebsiteRedirect pulumi.StringPtrInput
 }
 
@@ -440,6 +452,8 @@ type bucketObjectArgs struct {
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the object once it is in the bucket.
+	//
+	// The following arguments are optional:
 	Key *string `pulumi:"key"`
 	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -462,6 +476,8 @@ type bucketObjectArgs struct {
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	//
+	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	WebsiteRedirect *string `pulumi:"websiteRedirect"`
 }
 
@@ -492,6 +508,8 @@ type BucketObjectArgs struct {
 	// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the object once it is in the bucket.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringPtrInput
 	// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `kms.Key` resource, use the `arn` attribute. If referencing the `kms.Alias` data source or resource, use the `targetKeyArn` attribute. The provider will only perform drift detection if a configuration value is provided.
 	KmsKeyId pulumi.StringPtrInput
@@ -514,6 +532,8 @@ type BucketObjectArgs struct {
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+	//
+	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	WebsiteRedirect pulumi.StringPtrInput
 }
 
@@ -665,6 +685,8 @@ func (o BucketObjectOutput) ForceDestroy() pulumi.BoolPtrOutput {
 }
 
 // Name of the object once it is in the bucket.
+//
+// The following arguments are optional:
 func (o BucketObjectOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObject) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
@@ -730,6 +752,8 @@ func (o BucketObjectOutput) VersionId() pulumi.StringOutput {
 }
 
 // Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+//
+// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 func (o BucketObjectOutput) WebsiteRedirect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObject) pulumi.StringPtrOutput { return v.WebsiteRedirect }).(pulumi.StringPtrOutput)
 }

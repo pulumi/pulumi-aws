@@ -58,6 +58,9 @@ func GetReceivedLicenses(ctx *pulumi.Context, args *GetReceivedLicensesArgs, opt
 // A collection of arguments for invoking getReceivedLicenses.
 type GetReceivedLicensesArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetReceivedLicensesFilter `pulumi:"filters"`
 }
 
@@ -86,6 +89,9 @@ func GetReceivedLicensesOutput(ctx *pulumi.Context, args GetReceivedLicensesOutp
 // A collection of arguments for invoking getReceivedLicenses.
 type GetReceivedLicensesOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetReceivedLicensesFilterArrayInput `pulumi:"filters"`
 }
 

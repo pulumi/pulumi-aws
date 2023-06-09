@@ -85,6 +85,8 @@ type OrganizationCustomPolicyRule struct {
 	// Tag value of AWS resources to evaluate
 	TagValueScope pulumi.StringPtrOutput `pulumi:"tagValueScope"`
 	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	//
+	// The following arguments are optional:
 	TriggerTypes pulumi.StringArrayOutput `pulumi:"triggerTypes"`
 }
 
@@ -153,6 +155,8 @@ type organizationCustomPolicyRuleState struct {
 	// Tag value of AWS resources to evaluate
 	TagValueScope *string `pulumi:"tagValueScope"`
 	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	//
+	// The following arguments are optional:
 	TriggerTypes []string `pulumi:"triggerTypes"`
 }
 
@@ -184,6 +188,8 @@ type OrganizationCustomPolicyRuleState struct {
 	// Tag value of AWS resources to evaluate
 	TagValueScope pulumi.StringPtrInput
 	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	//
+	// The following arguments are optional:
 	TriggerTypes pulumi.StringArrayInput
 }
 
@@ -217,6 +223,8 @@ type organizationCustomPolicyRuleArgs struct {
 	// Tag value of AWS resources to evaluate
 	TagValueScope *string `pulumi:"tagValueScope"`
 	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	//
+	// The following arguments are optional:
 	TriggerTypes []string `pulumi:"triggerTypes"`
 }
 
@@ -247,6 +255,8 @@ type OrganizationCustomPolicyRuleArgs struct {
 	// Tag value of AWS resources to evaluate
 	TagValueScope pulumi.StringPtrInput
 	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	//
+	// The following arguments are optional:
 	TriggerTypes pulumi.StringArrayInput
 }
 
@@ -403,6 +413,8 @@ func (o OrganizationCustomPolicyRuleOutput) TagValueScope() pulumi.StringPtrOutp
 }
 
 // List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+//
+// The following arguments are optional:
 func (o OrganizationCustomPolicyRuleOutput) TriggerTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringArrayOutput { return v.TriggerTypes }).(pulumi.StringArrayOutput)
 }

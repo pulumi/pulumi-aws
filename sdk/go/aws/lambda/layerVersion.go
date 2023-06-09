@@ -88,6 +88,8 @@ type LayerVersion struct {
 	// ARN of the Lambda Layer without version.
 	LayerArn pulumi.StringOutput `pulumi:"layerArn"`
 	// Unique name for your Lambda Layer
+	//
+	// The following arguments are optional:
 	LayerName pulumi.StringOutput `pulumi:"layerName"`
 	// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
 	LicenseInfo pulumi.StringPtrOutput `pulumi:"licenseInfo"`
@@ -158,6 +160,8 @@ type layerVersionState struct {
 	// ARN of the Lambda Layer without version.
 	LayerArn *string `pulumi:"layerArn"`
 	// Unique name for your Lambda Layer
+	//
+	// The following arguments are optional:
 	LayerName *string `pulumi:"layerName"`
 	// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
 	LicenseInfo *string `pulumi:"licenseInfo"`
@@ -197,6 +201,8 @@ type LayerVersionState struct {
 	// ARN of the Lambda Layer without version.
 	LayerArn pulumi.StringPtrInput
 	// Unique name for your Lambda Layer
+	//
+	// The following arguments are optional:
 	LayerName pulumi.StringPtrInput
 	// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
 	LicenseInfo pulumi.StringPtrInput
@@ -234,6 +240,8 @@ type layerVersionArgs struct {
 	// Description of what your Lambda Layer does.
 	Description *string `pulumi:"description"`
 	// Unique name for your Lambda Layer
+	//
+	// The following arguments are optional:
 	LayerName string `pulumi:"layerName"`
 	// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
 	LicenseInfo *string `pulumi:"licenseInfo"`
@@ -260,6 +268,8 @@ type LayerVersionArgs struct {
 	// Description of what your Lambda Layer does.
 	Description pulumi.StringPtrInput
 	// Unique name for your Lambda Layer
+	//
+	// The following arguments are optional:
 	LayerName pulumi.StringInput
 	// License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
 	LicenseInfo pulumi.StringPtrInput
@@ -398,6 +408,8 @@ func (o LayerVersionOutput) LayerArn() pulumi.StringOutput {
 }
 
 // Unique name for your Lambda Layer
+//
+// The following arguments are optional:
 func (o LayerVersionOutput) LayerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringOutput { return v.LayerName }).(pulumi.StringOutput)
 }

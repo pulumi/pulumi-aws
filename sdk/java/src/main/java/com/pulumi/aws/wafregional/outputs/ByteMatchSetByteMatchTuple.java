@@ -30,6 +30,8 @@ public final class ByteMatchSetByteMatchTuple {
     /**
      * @return The formatting way for web request.
      * 
+     * FieldToMatch(field_to_match) support following:
+     * 
      */
     private String textTransformation;
 
@@ -57,6 +59,8 @@ public final class ByteMatchSetByteMatchTuple {
     }
     /**
      * @return The formatting way for web request.
+     * 
+     * FieldToMatch(field_to_match) support following:
      * 
      */
     public String textTransformation() {

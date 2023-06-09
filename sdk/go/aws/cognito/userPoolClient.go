@@ -285,6 +285,8 @@ type UserPoolClient struct {
 	// Configuration block for units in which the validity times are represented in. Detailed below.
 	TokenValidityUnits UserPoolClientTokenValidityUnitsPtrOutput `pulumi:"tokenValidityUnits"`
 	// User pool the client belongs to.
+	//
+	// The following arguments are optional:
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 	// List of user pool attributes the application client can write to.
 	WriteAttributes pulumi.StringArrayOutput `pulumi:"writeAttributes"`
@@ -375,6 +377,8 @@ type userPoolClientState struct {
 	// Configuration block for units in which the validity times are represented in. Detailed below.
 	TokenValidityUnits *UserPoolClientTokenValidityUnits `pulumi:"tokenValidityUnits"`
 	// User pool the client belongs to.
+	//
+	// The following arguments are optional:
 	UserPoolId *string `pulumi:"userPoolId"`
 	// List of user pool attributes the application client can write to.
 	WriteAttributes []string `pulumi:"writeAttributes"`
@@ -430,6 +434,8 @@ type UserPoolClientState struct {
 	// Configuration block for units in which the validity times are represented in. Detailed below.
 	TokenValidityUnits UserPoolClientTokenValidityUnitsPtrInput
 	// User pool the client belongs to.
+	//
+	// The following arguments are optional:
 	UserPoolId pulumi.StringPtrInput
 	// List of user pool attributes the application client can write to.
 	WriteAttributes pulumi.StringArrayInput
@@ -487,6 +493,8 @@ type userPoolClientArgs struct {
 	// Configuration block for units in which the validity times are represented in. Detailed below.
 	TokenValidityUnits *UserPoolClientTokenValidityUnits `pulumi:"tokenValidityUnits"`
 	// User pool the client belongs to.
+	//
+	// The following arguments are optional:
 	UserPoolId string `pulumi:"userPoolId"`
 	// List of user pool attributes the application client can write to.
 	WriteAttributes []string `pulumi:"writeAttributes"`
@@ -541,6 +549,8 @@ type UserPoolClientArgs struct {
 	// Configuration block for units in which the validity times are represented in. Detailed below.
 	TokenValidityUnits UserPoolClientTokenValidityUnitsPtrInput
 	// User pool the client belongs to.
+	//
+	// The following arguments are optional:
 	UserPoolId pulumi.StringInput
 	// List of user pool attributes the application client can write to.
 	WriteAttributes pulumi.StringArrayInput
@@ -745,6 +755,8 @@ func (o UserPoolClientOutput) TokenValidityUnits() UserPoolClientTokenValidityUn
 }
 
 // User pool the client belongs to.
+//
+// The following arguments are optional:
 func (o UserPoolClientOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

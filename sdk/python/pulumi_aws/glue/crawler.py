@@ -736,7 +736,7 @@ class Crawler(pulumi.CustomResource):
             database_name=aws_glue_catalog_database["example"]["name"],
             role=aws_iam_role["example"]["arn"],
             jdbc_targets=[aws.glue.CrawlerJdbcTargetArgs(
-                connection_name=aws_glue_connection["example"]["name"],
+                connection_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 path="database-name/%",
             )])
         ```
@@ -763,7 +763,7 @@ class Crawler(pulumi.CustomResource):
             database_name=aws_glue_catalog_database["example"]["name"],
             role=aws_iam_role["example"]["arn"],
             catalog_targets=[aws.glue.CrawlerCatalogTargetArgs(
-                database_name=aws_glue_catalog_database["example"]["name"],
+                database_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 tables=[aws_glue_catalog_table["example"]["name"]],
             )],
             schema_change_policy=aws.glue.CrawlerSchemaChangePolicyArgs(
@@ -787,7 +787,7 @@ class Crawler(pulumi.CustomResource):
             database_name=aws_glue_catalog_database["example"]["name"],
             role=aws_iam_role["example"]["arn"],
             mongodb_targets=[aws.glue.CrawlerMongodbTargetArgs(
-                connection_name=aws_glue_connection["example"]["name"],
+                connection_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 path="database-name/%",
             )])
         ```
@@ -881,7 +881,7 @@ class Crawler(pulumi.CustomResource):
             database_name=aws_glue_catalog_database["example"]["name"],
             role=aws_iam_role["example"]["arn"],
             jdbc_targets=[aws.glue.CrawlerJdbcTargetArgs(
-                connection_name=aws_glue_connection["example"]["name"],
+                connection_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 path="database-name/%",
             )])
         ```
@@ -908,7 +908,7 @@ class Crawler(pulumi.CustomResource):
             database_name=aws_glue_catalog_database["example"]["name"],
             role=aws_iam_role["example"]["arn"],
             catalog_targets=[aws.glue.CrawlerCatalogTargetArgs(
-                database_name=aws_glue_catalog_database["example"]["name"],
+                database_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 tables=[aws_glue_catalog_table["example"]["name"]],
             )],
             schema_change_policy=aws.glue.CrawlerSchemaChangePolicyArgs(
@@ -932,7 +932,7 @@ class Crawler(pulumi.CustomResource):
             database_name=aws_glue_catalog_database["example"]["name"],
             role=aws_iam_role["example"]["arn"],
             mongodb_targets=[aws.glue.CrawlerMongodbTargetArgs(
-                connection_name=aws_glue_connection["example"]["name"],
+                connection_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 path="database-name/%",
             )])
         ```

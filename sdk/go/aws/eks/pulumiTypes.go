@@ -683,6 +683,12 @@ type ClusterKubernetesNetworkConfig struct {
 	// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
 	IpFamily *string `pulumi:"ipFamily"`
 	// The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+	//
+	// * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
+	//
+	// * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
+	//
+	// * Between /24 and /12.
 	ServiceIpv4Cidr *string `pulumi:"serviceIpv4Cidr"`
 	ServiceIpv6Cidr *string `pulumi:"serviceIpv6Cidr"`
 }
@@ -702,6 +708,12 @@ type ClusterKubernetesNetworkConfigArgs struct {
 	// The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
 	IpFamily pulumi.StringPtrInput `pulumi:"ipFamily"`
 	// The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+	//
+	// * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
+	//
+	// * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
+	//
+	// * Between /24 and /12.
 	ServiceIpv4Cidr pulumi.StringPtrInput `pulumi:"serviceIpv4Cidr"`
 	ServiceIpv6Cidr pulumi.StringPtrInput `pulumi:"serviceIpv6Cidr"`
 }
@@ -789,6 +801,12 @@ func (o ClusterKubernetesNetworkConfigOutput) IpFamily() pulumi.StringPtrOutput 
 }
 
 // The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+//
+// * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
+//
+// * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
+//
+// * Between /24 and /12.
 func (o ClusterKubernetesNetworkConfigOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.ServiceIpv4Cidr }).(pulumi.StringPtrOutput)
 }
@@ -832,6 +850,12 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) IpFamily() pulumi.StringPtrOutp
 }
 
 // The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+//
+// * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
+//
+// * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
+//
+// * Between /24 and /12.
 func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *string {
 		if v == nil {
@@ -852,6 +876,14 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv6Cidr() pulumi.String
 
 type ClusterOutpostConfig struct {
 	// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+	//
+	// * 1–20 nodes, then we recommend specifying a large instance type.
+	//
+	// * 21–100 nodes, then we recommend specifying an xlarge instance type.
+	//
+	// * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
+	//
+	// For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
 	ControlPlaneInstanceType string `pulumi:"controlPlaneInstanceType"`
 	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
 	// The following arguments are supported in the `controlPlanePlacement` configuration block:
@@ -873,6 +905,14 @@ type ClusterOutpostConfigInput interface {
 
 type ClusterOutpostConfigArgs struct {
 	// The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+	//
+	// * 1–20 nodes, then we recommend specifying a large instance type.
+	//
+	// * 21–100 nodes, then we recommend specifying an xlarge instance type.
+	//
+	// * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
+	//
+	// For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
 	ControlPlaneInstanceType pulumi.StringInput `pulumi:"controlPlaneInstanceType"`
 	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
 	// The following arguments are supported in the `controlPlanePlacement` configuration block:
@@ -959,6 +999,14 @@ func (o ClusterOutpostConfigOutput) ToClusterOutpostConfigPtrOutputWithContext(c
 }
 
 // The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+//
+// * 1–20 nodes, then we recommend specifying a large instance type.
+//
+// * 21–100 nodes, then we recommend specifying an xlarge instance type.
+//
+// * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
+//
+// For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
 func (o ClusterOutpostConfigOutput) ControlPlaneInstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterOutpostConfig) string { return v.ControlPlaneInstanceType }).(pulumi.StringOutput)
 }
@@ -1001,6 +1049,14 @@ func (o ClusterOutpostConfigPtrOutput) Elem() ClusterOutpostConfigOutput {
 }
 
 // The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+//
+// * 1–20 nodes, then we recommend specifying a large instance type.
+//
+// * 21–100 nodes, then we recommend specifying an xlarge instance type.
+//
+// * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
+//
+// For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
 func (o ClusterOutpostConfigPtrOutput) ControlPlaneInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterOutpostConfig) *string {
 		if v == nil {
@@ -1423,6 +1479,8 @@ type FargateProfileSelector struct {
 	// Key-value map of Kubernetes labels for selection.
 	Labels map[string]string `pulumi:"labels"`
 	// Kubernetes namespace for selection.
+	//
+	// The following arguments are optional:
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -1441,6 +1499,8 @@ type FargateProfileSelectorArgs struct {
 	// Key-value map of Kubernetes labels for selection.
 	Labels pulumi.StringMapInput `pulumi:"labels"`
 	// Kubernetes namespace for selection.
+	//
+	// The following arguments are optional:
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -1501,6 +1561,8 @@ func (o FargateProfileSelectorOutput) Labels() pulumi.StringMapOutput {
 }
 
 // Kubernetes namespace for selection.
+//
+// The following arguments are optional:
 func (o FargateProfileSelectorOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v FargateProfileSelector) string { return v.Namespace }).(pulumi.StringOutput)
 }

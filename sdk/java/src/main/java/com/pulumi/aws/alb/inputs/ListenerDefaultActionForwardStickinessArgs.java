@@ -19,12 +19,16 @@ public final class ListenerDefaultActionForwardStickinessArgs extends com.pulumi
     /**
      * Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="duration", required=true)
     private Output<Integer> duration;
 
     /**
      * @return Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> duration() {
@@ -74,6 +78,8 @@ public final class ListenerDefaultActionForwardStickinessArgs extends com.pulumi
         /**
          * @param duration Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -84,6 +90,8 @@ public final class ListenerDefaultActionForwardStickinessArgs extends com.pulumi
 
         /**
          * @param duration Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

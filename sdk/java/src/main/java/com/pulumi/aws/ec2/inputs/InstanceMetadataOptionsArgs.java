@@ -64,12 +64,16 @@ public final class InstanceMetadataOptionsArgs extends com.pulumi.resources.Reso
     /**
      * Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
      * 
+     * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
+     * 
      */
     @Import(name="instanceMetadataTags")
     private @Nullable Output<String> instanceMetadataTags;
 
     /**
      * @return Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+     * 
+     * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
      * 
      */
     public Optional<Output<String>> instanceMetadataTags() {
@@ -169,6 +173,8 @@ public final class InstanceMetadataOptionsArgs extends com.pulumi.resources.Reso
         /**
          * @param instanceMetadataTags Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
          * 
+         * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
+         * 
          * @return builder
          * 
          */
@@ -179,6 +185,8 @@ public final class InstanceMetadataOptionsArgs extends com.pulumi.resources.Reso
 
         /**
          * @param instanceMetadataTags Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+         * 
+         * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
          * 
          * @return builder
          * 

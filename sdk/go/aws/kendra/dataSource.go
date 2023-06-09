@@ -531,6 +531,8 @@ type DataSource struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The Unix timestamp of when the Data Source was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -602,6 +604,8 @@ type dataSourceState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 	// The Unix timestamp of when the Data Source was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -639,6 +643,8 @@ type DataSourceState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 	// The Unix timestamp of when the Data Source was last updated.
 	UpdatedAt pulumi.StringPtrInput
@@ -668,6 +674,8 @@ type dataSourceArgs struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -692,6 +700,8 @@ type DataSourceArgs struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -860,6 +870,8 @@ func (o DataSourceOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+//
+// The following arguments are optional:
 func (o DataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

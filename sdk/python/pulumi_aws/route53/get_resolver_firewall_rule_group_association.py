@@ -181,6 +181,8 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
 
 
     :param str firewall_rule_group_association_id: The identifier for the association.
+           
+           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id
@@ -225,5 +227,7 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
 
 
     :param str firewall_rule_group_association_id: The identifier for the association.
+           
+           The following attribute is additionally exported:
     """
     ...

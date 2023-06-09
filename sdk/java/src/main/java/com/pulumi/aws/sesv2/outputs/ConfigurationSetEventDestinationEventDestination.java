@@ -35,6 +35,8 @@ public final class ConfigurationSetEventDestinationEventDestination {
     /**
      * @return An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
      * 
+     * The following arguments are optional:
+     * 
      */
     private List<String> matchingEventTypes;
     /**
@@ -72,6 +74,8 @@ public final class ConfigurationSetEventDestinationEventDestination {
     }
     /**
      * @return An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public List<String> matchingEventTypes() {

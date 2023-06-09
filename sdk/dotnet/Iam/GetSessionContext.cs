@@ -125,6 +125,8 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// ARN for an assumed role.
+        /// 
+        /// &gt; If `arn` is a non-role ARN, the provider gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -139,6 +141,8 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// ARN for an assumed role.
+        /// 
+        /// &gt; If `arn` is a non-role ARN, the provider gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;

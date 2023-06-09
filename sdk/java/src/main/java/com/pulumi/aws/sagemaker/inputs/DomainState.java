@@ -271,12 +271,16 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
      * @return The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -682,6 +686,8 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param vpcId The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -692,6 +698,8 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vpcId The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

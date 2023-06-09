@@ -124,6 +124,8 @@ export class Canary extends pulumi.CustomResource {
     public readonly s3Version!: pulumi.Output<string | undefined>;
     /**
      * Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+     *
+     * The following arguments are optional:
      */
     public readonly schedule!: pulumi.Output<outputs.synthetics.CanarySchedule>;
     /**
@@ -309,6 +311,8 @@ export interface CanaryState {
     s3Version?: pulumi.Input<string>;
     /**
      * Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+     *
+     * The following arguments are optional:
      */
     schedule?: pulumi.Input<inputs.synthetics.CanarySchedule>;
     /**
@@ -403,6 +407,8 @@ export interface CanaryArgs {
     s3Version?: pulumi.Input<string>;
     /**
      * Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+     *
+     * The following arguments are optional:
      */
     schedule: pulumi.Input<inputs.synthetics.CanarySchedule>;
     /**

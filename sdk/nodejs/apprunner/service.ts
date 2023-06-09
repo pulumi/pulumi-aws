@@ -186,6 +186,8 @@ export class Service extends pulumi.CustomResource {
     public /*out*/ readonly serviceUrl!: pulumi.Output<string>;
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+     *
+     * The following arguments are optional:
      */
     public readonly sourceConfiguration!: pulumi.Output<outputs.apprunner.ServiceSourceConfiguration>;
     /**
@@ -302,6 +304,8 @@ export interface ServiceState {
     serviceUrl?: pulumi.Input<string>;
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+     *
+     * The following arguments are optional:
      */
     sourceConfiguration?: pulumi.Input<inputs.apprunner.ServiceSourceConfiguration>;
     /**
@@ -352,6 +356,8 @@ export interface ServiceArgs {
     serviceName: pulumi.Input<string>;
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+     *
+     * The following arguments are optional:
      */
     sourceConfiguration: pulumi.Input<inputs.apprunner.ServiceSourceConfiguration>;
     /**

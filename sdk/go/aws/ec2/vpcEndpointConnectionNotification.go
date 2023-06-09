@@ -99,6 +99,8 @@ type VpcEndpointConnectionNotification struct {
 	pulumi.CustomResourceState
 
 	// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+	//
+	// > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
 	ConnectionEvents pulumi.StringArrayOutput `pulumi:"connectionEvents"`
 	// The ARN of the SNS topic for the notifications.
 	ConnectionNotificationArn pulumi.StringOutput `pulumi:"connectionNotificationArn"`
@@ -148,6 +150,8 @@ func GetVpcEndpointConnectionNotification(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VpcEndpointConnectionNotification resources.
 type vpcEndpointConnectionNotificationState struct {
 	// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+	//
+	// > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
 	ConnectionEvents []string `pulumi:"connectionEvents"`
 	// The ARN of the SNS topic for the notifications.
 	ConnectionNotificationArn *string `pulumi:"connectionNotificationArn"`
@@ -163,6 +167,8 @@ type vpcEndpointConnectionNotificationState struct {
 
 type VpcEndpointConnectionNotificationState struct {
 	// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+	//
+	// > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
 	ConnectionEvents pulumi.StringArrayInput
 	// The ARN of the SNS topic for the notifications.
 	ConnectionNotificationArn pulumi.StringPtrInput
@@ -182,6 +188,8 @@ func (VpcEndpointConnectionNotificationState) ElementType() reflect.Type {
 
 type vpcEndpointConnectionNotificationArgs struct {
 	// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+	//
+	// > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
 	ConnectionEvents []string `pulumi:"connectionEvents"`
 	// The ARN of the SNS topic for the notifications.
 	ConnectionNotificationArn string `pulumi:"connectionNotificationArn"`
@@ -194,6 +202,8 @@ type vpcEndpointConnectionNotificationArgs struct {
 // The set of arguments for constructing a VpcEndpointConnectionNotification resource.
 type VpcEndpointConnectionNotificationArgs struct {
 	// One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+	//
+	// > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
 	ConnectionEvents pulumi.StringArrayInput
 	// The ARN of the SNS topic for the notifications.
 	ConnectionNotificationArn pulumi.StringInput
@@ -291,6 +301,8 @@ func (o VpcEndpointConnectionNotificationOutput) ToVpcEndpointConnectionNotifica
 }
 
 // One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
+//
+// > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
 func (o VpcEndpointConnectionNotificationOutput) ConnectionEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringArrayOutput { return v.ConnectionEvents }).(pulumi.StringArrayOutput)
 }

@@ -109,6 +109,8 @@ type TrafficMirrorFilterRule struct {
 	// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	SourcePortRange TrafficMirrorFilterRuleSourcePortRangePtrOutput `pulumi:"sourcePortRange"`
 	// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+	//
+	// Traffic mirror port range support following attributes:
 	TrafficDirection pulumi.StringOutput `pulumi:"trafficDirection"`
 	// ID of the traffic mirror filter to which this rule should be added
 	TrafficMirrorFilterId pulumi.StringOutput `pulumi:"trafficMirrorFilterId"`
@@ -180,6 +182,8 @@ type trafficMirrorFilterRuleState struct {
 	// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	SourcePortRange *TrafficMirrorFilterRuleSourcePortRange `pulumi:"sourcePortRange"`
 	// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+	//
+	// Traffic mirror port range support following attributes:
 	TrafficDirection *string `pulumi:"trafficDirection"`
 	// ID of the traffic mirror filter to which this rule should be added
 	TrafficMirrorFilterId *string `pulumi:"trafficMirrorFilterId"`
@@ -205,6 +209,8 @@ type TrafficMirrorFilterRuleState struct {
 	// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	SourcePortRange TrafficMirrorFilterRuleSourcePortRangePtrInput
 	// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+	//
+	// Traffic mirror port range support following attributes:
 	TrafficDirection pulumi.StringPtrInput
 	// ID of the traffic mirror filter to which this rule should be added
 	TrafficMirrorFilterId pulumi.StringPtrInput
@@ -232,6 +238,8 @@ type trafficMirrorFilterRuleArgs struct {
 	// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	SourcePortRange *TrafficMirrorFilterRuleSourcePortRange `pulumi:"sourcePortRange"`
 	// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+	//
+	// Traffic mirror port range support following attributes:
 	TrafficDirection string `pulumi:"trafficDirection"`
 	// ID of the traffic mirror filter to which this rule should be added
 	TrafficMirrorFilterId string `pulumi:"trafficMirrorFilterId"`
@@ -256,6 +264,8 @@ type TrafficMirrorFilterRuleArgs struct {
 	// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
 	SourcePortRange TrafficMirrorFilterRuleSourcePortRangePtrInput
 	// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+	//
+	// Traffic mirror port range support following attributes:
 	TrafficDirection pulumi.StringInput
 	// ID of the traffic mirror filter to which this rule should be added
 	TrafficMirrorFilterId pulumi.StringInput
@@ -398,6 +408,8 @@ func (o TrafficMirrorFilterRuleOutput) SourcePortRange() TrafficMirrorFilterRule
 }
 
 // Direction of traffic to be captured. Valid values are `ingress` and `egress`
+//
+// Traffic mirror port range support following attributes:
 func (o TrafficMirrorFilterRuleOutput) TrafficDirection() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficMirrorFilterRule) pulumi.StringOutput { return v.TrafficDirection }).(pulumi.StringOutput)
 }

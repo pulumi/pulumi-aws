@@ -56,6 +56,8 @@ type GetQuicksightUserArgs struct {
 	// QuickSight namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
 	// The name of the user that you want to match.
+	//
+	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
 }
 
@@ -100,6 +102,8 @@ type GetQuicksightUserOutputArgs struct {
 	// QuickSight namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// The name of the user that you want to match.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringInput `pulumi:"userName"`
 }
 

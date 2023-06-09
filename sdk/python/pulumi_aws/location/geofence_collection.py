@@ -21,6 +21,8 @@ class GeofenceCollectionArgs:
         """
         The set of arguments for constructing a GeofenceCollection resource.
         :param pulumi.Input[str] collection_name: The name of the geofence collection.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: The optional description for the geofence collection.
         :param pulumi.Input[str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -38,6 +40,8 @@ class GeofenceCollectionArgs:
     def collection_name(self) -> pulumi.Input[str]:
         """
         The name of the geofence collection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "collection_name")
 
@@ -97,6 +101,8 @@ class _GeofenceCollectionState:
         Input properties used for looking up and filtering GeofenceCollection resources.
         :param pulumi.Input[str] collection_arn: The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[str] collection_name: The name of the geofence collection.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] create_time: The timestamp for when the geofence collection resource was created in ISO 8601 format.
         :param pulumi.Input[str] description: The optional description for the geofence collection.
         :param pulumi.Input[str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
@@ -137,6 +143,8 @@ class _GeofenceCollectionState:
     def collection_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the geofence collection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "collection_name")
 
@@ -247,6 +255,8 @@ class GeofenceCollection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collection_name: The name of the geofence collection.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: The optional description for the geofence collection.
         :param pulumi.Input[str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -342,6 +352,8 @@ class GeofenceCollection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collection_arn: The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[str] collection_name: The name of the geofence collection.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] create_time: The timestamp for when the geofence collection resource was created in ISO 8601 format.
         :param pulumi.Input[str] description: The optional description for the geofence collection.
         :param pulumi.Input[str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
@@ -375,6 +387,8 @@ class GeofenceCollection(pulumi.CustomResource):
     def collection_name(self) -> pulumi.Output[str]:
         """
         The name of the geofence collection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "collection_name")
 

@@ -126,6 +126,8 @@ export class Workspace extends pulumi.CustomResource {
     public readonly organizationalUnits!: pulumi.Output<string[] | undefined>;
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     *
+     * The following arguments are optional:
      */
     public readonly permissionType!: pulumi.Output<string>;
     /**
@@ -278,6 +280,8 @@ export interface WorkspaceState {
     organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     *
+     * The following arguments are optional:
      */
     permissionType?: pulumi.Input<string>;
     /**
@@ -353,6 +357,8 @@ export interface WorkspaceArgs {
     organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     *
+     * The following arguments are optional:
      */
     permissionType: pulumi.Input<string>;
     /**

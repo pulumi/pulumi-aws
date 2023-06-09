@@ -151,6 +151,8 @@ type Channel struct {
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance ChannelMaintenanceOutput `pulumi:"maintenance"`
 	// Name of the Channel.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Concise argument description.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -228,6 +230,8 @@ type channelState struct {
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance *ChannelMaintenance `pulumi:"maintenance"`
 	// Name of the Channel.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Concise argument description.
 	RoleArn *string `pulumi:"roleArn"`
@@ -262,6 +266,8 @@ type ChannelState struct {
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance ChannelMaintenancePtrInput
 	// Name of the Channel.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Concise argument description.
 	RoleArn pulumi.StringPtrInput
@@ -296,6 +302,8 @@ type channelArgs struct {
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance *ChannelMaintenance `pulumi:"maintenance"`
 	// Name of the Channel.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Concise argument description.
 	RoleArn *string `pulumi:"roleArn"`
@@ -326,6 +334,8 @@ type ChannelArgs struct {
 	// Maintenance settings for this channel. See Maintenance for more details.
 	Maintenance ChannelMaintenancePtrInput
 	// Name of the Channel.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Concise argument description.
 	RoleArn pulumi.StringPtrInput
@@ -475,6 +485,8 @@ func (o ChannelOutput) Maintenance() ChannelMaintenanceOutput {
 }
 
 // Name of the Channel.
+//
+// The following arguments are optional:
 func (o ChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

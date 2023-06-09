@@ -127,6 +127,8 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        /// 
+        /// The follow arguments are optional:
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
@@ -257,6 +259,8 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        /// 
+        /// The follow arguments are optional:
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -373,6 +377,8 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+        /// 
+        /// The follow arguments are optional:
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }

@@ -63,12 +63,16 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="typeName", required=true)
     private Output<String> typeName;
 
     /**
      * @return CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> typeName() {
@@ -184,6 +188,8 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param typeName CloudFormation resource type name. For example, `AWS::EC2::VPC`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -194,6 +200,8 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param typeName CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

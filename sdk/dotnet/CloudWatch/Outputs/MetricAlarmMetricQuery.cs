@@ -41,6 +41,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         public readonly int? Period;
         /// <summary>
         /// Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+        /// 
+        /// &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
         /// </summary>
         public readonly bool? ReturnData;
 

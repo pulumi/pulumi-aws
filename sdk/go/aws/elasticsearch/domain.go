@@ -173,6 +173,122 @@ import (
 //	}
 //
 // ```
+// ### VPC based ES
+//
+// ```go
+// package main
+//
+// import (
+// "fmt"
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticsearch"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// cfg := config.New(ctx, "")
+// vpc := cfg.RequireObject("vpc")
+// domain := "tf-test";
+// if param := cfg.Get("domain"); param != ""{
+// domain = param
+// }
+// selectedVpc, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
+// Tags: interface{}{
+// Name: vpc,
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// selectedSubnetIds, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
+// VpcId: selectedVpc.Id,
+// Tags: map[string]interface{}{
+// "Tier": "private",
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// currentRegion, err := aws.GetRegion(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// esSecurityGroup, err := ec2.NewSecurityGroup(ctx, "esSecurityGroup", &ec2.SecurityGroupArgs{
+// Description: pulumi.String("Managed by Pulumi"),
+// VpcId: *pulumi.String(selectedVpc.Id),
+// Ingress: ec2.SecurityGroupIngressArray{
+// &ec2.SecurityGroupIngressArgs{
+// FromPort: pulumi.Int(443),
+// ToPort: pulumi.Int(443),
+// Protocol: pulumi.String("tcp"),
+// CidrBlocks: pulumi.StringArray{
+// *pulumi.String(selectedVpc.CidrBlock),
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// esServiceLinkedRole, err := iam.NewServiceLinkedRole(ctx, "esServiceLinkedRole", &iam.ServiceLinkedRoleArgs{
+// AwsServiceName: pulumi.String("opensearchservice.amazonaws.com"),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = elasticsearch.NewDomain(ctx, "esDomain", &elasticsearch.DomainArgs{
+// ElasticsearchVersion: pulumi.String("6.3"),
+// ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
+// InstanceType: pulumi.String("m4.large.elasticsearch"),
+// ZoneAwarenessEnabled: pulumi.Bool(true),
+// },
+// VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
+// SubnetIds: pulumi.StringArray{
+// *pulumi.String(selectedSubnetIds.Ids[0]),
+// *pulumi.String(selectedSubnetIds.Ids[1]),
+// },
+// SecurityGroupIds: pulumi.StringArray{
+// esSecurityGroup.ID(),
+// },
+// },
+// AdvancedOptions: pulumi.StringMap{
+// "rest.action.multi.allow_explicit_index": pulumi.String("true"),
+// },
+//
+//	AccessPolicies: pulumi.Any(fmt.Sprintf(`{
+//		"Version": "2012-10-17",
+//		"Statement": [
+//			{
+//				"Action": "es:*",
+//				"Principal": "*",
+//				"Effect": "Allow",
+//				"Resource": "arn:aws:es:%v:%v:domain/%v/*"
+//			}
+//		]
+//	}
+//
+// `, currentRegion.Name, currentCallerIdentity.AccountId, domain)),
+// Tags: pulumi.StringMap{
+// "Domain": pulumi.String("TestDomain"),
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// esServiceLinkedRole,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //
@@ -205,6 +321,8 @@ type Domain struct {
 	// Unique identifier for the domain.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsOutput `pulumi:"ebsOptions"`
@@ -280,6 +398,8 @@ type domainState struct {
 	// Unique identifier for the domain.
 	DomainId *string `pulumi:"domainId"`
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
 	EbsOptions *DomainEbsOptions `pulumi:"ebsOptions"`
@@ -327,6 +447,8 @@ type DomainState struct {
 	// Unique identifier for the domain.
 	DomainId pulumi.StringPtrInput
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsPtrInput
@@ -374,6 +496,8 @@ type domainArgs struct {
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
 	EbsOptions *DomainEbsOptions `pulumi:"ebsOptions"`
@@ -410,6 +534,8 @@ type DomainArgs struct {
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsPtrInput
@@ -562,6 +688,8 @@ func (o DomainOutput) DomainId() pulumi.StringOutput {
 }
 
 // Name of the domain.
+//
+// The following arguments are optional:
 func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

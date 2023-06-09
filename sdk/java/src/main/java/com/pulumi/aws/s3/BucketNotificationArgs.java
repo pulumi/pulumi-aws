@@ -23,12 +23,16 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
     /**
      * Name of the bucket for notification configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
      * @return Name of the bucket for notification configuration.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> bucket() {
@@ -126,6 +130,8 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
         /**
          * @param bucket Name of the bucket for notification configuration.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -136,6 +142,8 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param bucket Name of the bucket for notification configuration.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

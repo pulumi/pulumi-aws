@@ -33,12 +33,16 @@ public final class DeploymentGroupDeploymentStyleArgs extends com.pulumi.resourc
     /**
      * Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
      * 
+     * _Only one `deployment_style` is allowed_.
+     * 
      */
     @Import(name="deploymentType")
     private @Nullable Output<String> deploymentType;
 
     /**
      * @return Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
+     * 
+     * _Only one `deployment_style` is allowed_.
      * 
      */
     public Optional<Output<String>> deploymentType() {
@@ -94,6 +98,8 @@ public final class DeploymentGroupDeploymentStyleArgs extends com.pulumi.resourc
         /**
          * @param deploymentType Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
          * 
+         * _Only one `deployment_style` is allowed_.
+         * 
          * @return builder
          * 
          */
@@ -104,6 +110,8 @@ public final class DeploymentGroupDeploymentStyleArgs extends com.pulumi.resourc
 
         /**
          * @param deploymentType Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
+         * 
+         * _Only one `deployment_style` is allowed_.
          * 
          * @return builder
          * 

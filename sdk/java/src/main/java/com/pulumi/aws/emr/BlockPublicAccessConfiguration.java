@@ -174,12 +174,16 @@ public class BlockPublicAccessConfiguration extends com.pulumi.resources.CustomR
     /**
      * Enable or disable EMR Block Public Access.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="blockPublicSecurityGroupRules", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> blockPublicSecurityGroupRules;
 
     /**
      * @return Enable or disable EMR Block Public Access.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Boolean> blockPublicSecurityGroupRules() {

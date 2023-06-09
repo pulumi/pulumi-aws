@@ -2673,6 +2673,8 @@ func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolAc
 
 type UserPoolAccountRecoverySettingRecoveryMechanism struct {
 	// Name of the user pool.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
 	// Positive integer specifying priority of a method with 1 being the highest priority.
 	Priority int `pulumi:"priority"`
@@ -2691,6 +2693,8 @@ type UserPoolAccountRecoverySettingRecoveryMechanismInput interface {
 
 type UserPoolAccountRecoverySettingRecoveryMechanismArgs struct {
 	// Name of the user pool.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
 	// Positive integer specifying priority of a method with 1 being the highest priority.
 	Priority pulumi.IntInput `pulumi:"priority"`
@@ -2748,6 +2752,8 @@ func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) ToUserPoolAccount
 }
 
 // Name of the user pool.
+//
+// The following arguments are optional:
 func (o UserPoolAccountRecoverySettingRecoveryMechanismOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolAccountRecoverySettingRecoveryMechanism) string { return v.Name }).(pulumi.StringOutput)
 }

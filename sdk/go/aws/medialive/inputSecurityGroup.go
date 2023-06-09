@@ -67,6 +67,8 @@ type InputSecurityGroup struct {
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whitelist rules. See Whitelist Rules for more details.
+	//
+	// The following arguments are optional:
 	WhitelistRules InputSecurityGroupWhitelistRuleArrayOutput `pulumi:"whitelistRules"`
 }
 
@@ -110,6 +112,8 @@ type inputSecurityGroupState struct {
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whitelist rules. See Whitelist Rules for more details.
+	//
+	// The following arguments are optional:
 	WhitelistRules []InputSecurityGroupWhitelistRule `pulumi:"whitelistRules"`
 }
 
@@ -122,6 +126,8 @@ type InputSecurityGroupState struct {
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Whitelist rules. See Whitelist Rules for more details.
+	//
+	// The following arguments are optional:
 	WhitelistRules InputSecurityGroupWhitelistRuleArrayInput
 }
 
@@ -133,6 +139,8 @@ type inputSecurityGroupArgs struct {
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Whitelist rules. See Whitelist Rules for more details.
+	//
+	// The following arguments are optional:
 	WhitelistRules []InputSecurityGroupWhitelistRule `pulumi:"whitelistRules"`
 }
 
@@ -141,6 +149,8 @@ type InputSecurityGroupArgs struct {
 	// A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Whitelist rules. See Whitelist Rules for more details.
+	//
+	// The following arguments are optional:
 	WhitelistRules InputSecurityGroupWhitelistRuleArrayInput
 }
 
@@ -251,6 +261,8 @@ func (o InputSecurityGroupOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Whitelist rules. See Whitelist Rules for more details.
+//
+// The following arguments are optional:
 func (o InputSecurityGroupOutput) WhitelistRules() InputSecurityGroupWhitelistRuleArrayOutput {
 	return o.ApplyT(func(v *InputSecurityGroup) InputSecurityGroupWhitelistRuleArrayOutput { return v.WhitelistRules }).(InputSecurityGroupWhitelistRuleArrayOutput)
 }

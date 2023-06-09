@@ -176,6 +176,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("defaultNetworkAclId")]
         public Output<string> DefaultNetworkAclId { get; private set; } = null!;
@@ -270,6 +272,8 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("defaultNetworkAclId", required: true)]
         public Input<string> DefaultNetworkAclId { get; set; } = null!;
@@ -338,6 +342,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("defaultNetworkAclId")]
         public Input<string>? DefaultNetworkAclId { get; set; }

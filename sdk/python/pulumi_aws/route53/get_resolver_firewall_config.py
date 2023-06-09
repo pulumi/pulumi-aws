@@ -91,6 +91,8 @@ def get_resolver_firewall_config(resource_id: Optional[str] = None,
 
 
     :param str resource_id: The ID of the VPC from Amazon VPC that the configuration is for.
+           
+           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['resourceId'] = resource_id
@@ -125,5 +127,7 @@ def get_resolver_firewall_config_output(resource_id: Optional[pulumi.Input[str]]
 
 
     :param str resource_id: The ID of the VPC from Amazon VPC that the configuration is for.
+           
+           The following attribute is additionally exported:
     """
     ...

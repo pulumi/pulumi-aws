@@ -69,6 +69,8 @@ export class RouteCalculation extends pulumi.CustomResource {
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     /**
      * Specifies the data provider of traffic and road network data.
+     *
+     * The following arguments are optional:
      */
     public readonly dataSource!: pulumi.Output<string>;
     /**
@@ -149,6 +151,8 @@ export interface RouteCalculationState {
     createTime?: pulumi.Input<string>;
     /**
      * Specifies the data provider of traffic and road network data.
+     *
+     * The following arguments are optional:
      */
     dataSource?: pulumi.Input<string>;
     /**
@@ -179,6 +183,8 @@ export interface RouteCalculationArgs {
     calculatorName: pulumi.Input<string>;
     /**
      * Specifies the data provider of traffic and road network data.
+     *
+     * The following arguments are optional:
      */
     dataSource: pulumi.Input<string>;
     /**

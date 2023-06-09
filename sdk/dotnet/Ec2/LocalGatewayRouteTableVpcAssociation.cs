@@ -75,6 +75,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Identifier of EC2 VPC.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -145,6 +147,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Identifier of EC2 VPC.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
@@ -192,6 +196,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Identifier of EC2 VPC.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

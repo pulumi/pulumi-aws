@@ -88,6 +88,8 @@ export class CustomPlugin extends pulumi.CustomResource {
     public /*out*/ readonly latestRevision!: pulumi.Output<number>;
     /**
      * Information about the location of a custom plugin. See below.
+     *
+     * The following arguments are optional:
      */
     public readonly location!: pulumi.Output<outputs.mskconnect.CustomPluginLocation>;
     /**
@@ -162,6 +164,8 @@ export interface CustomPluginState {
     latestRevision?: pulumi.Input<number>;
     /**
      * Information about the location of a custom plugin. See below.
+     *
+     * The following arguments are optional:
      */
     location?: pulumi.Input<inputs.mskconnect.CustomPluginLocation>;
     /**
@@ -188,6 +192,8 @@ export interface CustomPluginArgs {
     description?: pulumi.Input<string>;
     /**
      * Information about the location of a custom plugin. See below.
+     *
+     * The following arguments are optional:
      */
     location: pulumi.Input<inputs.mskconnect.CustomPluginLocation>;
     /**

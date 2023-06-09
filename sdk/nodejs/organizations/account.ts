@@ -104,6 +104,8 @@ export class Account extends pulumi.CustomResource {
     public /*out*/ readonly joinedTimestamp!: pulumi.Output<string>;
     /**
      * Friendly name for the member account.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -208,6 +210,8 @@ export interface AccountState {
     joinedTimestamp?: pulumi.Input<string>;
     /**
      * Friendly name for the member account.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -251,6 +255,8 @@ export interface AccountArgs {
     iamUserAccessToBilling?: pulumi.Input<string>;
     /**
      * Friendly name for the member account.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

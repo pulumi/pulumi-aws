@@ -33,12 +33,16 @@ public final class GetUserAlternateIdentifier extends com.pulumi.resources.Invok
     /**
      * An entity attribute that&#39;s unique to a specific entity. Detailed below.
      * 
+     * &gt; Exactly one of the above arguments must be provided.
+     * 
      */
     @Import(name="uniqueAttribute")
     private @Nullable GetUserAlternateIdentifierUniqueAttribute uniqueAttribute;
 
     /**
      * @return An entity attribute that&#39;s unique to a specific entity. Detailed below.
+     * 
+     * &gt; Exactly one of the above arguments must be provided.
      * 
      */
     public Optional<GetUserAlternateIdentifierUniqueAttribute> uniqueAttribute() {
@@ -83,6 +87,8 @@ public final class GetUserAlternateIdentifier extends com.pulumi.resources.Invok
 
         /**
          * @param uniqueAttribute An entity attribute that&#39;s unique to a specific entity. Detailed below.
+         * 
+         * &gt; Exactly one of the above arguments must be provided.
          * 
          * @return builder
          * 

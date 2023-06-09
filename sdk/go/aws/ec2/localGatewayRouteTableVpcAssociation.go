@@ -72,6 +72,8 @@ type LocalGatewayRouteTableVpcAssociation struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of EC2 VPC.
+	//
+	// The following arguments are optional:
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -118,6 +120,8 @@ type localGatewayRouteTableVpcAssociationState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of EC2 VPC.
+	//
+	// The following arguments are optional:
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -130,6 +134,8 @@ type LocalGatewayRouteTableVpcAssociationState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Identifier of EC2 VPC.
+	//
+	// The following arguments are optional:
 	VpcId pulumi.StringPtrInput
 }
 
@@ -143,6 +149,8 @@ type localGatewayRouteTableVpcAssociationArgs struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of EC2 VPC.
+	//
+	// The following arguments are optional:
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -153,6 +161,8 @@ type LocalGatewayRouteTableVpcAssociationArgs struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Identifier of EC2 VPC.
+	//
+	// The following arguments are optional:
 	VpcId pulumi.StringInput
 }
 
@@ -263,6 +273,8 @@ func (o LocalGatewayRouteTableVpcAssociationOutput) TagsAll() pulumi.StringMapOu
 }
 
 // Identifier of EC2 VPC.
+//
+// The following arguments are optional:
 func (o LocalGatewayRouteTableVpcAssociationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGatewayRouteTableVpcAssociation) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

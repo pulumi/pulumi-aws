@@ -191,6 +191,8 @@ type PublishingDestination struct {
 	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
 	// Currently there is only "S3" available as destination type which is also the default value
+	//
+	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 	DestinationType pulumi.StringPtrOutput `pulumi:"destinationType"`
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
@@ -239,6 +241,8 @@ type publishingDestinationState struct {
 	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 	DestinationArn *string `pulumi:"destinationArn"`
 	// Currently there is only "S3" available as destination type which is also the default value
+	//
+	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 	DestinationType *string `pulumi:"destinationType"`
 	// The detector ID of the GuardDuty.
 	DetectorId *string `pulumi:"detectorId"`
@@ -250,6 +254,8 @@ type PublishingDestinationState struct {
 	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 	DestinationArn pulumi.StringPtrInput
 	// Currently there is only "S3" available as destination type which is also the default value
+	//
+	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 	DestinationType pulumi.StringPtrInput
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringPtrInput
@@ -265,6 +271,8 @@ type publishingDestinationArgs struct {
 	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 	DestinationArn string `pulumi:"destinationArn"`
 	// Currently there is only "S3" available as destination type which is also the default value
+	//
+	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 	DestinationType *string `pulumi:"destinationType"`
 	// The detector ID of the GuardDuty.
 	DetectorId string `pulumi:"detectorId"`
@@ -277,6 +285,8 @@ type PublishingDestinationArgs struct {
 	// The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
 	DestinationArn pulumi.StringInput
 	// Currently there is only "S3" available as destination type which is also the default value
+	//
+	// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 	DestinationType pulumi.StringPtrInput
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringInput
@@ -377,6 +387,8 @@ func (o PublishingDestinationOutput) DestinationArn() pulumi.StringOutput {
 }
 
 // Currently there is only "S3" available as destination type which is also the default value
+//
+// > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
 func (o PublishingDestinationOutput) DestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublishingDestination) pulumi.StringPtrOutput { return v.DestinationType }).(pulumi.StringPtrOutput)
 }

@@ -58,6 +58,8 @@ type ProductPortfolioAssociation struct {
 	// Portfolio identifier.
 	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId pulumi.StringOutput `pulumi:"productId"`
 	// Identifier of the source portfolio.
 	SourcePortfolioId pulumi.StringPtrOutput `pulumi:"sourcePortfolioId"`
@@ -103,6 +105,8 @@ type productPortfolioAssociationState struct {
 	// Portfolio identifier.
 	PortfolioId *string `pulumi:"portfolioId"`
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId *string `pulumi:"productId"`
 	// Identifier of the source portfolio.
 	SourcePortfolioId *string `pulumi:"sourcePortfolioId"`
@@ -114,6 +118,8 @@ type ProductPortfolioAssociationState struct {
 	// Portfolio identifier.
 	PortfolioId pulumi.StringPtrInput
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId pulumi.StringPtrInput
 	// Identifier of the source portfolio.
 	SourcePortfolioId pulumi.StringPtrInput
@@ -129,6 +135,8 @@ type productPortfolioAssociationArgs struct {
 	// Portfolio identifier.
 	PortfolioId string `pulumi:"portfolioId"`
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId string `pulumi:"productId"`
 	// Identifier of the source portfolio.
 	SourcePortfolioId *string `pulumi:"sourcePortfolioId"`
@@ -141,6 +149,8 @@ type ProductPortfolioAssociationArgs struct {
 	// Portfolio identifier.
 	PortfolioId pulumi.StringInput
 	// Product identifier.
+	//
+	// The following arguments are optional:
 	ProductId pulumi.StringInput
 	// Identifier of the source portfolio.
 	SourcePortfolioId pulumi.StringPtrInput
@@ -244,6 +254,8 @@ func (o ProductPortfolioAssociationOutput) PortfolioId() pulumi.StringOutput {
 }
 
 // Product identifier.
+//
+// The following arguments are optional:
 func (o ProductPortfolioAssociationOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProductPortfolioAssociation) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
 }

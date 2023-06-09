@@ -380,6 +380,8 @@ type BucketNotification struct {
 	pulumi.CustomResourceState
 
 	// Name of the bucket for notification configuration.
+	//
+	// The following arguments are optional:
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Whether to enable Amazon EventBridge notifications.
 	Eventbridge pulumi.BoolPtrOutput `pulumi:"eventbridge"`
@@ -424,6 +426,8 @@ func GetBucketNotification(ctx *pulumi.Context,
 // Input properties used for looking up and filtering BucketNotification resources.
 type bucketNotificationState struct {
 	// Name of the bucket for notification configuration.
+	//
+	// The following arguments are optional:
 	Bucket *string `pulumi:"bucket"`
 	// Whether to enable Amazon EventBridge notifications.
 	Eventbridge *bool `pulumi:"eventbridge"`
@@ -437,6 +441,8 @@ type bucketNotificationState struct {
 
 type BucketNotificationState struct {
 	// Name of the bucket for notification configuration.
+	//
+	// The following arguments are optional:
 	Bucket pulumi.StringPtrInput
 	// Whether to enable Amazon EventBridge notifications.
 	Eventbridge pulumi.BoolPtrInput
@@ -454,6 +460,8 @@ func (BucketNotificationState) ElementType() reflect.Type {
 
 type bucketNotificationArgs struct {
 	// Name of the bucket for notification configuration.
+	//
+	// The following arguments are optional:
 	Bucket string `pulumi:"bucket"`
 	// Whether to enable Amazon EventBridge notifications.
 	Eventbridge *bool `pulumi:"eventbridge"`
@@ -468,6 +476,8 @@ type bucketNotificationArgs struct {
 // The set of arguments for constructing a BucketNotification resource.
 type BucketNotificationArgs struct {
 	// Name of the bucket for notification configuration.
+	//
+	// The following arguments are optional:
 	Bucket pulumi.StringInput
 	// Whether to enable Amazon EventBridge notifications.
 	Eventbridge pulumi.BoolPtrInput
@@ -567,6 +577,8 @@ func (o BucketNotificationOutput) ToBucketNotificationOutputWithContext(ctx cont
 }
 
 // Name of the bucket for notification configuration.
+//
+// The following arguments are optional:
 func (o BucketNotificationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketNotification) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

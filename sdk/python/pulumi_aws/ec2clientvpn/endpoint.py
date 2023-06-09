@@ -644,12 +644,12 @@ class Endpoint(pulumi.CustomResource):
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["root_cert"]["arn"],
+                root_certificate_chain_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=True,
-                cloudwatch_log_group=aws_cloudwatch_log_group["lg"]["name"],
-                cloudwatch_log_stream=aws_cloudwatch_log_stream["ls"]["name"],
+                cloudwatch_log_group=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                cloudwatch_log_stream=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -704,12 +704,12 @@ class Endpoint(pulumi.CustomResource):
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["root_cert"]["arn"],
+                root_certificate_chain_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=True,
-                cloudwatch_log_group=aws_cloudwatch_log_group["lg"]["name"],
-                cloudwatch_log_stream=aws_cloudwatch_log_stream["ls"]["name"],
+                cloudwatch_log_group=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                cloudwatch_log_stream=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 

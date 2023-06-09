@@ -91,6 +91,8 @@ type DocumentClassifier struct {
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
@@ -178,6 +180,8 @@ type documentClassifierState struct {
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
@@ -228,6 +232,8 @@ type DocumentClassifierState struct {
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
@@ -280,6 +286,8 @@ type documentClassifierArgs struct {
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
@@ -327,6 +335,8 @@ type DocumentClassifierArgs struct {
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Configuration for the output results of training.
 	// See the `outputDataConfig` Configuration Block section below.
@@ -479,6 +489,8 @@ func (o DocumentClassifierOutput) ModelKmsKeyId() pulumi.StringPtrOutput {
 // Name for the Document Classifier.
 // Has a maximum length of 63 characters.
 // Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+//
+// The following arguments are optional:
 func (o DocumentClassifierOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

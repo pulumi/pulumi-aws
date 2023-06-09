@@ -31,10 +31,7 @@ namespace Pulumi.Aws.Organizations
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["accountIds"] = new[]
-        ///         {
-        ///             example.Apply(getOrganizationResult =&gt; getOrganizationResult.Accounts),
-        ///         }.Select(__item =&gt; __item?.Id).ToList(),
+        ///         ["accountIds"] = example.Apply(getOrganizationResult =&gt; getOrganizationResult.Accounts).Select(__item =&gt; __item.Id).ToList(),
         ///     };
         /// });
         /// ```

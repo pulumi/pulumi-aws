@@ -96,10 +96,46 @@ def get_subnet_ids(filters: Optional[Sequence[pulumi.InputType['GetSubnetIdsFilt
 
     > **NOTE:** The `ec2_get_subnet_ids` data source has been deprecated and will be removed in a future version. Use the `ec2_get_subnets` data source instead.
 
+    ## Example Usage
+
+    The following shows outputting all cidr blocks for every subnet id in a vpc.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example_subnet = [aws.ec2.get_subnet(id=__value) for __key, __value in example_subnet_ids.ids]
+    pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_subnet])
+    ```
+
+    The following example retrieves a set of all subnets in a VPC with a custom
+    tag of `Tier` set to a value of "Private" so that the `ec2.Instance` resource
+    can loop through the subnets, putting instances across availability zones.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    private = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        tags={
+            "Tier": "Private",
+        })
+    app = []
+    for range in [{"key": k, "value": v} for [k, v] in enumerate(private.ids)]:
+        app.append(aws.ec2.Instance(f"app-{range['key']}",
+            ami=var["ami"],
+            instance_type="t2.micro",
+            subnet_id=range["value"]))
+    ```
+
 
     :param Sequence[pulumi.InputType['GetSubnetIdsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str vpc_id: VPC ID that you want to filter from.
     """
     __args__ = dict()
@@ -129,10 +165,46 @@ def get_subnet_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
 
     > **NOTE:** The `ec2_get_subnet_ids` data source has been deprecated and will be removed in a future version. Use the `ec2_get_subnets` data source instead.
 
+    ## Example Usage
+
+    The following shows outputting all cidr blocks for every subnet id in a vpc.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example_subnet = [aws.ec2.get_subnet(id=__value) for __key, __value in example_subnet_ids.ids]
+    pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_subnet])
+    ```
+
+    The following example retrieves a set of all subnets in a VPC with a custom
+    tag of `Tier` set to a value of "Private" so that the `ec2.Instance` resource
+    can loop through the subnets, putting instances across availability zones.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    private = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        tags={
+            "Tier": "Private",
+        })
+    app = []
+    for range in [{"key": k, "value": v} for [k, v] in enumerate(private.ids)]:
+        app.append(aws.ec2.Instance(f"app-{range['key']}",
+            ami=var["ami"],
+            instance_type="t2.micro",
+            subnet_id=range["value"]))
+    ```
+
 
     :param Sequence[pulumi.InputType['GetSubnetIdsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str vpc_id: VPC ID that you want to filter from.
     """
     ...

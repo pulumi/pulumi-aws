@@ -116,6 +116,8 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// The name of the workgroup.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("workgroupName")]
         public Output<string> WorkgroupName { get; private set; } = null!;
@@ -240,6 +242,8 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// The name of the workgroup.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("workgroupName", required: true)]
         public Input<string> WorkgroupName { get; set; } = null!;
@@ -362,6 +366,8 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// The name of the workgroup.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("workgroupName")]
         public Input<string>? WorkgroupName { get; set; }

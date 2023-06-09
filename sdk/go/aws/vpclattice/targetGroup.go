@@ -142,6 +142,8 @@ type TargetGroup struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -190,6 +192,8 @@ type targetGroupState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
@@ -207,6 +211,8 @@ type TargetGroupState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -222,6 +228,8 @@ type targetGroupArgs struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -234,6 +242,8 @@ type TargetGroupArgs struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -355,6 +365,8 @@ func (o TargetGroupOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+//
+// The following arguments are optional:
 func (o TargetGroupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -21,6 +21,8 @@ class BlockPublicAccessConfigurationArgs:
         """
         The set of arguments for constructing a BlockPublicAccessConfiguration resource.
         :param pulumi.Input[bool] block_public_security_group_rules: Enable or disable EMR Block Public Access.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]] permitted_public_security_group_rule_ranges: Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         """
         pulumi.set(__self__, "block_public_security_group_rules", block_public_security_group_rules)
@@ -32,6 +34,8 @@ class BlockPublicAccessConfigurationArgs:
     def block_public_security_group_rules(self) -> pulumi.Input[bool]:
         """
         Enable or disable EMR Block Public Access.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "block_public_security_group_rules")
 
@@ -60,6 +64,8 @@ class _BlockPublicAccessConfigurationState:
         """
         Input properties used for looking up and filtering BlockPublicAccessConfiguration resources.
         :param pulumi.Input[bool] block_public_security_group_rules: Enable or disable EMR Block Public Access.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]] permitted_public_security_group_rule_ranges: Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         """
         if block_public_security_group_rules is not None:
@@ -72,6 +78,8 @@ class _BlockPublicAccessConfigurationState:
     def block_public_security_group_rules(self) -> Optional[pulumi.Input[bool]]:
         """
         Enable or disable EMR Block Public Access.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "block_public_security_group_rules")
 
@@ -172,6 +180,8 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] block_public_security_group_rules: Enable or disable EMR Block Public Access.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]] permitted_public_security_group_rule_ranges: Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         """
         ...
@@ -299,6 +309,8 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] block_public_security_group_rules: Enable or disable EMR Block Public Access.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]] permitted_public_security_group_rule_ranges: Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -314,6 +326,8 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
     def block_public_security_group_rules(self) -> pulumi.Output[bool]:
         """
         Enable or disable EMR Block Public Access.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "block_public_security_group_rules")
 

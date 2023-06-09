@@ -107,6 +107,8 @@ export class AccountSubscription extends pulumi.CustomResource {
     public readonly lastName!: pulumi.Output<string | undefined>;
     /**
      * Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+     *
+     * The following arguments are optional:
      */
     public readonly notificationEmail!: pulumi.Output<string>;
     /**
@@ -241,6 +243,8 @@ export interface AccountSubscriptionState {
     lastName?: pulumi.Input<string>;
     /**
      * Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+     *
+     * The following arguments are optional:
      */
     notificationEmail?: pulumi.Input<string>;
     /**
@@ -307,6 +311,8 @@ export interface AccountSubscriptionArgs {
     lastName?: pulumi.Input<string>;
     /**
      * Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+     *
+     * The following arguments are optional:
      */
     notificationEmail: pulumi.Input<string>;
     /**

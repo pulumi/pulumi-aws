@@ -266,7 +266,11 @@ def get_user(alternate_identifier: Optional[pulumi.InputType['GetUserAlternateId
     :param pulumi.InputType['GetUserAlternateIdentifierArgs'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
     :param pulumi.InputType['GetUserFilterArgs'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+           
+           The following arguments are optional:
     :param str user_id: The identifier for a user in the Identity Store.
+           
+           > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
@@ -311,6 +315,10 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi.
     :param pulumi.InputType['GetUserAlternateIdentifierArgs'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
     :param pulumi.InputType['GetUserFilterArgs'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+           
+           The following arguments are optional:
     :param str user_id: The identifier for a user in the Identity Store.
+           
+           > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
     """
     ...

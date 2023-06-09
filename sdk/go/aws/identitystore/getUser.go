@@ -29,8 +29,12 @@ type LookupUserArgs struct {
 	// Deprecated: Use the alternate_identifier attribute instead.
 	Filter *GetUserFilter `pulumi:"filter"`
 	// Identity Store ID associated with the Single Sign-On Instance.
+	//
+	// The following arguments are optional:
 	IdentityStoreId string `pulumi:"identityStoreId"`
 	// The identifier for a user in the Identity Store.
+	//
+	// > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
 	UserId *string `pulumi:"userId"`
 }
 
@@ -95,8 +99,12 @@ type LookupUserOutputArgs struct {
 	// Deprecated: Use the alternate_identifier attribute instead.
 	Filter GetUserFilterPtrInput `pulumi:"filter"`
 	// Identity Store ID associated with the Single Sign-On Instance.
+	//
+	// The following arguments are optional:
 	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
 	// The identifier for a user in the Identity Store.
+	//
+	// > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
 

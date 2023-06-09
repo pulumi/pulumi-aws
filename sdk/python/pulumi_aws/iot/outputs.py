@@ -1151,6 +1151,8 @@ class TopicRuleDynamodbv2PutItem(dict):
                  table_name: str):
         """
         :param str table_name: The name of the DynamoDB table.
+               
+               The `dynamodbv2` object takes the following arguments:
         """
         pulumi.set(__self__, "table_name", table_name)
 
@@ -1159,6 +1161,8 @@ class TopicRuleDynamodbv2PutItem(dict):
     def table_name(self) -> str:
         """
         The name of the DynamoDB table.
+
+        The `dynamodbv2` object takes the following arguments:
         """
         return pulumi.get(self, "table_name")
 
@@ -1879,6 +1883,8 @@ class TopicRuleErrorActionDynamodbv2PutItem(dict):
                  table_name: str):
         """
         :param str table_name: The name of the DynamoDB table.
+               
+               The `dynamodbv2` object takes the following arguments:
         """
         pulumi.set(__self__, "table_name", table_name)
 
@@ -1887,6 +1893,8 @@ class TopicRuleErrorActionDynamodbv2PutItem(dict):
     def table_name(self) -> str:
         """
         The name of the DynamoDB table.
+
+        The `dynamodbv2` object takes the following arguments:
         """
         return pulumi.get(self, "table_name")
 
@@ -2479,6 +2487,8 @@ class TopicRuleErrorActionRepublish(dict):
         :param str role_arn: The ARN of the IAM role that grants access.
         :param str topic: The name of the MQTT topic the message should be republished to.
         :param int qos: The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+               
+               The `s3` object takes the following arguments:
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "topic", topic)
@@ -2506,6 +2516,8 @@ class TopicRuleErrorActionRepublish(dict):
     def qos(self) -> Optional[int]:
         """
         The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+
+        The `s3` object takes the following arguments:
         """
         return pulumi.get(self, "qos")
 
@@ -3419,6 +3431,8 @@ class TopicRuleRepublish(dict):
         :param str role_arn: The ARN of the IAM role that grants access.
         :param str topic: The name of the MQTT topic the message should be republished to.
         :param int qos: The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+               
+               The `s3` object takes the following arguments:
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "topic", topic)
@@ -3446,6 +3460,8 @@ class TopicRuleRepublish(dict):
     def qos(self) -> Optional[int]:
         """
         The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+
+        The `s3` object takes the following arguments:
         """
         return pulumi.get(self, "qos")
 

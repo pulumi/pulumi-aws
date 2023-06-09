@@ -81,6 +81,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Portfolio identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("portfolioId", required: true)]
         public string PortfolioId { get; set; } = null!;
@@ -107,6 +109,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Portfolio identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("portfolioId", required: true)]
         public Input<string> PortfolioId { get; set; } = null!;

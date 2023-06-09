@@ -13,6 +13,8 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     /**
      * @return Name of the Channel.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String name;
 
@@ -22,6 +24,8 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     }
     /**
      * @return Name of the Channel.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {

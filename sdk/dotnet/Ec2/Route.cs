@@ -121,6 +121,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The ID of a managed prefix list destination.
+        /// 
+        /// One of the following target arguments must be supplied:
         /// </summary>
         [Output("destinationPrefixListId")]
         public Output<string?> DestinationPrefixListId { get; private set; } = null!;
@@ -175,6 +177,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The ID of the routing table.
+        /// 
+        /// One of the following destination arguments must be supplied:
         /// </summary>
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
@@ -199,6 +203,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Identifier of a VPC peering connection.
+        /// 
+        /// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         /// </summary>
         [Output("vpcPeeringConnectionId")]
         public Output<string?> VpcPeeringConnectionId { get; private set; } = null!;
@@ -275,6 +281,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The ID of a managed prefix list destination.
+        /// 
+        /// One of the following target arguments must be supplied:
         /// </summary>
         [Input("destinationPrefixListId")]
         public Input<string>? DestinationPrefixListId { get; set; }
@@ -317,6 +325,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The ID of the routing table.
+        /// 
+        /// One of the following destination arguments must be supplied:
         /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
@@ -335,6 +345,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Identifier of a VPC peering connection.
+        /// 
+        /// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         /// </summary>
         [Input("vpcPeeringConnectionId")]
         public Input<string>? VpcPeeringConnectionId { get; set; }
@@ -373,6 +385,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The ID of a managed prefix list destination.
+        /// 
+        /// One of the following target arguments must be supplied:
         /// </summary>
         [Input("destinationPrefixListId")]
         public Input<string>? DestinationPrefixListId { get; set; }
@@ -427,6 +441,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The ID of the routing table.
+        /// 
+        /// One of the following destination arguments must be supplied:
         /// </summary>
         [Input("routeTableId")]
         public Input<string>? RouteTableId { get; set; }
@@ -451,6 +467,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Identifier of a VPC peering connection.
+        /// 
+        /// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         /// </summary>
         [Input("vpcPeeringConnectionId")]
         public Input<string>? VpcPeeringConnectionId { get; set; }

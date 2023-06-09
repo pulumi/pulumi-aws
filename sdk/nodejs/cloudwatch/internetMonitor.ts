@@ -69,6 +69,8 @@ export class InternetMonitor extends pulumi.CustomResource {
     public readonly maxCityNetworksToMonitor!: pulumi.Output<number | undefined>;
     /**
      * The name of the monitor.
+     *
+     * The following arguments are optional:
      */
     public readonly monitorName!: pulumi.Output<string>;
     /**
@@ -152,6 +154,8 @@ export interface InternetMonitorState {
     maxCityNetworksToMonitor?: pulumi.Input<number>;
     /**
      * The name of the monitor.
+     *
+     * The following arguments are optional:
      */
     monitorName?: pulumi.Input<string>;
     /**
@@ -190,6 +194,8 @@ export interface InternetMonitorArgs {
     maxCityNetworksToMonitor?: pulumi.Input<number>;
     /**
      * The name of the monitor.
+     *
+     * The following arguments are optional:
      */
     monitorName: pulumi.Input<string>;
     /**

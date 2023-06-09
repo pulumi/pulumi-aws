@@ -820,6 +820,8 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) OutputSch
 
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestination struct {
 	// Analytics data export currently only supports an S3 bucket destination (documented below).
+	//
+	// The `s3BucketDestination` configuration supports the following:
 	S3BucketDestination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination `pulumi:"s3BucketDestination"`
 }
 
@@ -836,6 +838,8 @@ type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationInput interf
 
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs struct {
 	// Analytics data export currently only supports an S3 bucket destination (documented below).
+	//
+	// The `s3BucketDestination` configuration supports the following:
 	S3BucketDestination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationInput `pulumi:"s3BucketDestination"`
 }
 
@@ -917,6 +921,8 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) T
 }
 
 // Analytics data export currently only supports an S3 bucket destination (documented below).
+//
+// The `s3BucketDestination` configuration supports the following:
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) S3BucketDestination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExportDestination) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
 		return v.S3BucketDestination
@@ -948,6 +954,8 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput
 }
 
 // Analytics data export currently only supports an S3 bucket destination (documented below).
+//
+// The `s3BucketDestination` configuration supports the following:
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput) S3BucketDestination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExportDestination) *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
 		if v == nil {
@@ -3921,6 +3929,8 @@ type BucketLifecycleRule struct {
 	// Specifies when noncurrent object versions expire (documented below).
 	NoncurrentVersionExpiration *BucketLifecycleRuleNoncurrentVersionExpiration `pulumi:"noncurrentVersionExpiration"`
 	// Specifies when noncurrent object versions transitions (documented below).
+	//
+	// At least one of `abortIncompleteMultipartUploadDays`, `expiration`, `transition`, `noncurrentVersionExpiration`, `noncurrentVersionTransition` must be specified.
 	NoncurrentVersionTransitions []BucketLifecycleRuleNoncurrentVersionTransition `pulumi:"noncurrentVersionTransitions"`
 	// Object key prefix identifying one or more objects to which the rule applies.
 	Prefix *string `pulumi:"prefix"`
@@ -3953,6 +3963,8 @@ type BucketLifecycleRuleArgs struct {
 	// Specifies when noncurrent object versions expire (documented below).
 	NoncurrentVersionExpiration BucketLifecycleRuleNoncurrentVersionExpirationPtrInput `pulumi:"noncurrentVersionExpiration"`
 	// Specifies when noncurrent object versions transitions (documented below).
+	//
+	// At least one of `abortIncompleteMultipartUploadDays`, `expiration`, `transition`, `noncurrentVersionExpiration`, `noncurrentVersionTransition` must be specified.
 	NoncurrentVersionTransitions BucketLifecycleRuleNoncurrentVersionTransitionArrayInput `pulumi:"noncurrentVersionTransitions"`
 	// Object key prefix identifying one or more objects to which the rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -4041,6 +4053,8 @@ func (o BucketLifecycleRuleOutput) NoncurrentVersionExpiration() BucketLifecycle
 }
 
 // Specifies when noncurrent object versions transitions (documented below).
+//
+// At least one of `abortIncompleteMultipartUploadDays`, `expiration`, `transition`, `noncurrentVersionExpiration`, `noncurrentVersionTransition` must be specified.
 func (o BucketLifecycleRuleOutput) NoncurrentVersionTransitions() BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) []BucketLifecycleRuleNoncurrentVersionTransition {
 		return v.NoncurrentVersionTransitions
@@ -5768,6 +5782,12 @@ type BucketObjectLockConfigurationRuleDefaultRetention struct {
 	// The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
 	Mode string `pulumi:"mode"`
 	// The number of years that you want to specify for the default retention period.
+	//
+	// Either `days` or `years` must be specified, but not both.
+	//
+	// > **NOTE on `objectLockConfiguration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
+	// When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
+	// Once you create a bucket with S3 Object Lock enabled, you can't disable Object Lock or suspend versioning for the bucket.
 	Years *int `pulumi:"years"`
 }
 
@@ -5788,6 +5808,12 @@ type BucketObjectLockConfigurationRuleDefaultRetentionArgs struct {
 	// The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
 	Mode pulumi.StringInput `pulumi:"mode"`
 	// The number of years that you want to specify for the default retention period.
+	//
+	// Either `days` or `years` must be specified, but not both.
+	//
+	// > **NOTE on `objectLockConfiguration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
+	// When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
+	// Once you create a bucket with S3 Object Lock enabled, you can't disable Object Lock or suspend versioning for the bucket.
 	Years pulumi.IntPtrInput `pulumi:"years"`
 }
 
@@ -5879,6 +5905,12 @@ func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) Mode() pulumi.S
 }
 
 // The number of years that you want to specify for the default retention period.
+//
+// Either `days` or `years` must be specified, but not both.
+//
+// > **NOTE on `objectLockConfiguration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
+// When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
+// Once you create a bucket with S3 Object Lock enabled, you can't disable Object Lock or suspend versioning for the bucket.
 func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) Years() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketObjectLockConfigurationRuleDefaultRetention) *int { return v.Years }).(pulumi.IntPtrOutput)
 }
@@ -5928,6 +5960,12 @@ func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) Mode() pulum
 }
 
 // The number of years that you want to specify for the default retention period.
+//
+// Either `days` or `years` must be specified, but not both.
+//
+// > **NOTE on `objectLockConfiguration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
+// When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
+// Once you create a bucket with S3 Object Lock enabled, you can't disable Object Lock or suspend versioning for the bucket.
 func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) Years() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketObjectLockConfigurationRuleDefaultRetention) *int {
 		if v == nil {
@@ -8916,6 +8954,8 @@ type BucketReplicationConfigurationRule struct {
 	// Specifies special object selection criteria (documented below).
 	SourceSelectionCriteria *BucketReplicationConfigurationRuleSourceSelectionCriteria `pulumi:"sourceSelectionCriteria"`
 	// The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+	//
+	// > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
 	Status string `pulumi:"status"`
 }
 
@@ -8946,6 +8986,8 @@ type BucketReplicationConfigurationRuleArgs struct {
 	// Specifies special object selection criteria (documented below).
 	SourceSelectionCriteria BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrInput `pulumi:"sourceSelectionCriteria"`
 	// The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+	//
+	// > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -9040,6 +9082,8 @@ func (o BucketReplicationConfigurationRuleOutput) SourceSelectionCriteria() Buck
 }
 
 // The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+//
+// > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
 func (o BucketReplicationConfigurationRuleOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRule) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -14069,6 +14113,8 @@ type BucketWebsite struct {
 	RedirectAllRequestsTo *string `pulumi:"redirectAllRequestsTo"`
 	// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 	// describing redirect behavior and when redirects are applied.
+	//
+	// The `CORS` object supports the following:
 	RoutingRules interface{} `pulumi:"routingRules"`
 }
 
@@ -14092,6 +14138,8 @@ type BucketWebsiteArgs struct {
 	RedirectAllRequestsTo pulumi.StringPtrInput `pulumi:"redirectAllRequestsTo"`
 	// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 	// describing redirect behavior and when redirects are applied.
+	//
+	// The `CORS` object supports the following:
 	RoutingRules pulumi.Input `pulumi:"routingRules"`
 }
 
@@ -14189,6 +14237,8 @@ func (o BucketWebsiteOutput) RedirectAllRequestsTo() pulumi.StringPtrOutput {
 
 // A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 // describing redirect behavior and when redirects are applied.
+//
+// The `CORS` object supports the following:
 func (o BucketWebsiteOutput) RoutingRules() pulumi.AnyOutput {
 	return o.ApplyT(func(v BucketWebsite) interface{} { return v.RoutingRules }).(pulumi.AnyOutput)
 }
@@ -14249,6 +14299,8 @@ func (o BucketWebsitePtrOutput) RedirectAllRequestsTo() pulumi.StringPtrOutput {
 
 // A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
 // describing redirect behavior and when redirects are applied.
+//
+// The `CORS` object supports the following:
 func (o BucketWebsitePtrOutput) RoutingRules() pulumi.AnyOutput {
 	return o.ApplyT(func(v *BucketWebsite) interface{} {
 		if v == nil {
@@ -16097,6 +16149,8 @@ type ObjectCopyGrant struct {
 	// List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
 	Permissions []string `pulumi:"permissions"`
 	// Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+	//
+	// This configuration block has the following optional arguments (one of the three is required):
 	Type string `pulumi:"type"`
 	// URI of the grantee group. Used only when `type` is `Group`.
 	Uri *string `pulumi:"uri"`
@@ -16121,6 +16175,8 @@ type ObjectCopyGrantArgs struct {
 	// List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 	// Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+	//
+	// This configuration block has the following optional arguments (one of the three is required):
 	Type pulumi.StringInput `pulumi:"type"`
 	// URI of the grantee group. Used only when `type` is `Group`.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
@@ -16193,6 +16249,8 @@ func (o ObjectCopyGrantOutput) Permissions() pulumi.StringArrayOutput {
 }
 
 // Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
+//
+// This configuration block has the following optional arguments (one of the three is required):
 func (o ObjectCopyGrantOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectCopyGrant) string { return v.Type }).(pulumi.StringOutput)
 }

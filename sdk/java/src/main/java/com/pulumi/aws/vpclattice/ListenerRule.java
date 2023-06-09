@@ -225,12 +225,16 @@ public class ListenerRule extends com.pulumi.resources.CustomResource {
     /**
      * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
      * @return The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> priority() {

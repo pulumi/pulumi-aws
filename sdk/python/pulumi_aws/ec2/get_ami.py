@@ -549,6 +549,11 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
            filtering is done locally on what AWS returns, and could have a performance
            impact if the result is large. Combine this with other
            options to narrow down the list AWS returns.
+           
+           > **NOTE:** If more or less than a single match is returned by the search,
+           this call will fail. Ensure that your search is specific enough to return
+           a single AMI ID only, or use `most_recent` to choose the most recent one. If
+           you want to match multiple AMIs, use the `ec2_get_ami_ids` data source instead.
     :param Sequence[str] owners: List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
     :param Mapping[str, str] tags: Any tags assigned to the image.
            * `tags.#.key` - Key name of the tag.
@@ -660,6 +665,11 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
            filtering is done locally on what AWS returns, and could have a performance
            impact if the result is large. Combine this with other
            options to narrow down the list AWS returns.
+           
+           > **NOTE:** If more or less than a single match is returned by the search,
+           this call will fail. Ensure that your search is specific enough to return
+           a single AMI ID only, or use `most_recent` to choose the most recent one. If
+           you want to match multiple AMIs, use the `ec2_get_ami_ids` data source instead.
     :param Sequence[str] owners: List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
     :param Mapping[str, str] tags: Any tags assigned to the image.
            * `tags.#.key` - Key name of the tag.

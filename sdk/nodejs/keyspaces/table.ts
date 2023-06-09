@@ -103,6 +103,8 @@ export class Table extends pulumi.CustomResource {
     public readonly schemaDefinition!: pulumi.Output<outputs.keyspaces.TableSchemaDefinition>;
     /**
      * The name of the table.
+     *
+     * The following arguments are optional:
      */
     public readonly tableName!: pulumi.Output<string>;
     /**
@@ -210,6 +212,8 @@ export interface TableState {
     schemaDefinition?: pulumi.Input<inputs.keyspaces.TableSchemaDefinition>;
     /**
      * The name of the table.
+     *
+     * The following arguments are optional:
      */
     tableName?: pulumi.Input<string>;
     /**
@@ -260,6 +264,8 @@ export interface TableArgs {
     schemaDefinition: pulumi.Input<inputs.keyspaces.TableSchemaDefinition>;
     /**
      * The name of the table.
+     *
+     * The following arguments are optional:
      */
     tableName: pulumi.Input<string>;
     /**

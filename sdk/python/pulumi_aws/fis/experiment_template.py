@@ -28,6 +28,8 @@ class ExperimentTemplateArgs:
         :param pulumi.Input[str] description: Description for the experiment template.
         :param pulumi.Input[str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]] stop_conditions: When an ongoing experiment should be stopped. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]] targets: Target of an action. See below.
         """
@@ -81,6 +83,8 @@ class ExperimentTemplateArgs:
     def stop_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]]:
         """
         When an ongoing experiment should be stopped. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "stop_conditions")
 
@@ -129,6 +133,8 @@ class _ExperimentTemplateState:
         :param pulumi.Input[str] description: Description for the experiment template.
         :param pulumi.Input[str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]] stop_conditions: When an ongoing experiment should be stopped. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]] targets: Target of an action. See below.
         """
@@ -188,6 +194,8 @@ class _ExperimentTemplateState:
     def stop_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]]]:
         """
         When an ongoing experiment should be stopped. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "stop_conditions")
 
@@ -293,6 +301,8 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description for the experiment template.
         :param pulumi.Input[str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateTargetArgs']]]] targets: Target of an action. See below.
         """
@@ -421,6 +431,8 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description for the experiment template.
         :param pulumi.Input[str] role_arn: ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]] stop_conditions: When an ongoing experiment should be stopped. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateTargetArgs']]]] targets: Target of an action. See below.
         """
@@ -466,6 +478,8 @@ class ExperimentTemplate(pulumi.CustomResource):
     def stop_conditions(self) -> pulumi.Output[Sequence['outputs.ExperimentTemplateStopCondition']]:
         """
         When an ongoing experiment should be stopped. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "stop_conditions")
 

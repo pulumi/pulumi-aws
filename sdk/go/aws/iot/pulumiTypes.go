@@ -2807,6 +2807,8 @@ func (o TopicRuleDynamodbv2ArrayOutput) Index(i pulumi.IntInput) TopicRuleDynamo
 
 type TopicRuleDynamodbv2PutItem struct {
 	// The name of the DynamoDB table.
+	//
+	// The `dynamodbv2` object takes the following arguments:
 	TableName string `pulumi:"tableName"`
 }
 
@@ -2823,6 +2825,8 @@ type TopicRuleDynamodbv2PutItemInput interface {
 
 type TopicRuleDynamodbv2PutItemArgs struct {
 	// The name of the DynamoDB table.
+	//
+	// The `dynamodbv2` object takes the following arguments:
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -2904,6 +2908,8 @@ func (o TopicRuleDynamodbv2PutItemOutput) ToTopicRuleDynamodbv2PutItemPtrOutputW
 }
 
 // The name of the DynamoDB table.
+//
+// The `dynamodbv2` object takes the following arguments:
 func (o TopicRuleDynamodbv2PutItemOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamodbv2PutItem) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -2933,6 +2939,8 @@ func (o TopicRuleDynamodbv2PutItemPtrOutput) Elem() TopicRuleDynamodbv2PutItemOu
 }
 
 // The name of the DynamoDB table.
+//
+// The `dynamodbv2` object takes the following arguments:
 func (o TopicRuleDynamodbv2PutItemPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamodbv2PutItem) *string {
 		if v == nil {
@@ -4606,6 +4614,8 @@ func (o TopicRuleErrorActionDynamodbv2PtrOutput) RoleArn() pulumi.StringPtrOutpu
 
 type TopicRuleErrorActionDynamodbv2PutItem struct {
 	// The name of the DynamoDB table.
+	//
+	// The `dynamodbv2` object takes the following arguments:
 	TableName string `pulumi:"tableName"`
 }
 
@@ -4622,6 +4632,8 @@ type TopicRuleErrorActionDynamodbv2PutItemInput interface {
 
 type TopicRuleErrorActionDynamodbv2PutItemArgs struct {
 	// The name of the DynamoDB table.
+	//
+	// The `dynamodbv2` object takes the following arguments:
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -4703,6 +4715,8 @@ func (o TopicRuleErrorActionDynamodbv2PutItemOutput) ToTopicRuleErrorActionDynam
 }
 
 // The name of the DynamoDB table.
+//
+// The `dynamodbv2` object takes the following arguments:
 func (o TopicRuleErrorActionDynamodbv2PutItemOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionDynamodbv2PutItem) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -4732,6 +4746,8 @@ func (o TopicRuleErrorActionDynamodbv2PutItemPtrOutput) Elem() TopicRuleErrorAct
 }
 
 // The name of the DynamoDB table.
+//
+// The `dynamodbv2` object takes the following arguments:
 func (o TopicRuleErrorActionDynamodbv2PutItemPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionDynamodbv2PutItem) *string {
 		if v == nil {
@@ -6325,6 +6341,8 @@ func (o TopicRuleErrorActionLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutpu
 
 type TopicRuleErrorActionRepublish struct {
 	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+	//
+	// The `s3` object takes the following arguments:
 	Qos *int `pulumi:"qos"`
 	// The ARN of the IAM role that grants access.
 	RoleArn string `pulumi:"roleArn"`
@@ -6345,6 +6363,8 @@ type TopicRuleErrorActionRepublishInput interface {
 
 type TopicRuleErrorActionRepublishArgs struct {
 	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+	//
+	// The `s3` object takes the following arguments:
 	Qos pulumi.IntPtrInput `pulumi:"qos"`
 	// The ARN of the IAM role that grants access.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -6430,6 +6450,8 @@ func (o TopicRuleErrorActionRepublishOutput) ToTopicRuleErrorActionRepublishPtrO
 }
 
 // The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+//
+// The `s3` object takes the following arguments:
 func (o TopicRuleErrorActionRepublishOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionRepublish) *int { return v.Qos }).(pulumi.IntPtrOutput)
 }
@@ -6469,6 +6491,8 @@ func (o TopicRuleErrorActionRepublishPtrOutput) Elem() TopicRuleErrorActionRepub
 }
 
 // The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+//
+// The `s3` object takes the following arguments:
 func (o TopicRuleErrorActionRepublishPtrOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionRepublish) *int {
 		if v == nil {
@@ -8793,6 +8817,8 @@ func (o TopicRuleLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 
 type TopicRuleRepublish struct {
 	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+	//
+	// The `s3` object takes the following arguments:
 	Qos *int `pulumi:"qos"`
 	// The ARN of the IAM role that grants access.
 	RoleArn string `pulumi:"roleArn"`
@@ -8813,6 +8839,8 @@ type TopicRuleRepublishInput interface {
 
 type TopicRuleRepublishArgs struct {
 	// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+	//
+	// The `s3` object takes the following arguments:
 	Qos pulumi.IntPtrInput `pulumi:"qos"`
 	// The ARN of the IAM role that grants access.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -8898,6 +8926,8 @@ func (o TopicRuleRepublishOutput) ToTopicRuleRepublishPtrOutputWithContext(ctx c
 }
 
 // The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+//
+// The `s3` object takes the following arguments:
 func (o TopicRuleRepublishOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublish) *int { return v.Qos }).(pulumi.IntPtrOutput)
 }
@@ -8937,6 +8967,8 @@ func (o TopicRuleRepublishPtrOutput) Elem() TopicRuleRepublishOutput {
 }
 
 // The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+//
+// The `s3` object takes the following arguments:
 func (o TopicRuleRepublishPtrOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublish) *int {
 		if v == nil {

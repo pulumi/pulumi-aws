@@ -170,6 +170,8 @@ type Broker struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users BrokerUserArrayOutput `pulumi:"users"`
 }
 
@@ -268,6 +270,8 @@ type brokerState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users []BrokerUser `pulumi:"users"`
 }
 
@@ -326,6 +330,8 @@ type BrokerState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users BrokerUserArrayInput
 }
 
@@ -371,6 +377,8 @@ type brokerArgs struct {
 	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users []BrokerUser `pulumi:"users"`
 }
 
@@ -413,6 +421,8 @@ type BrokerArgs struct {
 	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users BrokerUserArrayInput
 }
 
@@ -620,6 +630,8 @@ func (o BrokerOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+//
+// The following arguments are optional:
 func (o BrokerOutput) Users() BrokerUserArrayOutput {
 	return o.ApplyT(func(v *Broker) BrokerUserArrayOutput { return v.Users }).(BrokerUserArrayOutput)
 }

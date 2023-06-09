@@ -89,12 +89,17 @@ def get_route_table_associations(filters: Optional[Sequence[pulumi.InputType['Ge
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_route_table_associations(transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
+    example = aws.ec2transitgateway.get_route_table_associations(transit_gateway_route_table_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
     :param Sequence[pulumi.InputType['GetRouteTableAssociationsFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -123,11 +128,16 @@ def get_route_table_associations_output(filters: Optional[pulumi.Input[Optional[
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_route_table_associations(transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
+    example = aws.ec2transitgateway.get_route_table_associations(transit_gateway_route_table_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
     :param Sequence[pulumi.InputType['GetRouteTableAssociationsFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+           
+           The following arguments are optional:
     """
     ...

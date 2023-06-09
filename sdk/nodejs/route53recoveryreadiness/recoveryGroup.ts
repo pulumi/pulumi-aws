@@ -62,6 +62,8 @@ export class RecoveryGroup extends pulumi.CustomResource {
     public readonly cells!: pulumi.Output<string[] | undefined>;
     /**
      * A unique name describing the recovery group.
+     *
+     * The following argument are optional:
      */
     public readonly recoveryGroupName!: pulumi.Output<string>;
     /**
@@ -121,6 +123,8 @@ export interface RecoveryGroupState {
     cells?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A unique name describing the recovery group.
+     *
+     * The following argument are optional:
      */
     recoveryGroupName?: pulumi.Input<string>;
     /**
@@ -143,6 +147,8 @@ export interface RecoveryGroupArgs {
     cells?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A unique name describing the recovery group.
+     *
+     * The following argument are optional:
      */
     recoveryGroupName: pulumi.Input<string>;
     /**

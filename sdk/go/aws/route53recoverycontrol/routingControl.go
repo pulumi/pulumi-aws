@@ -83,6 +83,8 @@ type RoutingControl struct {
 	// ARN of the control panel in which this routing control will reside.
 	ControlPanelArn pulumi.StringOutput `pulumi:"controlPanelArn"`
 	// The name describing the routing control.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -127,6 +129,8 @@ type routingControlState struct {
 	// ARN of the control panel in which this routing control will reside.
 	ControlPanelArn *string `pulumi:"controlPanelArn"`
 	// The name describing the routing control.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 	Status *string `pulumi:"status"`
@@ -140,6 +144,8 @@ type RoutingControlState struct {
 	// ARN of the control panel in which this routing control will reside.
 	ControlPanelArn pulumi.StringPtrInput
 	// The name describing the routing control.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
 	Status pulumi.StringPtrInput
@@ -155,6 +161,8 @@ type routingControlArgs struct {
 	// ARN of the control panel in which this routing control will reside.
 	ControlPanelArn *string `pulumi:"controlPanelArn"`
 	// The name describing the routing control.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 }
 
@@ -165,6 +173,8 @@ type RoutingControlArgs struct {
 	// ARN of the control panel in which this routing control will reside.
 	ControlPanelArn pulumi.StringPtrInput
 	// The name describing the routing control.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 }
 
@@ -271,6 +281,8 @@ func (o RoutingControlOutput) ControlPanelArn() pulumi.StringOutput {
 }
 
 // The name describing the routing control.
+//
+// The following arguments are optional:
 func (o RoutingControlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingControl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

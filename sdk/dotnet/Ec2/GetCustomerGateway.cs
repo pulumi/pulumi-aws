@@ -124,6 +124,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// One or more [name-value pairs][dcg-filters] to filter by.
+        /// 
+        /// [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
         /// </summary>
         public List<Inputs.GetCustomerGatewayFilterArgs> Filters
         {
@@ -162,6 +164,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// One or more [name-value pairs][dcg-filters] to filter by.
+        /// 
+        /// [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
         /// </summary>
         public InputList<Inputs.GetCustomerGatewayFilterInputArgs> Filters
         {

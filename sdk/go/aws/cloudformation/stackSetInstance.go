@@ -44,6 +44,74 @@ import (
 //	}
 //
 // ```
+// ### Example IAM Setup in Target Account
+//
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Identifiers: interface{}{
+// aws_iam_role.AWSCloudFormationStackSetAdministrationRole.Arn,
+// },
+// Type: "AWS",
+// },
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// aWSCloudFormationStackSetExecutionRole, err := iam.NewRole(ctx, "aWSCloudFormationStackSetExecutionRole", &iam.RoleArgs{
+// AssumeRolePolicy: *pulumi.String(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.Json),
+// })
+// if err != nil {
+// return err
+// }
+// aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "cloudformation:*",
+// "s3:*",
+// "sns:*",
+// },
+// Effect: pulumi.StringRef("Allow"),
+// Resources: []string{
+// "*",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = iam.NewRolePolicy(ctx, "aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", &iam.RolePolicyArgs{
+// Policy: *pulumi.String(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.Json),
+// Role: aWSCloudFormationStackSetExecutionRole.Name,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 // ### Example Deployment across Organizations account
 //
 // ```go

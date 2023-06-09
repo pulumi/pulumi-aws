@@ -126,6 +126,8 @@ export class ResourceLfTags extends pulumi.CustomResource {
     public readonly database!: pulumi.Output<outputs.lakeformation.ResourceLfTagsDatabase>;
     /**
      * Set of LF-tags to attach to the resource. See below.
+     *
+     * Exactly one of the following is required:
      */
     public readonly lfTags!: pulumi.Output<outputs.lakeformation.ResourceLfTagsLfTag[]>;
     /**
@@ -134,6 +136,8 @@ export class ResourceLfTags extends pulumi.CustomResource {
     public readonly table!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTable>;
     /**
      * Configuration block for a table with columns resource. See below.
+     *
+     * The following arguments are optional:
      */
     public readonly tableWithColumns!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTableWithColumns>;
 
@@ -185,6 +189,8 @@ export interface ResourceLfTagsState {
     database?: pulumi.Input<inputs.lakeformation.ResourceLfTagsDatabase>;
     /**
      * Set of LF-tags to attach to the resource. See below.
+     *
+     * Exactly one of the following is required:
      */
     lfTags?: pulumi.Input<pulumi.Input<inputs.lakeformation.ResourceLfTagsLfTag>[]>;
     /**
@@ -193,6 +199,8 @@ export interface ResourceLfTagsState {
     table?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTable>;
     /**
      * Configuration block for a table with columns resource. See below.
+     *
+     * The following arguments are optional:
      */
     tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTableWithColumns>;
 }
@@ -211,6 +219,8 @@ export interface ResourceLfTagsArgs {
     database?: pulumi.Input<inputs.lakeformation.ResourceLfTagsDatabase>;
     /**
      * Set of LF-tags to attach to the resource. See below.
+     *
+     * Exactly one of the following is required:
      */
     lfTags: pulumi.Input<pulumi.Input<inputs.lakeformation.ResourceLfTagsLfTag>[]>;
     /**
@@ -219,6 +229,8 @@ export interface ResourceLfTagsArgs {
     table?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTable>;
     /**
      * Configuration block for a table with columns resource. See below.
+     *
+     * The following arguments are optional:
      */
     tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTableWithColumns>;
 }

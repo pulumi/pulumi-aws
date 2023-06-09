@@ -26,6 +26,8 @@ type ListenerDefaultAction struct {
 	// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 	// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -56,6 +58,8 @@ type ListenerDefaultActionArgs struct {
 	// ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 	// Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -146,6 +150,8 @@ func (o ListenerDefaultActionOutput) TargetGroupArn() pulumi.StringPtrOutput {
 }
 
 // Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -186,6 +192,8 @@ type ListenerDefaultActionAuthenticateCognito struct {
 	// ID of the Cognito user pool client.
 	UserPoolClientId string `pulumi:"userPoolClientId"`
 	// Domain prefix or fully-qualified domain name of the Cognito user pool.
+	//
+	// The following arguments are optional:
 	UserPoolDomain string `pulumi:"userPoolDomain"`
 }
 
@@ -216,6 +224,8 @@ type ListenerDefaultActionAuthenticateCognitoArgs struct {
 	// ID of the Cognito user pool client.
 	UserPoolClientId pulumi.StringInput `pulumi:"userPoolClientId"`
 	// Domain prefix or fully-qualified domain name of the Cognito user pool.
+	//
+	// The following arguments are optional:
 	UserPoolDomain pulumi.StringInput `pulumi:"userPoolDomain"`
 }
 
@@ -334,6 +344,8 @@ func (o ListenerDefaultActionAuthenticateCognitoOutput) UserPoolClientId() pulum
 }
 
 // Domain prefix or fully-qualified domain name of the Cognito user pool.
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionAuthenticateCognitoOutput) UserPoolDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) string { return v.UserPoolDomain }).(pulumi.StringOutput)
 }
@@ -433,6 +445,8 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) UserPoolClientId() pu
 }
 
 // Domain prefix or fully-qualified domain name of the Cognito user pool.
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) UserPoolDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) *string {
 		if v == nil {
@@ -464,6 +478,8 @@ type ListenerDefaultActionAuthenticateOidc struct {
 	// Token endpoint of the IdP.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
 	// User info endpoint of the IdP.
+	//
+	// The following arguments are optional:
 	UserInfoEndpoint string `pulumi:"userInfoEndpoint"`
 }
 
@@ -500,6 +516,8 @@ type ListenerDefaultActionAuthenticateOidcArgs struct {
 	// Token endpoint of the IdP.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
 	// User info endpoint of the IdP.
+	//
+	// The following arguments are optional:
 	UserInfoEndpoint pulumi.StringInput `pulumi:"userInfoEndpoint"`
 }
 
@@ -633,6 +651,8 @@ func (o ListenerDefaultActionAuthenticateOidcOutput) TokenEndpoint() pulumi.Stri
 }
 
 // User info endpoint of the IdP.
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionAuthenticateOidcOutput) UserInfoEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) string { return v.UserInfoEndpoint }).(pulumi.StringOutput)
 }
@@ -762,6 +782,8 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) TokenEndpoint() pulumi.S
 }
 
 // User info endpoint of the IdP.
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) *string {
 		if v == nil {
@@ -773,6 +795,8 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) UserInfoEndpoint() pulum
 
 type ListenerDefaultActionFixedResponse struct {
 	// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+	//
+	// The following arguments are optional:
 	ContentType string `pulumi:"contentType"`
 	// Message body.
 	MessageBody *string `pulumi:"messageBody"`
@@ -793,6 +817,8 @@ type ListenerDefaultActionFixedResponseInput interface {
 
 type ListenerDefaultActionFixedResponseArgs struct {
 	// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+	//
+	// The following arguments are optional:
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 	// Message body.
 	MessageBody pulumi.StringPtrInput `pulumi:"messageBody"`
@@ -878,6 +904,8 @@ func (o ListenerDefaultActionFixedResponseOutput) ToListenerDefaultActionFixedRe
 }
 
 // Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionFixedResponseOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionFixedResponse) string { return v.ContentType }).(pulumi.StringOutput)
 }
@@ -917,6 +945,8 @@ func (o ListenerDefaultActionFixedResponsePtrOutput) Elem() ListenerDefaultActio
 }
 
 // Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionFixedResponsePtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionFixedResponse) *string {
 		if v == nil {
@@ -950,6 +980,8 @@ type ListenerDefaultActionForward struct {
 	// Configuration block for target group stickiness for the rule. Detailed below.
 	Stickiness *ListenerDefaultActionForwardStickiness `pulumi:"stickiness"`
 	// Set of 1-5 target group blocks. Detailed below.
+	//
+	// The following arguments are optional:
 	TargetGroups []ListenerDefaultActionForwardTargetGroup `pulumi:"targetGroups"`
 }
 
@@ -968,6 +1000,8 @@ type ListenerDefaultActionForwardArgs struct {
 	// Configuration block for target group stickiness for the rule. Detailed below.
 	Stickiness ListenerDefaultActionForwardStickinessPtrInput `pulumi:"stickiness"`
 	// Set of 1-5 target group blocks. Detailed below.
+	//
+	// The following arguments are optional:
 	TargetGroups ListenerDefaultActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
 }
 
@@ -1054,6 +1088,8 @@ func (o ListenerDefaultActionForwardOutput) Stickiness() ListenerDefaultActionFo
 }
 
 // Set of 1-5 target group blocks. Detailed below.
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionForwardOutput) TargetGroups() ListenerDefaultActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForward) []ListenerDefaultActionForwardTargetGroup { return v.TargetGroups }).(ListenerDefaultActionForwardTargetGroupArrayOutput)
 }
@@ -1093,6 +1129,8 @@ func (o ListenerDefaultActionForwardPtrOutput) Stickiness() ListenerDefaultActio
 }
 
 // Set of 1-5 target group blocks. Detailed below.
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionForwardPtrOutput) TargetGroups() ListenerDefaultActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionForward) []ListenerDefaultActionForwardTargetGroup {
 		if v == nil {
@@ -1104,6 +1142,8 @@ func (o ListenerDefaultActionForwardPtrOutput) TargetGroups() ListenerDefaultAct
 
 type ListenerDefaultActionForwardStickiness struct {
 	// Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	//
+	// The following arguments are optional:
 	Duration int `pulumi:"duration"`
 	// Whether target group stickiness is enabled. Default is `false`.
 	Enabled *bool `pulumi:"enabled"`
@@ -1122,6 +1162,8 @@ type ListenerDefaultActionForwardStickinessInput interface {
 
 type ListenerDefaultActionForwardStickinessArgs struct {
 	// Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+	//
+	// The following arguments are optional:
 	Duration pulumi.IntInput `pulumi:"duration"`
 	// Whether target group stickiness is enabled. Default is `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -1205,6 +1247,8 @@ func (o ListenerDefaultActionForwardStickinessOutput) ToListenerDefaultActionFor
 }
 
 // Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionForwardStickinessOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForwardStickiness) int { return v.Duration }).(pulumi.IntOutput)
 }
@@ -1239,6 +1283,8 @@ func (o ListenerDefaultActionForwardStickinessPtrOutput) Elem() ListenerDefaultA
 }
 
 // Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionForwardStickinessPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionForwardStickiness) *int {
 		if v == nil {
@@ -1260,6 +1306,8 @@ func (o ListenerDefaultActionForwardStickinessPtrOutput) Enabled() pulumi.BoolPt
 
 type ListenerDefaultActionForwardTargetGroup struct {
 	// ARN of the target group.
+	//
+	// The following arguments are optional:
 	Arn string `pulumi:"arn"`
 	// Weight. The range is 0 to 999.
 	Weight *int `pulumi:"weight"`
@@ -1278,6 +1326,8 @@ type ListenerDefaultActionForwardTargetGroupInput interface {
 
 type ListenerDefaultActionForwardTargetGroupArgs struct {
 	// ARN of the target group.
+	//
+	// The following arguments are optional:
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Weight. The range is 0 to 999.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
@@ -1335,6 +1385,8 @@ func (o ListenerDefaultActionForwardTargetGroupOutput) ToListenerDefaultActionFo
 }
 
 // ARN of the target group.
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionForwardTargetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -1376,6 +1428,8 @@ type ListenerDefaultActionRedirect struct {
 	// Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
 	Query *string `pulumi:"query"`
 	// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+	//
+	// The following arguments are optional:
 	StatusCode string `pulumi:"statusCode"`
 }
 
@@ -1402,6 +1456,8 @@ type ListenerDefaultActionRedirectArgs struct {
 	// Query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?". Defaults to `#{query}`.
 	Query pulumi.StringPtrInput `pulumi:"query"`
 	// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+	//
+	// The following arguments are optional:
 	StatusCode pulumi.StringInput `pulumi:"statusCode"`
 }
 
@@ -1508,6 +1564,8 @@ func (o ListenerDefaultActionRedirectOutput) Query() pulumi.StringPtrOutput {
 }
 
 // HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionRedirectOutput) StatusCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerDefaultActionRedirect) string { return v.StatusCode }).(pulumi.StringOutput)
 }
@@ -1587,6 +1645,8 @@ func (o ListenerDefaultActionRedirectPtrOutput) Query() pulumi.StringPtrOutput {
 }
 
 // HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+//
+// The following arguments are optional:
 func (o ListenerDefaultActionRedirectPtrOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerDefaultActionRedirect) *string {
 		if v == nil {
@@ -3191,6 +3251,8 @@ type ListenerRuleCondition struct {
 	// Query strings to match. Query String block fields documented below.
 	QueryStrings []ListenerRuleConditionQueryString `pulumi:"queryStrings"`
 	// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+	//
+	// > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
 	SourceIp *ListenerRuleConditionSourceIp `pulumi:"sourceIp"`
 }
 
@@ -3217,6 +3279,8 @@ type ListenerRuleConditionArgs struct {
 	// Query strings to match. Query String block fields documented below.
 	QueryStrings ListenerRuleConditionQueryStringArrayInput `pulumi:"queryStrings"`
 	// Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+	//
+	// > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
 	SourceIp ListenerRuleConditionSourceIpPtrInput `pulumi:"sourceIp"`
 }
 
@@ -3297,6 +3361,8 @@ func (o ListenerRuleConditionOutput) QueryStrings() ListenerRuleConditionQuerySt
 }
 
 // Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `httpHeader` condition instead.
+//
+// > **NOTE::** Exactly one of `hostHeader`, `httpHeader`, `httpRequestMethod`, `pathPattern`, `queryString` or `sourceIp` must be set per condition.
 func (o ListenerRuleConditionOutput) SourceIp() ListenerRuleConditionSourceIpPtrOutput {
 	return o.ApplyT(func(v ListenerRuleCondition) *ListenerRuleConditionSourceIp { return v.SourceIp }).(ListenerRuleConditionSourceIpPtrOutput)
 }
@@ -3323,6 +3389,8 @@ func (o ListenerRuleConditionArrayOutput) Index(i pulumi.IntInput) ListenerRuleC
 
 type ListenerRuleConditionHostHeader struct {
 	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+	//
+	// Query String Value Blocks (for `query_string.values`) support the following:
 	Values []string `pulumi:"values"`
 }
 
@@ -3339,6 +3407,8 @@ type ListenerRuleConditionHostHeaderInput interface {
 
 type ListenerRuleConditionHostHeaderArgs struct {
 	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+	//
+	// Query String Value Blocks (for `query_string.values`) support the following:
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3420,6 +3490,8 @@ func (o ListenerRuleConditionHostHeaderOutput) ToListenerRuleConditionHostHeader
 }
 
 // List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+//
+// Query String Value Blocks (for `query_string.values`) support the following:
 func (o ListenerRuleConditionHostHeaderOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionHostHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3449,6 +3521,8 @@ func (o ListenerRuleConditionHostHeaderPtrOutput) Elem() ListenerRuleConditionHo
 }
 
 // List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+//
+// Query String Value Blocks (for `query_string.values`) support the following:
 func (o ListenerRuleConditionHostHeaderPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionHostHeader) []string {
 		if v == nil {
@@ -3616,6 +3690,8 @@ func (o ListenerRuleConditionHttpHeaderPtrOutput) Values() pulumi.StringArrayOut
 
 type ListenerRuleConditionHttpRequestMethod struct {
 	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+	//
+	// Query String Value Blocks (for `query_string.values`) support the following:
 	Values []string `pulumi:"values"`
 }
 
@@ -3632,6 +3708,8 @@ type ListenerRuleConditionHttpRequestMethodInput interface {
 
 type ListenerRuleConditionHttpRequestMethodArgs struct {
 	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+	//
+	// Query String Value Blocks (for `query_string.values`) support the following:
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3713,6 +3791,8 @@ func (o ListenerRuleConditionHttpRequestMethodOutput) ToListenerRuleConditionHtt
 }
 
 // List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+//
+// Query String Value Blocks (for `query_string.values`) support the following:
 func (o ListenerRuleConditionHttpRequestMethodOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionHttpRequestMethod) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3742,6 +3822,8 @@ func (o ListenerRuleConditionHttpRequestMethodPtrOutput) Elem() ListenerRuleCond
 }
 
 // List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+//
+// Query String Value Blocks (for `query_string.values`) support the following:
 func (o ListenerRuleConditionHttpRequestMethodPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionHttpRequestMethod) []string {
 		if v == nil {
@@ -3753,6 +3835,8 @@ func (o ListenerRuleConditionHttpRequestMethodPtrOutput) Values() pulumi.StringA
 
 type ListenerRuleConditionPathPattern struct {
 	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+	//
+	// Query String Value Blocks (for `query_string.values`) support the following:
 	Values []string `pulumi:"values"`
 }
 
@@ -3769,6 +3853,8 @@ type ListenerRuleConditionPathPatternInput interface {
 
 type ListenerRuleConditionPathPatternArgs struct {
 	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+	//
+	// Query String Value Blocks (for `query_string.values`) support the following:
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3850,6 +3936,8 @@ func (o ListenerRuleConditionPathPatternOutput) ToListenerRuleConditionPathPatte
 }
 
 // List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+//
+// Query String Value Blocks (for `query_string.values`) support the following:
 func (o ListenerRuleConditionPathPatternOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionPathPattern) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3879,6 +3967,8 @@ func (o ListenerRuleConditionPathPatternPtrOutput) Elem() ListenerRuleConditionP
 }
 
 // List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+//
+// Query String Value Blocks (for `query_string.values`) support the following:
 func (o ListenerRuleConditionPathPatternPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionPathPattern) []string {
 		if v == nil {
@@ -3996,6 +4086,8 @@ func (o ListenerRuleConditionQueryStringArrayOutput) Index(i pulumi.IntInput) Li
 
 type ListenerRuleConditionSourceIp struct {
 	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+	//
+	// Query String Value Blocks (for `query_string.values`) support the following:
 	Values []string `pulumi:"values"`
 }
 
@@ -4012,6 +4104,8 @@ type ListenerRuleConditionSourceIpInput interface {
 
 type ListenerRuleConditionSourceIpArgs struct {
 	// List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+	//
+	// Query String Value Blocks (for `query_string.values`) support the following:
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4093,6 +4187,8 @@ func (o ListenerRuleConditionSourceIpOutput) ToListenerRuleConditionSourceIpPtrO
 }
 
 // List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+//
+// Query String Value Blocks (for `query_string.values`) support the following:
 func (o ListenerRuleConditionSourceIpOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionSourceIp) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4122,6 +4218,8 @@ func (o ListenerRuleConditionSourceIpPtrOutput) Elem() ListenerRuleConditionSour
 }
 
 // List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
+//
+// Query String Value Blocks (for `query_string.values`) support the following:
 func (o ListenerRuleConditionSourceIpPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionSourceIp) []string {
 		if v == nil {

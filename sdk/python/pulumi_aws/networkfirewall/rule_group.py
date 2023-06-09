@@ -456,7 +456,7 @@ class RuleGroup(pulumi.CustomResource):
                     ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(
                         key="example",
                         ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(
-                            reference_arn=aws_ec2_managed_prefix_list["this"]["arn"],
+                            reference_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         )],
                     )],
                 ),
@@ -603,7 +603,7 @@ class RuleGroup(pulumi.CustomResource):
                     ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(
                         key="example",
                         ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(
-                            reference_arn=aws_ec2_managed_prefix_list["this"]["arn"],
+                            reference_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         )],
                     )],
                 ),

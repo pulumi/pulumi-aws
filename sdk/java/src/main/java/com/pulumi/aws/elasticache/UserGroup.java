@@ -131,12 +131,16 @@ public class UserGroup extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the user group.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="userGroupId", refs={String.class}, tree="[0]")
     private Output<String> userGroupId;
 
     /**
      * @return The ID of the user group.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userGroupId() {

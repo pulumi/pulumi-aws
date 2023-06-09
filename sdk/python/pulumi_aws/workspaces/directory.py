@@ -470,7 +470,7 @@ class Directory(pulumi.CustomResource):
                 device_type_zeroclient="DENY",
             ),
             workspace_creation_properties=aws.workspaces.DirectoryWorkspaceCreationPropertiesArgs(
-                custom_security_group_id=aws_security_group["example"]["id"],
+                custom_security_group_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 default_ou="OU=AWS,DC=Workgroup,DC=Example,DC=com",
                 enable_internet_access=True,
                 enable_maintenance_mode=True,
@@ -597,7 +597,7 @@ class Directory(pulumi.CustomResource):
                 device_type_zeroclient="DENY",
             ),
             workspace_creation_properties=aws.workspaces.DirectoryWorkspaceCreationPropertiesArgs(
-                custom_security_group_id=aws_security_group["example"]["id"],
+                custom_security_group_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 default_ou="OU=AWS,DC=Workgroup,DC=Example,DC=com",
                 enable_internet_access=True,
                 enable_maintenance_mode=True,

@@ -124,12 +124,16 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     /**
      * Friendly name for the member account.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Friendly name for the member account.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -387,6 +391,8 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Friendly name for the member account.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -397,6 +403,8 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Friendly name for the member account.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

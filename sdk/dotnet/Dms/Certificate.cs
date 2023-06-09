@@ -55,6 +55,8 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The certificate identifier.
+        /// 
+        /// - Must contain from 1 to 255 alphanumeric characters and hyphens.
         /// </summary>
         [Output("certificateId")]
         public Output<string> CertificateId { get; private set; } = null!;
@@ -136,6 +138,8 @@ namespace Pulumi.Aws.Dms
     {
         /// <summary>
         /// The certificate identifier.
+        /// 
+        /// - Must contain from 1 to 255 alphanumeric characters and hyphens.
         /// </summary>
         [Input("certificateId", required: true)]
         public Input<string> CertificateId { get; set; } = null!;
@@ -200,6 +204,8 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The certificate identifier.
+        /// 
+        /// - Must contain from 1 to 255 alphanumeric characters and hyphens.
         /// </summary>
         [Input("certificateId")]
         public Input<string>? CertificateId { get; set; }

@@ -19,6 +19,8 @@ namespace Pulumi.Aws.IdentityStore.Outputs
         public readonly Outputs.GetGroupAlternateIdentifierExternalIdResult? ExternalId;
         /// <summary>
         /// An entity attribute that's unique to a specific entity. Detailed below.
+        /// 
+        /// &gt; Exactly one of the above arguments must be provided.
         /// </summary>
         public readonly Outputs.GetGroupAlternateIdentifierUniqueAttributeResult? UniqueAttribute;
 

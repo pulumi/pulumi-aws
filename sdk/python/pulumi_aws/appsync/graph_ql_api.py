@@ -441,9 +441,9 @@ class GraphQLApi(pulumi.CustomResource):
         example = aws.appsync.GraphQLApi("example",
             authentication_type="AMAZON_COGNITO_USER_POOLS",
             user_pool_config=aws.appsync.GraphQLApiUserPoolConfigArgs(
-                aws_region=data["aws_region"]["current"]["name"],
+                aws_region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 default_action="DENY",
-                user_pool_id=aws_cognito_user_pool["example"]["id"],
+                user_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
         ### OpenID Connect Authentication
@@ -585,9 +585,9 @@ class GraphQLApi(pulumi.CustomResource):
         example = aws.appsync.GraphQLApi("example",
             authentication_type="AMAZON_COGNITO_USER_POOLS",
             user_pool_config=aws.appsync.GraphQLApiUserPoolConfigArgs(
-                aws_region=data["aws_region"]["current"]["name"],
+                aws_region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 default_action="DENY",
-                user_pool_id=aws_cognito_user_pool["example"]["id"],
+                user_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
         ### OpenID Connect Authentication

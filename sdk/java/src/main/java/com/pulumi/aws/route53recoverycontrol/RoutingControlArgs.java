@@ -48,12 +48,16 @@ public final class RoutingControlArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The name describing the routing control.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return The name describing the routing control.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -131,6 +135,8 @@ public final class RoutingControlArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name The name describing the routing control.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -141,6 +147,8 @@ public final class RoutingControlArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param name The name describing the routing control.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

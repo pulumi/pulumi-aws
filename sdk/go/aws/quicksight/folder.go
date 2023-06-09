@@ -139,6 +139,8 @@ type Folder struct {
 	// The time that the folder was last updated.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// Display name for the folder.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn pulumi.StringPtrOutput `pulumi:"parentFolderArn"`
@@ -197,6 +199,8 @@ type folderState struct {
 	// The time that the folder was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Display name for the folder.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn *string `pulumi:"parentFolderArn"`
@@ -224,6 +228,8 @@ type FolderState struct {
 	// The time that the folder was last updated.
 	LastUpdatedTime pulumi.StringPtrInput
 	// Display name for the folder.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn pulumi.StringPtrInput
@@ -247,6 +253,8 @@ type folderArgs struct {
 	// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
 	FolderType *string `pulumi:"folderType"`
 	// Display name for the folder.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn *string `pulumi:"parentFolderArn"`
@@ -265,6 +273,8 @@ type FolderArgs struct {
 	// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
 	FolderType pulumi.StringPtrInput
 	// Display name for the folder.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn pulumi.StringPtrInput
@@ -397,6 +407,8 @@ func (o FolderOutput) LastUpdatedTime() pulumi.StringOutput {
 }
 
 // Display name for the folder.
+//
+// The following arguments are optional:
 func (o FolderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -150,6 +150,9 @@ namespace Pulumi.Aws
         /// `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
         /// `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
         /// [`service` attribute][2] documentation for other possible values.
+        /// 
+        /// &gt; **NOTE:** If the specified combination of regions and services does not yield any
+        /// CIDR blocks, this call will fail.
         /// </summary>
         public List<string> Services
         {
@@ -194,6 +197,9 @@ namespace Pulumi.Aws
         /// `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
         /// `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
         /// [`service` attribute][2] documentation for other possible values.
+        /// 
+        /// &gt; **NOTE:** If the specified combination of regions and services does not yield any
+        /// CIDR blocks, this call will fail.
         /// </summary>
         public InputList<string> Services
         {

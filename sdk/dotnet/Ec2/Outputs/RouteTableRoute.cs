@@ -27,6 +27,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly string? CoreNetworkArn;
         /// <summary>
         /// The ID of a managed prefix list destination of the route.
+        /// 
+        /// One of the following target arguments must be supplied:
         /// </summary>
         public readonly string? DestinationPrefixListId;
         /// <summary>
@@ -67,6 +69,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly string? VpcEndpointId;
         /// <summary>
         /// Identifier of a VPC peering connection.
+        /// 
+        /// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         /// </summary>
         public readonly string? VpcPeeringConnectionId;
 

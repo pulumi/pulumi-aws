@@ -167,6 +167,8 @@ export class Table extends pulumi.CustomResource {
     public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableLocalSecondaryIndex[] | undefined>;
     /**
      * Unique within a region name of the table.
+     *
+     * Optional arguments:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -345,6 +347,8 @@ export interface TableState {
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableLocalSecondaryIndex>[]>;
     /**
      * Unique within a region name of the table.
+     *
+     * Optional arguments:
      */
     name?: pulumi.Input<string>;
     /**
@@ -449,6 +453,8 @@ export interface TableArgs {
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableLocalSecondaryIndex>[]>;
     /**
      * Unique within a region name of the table.
+     *
+     * Optional arguments:
      */
     name?: pulumi.Input<string>;
     /**

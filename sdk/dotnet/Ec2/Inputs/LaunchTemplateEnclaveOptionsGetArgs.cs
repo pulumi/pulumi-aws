@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ec2.Inputs
     {
         /// <summary>
         /// If set to `true`, Nitro Enclaves will be enabled on the instance.
+        /// 
+        /// For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

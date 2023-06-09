@@ -211,6 +211,8 @@ def get_data_set(aws_account_id: Optional[str] = None,
 
     :param str aws_account_id: AWS account ID.
     :param str data_set_id: Identifier for the data set.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
@@ -262,5 +264,7 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = 
 
     :param str aws_account_id: AWS account ID.
     :param str data_set_id: Identifier for the data set.
+           
+           The following arguments are optional:
     """
     ...

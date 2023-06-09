@@ -105,12 +105,16 @@ public class RouteCalculation extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the data provider of traffic and road network data.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="dataSource", refs={String.class}, tree="[0]")
     private Output<String> dataSource;
 
     /**
      * @return Specifies the data provider of traffic and road network data.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> dataSource() {

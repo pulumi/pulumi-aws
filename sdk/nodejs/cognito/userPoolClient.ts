@@ -231,6 +231,8 @@ export class UserPoolClient extends pulumi.CustomResource {
     public readonly tokenValidityUnits!: pulumi.Output<outputs.cognito.UserPoolClientTokenValidityUnits | undefined>;
     /**
      * User pool the client belongs to.
+     *
+     * The following arguments are optional:
      */
     public readonly userPoolId!: pulumi.Output<string>;
     /**
@@ -406,6 +408,8 @@ export interface UserPoolClientState {
     tokenValidityUnits?: pulumi.Input<inputs.cognito.UserPoolClientTokenValidityUnits>;
     /**
      * User pool the client belongs to.
+     *
+     * The following arguments are optional:
      */
     userPoolId?: pulumi.Input<string>;
     /**
@@ -506,6 +510,8 @@ export interface UserPoolClientArgs {
     tokenValidityUnits?: pulumi.Input<inputs.cognito.UserPoolClientTokenValidityUnits>;
     /**
      * User pool the client belongs to.
+     *
+     * The following arguments are optional:
      */
     userPoolId: pulumi.Input<string>;
     /**

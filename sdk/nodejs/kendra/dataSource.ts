@@ -377,6 +377,8 @@ export class DataSource extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     *
+     * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -511,6 +513,8 @@ export interface DataSourceState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
     /**
@@ -561,6 +565,8 @@ export interface DataSourceArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

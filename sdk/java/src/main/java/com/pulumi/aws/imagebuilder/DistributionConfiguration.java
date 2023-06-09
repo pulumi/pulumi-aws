@@ -135,12 +135,16 @@ public class DistributionConfiguration extends com.pulumi.resources.CustomResour
     /**
      * One or more configuration blocks with distribution settings. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="distributions", refs={List.class,DistributionConfigurationDistribution.class}, tree="[0,1]")
     private Output<List<DistributionConfigurationDistribution>> distributions;
 
     /**
      * @return One or more configuration blocks with distribution settings. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<DistributionConfigurationDistribution>> distributions() {

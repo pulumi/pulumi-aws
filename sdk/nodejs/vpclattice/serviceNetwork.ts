@@ -63,6 +63,8 @@ export class ServiceNetwork extends pulumi.CustomResource {
     public readonly authType!: pulumi.Output<string>;
     /**
      * Name of the service network
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -119,6 +121,8 @@ export interface ServiceNetworkState {
     authType?: pulumi.Input<string>;
     /**
      * Name of the service network
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -141,6 +145,8 @@ export interface ServiceNetworkArgs {
     authType?: pulumi.Input<string>;
     /**
      * Name of the service network
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

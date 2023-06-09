@@ -177,6 +177,8 @@ type DomainName struct {
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn pulumi.StringOutput `pulumi:"ownershipVerificationCertificateArn"`
 	// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
+	//
+	// When uploading a certificate, the following arguments are supported:
 	RegionalCertificateArn pulumi.StringPtrOutput `pulumi:"regionalCertificateArn"`
 	// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateName pulumi.StringPtrOutput `pulumi:"regionalCertificateName"`
@@ -187,6 +189,8 @@ type DomainName struct {
 	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy pulumi.StringOutput `pulumi:"securityPolicy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -258,6 +262,8 @@ type domainNameState struct {
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
 	// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
+	//
+	// When uploading a certificate, the following arguments are supported:
 	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
 	// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateName *string `pulumi:"regionalCertificateName"`
@@ -268,6 +274,8 @@ type domainNameState struct {
 	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -301,6 +309,8 @@ type DomainNameState struct {
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput
 	// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
+	//
+	// When uploading a certificate, the following arguments are supported:
 	RegionalCertificateArn pulumi.StringPtrInput
 	// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateName pulumi.StringPtrInput
@@ -311,6 +321,8 @@ type DomainNameState struct {
 	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -340,12 +352,16 @@ type domainNameArgs struct {
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
 	// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
+	//
+	// When uploading a certificate, the following arguments are supported:
 	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
 	// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateName *string `pulumi:"regionalCertificateName"`
 	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -370,12 +386,16 @@ type DomainNameArgs struct {
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput
 	// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
+	//
+	// When uploading a certificate, the following arguments are supported:
 	RegionalCertificateArn pulumi.StringPtrInput
 	// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateName pulumi.StringPtrInput
 	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
 	SecurityPolicy pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags pulumi.StringMapInput
 }
 
@@ -532,6 +552,8 @@ func (o DomainNameOutput) OwnershipVerificationCertificateArn() pulumi.StringOut
 }
 
 // ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
+//
+// When uploading a certificate, the following arguments are supported:
 func (o DomainNameOutput) RegionalCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.RegionalCertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -557,6 +579,8 @@ func (o DomainNameOutput) SecurityPolicy() pulumi.StringOutput {
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// When referencing an AWS-managed certificate, the following arguments are supported:
 func (o DomainNameOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

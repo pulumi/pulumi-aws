@@ -73,12 +73,16 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
     /**
      * Whitelist rules. See Whitelist Rules for more details.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="whitelistRules")
     private @Nullable Output<List<InputSecurityGroupWhitelistRuleArgs>> whitelistRules;
 
     /**
      * @return Whitelist rules. See Whitelist Rules for more details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<InputSecurityGroupWhitelistRuleArgs>>> whitelistRules() {
@@ -198,6 +202,8 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
         /**
          * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -209,6 +215,8 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
         /**
          * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -218,6 +226,8 @@ public final class InputSecurityGroupState extends com.pulumi.resources.Resource
 
         /**
          * @param whitelistRules Whitelist rules. See Whitelist Rules for more details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

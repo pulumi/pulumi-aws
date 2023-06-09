@@ -49,12 +49,16 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
     /**
      * The ARN of the site-to-site VPN connection.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="vpnConnectionArn", required=true)
     private Output<String> vpnConnectionArn;
 
     /**
      * @return The ARN of the site-to-site VPN connection.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vpnConnectionArn() {
@@ -132,6 +136,8 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
         /**
          * @param vpnConnectionArn The ARN of the site-to-site VPN connection.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -142,6 +148,8 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Reso
 
         /**
          * @param vpnConnectionArn The ARN of the site-to-site VPN connection.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

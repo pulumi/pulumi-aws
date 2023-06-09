@@ -96,6 +96,8 @@ export class EndpointGroup extends pulumi.CustomResource {
     public readonly listenerArn!: pulumi.Output<string>;
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+     *
+     * **endpoint_configuration** supports the following attributes:
      */
     public readonly portOverrides!: pulumi.Output<outputs.globalaccelerator.EndpointGroupPortOverride[] | undefined>;
     /**
@@ -192,6 +194,8 @@ export interface EndpointGroupState {
     listenerArn?: pulumi.Input<string>;
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+     *
+     * **endpoint_configuration** supports the following attributes:
      */
     portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
     /**
@@ -239,6 +243,8 @@ export interface EndpointGroupArgs {
     listenerArn: pulumi.Input<string>;
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+     *
+     * **endpoint_configuration** supports the following attributes:
      */
     portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
     /**

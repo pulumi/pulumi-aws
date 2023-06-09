@@ -203,12 +203,16 @@ public final class ContainerRecipeArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Version of the container recipe.
      * 
+     * The following attributes are optional:
+     * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
      * @return Version of the container recipe.
+     * 
+     * The following attributes are optional:
      * 
      */
     public Output<String> version() {
@@ -532,6 +536,8 @@ public final class ContainerRecipeArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param version Version of the container recipe.
          * 
+         * The following attributes are optional:
+         * 
          * @return builder
          * 
          */
@@ -542,6 +548,8 @@ public final class ContainerRecipeArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param version Version of the container recipe.
+         * 
+         * The following attributes are optional:
          * 
          * @return builder
          * 

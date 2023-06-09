@@ -638,8 +638,8 @@ class Fleet(pulumi.CustomResource):
         example = aws.ec2.Fleet("example",
             launch_template_config=aws.ec2.FleetLaunchTemplateConfigArgs(
                 launch_template_specification=aws.ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    launch_template_id=aws_launch_template["example"]["id"],
-                    version=aws_launch_template["example"]["latest_version"],
+                    launch_template_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    version=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ),
             target_capacity_specification=aws.ec2.FleetTargetCapacitySpecificationArgs(
@@ -694,8 +694,8 @@ class Fleet(pulumi.CustomResource):
         example = aws.ec2.Fleet("example",
             launch_template_config=aws.ec2.FleetLaunchTemplateConfigArgs(
                 launch_template_specification=aws.ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    launch_template_id=aws_launch_template["example"]["id"],
-                    version=aws_launch_template["example"]["latest_version"],
+                    launch_template_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    version=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ),
             target_capacity_specification=aws.ec2.FleetTargetCapacitySpecificationArgs(

@@ -55,6 +55,8 @@ type TrafficPolicy struct {
 	// Comment for the traffic policy.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+	//
+	// The following arguments are optional:
 	Document pulumi.StringOutput `pulumi:"document"`
 	// Name of the traffic policy.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -99,6 +101,8 @@ type trafficPolicyState struct {
 	// Comment for the traffic policy.
 	Comment *string `pulumi:"comment"`
 	// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+	//
+	// The following arguments are optional:
 	Document *string `pulumi:"document"`
 	// Name of the traffic policy.
 	Name *string `pulumi:"name"`
@@ -112,6 +116,8 @@ type TrafficPolicyState struct {
 	// Comment for the traffic policy.
 	Comment pulumi.StringPtrInput
 	// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+	//
+	// The following arguments are optional:
 	Document pulumi.StringPtrInput
 	// Name of the traffic policy.
 	Name pulumi.StringPtrInput
@@ -129,6 +135,8 @@ type trafficPolicyArgs struct {
 	// Comment for the traffic policy.
 	Comment *string `pulumi:"comment"`
 	// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+	//
+	// The following arguments are optional:
 	Document string `pulumi:"document"`
 	// Name of the traffic policy.
 	Name *string `pulumi:"name"`
@@ -139,6 +147,8 @@ type TrafficPolicyArgs struct {
 	// Comment for the traffic policy.
 	Comment pulumi.StringPtrInput
 	// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+	//
+	// The following arguments are optional:
 	Document pulumi.StringInput
 	// Name of the traffic policy.
 	Name pulumi.StringPtrInput
@@ -237,6 +247,8 @@ func (o TrafficPolicyOutput) Comment() pulumi.StringPtrOutput {
 }
 
 // Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+//
+// The following arguments are optional:
 func (o TrafficPolicyOutput) Document() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficPolicy) pulumi.StringOutput { return v.Document }).(pulumi.StringOutput)
 }

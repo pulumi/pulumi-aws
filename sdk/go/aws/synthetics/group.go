@@ -54,6 +54,8 @@ type Group struct {
 	// ID of the Group.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// Name of the group.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -95,6 +97,8 @@ type groupState struct {
 	// ID of the Group.
 	GroupId *string `pulumi:"groupId"`
 	// Name of the group.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -108,6 +112,8 @@ type GroupState struct {
 	// ID of the Group.
 	GroupId pulumi.StringPtrInput
 	// Name of the group.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -121,6 +127,8 @@ func (GroupState) ElementType() reflect.Type {
 
 type groupArgs struct {
 	// Name of the group.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -129,6 +137,8 @@ type groupArgs struct {
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
 	// Name of the group.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -232,6 +242,8 @@ func (o GroupOutput) GroupId() pulumi.StringOutput {
 }
 
 // Name of the group.
+//
+// The following arguments are optional:
 func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

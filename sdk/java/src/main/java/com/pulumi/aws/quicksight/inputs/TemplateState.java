@@ -203,12 +203,16 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     /**
      * A description of the current template version being created/updated.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="versionDescription")
     private @Nullable Output<String> versionDescription;
 
     /**
      * @return A description of the current template version being created/updated.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> versionDescription() {
@@ -532,6 +536,8 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param versionDescription A description of the current template version being created/updated.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -542,6 +548,8 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param versionDescription A description of the current template version being created/updated.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

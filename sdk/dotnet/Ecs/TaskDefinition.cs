@@ -380,6 +380,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// A unique name for your task definition.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("family")]
         public Output<string> Family { get; private set; } = null!;
@@ -546,6 +548,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// A unique name for your task definition.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
@@ -704,6 +708,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// A unique name for your task definition.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }

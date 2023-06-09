@@ -425,7 +425,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
         example_permission = aws.lambda_.Permission("examplePermission",
             action="lambda:InvokeFunction",
-            function=aws_lambda_function["example"]["arn"],
+            function=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             principal="config.amazonaws.com")
         example_organization = aws.organizations.Organization("exampleOrganization",
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
@@ -482,7 +482,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
         example_permission = aws.lambda_.Permission("examplePermission",
             action="lambda:InvokeFunction",
-            function=aws_lambda_function["example"]["arn"],
+            function=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             principal="config.amazonaws.com")
         example_organization = aws.organizations.Organization("exampleOrganization",
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],

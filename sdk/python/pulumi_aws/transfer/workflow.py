@@ -227,7 +227,7 @@ class Workflow(pulumi.CustomResource):
                 custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
                     name="example",
                     source_file_location="${original.file}",
-                    target=aws_lambda_function["example"]["arn"],
+                    target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     timeout_seconds=60,
                 ),
                 type="CUSTOM",
@@ -296,7 +296,7 @@ class Workflow(pulumi.CustomResource):
                 custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
                     name="example",
                     source_file_location="${original.file}",
-                    target=aws_lambda_function["example"]["arn"],
+                    target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     timeout_seconds=60,
                 ),
                 type="CUSTOM",

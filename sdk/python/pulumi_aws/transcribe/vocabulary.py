@@ -23,6 +23,8 @@ class VocabularyArgs:
         The set of arguments for constructing a Vocabulary resource.
         :param pulumi.Input[str] language_code: The language code you selected for your vocabulary.
         :param pulumi.Input[str] vocabulary_name: The name of the Vocabulary.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] phrases: A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
@@ -53,6 +55,8 @@ class VocabularyArgs:
     def vocabulary_name(self) -> pulumi.Input[str]:
         """
         The name of the Vocabulary.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vocabulary_name")
 
@@ -117,6 +121,8 @@ class _VocabularyState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         :param pulumi.Input[str] vocabulary_name: The name of the Vocabulary.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -221,6 +227,8 @@ class _VocabularyState:
     def vocabulary_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Vocabulary.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vocabulary_name")
 
@@ -281,6 +289,8 @@ class Vocabulary(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         :param pulumi.Input[str] vocabulary_name: The name of the Vocabulary.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -395,6 +405,8 @@ class Vocabulary(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Vocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom vocabulary. Conflicts wth `phrases`.
         :param pulumi.Input[str] vocabulary_name: The name of the Vocabulary.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -468,6 +480,8 @@ class Vocabulary(pulumi.CustomResource):
     def vocabulary_name(self) -> pulumi.Output[str]:
         """
         The name of the Vocabulary.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vocabulary_name")
 

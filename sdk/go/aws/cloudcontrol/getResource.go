@@ -54,6 +54,8 @@ type LookupResourceArgs struct {
 	// ARN of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName string `pulumi:"typeName"`
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId *string `pulumi:"typeVersionId"`
@@ -91,6 +93,8 @@ type LookupResourceOutputArgs struct {
 	// ARN of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName pulumi.StringInput `pulumi:"typeName"`
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId pulumi.StringPtrInput `pulumi:"typeVersionId"`

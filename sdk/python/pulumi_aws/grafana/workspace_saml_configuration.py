@@ -31,6 +31,8 @@ class WorkspaceSamlConfigurationArgs:
         The set of arguments for constructing a WorkspaceSamlConfiguration resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] editor_role_values: The editor role values.
         :param pulumi.Input[str] workspace_id: The workspace id.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_role_values: The admin role values.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_organizations: The allowed organizations.
         :param pulumi.Input[str] email_assertion: The email assertion.
@@ -85,6 +87,8 @@ class WorkspaceSamlConfigurationArgs:
     def workspace_id(self) -> pulumi.Input[str]:
         """
         The workspace id.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "workspace_id")
 
@@ -258,6 +262,8 @@ class _WorkspaceSamlConfigurationState:
         :param pulumi.Input[str] role_assertion: The role assertion.
         :param pulumi.Input[str] status: The status of the SAML configuration.
         :param pulumi.Input[str] workspace_id: The workspace id.
+               
+               The following arguments are optional:
         """
         if admin_role_values is not None:
             pulumi.set(__self__, "admin_role_values", admin_role_values)
@@ -449,6 +455,8 @@ class _WorkspaceSamlConfigurationState:
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
         """
         The workspace id.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "workspace_id")
 
@@ -532,6 +540,8 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] org_assertion: The org assertion.
         :param pulumi.Input[str] role_assertion: The role assertion.
         :param pulumi.Input[str] workspace_id: The workspace id.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -680,6 +690,8 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] role_assertion: The role assertion.
         :param pulumi.Input[str] status: The status of the SAML configuration.
         :param pulumi.Input[str] workspace_id: The workspace id.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -810,6 +822,8 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
     def workspace_id(self) -> pulumi.Output[str]:
         """
         The workspace id.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "workspace_id")
 

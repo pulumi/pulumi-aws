@@ -154,6 +154,8 @@ type Addon struct {
 	// Amazon Resource Name (ARN) of the EKS add-on.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	//
+	// The following arguments are optional:
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
 	ConfigurationValues pulumi.StringOutput `pulumi:"configurationValues"`
@@ -172,6 +174,11 @@ type Addon struct {
 	// assigned the IAM permissions required by the add-on. If you don't specify
 	// an existing IAM role, then the add-on uses the permissions assigned to the node
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+	// in the Amazon EKS User Guide.
+	//
+	// > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+	// provider created for your cluster. For more information, [see Enabling IAM roles
+	// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn pulumi.StringPtrOutput `pulumi:"serviceAccountRoleArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -224,6 +231,8 @@ type addonState struct {
 	// Amazon Resource Name (ARN) of the EKS add-on.
 	Arn *string `pulumi:"arn"`
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	//
+	// The following arguments are optional:
 	ClusterName *string `pulumi:"clusterName"`
 	// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
 	ConfigurationValues *string `pulumi:"configurationValues"`
@@ -243,6 +252,11 @@ type addonState struct {
 	// an existing IAM role, then the add-on uses the permissions assigned to the node
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
+	//
+	// > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+	// provider created for your cluster. For more information, [see Enabling IAM roles
+	// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
+	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -260,6 +274,8 @@ type AddonState struct {
 	// Amazon Resource Name (ARN) of the EKS add-on.
 	Arn pulumi.StringPtrInput
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	//
+	// The following arguments are optional:
 	ClusterName pulumi.StringPtrInput
 	// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
 	ConfigurationValues pulumi.StringPtrInput
@@ -278,6 +294,11 @@ type AddonState struct {
 	// assigned the IAM permissions required by the add-on. If you don't specify
 	// an existing IAM role, then the add-on uses the permissions assigned to the node
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+	// in the Amazon EKS User Guide.
+	//
+	// > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+	// provider created for your cluster. For more information, [see Enabling IAM roles
+	// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -298,6 +319,8 @@ type addonArgs struct {
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonVersion *string `pulumi:"addonVersion"`
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	//
+	// The following arguments are optional:
 	ClusterName string `pulumi:"clusterName"`
 	// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
 	ConfigurationValues *string `pulumi:"configurationValues"`
@@ -313,6 +336,11 @@ type addonArgs struct {
 	// an existing IAM role, then the add-on uses the permissions assigned to the node
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
+	//
+	// > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+	// provider created for your cluster. For more information, [see Enabling IAM roles
+	// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
+	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -327,6 +355,8 @@ type AddonArgs struct {
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonVersion pulumi.StringPtrInput
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	//
+	// The following arguments are optional:
 	ClusterName pulumi.StringInput
 	// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
 	ConfigurationValues pulumi.StringPtrInput
@@ -341,6 +371,11 @@ type AddonArgs struct {
 	// assigned the IAM permissions required by the add-on. If you don't specify
 	// an existing IAM role, then the add-on uses the permissions assigned to the node
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+	// in the Amazon EKS User Guide.
+	//
+	// > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+	// provider created for your cluster. For more information, [see Enabling IAM roles
+	// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -452,6 +487,8 @@ func (o AddonOutput) Arn() pulumi.StringOutput {
 }
 
 // Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+//
+// The following arguments are optional:
 func (o AddonOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
 }
@@ -488,6 +525,11 @@ func (o AddonOutput) ResolveConflicts() pulumi.StringPtrOutput {
 // assigned the IAM permissions required by the add-on. If you don't specify
 // an existing IAM role, then the add-on uses the permissions assigned to the node
 // IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+// in the Amazon EKS User Guide.
+//
+// > **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+// provider created for your cluster. For more information, [see Enabling IAM roles
+// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
 // in the Amazon EKS User Guide.
 func (o AddonOutput) ServiceAccountRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.ServiceAccountRoleArn }).(pulumi.StringPtrOutput)

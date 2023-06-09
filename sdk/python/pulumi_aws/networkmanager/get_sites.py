@@ -86,7 +86,7 @@ def get_sites(global_network_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_sites(global_network_id=var["global_network_id"],
+    example = aws.networkmanager.get_sites(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         tags={
             "Env": "test",
         })
@@ -122,7 +122,7 @@ def get_sites_output(global_network_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_sites(global_network_id=var["global_network_id"],
+    example = aws.networkmanager.get_sites(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         tags={
             "Env": "test",
         })

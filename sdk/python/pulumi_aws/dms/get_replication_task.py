@@ -207,11 +207,16 @@ def get_replication_task(replication_task_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_task(replication_task_id=aws_dms_replication_task["test"]["replication_task_id"])
+    test = aws.dms.get_replication_task(replication_task_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
     :param str replication_task_id: The replication task identifier.
+           
+           - Must contain from 1 to 255 alphanumeric characters or hyphens.
+           - First character must be a letter.
+           - Cannot end with a hyphen.
+           - Cannot contain two consecutive hyphens.
     """
     __args__ = dict()
     __args__['replicationTaskId'] = replication_task_id
@@ -250,10 +255,15 @@ def get_replication_task_output(replication_task_id: Optional[pulumi.Input[str]]
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_task(replication_task_id=aws_dms_replication_task["test"]["replication_task_id"])
+    test = aws.dms.get_replication_task(replication_task_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
     :param str replication_task_id: The replication task identifier.
+           
+           - Must contain from 1 to 255 alphanumeric characters or hyphens.
+           - First character must be a letter.
+           - Cannot end with a hyphen.
+           - Cannot contain two consecutive hyphens.
     """
     ...

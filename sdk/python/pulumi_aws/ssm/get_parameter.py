@@ -118,6 +118,8 @@ def get_parameter(name: Optional[str] = None,
 
     :param str name: Name of the parameter.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
+           
+           In addition to all arguments above, the following attributes are exported:
     """
     __args__ = dict()
     __args__['name'] = name
@@ -156,5 +158,7 @@ def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the parameter.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
+           
+           In addition to all arguments above, the following attributes are exported:
     """
     ...

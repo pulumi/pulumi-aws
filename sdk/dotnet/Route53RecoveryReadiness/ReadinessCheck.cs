@@ -56,6 +56,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// Name describing the resource set that will be monitored for readiness.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("resourceSetName")]
         public Output<string> ResourceSetName { get; private set; } = null!;
@@ -126,6 +128,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// Name describing the resource set that will be monitored for readiness.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("resourceSetName", required: true)]
         public Input<string> ResourceSetName { get; set; } = null!;
@@ -164,6 +168,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// Name describing the resource set that will be monitored for readiness.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("resourceSetName")]
         public Input<string>? ResourceSetName { get; set; }

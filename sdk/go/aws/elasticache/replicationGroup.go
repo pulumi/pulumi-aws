@@ -342,6 +342,8 @@ type ReplicationGroup struct {
 	ReplicasPerNodeGroup pulumi.IntOutput `pulumi:"replicasPerNodeGroup"`
 	// User-created description for the replication group. Must not be empty.
 	//
+	// The following arguments are optional:
+	//
 	// Deprecated: Use description instead
 	ReplicationGroupDescription pulumi.StringOutput `pulumi:"replicationGroupDescription"`
 	// Replication group identifier. This parameter is stored as a lowercase string.
@@ -487,6 +489,8 @@ type replicationGroupState struct {
 	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
 	// User-created description for the replication group. Must not be empty.
 	//
+	// The following arguments are optional:
+	//
 	// Deprecated: Use description instead
 	ReplicationGroupDescription *string `pulumi:"replicationGroupDescription"`
 	// Replication group identifier. This parameter is stored as a lowercase string.
@@ -597,6 +601,8 @@ type ReplicationGroupState struct {
 	ReplicasPerNodeGroup pulumi.IntPtrInput
 	// User-created description for the replication group. Must not be empty.
 	//
+	// The following arguments are optional:
+	//
 	// Deprecated: Use description instead
 	ReplicationGroupDescription pulumi.StringPtrInput
 	// Replication group identifier. This parameter is stored as a lowercase string.
@@ -697,6 +703,8 @@ type replicationGroupArgs struct {
 	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
 	// User-created description for the replication group. Must not be empty.
 	//
+	// The following arguments are optional:
+	//
 	// Deprecated: Use description instead
 	ReplicationGroupDescription *string `pulumi:"replicationGroupDescription"`
 	// Replication group identifier. This parameter is stored as a lowercase string.
@@ -791,6 +799,8 @@ type ReplicationGroupArgs struct {
 	// Valid values are 0 to 5.
 	ReplicasPerNodeGroup pulumi.IntPtrInput
 	// User-created description for the replication group. Must not be empty.
+	//
+	// The following arguments are optional:
 	//
 	// Deprecated: Use description instead
 	ReplicationGroupDescription pulumi.StringPtrInput
@@ -1086,6 +1096,8 @@ func (o ReplicationGroupOutput) ReplicasPerNodeGroup() pulumi.IntOutput {
 }
 
 // User-created description for the replication group. Must not be empty.
+//
+// The following arguments are optional:
 //
 // Deprecated: Use description instead
 func (o ReplicationGroupOutput) ReplicationGroupDescription() pulumi.StringOutput {

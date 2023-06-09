@@ -122,6 +122,8 @@ export class CatalogTable extends pulumi.CustomResource {
     public readonly catalogId!: pulumi.Output<string>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     *
+     * The follow arguments are optional:
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
@@ -241,6 +243,8 @@ export interface CatalogTableState {
     catalogId?: pulumi.Input<string>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     *
+     * The follow arguments are optional:
      */
     databaseName?: pulumi.Input<string>;
     /**
@@ -303,6 +307,8 @@ export interface CatalogTableArgs {
     catalogId?: pulumi.Input<string>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     *
+     * The follow arguments are optional:
      */
     databaseName: pulumi.Input<string>;
     /**

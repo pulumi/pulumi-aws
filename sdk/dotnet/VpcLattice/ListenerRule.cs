@@ -160,6 +160,8 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
@@ -260,6 +262,8 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
@@ -322,6 +326,8 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

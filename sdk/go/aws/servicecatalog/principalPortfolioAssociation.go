@@ -58,6 +58,8 @@ type PrincipalPortfolioAssociation struct {
 	// Portfolio identifier.
 	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
 	// Principal ARN.
+	//
+	// The following arguments are optional:
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
 	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
 	PrincipalType pulumi.StringPtrOutput `pulumi:"principalType"`
@@ -103,6 +105,8 @@ type principalPortfolioAssociationState struct {
 	// Portfolio identifier.
 	PortfolioId *string `pulumi:"portfolioId"`
 	// Principal ARN.
+	//
+	// The following arguments are optional:
 	PrincipalArn *string `pulumi:"principalArn"`
 	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
 	PrincipalType *string `pulumi:"principalType"`
@@ -114,6 +118,8 @@ type PrincipalPortfolioAssociationState struct {
 	// Portfolio identifier.
 	PortfolioId pulumi.StringPtrInput
 	// Principal ARN.
+	//
+	// The following arguments are optional:
 	PrincipalArn pulumi.StringPtrInput
 	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
 	PrincipalType pulumi.StringPtrInput
@@ -129,6 +135,8 @@ type principalPortfolioAssociationArgs struct {
 	// Portfolio identifier.
 	PortfolioId string `pulumi:"portfolioId"`
 	// Principal ARN.
+	//
+	// The following arguments are optional:
 	PrincipalArn string `pulumi:"principalArn"`
 	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
 	PrincipalType *string `pulumi:"principalType"`
@@ -141,6 +149,8 @@ type PrincipalPortfolioAssociationArgs struct {
 	// Portfolio identifier.
 	PortfolioId pulumi.StringInput
 	// Principal ARN.
+	//
+	// The following arguments are optional:
 	PrincipalArn pulumi.StringInput
 	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
 	PrincipalType pulumi.StringPtrInput
@@ -244,6 +254,8 @@ func (o PrincipalPortfolioAssociationOutput) PortfolioId() pulumi.StringOutput {
 }
 
 // Principal ARN.
+//
+// The following arguments are optional:
 func (o PrincipalPortfolioAssociationOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }

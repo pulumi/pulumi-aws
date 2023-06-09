@@ -56,6 +56,8 @@ public final class ScheduleTarget {
     /**
      * @return ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
      * 
+     * The following arguments are optional:
+     * 
      */
     private String roleArn;
     /**
@@ -121,6 +123,8 @@ public final class ScheduleTarget {
     }
     /**
      * @return ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
+     * 
+     * The following arguments are optional:
      * 
      */
     public String roleArn() {

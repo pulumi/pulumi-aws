@@ -29,6 +29,8 @@ class ComponentArgs:
         The set of arguments for constructing a Component resource.
         :param pulumi.Input[str] platform: Platform of the component.
         :param pulumi.Input[str] version: Version of the component.
+               
+               The following attributes are optional:
         :param pulumi.Input[str] change_description: Change description of the component.
         :param pulumi.Input[str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[str] description: Description of the component.
@@ -38,6 +40,8 @@ class ComponentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+               
+               > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         """
         pulumi.set(__self__, "platform", platform)
         pulumi.set(__self__, "version", version)
@@ -77,6 +81,8 @@ class ComponentArgs:
     def version(self) -> pulumi.Input[str]:
         """
         Version of the component.
+
+        The following attributes are optional:
         """
         return pulumi.get(self, "version")
 
@@ -185,6 +191,8 @@ class ComponentArgs:
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
         S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+
+        > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         """
         return pulumi.get(self, "uri")
 
@@ -231,7 +239,11 @@ class _ComponentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Type of the component.
         :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+               
+               > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         :param pulumi.Input[str] version: Version of the component.
+               
+               The following attributes are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -453,6 +465,8 @@ class _ComponentState:
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
         S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+
+        > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         """
         return pulumi.get(self, "uri")
 
@@ -465,6 +479,8 @@ class _ComponentState:
     def version(self) -> Optional[pulumi.Input[str]]:
         """
         Version of the component.
+
+        The following attributes are optional:
         """
         return pulumi.get(self, "version")
 
@@ -528,7 +544,11 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+               
+               > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         :param pulumi.Input[str] version: Version of the component.
+               
+               The following attributes are optional:
         """
         ...
     @overload
@@ -668,7 +688,11 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Type of the component.
         :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+               
+               > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         :param pulumi.Input[str] version: Version of the component.
+               
+               The following attributes are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -818,6 +842,8 @@ class Component(pulumi.CustomResource):
     def uri(self) -> pulumi.Output[Optional[str]]:
         """
         S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+
+        > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
         """
         return pulumi.get(self, "uri")
 
@@ -826,6 +852,8 @@ class Component(pulumi.CustomResource):
     def version(self) -> pulumi.Output[str]:
         """
         Version of the component.
+
+        The following attributes are optional:
         """
         return pulumi.get(self, "version")
 

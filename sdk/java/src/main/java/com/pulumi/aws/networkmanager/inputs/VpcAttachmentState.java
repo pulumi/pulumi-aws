@@ -232,12 +232,16 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     /**
      * The ARN of the VPC.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="vpcArn")
     private @Nullable Output<String> vpcArn;
 
     /**
      * @return The ARN of the VPC.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> vpcArn() {
@@ -589,6 +593,8 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param vpcArn The ARN of the VPC.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -599,6 +605,8 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param vpcArn The ARN of the VPC.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

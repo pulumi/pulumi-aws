@@ -202,6 +202,8 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+        /// 
+        /// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         /// </summary>
         [Output("allowOverwrite")]
         public Output<bool> AllowOverwrite { get; private set; } = null!;
@@ -351,6 +353,8 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+        /// 
+        /// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         /// </summary>
         [Input("allowOverwrite")]
         public Input<bool>? AllowOverwrite { get; set; }
@@ -486,6 +490,8 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+        /// 
+        /// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         /// </summary>
         [Input("allowOverwrite")]
         public Input<bool>? AllowOverwrite { get; set; }

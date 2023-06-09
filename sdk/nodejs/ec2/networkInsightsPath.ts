@@ -74,6 +74,8 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     public readonly destinationPort!: pulumi.Output<number | undefined>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
+     *
+     * The following arguments are optional:
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
@@ -163,6 +165,8 @@ export interface NetworkInsightsPathState {
     destinationPort?: pulumi.Input<number>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
+     *
+     * The following arguments are optional:
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -201,6 +205,8 @@ export interface NetworkInsightsPathArgs {
     destinationPort?: pulumi.Input<number>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
+     *
+     * The following arguments are optional:
      */
     protocol: pulumi.Input<string>;
     /**

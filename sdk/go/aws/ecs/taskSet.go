@@ -95,6 +95,8 @@ type TaskSet struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	//
+	// The following arguments are optional:
 	TaskDefinition pulumi.StringOutput `pulumi:"taskDefinition"`
 	// The ID of the task set.
 	TaskSetId pulumi.StringOutput `pulumi:"taskSetId"`
@@ -175,6 +177,8 @@ type taskSetState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	//
+	// The following arguments are optional:
 	TaskDefinition *string `pulumi:"taskDefinition"`
 	// The ID of the task set.
 	TaskSetId *string `pulumi:"taskSetId"`
@@ -218,6 +222,8 @@ type TaskSetState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	//
+	// The following arguments are optional:
 	TaskDefinition pulumi.StringPtrInput
 	// The ID of the task set.
 	TaskSetId pulumi.StringPtrInput
@@ -257,6 +263,8 @@ type taskSetArgs struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	//
+	// The following arguments are optional:
 	TaskDefinition string `pulumi:"taskDefinition"`
 	// Whether the provider should wait until the task set has reached `STEADY_STATE`.
 	WaitUntilStable *bool `pulumi:"waitUntilStable"`
@@ -291,6 +299,8 @@ type TaskSetArgs struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	//
+	// The following arguments are optional:
 	TaskDefinition pulumi.StringInput
 	// Whether the provider should wait until the task set has reached `STEADY_STATE`.
 	WaitUntilStable pulumi.BoolPtrInput
@@ -466,6 +476,8 @@ func (o TaskSetOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+//
+// The following arguments are optional:
 func (o TaskSetOutput) TaskDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.TaskDefinition }).(pulumi.StringOutput)
 }

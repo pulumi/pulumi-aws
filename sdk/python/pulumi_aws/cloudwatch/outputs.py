@@ -1394,6 +1394,8 @@ class EventTargetEcsTargetNetworkConfiguration(dict):
         """
         :param Sequence[str] subnets: The subnets associated with the task or service.
         :param bool assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
+               
+               For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         :param Sequence[str] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -1415,6 +1417,8 @@ class EventTargetEcsTargetNetworkConfiguration(dict):
     def assign_public_ip(self) -> Optional[bool]:
         """
         Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
+
+        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -2069,6 +2073,8 @@ class MetricAlarmMetricQuery(dict):
                For metrics with regular resolution, valid values are any multiple of `60`.
                For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
         :param bool return_data: Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+               
+               > **NOTE:**  You must specify either `metric` or `expression`. Not both.
         """
         pulumi.set(__self__, "id", id)
         if account_id is not None:
@@ -2139,6 +2145,8 @@ class MetricAlarmMetricQuery(dict):
     def return_data(self) -> Optional[bool]:
         """
         Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+
+        > **NOTE:**  You must specify either `metric` or `expression`. Not both.
         """
         return pulumi.get(self, "return_data")
 
@@ -2483,6 +2491,8 @@ class GetLogDataProtectionPolicyDocumentStatementOperationResult(dict):
         """
         :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs' audit: Configures the detection of sensitive data.
         :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs' deidentify: Configures the masking of sensitive data.
+               
+               > Every policy statement must specify exactly one operation.
         """
         if audit is not None:
             pulumi.set(__self__, "audit", audit)
@@ -2502,6 +2512,8 @@ class GetLogDataProtectionPolicyDocumentStatementOperationResult(dict):
     def deidentify(self) -> Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult']:
         """
         Configures the masking of sensitive data.
+
+        > Every policy statement must specify exactly one operation.
         """
         return pulumi.get(self, "deidentify")
 

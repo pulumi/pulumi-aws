@@ -235,12 +235,16 @@ public class RemediationConfiguration extends com.pulumi.resources.CustomResourc
     /**
      * Type of the target. Target executes remediation. For example, SSM document.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="targetType", refs={String.class}, tree="[0]")
     private Output<String> targetType;
 
     /**
      * @return Type of the target. Target executes remediation. For example, SSM document.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> targetType() {

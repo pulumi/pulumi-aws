@@ -53,6 +53,8 @@ func LookupResolverFirewallRuleGroupAssociation(ctx *pulumi.Context, args *Looku
 // A collection of arguments for invoking getResolverFirewallRuleGroupAssociation.
 type LookupResolverFirewallRuleGroupAssociationArgs struct {
 	// The identifier for the association.
+	//
+	// The following attribute is additionally exported:
 	FirewallRuleGroupAssociationId string `pulumi:"firewallRuleGroupAssociationId"`
 }
 
@@ -91,6 +93,8 @@ func LookupResolverFirewallRuleGroupAssociationOutput(ctx *pulumi.Context, args 
 // A collection of arguments for invoking getResolverFirewallRuleGroupAssociation.
 type LookupResolverFirewallRuleGroupAssociationOutputArgs struct {
 	// The identifier for the association.
+	//
+	// The following attribute is additionally exported:
 	FirewallRuleGroupAssociationId pulumi.StringInput `pulumi:"firewallRuleGroupAssociationId"`
 }
 

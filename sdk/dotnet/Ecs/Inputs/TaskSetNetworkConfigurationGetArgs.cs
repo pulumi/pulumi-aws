@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Ecs.Inputs
     {
         /// <summary>
         /// Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+        /// 
+        /// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
         /// </summary>
         [Input("assignPublicIp")]
         public Input<bool>? AssignPublicIp { get; set; }

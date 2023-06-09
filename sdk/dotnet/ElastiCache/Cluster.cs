@@ -281,6 +281,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("parameterGroupName")]
         public Output<string> ParameterGroupName { get; private set; } = null!;
@@ -523,6 +525,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
@@ -782,6 +786,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }

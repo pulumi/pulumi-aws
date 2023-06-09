@@ -76,6 +76,8 @@ export class RoutingControl extends pulumi.CustomResource {
     public readonly controlPanelArn!: pulumi.Output<string>;
     /**
      * The name describing the routing control.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -135,6 +137,8 @@ export interface RoutingControlState {
     controlPanelArn?: pulumi.Input<string>;
     /**
      * The name describing the routing control.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -157,6 +161,8 @@ export interface RoutingControlArgs {
     controlPanelArn?: pulumi.Input<string>;
     /**
      * The name describing the routing control.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
 }

@@ -229,6 +229,9 @@ namespace Pulumi.Aws.Elb
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// Exactly one of `availability_zones` or `subnets` must be specified: this
+        /// determines if the ELB exists in a VPC or in EC2-classic.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -430,6 +433,9 @@ namespace Pulumi.Aws.Elb
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// Exactly one of `availability_zones` or `subnets` must be specified: this
+        /// determines if the ELB exists in a VPC or in EC2-classic.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -600,6 +606,9 @@ namespace Pulumi.Aws.Elb
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// Exactly one of `availability_zones` or `subnets` must be specified: this
+        /// determines if the ELB exists in a VPC or in EC2-classic.
         /// </summary>
         public InputMap<string> Tags
         {

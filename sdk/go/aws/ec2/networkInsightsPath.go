@@ -62,6 +62,8 @@ type NetworkInsightsPath struct {
 	// Destination port to analyze access to.
 	DestinationPort pulumi.IntPtrOutput `pulumi:"destinationPort"`
 	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+	//
+	// The following arguments are optional:
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
 	Source pulumi.StringOutput `pulumi:"source"`
@@ -120,6 +122,8 @@ type networkInsightsPathState struct {
 	// Destination port to analyze access to.
 	DestinationPort *int `pulumi:"destinationPort"`
 	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+	//
+	// The following arguments are optional:
 	Protocol *string `pulumi:"protocol"`
 	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
 	Source *string `pulumi:"source"`
@@ -141,6 +145,8 @@ type NetworkInsightsPathState struct {
 	// Destination port to analyze access to.
 	DestinationPort pulumi.IntPtrInput
 	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+	//
+	// The following arguments are optional:
 	Protocol pulumi.StringPtrInput
 	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
 	Source pulumi.StringPtrInput
@@ -164,6 +170,8 @@ type networkInsightsPathArgs struct {
 	// Destination port to analyze access to.
 	DestinationPort *int `pulumi:"destinationPort"`
 	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+	//
+	// The following arguments are optional:
 	Protocol string `pulumi:"protocol"`
 	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
 	Source string `pulumi:"source"`
@@ -182,6 +190,8 @@ type NetworkInsightsPathArgs struct {
 	// Destination port to analyze access to.
 	DestinationPort pulumi.IntPtrInput
 	// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+	//
+	// The following arguments are optional:
 	Protocol pulumi.StringInput
 	// ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
 	Source pulumi.StringInput
@@ -299,6 +309,8 @@ func (o NetworkInsightsPathOutput) DestinationPort() pulumi.IntPtrOutput {
 }
 
 // Protocol to use for analysis. Valid options are `tcp` or `udp`.
+//
+// The following arguments are optional:
 func (o NetworkInsightsPathOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }

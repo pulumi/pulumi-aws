@@ -37,6 +37,8 @@ class EventTargetArgs:
         The set of arguments for constructing a EventTarget resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
+               
+               The following arguments are optional:
         :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetEcsTargetArgs'] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
@@ -104,6 +106,8 @@ class EventTargetArgs:
     def rule(self) -> pulumi.Input[str]:
         """
         The name of the rule you want to add targets to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "rule")
 
@@ -330,6 +334,8 @@ class _EventTargetState:
         :param pulumi.Input['EventTargetRetryPolicyArgs'] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
@@ -531,6 +537,8 @@ class _EventTargetState:
     def rule(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the rule you want to add targets to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "rule")
 
@@ -727,10 +735,10 @@ class EventTarget(pulumi.CustomResource):
 
         example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
         # ...
-        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=aws_api_gateway_rest_api["example"]["id"])
+        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
         # ...
         example_stage = aws.apigateway.Stage("exampleStage",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             deployment=example_deployment.id)
         # ...
         example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
@@ -893,6 +901,8 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventTargetRetryPolicyArgs']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
@@ -1032,10 +1042,10 @@ class EventTarget(pulumi.CustomResource):
 
         example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
         # ...
-        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=aws_api_gateway_rest_api["example"]["id"])
+        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
         # ...
         example_stage = aws.apigateway.Stage("exampleStage",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             deployment=example_deployment.id)
         # ...
         example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
@@ -1292,6 +1302,8 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventTargetRetryPolicyArgs']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
         :param pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
@@ -1429,6 +1441,8 @@ class EventTarget(pulumi.CustomResource):
     def rule(self) -> pulumi.Output[str]:
         """
         The name of the rule you want to add targets to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "rule")
 

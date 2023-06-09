@@ -26,6 +26,8 @@ public final class ConfigurationAggregatorAccountAggregationSource {
     /**
      * @return List of source regions being aggregated.
      * 
+     * Either `regions` or `all_regions` (as true) must be specified.
+     * 
      */
     private @Nullable List<String> regions;
 
@@ -46,6 +48,8 @@ public final class ConfigurationAggregatorAccountAggregationSource {
     }
     /**
      * @return List of source regions being aggregated.
+     * 
+     * Either `regions` or `all_regions` (as true) must be specified.
      * 
      */
     public List<String> regions() {

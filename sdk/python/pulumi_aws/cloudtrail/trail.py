@@ -35,6 +35,8 @@ class TrailArgs:
         """
         The set of arguments for constructing a Trail resource.
         :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorArgs']]] advanced_event_selectors: Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
         :param pulumi.Input[str] cloud_watch_logs_group_arn: Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         :param pulumi.Input[str] cloud_watch_logs_role_arn: Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
@@ -88,6 +90,8 @@ class TrailArgs:
     def s3_bucket_name(self) -> pulumi.Input[str]:
         """
         Name of the S3 bucket designated for publishing log files.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "s3_bucket_name")
 
@@ -315,6 +319,8 @@ class _TrailState:
         :param pulumi.Input[str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[str] name: Name of the trail.
         :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -532,6 +538,8 @@ class _TrailState:
     def s3_bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the S3 bucket designated for publishing log files.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "s3_bucket_name")
 
@@ -750,6 +758,8 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[str] name: Name of the trail.
         :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -997,6 +1007,8 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[str] name: Name of the trail.
         :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1144,6 +1156,8 @@ class Trail(pulumi.CustomResource):
     def s3_bucket_name(self) -> pulumi.Output[str]:
         """
         Name of the S3 bucket designated for publishing log files.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "s3_bucket_name")
 

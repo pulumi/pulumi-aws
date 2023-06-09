@@ -275,12 +275,16 @@ public class Template extends com.pulumi.resources.CustomResource {
     /**
      * A description of the current template version being created/updated.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="versionDescription", refs={String.class}, tree="[0]")
     private Output<String> versionDescription;
 
     /**
      * @return A description of the current template version being created/updated.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> versionDescription() {

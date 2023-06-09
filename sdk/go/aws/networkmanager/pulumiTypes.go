@@ -283,6 +283,8 @@ type ConnectPeerConfiguration struct {
 	// The inside IP addresses used for BGP peering.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress *string `pulumi:"peerAddress"`
 	Protocol    *string `pulumi:"protocol"`
 }
@@ -305,6 +307,8 @@ type ConnectPeerConfigurationArgs struct {
 	// The inside IP addresses used for BGP peering.
 	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress pulumi.StringPtrInput `pulumi:"peerAddress"`
 	Protocol    pulumi.StringPtrInput `pulumi:"protocol"`
 }
@@ -377,6 +381,8 @@ func (o ConnectPeerConfigurationOutput) InsideCidrBlocks() pulumi.StringArrayOut
 }
 
 // The Connect peer address.
+//
+// The following arguments are optional:
 func (o ConnectPeerConfigurationOutput) PeerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
 }
@@ -410,6 +416,8 @@ type ConnectPeerConfigurationBgpConfiguration struct {
 	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
 	CoreNetworkAsn     *int    `pulumi:"coreNetworkAsn"`
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress *string `pulumi:"peerAddress"`
 	PeerAsn     *int    `pulumi:"peerAsn"`
 }
@@ -430,6 +438,8 @@ type ConnectPeerConfigurationBgpConfigurationArgs struct {
 	CoreNetworkAddress pulumi.StringPtrInput `pulumi:"coreNetworkAddress"`
 	CoreNetworkAsn     pulumi.IntPtrInput    `pulumi:"coreNetworkAsn"`
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress pulumi.StringPtrInput `pulumi:"peerAddress"`
 	PeerAsn     pulumi.IntPtrInput    `pulumi:"peerAsn"`
 }
@@ -495,6 +505,8 @@ func (o ConnectPeerConfigurationBgpConfigurationOutput) CoreNetworkAsn() pulumi.
 }
 
 // The Connect peer address.
+//
+// The following arguments are optional:
 func (o ConnectPeerConfigurationBgpConfigurationOutput) PeerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectPeerConfigurationBgpConfiguration) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
 }

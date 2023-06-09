@@ -99,6 +99,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// Name of the MemoryDB user. Up to 40 characters.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -175,6 +177,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// Name of the MemoryDB user. Up to 40 characters.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -237,6 +241,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// Name of the MemoryDB user. Up to 40 characters.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

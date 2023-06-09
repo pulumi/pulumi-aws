@@ -5070,6 +5070,8 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProc
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -5088,6 +5090,8 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProc
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -5150,6 +5154,8 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 }
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -5375,6 +5381,8 @@ type FirehoseDeliveryStreamExtendedS3Configuration struct {
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferSize *int `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	//
+	// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
@@ -5419,6 +5427,8 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationArgs struct {
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferSize pulumi.IntPtrInput `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	//
+	// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 	CloudwatchLoggingOptions FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
@@ -5537,6 +5547,8 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) BufferSize() pulumi
 }
 
 // The CloudWatch Logging Options for the delivery stream. More details are given below
+//
+// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
@@ -5658,6 +5670,8 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) BufferSize() pul
 }
 
 // The CloudWatch Logging Options for the delivery stream. More details are given below
+//
+// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -7887,6 +7901,8 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurati
 	// Enables or disables dynamic partitioning. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+	//
+	// > **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
 	RetryDuration *int `pulumi:"retryDuration"`
 }
 
@@ -7905,6 +7921,8 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurati
 	// Enables or disables dynamic partitioning. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+	//
+	// > **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
 }
 
@@ -7993,6 +8011,8 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigur
 }
 
 // Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+//
+// > **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput) RetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration) *int {
 		return v.RetryDuration
@@ -8034,6 +8054,8 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigur
 }
 
 // Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
+//
+// > **NOTE:** You can enable dynamic partitioning only when you create a new delivery stream. Once you enable dynamic partitioning on a delivery stream, it cannot be disabled on this delivery stream. Therefore, the provider will recreate the resource whenever dynamic partitioning is enabled or disabled.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput) RetryDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration) *int {
 		if v == nil {
@@ -8315,6 +8337,8 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcess
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -8333,6 +8357,8 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcess
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -8395,6 +8421,8 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 }
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -8430,6 +8458,8 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration struct {
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferSize *int `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	//
+	// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
@@ -8464,6 +8494,8 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs stru
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferSize pulumi.IntPtrInput `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	//
+	// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 	CloudwatchLoggingOptions FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
@@ -8574,6 +8606,8 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput
 }
 
 // The CloudWatch Logging Options for the delivery stream. More details are given below
+//
+// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
@@ -8666,6 +8700,8 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 }
 
 // The CloudWatch Logging Options for the delivery stream. More details are given below
+//
+// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -9693,6 +9729,8 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProce
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -9711,6 +9749,8 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProce
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -9773,6 +9813,8 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 }
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -11047,6 +11089,8 @@ type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcess
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -11065,6 +11109,8 @@ type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcess
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -11127,6 +11173,8 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 }
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -12146,6 +12194,8 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -12164,6 +12214,8 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -12226,6 +12278,8 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 }
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue
@@ -12261,6 +12315,8 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration struct {
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferSize *int `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	//
+	// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
@@ -12295,6 +12351,8 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs struct
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferSize pulumi.IntPtrInput `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	//
+	// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 	CloudwatchLoggingOptions FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
@@ -12403,6 +12461,8 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) 
 }
 
 // The CloudWatch Logging Options for the delivery stream. More details are given below
+//
+// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
@@ -12495,6 +12555,8 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 }
 
 // The CloudWatch Logging Options for the delivery stream. More details are given below
+//
+// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -12745,6 +12807,8 @@ type FirehoseDeliveryStreamS3Configuration struct {
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferSize *int `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	//
+	// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
@@ -12779,6 +12843,8 @@ type FirehoseDeliveryStreamS3ConfigurationArgs struct {
 	// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
 	BufferSize pulumi.IntPtrInput `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
+	//
+	// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 	CloudwatchLoggingOptions FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
@@ -12887,6 +12953,8 @@ func (o FirehoseDeliveryStreamS3ConfigurationOutput) BufferSize() pulumi.IntPtrO
 }
 
 // The CloudWatch Logging Options for the delivery stream. More details are given below
+//
+// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 func (o FirehoseDeliveryStreamS3ConfigurationOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamS3Configuration) *FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions {
 		return v.CloudwatchLoggingOptions
@@ -12975,6 +13043,8 @@ func (o FirehoseDeliveryStreamS3ConfigurationPtrOutput) BufferSize() pulumi.IntP
 }
 
 // The CloudWatch Logging Options for the delivery stream. More details are given below
+//
+// The `extendedS3Configuration` object supports the same fields from `s3Configuration` as well as the following:
 func (o FirehoseDeliveryStreamS3ConfigurationPtrOutput) CloudwatchLoggingOptions() FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamS3Configuration) *FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions {
 		if v == nil {
@@ -13214,6 +13284,10 @@ type FirehoseDeliveryStreamServerSideEncryption struct {
 	// Whether to enable encryption at rest. Default is `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+	//
+	// The `s3Configuration` object supports the following:
+	//
+	// > **NOTE:** This configuration block is deprecated for the `s3` destination.
 	KeyArn *string `pulumi:"keyArn"`
 	// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
 	KeyType *string `pulumi:"keyType"`
@@ -13234,6 +13308,10 @@ type FirehoseDeliveryStreamServerSideEncryptionArgs struct {
 	// Whether to enable encryption at rest. Default is `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+	//
+	// The `s3Configuration` object supports the following:
+	//
+	// > **NOTE:** This configuration block is deprecated for the `s3` destination.
 	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
 	// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
 	KeyType pulumi.StringPtrInput `pulumi:"keyType"`
@@ -13322,6 +13400,10 @@ func (o FirehoseDeliveryStreamServerSideEncryptionOutput) Enabled() pulumi.BoolP
 }
 
 // Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+//
+// The `s3Configuration` object supports the following:
+//
+// > **NOTE:** This configuration block is deprecated for the `s3` destination.
 func (o FirehoseDeliveryStreamServerSideEncryptionOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamServerSideEncryption) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
@@ -13366,6 +13448,10 @@ func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) Enabled() pulumi.Bo
 }
 
 // Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+//
+// The `s3Configuration` object supports the following:
+//
+// > **NOTE:** This configuration block is deprecated for the `s3` destination.
 func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamServerSideEncryption) *string {
 		if v == nil {
@@ -14110,6 +14196,8 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorPa
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -14128,6 +14216,8 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorPa
 	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+	//
+	// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -14190,6 +14280,8 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 }
 
 // Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
+//
+// > **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 3), and `BufferIntervalInSeconds`(default: 60), are not stored in state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterValue

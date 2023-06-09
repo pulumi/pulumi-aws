@@ -82,12 +82,16 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      * 
+     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
+     * 
      */
     @Import(name="capacityReservationSpecification")
     private @Nullable Output<InstanceCapacityReservationSpecificationArgs> capacityReservationSpecification;
 
     /**
      * @return Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+     * 
+     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
      * 
      */
     public Optional<Output<InstanceCapacityReservationSpecificationArgs>> capacityReservationSpecification() {
@@ -578,6 +582,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * List of security group names to associate with.
      * 
+     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+     * 
      * @deprecated
      * Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
      * 
@@ -588,6 +594,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return List of security group names to associate with.
+     * 
+     * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      * 
      * @deprecated
      * Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
@@ -706,12 +714,16 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags to assign, at instance-creation time, to root and EBS volumes.
      * 
+     * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+     * 
      */
     @Import(name="volumeTags")
     private @Nullable Output<Map<String,String>> volumeTags;
 
     /**
      * @return Map of tags to assign, at instance-creation time, to root and EBS volumes.
+     * 
+     * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      * 
      */
     public Optional<Output<Map<String,String>>> volumeTags() {
@@ -867,6 +879,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param capacityReservationSpecification Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
          * 
+         * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
+         * 
          * @return builder
          * 
          */
@@ -877,6 +891,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param capacityReservationSpecification Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+         * 
+         * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
          * 
          * @return builder
          * 
@@ -1625,6 +1641,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param securityGroups List of security group names to associate with.
          * 
+         * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -1640,6 +1658,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param securityGroups List of security group names to associate with.
          * 
+         * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
+         * 
          * @return builder
          * 
          * @deprecated
@@ -1653,6 +1673,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param securityGroups List of security group names to associate with.
+         * 
+         * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
          * 
          * @return builder
          * 
@@ -1835,6 +1857,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param volumeTags Map of tags to assign, at instance-creation time, to root and EBS volumes.
          * 
+         * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+         * 
          * @return builder
          * 
          */
@@ -1845,6 +1869,8 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param volumeTags Map of tags to assign, at instance-creation time, to root and EBS volumes.
+         * 
+         * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
          * 
          * @return builder
          * 

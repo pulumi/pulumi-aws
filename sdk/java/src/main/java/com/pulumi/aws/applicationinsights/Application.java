@@ -178,12 +178,16 @@ public class Application extends com.pulumi.resources.CustomResource {
     /**
      * Name of the resource group.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
      * @return Name of the resource group.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> resourceGroupName() {

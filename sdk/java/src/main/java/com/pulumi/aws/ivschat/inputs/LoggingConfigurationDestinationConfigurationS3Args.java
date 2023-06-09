@@ -16,12 +16,16 @@ public final class LoggingConfigurationDestinationConfigurationS3Args extends co
     /**
      * Name of the Amazon S3 bucket where chat activity will be logged.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
      * @return Name of the Amazon S3 bucket where chat activity will be logged.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> bucketName() {
@@ -55,6 +59,8 @@ public final class LoggingConfigurationDestinationConfigurationS3Args extends co
         /**
          * @param bucketName Name of the Amazon S3 bucket where chat activity will be logged.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -65,6 +71,8 @@ public final class LoggingConfigurationDestinationConfigurationS3Args extends co
 
         /**
          * @param bucketName Name of the Amazon S3 bucket where chat activity will be logged.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

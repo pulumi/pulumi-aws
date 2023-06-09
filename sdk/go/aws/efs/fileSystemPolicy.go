@@ -96,6 +96,8 @@ type FileSystemPolicy struct {
 	// The ID of the EFS file system.
 	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
 	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+	//
+	// The following arguments are optional:
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -139,6 +141,8 @@ type fileSystemPolicyState struct {
 	// The ID of the EFS file system.
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+	//
+	// The following arguments are optional:
 	Policy *string `pulumi:"policy"`
 }
 
@@ -148,6 +152,8 @@ type FileSystemPolicyState struct {
 	// The ID of the EFS file system.
 	FileSystemId pulumi.StringPtrInput
 	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+	//
+	// The following arguments are optional:
 	Policy pulumi.StringPtrInput
 }
 
@@ -161,6 +167,8 @@ type fileSystemPolicyArgs struct {
 	// The ID of the EFS file system.
 	FileSystemId string `pulumi:"fileSystemId"`
 	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+	//
+	// The following arguments are optional:
 	Policy string `pulumi:"policy"`
 }
 
@@ -171,6 +179,8 @@ type FileSystemPolicyArgs struct {
 	// The ID of the EFS file system.
 	FileSystemId pulumi.StringInput
 	// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+	//
+	// The following arguments are optional:
 	Policy pulumi.StringInput
 }
 
@@ -272,6 +282,8 @@ func (o FileSystemPolicyOutput) FileSystemId() pulumi.StringOutput {
 }
 
 // The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+//
+// The following arguments are optional:
 func (o FileSystemPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileSystemPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

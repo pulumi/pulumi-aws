@@ -20,6 +20,8 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelector {
     /**
      * @return Name of the Channel.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String name;
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings selectorSettings;
@@ -34,6 +36,8 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelector {
     }
     /**
      * @return Name of the Channel.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {

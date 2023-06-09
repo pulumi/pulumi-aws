@@ -38,6 +38,8 @@ class InfrastructureConfigurationArgs:
         :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
         :param pulumi.Input['InfrastructureConfigurationLoggingArgs'] logging: Configuration block with logging settings. Detailed below.
         :param pulumi.Input[str] name: Name for the configuration.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
@@ -148,6 +150,8 @@ class InfrastructureConfigurationArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name for the configuration.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -260,6 +264,8 @@ class _InfrastructureConfigurationState:
         :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
         :param pulumi.Input['InfrastructureConfigurationLoggingArgs'] logging: Configuration block with logging settings. Detailed below.
         :param pulumi.Input[str] name: Name for the configuration.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
@@ -416,6 +422,8 @@ class _InfrastructureConfigurationState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name for the configuration.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -550,7 +558,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             terminate_instance_on_failure=True,
             logging=aws.imagebuilder.InfrastructureConfigurationLoggingArgs(
                 s3_logs=aws.imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs(
-                    s3_bucket_name=aws_s3_bucket["example"]["bucket"],
+                    s3_bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     s3_key_prefix="logs",
                 ),
             ),
@@ -576,6 +584,8 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
         :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']] logging: Configuration block with logging settings. Detailed below.
         :param pulumi.Input[str] name: Name for the configuration.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
@@ -612,7 +622,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             terminate_instance_on_failure=True,
             logging=aws.imagebuilder.InfrastructureConfigurationLoggingArgs(
                 s3_logs=aws.imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs(
-                    s3_bucket_name=aws_s3_bucket["example"]["bucket"],
+                    s3_bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     s3_key_prefix="logs",
                 ),
             ),
@@ -729,6 +739,8 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
         :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']] logging: Configuration block with logging settings. Detailed below.
         :param pulumi.Input[str] name: Name for the configuration.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of EC2 Security Group identifiers.
         :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
@@ -837,6 +849,8 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name for the configuration.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

@@ -79,6 +79,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Name of the configuration set.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -155,6 +157,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Name of the configuration set.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -205,6 +209,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Name of the configuration set.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

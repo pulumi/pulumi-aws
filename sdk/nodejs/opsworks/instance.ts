@@ -262,6 +262,8 @@ export class Instance extends pulumi.CustomResource {
     public readonly sshKeyName!: pulumi.Output<string>;
     /**
      * Identifier of the stack the instance will belong to.
+     *
+     * The following arguments are optional:
      */
     public readonly stackId!: pulumi.Output<string>;
     /**
@@ -564,6 +566,8 @@ export interface InstanceState {
     sshKeyName?: pulumi.Input<string>;
     /**
      * Identifier of the stack the instance will belong to.
+     *
+     * The following arguments are optional:
      */
     stackId?: pulumi.Input<string>;
     /**
@@ -690,6 +694,8 @@ export interface InstanceArgs {
     sshKeyName?: pulumi.Input<string>;
     /**
      * Identifier of the stack the instance will belong to.
+     *
+     * The following arguments are optional:
      */
     stackId: pulumi.Input<string>;
     /**

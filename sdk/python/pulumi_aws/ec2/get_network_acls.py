@@ -98,7 +98,7 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
     import pulumi
     import pulumi_aws as aws
 
-    example_network_acls = aws.ec2.get_network_acls(vpc_id=var["vpc_id"])
+    example_network_acls = aws.ec2.get_network_acls(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("example", example_network_acls.ids)
     ```
 
@@ -109,7 +109,7 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_acls(vpc_id=var["vpc_id"],
+    example = aws.ec2.get_network_acls(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         tags={
             "Tier": "Private",
         })
@@ -122,7 +122,7 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_acls(vpc_id=var["vpc_id"],
+    example = aws.ec2.get_network_acls(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         filters=[aws.ec2.GetNetworkAclsFilterArgs(
             name="association.subnet-id",
             values=[aws_subnet["test"]["id"]],
@@ -131,6 +131,9 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
 
 
     :param Sequence[pulumi.InputType['GetNetworkAclsFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network ACLs.
     :param str vpc_id: VPC ID that you want to filter from.
@@ -164,7 +167,7 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi
     import pulumi_aws as aws
 
-    example_network_acls = aws.ec2.get_network_acls(vpc_id=var["vpc_id"])
+    example_network_acls = aws.ec2.get_network_acls(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("example", example_network_acls.ids)
     ```
 
@@ -175,7 +178,7 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_acls(vpc_id=var["vpc_id"],
+    example = aws.ec2.get_network_acls(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         tags={
             "Tier": "Private",
         })
@@ -188,7 +191,7 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_acls(vpc_id=var["vpc_id"],
+    example = aws.ec2.get_network_acls(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         filters=[aws.ec2.GetNetworkAclsFilterArgs(
             name="association.subnet-id",
             values=[aws_subnet["test"]["id"]],
@@ -197,6 +200,9 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
 
 
     :param Sequence[pulumi.InputType['GetNetworkAclsFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network ACLs.
     :param str vpc_id: VPC ID that you want to filter from.

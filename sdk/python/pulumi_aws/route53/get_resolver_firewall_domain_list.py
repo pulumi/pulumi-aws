@@ -154,6 +154,8 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[str] = N
 
 
     :param str firewall_domain_list_id: The ID of the domain list.
+           
+           The following attribute is additionally exported:
     """
     __args__ = dict()
     __args__['firewallDomainListId'] = firewall_domain_list_id
@@ -195,5 +197,7 @@ def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[p
 
 
     :param str firewall_domain_list_id: The ID of the domain list.
+           
+           The following attribute is additionally exported:
     """
     ...

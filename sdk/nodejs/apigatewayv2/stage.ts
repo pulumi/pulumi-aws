@@ -104,6 +104,8 @@ export class Stage extends pulumi.CustomResource {
     public /*out*/ readonly invokeUrl!: pulumi.Output<string>;
     /**
      * Name of the stage. Must be between 1 and 128 characters in length.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -228,6 +230,8 @@ export interface StageState {
     invokeUrl?: pulumi.Input<string>;
     /**
      * Name of the stage. Must be between 1 and 128 characters in length.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -284,6 +288,8 @@ export interface StageArgs {
     description?: pulumi.Input<string>;
     /**
      * Name of the stage. Must be between 1 and 128 characters in length.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

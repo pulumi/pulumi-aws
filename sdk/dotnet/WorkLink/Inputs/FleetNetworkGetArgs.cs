@@ -17,6 +17,10 @@ namespace Pulumi.Aws.WorkLink.Inputs
 
         /// <summary>
         /// A list of security group IDs associated with access to the provided subnets.
+        /// 
+        /// **identity_provider** requires the following:
+        /// 
+        /// &gt; **NOTE:** `identity_provider` cannot be removed without force recreating.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {

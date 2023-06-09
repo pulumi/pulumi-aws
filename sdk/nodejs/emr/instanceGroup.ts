@@ -78,6 +78,28 @@ export class InstanceGroup extends pulumi.CustomResource {
     public readonly clusterId!: pulumi.Output<string>;
     /**
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
+     * {
+     * "Classification": "hadoop-env",
+     * "Configurations": [
+     * {
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * }
+     * }
+     * ],
+     * "Properties": {}
+     * }
+     * ]
+     *
+     * `});
+     * ```
      */
     public readonly configurationsJson!: pulumi.Output<string | undefined>;
     /**
@@ -176,6 +198,28 @@ export interface InstanceGroupState {
     clusterId?: pulumi.Input<string>;
     /**
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
+     * {
+     * "Classification": "hadoop-env",
+     * "Configurations": [
+     * {
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * }
+     * }
+     * ],
+     * "Properties": {}
+     * }
+     * ]
+     *
+     * `});
+     * ```
      */
     configurationsJson?: pulumi.Input<string>;
     /**
@@ -226,6 +270,28 @@ export interface InstanceGroupArgs {
     clusterId: pulumi.Input<string>;
     /**
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const task = new aws.emr.InstanceGroup("task", {configurationsJson: `[
+     * {
+     * "Classification": "hadoop-env",
+     * "Configurations": [
+     * {
+     * "Classification": "export",
+     * "Properties": {
+     * "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+     * }
+     * }
+     * ],
+     * "Properties": {}
+     * }
+     * ]
+     *
+     * `});
+     * ```
      */
     configurationsJson?: pulumi.Input<string>;
     /**

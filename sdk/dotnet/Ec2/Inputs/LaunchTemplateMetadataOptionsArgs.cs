@@ -38,6 +38,8 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+        /// 
+        /// For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         /// </summary>
         [Input("instanceMetadataTags")]
         public Input<string>? InstanceMetadataTags { get; set; }

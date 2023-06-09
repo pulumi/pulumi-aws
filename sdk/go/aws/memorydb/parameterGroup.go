@@ -64,6 +64,8 @@ type ParameterGroup struct {
 	// Description for the parameter group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The engine version that the parameter group can be used with.
+	//
+	// The following arguments are optional:
 	Family pulumi.StringOutput `pulumi:"family"`
 	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -114,6 +116,8 @@ type parameterGroupState struct {
 	// Description for the parameter group.
 	Description *string `pulumi:"description"`
 	// The engine version that the parameter group can be used with.
+	//
+	// The following arguments are optional:
 	Family *string `pulumi:"family"`
 	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -133,6 +137,8 @@ type ParameterGroupState struct {
 	// Description for the parameter group.
 	Description pulumi.StringPtrInput
 	// The engine version that the parameter group can be used with.
+	//
+	// The following arguments are optional:
 	Family pulumi.StringPtrInput
 	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -154,6 +160,8 @@ type parameterGroupArgs struct {
 	// Description for the parameter group.
 	Description *string `pulumi:"description"`
 	// The engine version that the parameter group can be used with.
+	//
+	// The following arguments are optional:
 	Family string `pulumi:"family"`
 	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -170,6 +178,8 @@ type ParameterGroupArgs struct {
 	// Description for the parameter group.
 	Description pulumi.StringPtrInput
 	// The engine version that the parameter group can be used with.
+	//
+	// The following arguments are optional:
 	Family pulumi.StringInput
 	// Name of the parameter group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -279,6 +289,8 @@ func (o ParameterGroupOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The engine version that the parameter group can be used with.
+//
+// The following arguments are optional:
 func (o ParameterGroupOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }

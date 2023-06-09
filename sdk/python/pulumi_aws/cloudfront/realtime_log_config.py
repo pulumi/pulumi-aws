@@ -221,7 +221,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 stream_type="Kinesis",
                 kinesis_stream_config=aws.cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs(
                     role_arn=example_role.arn,
-                    stream_arn=aws_kinesis_stream["example"]["arn"],
+                    stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
@@ -289,7 +289,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 stream_type="Kinesis",
                 kinesis_stream_config=aws.cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs(
                     role_arn=example_role.arn,
-                    stream_arn=aws_kinesis_stream["example"]["arn"],
+                    stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))

@@ -681,12 +681,16 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
     /**
      * ARN of the IAM role with permissions to the S3 Bucket.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="serviceAccessRoleArn")
     private @Nullable Output<String> serviceAccessRoleArn;
 
     /**
      * @return ARN of the IAM role with permissions to the S3 Bucket.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> serviceAccessRoleArn() {
@@ -1800,6 +1804,8 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param serviceAccessRoleArn ARN of the IAM role with permissions to the S3 Bucket.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -1810,6 +1816,8 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param serviceAccessRoleArn ARN of the IAM role with permissions to the S3 Bucket.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -54,6 +54,8 @@ class UserPoolArgs:
         :param pulumi.Input['UserPoolLambdaConfigArgs'] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
         :param pulumi.Input[str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
         :param pulumi.Input[str] name: Name of the user pool.
+               
+               The following arguments are optional:
         :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration blocked for information about the user pool password policy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
@@ -253,6 +255,8 @@ class UserPoolArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the user pool.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -461,6 +465,8 @@ class _UserPoolState:
         :param pulumi.Input[str] last_modified_date: Date the user pool was last modified.
         :param pulumi.Input[str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
         :param pulumi.Input[str] name: Name of the user pool.
+               
+               The following arguments are optional:
         :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration blocked for information about the user pool password policy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
@@ -761,6 +767,8 @@ class _UserPoolState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the user pool.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -979,7 +987,7 @@ class UserPool(pulumi.CustomResource):
             sms_authentication_message="Your code is {####}",
             sms_configuration=aws.cognito.UserPoolSmsConfigurationArgs(
                 external_id="example",
-                sns_caller_arn=aws_iam_role["example"]["arn"],
+                sns_caller_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 sns_region="us-east-1",
             ),
             software_token_mfa_configuration=aws.cognito.UserPoolSoftwareTokenMfaConfigurationArgs(
@@ -1028,6 +1036,8 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserPoolLambdaConfigArgs']] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
         :param pulumi.Input[str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
         :param pulumi.Input[str] name: Name of the user pool.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['UserPoolPasswordPolicyArgs']] password_policy: Configuration blocked for information about the user pool password policy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolSchemaArgs']]]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
@@ -1071,7 +1081,7 @@ class UserPool(pulumi.CustomResource):
             sms_authentication_message="Your code is {####}",
             sms_configuration=aws.cognito.UserPoolSmsConfigurationArgs(
                 external_id="example",
-                sns_caller_arn=aws_iam_role["example"]["arn"],
+                sns_caller_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 sns_region="us-east-1",
             ),
             software_token_mfa_configuration=aws.cognito.UserPoolSoftwareTokenMfaConfigurationArgs(
@@ -1254,6 +1264,8 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_date: Date the user pool was last modified.
         :param pulumi.Input[str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
         :param pulumi.Input[str] name: Name of the user pool.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['UserPoolPasswordPolicyArgs']] password_policy: Configuration blocked for information about the user pool password policy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolSchemaArgs']]]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
@@ -1455,6 +1467,8 @@ class UserPool(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name of the user pool.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

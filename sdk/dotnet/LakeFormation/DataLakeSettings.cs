@@ -154,6 +154,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        /// 
+        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         /// </summary>
         [Output("authorizedSessionTagValueLists")]
         public Output<ImmutableArray<string>> AuthorizedSessionTagValueLists { get; private set; } = null!;
@@ -257,6 +259,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        /// 
+        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         /// </summary>
         public InputList<string> AuthorizedSessionTagValueLists
         {
@@ -349,6 +353,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+        /// 
+        /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         /// </summary>
         public InputList<string> AuthorizedSessionTagValueLists
         {

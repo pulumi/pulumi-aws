@@ -19,6 +19,10 @@ namespace Pulumi.Aws.Kinesis.Outputs
         public readonly bool? Enabled;
         /// <summary>
         /// Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
+        /// 
+        /// The `s3_configuration` object supports the following:
+        /// 
+        /// &gt; **NOTE:** This configuration block is deprecated for the `s3` destination.
         /// </summary>
         public readonly string? KeyArn;
         /// <summary>

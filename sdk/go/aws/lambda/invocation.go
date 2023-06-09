@@ -77,6 +77,8 @@ type Invocation struct {
 	// Name of the lambda function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// JSON payload to the lambda function.
+	//
+	// The following arguments are optional:
 	Input pulumi.StringOutput `pulumi:"input"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
@@ -124,6 +126,8 @@ type invocationState struct {
 	// Name of the lambda function.
 	FunctionName *string `pulumi:"functionName"`
 	// JSON payload to the lambda function.
+	//
+	// The following arguments are optional:
 	Input *string `pulumi:"input"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
@@ -137,6 +141,8 @@ type InvocationState struct {
 	// Name of the lambda function.
 	FunctionName pulumi.StringPtrInput
 	// JSON payload to the lambda function.
+	//
+	// The following arguments are optional:
 	Input pulumi.StringPtrInput
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrInput
@@ -154,6 +160,8 @@ type invocationArgs struct {
 	// Name of the lambda function.
 	FunctionName string `pulumi:"functionName"`
 	// JSON payload to the lambda function.
+	//
+	// The following arguments are optional:
 	Input string `pulumi:"input"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
@@ -166,6 +174,8 @@ type InvocationArgs struct {
 	// Name of the lambda function.
 	FunctionName pulumi.StringInput
 	// JSON payload to the lambda function.
+	//
+	// The following arguments are optional:
 	Input pulumi.StringInput
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrInput
@@ -266,6 +276,8 @@ func (o InvocationOutput) FunctionName() pulumi.StringOutput {
 }
 
 // JSON payload to the lambda function.
+//
+// The following arguments are optional:
 func (o InvocationOutput) Input() pulumi.StringOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringOutput { return v.Input }).(pulumi.StringOutput)
 }

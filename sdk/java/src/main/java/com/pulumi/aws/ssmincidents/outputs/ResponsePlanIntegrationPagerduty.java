@@ -17,6 +17,8 @@ public final class ResponsePlanIntegrationPagerduty {
     /**
      * @return The ID of the AWS Secrets Manager secret that stores your PagerDuty key &amp;mdash; either a General Access REST API Key or User Token REST API Key &amp;mdash; and other user credentials.
      * 
+     * For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
+     * 
      */
     private String secretId;
     /**
@@ -35,6 +37,8 @@ public final class ResponsePlanIntegrationPagerduty {
     }
     /**
      * @return The ID of the AWS Secrets Manager secret that stores your PagerDuty key &amp;mdash; either a General Access REST API Key or User Token REST API Key &amp;mdash; and other user credentials.
+     * 
+     * For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
      * 
      */
     public String secretId() {

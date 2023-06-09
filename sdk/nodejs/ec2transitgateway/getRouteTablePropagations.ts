@@ -37,10 +37,15 @@ export function getRouteTablePropagations(args: GetRouteTablePropagationsArgs, o
 export interface GetRouteTablePropagationsArgs {
     /**
      * Custom filter block as described below.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     filters?: inputs.ec2transitgateway.GetRouteTablePropagationsFilter[];
     /**
      * Identifier of EC2 Transit Gateway Route Table.
+     *
+     * The following arguments are optional:
      */
     transitGatewayRouteTableId: string;
 }
@@ -85,10 +90,15 @@ export function getRouteTablePropagationsOutput(args: GetRouteTablePropagationsO
 export interface GetRouteTablePropagationsOutputArgs {
     /**
      * Custom filter block as described below.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetRouteTablePropagationsFilterArgs>[]>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
+     *
+     * The following arguments are optional:
      */
     transitGatewayRouteTableId: pulumi.Input<string>;
 }

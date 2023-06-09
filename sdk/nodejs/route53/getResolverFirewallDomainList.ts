@@ -36,6 +36,8 @@ export function getResolverFirewallDomainList(args: GetResolverFirewallDomainLis
 export interface GetResolverFirewallDomainListArgs {
     /**
      * The ID of the domain list.
+     *
+     * The following attribute is additionally exported:
      */
     firewallDomainListId: string;
 }
@@ -87,6 +89,8 @@ export function getResolverFirewallDomainListOutput(args: GetResolverFirewallDom
 export interface GetResolverFirewallDomainListOutputArgs {
     /**
      * The ID of the domain list.
+     *
+     * The following attribute is additionally exported:
      */
     firewallDomainListId: pulumi.Input<string>;
 }

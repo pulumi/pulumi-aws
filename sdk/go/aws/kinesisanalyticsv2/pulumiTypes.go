@@ -439,6 +439,8 @@ type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent 
 	// Information about the Amazon S3 bucket containing the application code.
 	S3ContentLocation *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation `pulumi:"s3ContentLocation"`
 	// The text-format code for the application.
+	//
+	// The `s3ContentLocation` object supports the following:
 	TextContent *string `pulumi:"textContent"`
 }
 
@@ -457,6 +459,8 @@ type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentA
 	// Information about the Amazon S3 bucket containing the application code.
 	S3ContentLocation ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrInput `pulumi:"s3ContentLocation"`
 	// The text-format code for the application.
+	//
+	// The `s3ContentLocation` object supports the following:
 	TextContent pulumi.StringPtrInput `pulumi:"textContent"`
 }
 
@@ -545,6 +549,8 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 }
 
 // The text-format code for the application.
+//
+// The `s3ContentLocation` object supports the following:
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput) TextContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent) *string {
 		return v.TextContent
@@ -586,6 +592,8 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 }
 
 // The text-format code for the application.
+//
+// The `s3ContentLocation` object supports the following:
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput) TextContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent) *string {
 		if v == nil {
@@ -5422,6 +5430,8 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 	// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
 	RecordColumns []ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn `pulumi:"recordColumns"`
 	// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+	//
+	// The `s3ReferenceDataSource` object supports the following:
 	RecordEncoding *string `pulumi:"recordEncoding"`
 	// Specifies the format of the records on the streaming source.
 	RecordFormat ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat `pulumi:"recordFormat"`
@@ -5442,6 +5452,8 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 	// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
 	RecordColumns ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayInput `pulumi:"recordColumns"`
 	// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+	//
+	// The `s3ReferenceDataSource` object supports the following:
 	RecordEncoding pulumi.StringPtrInput `pulumi:"recordEncoding"`
 	// Specifies the format of the records on the streaming source.
 	RecordFormat ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatInput `pulumi:"recordFormat"`
@@ -5532,6 +5544,8 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 // Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+//
+// The `s3ReferenceDataSource` object supports the following:
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput) RecordEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) *string {
 		return v.RecordEncoding
@@ -5580,6 +5594,8 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 // Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+//
+// The `s3ReferenceDataSource` object supports the following:
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput) RecordEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) *string {
 		if v == nil {

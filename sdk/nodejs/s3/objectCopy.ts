@@ -191,6 +191,8 @@ export class ObjectCopy extends pulumi.CustomResource {
     public readonly serverSideEncryption!: pulumi.Output<string>;
     /**
      * Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+     *
+     * The following arguments are optional:
      */
     public readonly source!: pulumi.Output<string>;
     /**
@@ -495,6 +497,8 @@ export interface ObjectCopyState {
     serverSideEncryption?: pulumi.Input<string>;
     /**
      * Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+     *
+     * The following arguments are optional:
      */
     source?: pulumi.Input<string>;
     /**
@@ -662,6 +666,8 @@ export interface ObjectCopyArgs {
     serverSideEncryption?: pulumi.Input<string>;
     /**
      * Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+     *
+     * The following arguments are optional:
      */
     source: pulumi.Input<string>;
     /**

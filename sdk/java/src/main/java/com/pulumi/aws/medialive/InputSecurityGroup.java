@@ -117,12 +117,16 @@ public class InputSecurityGroup extends com.pulumi.resources.CustomResource {
     /**
      * Whitelist rules. See Whitelist Rules for more details.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="whitelistRules", refs={List.class,InputSecurityGroupWhitelistRule.class}, tree="[0,1]")
     private Output<List<InputSecurityGroupWhitelistRule>> whitelistRules;
 
     /**
      * @return Whitelist rules. See Whitelist Rules for more details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<InputSecurityGroupWhitelistRule>> whitelistRules() {

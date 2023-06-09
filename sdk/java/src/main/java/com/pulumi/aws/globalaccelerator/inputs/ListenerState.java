@@ -50,12 +50,16 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      * 
+     * **port_range** supports the following attributes:
+     * 
      */
     @Import(name="portRanges")
     private @Nullable Output<List<ListenerPortRangeArgs>> portRanges;
 
     /**
      * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     * 
+     * **port_range** supports the following attributes:
      * 
      */
     public Optional<Output<List<ListenerPortRangeArgs>>> portRanges() {
@@ -149,6 +153,8 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
          * 
+         * **port_range** supports the following attributes:
+         * 
          * @return builder
          * 
          */
@@ -160,6 +166,8 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
          * 
+         * **port_range** supports the following attributes:
+         * 
          * @return builder
          * 
          */
@@ -169,6 +177,8 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+         * 
+         * **port_range** supports the following attributes:
          * 
          * @return builder
          * 

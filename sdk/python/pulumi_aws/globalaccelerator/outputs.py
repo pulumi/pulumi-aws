@@ -163,6 +163,8 @@ class EndpointGroupEndpointConfiguration(dict):
                **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
         :param str endpoint_id: An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
         :param int weight: The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
+               
+               **port_override** supports the following attributes:
         """
         if client_ip_preservation_enabled is not None:
             pulumi.set(__self__, "client_ip_preservation_enabled", client_ip_preservation_enabled)
@@ -193,6 +195,8 @@ class EndpointGroupEndpointConfiguration(dict):
     def weight(self) -> Optional[int]:
         """
         The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
+
+        **port_override** supports the following attributes:
         """
         return pulumi.get(self, "weight")
 

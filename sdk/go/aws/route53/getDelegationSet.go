@@ -53,6 +53,8 @@ func LookupDelegationSet(ctx *pulumi.Context, args *LookupDelegationSetArgs, opt
 // A collection of arguments for invoking getDelegationSet.
 type LookupDelegationSetArgs struct {
 	// Delegation set ID.
+	//
+	// The following attribute is additionally exported:
 	Id string `pulumi:"id"`
 }
 
@@ -80,6 +82,8 @@ func LookupDelegationSetOutput(ctx *pulumi.Context, args LookupDelegationSetOutp
 // A collection of arguments for invoking getDelegationSet.
 type LookupDelegationSetOutputArgs struct {
 	// Delegation set ID.
+	//
+	// The following attribute is additionally exported:
 	Id pulumi.StringInput `pulumi:"id"`
 }
 

@@ -118,7 +118,7 @@ def get_outposts(availability_zone: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_outposts(site_id=data["aws_outposts_site"]["id"])
+    example = aws.outposts.get_outposts(site_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -160,7 +160,7 @@ def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[str]]]
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_outposts(site_id=data["aws_outposts_site"]["id"])
+    example = aws.outposts.get_outposts(site_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

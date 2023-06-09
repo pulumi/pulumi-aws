@@ -208,6 +208,133 @@ import (
 //	}
 //
 // ```
+// ### VPC based OpenSearch
+//
+// ```go
+// package main
+//
+// import (
+// "fmt"
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// cfg := config.New(ctx, "")
+// vpc := cfg.RequireObject("vpc")
+// domain := "tf-test";
+// if param := cfg.Get("domain"); param != ""{
+// domain = param
+// }
+// exampleVpc, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
+// Tags: interface{}{
+// Name: vpc,
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// exampleSubnetIds, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
+// VpcId: exampleVpc.Id,
+// Tags: map[string]interface{}{
+// "Tier": "private",
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// currentRegion, err := aws.GetRegion(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil);
+// if err != nil {
+// return err
+// }
+// exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "exampleSecurityGroup", &ec2.SecurityGroupArgs{
+// Description: pulumi.String("Managed by Pulumi"),
+// VpcId: *pulumi.String(exampleVpc.Id),
+// Ingress: ec2.SecurityGroupIngressArray{
+// &ec2.SecurityGroupIngressArgs{
+// FromPort: pulumi.Int(443),
+// ToPort: pulumi.Int(443),
+// Protocol: pulumi.String("tcp"),
+// CidrBlocks: pulumi.StringArray{
+// *pulumi.String(exampleVpc.CidrBlock),
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// exampleServiceLinkedRole, err := iam.NewServiceLinkedRole(ctx, "exampleServiceLinkedRole", &iam.ServiceLinkedRoleArgs{
+// AwsServiceName: pulumi.String("opensearchservice.amazonaws.com"),
+// })
+// if err != nil {
+// return err
+// }
+// examplePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "*",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Actions: []string{
+// "es:*",
+// },
+// Resources: []string{
+// fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", currentRegion.Name, currentCallerIdentity.AccountId, domain),
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// _, err = opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
+// EngineVersion: pulumi.String("OpenSearch_1.0"),
+// ClusterConfig: &opensearch.DomainClusterConfigArgs{
+// InstanceType: pulumi.String("m4.large.search"),
+// ZoneAwarenessEnabled: pulumi.Bool(true),
+// },
+// VpcOptions: &opensearch.DomainVpcOptionsArgs{
+// SubnetIds: pulumi.StringArray{
+// *pulumi.String(exampleSubnetIds.Ids[0]),
+// *pulumi.String(exampleSubnetIds.Ids[1]),
+// },
+// SecurityGroupIds: pulumi.StringArray{
+// exampleSecurityGroup.ID(),
+// },
+// },
+// AdvancedOptions: pulumi.StringMap{
+// "rest.action.multi.allow_explicit_index": pulumi.String("true"),
+// },
+// AccessPolicies: *pulumi.String(examplePolicyDocument.Json),
+// Tags: pulumi.StringMap{
+// "Domain": pulumi.String("TestDomain"),
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// exampleServiceLinkedRole,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 // ### Enabling fine-grained access control on an existing domain
 //
 // This example shows two configurations: one to create a domain without fine-grained access control and the second to modify the domain to enable fine-grained access control. For more information, see [Enabling fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html).
@@ -349,6 +476,8 @@ type Domain struct {
 	// Unique identifier for the domain.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsOutput `pulumi:"ebsOptions"`
@@ -426,6 +555,8 @@ type domainState struct {
 	// Unique identifier for the domain.
 	DomainId *string `pulumi:"domainId"`
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
 	EbsOptions *DomainEbsOptions `pulumi:"ebsOptions"`
@@ -475,6 +606,8 @@ type DomainState struct {
 	// Unique identifier for the domain.
 	DomainId pulumi.StringPtrInput
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsPtrInput
@@ -522,6 +655,8 @@ type domainArgs struct {
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
 	EbsOptions *DomainEbsOptions `pulumi:"ebsOptions"`
@@ -558,6 +693,8 @@ type DomainArgs struct {
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsPtrInput
@@ -715,6 +852,8 @@ func (o DomainOutput) DomainId() pulumi.StringOutput {
 }
 
 // Name of the domain.
+//
+// The following arguments are optional:
 func (o DomainOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

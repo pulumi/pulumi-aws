@@ -192,6 +192,8 @@ namespace Pulumi.Aws.DynamoDB
 
         /// <summary>
         /// Unique within a region name of the table.
+        /// 
+        /// Optional arguments:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -402,6 +404,8 @@ namespace Pulumi.Aws.DynamoDB
 
         /// <summary>
         /// Unique within a region name of the table.
+        /// 
+        /// Optional arguments:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -574,6 +578,8 @@ namespace Pulumi.Aws.DynamoDB
 
         /// <summary>
         /// Unique within a region name of the table.
+        /// 
+        /// Optional arguments:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

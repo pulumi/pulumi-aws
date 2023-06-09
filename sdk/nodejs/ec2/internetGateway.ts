@@ -67,6 +67,19 @@ export class InternetGateway extends pulumi.CustomResource {
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: aws_vpc.main.id});
+     * // ... other arguments ...
+     * const foo = new aws.ec2.Instance("foo", {}, {
+     *     dependsOn: [gw],
+     * });
+     * ```
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -123,6 +136,19 @@ export interface InternetGatewayState {
     ownerId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: aws_vpc.main.id});
+     * // ... other arguments ...
+     * const foo = new aws.ec2.Instance("foo", {}, {
+     *     dependsOn: [gw],
+     * });
+     * ```
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -141,6 +167,19 @@ export interface InternetGatewayState {
 export interface InternetGatewayArgs {
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as aws from "@pulumi/aws";
+     *
+     * const gw = new aws.ec2.InternetGateway("gw", {vpcId: aws_vpc.main.id});
+     * // ... other arguments ...
+     * const foo = new aws.ec2.Instance("foo", {}, {
+     *     dependsOn: [gw],
+     * });
+     * ```
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

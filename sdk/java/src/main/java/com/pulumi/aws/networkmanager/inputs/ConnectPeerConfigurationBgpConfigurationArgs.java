@@ -41,12 +41,16 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
     /**
      * The Connect peer address.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="peerAddress")
     private @Nullable Output<String> peerAddress;
 
     /**
      * @return The Connect peer address.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> peerAddress() {
@@ -120,6 +124,8 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
         /**
          * @param peerAddress The Connect peer address.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -130,6 +136,8 @@ public final class ConnectPeerConfigurationBgpConfigurationArgs extends com.pulu
 
         /**
          * @param peerAddress The Connect peer address.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

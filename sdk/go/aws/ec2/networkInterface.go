@@ -124,6 +124,8 @@ type NetworkInterface struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -208,6 +210,8 @@ type networkInterfaceState struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId *string `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -261,6 +265,8 @@ type NetworkInterfaceState struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck pulumi.BoolPtrInput
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -309,6 +315,8 @@ type networkInterfaceArgs struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId string `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -352,6 +360,8 @@ type NetworkInterfaceArgs struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck pulumi.BoolPtrInput
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -558,6 +568,8 @@ func (o NetworkInterfaceOutput) SourceDestCheck() pulumi.BoolPtrOutput {
 }
 
 // Subnet ID to create the ENI in.
+//
+// The following arguments are optional:
 func (o NetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

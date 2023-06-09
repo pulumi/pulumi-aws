@@ -40,6 +40,8 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// ARN of the Outpost on which the snapshot is stored.
+        /// 
+        /// &gt; **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }

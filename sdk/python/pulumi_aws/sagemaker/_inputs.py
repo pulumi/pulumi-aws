@@ -192,6 +192,8 @@ class AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs:
         :param pulumi.Input[int] default_gid: The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
         :param pulumi.Input[int] default_uid: The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
         :param pulumi.Input[str] mount_path: The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+               
+               > **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
         """
         if default_gid is not None:
             pulumi.set(__self__, "default_gid", default_gid)
@@ -229,6 +231,8 @@ class AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs:
     def mount_path(self) -> Optional[pulumi.Input[str]]:
         """
         The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+
+        > **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
         """
         return pulumi.get(self, "mount_path")
 

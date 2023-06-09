@@ -97,6 +97,10 @@ type GetLogDataProtectionPolicyDocumentArgs struct {
 	// The name of the data protection policy document.
 	Name string `pulumi:"name"`
 	// Configures the data protection policy.
+	//
+	// > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+	//
+	// The following arguments are optional:
 	Statements []GetLogDataProtectionPolicyDocumentStatement `pulumi:"statements"`
 	Version    *string                                       `pulumi:"version"`
 }
@@ -132,6 +136,10 @@ type GetLogDataProtectionPolicyDocumentOutputArgs struct {
 	// The name of the data protection policy document.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Configures the data protection policy.
+	//
+	// > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+	//
+	// The following arguments are optional:
 	Statements GetLogDataProtectionPolicyDocumentStatementArrayInput `pulumi:"statements"`
 	Version    pulumi.StringPtrInput                                 `pulumi:"version"`
 }

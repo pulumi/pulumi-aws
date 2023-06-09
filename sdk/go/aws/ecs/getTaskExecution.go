@@ -59,6 +59,8 @@ type GetTaskExecutionArgs struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+	//
+	// The following arguments are optional:
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
 
@@ -135,6 +137,8 @@ type GetTaskExecutionOutputArgs struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+	//
+	// The following arguments are optional:
 	TaskDefinition pulumi.StringInput `pulumi:"taskDefinition"`
 }
 

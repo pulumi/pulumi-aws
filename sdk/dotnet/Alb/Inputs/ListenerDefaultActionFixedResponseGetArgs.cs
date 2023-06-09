@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Alb.Inputs
     {
         /// <summary>
         /// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;

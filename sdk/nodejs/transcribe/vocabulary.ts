@@ -96,6 +96,8 @@ export class Vocabulary extends pulumi.CustomResource {
     public readonly vocabularyFileUri!: pulumi.Output<string>;
     /**
      * The name of the Vocabulary.
+     *
+     * The following arguments are optional:
      */
     public readonly vocabularyName!: pulumi.Output<string>;
 
@@ -173,6 +175,8 @@ export interface VocabularyState {
     vocabularyFileUri?: pulumi.Input<string>;
     /**
      * The name of the Vocabulary.
+     *
+     * The following arguments are optional:
      */
     vocabularyName?: pulumi.Input<string>;
 }
@@ -199,6 +203,8 @@ export interface VocabularyArgs {
     vocabularyFileUri?: pulumi.Input<string>;
     /**
      * The name of the Vocabulary.
+     *
+     * The following arguments are optional:
      */
     vocabularyName: pulumi.Input<string>;
 }

@@ -230,6 +230,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The following arguments are deprecated, and will be removed in a future major version:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -466,6 +468,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The following arguments are deprecated, and will be removed in a future major version:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -689,6 +693,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The following arguments are deprecated, and will be removed in a future major version:
         /// </summary>
         public InputMap<string> Tags
         {

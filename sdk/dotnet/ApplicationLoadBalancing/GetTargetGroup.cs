@@ -109,6 +109,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         /// <summary>
         /// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+        /// 
+        /// &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -141,6 +143,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         /// <summary>
         /// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+        /// 
+        /// &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
         /// </summary>
         public InputMap<string> Tags
         {

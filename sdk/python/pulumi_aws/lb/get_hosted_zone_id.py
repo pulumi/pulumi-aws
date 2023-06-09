@@ -80,7 +80,7 @@ def get_hosted_zone_id(load_balancer_type: Optional[str] = None,
         name="example.com",
         type="A",
         aliases=[aws.route53.RecordAliasArgs(
-            name=aws_lb["main"]["dns_name"],
+            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             zone_id=main.id,
             evaluate_target_health=True,
         )])
@@ -122,7 +122,7 @@ def get_hosted_zone_id_output(load_balancer_type: Optional[pulumi.Input[Optional
         name="example.com",
         type="A",
         aliases=[aws.route53.RecordAliasArgs(
-            name=aws_lb["main"]["dns_name"],
+            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             zone_id=main.id,
             evaluate_target_health=True,
         )])

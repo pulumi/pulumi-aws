@@ -395,12 +395,16 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
     /**
      * Subnet ID to create the ENI in.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
      * @return Subnet ID to create the ENI in.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> subnetId() {

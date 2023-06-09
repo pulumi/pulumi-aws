@@ -232,6 +232,8 @@ class ClusterS3ImportArgs:
         :param pulumi.Input[str] ingestion_role: Role applied to load the data.
         :param pulumi.Input[str] source_engine: Source engine for the backup
         :param pulumi.Input[str] source_engine_version: Version of the source engine used to make the backup
+               
+               This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
         :param pulumi.Input[str] bucket_prefix: Can be blank, but is the path to your backup
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -282,6 +284,8 @@ class ClusterS3ImportArgs:
     def source_engine_version(self) -> pulumi.Input[str]:
         """
         Version of the source engine used to make the backup
+
+        This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
         """
         return pulumi.get(self, "source_engine_version")
 
@@ -472,6 +476,13 @@ class InstanceBlueGreenUpdateArgs:
         """
         :param pulumi.Input[bool] enabled: Enables low-downtime updates when `true`.
                Default is `false`.
+               
+               [instance-replication]:
+               https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
+               [instance-maintenance]:
+               https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
+               [blue-green]:
+               https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -482,6 +493,13 @@ class InstanceBlueGreenUpdateArgs:
         """
         Enables low-downtime updates when `true`.
         Default is `false`.
+
+        [instance-replication]:
+        https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
+        [instance-maintenance]:
+        https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
+        [blue-green]:
+        https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
         """
         return pulumi.get(self, "enabled")
 
@@ -702,6 +720,8 @@ class InstanceS3ImportArgs:
         :param pulumi.Input[str] ingestion_role: Role applied to load the data.
         :param pulumi.Input[str] source_engine: Source engine for the backup
         :param pulumi.Input[str] source_engine_version: Version of the source engine used to make the backup
+               
+               This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
         :param pulumi.Input[str] bucket_prefix: Can be blank, but is the path to your backup
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -752,6 +772,8 @@ class InstanceS3ImportArgs:
     def source_engine_version(self) -> pulumi.Input[str]:
         """
         Version of the source engine used to make the backup
+
+        This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
         """
         return pulumi.get(self, "source_engine_version")
 

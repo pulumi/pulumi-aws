@@ -19,6 +19,8 @@ class HostedZoneDnsSecArgs:
         """
         The set of arguments for constructing a HostedZoneDnsSec resource.
         :param pulumi.Input[str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
@@ -30,6 +32,8 @@ class HostedZoneDnsSecArgs:
     def hosted_zone_id(self) -> pulumi.Input[str]:
         """
         Identifier of the Route 53 Hosted Zone.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -58,6 +62,8 @@ class _HostedZoneDnsSecState:
         """
         Input properties used for looking up and filtering HostedZoneDnsSec resources.
         :param pulumi.Input[str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
         if hosted_zone_id is not None:
@@ -70,6 +76,8 @@ class _HostedZoneDnsSecState:
     def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
         """
         Identifier of the Route 53 Hosted Zone.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -162,6 +170,8 @@ class HostedZoneDnsSec(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
         ...
@@ -281,6 +291,8 @@ class HostedZoneDnsSec(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -296,6 +308,8 @@ class HostedZoneDnsSec(pulumi.CustomResource):
     def hosted_zone_id(self) -> pulumi.Output[str]:
         """
         Identifier of the Route 53 Hosted Zone.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "hosted_zone_id")
 

@@ -200,12 +200,16 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     /**
      * Configures the target of the schedule. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="target")
     private @Nullable Output<ScheduleTargetArgs> target;
 
     /**
      * @return Configures the target of the schedule. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<ScheduleTargetArgs>> target() {
@@ -503,6 +507,8 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param target Configures the target of the schedule. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -513,6 +519,8 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param target Configures the target of the schedule. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

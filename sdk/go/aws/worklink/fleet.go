@@ -10,6 +10,102 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// Basic usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/worklink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := worklink.NewFleet(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Network Configuration Usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/worklink"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := worklink.NewFleet(ctx, "example", &worklink.FleetArgs{
+// Network: &worklink.FleetNetworkArgs{
+// VpcId: pulumi.Any(aws_vpc.Test.Id),
+// SubnetIds: pulumi.StringArray{
+// %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:worklink-fleet:Fleet.pp:3,26-47),
+// },
+// SecurityGroupIds: pulumi.StringArray{
+// aws_security_group.Test.Id,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
+// Identity Provider Configuration Usage:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"os"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/worklink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := worklink.NewFleet(ctx, "test", &worklink.FleetArgs{
+//				IdentityProvider: &worklink.FleetIdentityProviderArgs{
+//					Type:         pulumi.String("SAML"),
+//					SamlMetadata: readFileOrPanic("saml-metadata.xml"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // WorkLink can be imported using the ARN, e.g.,
@@ -43,6 +139,10 @@ type Fleet struct {
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
 	Network FleetNetworkPtrOutput `pulumi:"network"`
 	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	//
+	// **network** requires the following:
+	//
+	// > **NOTE:** `network` is cannot removed without force recreating.
 	OptimizeForEndUserLocation pulumi.BoolPtrOutput `pulumi:"optimizeForEndUserLocation"`
 }
 
@@ -96,6 +196,10 @@ type fleetState struct {
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
 	Network *FleetNetwork `pulumi:"network"`
 	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	//
+	// **network** requires the following:
+	//
+	// > **NOTE:** `network` is cannot removed without force recreating.
 	OptimizeForEndUserLocation *bool `pulumi:"optimizeForEndUserLocation"`
 }
 
@@ -121,6 +225,10 @@ type FleetState struct {
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
 	Network FleetNetworkPtrInput
 	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	//
+	// **network** requires the following:
+	//
+	// > **NOTE:** `network` is cannot removed without force recreating.
 	OptimizeForEndUserLocation pulumi.BoolPtrInput
 }
 
@@ -142,6 +250,10 @@ type fleetArgs struct {
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
 	Network *FleetNetwork `pulumi:"network"`
 	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	//
+	// **network** requires the following:
+	//
+	// > **NOTE:** `network` is cannot removed without force recreating.
 	OptimizeForEndUserLocation *bool `pulumi:"optimizeForEndUserLocation"`
 }
 
@@ -160,6 +272,10 @@ type FleetArgs struct {
 	// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
 	Network FleetNetworkPtrInput
 	// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+	//
+	// **network** requires the following:
+	//
+	// > **NOTE:** `network` is cannot removed without force recreating.
 	OptimizeForEndUserLocation pulumi.BoolPtrInput
 }
 
@@ -301,6 +417,10 @@ func (o FleetOutput) Network() FleetNetworkPtrOutput {
 }
 
 // The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+//
+// **network** requires the following:
+//
+// > **NOTE:** `network` is cannot removed without force recreating.
 func (o FleetOutput) OptimizeForEndUserLocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.BoolPtrOutput { return v.OptimizeForEndUserLocation }).(pulumi.BoolPtrOutput)
 }

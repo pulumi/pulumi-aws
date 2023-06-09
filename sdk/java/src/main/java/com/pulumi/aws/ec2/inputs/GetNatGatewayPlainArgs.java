@@ -20,12 +20,18 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
     /**
      * Custom filter block as described below.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="filters")
     private @Nullable List<GetNatGatewayFilter> filters;
 
     /**
      * @return Custom filter block as described below.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<List<GetNatGatewayFilter>> filters() {
@@ -141,6 +147,9 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param filters Custom filter block as described below.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -151,6 +160,9 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
 
         /**
          * @param filters Custom filter block as described below.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

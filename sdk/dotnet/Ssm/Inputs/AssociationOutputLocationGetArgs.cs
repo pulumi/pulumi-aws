@@ -26,6 +26,8 @@ namespace Pulumi.Aws.Ssm.Inputs
 
         /// <summary>
         /// The S3 bucket region.
+        /// 
+        /// Targets specify what instance IDs or tags to apply the document to and has these keys:
         /// </summary>
         [Input("s3Region")]
         public Input<string>? S3Region { get; set; }

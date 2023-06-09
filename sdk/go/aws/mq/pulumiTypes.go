@@ -1094,6 +1094,8 @@ type BrokerUser struct {
 	// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
 	Password string `pulumi:"password"`
 	// Username of the user.
+	//
+	// > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
 	Username string `pulumi:"username"`
 }
 
@@ -1116,6 +1118,8 @@ type BrokerUserArgs struct {
 	// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
 	Password pulumi.StringInput `pulumi:"password"`
 	// Username of the user.
+	//
+	// > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -1186,6 +1190,8 @@ func (o BrokerUserOutput) Password() pulumi.StringOutput {
 }
 
 // Username of the user.
+//
+// > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
 func (o BrokerUserOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerUser) string { return v.Username }).(pulumi.StringOutput)
 }

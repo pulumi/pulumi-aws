@@ -91,6 +91,8 @@ type ExperimentTemplate struct {
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
+	//
+	// The following arguments are optional:
 	StopConditions ExperimentTemplateStopConditionArrayOutput `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -147,6 +149,8 @@ type experimentTemplateState struct {
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
+	//
+	// The following arguments are optional:
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
@@ -163,6 +167,8 @@ type ExperimentTemplateState struct {
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// When an ongoing experiment should be stopped. See below.
+	//
+	// The following arguments are optional:
 	StopConditions ExperimentTemplateStopConditionArrayInput
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
@@ -183,6 +189,8 @@ type experimentTemplateArgs struct {
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
+	//
+	// The following arguments are optional:
 	StopConditions []ExperimentTemplateStopCondition `pulumi:"stopConditions"`
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -199,6 +207,8 @@ type ExperimentTemplateArgs struct {
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringInput
 	// When an ongoing experiment should be stopped. See below.
+	//
+	// The following arguments are optional:
 	StopConditions ExperimentTemplateStopConditionArrayInput
 	// Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -309,6 +319,8 @@ func (o ExperimentTemplateOutput) RoleArn() pulumi.StringOutput {
 }
 
 // When an ongoing experiment should be stopped. See below.
+//
+// The following arguments are optional:
 func (o ExperimentTemplateOutput) StopConditions() ExperimentTemplateStopConditionArrayOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateStopConditionArrayOutput { return v.StopConditions }).(ExperimentTemplateStopConditionArrayOutput)
 }

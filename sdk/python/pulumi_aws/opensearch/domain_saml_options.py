@@ -21,6 +21,8 @@ class DomainSamlOptionsArgs:
         """
         The set of arguments for constructing a DomainSamlOptions resource.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input['DomainSamlOptionsSamlOptionsArgs'] saml_options: SAML authentication options for an AWS OpenSearch Domain.
         """
         pulumi.set(__self__, "domain_name", domain_name)
@@ -32,6 +34,8 @@ class DomainSamlOptionsArgs:
     def domain_name(self) -> pulumi.Input[str]:
         """
         Name of the domain.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 
@@ -60,6 +64,8 @@ class _DomainSamlOptionsState:
         """
         Input properties used for looking up and filtering DomainSamlOptions resources.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input['DomainSamlOptionsSamlOptionsArgs'] saml_options: SAML authentication options for an AWS OpenSearch Domain.
         """
         if domain_name is not None:
@@ -72,6 +78,8 @@ class _DomainSamlOptionsState:
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the domain.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 
@@ -143,6 +151,8 @@ class DomainSamlOptions(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DomainSamlOptionsSamlOptionsArgs']] saml_options: SAML authentication options for an AWS OpenSearch Domain.
         """
         ...
@@ -241,6 +251,8 @@ class DomainSamlOptions(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DomainSamlOptionsSamlOptionsArgs']] saml_options: SAML authentication options for an AWS OpenSearch Domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -256,6 +268,8 @@ class DomainSamlOptions(pulumi.CustomResource):
     def domain_name(self) -> pulumi.Output[str]:
         """
         Name of the domain.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 

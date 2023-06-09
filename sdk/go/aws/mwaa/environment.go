@@ -16,6 +16,158 @@ import (
 // ## Example Usage
 //
 // A MWAA Environment requires an IAM role (`iam.Role`), two subnets in the private zone (`ec2.Subnet`) and a versioned S3 bucket (`s3.BucketV2`).
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mwaa"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := mwaa.NewEnvironment(ctx, "example", &mwaa.EnvironmentArgs{
+// DagS3Path: pulumi.String("dags/"),
+// ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
+// SecurityGroupIds: pulumi.StringArray{
+// aws_security_group.Example.Id,
+// },
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:mwaa-environment:Environment.pp:5,25-49),
+// },
+// SourceBucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### Example with Airflow configuration options
+//
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mwaa"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := mwaa.NewEnvironment(ctx, "example", &mwaa.EnvironmentArgs{
+// AirflowConfigurationOptions: pulumi.StringMap{
+// "core.default_task_retries": pulumi.String("16"),
+// "core.parallelism": pulumi.String("1"),
+// },
+// DagS3Path: pulumi.String("dags/"),
+// ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
+// SecurityGroupIds: pulumi.StringArray{
+// aws_security_group.Example.Id,
+// },
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:mwaa-environment:Environment.pp:9,25-49),
+// },
+// SourceBucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### Example with logging configurations
+//
+// Note that Airflow task logs are enabled by default with the `INFO` log level.
+//
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mwaa"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := mwaa.NewEnvironment(ctx, "example", &mwaa.EnvironmentArgs{
+// DagS3Path: pulumi.String("dags/"),
+// ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// LoggingConfiguration: &mwaa.EnvironmentLoggingConfigurationArgs{
+// DagProcessingLogs: &mwaa.EnvironmentLoggingConfigurationDagProcessingLogsArgs{
+// Enabled: pulumi.Bool(true),
+// LogLevel: pulumi.String("DEBUG"),
+// },
+// SchedulerLogs: &mwaa.EnvironmentLoggingConfigurationSchedulerLogsArgs{
+// Enabled: pulumi.Bool(true),
+// LogLevel: pulumi.String("INFO"),
+// },
+// TaskLogs: &mwaa.EnvironmentLoggingConfigurationTaskLogsArgs{
+// Enabled: pulumi.Bool(true),
+// LogLevel: pulumi.String("WARNING"),
+// },
+// WebserverLogs: &mwaa.EnvironmentLoggingConfigurationWebserverLogsArgs{
+// Enabled: pulumi.Bool(true),
+// LogLevel: pulumi.String("ERROR"),
+// },
+// WorkerLogs: &mwaa.EnvironmentLoggingConfigurationWorkerLogsArgs{
+// Enabled: pulumi.Bool(true),
+// LogLevel: pulumi.String("CRITICAL"),
+// },
+// },
+// NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
+// SecurityGroupIds: pulumi.StringArray{
+// aws_security_group.Example.Id,
+// },
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:mwaa-environment:Environment.pp:27,25-49),
+// },
+// SourceBucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### Example with tags
+//
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mwaa"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := mwaa.NewEnvironment(ctx, "example", &mwaa.EnvironmentArgs{
+// DagS3Path: pulumi.String("dags/"),
+// ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// NetworkConfiguration: &mwaa.EnvironmentNetworkConfigurationArgs{
+// SecurityGroupIds: pulumi.StringArray{
+// aws_security_group.Example.Id,
+// },
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:mwaa-environment:Environment.pp:5,25-49),
+// },
+// SourceBucketArn: pulumi.Any(aws_s3_bucket.Example.Arn),
+// Tags: pulumi.StringMap{
+// "Name": pulumi.String("example"),
+// "Environment": pulumi.String("production"),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //

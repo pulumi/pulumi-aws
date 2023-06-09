@@ -76,6 +76,9 @@ type LookupSecurityGroupArgs struct {
 	// a pair on the desired security group.
 	Tags map[string]string `pulumi:"tags"`
 	// Id of the VPC that the desired security group belongs to.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -118,6 +121,9 @@ type LookupSecurityGroupOutputArgs struct {
 	// a pair on the desired security group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Id of the VPC that the desired security group belongs to.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 

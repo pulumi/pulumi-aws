@@ -361,12 +361,16 @@ type Listener struct {
 	// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
 	AlpnPolicy pulumi.StringPtrOutput `pulumi:"alpnPolicy"`
 	// ARN of the target group.
+	//
+	// The following arguments are optional:
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// Configuration block for default actions. Detailed below.
 	DefaultActions ListenerDefaultActionArrayOutput `pulumi:"defaultActions"`
 	// ARN of the load balancer.
+	//
+	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
@@ -375,6 +379,8 @@ type Listener struct {
 	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy pulumi.StringOutput `pulumi:"sslPolicy"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -424,12 +430,16 @@ type listenerState struct {
 	// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
 	AlpnPolicy *string `pulumi:"alpnPolicy"`
 	// ARN of the target group.
+	//
+	// The following arguments are optional:
 	Arn *string `pulumi:"arn"`
 	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// Configuration block for default actions. Detailed below.
 	DefaultActions []ListenerDefaultAction `pulumi:"defaultActions"`
 	// ARN of the load balancer.
+	//
+	// The following arguments are optional:
 	LoadBalancerArn *string `pulumi:"loadBalancerArn"`
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port *int `pulumi:"port"`
@@ -438,6 +448,8 @@ type listenerState struct {
 	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy *string `pulumi:"sslPolicy"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -447,12 +459,16 @@ type ListenerState struct {
 	// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
 	AlpnPolicy pulumi.StringPtrInput
 	// ARN of the target group.
+	//
+	// The following arguments are optional:
 	Arn pulumi.StringPtrInput
 	// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
 	CertificateArn pulumi.StringPtrInput
 	// Configuration block for default actions. Detailed below.
 	DefaultActions ListenerDefaultActionArrayInput
 	// ARN of the load balancer.
+	//
+	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringPtrInput
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrInput
@@ -461,6 +477,8 @@ type ListenerState struct {
 	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -478,6 +496,8 @@ type listenerArgs struct {
 	// Configuration block for default actions. Detailed below.
 	DefaultActions []ListenerDefaultAction `pulumi:"defaultActions"`
 	// ARN of the load balancer.
+	//
+	// The following arguments are optional:
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port *int `pulumi:"port"`
@@ -486,6 +506,8 @@ type listenerArgs struct {
 	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy *string `pulumi:"sslPolicy"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -498,6 +520,8 @@ type ListenerArgs struct {
 	// Configuration block for default actions. Detailed below.
 	DefaultActions ListenerDefaultActionArrayInput
 	// ARN of the load balancer.
+	//
+	// The following arguments are optional:
 	LoadBalancerArn pulumi.StringInput
 	// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
 	Port pulumi.IntPtrInput
@@ -506,6 +530,8 @@ type ListenerArgs struct {
 	// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
 	SslPolicy pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
 	Tags pulumi.StringMapInput
 }
 
@@ -602,6 +628,8 @@ func (o ListenerOutput) AlpnPolicy() pulumi.StringPtrOutput {
 }
 
 // ARN of the target group.
+//
+// The following arguments are optional:
 func (o ListenerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -617,6 +645,8 @@ func (o ListenerOutput) DefaultActions() ListenerDefaultActionArrayOutput {
 }
 
 // ARN of the load balancer.
+//
+// The following arguments are optional:
 func (o ListenerOutput) LoadBalancerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
 }
@@ -637,6 +667,8 @@ func (o ListenerOutput) SslPolicy() pulumi.StringOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// > **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
 func (o ListenerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

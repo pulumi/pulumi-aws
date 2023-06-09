@@ -154,6 +154,8 @@ type KeySigningKey struct {
 	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
 	KeyTag pulumi.IntOutput `pulumi:"keyTag"`
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
@@ -219,6 +221,8 @@ type keySigningKeyState struct {
 	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
 	KeyTag *int `pulumi:"keyTag"`
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
 	PublicKey *string `pulumi:"publicKey"`
@@ -250,6 +254,8 @@ type KeySigningKeyState struct {
 	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
 	KeyTag pulumi.IntPtrInput
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
 	PublicKey pulumi.StringPtrInput
@@ -271,6 +277,8 @@ type keySigningKeyArgs struct {
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
 	KeyManagementServiceArn string `pulumi:"keyManagementServiceArn"`
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
 	Status *string `pulumi:"status"`
@@ -283,6 +291,8 @@ type KeySigningKeyArgs struct {
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
 	KeyManagementServiceArn pulumi.StringInput
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
 	Status pulumi.StringPtrInput
@@ -421,6 +431,8 @@ func (o KeySigningKeyOutput) KeyTag() pulumi.IntOutput {
 }
 
 // Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+//
+// The following arguments are optional:
 func (o KeySigningKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -117,12 +117,16 @@ public class HostedZoneDnsSec extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of the Route 53 Hosted Zone.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
     /**
      * @return Identifier of the Route 53 Hosted Zone.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> hostedZoneId() {

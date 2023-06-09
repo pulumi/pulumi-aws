@@ -107,6 +107,8 @@ type Model struct {
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrOutput `pulumi:"primaryContainer"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The `primaryContainer` and `container` block both support:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -161,6 +163,8 @@ type modelState struct {
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer *ModelPrimaryContainer `pulumi:"primaryContainer"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The `primaryContainer` and `container` block both support:
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -184,6 +188,8 @@ type ModelState struct {
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The `primaryContainer` and `container` block both support:
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -209,6 +215,8 @@ type modelArgs struct {
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer *ModelPrimaryContainer `pulumi:"primaryContainer"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The `primaryContainer` and `container` block both support:
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig *ModelVpcConfig `pulumi:"vpcConfig"`
@@ -229,6 +237,8 @@ type ModelArgs struct {
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
 	PrimaryContainer ModelPrimaryContainerPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The `primaryContainer` and `container` block both support:
 	Tags pulumi.StringMapInput
 	// Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
 	VpcConfig ModelVpcConfigPtrInput
@@ -357,6 +367,8 @@ func (o ModelOutput) PrimaryContainer() ModelPrimaryContainerPtrOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// The `primaryContainer` and `container` block both support:
 func (o ModelOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

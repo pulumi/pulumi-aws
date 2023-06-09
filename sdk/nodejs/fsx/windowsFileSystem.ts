@@ -202,6 +202,8 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+     *
+     * The following arguments are optional:
      */
     public readonly throughputCapacity!: pulumi.Output<number>;
     /**
@@ -396,6 +398,8 @@ export interface WindowsFileSystemState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+     *
+     * The following arguments are optional:
      */
     throughputCapacity?: pulumi.Input<number>;
     /**
@@ -482,6 +486,8 @@ export interface WindowsFileSystemArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+     *
+     * The following arguments are optional:
      */
     throughputCapacity: pulumi.Input<number>;
     /**

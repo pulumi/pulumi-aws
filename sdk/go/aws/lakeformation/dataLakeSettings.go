@@ -151,6 +151,8 @@ type DataLakeSettings struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering pulumi.BoolPtrOutput `pulumi:"allowExternalDataFiltering"`
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AuthorizedSessionTagValueLists pulumi.StringArrayOutput `pulumi:"authorizedSessionTagValueLists"`
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
@@ -198,6 +200,8 @@ type dataLakeSettingsState struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering *bool `pulumi:"allowExternalDataFiltering"`
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AuthorizedSessionTagValueLists []string `pulumi:"authorizedSessionTagValueLists"`
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId *string `pulumi:"catalogId"`
@@ -217,6 +221,8 @@ type DataLakeSettingsState struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering pulumi.BoolPtrInput
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AuthorizedSessionTagValueLists pulumi.StringArrayInput
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId pulumi.StringPtrInput
@@ -240,6 +246,8 @@ type dataLakeSettingsArgs struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering *bool `pulumi:"allowExternalDataFiltering"`
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AuthorizedSessionTagValueLists []string `pulumi:"authorizedSessionTagValueLists"`
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId *string `pulumi:"catalogId"`
@@ -260,6 +268,8 @@ type DataLakeSettingsArgs struct {
 	// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
 	AllowExternalDataFiltering pulumi.BoolPtrInput
 	// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+	//
+	// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 	AuthorizedSessionTagValueLists pulumi.StringArrayInput
 	// Identifier for the Data Catalog. By default, the account ID.
 	CatalogId pulumi.StringPtrInput
@@ -371,6 +381,8 @@ func (o DataLakeSettingsOutput) AllowExternalDataFiltering() pulumi.BoolPtrOutpu
 }
 
 // Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+//
+// > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
 func (o DataLakeSettingsOutput) AuthorizedSessionTagValueLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataLakeSettings) pulumi.StringArrayOutput { return v.AuthorizedSessionTagValueLists }).(pulumi.StringArrayOutput)
 }
