@@ -3014,7 +3014,7 @@ func (o ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrayOutpu
 
 type ServiceServiceConnectConfigurationService struct {
 	// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-	ClientAliases []ServiceServiceConnectConfigurationServiceClientAlias `pulumi:"clientAliases"`
+	ClientAlias []ServiceServiceConnectConfigurationServiceClientAlias `pulumi:"clientAlias"`
 	// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
 	DiscoveryName *string `pulumi:"discoveryName"`
 	// The port number for the Service Connect proxy to listen on.
@@ -3036,7 +3036,7 @@ type ServiceServiceConnectConfigurationServiceInput interface {
 
 type ServiceServiceConnectConfigurationServiceArgs struct {
 	// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-	ClientAliases ServiceServiceConnectConfigurationServiceClientAliasArrayInput `pulumi:"clientAliases"`
+	ClientAlias ServiceServiceConnectConfigurationServiceClientAliasArrayInput `pulumi:"clientAlias"`
 	// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
 	DiscoveryName pulumi.StringPtrInput `pulumi:"discoveryName"`
 	// The port number for the Service Connect proxy to listen on.
@@ -3097,9 +3097,9 @@ func (o ServiceServiceConnectConfigurationServiceOutput) ToServiceServiceConnect
 }
 
 // The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-func (o ServiceServiceConnectConfigurationServiceOutput) ClientAliases() ServiceServiceConnectConfigurationServiceClientAliasArrayOutput {
+func (o ServiceServiceConnectConfigurationServiceOutput) ClientAlias() ServiceServiceConnectConfigurationServiceClientAliasArrayOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationService) []ServiceServiceConnectConfigurationServiceClientAlias {
-		return v.ClientAliases
+		return v.ClientAlias
 	}).(ServiceServiceConnectConfigurationServiceClientAliasArrayOutput)
 }
 

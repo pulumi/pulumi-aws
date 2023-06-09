@@ -1135,8 +1135,8 @@ class ServiceServiceConnectConfigurationService(dict):
         suggest = None
         if key == "portName":
             suggest = "port_name"
-        elif key == "clientAliases":
-            suggest = "client_aliases"
+        elif key == "clientAlias":
+            suggest = "client_alias"
         elif key == "discoveryName":
             suggest = "discovery_name"
         elif key == "ingressPortOverride":
@@ -1155,18 +1155,18 @@ class ServiceServiceConnectConfigurationService(dict):
 
     def __init__(__self__, *,
                  port_name: str,
-                 client_aliases: Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias']] = None,
+                 client_alias: Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias']] = None,
                  discovery_name: Optional[str] = None,
                  ingress_port_override: Optional[int] = None):
         """
         :param str port_name: The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-        :param Sequence['ServiceServiceConnectConfigurationServiceClientAliasArgs'] client_aliases: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        :param Sequence['ServiceServiceConnectConfigurationServiceClientAliasArgs'] client_alias: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         :param str discovery_name: The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         :param int ingress_port_override: The port number for the Service Connect proxy to listen on.
         """
         pulumi.set(__self__, "port_name", port_name)
-        if client_aliases is not None:
-            pulumi.set(__self__, "client_aliases", client_aliases)
+        if client_alias is not None:
+            pulumi.set(__self__, "client_alias", client_alias)
         if discovery_name is not None:
             pulumi.set(__self__, "discovery_name", discovery_name)
         if ingress_port_override is not None:
@@ -1181,12 +1181,12 @@ class ServiceServiceConnectConfigurationService(dict):
         return pulumi.get(self, "port_name")
 
     @property
-    @pulumi.getter(name="clientAliases")
-    def client_aliases(self) -> Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias']]:
+    @pulumi.getter(name="clientAlias")
+    def client_alias(self) -> Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias']]:
         """
         The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         """
-        return pulumi.get(self, "client_aliases")
+        return pulumi.get(self, "client_alias")
 
     @property
     @pulumi.getter(name="discoveryName")
