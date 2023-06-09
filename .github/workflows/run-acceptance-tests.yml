@@ -118,7 +118,7 @@ jobs:
       fail-fast: true
       matrix:
         goversion:
-        - 1.19.x
+        - 1.20.x
         javaversion:
         - "11"
         language:
@@ -226,7 +226,7 @@ jobs:
       fail-fast: true
       matrix:
         goversion:
-        - 1.19.x
+        - 1.20.x
         nodeversion:
         - 16.x
         pythonversion:
@@ -377,7 +377,7 @@ jobs:
       fail-fast: true
       matrix:
         goversion:
-        - 1.19.x
+        - 1.20.x
         javaversion:
         - "11"
         language:
