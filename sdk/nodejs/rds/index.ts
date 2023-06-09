@@ -47,6 +47,11 @@ export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
 utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
 
+export { ExportTaskArgs, ExportTaskState } from "./exportTask";
+export type ExportTask = import("./exportTask").ExportTask;
+export const ExportTask: typeof import("./exportTask").ExportTask = null as any;
+utilities.lazyLoad(exports, ["ExportTask"], () => require("./exportTask"));
+
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
@@ -208,6 +213,8 @@ const _module = {
                 return new ClusterSnapshot(name, <any>undefined, { urn })
             case "aws:rds/eventSubscription:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
+            case "aws:rds/exportTask:ExportTask":
+                return new ExportTask(name, <any>undefined, { urn })
             case "aws:rds/globalCluster:GlobalCluster":
                 return new GlobalCluster(name, <any>undefined, { urn })
             case "aws:rds/instance:Instance":
@@ -249,6 +256,7 @@ pulumi.runtime.registerResourceModule("aws", "rds/clusterParameterGroup", _modul
 pulumi.runtime.registerResourceModule("aws", "rds/clusterRoleAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterSnapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/eventSubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/exportTask", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/globalCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/instanceAutomatedBackupsReplication", _module)

@@ -215,7 +215,8 @@ class PublicKey(pulumi.CustomResource):
 
         example = aws.cloudfront.PublicKey("example",
             comment="test public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
+            encoded_key=(lambda path: open(path).read())("public_key.pem"),
+            name="test_key")
         ```
 
         ## Import
@@ -252,7 +253,8 @@ class PublicKey(pulumi.CustomResource):
 
         example = aws.cloudfront.PublicKey("example",
             comment="test public key",
-            encoded_key=(lambda path: open(path).read())("public_key.pem"))
+            encoded_key=(lambda path: open(path).read())("public_key.pem"),
+            name="test_key")
         ```
 
         ## Import

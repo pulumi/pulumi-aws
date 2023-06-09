@@ -55,6 +55,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }

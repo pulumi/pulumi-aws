@@ -37,6 +37,7 @@ namespace Pulumi.Aws.EmrContainers
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -150,8 +151,8 @@ namespace Pulumi.Aws.EmrContainers
         /// <summary>
         /// The specified name of the job template.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

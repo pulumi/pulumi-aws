@@ -17,7 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.glue.DataQualityRuleset("example", {ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]"});
+ * const example = new aws.glue.DataQualityRuleset("example", {
+ *     name: "example",
+ *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
+ * });
  * ```
  * ### With description
  *
@@ -27,6 +30,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glue.DataQualityRuleset("example", {
  *     description: "example",
+ *     name: "example",
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  * });
  * ```
@@ -37,6 +41,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.DataQualityRuleset("example", {
+ *     name: "example",
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  *     tags: {
  *         hello: "world",
@@ -50,6 +55,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.DataQualityRuleset("example", {
+ *     name: "example",
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  *     targetTable: {
  *         databaseName: aws_glue_catalog_database.example.name,
@@ -160,6 +166,9 @@ export class DataQualityRuleset extends pulumi.CustomResource {
             resourceInputs["targetTable"] = state ? state.targetTable : undefined;
         } else {
             const args = argsOrState as DataQualityRulesetArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.ruleset === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleset'");
             }
@@ -236,7 +245,7 @@ export interface DataQualityRulesetArgs {
     /**
      * Name of the data quality ruleset.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */

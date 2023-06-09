@@ -26255,6 +26255,697 @@ func (o MultiplexMultiplexSettingsPtrOutput) TransportStreamReservedBitrate() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+type MultiplexProgramMultiplexProgramSettings struct {
+	// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+	PreferredChannelPipeline string `pulumi:"preferredChannelPipeline"`
+	// Unique program number.
+	ProgramNumber int `pulumi:"programNumber"`
+	// Service Descriptor. See Service Descriptor for more details.
+	ServiceDescriptor *MultiplexProgramMultiplexProgramSettingsServiceDescriptor `pulumi:"serviceDescriptor"`
+	// Video settings. See Video Settings for more details.
+	VideoSettings *MultiplexProgramMultiplexProgramSettingsVideoSettings `pulumi:"videoSettings"`
+}
+
+// MultiplexProgramMultiplexProgramSettingsInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsArgs and MultiplexProgramMultiplexProgramSettingsOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsInput` via:
+//
+//	MultiplexProgramMultiplexProgramSettingsArgs{...}
+type MultiplexProgramMultiplexProgramSettingsInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsOutput() MultiplexProgramMultiplexProgramSettingsOutput
+	ToMultiplexProgramMultiplexProgramSettingsOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsOutput
+}
+
+type MultiplexProgramMultiplexProgramSettingsArgs struct {
+	// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+	PreferredChannelPipeline pulumi.StringInput `pulumi:"preferredChannelPipeline"`
+	// Unique program number.
+	ProgramNumber pulumi.IntInput `pulumi:"programNumber"`
+	// Service Descriptor. See Service Descriptor for more details.
+	ServiceDescriptor MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput `pulumi:"serviceDescriptor"`
+	// Video settings. See Video Settings for more details.
+	VideoSettings MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput `pulumi:"videoSettings"`
+}
+
+func (MultiplexProgramMultiplexProgramSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettings)(nil)).Elem()
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsOutput() MultiplexProgramMultiplexProgramSettingsOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsOutput)
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsOutput).ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(ctx)
+}
+
+// MultiplexProgramMultiplexProgramSettingsPtrInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsArgs, MultiplexProgramMultiplexProgramSettingsPtr and MultiplexProgramMultiplexProgramSettingsPtrOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsPtrInput` via:
+//
+//	        MultiplexProgramMultiplexProgramSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiplexProgramMultiplexProgramSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsPtrOutput
+	ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsPtrOutput
+}
+
+type multiplexProgramMultiplexProgramSettingsPtrType MultiplexProgramMultiplexProgramSettingsArgs
+
+func MultiplexProgramMultiplexProgramSettingsPtr(v *MultiplexProgramMultiplexProgramSettingsArgs) MultiplexProgramMultiplexProgramSettingsPtrInput {
+	return (*multiplexProgramMultiplexProgramSettingsPtrType)(v)
+}
+
+func (*multiplexProgramMultiplexProgramSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettings)(nil)).Elem()
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsPtrType) ToMultiplexProgramMultiplexProgramSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsPtrType) ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettings)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsOutput() MultiplexProgramMultiplexProgramSettingsOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return o.ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettings {
+		return &v
+	}).(MultiplexProgramMultiplexProgramSettingsPtrOutput)
+}
+
+// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+func (o MultiplexProgramMultiplexProgramSettingsOutput) PreferredChannelPipeline() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettings) string { return v.PreferredChannelPipeline }).(pulumi.StringOutput)
+}
+
+// Unique program number.
+func (o MultiplexProgramMultiplexProgramSettingsOutput) ProgramNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettings) int { return v.ProgramNumber }).(pulumi.IntOutput)
+}
+
+// Service Descriptor. See Service Descriptor for more details.
+func (o MultiplexProgramMultiplexProgramSettingsOutput) ServiceDescriptor() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
+		return v.ServiceDescriptor
+	}).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput)
+}
+
+// Video settings. See Video Settings for more details.
+func (o MultiplexProgramMultiplexProgramSettingsOutput) VideoSettings() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettings {
+		return v.VideoSettings
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettings)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) ToMultiplexProgramMultiplexProgramSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) Elem() MultiplexProgramMultiplexProgramSettingsOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) MultiplexProgramMultiplexProgramSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MultiplexProgramMultiplexProgramSettings
+		return ret
+	}).(MultiplexProgramMultiplexProgramSettingsOutput)
+}
+
+// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) PreferredChannelPipeline() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PreferredChannelPipeline
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique program number.
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) ProgramNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ProgramNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// Service Descriptor. See Service Descriptor for more details.
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) ServiceDescriptor() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceDescriptor
+	}).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput)
+}
+
+// Video settings. See Video Settings for more details.
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) VideoSettings() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettings {
+		if v == nil {
+			return nil
+		}
+		return v.VideoSettings
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsServiceDescriptor struct {
+	// Unique provider name.
+	ProviderName string `pulumi:"providerName"`
+	// Unique service name.
+	ServiceName string `pulumi:"serviceName"`
+}
+
+// MultiplexProgramMultiplexProgramSettingsServiceDescriptorInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs and MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsServiceDescriptorInput` via:
+//
+//	MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs{...}
+type MultiplexProgramMultiplexProgramSettingsServiceDescriptorInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput
+	ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput
+}
+
+type MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs struct {
+	// Unique provider name.
+	ProviderName pulumi.StringInput `pulumi:"providerName"`
+	// Unique service name.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsServiceDescriptor)(nil)).Elem()
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput)
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput).ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(ctx)
+}
+
+// MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs, MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtr and MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput` via:
+//
+//	        MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput
+	ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput
+}
+
+type multiplexProgramMultiplexProgramSettingsServiceDescriptorPtrType MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs
+
+func MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtr(v *MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs) MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput {
+	return (*multiplexProgramMultiplexProgramSettingsServiceDescriptorPtrType)(v)
+}
+
+func (*multiplexProgramMultiplexProgramSettingsServiceDescriptorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettingsServiceDescriptor)(nil)).Elem()
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsServiceDescriptorPtrType) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsServiceDescriptorPtrType) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsServiceDescriptor)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return o.ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexProgramMultiplexProgramSettingsServiceDescriptor) *MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
+		return &v
+	}).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput)
+}
+
+// Unique provider name.
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsServiceDescriptor) string { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+// Unique service name.
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsServiceDescriptor) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettingsServiceDescriptor)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput) Elem() MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsServiceDescriptor) MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
+		if v != nil {
+			return *v
+		}
+		var ret MultiplexProgramMultiplexProgramSettingsServiceDescriptor
+		return ret
+	}).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput)
+}
+
+// Unique provider name.
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput) ProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsServiceDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProviderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique service name.
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsServiceDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettings struct {
+	// Constant bitrate value.
+	ConstantBitrate *int `pulumi:"constantBitrate"`
+	// Statmux settings. See Statmux Settings for more details.
+	StatmuxSettings *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings `pulumi:"statmuxSettings"`
+}
+
+// MultiplexProgramMultiplexProgramSettingsVideoSettingsInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs and MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsVideoSettingsInput` via:
+//
+//	MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{...}
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs struct {
+	// Constant bitrate value.
+	ConstantBitrate pulumi.IntPtrInput `pulumi:"constantBitrate"`
+	// Statmux settings. See Statmux Settings for more details.
+	StatmuxSettings MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput `pulumi:"statmuxSettings"`
+}
+
+func (MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettings)(nil)).Elem()
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput)
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput).ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(ctx)
+}
+
+// MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs, MultiplexProgramMultiplexProgramSettingsVideoSettingsPtr and MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput` via:
+//
+//	        MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput
+}
+
+type multiplexProgramMultiplexProgramSettingsVideoSettingsPtrType MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs
+
+func MultiplexProgramMultiplexProgramSettingsVideoSettingsPtr(v *MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs) MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput {
+	return (*multiplexProgramMultiplexProgramSettingsVideoSettingsPtrType)(v)
+}
+
+func (*multiplexProgramMultiplexProgramSettingsVideoSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettingsVideoSettings)(nil)).Elem()
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsVideoSettingsPtrType) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsVideoSettingsPtrType) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettings)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return o.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexProgramMultiplexProgramSettingsVideoSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettings {
+		return &v
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput)
+}
+
+// Constant bitrate value.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) ConstantBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsVideoSettings) *int { return v.ConstantBitrate }).(pulumi.IntPtrOutput)
+}
+
+// Statmux settings. See Statmux Settings for more details.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) StatmuxSettings() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsVideoSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings {
+		return v.StatmuxSettings
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettingsVideoSettings)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput) Elem() MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettings) MultiplexProgramMultiplexProgramSettingsVideoSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MultiplexProgramMultiplexProgramSettingsVideoSettings
+		return ret
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput)
+}
+
+// Constant bitrate value.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput) ConstantBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConstantBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Statmux settings. See Statmux Settings for more details.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput) StatmuxSettings() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings {
+		if v == nil {
+			return nil
+		}
+		return v.StatmuxSettings
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings struct {
+	// Maximum bitrate.
+	MaximumBitrate *int `pulumi:"maximumBitrate"`
+	// Minimum bitrate.
+	MinimumBitrate *int `pulumi:"minimumBitrate"`
+	// Priority value.
+	Priority *int `pulumi:"priority"`
+}
+
+// MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs and MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsInput` via:
+//
+//	MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{...}
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs struct {
+	// Maximum bitrate.
+	MaximumBitrate pulumi.IntPtrInput `pulumi:"maximumBitrate"`
+	// Minimum bitrate.
+	MinimumBitrate pulumi.IntPtrInput `pulumi:"minimumBitrate"`
+	// Priority value.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+}
+
+func (MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings)(nil)).Elem()
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput)
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput).ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(ctx)
+}
+
+// MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs, MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtr and MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput` via:
+//
+//	        MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput
+}
+
+type multiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrType MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs
+
+func MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtr(v *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput {
+	return (*multiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrType)(v)
+}
+
+func (*multiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings)(nil)).Elem()
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrType) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrType) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return o.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings {
+		return &v
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput)
+}
+
+// Maximum bitrate.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) MaximumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *int {
+		return v.MaximumBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum bitrate.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) MinimumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *int {
+		return v.MinimumBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Priority value.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) Elem() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings
+		return ret
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput)
+}
+
+// Maximum bitrate.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) MaximumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum bitrate.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) MinimumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Priority value.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Priority
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCdiInputSpecificationInput)(nil)).Elem(), ChannelCdiInputSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCdiInputSpecificationPtrInput)(nil)).Elem(), ChannelCdiInputSpecificationArgs{})
@@ -26533,6 +27224,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InputVpcPtrInput)(nil)).Elem(), InputVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexMultiplexSettingsInput)(nil)).Elem(), MultiplexMultiplexSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexMultiplexSettingsPtrInput)(nil)).Elem(), MultiplexMultiplexSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsServiceDescriptorInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{})
 	pulumi.RegisterOutputType(ChannelCdiInputSpecificationOutput{})
 	pulumi.RegisterOutputType(ChannelCdiInputSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelDestinationOutput{})
@@ -26810,4 +27509,12 @@ func init() {
 	pulumi.RegisterOutputType(InputVpcPtrOutput{})
 	pulumi.RegisterOutputType(MultiplexMultiplexSettingsOutput{})
 	pulumi.RegisterOutputType(MultiplexMultiplexSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput{})
 }

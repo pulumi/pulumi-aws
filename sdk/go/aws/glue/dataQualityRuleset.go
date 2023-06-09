@@ -29,6 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
+//				Name:    pulumi.String("example"),
 //				Ruleset: pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //			})
 //			if err != nil {
@@ -55,6 +56,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
 //				Description: pulumi.String("example"),
+//				Name:        pulumi.String("example"),
 //				Ruleset:     pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //			})
 //			if err != nil {
@@ -80,6 +82,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
+//				Name:    pulumi.String("example"),
 //				Ruleset: pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //				Tags: pulumi.StringMap{
 //					"hello": pulumi.String("world"),
@@ -108,6 +111,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
+//				Name:    pulumi.String("example"),
 //				Ruleset: pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //				TargetTable: &glue.DataQualityRulesetTargetTableArgs{
 //					DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
@@ -164,6 +168,9 @@ func NewDataQualityRuleset(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.Ruleset == nil {
 		return nil, errors.New("invalid value for required argument 'Ruleset'")
 	}
@@ -242,7 +249,7 @@ type dataQualityRulesetArgs struct {
 	// Description of the data quality ruleset.
 	Description *string `pulumi:"description"`
 	// Name of the data quality ruleset.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset string `pulumi:"ruleset"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -256,7 +263,7 @@ type DataQualityRulesetArgs struct {
 	// Description of the data quality ruleset.
 	Description pulumi.StringPtrInput
 	// Name of the data quality ruleset.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

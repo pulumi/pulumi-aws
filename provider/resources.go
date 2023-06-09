@@ -7097,6 +7097,9 @@ func Provider() *tfbridge.ProviderInfo {
 	// 9 Warning(s)
 	// 1 Error(s)
 	prov.IgnoreMappings = append(prov.IgnoreMappings, "aws_quicksight_namespace")
+	// TODO fix C# compilation error for DirectoryService Trust
+	// error CS0542: 'TrustState': member names cannot be the same as their enclosing type
+	prov.IgnoreMappings = append(prov.IgnoreMappings, "aws_directory_service_trust")
 
 	if err := x.ComputeDefaults(&prov, x.TokensMappedModules("aws_", "", moduleMap,
 		func(mod, name string) (string, error) {

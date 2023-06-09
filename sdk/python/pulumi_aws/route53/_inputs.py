@@ -90,8 +90,8 @@ class RecordCidrRoutingPolicyArgs:
                  collection_id: pulumi.Input[str],
                  location_name: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] collection_id: The CIDR collection ID. See the `aws_route53_cidr_collection` resource for more details.
-        :param pulumi.Input[str] location_name: The CIDR collection location name. See the `aws_route53_cidr_location` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
+        :param pulumi.Input[str] collection_id: The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
+        :param pulumi.Input[str] location_name: The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
         """
         pulumi.set(__self__, "collection_id", collection_id)
         pulumi.set(__self__, "location_name", location_name)
@@ -100,7 +100,7 @@ class RecordCidrRoutingPolicyArgs:
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> pulumi.Input[str]:
         """
-        The CIDR collection ID. See the `aws_route53_cidr_collection` resource for more details.
+        The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
         """
         return pulumi.get(self, "collection_id")
 
@@ -112,7 +112,7 @@ class RecordCidrRoutingPolicyArgs:
     @pulumi.getter(name="locationName")
     def location_name(self) -> pulumi.Input[str]:
         """
-        The CIDR collection location name. See the `aws_route53_cidr_location` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
+        The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
         """
         return pulumi.get(self, "location_name")
 

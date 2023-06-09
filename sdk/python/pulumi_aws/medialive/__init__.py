@@ -9,5 +9,6 @@ from .channel import *
 from .input import *
 from .input_security_group import *
 from .multiplex import *
+from .multiplex_program import *
 from ._inputs import *
 from . import outputs

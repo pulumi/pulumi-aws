@@ -33,14 +33,26 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataSource{}
 	case "aws:quicksight/folder:Folder":
 		r = &Folder{}
+	case "aws:quicksight/folderMembership:FolderMembership":
+		r = &FolderMembership{}
 	case "aws:quicksight/group:Group":
 		r = &Group{}
 	case "aws:quicksight/groupMembership:GroupMembership":
 		r = &GroupMembership{}
+	case "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment":
+		r = &IamPolicyAssignment{}
+	case "aws:quicksight/ingestion:Ingestion":
+		r = &Ingestion{}
+	case "aws:quicksight/refreshSchedule:RefreshSchedule":
+		r = &RefreshSchedule{}
 	case "aws:quicksight/template:Template":
 		r = &Template{}
+	case "aws:quicksight/templateAlias:TemplateAlias":
+		r = &TemplateAlias{}
 	case "aws:quicksight/user:User":
 		r = &User{}
+	case "aws:quicksight/vpcConnection:VpcConnection":
+		r = &VpcConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -86,6 +98,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"quicksight/folderMembership",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"quicksight/group",
 		&module{version},
 	)
@@ -96,12 +113,37 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"quicksight/iamPolicyAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/ingestion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/refreshSchedule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"quicksight/template",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"quicksight/templateAlias",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"quicksight/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/vpcConnection",
 		&module{version},
 	)
 }

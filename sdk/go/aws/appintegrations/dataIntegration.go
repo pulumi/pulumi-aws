@@ -28,6 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appintegrations.NewDataIntegration(ctx, "example", &appintegrations.DataIntegrationArgs{
+//				Name:        pulumi.String("example"),
 //				Description: pulumi.String("example"),
 //				KmsKey:      pulumi.Any(aws_kms_key.Test.Arn),
 //				SourceUri:   pulumi.String("Salesforce://AppFlow/example"),
@@ -88,6 +89,9 @@ func NewDataIntegration(ctx *pulumi.Context,
 
 	if args.KmsKey == nil {
 		return nil, errors.New("invalid value for required argument 'KmsKey'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	if args.ScheduleConfig == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduleConfig'")
@@ -164,7 +168,7 @@ type dataIntegrationArgs struct {
 	// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
 	KmsKey string `pulumi:"kmsKey"`
 	// Specifies the name of the Data Integration.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
 	ScheduleConfig DataIntegrationScheduleConfig `pulumi:"scheduleConfig"`
 	// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
@@ -180,7 +184,7 @@ type DataIntegrationArgs struct {
 	// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
 	KmsKey pulumi.StringInput
 	// Specifies the name of the Data Integration.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
 	ScheduleConfig DataIntegrationScheduleConfigInput
 	// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.

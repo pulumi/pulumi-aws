@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataIntegration(&#34;example&#34;, DataIntegrationArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .description(&#34;example&#34;)
  *             .kmsKey(aws_kms_key.test().arn())
  *             .sourceUri(&#34;Salesforce://AppFlow/example&#34;)

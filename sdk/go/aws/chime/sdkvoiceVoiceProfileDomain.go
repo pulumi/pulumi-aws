@@ -37,6 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = chime.NewSdkvoiceVoiceProfileDomain(ctx, "exampleSdkvoiceVoiceProfileDomain", &chime.SdkvoiceVoiceProfileDomainArgs{
+//				Name: pulumi.String("ExampleVoiceProfileDomain"),
 //				ServerSideEncryptionConfiguration: &chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{
 //					KmsKeyArn: exampleKey.Arn,
 //				},
@@ -85,6 +86,9 @@ func NewSdkvoiceVoiceProfileDomain(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.ServerSideEncryptionConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'ServerSideEncryptionConfiguration'")
 	}
@@ -143,7 +147,7 @@ type sdkvoiceVoiceProfileDomainArgs struct {
 	// Description of Voice Profile Domain.
 	Description *string `pulumi:"description"`
 	// Name of Voice Profile Domain.
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              map[string]string                                           `pulumi:"tags"`
@@ -154,7 +158,7 @@ type SdkvoiceVoiceProfileDomainArgs struct {
 	// Description of Voice Profile Domain.
 	Description pulumi.StringPtrInput
 	// Name of Voice Profile Domain.
-	Name pulumi.StringPtrInput
+	Name pulumi.StringInput
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput
 	Tags                              pulumi.StringMapInput

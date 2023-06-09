@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
  *             .build());
  * 
@@ -73,6 +74,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
  *             .description(&#34;example&#34;)
+ *             .name(&#34;example&#34;)
  *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
  *             .build());
  * 
@@ -102,6 +104,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
  *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
  *             .build());
@@ -133,6 +136,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataQualityRuleset(&#34;example&#34;, DataQualityRulesetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .ruleset(&#34;Rules = [Completeness \&#34;colA\&#34; between 0.4 and 0.8]&#34;)
  *             .targetTable(DataQualityRulesetTargetTableArgs.builder()
  *                 .databaseName(aws_glue_catalog_database.example().name())

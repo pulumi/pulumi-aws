@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterSnapshot{}
 	case "aws:rds/eventSubscription:EventSubscription":
 		r = &EventSubscription{}
+	case "aws:rds/exportTask:ExportTask":
+		r = &ExportTask{}
 	case "aws:rds/globalCluster:GlobalCluster":
 		r = &GlobalCluster{}
 	case "aws:rds/instance:Instance":
@@ -116,6 +118,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rds/eventSubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rds/exportTask",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
