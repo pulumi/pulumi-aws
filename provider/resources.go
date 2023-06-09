@@ -1994,6 +1994,7 @@ func Provider() tfbridge.ProviderInfo {
 									Elem: &tfbridge.SchemaInfo{
 										Fields: map[string]*tfbridge.SchemaInfo{
 											"client_alias": {
+												Name:        "clientAlias",
 												MaxItemsOne: tfbridge.False(),
 											},
 										},
