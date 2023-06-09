@@ -14,7 +14,6 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Example Usage
     /// ### Create a connection
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.DirectConnect
     /// });
     /// ```
     /// ### Request a MACsec-capable connection
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,7 +51,6 @@ namespace Pulumi.Aws.DirectConnect
     /// ### Configure encryption mode for MACsec-capable connections
     /// 
     /// &gt; **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -164,6 +161,8 @@ namespace Pulumi.Aws.DirectConnect
 
         /// <summary>
         /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+        /// 
+        /// &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Output("requestMacsec")]
         public Output<bool?> RequestMacsec { get; private set; } = null!;
@@ -270,6 +269,8 @@ namespace Pulumi.Aws.DirectConnect
 
         /// <summary>
         /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+        /// 
+        /// &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("requestMacsec")]
         public Input<bool>? RequestMacsec { get; set; }
@@ -380,6 +381,8 @@ namespace Pulumi.Aws.DirectConnect
 
         /// <summary>
         /// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+        /// 
+        /// &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("requestMacsec")]
         public Input<bool>? RequestMacsec { get; set; }

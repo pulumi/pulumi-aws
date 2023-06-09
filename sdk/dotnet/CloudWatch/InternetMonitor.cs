@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CloudWatch
     /// Provides a Internet Monitor Monitor resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,6 +60,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name of the monitor.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("monitorName")]
         public Output<string> MonitorName { get; private set; } = null!;
@@ -155,6 +156,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name of the monitor.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("monitorName", required: true)]
         public Input<string> MonitorName { get; set; } = null!;
@@ -223,6 +226,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name of the monitor.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("monitorName")]
         public Input<string>? MonitorName { get; set; }

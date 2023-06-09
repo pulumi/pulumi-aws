@@ -14,7 +14,6 @@ import (
 // Provides an AWS Route 53 Recovery Readiness Resource Set.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -64,6 +63,8 @@ type ResourceSet struct {
 	// Type of the resources in the resource set.
 	ResourceSetType pulumi.StringOutput `pulumi:"resourceSetType"`
 	// List of resources to add to this resource set. See below.
+	//
+	// The following arguments are optional:
 	Resources ResourceSetResourceArrayOutput `pulumi:"resources"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -116,6 +117,8 @@ type resourceSetState struct {
 	// Type of the resources in the resource set.
 	ResourceSetType *string `pulumi:"resourceSetType"`
 	// List of resources to add to this resource set. See below.
+	//
+	// The following arguments are optional:
 	Resources []ResourceSetResource `pulumi:"resources"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
@@ -131,6 +134,8 @@ type ResourceSetState struct {
 	// Type of the resources in the resource set.
 	ResourceSetType pulumi.StringPtrInput
 	// List of resources to add to this resource set. See below.
+	//
+	// The following arguments are optional:
 	Resources ResourceSetResourceArrayInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
@@ -148,6 +153,8 @@ type resourceSetArgs struct {
 	// Type of the resources in the resource set.
 	ResourceSetType string `pulumi:"resourceSetType"`
 	// List of resources to add to this resource set. See below.
+	//
+	// The following arguments are optional:
 	Resources []ResourceSetResource `pulumi:"resources"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
@@ -160,6 +167,8 @@ type ResourceSetArgs struct {
 	// Type of the resources in the resource set.
 	ResourceSetType pulumi.StringInput
 	// List of resources to add to this resource set. See below.
+	//
+	// The following arguments are optional:
 	Resources ResourceSetResourceArrayInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
@@ -268,6 +277,8 @@ func (o ResourceSetOutput) ResourceSetType() pulumi.StringOutput {
 }
 
 // List of resources to add to this resource set. See below.
+//
+// The following arguments are optional:
 func (o ResourceSetOutput) Resources() ResourceSetResourceArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) ResourceSetResourceArrayOutput { return v.Resources }).(ResourceSetResourceArrayOutput)
 }

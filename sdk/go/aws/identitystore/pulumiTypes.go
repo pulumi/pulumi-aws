@@ -673,6 +673,8 @@ type UserName struct {
 	// The name that is typically displayed when the name is shown for display.
 	Formatted *string `pulumi:"formatted"`
 	// The given name of the user.
+	//
+	// The following arguments are optional:
 	GivenName string `pulumi:"givenName"`
 	// The honorific prefix of the user.
 	HonorificPrefix *string `pulumi:"honorificPrefix"`
@@ -699,6 +701,8 @@ type UserNameArgs struct {
 	// The name that is typically displayed when the name is shown for display.
 	Formatted pulumi.StringPtrInput `pulumi:"formatted"`
 	// The given name of the user.
+	//
+	// The following arguments are optional:
 	GivenName pulumi.StringInput `pulumi:"givenName"`
 	// The honorific prefix of the user.
 	HonorificPrefix pulumi.StringPtrInput `pulumi:"honorificPrefix"`
@@ -796,6 +800,8 @@ func (o UserNameOutput) Formatted() pulumi.StringPtrOutput {
 }
 
 // The given name of the user.
+//
+// The following arguments are optional:
 func (o UserNameOutput) GivenName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserName) string { return v.GivenName }).(pulumi.StringOutput)
 }
@@ -860,6 +866,8 @@ func (o UserNamePtrOutput) Formatted() pulumi.StringPtrOutput {
 }
 
 // The given name of the user.
+//
+// The following arguments are optional:
 func (o UserNamePtrOutput) GivenName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserName) *string {
 		if v == nil {
@@ -1078,6 +1086,8 @@ type GetGroupAlternateIdentifier struct {
 	// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
 	ExternalId *GetGroupAlternateIdentifierExternalId `pulumi:"externalId"`
 	// An entity attribute that's unique to a specific entity. Detailed below.
+	//
+	// > Exactly one of the above arguments must be provided.
 	UniqueAttribute *GetGroupAlternateIdentifierUniqueAttribute `pulumi:"uniqueAttribute"`
 }
 
@@ -1096,6 +1106,8 @@ type GetGroupAlternateIdentifierArgs struct {
 	// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
 	ExternalId GetGroupAlternateIdentifierExternalIdPtrInput `pulumi:"externalId"`
 	// An entity attribute that's unique to a specific entity. Detailed below.
+	//
+	// > Exactly one of the above arguments must be provided.
 	UniqueAttribute GetGroupAlternateIdentifierUniqueAttributePtrInput `pulumi:"uniqueAttribute"`
 }
 
@@ -1182,6 +1194,8 @@ func (o GetGroupAlternateIdentifierOutput) ExternalId() GetGroupAlternateIdentif
 }
 
 // An entity attribute that's unique to a specific entity. Detailed below.
+//
+// > Exactly one of the above arguments must be provided.
 func (o GetGroupAlternateIdentifierOutput) UniqueAttribute() GetGroupAlternateIdentifierUniqueAttributePtrOutput {
 	return o.ApplyT(func(v GetGroupAlternateIdentifier) *GetGroupAlternateIdentifierUniqueAttribute {
 		return v.UniqueAttribute
@@ -1223,6 +1237,8 @@ func (o GetGroupAlternateIdentifierPtrOutput) ExternalId() GetGroupAlternateIden
 }
 
 // An entity attribute that's unique to a specific entity. Detailed below.
+//
+// > Exactly one of the above arguments must be provided.
 func (o GetGroupAlternateIdentifierPtrOutput) UniqueAttribute() GetGroupAlternateIdentifierUniqueAttributePtrOutput {
 	return o.ApplyT(func(v *GetGroupAlternateIdentifier) *GetGroupAlternateIdentifierUniqueAttribute {
 		if v == nil {
@@ -1970,6 +1986,8 @@ type GetUserAlternateIdentifier struct {
 	// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
 	ExternalId *GetUserAlternateIdentifierExternalId `pulumi:"externalId"`
 	// An entity attribute that's unique to a specific entity. Detailed below.
+	//
+	// > Exactly one of the above arguments must be provided.
 	UniqueAttribute *GetUserAlternateIdentifierUniqueAttribute `pulumi:"uniqueAttribute"`
 }
 
@@ -1988,6 +2006,8 @@ type GetUserAlternateIdentifierArgs struct {
 	// Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
 	ExternalId GetUserAlternateIdentifierExternalIdPtrInput `pulumi:"externalId"`
 	// An entity attribute that's unique to a specific entity. Detailed below.
+	//
+	// > Exactly one of the above arguments must be provided.
 	UniqueAttribute GetUserAlternateIdentifierUniqueAttributePtrInput `pulumi:"uniqueAttribute"`
 }
 
@@ -2074,6 +2094,8 @@ func (o GetUserAlternateIdentifierOutput) ExternalId() GetUserAlternateIdentifie
 }
 
 // An entity attribute that's unique to a specific entity. Detailed below.
+//
+// > Exactly one of the above arguments must be provided.
 func (o GetUserAlternateIdentifierOutput) UniqueAttribute() GetUserAlternateIdentifierUniqueAttributePtrOutput {
 	return o.ApplyT(func(v GetUserAlternateIdentifier) *GetUserAlternateIdentifierUniqueAttribute {
 		return v.UniqueAttribute
@@ -2115,6 +2137,8 @@ func (o GetUserAlternateIdentifierPtrOutput) ExternalId() GetUserAlternateIdenti
 }
 
 // An entity attribute that's unique to a specific entity. Detailed below.
+//
+// > Exactly one of the above arguments must be provided.
 func (o GetUserAlternateIdentifierPtrOutput) UniqueAttribute() GetUserAlternateIdentifierUniqueAttributePtrOutput {
 	return o.ApplyT(func(v *GetUserAlternateIdentifier) *GetUserAlternateIdentifierUniqueAttribute {
 		if v == nil {

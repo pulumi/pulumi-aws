@@ -250,7 +250,6 @@ class ReportGroup(pulumi.CustomResource):
         Provides a CodeBuild Report Groups Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -311,7 +310,6 @@ class ReportGroup(pulumi.CustomResource):
         Provides a CodeBuild Report Groups Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

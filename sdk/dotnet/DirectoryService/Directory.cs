@@ -14,7 +14,6 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ## Example Usage
     /// ### SimpleAD
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,7 +64,6 @@ namespace Pulumi.Aws.DirectoryService
     /// });
     /// ```
     /// ### Microsoft Active Directory (MicrosoftAD)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -117,7 +115,6 @@ namespace Pulumi.Aws.DirectoryService
     /// });
     /// ```
     /// ### Microsoft Active Directory Connector (ADConnector)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -115,12 +115,16 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
      * 
+     * One of the following is required:
+     * 
      */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
     /**
      * @return Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+     * 
+     * One of the following is required:
      * 
      */
     public Output<String> principal() {
@@ -145,12 +149,16 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Configuration block for a table with columns resource. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="tableWithColumns")
     private @Nullable Output<GetPermissionsTableWithColumnsArgs> tableWithColumns;
 
     /**
      * @return Configuration block for a table with columns resource. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<GetPermissionsTableWithColumnsArgs>> tableWithColumns() {
@@ -318,6 +326,8 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param principal Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
          * 
+         * One of the following is required:
+         * 
          * @return builder
          * 
          */
@@ -328,6 +338,8 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param principal Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+         * 
+         * One of the following is required:
          * 
          * @return builder
          * 
@@ -360,6 +372,8 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param tableWithColumns Configuration block for a table with columns resource. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -370,6 +384,8 @@ public final class GetPermissionsArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param tableWithColumns Configuration block for a table with columns resource. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

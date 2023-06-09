@@ -61,6 +61,8 @@ type User struct {
 	// The identifier for this user in the identity store.
 	UserId pulumi.StringOutput `pulumi:"userId"`
 	// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringOutput `pulumi:"userName"`
 	// The user type.
 	UserType pulumi.StringPtrOutput `pulumi:"userType"`
@@ -133,6 +135,8 @@ type userState struct {
 	// The identifier for this user in the identity store.
 	UserId *string `pulumi:"userId"`
 	// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+	//
+	// The following arguments are optional:
 	UserName *string `pulumi:"userName"`
 	// The user type.
 	UserType *string `pulumi:"userType"`
@@ -168,6 +172,8 @@ type UserState struct {
 	// The identifier for this user in the identity store.
 	UserId pulumi.StringPtrInput
 	// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringPtrInput
 	// The user type.
 	UserType pulumi.StringPtrInput
@@ -203,6 +209,8 @@ type userArgs struct {
 	// The user's title.
 	Title *string `pulumi:"title"`
 	// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+	//
+	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
 	// The user type.
 	UserType *string `pulumi:"userType"`
@@ -235,6 +243,8 @@ type UserArgs struct {
 	// The user's title.
 	Title pulumi.StringPtrInput
 	// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringInput
 	// The user type.
 	UserType pulumi.StringPtrInput
@@ -398,6 +408,8 @@ func (o UserOutput) UserId() pulumi.StringOutput {
 }
 
 // A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
+//
+// The following arguments are optional:
 func (o UserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

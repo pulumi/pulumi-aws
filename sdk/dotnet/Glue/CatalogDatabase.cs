@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,7 +29,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### Create Table Default Permissions
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -73,7 +73,6 @@ def get_firehose_delivery_stream(name: Optional[str] = None,
     For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -104,7 +103,6 @@ def get_firehose_delivery_stream_output(name: Optional[pulumi.Input[str]] = None
     For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

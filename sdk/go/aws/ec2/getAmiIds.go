@@ -13,7 +13,6 @@ import (
 // Use this data source to get a list of AMI IDs matching the specified criteria.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

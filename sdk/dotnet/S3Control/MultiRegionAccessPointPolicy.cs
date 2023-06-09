@@ -14,7 +14,6 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Example Usage
     /// ### Basic Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

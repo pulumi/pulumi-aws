@@ -863,6 +863,8 @@ class UserPoolAccountRecoverySettingRecoveryMechanismArgs:
                  priority: pulumi.Input[int]):
         """
         :param pulumi.Input[str] name: Name of the user pool.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] priority: Positive integer specifying priority of a method with 1 being the highest priority.
         """
         pulumi.set(__self__, "name", name)
@@ -873,6 +875,8 @@ class UserPoolAccountRecoverySettingRecoveryMechanismArgs:
     def name(self) -> pulumi.Input[str]:
         """
         Name of the user pool.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

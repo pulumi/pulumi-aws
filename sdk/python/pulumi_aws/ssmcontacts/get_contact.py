@@ -109,7 +109,6 @@ def get_contact(arn: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -145,7 +144,6 @@ def get_contact_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

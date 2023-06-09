@@ -14,7 +14,6 @@ import (
 // Attaches a policy to a KMS Key.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -86,6 +85,8 @@ type KeyPolicy struct {
 	// The ID of the KMS Key to attach the policy.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+	//
+	// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
 
@@ -131,6 +132,8 @@ type keyPolicyState struct {
 	// The ID of the KMS Key to attach the policy.
 	KeyId *string `pulumi:"keyId"`
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+	//
+	// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
 	Policy *string `pulumi:"policy"`
 }
 
@@ -142,6 +145,8 @@ type KeyPolicyState struct {
 	// The ID of the KMS Key to attach the policy.
 	KeyId pulumi.StringPtrInput
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+	//
+	// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
 	Policy pulumi.StringPtrInput
 }
 
@@ -157,6 +162,8 @@ type keyPolicyArgs struct {
 	// The ID of the KMS Key to attach the policy.
 	KeyId string `pulumi:"keyId"`
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+	//
+	// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
 	Policy string `pulumi:"policy"`
 }
 
@@ -169,6 +176,8 @@ type KeyPolicyArgs struct {
 	// The ID of the KMS Key to attach the policy.
 	KeyId pulumi.StringInput
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+	//
+	// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
 	Policy pulumi.StringInput
 }
 
@@ -272,6 +281,8 @@ func (o KeyPolicyOutput) KeyId() pulumi.StringOutput {
 }
 
 // A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
+//
+// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, or this resource is destroyed, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
 func (o KeyPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

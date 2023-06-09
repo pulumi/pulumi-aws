@@ -116,7 +116,6 @@ class Enabler(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -126,7 +125,6 @@ class Enabler(pulumi.CustomResource):
             resource_types=["EC2"])
         ```
         ### For the Calling Account
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -161,7 +159,6 @@ class Enabler(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -171,7 +168,6 @@ class Enabler(pulumi.CustomResource):
             resource_types=["EC2"])
         ```
         ### For the Calling Account
-
         ```python
         import pulumi
         import pulumi_aws as aws

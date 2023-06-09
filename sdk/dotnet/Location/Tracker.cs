@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Location
     /// Provides a Location Service Tracker.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -85,6 +84,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name of the tracker resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("trackerName")]
         public Output<string> TrackerName { get; private set; } = null!;
@@ -173,6 +174,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name of the tracker resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("trackerName", required: true)]
         public Input<string> TrackerName { get; set; } = null!;
@@ -241,6 +244,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name of the tracker resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("trackerName")]
         public Input<string>? TrackerName { get; set; }

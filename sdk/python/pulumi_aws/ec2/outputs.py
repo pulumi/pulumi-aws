@@ -476,6 +476,8 @@ class AmiCopyEbsBlockDevice(dict):
         :param int iops: Number of I/O operations per second the
                created volumes will support.
         :param str outpost_arn: ARN of the Outpost on which the snapshot is stored.
+               
+               > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         :param str snapshot_id: ID of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
@@ -543,6 +545,8 @@ class AmiCopyEbsBlockDevice(dict):
     def outpost_arn(self) -> Optional[str]:
         """
         ARN of the Outpost on which the snapshot is stored.
+
+        > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -682,6 +686,8 @@ class AmiEbsBlockDevice(dict):
         :param int iops: Number of I/O operations per second the
                created volumes will support.
         :param str outpost_arn: ARN of the Outpost on which the snapshot is stored.
+               
+               > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         :param str snapshot_id: ID of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
@@ -748,6 +754,8 @@ class AmiEbsBlockDevice(dict):
     def outpost_arn(self) -> Optional[str]:
         """
         ARN of the Outpost on which the snapshot is stored.
+
+        > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -885,6 +893,8 @@ class AmiFromInstanceEbsBlockDevice(dict):
         :param int iops: Number of I/O operations per second the
                created volumes will support.
         :param str outpost_arn: ARN of the Outpost on which the snapshot is stored.
+               
+               > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         :param str snapshot_id: ID of an EBS snapshot that will be used to initialize the created
                EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
                snapshot.
@@ -952,6 +962,8 @@ class AmiFromInstanceEbsBlockDevice(dict):
     def outpost_arn(self) -> Optional[str]:
         """
         ARN of the Outpost on which the snapshot is stored.
+
+        > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -1091,10 +1103,14 @@ class DefaultNetworkAclEgress(dict):
         :param str protocol: The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
         :param int rule_no: The rule number. Used for ordering.
         :param int to_port: The to port to match.
+               
+               The following arguments are optional:
         :param str cidr_block: The CIDR block to match. This must be a valid network mask.
         :param int icmp_code: The ICMP type code to be used. Default 0.
         :param int icmp_type: The ICMP type to be used. Default 0.
         :param str ipv6_cidr_block: The IPv6 CIDR block.
+               
+               > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "from_port", from_port)
@@ -1147,6 +1163,8 @@ class DefaultNetworkAclEgress(dict):
     def to_port(self) -> int:
         """
         The to port to match.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "to_port")
 
@@ -1179,6 +1197,8 @@ class DefaultNetworkAclEgress(dict):
     def ipv6_cidr_block(self) -> Optional[str]:
         """
         The IPv6 CIDR block.
+
+        > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
@@ -1230,10 +1250,14 @@ class DefaultNetworkAclIngress(dict):
         :param str protocol: The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
         :param int rule_no: The rule number. Used for ordering.
         :param int to_port: The to port to match.
+               
+               The following arguments are optional:
         :param str cidr_block: The CIDR block to match. This must be a valid network mask.
         :param int icmp_code: The ICMP type code to be used. Default 0.
         :param int icmp_type: The ICMP type to be used. Default 0.
         :param str ipv6_cidr_block: The IPv6 CIDR block.
+               
+               > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "from_port", from_port)
@@ -1286,6 +1310,8 @@ class DefaultNetworkAclIngress(dict):
     def to_port(self) -> int:
         """
         The to port to match.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "to_port")
 
@@ -1318,6 +1344,8 @@ class DefaultNetworkAclIngress(dict):
     def ipv6_cidr_block(self) -> Optional[str]:
         """
         The IPv6 CIDR block.
+
+        > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
@@ -1380,6 +1408,8 @@ class DefaultRouteTableRoute(dict):
         :param str cidr_block: The CIDR block of the route.
         :param str core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param str destination_prefix_list_id: The ID of a managed prefix list destination of the route.
+               
+               One of the following target arguments must be supplied:
         :param str egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param str gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
         :param str instance_id: Identifier of an EC2 instance.
@@ -1389,6 +1419,8 @@ class DefaultRouteTableRoute(dict):
         :param str transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param str vpc_endpoint_id: Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
         :param str vpc_peering_connection_id: Identifier of a VPC peering connection.
+               
+               Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
@@ -1436,6 +1468,8 @@ class DefaultRouteTableRoute(dict):
     def destination_prefix_list_id(self) -> Optional[str]:
         """
         The ID of a managed prefix list destination of the route.
+
+        One of the following target arguments must be supplied:
         """
         return pulumi.get(self, "destination_prefix_list_id")
 
@@ -1508,6 +1542,8 @@ class DefaultRouteTableRoute(dict):
     def vpc_peering_connection_id(self) -> Optional[str]:
         """
         Identifier of a VPC peering connection.
+
+        Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         return pulumi.get(self, "vpc_peering_connection_id")
 
@@ -2187,12 +2223,16 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
         :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: The accelerator types that must be on the instance type. Default is any accelerator type.
         :param Sequence[str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+               
+               If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
         :param str bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param str burstable_performance: Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
         :param Sequence[str] cpu_manufacturers: The CPU manufacturers to include. Default is any manufacturer.
                > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
         :param Sequence[str] excluded_instance_types: The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+               
+               If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
         :param Sequence[str] instance_generations: Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
         :param str local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param Sequence[str] local_storage_types: List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
@@ -2200,8 +2240,12 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
         :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
         :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param int on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+               
+               If you set `target_capacity_unit_type` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
         :param bool require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
         :param int spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+               
+               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         """
         pulumi.set(__self__, "memory_mib", memory_mib)
@@ -2310,6 +2354,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def allowed_instance_types(self) -> Optional[Sequence[str]]:
         """
         The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+
+        If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
         """
         return pulumi.get(self, "allowed_instance_types")
 
@@ -2351,6 +2397,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def excluded_instance_types(self) -> Optional[Sequence[str]]:
         """
         The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+
+        If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
         """
         return pulumi.get(self, "excluded_instance_types")
 
@@ -2407,6 +2455,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         """
         The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+
+        If you set `target_capacity_unit_type` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
         """
         return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
 
@@ -2423,6 +2473,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def spot_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         """
         The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
@@ -3149,6 +3201,8 @@ class InstanceCapacityReservationSpecification(dict):
         """
         :param str capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
         :param 'InstanceCapacityReservationSpecificationCapacityReservationTargetArgs' capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+               
+               For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
         """
         if capacity_reservation_preference is not None:
             pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
@@ -3168,6 +3222,8 @@ class InstanceCapacityReservationSpecification(dict):
     def capacity_reservation_target(self) -> Optional['outputs.InstanceCapacityReservationSpecificationCapacityReservationTarget']:
         """
         Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+
+        For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
         """
         return pulumi.get(self, "capacity_reservation_target")
 
@@ -3253,6 +3309,8 @@ class InstanceCpuOptions(dict):
         :param str amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
         :param int core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param int threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+               
+               For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
         """
         if amd_sev_snp is not None:
             pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
@@ -3282,6 +3340,8 @@ class InstanceCpuOptions(dict):
     def threads_per_core(self) -> Optional[int]:
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+
+        For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
         """
         return pulumi.get(self, "threads_per_core")
 
@@ -3377,6 +3437,8 @@ class InstanceEbsBlockDevice(dict):
         :param str volume_id: ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
         :param int volume_size: Size of the volume in gibibytes (GiB).
         :param str volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+               
+               > **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `ebs.Volume` and `ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` and `ec2.VolumeAttachment` resources for a given instance.
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -3485,6 +3547,8 @@ class InstanceEbsBlockDevice(dict):
     def volume_type(self) -> Optional[str]:
         """
         Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+
+        > **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `ebs.Volume` and `ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` and `ec2.VolumeAttachment` resources for a given instance.
         """
         return pulumi.get(self, "volume_type")
 
@@ -3495,6 +3559,8 @@ class InstanceEnclaveOptions(dict):
                  enabled: Optional[bool] = None):
         """
         :param bool enabled: Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+               
+               For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -3504,6 +3570,8 @@ class InstanceEnclaveOptions(dict):
     def enabled(self) -> Optional[bool]:
         """
         Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+
+        For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         """
         return pulumi.get(self, "enabled")
 
@@ -3539,6 +3607,8 @@ class InstanceEphemeralBlockDevice(dict):
         :param str device_name: Name of the block device to mount on the instance.
         :param bool no_device: Suppresses the specified device included in the AMI's block device mapping.
         :param str virtual_name: [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
+               
+               Each AWS Instance type has a different set of Instance Store block devices available for attachment. AWS [publishes a list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes) of which ephemeral devices are available on each type. The devices are always identified by the `virtual_name` in the format `ephemeral{0..N}`.
         """
         pulumi.set(__self__, "device_name", device_name)
         if no_device is not None:
@@ -3567,6 +3637,8 @@ class InstanceEphemeralBlockDevice(dict):
     def virtual_name(self) -> Optional[str]:
         """
         [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
+
+        Each AWS Instance type has a different set of Instance Store block devices available for attachment. AWS [publishes a list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes) of which ephemeral devices are available on each type. The devices are always identified by the `virtual_name` in the format `ephemeral{0..N}`.
         """
         return pulumi.get(self, "virtual_name")
 
@@ -3685,6 +3757,8 @@ class InstanceMetadataOptions(dict):
         :param int http_put_response_hop_limit: Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
         :param str http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
         :param str instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+               
+               For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
@@ -3724,6 +3798,8 @@ class InstanceMetadataOptions(dict):
     def instance_metadata_tags(self) -> Optional[str]:
         """
         Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+
+        For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
         return pulumi.get(self, "instance_metadata_tags")
 
@@ -3919,6 +3995,8 @@ class InstanceRootBlockDevice(dict):
         :param str volume_id: ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
         :param int volume_size: Size of the volume in gibibytes (GiB).
         :param str volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+               
+               Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -4018,6 +4096,8 @@ class InstanceRootBlockDevice(dict):
     def volume_type(self) -> Optional[str]:
         """
         Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+
+        Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
         """
         return pulumi.get(self, "volume_type")
 
@@ -4663,6 +4743,8 @@ class LaunchTemplateCpuOptions(dict):
         :param int threads_per_core: The number of threads per CPU core.
                To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
                Otherwise, specify the default value of 2.
+               
+               Both number of CPU cores and threads per core must be specified. Valid number of CPU cores and threads per core for the instance type can be found in the [CPU Options Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html?shortFooter=true#cpu-options-supported-instances-values)
         """
         if amd_sev_snp is not None:
             pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
@@ -4694,6 +4776,8 @@ class LaunchTemplateCpuOptions(dict):
         The number of threads per CPU core.
         To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
         Otherwise, specify the default value of 2.
+
+        Both number of CPU cores and threads per core must be specified. Valid number of CPU cores and threads per core for the instance type can be found in the [CPU Options Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html?shortFooter=true#cpu-options-supported-instances-values)
         """
         return pulumi.get(self, "threads_per_core")
 
@@ -4782,6 +4866,8 @@ class LaunchTemplateEnclaveOptions(dict):
                  enabled: Optional[bool] = None):
         """
         :param bool enabled: If set to `true`, Nitro Enclaves will be enabled on the instance.
+               
+               For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -4791,6 +4877,8 @@ class LaunchTemplateEnclaveOptions(dict):
     def enabled(self) -> Optional[bool]:
         """
         If set to `true`, Nitro Enclaves will be enabled on the instance.
+
+        For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         """
         return pulumi.get(self, "enabled")
 
@@ -5080,24 +5168,358 @@ class LaunchTemplateInstanceRequirements(dict):
         :param 'LaunchTemplateInstanceRequirementsVcpuCountArgs' vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         :param 'LaunchTemplateInstanceRequirementsAcceleratorCountArgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param Sequence[str] accelerator_names: List of accelerator names. Default is any acclerator.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param 'LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: List of accelerator types. Default is any accelerator type.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param Sequence[str] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+               
+               > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         :param str bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param 'LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param str burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param Sequence[str] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
+               
+               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param Sequence[str] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+               
+               > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param Sequence[str] instance_generations: List of instance generation names. Default is any generation.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param str local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param Sequence[str] local_storage_types: List of local storage type names. Default any storage type.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param 'LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param 'LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         :param 'LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param int on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+               
+               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param bool require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
         :param int spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+               
+               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param 'LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         """
         pulumi.set(__self__, "memory_mib", memory_mib)
@@ -5174,6 +5596,60 @@ class LaunchTemplateInstanceRequirements(dict):
     def accelerator_manufacturers(self) -> Optional[Sequence[str]]:
         """
         List of accelerator manufacturer names. Default is any manufacturer.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
 
@@ -5182,6 +5658,60 @@ class LaunchTemplateInstanceRequirements(dict):
     def accelerator_names(self) -> Optional[Sequence[str]]:
         """
         List of accelerator names. Default is any acclerator.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "accelerator_names")
 
@@ -5198,6 +5728,60 @@ class LaunchTemplateInstanceRequirements(dict):
     def accelerator_types(self) -> Optional[Sequence[str]]:
         """
         List of accelerator types. Default is any accelerator type.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -5206,6 +5790,8 @@ class LaunchTemplateInstanceRequirements(dict):
     def allowed_instance_types(self) -> Optional[Sequence[str]]:
         """
         List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+
+        > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         """
         return pulumi.get(self, "allowed_instance_types")
 
@@ -5238,6 +5824,62 @@ class LaunchTemplateInstanceRequirements(dict):
     def cpu_manufacturers(self) -> Optional[Sequence[str]]:
         """
         List of CPU manufacturer names. Default is any manufacturer.
+
+        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -5246,6 +5888,8 @@ class LaunchTemplateInstanceRequirements(dict):
     def excluded_instance_types(self) -> Optional[Sequence[str]]:
         """
         List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+
+        > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         """
         return pulumi.get(self, "excluded_instance_types")
 
@@ -5254,6 +5898,60 @@ class LaunchTemplateInstanceRequirements(dict):
     def instance_generations(self) -> Optional[Sequence[str]]:
         """
         List of instance generation names. Default is any generation.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "instance_generations")
 
@@ -5270,6 +5968,60 @@ class LaunchTemplateInstanceRequirements(dict):
     def local_storage_types(self) -> Optional[Sequence[str]]:
         """
         List of local storage type names. Default any storage type.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "local_storage_types")
 
@@ -5302,6 +6054,8 @@ class LaunchTemplateInstanceRequirements(dict):
     def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         """
         The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
         return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
 
@@ -5318,6 +6072,8 @@ class LaunchTemplateInstanceRequirements(dict):
     def spot_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         """
         The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
@@ -5717,6 +6473,8 @@ class LaunchTemplateMetadataOptions(dict):
         :param int http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
         :param str http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
         :param str instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+               
+               For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
@@ -5766,6 +6524,8 @@ class LaunchTemplateMetadataOptions(dict):
     def instance_metadata_tags(self) -> Optional[str]:
         """
         Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+
+        For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
         return pulumi.get(self, "instance_metadata_tags")
 
@@ -6404,6 +7164,8 @@ class NetworkAclEgress(dict):
         :param str cidr_block: The CIDR block to match. This must be a
                valid network mask.
         :param int icmp_code: The ICMP type code to be used. Default 0.
+               
+               > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         :param int icmp_type: The ICMP type to be used. Default 0.
         :param str ipv6_cidr_block: The IPv6 CIDR block.
         """
@@ -6476,6 +7238,8 @@ class NetworkAclEgress(dict):
     def icmp_code(self) -> Optional[int]:
         """
         The ICMP type code to be used. Default 0.
+
+        > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         """
         return pulumi.get(self, "icmp_code")
 
@@ -6547,6 +7311,8 @@ class NetworkAclIngress(dict):
         :param str cidr_block: The CIDR block to match. This must be a
                valid network mask.
         :param int icmp_code: The ICMP type code to be used. Default 0.
+               
+               > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         :param int icmp_type: The ICMP type to be used. Default 0.
         :param str ipv6_cidr_block: The IPv6 CIDR block.
         """
@@ -6619,6 +7385,8 @@ class NetworkAclIngress(dict):
     def icmp_code(self) -> Optional[int]:
         """
         The ICMP type code to be used. Default 0.
+
+        > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         """
         return pulumi.get(self, "icmp_code")
 
@@ -11420,6 +12188,8 @@ class RouteTableRoute(dict):
         :param str cidr_block: The CIDR block of the route.
         :param str core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param str destination_prefix_list_id: The ID of a managed prefix list destination of the route.
+               
+               One of the following target arguments must be supplied:
         :param str egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param str gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
         :param str instance_id: Identifier of an EC2 instance.
@@ -11430,6 +12200,8 @@ class RouteTableRoute(dict):
         :param str transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param str vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param str vpc_peering_connection_id: Identifier of a VPC peering connection.
+               
+               Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         if carrier_gateway_id is not None:
             pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
@@ -11489,6 +12261,8 @@ class RouteTableRoute(dict):
     def destination_prefix_list_id(self) -> Optional[str]:
         """
         The ID of a managed prefix list destination of the route.
+
+        One of the following target arguments must be supplied:
         """
         return pulumi.get(self, "destination_prefix_list_id")
 
@@ -11569,6 +12343,8 @@ class RouteTableRoute(dict):
     def vpc_peering_connection_id(self) -> Optional[str]:
         """
         Identifier of a VPC peering connection.
+
+        Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         """
         return pulumi.get(self, "vpc_peering_connection_id")
 
@@ -11616,6 +12392,8 @@ class SecurityGroupEgress(dict):
         :param int from_port: Start port (or ICMP type number if protocol is `icmp`)
         :param str protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
         :param int to_port: End range port (or ICMP code if protocol is `icmp`).
+               
+               The following arguments are optional:
         :param Sequence[str] cidr_blocks: List of CIDR blocks.
         :param str description: Description of this egress rule.
         :param Sequence[str] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
@@ -11660,6 +12438,8 @@ class SecurityGroupEgress(dict):
     def to_port(self) -> int:
         """
         End range port (or ICMP code if protocol is `icmp`).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "to_port")
 
@@ -11754,6 +12534,8 @@ class SecurityGroupIngress(dict):
         """
         :param int from_port: Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
         :param str protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+               
+               The following arguments are optional:
         :param int to_port: End range port (or ICMP code if protocol is `icmp`).
         :param Sequence[str] cidr_blocks: List of CIDR blocks.
         :param str description: Description of this ingress rule.
@@ -11791,6 +12573,8 @@ class SecurityGroupIngress(dict):
     def protocol(self) -> str:
         """
         Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "protocol")
 
@@ -12371,6 +13155,10 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification(dict):
         :param str id: The ID of the launch template. Conflicts with `name`.
         :param str name: The name of the launch template. Conflicts with `id`.
         :param str version: Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+               
+               **Note:** The specified launch template can specify only a subset of the
+               inputs of `ec2.LaunchTemplate`.  There are limitations on
+               what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instance_initiated_shutdown_behavior` is confirmed unsupported.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -12400,6 +13188,10 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification(dict):
     def version(self) -> Optional[str]:
         """
         Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+
+        **Note:** The specified launch template can specify only a subset of the
+        inputs of `ec2.LaunchTemplate`.  There are limitations on
+        what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instance_initiated_shutdown_behavior` is confirmed unsupported.
         """
         return pulumi.get(self, "version")
 
@@ -12612,25 +13404,359 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         """
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param Sequence[str] accelerator_names: List of accelerator names. Default is any acclerator.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: List of accelerator types. Default is any accelerator type.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param Sequence[str] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+               
+               > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         :param str bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param str burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param Sequence[str] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
+               
+               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param Sequence[str] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+               
+               > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param Sequence[str] instance_generations: List of instance generation names. Default is any generation.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param str local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param Sequence[str] local_storage_types: List of local storage type names. Default any storage type.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs' memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param int on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+               
+               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param bool require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
         :param int spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+               
+               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs' vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         """
@@ -12694,6 +13820,60 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def accelerator_manufacturers(self) -> Optional[Sequence[str]]:
         """
         List of accelerator manufacturer names. Default is any manufacturer.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
 
@@ -12702,6 +13882,60 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def accelerator_names(self) -> Optional[Sequence[str]]:
         """
         List of accelerator names. Default is any acclerator.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "accelerator_names")
 
@@ -12718,6 +13952,60 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def accelerator_types(self) -> Optional[Sequence[str]]:
         """
         List of accelerator types. Default is any accelerator type.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -12726,6 +14014,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def allowed_instance_types(self) -> Optional[Sequence[str]]:
         """
         List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+
+        > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         """
         return pulumi.get(self, "allowed_instance_types")
 
@@ -12758,6 +14048,62 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def cpu_manufacturers(self) -> Optional[Sequence[str]]:
         """
         List of CPU manufacturer names. Default is any manufacturer.
+
+        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -12766,6 +14112,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def excluded_instance_types(self) -> Optional[Sequence[str]]:
         """
         List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+
+        > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         """
         return pulumi.get(self, "excluded_instance_types")
 
@@ -12774,6 +14122,60 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def instance_generations(self) -> Optional[Sequence[str]]:
         """
         List of instance generation names. Default is any generation.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "instance_generations")
 
@@ -12790,6 +14192,60 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def local_storage_types(self) -> Optional[Sequence[str]]:
         """
         List of local storage type names. Default any storage type.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "local_storage_types")
 
@@ -12830,6 +14286,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         """
         The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
         return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
 
@@ -12846,6 +14304,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     def spot_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         """
         The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
@@ -13244,6 +14704,8 @@ class SpotInstanceRequestCapacityReservationSpecification(dict):
         """
         :param str capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
         :param 'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs' capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+               
+               For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
         """
         if capacity_reservation_preference is not None:
             pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
@@ -13263,6 +14725,8 @@ class SpotInstanceRequestCapacityReservationSpecification(dict):
     def capacity_reservation_target(self) -> Optional['outputs.SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget']:
         """
         Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+
+        For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
         """
         return pulumi.get(self, "capacity_reservation_target")
 
@@ -13348,6 +14812,8 @@ class SpotInstanceRequestCpuOptions(dict):
         :param str amd_sev_snp: Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
         :param int core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param int threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+               
+               For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
         """
         if amd_sev_snp is not None:
             pulumi.set(__self__, "amd_sev_snp", amd_sev_snp)
@@ -13377,6 +14843,8 @@ class SpotInstanceRequestCpuOptions(dict):
     def threads_per_core(self) -> Optional[int]:
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+
+        For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
         """
         return pulumi.get(self, "threads_per_core")
 
@@ -13471,6 +14939,8 @@ class SpotInstanceRequestEbsBlockDevice(dict):
         :param int throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param int volume_size: Size of the volume in gibibytes (GiB).
         :param str volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+               
+               > **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `ebs.Volume` and `ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` and `ec2.VolumeAttachment` resources for a given instance.
         """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
@@ -13576,6 +15046,8 @@ class SpotInstanceRequestEbsBlockDevice(dict):
     def volume_type(self) -> Optional[str]:
         """
         Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+
+        > **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `ebs.Volume` and `ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` and `ec2.VolumeAttachment` resources for a given instance.
         """
         return pulumi.get(self, "volume_type")
 
@@ -13586,6 +15058,8 @@ class SpotInstanceRequestEnclaveOptions(dict):
                  enabled: Optional[bool] = None):
         """
         :param bool enabled: Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+               
+               For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -13595,6 +15069,8 @@ class SpotInstanceRequestEnclaveOptions(dict):
     def enabled(self) -> Optional[bool]:
         """
         Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+
+        For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
         """
         return pulumi.get(self, "enabled")
 
@@ -13630,6 +15106,8 @@ class SpotInstanceRequestEphemeralBlockDevice(dict):
         :param str device_name: Name of the block device to mount on the instance.
         :param bool no_device: Suppresses the specified device included in the AMI's block device mapping.
         :param str virtual_name: [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
+               
+               Each AWS Instance type has a different set of Instance Store block devices available for attachment. AWS [publishes a list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes) of which ephemeral devices are available on each type. The devices are always identified by the `virtual_name` in the format `ephemeral{0..N}`.
         """
         pulumi.set(__self__, "device_name", device_name)
         if no_device is not None:
@@ -13658,6 +15136,8 @@ class SpotInstanceRequestEphemeralBlockDevice(dict):
     def virtual_name(self) -> Optional[str]:
         """
         [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
+
+        Each AWS Instance type has a different set of Instance Store block devices available for attachment. AWS [publishes a list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes) of which ephemeral devices are available on each type. The devices are always identified by the `virtual_name` in the format `ephemeral{0..N}`.
         """
         return pulumi.get(self, "virtual_name")
 
@@ -13776,6 +15256,8 @@ class SpotInstanceRequestMetadataOptions(dict):
         :param int http_put_response_hop_limit: Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
         :param str http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
         :param str instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+               
+               For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
@@ -13815,6 +15297,8 @@ class SpotInstanceRequestMetadataOptions(dict):
     def instance_metadata_tags(self) -> Optional[str]:
         """
         Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+
+        For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
         return pulumi.get(self, "instance_metadata_tags")
 
@@ -14009,6 +15493,8 @@ class SpotInstanceRequestRootBlockDevice(dict):
         :param int throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param int volume_size: Size of the volume in gibibytes (GiB).
         :param str volume_type: Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+               
+               Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -14105,6 +15591,8 @@ class SpotInstanceRequestRootBlockDevice(dict):
     def volume_type(self) -> Optional[str]:
         """
         Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+
+        Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
         """
         return pulumi.get(self, "volume_type")
 
@@ -21781,6 +23269,121 @@ class GetSubnetIdsFilterResult(dict):
         :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               import * as aws from "@pulumi/aws";
+               
+               const selected = aws.ec2.getSubnetIds({
+                   filters: [{
+                       name: "tag:Name",
+                       values: [""],
+                   }],
+               });
+               ```
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               selected = aws.ec2.get_subnet_ids(filters=[aws.ec2.GetSubnetIdsFilterArgs(
+                   name="tag:Name",
+                   values=[""],
+               )])
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               using Aws = Pulumi.Aws;
+               
+               return await Deployment.RunAsync(() => 
+               {
+                   var selected = Aws.Ec2.GetSubnetIds.Invoke(new()
+                   {
+                       Filters = new[]
+                       {
+                           new Aws.Ec2.Inputs.GetSubnetIdsFilterInputArgs
+                           {
+                               Name = "tag:Name",
+                               Values = new[]
+                               {
+                                   "",
+                               },
+                           },
+                       },
+                   });
+               
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
+               			Filters: []ec2.GetSubnetIdsFilter{
+               				{
+               					Name: "tag:Name",
+               					Values: []string{
+               						"",
+               					},
+               				},
+               			},
+               		}, nil)
+               		if err != nil {
+               			return err
+               		}
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import com.pulumi.aws.ec2.Ec2Functions;
+               import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                       final var selected = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
+                           .filters(GetSubnetIdsFilterArgs.builder()
+                               .name("tag:Name")
+                               .values("")
+                               .build())
+                           .build());
+               
+                   }
+               }
+               ```
+               ```yaml
+               variables:
+                 selected:
+                   fn::invoke:
+                     Function: aws:ec2:getSubnetIds
+                     Arguments:
+                       filters:
+                         - name: tag:Name
+                           values:
+                             -
+               ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
         """
@@ -21794,6 +23397,121 @@ class GetSubnetIdsFilterResult(dict):
         Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        import * as aws from "@pulumi/aws";
+
+        const selected = aws.ec2.getSubnetIds({
+            filters: [{
+                name: "tag:Name",
+                values: [""],
+            }],
+        });
+        ```
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        selected = aws.ec2.get_subnet_ids(filters=[aws.ec2.GetSubnetIdsFilterArgs(
+            name="tag:Name",
+            values=[""],
+        )])
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+        using Aws = Pulumi.Aws;
+
+        return await Deployment.RunAsync(() => 
+        {
+            var selected = Aws.Ec2.GetSubnetIds.Invoke(new()
+            {
+                Filters = new[]
+                {
+                    new Aws.Ec2.Inputs.GetSubnetIdsFilterInputArgs
+                    {
+                        Name = "tag:Name",
+                        Values = new[]
+                        {
+                            "",
+                        },
+                    },
+                },
+            });
+
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
+        			Filters: []ec2.GetSubnetIdsFilter{
+        				{
+        					Name: "tag:Name",
+        					Values: []string{
+        						"",
+        					},
+        				},
+        			},
+        		}, nil)
+        		if err != nil {
+        			return err
+        		}
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import com.pulumi.aws.ec2.Ec2Functions;
+        import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+                final var selected = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
+                    .filters(GetSubnetIdsFilterArgs.builder()
+                        .name("tag:Name")
+                        .values("")
+                        .build())
+                    .build());
+
+            }
+        }
+        ```
+        ```yaml
+        variables:
+          selected:
+            fn::invoke:
+              Function: aws:ec2:getSubnetIds
+              Arguments:
+                filters:
+                  - name: tag:Name
+                    values:
+                      -
+        ```
         """
         return pulumi.get(self, "name")
 
@@ -21816,6 +23534,121 @@ class GetSubnetsFilterResult(dict):
         :param str name: Name of the field to filter by, as defined by
                [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
                For example, if matching against tag `Name`, use:
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               import * as aws from "@pulumi/aws";
+               
+               const selected = aws.ec2.getSubnets({
+                   filters: [{
+                       name: "tag:Name",
+                       values: [""],
+                   }],
+               });
+               ```
+               ```python
+               import pulumi
+               import pulumi_aws as aws
+               
+               selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+                   name="tag:Name",
+                   values=[""],
+               )])
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               using Aws = Pulumi.Aws;
+               
+               return await Deployment.RunAsync(() => 
+               {
+                   var selected = Aws.Ec2.GetSubnets.Invoke(new()
+                   {
+                       Filters = new[]
+                       {
+                           new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+                           {
+                               Name = "tag:Name",
+                               Values = new[]
+                               {
+                                   "",
+                               },
+                           },
+                       },
+                   });
+               
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+               			Filters: []ec2.GetSubnetsFilter{
+               				{
+               					Name: "tag:Name",
+               					Values: []string{
+               						"",
+               					},
+               				},
+               			},
+               		}, nil)
+               		if err != nil {
+               			return err
+               		}
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import com.pulumi.aws.ec2.Ec2Functions;
+               import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                       final var selected = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
+                           .filters(GetSubnetsFilterArgs.builder()
+                               .name("tag:Name")
+                               .values("")
+                               .build())
+                           .build());
+               
+                   }
+               }
+               ```
+               ```yaml
+               variables:
+                 selected:
+                   fn::invoke:
+                     Function: aws:ec2:getSubnets
+                     Arguments:
+                       filters:
+                         - name: tag:Name
+                           values:
+                             -
+               ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
         """
@@ -21829,6 +23662,121 @@ class GetSubnetsFilterResult(dict):
         Name of the field to filter by, as defined by
         [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         For example, if matching against tag `Name`, use:
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        import * as aws from "@pulumi/aws";
+
+        const selected = aws.ec2.getSubnets({
+            filters: [{
+                name: "tag:Name",
+                values: [""],
+            }],
+        });
+        ```
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+            name="tag:Name",
+            values=[""],
+        )])
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+        using Aws = Pulumi.Aws;
+
+        return await Deployment.RunAsync(() => 
+        {
+            var selected = Aws.Ec2.GetSubnets.Invoke(new()
+            {
+                Filters = new[]
+                {
+                    new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+                    {
+                        Name = "tag:Name",
+                        Values = new[]
+                        {
+                            "",
+                        },
+                    },
+                },
+            });
+
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		_, err := ec2.GetSubnets(ctx, &ec2.GetSubnetsArgs{
+        			Filters: []ec2.GetSubnetsFilter{
+        				{
+        					Name: "tag:Name",
+        					Values: []string{
+        						"",
+        					},
+        				},
+        			},
+        		}, nil)
+        		if err != nil {
+        			return err
+        		}
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import com.pulumi.aws.ec2.Ec2Functions;
+        import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+                final var selected = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
+                    .filters(GetSubnetsFilterArgs.builder()
+                        .name("tag:Name")
+                        .values("")
+                        .build())
+                    .build());
+
+            }
+        }
+        ```
+        ```yaml
+        variables:
+          selected:
+            fn::invoke:
+              Function: aws:ec2:getSubnets
+              Arguments:
+                filters:
+                  - name: tag:Name
+                    values:
+                      -
+        ```
         """
         return pulumi.get(self, "name")
 

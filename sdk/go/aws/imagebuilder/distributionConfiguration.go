@@ -14,7 +14,6 @@ import (
 // Manages an Image Builder Distribution Configuration.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -80,6 +79,8 @@ type DistributionConfiguration struct {
 	// Description of the distribution configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// One or more configuration blocks with distribution settings. Detailed below.
+	//
+	// The following arguments are optional:
 	Distributions DistributionConfigurationDistributionArrayOutput `pulumi:"distributions"`
 	// Name of the distribution configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -130,6 +131,8 @@ type distributionConfigurationState struct {
 	// Description of the distribution configuration.
 	Description *string `pulumi:"description"`
 	// One or more configuration blocks with distribution settings. Detailed below.
+	//
+	// The following arguments are optional:
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
 	// Name of the distribution configuration.
 	Name *string `pulumi:"name"`
@@ -149,6 +152,8 @@ type DistributionConfigurationState struct {
 	// Description of the distribution configuration.
 	Description pulumi.StringPtrInput
 	// One or more configuration blocks with distribution settings. Detailed below.
+	//
+	// The following arguments are optional:
 	Distributions DistributionConfigurationDistributionArrayInput
 	// Name of the distribution configuration.
 	Name pulumi.StringPtrInput
@@ -166,6 +171,8 @@ type distributionConfigurationArgs struct {
 	// Description of the distribution configuration.
 	Description *string `pulumi:"description"`
 	// One or more configuration blocks with distribution settings. Detailed below.
+	//
+	// The following arguments are optional:
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
 	// Name of the distribution configuration.
 	Name *string `pulumi:"name"`
@@ -178,6 +185,8 @@ type DistributionConfigurationArgs struct {
 	// Description of the distribution configuration.
 	Description pulumi.StringPtrInput
 	// One or more configuration blocks with distribution settings. Detailed below.
+	//
+	// The following arguments are optional:
 	Distributions DistributionConfigurationDistributionArrayInput
 	// Name of the distribution configuration.
 	Name pulumi.StringPtrInput
@@ -293,6 +302,8 @@ func (o DistributionConfigurationOutput) Description() pulumi.StringPtrOutput {
 }
 
 // One or more configuration blocks with distribution settings. Detailed below.
+//
+// The following arguments are optional:
 func (o DistributionConfigurationOutput) Distributions() DistributionConfigurationDistributionArrayOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) DistributionConfigurationDistributionArrayOutput {
 		return v.Distributions

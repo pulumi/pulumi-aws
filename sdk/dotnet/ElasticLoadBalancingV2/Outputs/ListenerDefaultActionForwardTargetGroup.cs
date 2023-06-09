@@ -15,6 +15,8 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
     {
         /// <summary>
         /// ARN of the target group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Arn;
         /// <summary>

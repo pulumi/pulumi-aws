@@ -14,7 +14,6 @@ import (
 // Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

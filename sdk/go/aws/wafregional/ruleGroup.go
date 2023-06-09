@@ -14,7 +14,6 @@ import (
 // Provides a WAF Regional Rule Group Resource
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

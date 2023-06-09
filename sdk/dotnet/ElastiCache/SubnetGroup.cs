@@ -17,7 +17,6 @@ namespace Pulumi.Aws.ElastiCache
     /// ElastiCache Security Group resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

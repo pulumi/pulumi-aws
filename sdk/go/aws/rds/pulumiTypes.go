@@ -454,6 +454,8 @@ type ClusterS3Import struct {
 	// Source engine for the backup
 	SourceEngine string `pulumi:"sourceEngine"`
 	// Version of the source engine used to make the backup
+	//
+	// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
 }
 
@@ -478,6 +480,8 @@ type ClusterS3ImportArgs struct {
 	// Source engine for the backup
 	SourceEngine pulumi.StringInput `pulumi:"sourceEngine"`
 	// Version of the source engine used to make the backup
+	//
+	// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 	SourceEngineVersion pulumi.StringInput `pulumi:"sourceEngineVersion"`
 }
 
@@ -579,6 +583,8 @@ func (o ClusterS3ImportOutput) SourceEngine() pulumi.StringOutput {
 }
 
 // Version of the source engine used to make the backup
+//
+// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 func (o ClusterS3ImportOutput) SourceEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
 }
@@ -648,6 +654,8 @@ func (o ClusterS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 }
 
 // Version of the source engine used to make the backup
+//
+// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 func (o ClusterS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -1135,6 +1143,13 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) Gl
 type InstanceBlueGreenUpdate struct {
 	// Enables low-downtime updates when `true`.
 	// Default is `false`.
+	//
+	// [instance-replication]:
+	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
+	// [instance-maintenance]:
+	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
+	// [blue-green]:
+	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -1152,6 +1167,13 @@ type InstanceBlueGreenUpdateInput interface {
 type InstanceBlueGreenUpdateArgs struct {
 	// Enables low-downtime updates when `true`.
 	// Default is `false`.
+	//
+	// [instance-replication]:
+	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
+	// [instance-maintenance]:
+	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
+	// [blue-green]:
+	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -1234,6 +1256,13 @@ func (o InstanceBlueGreenUpdateOutput) ToInstanceBlueGreenUpdatePtrOutputWithCon
 
 // Enables low-downtime updates when `true`.
 // Default is `false`.
+//
+// [instance-replication]:
+// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
+// [instance-maintenance]:
+// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
+// [blue-green]:
+// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
 func (o InstanceBlueGreenUpdateOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceBlueGreenUpdate) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1264,6 +1293,13 @@ func (o InstanceBlueGreenUpdatePtrOutput) Elem() InstanceBlueGreenUpdateOutput {
 
 // Enables low-downtime updates when `true`.
 // Default is `false`.
+//
+// [instance-replication]:
+// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
+// [instance-maintenance]:
+// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
+// [blue-green]:
+// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
 func (o InstanceBlueGreenUpdatePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceBlueGreenUpdate) *bool {
 		if v == nil {
@@ -1729,6 +1765,8 @@ type InstanceS3Import struct {
 	// Source engine for the backup
 	SourceEngine string `pulumi:"sourceEngine"`
 	// Version of the source engine used to make the backup
+	//
+	// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
 	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
 }
 
@@ -1753,6 +1791,8 @@ type InstanceS3ImportArgs struct {
 	// Source engine for the backup
 	SourceEngine pulumi.StringInput `pulumi:"sourceEngine"`
 	// Version of the source engine used to make the backup
+	//
+	// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
 	SourceEngineVersion pulumi.StringInput `pulumi:"sourceEngineVersion"`
 }
 
@@ -1854,6 +1894,8 @@ func (o InstanceS3ImportOutput) SourceEngine() pulumi.StringOutput {
 }
 
 // Version of the source engine used to make the backup
+//
+// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
 func (o InstanceS3ImportOutput) SourceEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
 }
@@ -1923,6 +1965,8 @@ func (o InstanceS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 }
 
 // Version of the source engine used to make the backup
+//
+// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
 func (o InstanceS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {

@@ -12,6 +12,8 @@ public final class GetPermissionsDataLocation {
     /**
      * @return ARN that uniquely identifies the data location resource.
      * 
+     * The following argument is optional:
+     * 
      */
     private String arn;
     /**
@@ -23,6 +25,8 @@ public final class GetPermissionsDataLocation {
     private GetPermissionsDataLocation() {}
     /**
      * @return ARN that uniquely identifies the data location resource.
+     * 
+     * The following argument is optional:
      * 
      */
     public String arn() {

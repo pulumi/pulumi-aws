@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Get All Resource Tag Mappings
-//
 // ```go
 // package main
 //
@@ -37,7 +36,6 @@ import (
 //
 // ```
 // ### Filter By Tag Key and Value
-//
 // ```go
 // package main
 //
@@ -70,7 +68,6 @@ import (
 //
 // ```
 // ### Filter By Resource Type
-//
 // ```go
 // package main
 //

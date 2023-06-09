@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// ### Create an ssm document in JSON format
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,7 +52,6 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// ### Create an ssm document in YAML format
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

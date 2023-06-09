@@ -46,12 +46,16 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
      * 
+     * Exactly one of `records` or `alias` must be specified: this determines whether it&#39;s an alias record.
+     * 
      */
     @Import(name="allowOverwrite")
     private @Nullable Output<Boolean> allowOverwrite;
 
     /**
      * @return Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+     * 
+     * Exactly one of `records` or `alias` must be specified: this determines whether it&#39;s an alias record.
      * 
      */
     public Optional<Output<Boolean>> allowOverwrite() {
@@ -344,6 +348,8 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param allowOverwrite Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
          * 
+         * Exactly one of `records` or `alias` must be specified: this determines whether it&#39;s an alias record.
+         * 
          * @return builder
          * 
          */
@@ -354,6 +360,8 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param allowOverwrite Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+         * 
+         * Exactly one of `records` or `alias` must be specified: this determines whether it&#39;s an alias record.
          * 
          * @return builder
          * 

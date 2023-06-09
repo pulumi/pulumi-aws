@@ -115,6 +115,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+     *
+     * The following arguments are optional:
      */
     public readonly nodeType!: pulumi.Output<string>;
     /**
@@ -318,6 +320,8 @@ export interface ClusterState {
     namePrefix?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+     *
+     * The following arguments are optional:
      */
     nodeType?: pulumi.Input<string>;
     /**
@@ -428,6 +432,8 @@ export interface ClusterArgs {
     namePrefix?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+     *
+     * The following arguments are optional:
      */
     nodeType: pulumi.Input<string>;
     /**

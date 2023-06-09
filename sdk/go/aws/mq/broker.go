@@ -20,89 +20,6 @@ import (
 // > **NOTE:** Changes to an MQ Broker can occur when you change a parameter, such as `configuration` or `user`, and are reflected in the next maintenance window. Because of this, the provider may report a difference in its planning phase because a modification has not yet taken place. You can use the `applyImmediately` flag to instruct the service to apply the change immediately (see documentation below). Using `applyImmediately` can result in a brief downtime as the broker reboots.
 //
 // ## Example Usage
-// ### Basic Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
-//				Configuration: &mq.BrokerConfigurationArgs{
-//					Id:       pulumi.Any(aws_mq_configuration.Test.Id),
-//					Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
-//				},
-//				EngineType:       pulumi.String("ActiveMQ"),
-//				EngineVersion:    pulumi.String("5.15.9"),
-//				HostInstanceType: pulumi.String("mq.t2.micro"),
-//				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Test.Id,
-//				},
-//				Users: mq.BrokerUserArray{
-//					&mq.BrokerUserArgs{
-//						Username: pulumi.String("ExampleUser"),
-//						Password: pulumi.String("MindTheGap"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### High-throughput Optimized Example
-//
-// This example shows the use of EBS storage for high-throughput optimized performance.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
-//				Configuration: &mq.BrokerConfigurationArgs{
-//					Id:       pulumi.Any(aws_mq_configuration.Test.Id),
-//					Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
-//				},
-//				EngineType:       pulumi.String("ActiveMQ"),
-//				EngineVersion:    pulumi.String("5.15.9"),
-//				StorageType:      pulumi.String("ebs"),
-//				HostInstanceType: pulumi.String("mq.m5.large"),
-//				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Test.Id,
-//				},
-//				Users: mq.BrokerUserArray{
-//					&mq.BrokerUserArgs{
-//						Username: pulumi.String("ExampleUser"),
-//						Password: pulumi.String("MindTheGap"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -170,6 +87,8 @@ type Broker struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users BrokerUserArrayOutput `pulumi:"users"`
 }
 
@@ -268,6 +187,8 @@ type brokerState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users []BrokerUser `pulumi:"users"`
 }
 
@@ -326,6 +247,8 @@ type BrokerState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users BrokerUserArrayInput
 }
 
@@ -371,6 +294,8 @@ type brokerArgs struct {
 	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users []BrokerUser `pulumi:"users"`
 }
 
@@ -413,6 +338,8 @@ type BrokerArgs struct {
 	// Map of tags to assign to the broker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+	//
+	// The following arguments are optional:
 	Users BrokerUserArrayInput
 }
 
@@ -620,6 +547,8 @@ func (o BrokerOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Configuration block for broker users. For `engineType` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+//
+// The following arguments are optional:
 func (o BrokerOutput) Users() BrokerUserArrayOutput {
 	return o.ApplyT(func(v *Broker) BrokerUserArrayOutput { return v.Users }).(BrokerUserArrayOutput)
 }

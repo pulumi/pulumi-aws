@@ -24,6 +24,8 @@ class PublishingDestinationArgs:
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         :param pulumi.Input[str] destination_type: Currently there is only "S3" available as destination type which is also the default value
+               
+               > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "detector_id", detector_id)
@@ -72,6 +74,8 @@ class PublishingDestinationArgs:
     def destination_type(self) -> Optional[pulumi.Input[str]]:
         """
         Currently there is only "S3" available as destination type which is also the default value
+
+        > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         """
         return pulumi.get(self, "destination_type")
 
@@ -91,6 +95,8 @@ class _PublishingDestinationState:
         Input properties used for looking up and filtering PublishingDestination resources.
         :param pulumi.Input[str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         :param pulumi.Input[str] destination_type: Currently there is only "S3" available as destination type which is also the default value
+               
+               > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         """
@@ -120,6 +126,8 @@ class _PublishingDestinationState:
     def destination_type(self) -> Optional[pulumi.Input[str]]:
         """
         Currently there is only "S3" available as destination type which is also the default value
+
+        > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         """
         return pulumi.get(self, "destination_type")
 
@@ -166,7 +174,6 @@ class PublishingDestination(pulumi.CustomResource):
         Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,6 +253,8 @@ class PublishingDestination(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         :param pulumi.Input[str] destination_type: Currently there is only "S3" available as destination type which is also the default value
+               
+               > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         """
@@ -259,7 +268,6 @@ class PublishingDestination(pulumi.CustomResource):
         Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -396,6 +404,8 @@ class PublishingDestination(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_arn: The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
         :param pulumi.Input[str] destination_type: Currently there is only "S3" available as destination type which is also the default value
+               
+               > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
         """
@@ -422,6 +432,8 @@ class PublishingDestination(pulumi.CustomResource):
     def destination_type(self) -> pulumi.Output[Optional[str]]:
         """
         Currently there is only "S3" available as destination type which is also the default value
+
+        > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         """
         return pulumi.get(self, "destination_type")
 

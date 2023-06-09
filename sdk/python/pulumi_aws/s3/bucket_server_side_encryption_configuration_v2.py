@@ -136,7 +136,6 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         Provides a S3 bucket server-side encryption configuration resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,7 +184,6 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         Provides a S3 bucket server-side encryption configuration resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

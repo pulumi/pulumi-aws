@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ApiGateway
     /// Provides an API Gateway Usage Plan Key.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

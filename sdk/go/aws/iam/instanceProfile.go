@@ -13,7 +13,6 @@ import (
 // Provides an IAM instance profile.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

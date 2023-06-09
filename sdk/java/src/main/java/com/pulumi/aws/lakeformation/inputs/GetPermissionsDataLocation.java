@@ -15,12 +15,16 @@ public final class GetPermissionsDataLocation extends com.pulumi.resources.Invok
     /**
      * ARN that uniquely identifies the data location resource.
      * 
+     * The following argument is optional:
+     * 
      */
     @Import(name="arn", required=true)
     private String arn;
 
     /**
      * @return ARN that uniquely identifies the data location resource.
+     * 
+     * The following argument is optional:
      * 
      */
     public String arn() {
@@ -69,6 +73,8 @@ public final class GetPermissionsDataLocation extends com.pulumi.resources.Invok
 
         /**
          * @param arn ARN that uniquely identifies the data location resource.
+         * 
+         * The following argument is optional:
          * 
          * @return builder
          * 

@@ -433,7 +433,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -443,7 +442,6 @@ class Application(pulumi.CustomResource):
             type="hive")
         ```
         ### Initial Capacity Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -463,7 +461,6 @@ class Application(pulumi.CustomResource):
             type="hive")
         ```
         ### Maximum Capacity Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -510,7 +507,6 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -520,7 +516,6 @@ class Application(pulumi.CustomResource):
             type="hive")
         ```
         ### Initial Capacity Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -540,7 +535,6 @@ class Application(pulumi.CustomResource):
             type="hive")
         ```
         ### Maximum Capacity Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

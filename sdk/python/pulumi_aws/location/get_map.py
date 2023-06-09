@@ -133,7 +133,6 @@ def get_map(map_name: Optional[str] = None,
     Retrieve information about a Location Service Map.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -170,7 +169,6 @@ def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
     Retrieve information about a Location Service Map.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

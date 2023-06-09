@@ -49,12 +49,16 @@ public final class FileSystemPolicyArgs extends com.pulumi.resources.ResourceArg
     /**
      * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
     /**
      * @return The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> policy() {
@@ -132,6 +136,8 @@ public final class FileSystemPolicyArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param policy The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -142,6 +148,8 @@ public final class FileSystemPolicyArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param policy The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

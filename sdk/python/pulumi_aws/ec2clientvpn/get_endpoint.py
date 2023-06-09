@@ -286,7 +286,6 @@ def get_endpoint(client_vpn_endpoint_id: Optional[str] = None,
 
     ## Example Usage
     ### By Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -297,7 +296,6 @@ def get_endpoint(client_vpn_endpoint_id: Optional[str] = None,
     )])
     ```
     ### By Identifier
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -351,7 +349,6 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[s
 
     ## Example Usage
     ### By Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -362,7 +359,6 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[s
     )])
     ```
     ### By Identifier
-
     ```python
     import pulumi
     import pulumi_aws as aws

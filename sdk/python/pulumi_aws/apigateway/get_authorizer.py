@@ -177,13 +177,12 @@ def get_authorizer(authorizer_id: Optional[str] = None,
     Provides details about a specific API Gateway Authorizer.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_authorizer(rest_api_id=aws_api_gateway_rest_api["example"]["id"],
-        authorizer_id=data["aws_api_gateway_authorizers"]["example"]["ids"])
+    example = aws.apigateway.get_authorizer(rest_api_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        authorizer_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -219,13 +218,12 @@ def get_authorizer_output(authorizer_id: Optional[pulumi.Input[str]] = None,
     Provides details about a specific API Gateway Authorizer.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_authorizer(rest_api_id=aws_api_gateway_rest_api["example"]["id"],
-        authorizer_id=data["aws_api_gateway_authorizers"]["example"]["ids"])
+    example = aws.apigateway.get_authorizer(rest_api_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        authorizer_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

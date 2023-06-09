@@ -19,41 +19,6 @@ import (
 // an LB Target Group for use in other resources, given LB Target Group name.
 //
 // ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			lbTgArn := ""
-//			if param := cfg.Get("lbTgArn"); param != "" {
-//				lbTgArn = param
-//			}
-//			lbTgName := ""
-//			if param := cfg.Get("lbTgName"); param != "" {
-//				lbTgName = param
-//			}
-//			_, err := lb.LookupTargetGroup(ctx, &lb.LookupTargetGroupArgs{
-//				Arn:  pulumi.StringRef(lbTgArn),
-//				Name: pulumi.StringRef(lbTgName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupTargetGroupResult, error) {
 	var rv LookupTargetGroupResult
 	err := ctx.Invoke("aws:lb/getTargetGroup:getTargetGroup", args, &rv, opts...)
@@ -70,6 +35,8 @@ type LookupTargetGroupArgs struct {
 	// Unique name of the target group.
 	Name *string `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -118,6 +85,8 @@ type LookupTargetGroupOutputArgs struct {
 	// Unique name of the target group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

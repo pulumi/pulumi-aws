@@ -16,7 +16,6 @@ import (
 // > **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //
 // ```
 // ### With KMS Key
-//
 // ```go
 // package main
 //

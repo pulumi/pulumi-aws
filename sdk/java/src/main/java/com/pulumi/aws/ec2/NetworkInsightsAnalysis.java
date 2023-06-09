@@ -146,12 +146,16 @@ public class NetworkInsightsAnalysis extends com.pulumi.resources.CustomResource
     /**
      * ID of the Network Insights Path to run an analysis on.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="networkInsightsPathId", refs={String.class}, tree="[0]")
     private Output<String> networkInsightsPathId;
 
     /**
      * @return ID of the Network Insights Path to run an analysis on.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> networkInsightsPathId() {

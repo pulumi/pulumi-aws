@@ -127,12 +127,16 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
     /**
      * Unique name for your Lambda Layer
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="layerName")
     private @Nullable Output<String> layerName;
 
     /**
      * @return Unique name for your Lambda Layer
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> layerName() {
@@ -500,6 +504,8 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param layerName Unique name for your Lambda Layer
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -510,6 +516,8 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param layerName Unique name for your Lambda Layer
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

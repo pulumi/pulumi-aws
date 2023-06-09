@@ -47,12 +47,16 @@ public final class GetQuicksightUserPlainArgs extends com.pulumi.resources.Invok
     /**
      * The name of the user that you want to match.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="userName", required=true)
     private String userName;
 
     /**
      * @return The name of the user that you want to match.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String userName() {
@@ -109,6 +113,8 @@ public final class GetQuicksightUserPlainArgs extends com.pulumi.resources.Invok
 
         /**
          * @param userName The name of the user that you want to match.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

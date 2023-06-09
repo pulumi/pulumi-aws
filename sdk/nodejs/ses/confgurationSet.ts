@@ -82,6 +82,8 @@ export class ConfgurationSet extends pulumi.CustomResource {
     public /*out*/ readonly lastFreshStart!: pulumi.Output<string>;
     /**
      * Name of the configuration set.
+     *
+     * The following argument is optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -153,6 +155,8 @@ export interface ConfgurationSetState {
     lastFreshStart?: pulumi.Input<string>;
     /**
      * Name of the configuration set.
+     *
+     * The following argument is optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -179,6 +183,8 @@ export interface ConfgurationSetArgs {
     deliveryOptions?: pulumi.Input<inputs.ses.ConfgurationSetDeliveryOptions>;
     /**
      * Name of the configuration set.
+     *
+     * The following argument is optional:
      */
     name?: pulumi.Input<string>;
     /**

@@ -14,7 +14,6 @@ import (
 // Manages the specified alternate contact attached to an AWS Account.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

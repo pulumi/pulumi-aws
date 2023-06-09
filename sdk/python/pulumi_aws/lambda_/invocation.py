@@ -22,6 +22,8 @@ class InvocationArgs:
         The set of arguments for constructing a Invocation resource.
         :param pulumi.Input[str] function_name: Name of the lambda function.
         :param pulumi.Input[str] input: JSON payload to the lambda function.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
@@ -49,6 +51,8 @@ class InvocationArgs:
     def input(self) -> pulumi.Input[str]:
         """
         JSON payload to the lambda function.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "input")
 
@@ -93,6 +97,8 @@ class _InvocationState:
         Input properties used for looking up and filtering Invocation resources.
         :param pulumi.Input[str] function_name: Name of the lambda function.
         :param pulumi.Input[str] input: JSON payload to the lambda function.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[str] result: String result of the lambda function invocation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -125,6 +131,8 @@ class _InvocationState:
     def input(self) -> Optional[pulumi.Input[str]]:
         """
         JSON payload to the lambda function.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "input")
 
@@ -210,6 +218,8 @@ class Invocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] function_name: Name of the lambda function.
         :param pulumi.Input[str] input: JSON payload to the lambda function.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
@@ -307,6 +317,8 @@ class Invocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] function_name: Name of the lambda function.
         :param pulumi.Input[str] input: JSON payload to the lambda function.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         :param pulumi.Input[str] result: String result of the lambda function invocation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
@@ -335,6 +347,8 @@ class Invocation(pulumi.CustomResource):
     def input(self) -> pulumi.Output[str]:
         """
         JSON payload to the lambda function.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "input")
 

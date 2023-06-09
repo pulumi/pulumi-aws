@@ -168,6 +168,10 @@ func (o FleetIdentityProviderPtrOutput) Type() pulumi.StringPtrOutput {
 
 type FleetNetwork struct {
 	// A list of security group IDs associated with access to the provided subnets.
+	//
+	// **identity_provider** requires the following:
+	//
+	// > **NOTE:** `identityProvider` cannot be removed without force recreating.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -188,6 +192,10 @@ type FleetNetworkInput interface {
 
 type FleetNetworkArgs struct {
 	// A list of security group IDs associated with access to the provided subnets.
+	//
+	// **identity_provider** requires the following:
+	//
+	// > **NOTE:** `identityProvider` cannot be removed without force recreating.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
@@ -273,6 +281,10 @@ func (o FleetNetworkOutput) ToFleetNetworkPtrOutputWithContext(ctx context.Conte
 }
 
 // A list of security group IDs associated with access to the provided subnets.
+//
+// **identity_provider** requires the following:
+//
+// > **NOTE:** `identityProvider` cannot be removed without force recreating.
 func (o FleetNetworkOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetNetwork) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -312,6 +324,10 @@ func (o FleetNetworkPtrOutput) Elem() FleetNetworkOutput {
 }
 
 // A list of security group IDs associated with access to the provided subnets.
+//
+// **identity_provider** requires the following:
+//
+// > **NOTE:** `identityProvider` cannot be removed without force recreating.
 func (o FleetNetworkPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetNetwork) []string {
 		if v == nil {

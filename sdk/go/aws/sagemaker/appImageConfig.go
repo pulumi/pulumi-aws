@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic usage
-//
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //
 // ```
 // ### Default File System Config
-//
 // ```go
 // package main
 //

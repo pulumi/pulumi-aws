@@ -512,7 +512,6 @@ class LocationHdfs(pulumi.CustomResource):
         > **NOTE:** The DataSync Agents must be available before creating this resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -522,7 +521,7 @@ class LocationHdfs(pulumi.CustomResource):
             authentication_type="SIMPLE",
             simple_user="example",
             name_nodes=[aws.datasync.LocationHdfsNameNodeArgs(
-                hostname=aws_instance["example"]["private_dns"],
+                hostname=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 port=80,
             )])
         ```
@@ -563,7 +562,6 @@ class LocationHdfs(pulumi.CustomResource):
         > **NOTE:** The DataSync Agents must be available before creating this resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -573,7 +571,7 @@ class LocationHdfs(pulumi.CustomResource):
             authentication_type="SIMPLE",
             simple_user="example",
             name_nodes=[aws.datasync.LocationHdfsNameNodeArgs(
-                hostname=aws_instance["example"]["private_dns"],
+                hostname=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 port=80,
             )])
         ```

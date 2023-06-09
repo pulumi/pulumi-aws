@@ -18,6 +18,28 @@ namespace Pulumi.Aws.RedShift
         /// ## Example Usage
         /// {{% example %}}
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const test = aws.redshift.getOrderableCluster({
+        ///     clusterType: "multi-node",
+        ///     preferredNodeTypes: [
+        ///         "dc2.large",
+        ///         "ds2.xlarge",
+        ///     ],
+        /// });
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// test = aws.redshift.get_orderable_cluster(cluster_type="multi-node",
+        ///     preferred_node_types=[
+        ///         "dc2.large",
+        ///         "ds2.xlarge",
+        ///     ])
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,6 +60,72 @@ namespace Pulumi.Aws.RedShift
         /// 
         /// });
         /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		_, err := redshift.GetOrderableCluster(ctx, &amp;redshift.GetOrderableClusterArgs{
+        /// 			ClusterType: pulumi.StringRef("multi-node"),
+        /// 			PreferredNodeTypes: []string{
+        /// 				"dc2.large",
+        /// 				"ds2.xlarge",
+        /// 			},
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.redshift.RedshiftFunctions;
+        /// import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+        ///             .clusterType("multi-node")
+        ///             .preferredNodeTypes(            
+        ///                 "dc2.large",
+        ///                 "ds2.xlarge")
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// variables:
+        ///   test:
+        ///     fn::invoke:
+        ///       Function: aws:redshift:getOrderableCluster
+        ///       Arguments:
+        ///         clusterType: multi-node
+        ///         preferredNodeTypes:
+        ///           - dc2.large
+        ///           - ds2.xlarge
+        /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -51,6 +139,28 @@ namespace Pulumi.Aws.RedShift
         /// ## Example Usage
         /// {{% example %}}
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const test = aws.redshift.getOrderableCluster({
+        ///     clusterType: "multi-node",
+        ///     preferredNodeTypes: [
+        ///         "dc2.large",
+        ///         "ds2.xlarge",
+        ///     ],
+        /// });
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// test = aws.redshift.get_orderable_cluster(cluster_type="multi-node",
+        ///     preferred_node_types=[
+        ///         "dc2.large",
+        ///         "ds2.xlarge",
+        ///     ])
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,6 +180,72 @@ namespace Pulumi.Aws.RedShift
         ///     });
         /// 
         /// });
+        /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		_, err := redshift.GetOrderableCluster(ctx, &amp;redshift.GetOrderableClusterArgs{
+        /// 			ClusterType: pulumi.StringRef("multi-node"),
+        /// 			PreferredNodeTypes: []string{
+        /// 				"dc2.large",
+        /// 				"ds2.xlarge",
+        /// 			},
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.redshift.RedshiftFunctions;
+        /// import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var test = RedshiftFunctions.getOrderableCluster(GetOrderableClusterArgs.builder()
+        ///             .clusterType("multi-node")
+        ///             .preferredNodeTypes(            
+        ///                 "dc2.large",
+        ///                 "ds2.xlarge")
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// variables:
+        ///   test:
+        ///     fn::invoke:
+        ///       Function: aws:redshift:getOrderableCluster
+        ///       Arguments:
+        ///         clusterType: multi-node
+        ///         preferredNodeTypes:
+        ///           - dc2.large
+        ///           - ds2.xlarge
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

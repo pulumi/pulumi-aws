@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Iot
     /// Attaches Principal to AWS IoT Thing.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

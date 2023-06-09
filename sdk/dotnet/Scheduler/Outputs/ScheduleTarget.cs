@@ -43,6 +43,8 @@ namespace Pulumi.Aws.Scheduler.Outputs
         public readonly Outputs.ScheduleTargetRetryPolicy? RetryPolicy;
         /// <summary>
         /// ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string RoleArn;
         /// <summary>

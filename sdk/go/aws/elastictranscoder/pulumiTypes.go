@@ -289,6 +289,16 @@ type PipelineNotifications struct {
 	// The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
 	Progressing *string `pulumi:"progressing"`
 	// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+	//
+	// The `thumbnailConfig` object specifies information about the Amazon S3 bucket in
+	// which you want Elastic Transcoder to save thumbnail files: which bucket to use,
+	// which users you want to have access to the files, the type of access you want
+	// users to have, and the storage class that you want to assign to the files. If
+	// you specify values for `contentConfig`, you must also specify values for
+	// `thumbnailConfig` even if you don't want to create thumbnails. (You control
+	// whether to create thumbnails when you create a job. For more information, see
+	// ThumbnailPattern in the topic Create Job.) If you specify values for
+	// `contentConfig` and `thumbnailConfig`, omit the OutputBucket object.
 	Warning *string `pulumi:"warning"`
 }
 
@@ -311,6 +321,16 @@ type PipelineNotificationsArgs struct {
 	// The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
 	Progressing pulumi.StringPtrInput `pulumi:"progressing"`
 	// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+	//
+	// The `thumbnailConfig` object specifies information about the Amazon S3 bucket in
+	// which you want Elastic Transcoder to save thumbnail files: which bucket to use,
+	// which users you want to have access to the files, the type of access you want
+	// users to have, and the storage class that you want to assign to the files. If
+	// you specify values for `contentConfig`, you must also specify values for
+	// `thumbnailConfig` even if you don't want to create thumbnails. (You control
+	// whether to create thumbnails when you create a job. For more information, see
+	// ThumbnailPattern in the topic Create Job.) If you specify values for
+	// `contentConfig` and `thumbnailConfig`, omit the OutputBucket object.
 	Warning pulumi.StringPtrInput `pulumi:"warning"`
 }
 
@@ -407,6 +427,16 @@ func (o PipelineNotificationsOutput) Progressing() pulumi.StringPtrOutput {
 }
 
 // The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+//
+// The `thumbnailConfig` object specifies information about the Amazon S3 bucket in
+// which you want Elastic Transcoder to save thumbnail files: which bucket to use,
+// which users you want to have access to the files, the type of access you want
+// users to have, and the storage class that you want to assign to the files. If
+// you specify values for `contentConfig`, you must also specify values for
+// `thumbnailConfig` even if you don't want to create thumbnails. (You control
+// whether to create thumbnails when you create a job. For more information, see
+// ThumbnailPattern in the topic Create Job.) If you specify values for
+// `contentConfig` and `thumbnailConfig`, omit the OutputBucket object.
 func (o PipelineNotificationsOutput) Warning() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineNotifications) *string { return v.Warning }).(pulumi.StringPtrOutput)
 }
@@ -466,6 +496,16 @@ func (o PipelineNotificationsPtrOutput) Progressing() pulumi.StringPtrOutput {
 }
 
 // The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
+//
+// The `thumbnailConfig` object specifies information about the Amazon S3 bucket in
+// which you want Elastic Transcoder to save thumbnail files: which bucket to use,
+// which users you want to have access to the files, the type of access you want
+// users to have, and the storage class that you want to assign to the files. If
+// you specify values for `contentConfig`, you must also specify values for
+// `thumbnailConfig` even if you don't want to create thumbnails. (You control
+// whether to create thumbnails when you create a job. For more information, see
+// ThumbnailPattern in the topic Create Job.) If you specify values for
+// `contentConfig` and `thumbnailConfig`, omit the OutputBucket object.
 func (o PipelineNotificationsPtrOutput) Warning() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PipelineNotifications) *string {
 		if v == nil {

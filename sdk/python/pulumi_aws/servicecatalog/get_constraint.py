@@ -143,7 +143,6 @@ def get_constraint(accept_language: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,6 +155,8 @@ def get_constraint(accept_language: Optional[str] = None,
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str description: Description of the constraint.
     :param str id: Constraint identifier.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -186,7 +187,6 @@ def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[str]]]
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -199,5 +199,7 @@ def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[str]]]
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str description: Description of the constraint.
     :param str id: Constraint identifier.
+           
+           The following arguments are optional:
     """
     ...

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// ### Basic configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,7 +27,6 @@ namespace Pulumi.Aws.Cognito
     /// });
     /// ```
     /// ### Enabling SMS and Software Token Multi-Factor Authentication
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,7 +55,6 @@ namespace Pulumi.Aws.Cognito
     /// });
     /// ```
     /// ### Using Account Recovery Setting
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -210,6 +207,8 @@ namespace Pulumi.Aws.Cognito
 
         /// <summary>
         /// Name of the user pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -418,6 +417,8 @@ namespace Pulumi.Aws.Cognito
 
         /// <summary>
         /// Name of the user pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -642,6 +643,8 @@ namespace Pulumi.Aws.Cognito
 
         /// <summary>
         /// Name of the user pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

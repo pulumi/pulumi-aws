@@ -166,7 +166,6 @@ class BaiduChannel(pulumi.CustomResource):
         Provides a Pinpoint Baidu Channel resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,7 +202,6 @@ class BaiduChannel(pulumi.CustomResource):
         Provides a Pinpoint Baidu Channel resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Eks
     /// Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,7 +51,6 @@ namespace Pulumi.Aws.Eks
     /// ### Ignoring Changes to Desired Size
     /// 
     /// You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,7 +71,6 @@ namespace Pulumi.Aws.Eks
     /// });
     /// ```
     /// ### Example IAM Role for EKS Node Group
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -239,6 +236,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -417,6 +416,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -590,6 +591,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SubnetIds
         {

@@ -232,7 +232,6 @@ class VoiceConnectorTermination(pulumi.CustomResource):
         Enable Termination settings to control outbound calling from your SIP infrastructure.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,7 +275,6 @@ class VoiceConnectorTermination(pulumi.CustomResource):
         Enable Termination settings to control outbound calling from your SIP infrastructure.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

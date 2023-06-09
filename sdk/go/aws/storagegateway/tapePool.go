@@ -14,7 +14,6 @@ import (
 // Manages an AWS Storage Gateway Tape Pool.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.RedShift
     /// Creates a Redshift authentication profile
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

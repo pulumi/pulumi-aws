@@ -30,6 +30,11 @@ class ReplicationTaskArgs:
         :param pulumi.Input[str] migration_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[str] replication_task_id: The replication task identifier.
+               
+               - Must contain from 1 to 255 alphanumeric characters or hyphens.
+               - First character must be a letter.
+               - Cannot end with a hyphen.
+               - Cannot contain two consecutive hyphens.
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         :param pulumi.Input[str] table_mappings: An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         :param pulumi.Input[str] target_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
@@ -85,6 +90,11 @@ class ReplicationTaskArgs:
     def replication_task_id(self) -> pulumi.Input[str]:
         """
         The replication task identifier.
+
+        - Must contain from 1 to 255 alphanumeric characters or hyphens.
+        - First character must be a letter.
+        - Cannot end with a hyphen.
+        - Cannot contain two consecutive hyphens.
         """
         return pulumi.get(self, "replication_task_id")
 
@@ -214,6 +224,11 @@ class _ReplicationTaskState:
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[str] replication_task_arn: The Amazon Resource Name (ARN) for the replication task.
         :param pulumi.Input[str] replication_task_id: The replication task identifier.
+               
+               - Must contain from 1 to 255 alphanumeric characters or hyphens.
+               - First character must be a letter.
+               - Cannot end with a hyphen.
+               - Cannot contain two consecutive hyphens.
         :param pulumi.Input[str] replication_task_settings: An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         :param pulumi.Input[bool] start_replication_task: Whether to run or stop the replication task.
@@ -317,6 +332,11 @@ class _ReplicationTaskState:
     def replication_task_id(self) -> Optional[pulumi.Input[str]]:
         """
         The replication task identifier.
+
+        - Must contain from 1 to 255 alphanumeric characters or hyphens.
+        - First character must be a letter.
+        - Cannot end with a hyphen.
+        - Cannot contain two consecutive hyphens.
         """
         return pulumi.get(self, "replication_task_id")
 
@@ -444,7 +464,6 @@ class ReplicationTask(pulumi.CustomResource):
         > **NOTE:** Changing most arguments will stop the task if it is running. You can set `start_replication_task` to resume the task afterwards.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -479,6 +498,11 @@ class ReplicationTask(pulumi.CustomResource):
         :param pulumi.Input[str] migration_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[str] replication_task_id: The replication task identifier.
+               
+               - Must contain from 1 to 255 alphanumeric characters or hyphens.
+               - First character must be a letter.
+               - Cannot end with a hyphen.
+               - Cannot contain two consecutive hyphens.
         :param pulumi.Input[str] replication_task_settings: An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         :param pulumi.Input[bool] start_replication_task: Whether to run or stop the replication task.
@@ -498,7 +522,6 @@ class ReplicationTask(pulumi.CustomResource):
         > **NOTE:** Changing most arguments will stop the task if it is running. You can set `start_replication_task` to resume the task afterwards.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -624,6 +647,11 @@ class ReplicationTask(pulumi.CustomResource):
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
         :param pulumi.Input[str] replication_task_arn: The Amazon Resource Name (ARN) for the replication task.
         :param pulumi.Input[str] replication_task_id: The replication task identifier.
+               
+               - Must contain from 1 to 255 alphanumeric characters or hyphens.
+               - First character must be a letter.
+               - Cannot end with a hyphen.
+               - Cannot contain two consecutive hyphens.
         :param pulumi.Input[str] replication_task_settings: An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         :param pulumi.Input[bool] start_replication_task: Whether to run or stop the replication task.
@@ -698,6 +726,11 @@ class ReplicationTask(pulumi.CustomResource):
     def replication_task_id(self) -> pulumi.Output[str]:
         """
         The replication task identifier.
+
+        - Must contain from 1 to 255 alphanumeric characters or hyphens.
+        - First character must be a letter.
+        - Cannot end with a hyphen.
+        - Cannot contain two consecutive hyphens.
         """
         return pulumi.get(self, "replication_task_id")
 

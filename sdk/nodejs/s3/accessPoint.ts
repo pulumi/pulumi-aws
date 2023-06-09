@@ -117,6 +117,8 @@ export class AccessPoint extends pulumi.CustomResource {
     public /*out*/ readonly hasPublicAccessPolicy!: pulumi.Output<boolean>;
     /**
      * Name you want to assign to this access point.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -225,6 +227,8 @@ export interface AccessPointState {
     hasPublicAccessPolicy?: pulumi.Input<boolean>;
     /**
      * Name you want to assign to this access point.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -263,6 +267,8 @@ export interface AccessPointArgs {
     bucketAccountId?: pulumi.Input<string>;
     /**
      * Name you want to assign to this access point.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

@@ -211,12 +211,16 @@ public class ProvisioningArtifact extends com.pulumi.resources.CustomResource {
     /**
      * Template source as URL of the CloudFormation template in Amazon S3.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="templateUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateUrl;
 
     /**
      * @return Template source as URL of the CloudFormation template in Amazon S3.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Optional<String>> templateUrl() {

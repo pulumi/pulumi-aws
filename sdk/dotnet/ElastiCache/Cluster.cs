@@ -32,7 +32,6 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Example Usage
     /// ### Memcached Cluster
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,7 +52,6 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// ### Redis Instance
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,7 +75,6 @@ namespace Pulumi.Aws.ElastiCache
     /// ### Redis Cluster Mode Disabled Read Replica Instance
     /// 
     /// These inherit their settings from the replication group.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,7 +91,6 @@ namespace Pulumi.Aws.ElastiCache
     /// });
     /// ```
     /// ### Redis Log Delivery configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -281,6 +277,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("parameterGroupName")]
         public Output<string> ParameterGroupName { get; private set; } = null!;
@@ -523,6 +521,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }
@@ -782,6 +782,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The name of the parameter group to associate with this cache cluster.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("parameterGroupName")]
         public Input<string>? ParameterGroupName { get; set; }

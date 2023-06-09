@@ -182,7 +182,6 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         Provides an IAM Service Specific Credential.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,7 +216,6 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         Provides an IAM Service Specific Credential.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

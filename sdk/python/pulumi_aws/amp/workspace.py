@@ -186,7 +186,6 @@ class Workspace(pulumi.CustomResource):
         Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -198,7 +197,6 @@ class Workspace(pulumi.CustomResource):
             })
         ```
         ### CloudWatch Logging
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,7 +231,6 @@ class Workspace(pulumi.CustomResource):
         Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +242,6 @@ class Workspace(pulumi.CustomResource):
             })
         ```
         ### CloudWatch Logging
-
         ```python
         import pulumi
         import pulumi_aws as aws

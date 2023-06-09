@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Budgets
     /// Provides a budgets budget resource. Budgets use the cost visualisation provided by Cost Explorer to show you the status of your budgets, to provide forecasts of your estimated costs, and to track your AWS usage, including your free tier usage.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,7 +60,6 @@ namespace Pulumi.Aws.Budgets
     /// ```
     /// 
     /// Create a budget for *$100*.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,7 +79,6 @@ namespace Pulumi.Aws.Budgets
     /// ```
     /// 
     /// Create a budget with planned budget limits.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -113,7 +110,6 @@ namespace Pulumi.Aws.Budgets
     /// ```
     /// 
     /// Create a budget for s3 with a limit of *3 GB* of storage.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -133,7 +129,6 @@ namespace Pulumi.Aws.Budgets
     /// ```
     /// 
     /// Create a Savings Plan Utilization Budget
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -166,7 +161,6 @@ namespace Pulumi.Aws.Budgets
     /// ```
     /// 
     /// Create a RI Utilization Budget
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -210,7 +204,6 @@ namespace Pulumi.Aws.Budgets
     /// ```
     /// 
     /// Create a Cost Filter using Resource Tags
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -238,7 +231,6 @@ namespace Pulumi.Aws.Budgets
     /// ```
     /// 
     /// Create a cost_filter using resource tags, obtaining the tag value from a variable
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -160,7 +160,6 @@ def get_vpc_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpcAttach
 
     ## Example Usage
     ### By Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -171,7 +170,6 @@ def get_vpc_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpcAttach
     )])
     ```
     ### By Identifier
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -214,7 +212,6 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
     ## Example Usage
     ### By Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -225,7 +222,6 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     )])
     ```
     ### By Identifier
-
     ```python
     import pulumi
     import pulumi_aws as aws

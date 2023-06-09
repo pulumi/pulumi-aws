@@ -14,7 +14,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ## Example Usage
     /// ### Stateful Inspection for denying access to a domain
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,7 +54,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// ### Stateful Inspection from rules specifications defined in Suricata flat format
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -80,7 +78,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -156,7 +153,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// ### IP Set References to the Rule Group
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

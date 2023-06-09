@@ -305,7 +305,6 @@ class Repository(pulumi.CustomResource):
         Provides an Elastic Container Registry Repository.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -345,7 +344,6 @@ class Repository(pulumi.CustomResource):
         Provides an Elastic Container Registry Repository.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

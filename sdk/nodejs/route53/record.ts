@@ -161,6 +161,8 @@ export class Record extends pulumi.CustomResource {
     public readonly aliases!: pulumi.Output<outputs.route53.RecordAlias[] | undefined>;
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+     *
+     * Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
      */
     public readonly allowOverwrite!: pulumi.Output<boolean>;
     /**
@@ -293,6 +295,8 @@ export interface RecordState {
     aliases?: pulumi.Input<pulumi.Input<inputs.route53.RecordAlias>[]>;
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+     *
+     * Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
      */
     allowOverwrite?: pulumi.Input<boolean>;
     /**
@@ -364,6 +368,8 @@ export interface RecordArgs {
     aliases?: pulumi.Input<pulumi.Input<inputs.route53.RecordAlias>[]>;
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+     *
+     * Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
      */
     allowOverwrite?: pulumi.Input<boolean>;
     /**

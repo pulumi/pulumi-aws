@@ -273,7 +273,6 @@ class Selection(pulumi.CustomResource):
         > For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
 
         The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -294,7 +293,6 @@ class Selection(pulumi.CustomResource):
         example_selection = aws.backup.Selection("exampleSelection", iam_role_arn=example_role.arn)
         ```
         ### Selecting Backups By Tag
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -309,7 +307,6 @@ class Selection(pulumi.CustomResource):
             )])
         ```
         ### Selecting Backups By Conditions
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -338,7 +335,6 @@ class Selection(pulumi.CustomResource):
             )])
         ```
         ### Selecting Backups By Resource
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,7 +349,6 @@ class Selection(pulumi.CustomResource):
             ])
         ```
         ### Selecting Backups By Not Resource
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,7 +396,6 @@ class Selection(pulumi.CustomResource):
         > For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
 
         The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -422,7 +416,6 @@ class Selection(pulumi.CustomResource):
         example_selection = aws.backup.Selection("exampleSelection", iam_role_arn=example_role.arn)
         ```
         ### Selecting Backups By Tag
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -437,7 +430,6 @@ class Selection(pulumi.CustomResource):
             )])
         ```
         ### Selecting Backups By Conditions
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -466,7 +458,6 @@ class Selection(pulumi.CustomResource):
             )])
         ```
         ### Selecting Backups By Resource
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -481,7 +472,6 @@ class Selection(pulumi.CustomResource):
             ])
         ```
         ### Selecting Backups By Not Resource
-
         ```python
         import pulumi
         import pulumi_aws as aws

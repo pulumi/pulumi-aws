@@ -27,6 +27,8 @@ class ScheduleArgs:
         The set of arguments for constructing a Schedule resource.
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group.
         :param pulumi.Input[str] scheduled_action_name: The name of this scaling action.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] desired_capacity: The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
         :param pulumi.Input[str] end_time: The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         :param pulumi.Input[int] max_size: The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
@@ -34,6 +36,8 @@ class ScheduleArgs:
         :param pulumi.Input[str] recurrence: The recurring schedule for this action specified using the Unix cron syntax format.
         :param pulumi.Input[str] start_time: The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         :param pulumi.Input[str] time_zone: Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+               
+               > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         pulumi.set(__self__, "scheduled_action_name", scheduled_action_name)
@@ -69,6 +73,8 @@ class ScheduleArgs:
     def scheduled_action_name(self) -> pulumi.Input[str]:
         """
         The name of this scaling action.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "scheduled_action_name")
 
@@ -153,6 +159,8 @@ class ScheduleArgs:
     def time_zone(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+
+        > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
         return pulumi.get(self, "time_zone")
 
@@ -184,8 +192,12 @@ class _ScheduleState:
         :param pulumi.Input[int] min_size: The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
         :param pulumi.Input[str] recurrence: The recurring schedule for this action specified using the Unix cron syntax format.
         :param pulumi.Input[str] scheduled_action_name: The name of this scaling action.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] start_time: The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         :param pulumi.Input[str] time_zone: Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+               
+               > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -297,6 +309,8 @@ class _ScheduleState:
     def scheduled_action_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of this scaling action.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "scheduled_action_name")
 
@@ -321,6 +335,8 @@ class _ScheduleState:
     def time_zone(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+
+        > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
         return pulumi.get(self, "time_zone")
 
@@ -348,7 +364,6 @@ class Schedule(pulumi.CustomResource):
         Provides an AutoScaling Schedule resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,8 +403,12 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[int] min_size: The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
         :param pulumi.Input[str] recurrence: The recurring schedule for this action specified using the Unix cron syntax format.
         :param pulumi.Input[str] scheduled_action_name: The name of this scaling action.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] start_time: The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         :param pulumi.Input[str] time_zone: Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+               
+               > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
         ...
     @overload
@@ -401,7 +420,6 @@ class Schedule(pulumi.CustomResource):
         Provides an AutoScaling Schedule resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -514,8 +532,12 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[int] min_size: The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
         :param pulumi.Input[str] recurrence: The recurring schedule for this action specified using the Unix cron syntax format.
         :param pulumi.Input[str] scheduled_action_name: The name of this scaling action.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] start_time: The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         :param pulumi.Input[str] time_zone: Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+               
+               > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -594,6 +616,8 @@ class Schedule(pulumi.CustomResource):
     def scheduled_action_name(self) -> pulumi.Output[str]:
         """
         The name of this scaling action.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "scheduled_action_name")
 
@@ -610,6 +634,8 @@ class Schedule(pulumi.CustomResource):
     def time_zone(self) -> pulumi.Output[str]:
         """
         Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+
+        > **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         """
         return pulumi.get(self, "time_zone")
 

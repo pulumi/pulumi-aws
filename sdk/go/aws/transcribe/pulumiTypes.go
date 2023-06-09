@@ -16,6 +16,8 @@ type LanguageModelInputDataConfig struct {
 	// S3 URI where training data is located.
 	S3Uri string `pulumi:"s3Uri"`
 	// S3 URI where tuning data is located.
+	//
+	// The following arguments are optional:
 	TuningDataS3Uri *string `pulumi:"tuningDataS3Uri"`
 }
 
@@ -36,6 +38,8 @@ type LanguageModelInputDataConfigArgs struct {
 	// S3 URI where training data is located.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 	// S3 URI where tuning data is located.
+	//
+	// The following arguments are optional:
 	TuningDataS3Uri pulumi.StringPtrInput `pulumi:"tuningDataS3Uri"`
 }
 
@@ -127,6 +131,8 @@ func (o LanguageModelInputDataConfigOutput) S3Uri() pulumi.StringOutput {
 }
 
 // S3 URI where tuning data is located.
+//
+// The following arguments are optional:
 func (o LanguageModelInputDataConfigOutput) TuningDataS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LanguageModelInputDataConfig) *string { return v.TuningDataS3Uri }).(pulumi.StringPtrOutput)
 }
@@ -176,6 +182,8 @@ func (o LanguageModelInputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 }
 
 // S3 URI where tuning data is located.
+//
+// The following arguments are optional:
 func (o LanguageModelInputDataConfigPtrOutput) TuningDataS3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LanguageModelInputDataConfig) *string {
 		if v == nil {

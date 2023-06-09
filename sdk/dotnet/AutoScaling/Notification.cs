@@ -17,7 +17,6 @@ namespace Pulumi.Aws.AutoScaling
     /// ## Example Usage
     /// 
     /// Basic usage:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

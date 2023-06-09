@@ -141,7 +141,6 @@ def get_certificate(id: Optional[str] = None,
     Information about an RDS Certificate.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -179,7 +178,6 @@ def get_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     Information about an RDS Certificate.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

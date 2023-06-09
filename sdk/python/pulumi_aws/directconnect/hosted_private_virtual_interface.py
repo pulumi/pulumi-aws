@@ -423,7 +423,6 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
         A hosted virtual interface is a virtual interface that is owned by another AWS account.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -467,7 +466,6 @@ class HostedPrivateVirtualInterface(pulumi.CustomResource):
         A hosted virtual interface is a virtual interface that is owned by another AWS account.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -280,7 +280,6 @@ class ClusterEndpoint(pulumi.CustomResource):
         Provides an Neptune Cluster Endpoint Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -318,7 +317,6 @@ class ClusterEndpoint(pulumi.CustomResource):
         Provides an Neptune Cluster Endpoint Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

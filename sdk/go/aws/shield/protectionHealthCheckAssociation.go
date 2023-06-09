@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 // ### Create an association between a protected EIP and a Route53 Health Check
-//
 // ```go
 // package main
 //

@@ -137,12 +137,16 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
     /**
      * When an ongoing experiment should be stopped. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="stopConditions", refs={List.class,ExperimentTemplateStopCondition.class}, tree="[0,1]")
     private Output<List<ExperimentTemplateStopCondition>> stopConditions;
 
     /**
      * @return When an ongoing experiment should be stopped. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<ExperimentTemplateStopCondition>> stopConditions() {

@@ -199,7 +199,6 @@ class Route(pulumi.CustomResource):
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -210,7 +209,7 @@ class Route(pulumi.CustomResource):
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["example"]["arn"],
+                root_certificate_chain_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=False,
@@ -250,7 +249,6 @@ class Route(pulumi.CustomResource):
         [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -261,7 +259,7 @@ class Route(pulumi.CustomResource):
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["example"]["arn"],
+                root_certificate_chain_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=False,

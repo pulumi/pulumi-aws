@@ -18,7 +18,6 @@ namespace Pulumi.Aws.CloudFront
     /// ## Example Usage
     /// 
     /// The example below creates a CloudFront response headers policy.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,7 +61,6 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// 
     /// The example below creates a CloudFront response headers policy with a custom headers config.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -97,7 +95,6 @@ namespace Pulumi.Aws.CloudFront
     /// ```
     /// 
     /// The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

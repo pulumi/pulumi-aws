@@ -208,7 +208,6 @@ class Portfolio(pulumi.CustomResource):
         Provides a resource to create a Service Catalog Portfolio.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -243,7 +242,6 @@ class Portfolio(pulumi.CustomResource):
         Provides a resource to create a Service Catalog Portfolio.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

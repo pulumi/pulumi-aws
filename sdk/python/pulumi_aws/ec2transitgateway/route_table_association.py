@@ -133,7 +133,6 @@ class RouteTableAssociation(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Route Table association.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,7 +165,6 @@ class RouteTableAssociation(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Route Table association.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -13,7 +13,6 @@ import (
 // Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

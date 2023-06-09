@@ -14,7 +14,6 @@ import (
 // Manages an App Runner AutoScaling Configuration Version.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

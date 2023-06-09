@@ -87,6 +87,8 @@ export class User extends pulumi.CustomResource {
     public readonly sendEmailNotification!: pulumi.Output<boolean | undefined>;
     /**
      * Email address of the user.
+     *
+     * The following arguments are optional:
      */
     public readonly userName!: pulumi.Output<string>;
 
@@ -167,6 +169,8 @@ export interface UserState {
     sendEmailNotification?: pulumi.Input<boolean>;
     /**
      * Email address of the user.
+     *
+     * The following arguments are optional:
      */
     userName?: pulumi.Input<string>;
 }
@@ -197,6 +201,8 @@ export interface UserArgs {
     sendEmailNotification?: pulumi.Input<boolean>;
     /**
      * Email address of the user.
+     *
+     * The following arguments are optional:
      */
     userName: pulumi.Input<string>;
 }

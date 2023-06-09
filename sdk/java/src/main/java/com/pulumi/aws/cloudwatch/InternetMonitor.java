@@ -107,12 +107,16 @@ public class InternetMonitor extends com.pulumi.resources.CustomResource {
     /**
      * The name of the monitor.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="monitorName", refs={String.class}, tree="[0]")
     private Output<String> monitorName;
 
     /**
      * @return The name of the monitor.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> monitorName() {

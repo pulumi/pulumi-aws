@@ -299,6 +299,8 @@ export class Function extends pulumi.CustomResource {
     public readonly reservedConcurrentExecutions!: pulumi.Output<number | undefined>;
     /**
      * Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+     *
+     * The following arguments are optional:
      */
     public readonly role!: pulumi.Output<ARN>;
     /**
@@ -582,6 +584,8 @@ export interface FunctionState {
     reservedConcurrentExecutions?: pulumi.Input<number>;
     /**
      * Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+     *
+     * The following arguments are optional:
      */
     role?: pulumi.Input<ARN>;
     /**
@@ -738,6 +742,8 @@ export interface FunctionArgs {
     reservedConcurrentExecutions?: pulumi.Input<number>;
     /**
      * Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+     *
+     * The following arguments are optional:
      */
     role: pulumi.Input<ARN>;
     /**

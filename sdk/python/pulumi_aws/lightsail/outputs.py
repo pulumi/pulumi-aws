@@ -1025,6 +1025,8 @@ class InstancePublicPortsPortInfo(dict):
         :param int from_port: First port in a range of open ports on an instance.
         :param str protocol: IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
         :param int to_port: Last port in a range of open ports on an instance.
+               
+               The following arguments are optional:
         :param Sequence[str] cidr_list_aliases: Set of CIDR aliases that define access for a preconfigured range of IP addresses.
         :param Sequence[str] cidrs: Set of CIDR blocks.
         """
@@ -1059,6 +1061,8 @@ class InstancePublicPortsPortInfo(dict):
     def to_port(self) -> int:
         """
         Last port in a range of open ports on an instance.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "to_port")
 

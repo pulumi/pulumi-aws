@@ -35,6 +35,8 @@ class ConfigurationAggregatorAccountAggregationSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: List of 12-digit account IDs of the account(s) being aggregated.
         :param pulumi.Input[bool] all_regions: If true, aggregate existing AWS Config regions and future regions.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: List of source regions being aggregated.
+               
+               Either `regions` or `all_regions` (as true) must be specified.
         """
         pulumi.set(__self__, "account_ids", account_ids)
         if all_regions is not None:
@@ -71,6 +73,8 @@ class ConfigurationAggregatorAccountAggregationSourceArgs:
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of source regions being aggregated.
+
+        Either `regions` or `all_regions` (as true) must be specified.
         """
         return pulumi.get(self, "regions")
 
@@ -87,6 +91,8 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] role_arn: ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+               
+               Either `regions` or `all_regions` (as true) must be specified.
         :param pulumi.Input[bool] all_regions: If true, aggregate existing AWS Config regions and future regions.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: List of source regions being aggregated.
         """
@@ -101,6 +107,8 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
     def role_arn(self) -> pulumi.Input[str]:
         """
         ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+
+        Either `regions` or `all_regions` (as true) must be specified.
         """
         return pulumi.get(self, "role_arn")
 

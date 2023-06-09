@@ -15,7 +15,6 @@ import (
 // > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

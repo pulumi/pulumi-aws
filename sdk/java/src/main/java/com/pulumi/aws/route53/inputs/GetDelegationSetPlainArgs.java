@@ -15,12 +15,16 @@ public final class GetDelegationSetPlainArgs extends com.pulumi.resources.Invoke
     /**
      * Delegation set ID.
      * 
+     * The following attribute is additionally exported:
+     * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
      * @return Delegation set ID.
+     * 
+     * The following attribute is additionally exported:
      * 
      */
     public String id() {
@@ -53,6 +57,8 @@ public final class GetDelegationSetPlainArgs extends com.pulumi.resources.Invoke
 
         /**
          * @param id Delegation set ID.
+         * 
+         * The following attribute is additionally exported:
          * 
          * @return builder
          * 

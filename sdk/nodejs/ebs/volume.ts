@@ -110,6 +110,8 @@ export class Volume extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+     *
+     * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */
     public readonly throughput!: pulumi.Output<number>;
     /**
@@ -223,6 +225,8 @@ export interface VolumeState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+     *
+     * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */
     throughput?: pulumi.Input<number>;
     /**
@@ -277,6 +281,8 @@ export interface VolumeArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+     *
+     * > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      */
     throughput?: pulumi.Input<number>;
     /**

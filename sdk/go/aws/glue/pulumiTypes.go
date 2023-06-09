@@ -3035,6 +3035,10 @@ type CrawlerCatalogTarget struct {
 	// The name of the Glue database to be synchronized.
 	DatabaseName string `pulumi:"databaseName"`
 	// A valid Amazon SQS ARN.
+	//
+	// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+	//
+	// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
 	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
 	// A valid Amazon SQS ARN.
 	EventQueueArn *string `pulumi:"eventQueueArn"`
@@ -3059,6 +3063,10 @@ type CrawlerCatalogTargetArgs struct {
 	// The name of the Glue database to be synchronized.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// A valid Amazon SQS ARN.
+	//
+	// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+	//
+	// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
 	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
 	// A valid Amazon SQS ARN.
 	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
@@ -3128,6 +3136,10 @@ func (o CrawlerCatalogTargetOutput) DatabaseName() pulumi.StringOutput {
 }
 
 // A valid Amazon SQS ARN.
+//
+// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+//
+// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
 func (o CrawlerCatalogTargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
 }
@@ -4074,6 +4086,10 @@ type CrawlerS3Target struct {
 	// The name of the connection to use to connect to the JDBC target.
 	ConnectionName *string `pulumi:"connectionName"`
 	// The ARN of the dead-letter SQS queue.
+	//
+	// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+	//
+	// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
 	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
 	// The ARN of the SQS queue to receive S3 notifications from.
 	EventQueueArn *string `pulumi:"eventQueueArn"`
@@ -4100,6 +4116,10 @@ type CrawlerS3TargetArgs struct {
 	// The name of the connection to use to connect to the JDBC target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
 	// The ARN of the dead-letter SQS queue.
+	//
+	// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+	//
+	// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
 	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
 	// The ARN of the SQS queue to receive S3 notifications from.
 	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
@@ -4168,6 +4188,10 @@ func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
 }
 
 // The ARN of the dead-letter SQS queue.
+//
+// > **Note:** `deletionBehavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+//
+// > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
 func (o CrawlerS3TargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
 }

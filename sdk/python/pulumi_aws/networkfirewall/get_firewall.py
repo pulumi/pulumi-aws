@@ -210,15 +210,13 @@ def get_firewall(arn: Optional[str] = None,
 
     ## Example Usage
     ### Find firewall policy by ARN
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"])
+    example = aws.networkfirewall.get_firewall(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
     ### Find firewall policy by Name
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -226,12 +224,11 @@ def get_firewall(arn: Optional[str] = None,
     example = aws.networkfirewall.get_firewall(name="Test")
     ```
     ### Find firewall policy by ARN and Name
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"],
+    example = aws.networkfirewall.get_firewall(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         name="Test")
     ```
 
@@ -274,15 +271,13 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
     ### Find firewall policy by ARN
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"])
+    example = aws.networkfirewall.get_firewall(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
     ### Find firewall policy by Name
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -290,12 +285,11 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     example = aws.networkfirewall.get_firewall(name="Test")
     ```
     ### Find firewall policy by ARN and Name
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"],
+    example = aws.networkfirewall.get_firewall(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         name="Test")
     ```
 

@@ -166,7 +166,6 @@ class Webhook(pulumi.CustomResource):
         Provides an Amplify Webhook resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,7 +204,6 @@ class Webhook(pulumi.CustomResource):
         Provides an Amplify Webhook resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

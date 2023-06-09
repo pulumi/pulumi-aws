@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Non-VPC Connection
-//
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 // ### VPC Connection
 //
 // For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
-//
 // ```go
 // package main
 //

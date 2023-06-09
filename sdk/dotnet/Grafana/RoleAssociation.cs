@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// ## Example Usage
     /// ### Basic configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,6 +92,8 @@ namespace Pulumi.Aws.Grafana
 
         /// <summary>
         /// The workspace id.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -175,6 +176,8 @@ namespace Pulumi.Aws.Grafana
 
         /// <summary>
         /// The workspace id.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -219,6 +222,8 @@ namespace Pulumi.Aws.Grafana
 
         /// <summary>
         /// The workspace id.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

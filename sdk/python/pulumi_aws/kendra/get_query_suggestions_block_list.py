@@ -215,7 +215,6 @@ def get_query_suggestions_block_list(index_id: Optional[str] = None,
     Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -263,7 +262,6 @@ def get_query_suggestions_block_list_output(index_id: Optional[pulumi.Input[str]
     Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

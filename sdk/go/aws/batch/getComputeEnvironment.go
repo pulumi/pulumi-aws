@@ -14,7 +14,6 @@ import (
 // compute environment within AWS Batch.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

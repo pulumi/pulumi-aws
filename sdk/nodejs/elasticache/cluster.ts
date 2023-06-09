@@ -229,6 +229,8 @@ export class Cluster extends pulumi.CustomResource {
     public readonly outpostMode!: pulumi.Output<string | undefined>;
     /**
      * The name of the parameter group to associate with this cache cluster.
+     *
+     * The following arguments are optional:
      */
     public readonly parameterGroupName!: pulumi.Output<string>;
     /**
@@ -477,6 +479,8 @@ export interface ClusterState {
     outpostMode?: pulumi.Input<string>;
     /**
      * The name of the parameter group to associate with this cache cluster.
+     *
+     * The following arguments are optional:
      */
     parameterGroupName?: pulumi.Input<string>;
     /**
@@ -615,6 +619,8 @@ export interface ClusterArgs {
     outpostMode?: pulumi.Input<string>;
     /**
      * The name of the parameter group to associate with this cache cluster.
+     *
+     * The following arguments are optional:
      */
     parameterGroupName?: pulumi.Input<string>;
     /**

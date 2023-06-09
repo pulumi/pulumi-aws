@@ -17,7 +17,6 @@ import (
 // in the official AWS docs.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

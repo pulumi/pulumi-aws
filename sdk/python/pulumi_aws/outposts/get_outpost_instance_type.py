@@ -80,6 +80,8 @@ def get_outpost_instance_type(arn: Optional[str] = None,
 
 
     :param str arn: Outpost ARN.
+           
+           The following arguments are optional:
     :param str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
     :param Sequence[str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
     """
@@ -107,6 +109,8 @@ def get_outpost_instance_type_output(arn: Optional[pulumi.Input[str]] = None,
 
 
     :param str arn: Outpost ARN.
+           
+           The following arguments are optional:
     :param str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
     :param Sequence[str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
     """

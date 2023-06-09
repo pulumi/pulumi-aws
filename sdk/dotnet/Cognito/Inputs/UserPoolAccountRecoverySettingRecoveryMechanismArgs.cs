@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Cognito.Inputs
     {
         /// <summary>
         /// Name of the user pool.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

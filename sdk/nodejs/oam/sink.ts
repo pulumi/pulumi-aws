@@ -61,6 +61,8 @@ export class Sink extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Name for the sink.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -114,6 +116,8 @@ export interface SinkState {
     arn?: pulumi.Input<string>;
     /**
      * Name for the sink.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -133,6 +137,8 @@ export interface SinkState {
 export interface SinkArgs {
     /**
      * Name for the sink.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

@@ -13,7 +13,6 @@ import (
 // Provides information about an Elastic File System Mount Target (EFS).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

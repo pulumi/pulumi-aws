@@ -13,6 +13,8 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanism {
     /**
      * @return Name of the user pool.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String name;
     /**
@@ -24,6 +26,8 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanism {
     private UserPoolAccountRecoverySettingRecoveryMechanism() {}
     /**
      * @return Name of the user pool.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {

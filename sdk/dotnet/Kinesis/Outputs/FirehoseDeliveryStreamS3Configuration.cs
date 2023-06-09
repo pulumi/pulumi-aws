@@ -28,6 +28,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
         public readonly int? BufferSize;
         /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. More details are given below
+        /// 
+        /// The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>

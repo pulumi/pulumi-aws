@@ -14,7 +14,6 @@ import (
 // Manages an Image Builder Image Pipeline.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -80,6 +79,8 @@ type ImagePipeline struct {
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn pulumi.StringOutput `pulumi:"infrastructureConfigurationArn"`
 	// Name of the image pipeline.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Platform of the image pipeline.
 	Platform pulumi.StringOutput `pulumi:"platform"`
@@ -150,6 +151,8 @@ type imagePipelineState struct {
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
 	// Name of the image pipeline.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Platform of the image pipeline.
 	Platform *string `pulumi:"platform"`
@@ -189,6 +192,8 @@ type ImagePipelineState struct {
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn pulumi.StringPtrInput
 	// Name of the image pipeline.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Platform of the image pipeline.
 	Platform pulumi.StringPtrInput
@@ -222,6 +227,8 @@ type imagePipelineArgs struct {
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
 	// Name of the image pipeline.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Configuration block with schedule settings. Detailed below.
 	Schedule *ImagePipelineSchedule `pulumi:"schedule"`
@@ -248,6 +255,8 @@ type ImagePipelineArgs struct {
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
 	InfrastructureConfigurationArn pulumi.StringInput
 	// Name of the image pipeline.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Configuration block with schedule settings. Detailed below.
 	Schedule ImagePipelineSchedulePtrInput
@@ -405,6 +414,8 @@ func (o ImagePipelineOutput) InfrastructureConfigurationArn() pulumi.StringOutpu
 }
 
 // Name of the image pipeline.
+//
+// The following arguments are optional:
 func (o ImagePipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Apple Push Notification Service (APNS) using certificate-based authentication
-//
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //
 // ```
 // ### Apple Push Notification Service (APNS) using token-based authentication
-//
 // ```go
 // package main
 //
@@ -71,7 +69,6 @@ import (
 //
 // ```
 // ### Google Cloud Messaging (GCM)
-//
 // ```go
 // package main
 //
@@ -136,6 +133,8 @@ type PlatformApplication struct {
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"successFeedbackRoleArn"`
 	// The sample rate percentage (0-100) of successfully delivered messages.
+	//
+	// The following attributes are needed only when using APNS token credentials:
 	SuccessFeedbackSampleRate pulumi.StringPtrOutput `pulumi:"successFeedbackSampleRate"`
 }
 
@@ -212,6 +211,8 @@ type platformApplicationState struct {
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
 	// The sample rate percentage (0-100) of successfully delivered messages.
+	//
+	// The following attributes are needed only when using APNS token credentials:
 	SuccessFeedbackSampleRate *string `pulumi:"successFeedbackSampleRate"`
 }
 
@@ -243,6 +244,8 @@ type PlatformApplicationState struct {
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn pulumi.StringPtrInput
 	// The sample rate percentage (0-100) of successfully delivered messages.
+	//
+	// The following attributes are needed only when using APNS token credentials:
 	SuccessFeedbackSampleRate pulumi.StringPtrInput
 }
 
@@ -276,6 +279,8 @@ type platformApplicationArgs struct {
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
 	// The sample rate percentage (0-100) of successfully delivered messages.
+	//
+	// The following attributes are needed only when using APNS token credentials:
 	SuccessFeedbackSampleRate *string `pulumi:"successFeedbackSampleRate"`
 }
 
@@ -306,6 +311,8 @@ type PlatformApplicationArgs struct {
 	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn pulumi.StringPtrInput
 	// The sample rate percentage (0-100) of successfully delivered messages.
+	//
+	// The following attributes are needed only when using APNS token credentials:
 	SuccessFeedbackSampleRate pulumi.StringPtrInput
 }
 
@@ -462,6 +469,8 @@ func (o PlatformApplicationOutput) SuccessFeedbackRoleArn() pulumi.StringPtrOutp
 }
 
 // The sample rate percentage (0-100) of successfully delivered messages.
+//
+// The following attributes are needed only when using APNS token credentials:
 func (o PlatformApplicationOutput) SuccessFeedbackSampleRate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.SuccessFeedbackSampleRate }).(pulumi.StringPtrOutput)
 }

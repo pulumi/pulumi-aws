@@ -335,7 +335,6 @@ class CatalogDatabase(pulumi.CustomResource):
         Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,7 +342,6 @@ class CatalogDatabase(pulumi.CustomResource):
         aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase", name="MyCatalogDatabase")
         ```
         ### Create Table Default Permissions
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -387,7 +385,6 @@ class CatalogDatabase(pulumi.CustomResource):
         Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -395,7 +392,6 @@ class CatalogDatabase(pulumi.CustomResource):
         aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase", name="MyCatalogDatabase")
         ```
         ### Create Table Default Permissions
-
         ```python
         import pulumi
         import pulumi_aws as aws

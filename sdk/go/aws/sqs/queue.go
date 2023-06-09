@@ -11,7 +11,6 @@ import (
 )
 
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -53,7 +52,6 @@ import (
 //
 // ```
 // ## FIFO queue
-//
 // ```go
 // package main
 //
@@ -80,7 +78,6 @@ import (
 // ```
 //
 // ## High-throughput FIFO queue
-//
 // ```go
 // package main
 //
@@ -108,7 +105,6 @@ import (
 // ```
 //
 // ## Dead-letter queue
-//
 // ```go
 // package main
 //
@@ -148,7 +144,6 @@ import (
 // ## Server-side encryption (SSE)
 //
 // Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
-//
 // ```go
 // package main
 //
@@ -174,7 +169,6 @@ import (
 // ```
 //
 // Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
-//
 // ```go
 // package main
 //

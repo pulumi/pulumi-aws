@@ -44,6 +44,8 @@ export interface GetConstraintArgs {
     description?: string;
     /**
      * Constraint identifier.
+     *
+     * The following arguments are optional:
      */
     id: string;
 }
@@ -117,6 +119,8 @@ export interface GetConstraintOutputArgs {
     description?: pulumi.Input<string>;
     /**
      * Constraint identifier.
+     *
+     * The following arguments are optional:
      */
     id: pulumi.Input<string>;
 }

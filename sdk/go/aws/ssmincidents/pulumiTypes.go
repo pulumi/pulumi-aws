@@ -12,6 +12,8 @@ import (
 
 type ReplicationSetRegion struct {
 	// The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+	//
+	// The following arguments are optional:
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the Region, such as `ap-southeast-2`.
 	Name string `pulumi:"name"`
@@ -35,6 +37,8 @@ type ReplicationSetRegionInput interface {
 
 type ReplicationSetRegionArgs struct {
 	// The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+	//
+	// The following arguments are optional:
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The name of the Region, such as `ap-southeast-2`.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -97,6 +101,8 @@ func (o ReplicationSetRegionOutput) ToReplicationSetRegionOutputWithContext(ctx 
 }
 
 // The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+//
+// The following arguments are optional:
 func (o ReplicationSetRegionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationSetRegion) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -760,6 +766,8 @@ func (o ResponsePlanIncidentTemplatePtrOutput) Title() pulumi.StringPtrOutput {
 
 type ResponsePlanIncidentTemplateNotificationTarget struct {
 	// The ARN of the Amazon SNS topic.
+	//
+	// The following arguments are optional:
 	SnsTopicArn string `pulumi:"snsTopicArn"`
 }
 
@@ -776,6 +784,8 @@ type ResponsePlanIncidentTemplateNotificationTargetInput interface {
 
 type ResponsePlanIncidentTemplateNotificationTargetArgs struct {
 	// The ARN of the Amazon SNS topic.
+	//
+	// The following arguments are optional:
 	SnsTopicArn pulumi.StringInput `pulumi:"snsTopicArn"`
 }
 
@@ -831,6 +841,8 @@ func (o ResponsePlanIncidentTemplateNotificationTargetOutput) ToResponsePlanInci
 }
 
 // The ARN of the Amazon SNS topic.
+//
+// The following arguments are optional:
 func (o ResponsePlanIncidentTemplateNotificationTargetOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanIncidentTemplateNotificationTarget) string { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
@@ -996,6 +1008,8 @@ type ResponsePlanIntegrationPagerduty struct {
 	// The name of the response plan.
 	Name string `pulumi:"name"`
 	// The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
+	//
+	// For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
 	SecretId string `pulumi:"secretId"`
 	// The ID of the PagerDuty service that the response plan associated with the incident at launch.
 	ServiceId string `pulumi:"serviceId"`
@@ -1016,6 +1030,8 @@ type ResponsePlanIntegrationPagerdutyArgs struct {
 	// The name of the response plan.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
+	//
+	// For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The ID of the PagerDuty service that the response plan associated with the incident at launch.
 	ServiceId pulumi.StringInput `pulumi:"serviceId"`
@@ -1078,6 +1094,8 @@ func (o ResponsePlanIntegrationPagerdutyOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
+//
+// For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
 func (o ResponsePlanIntegrationPagerdutyOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanIntegrationPagerduty) string { return v.SecretId }).(pulumi.StringOutput)
 }

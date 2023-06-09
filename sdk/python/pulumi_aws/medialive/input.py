@@ -29,6 +29,8 @@ class InputArgs:
         """
         The set of arguments for constructing a Input resource.
         :param pulumi.Input[str] type: The different types of inputs that AWS Elemental MediaLive supports.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]] destinations: Destination settings for PUSH type inputs. See Destinations for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]] input_devices: Settings for the devices. See Input Devices for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] input_security_groups: List of input security groups.
@@ -64,6 +66,8 @@ class InputArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The different types of inputs that AWS Elemental MediaLive supports.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -215,6 +219,8 @@ class _InputState:
         :param pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]] sources: The source URLs for a PULL-type input. See Sources for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The different types of inputs that AWS Elemental MediaLive supports.
+               
+               The following arguments are optional:
         :param pulumi.Input['InputVpcArgs'] vpc: Settings for a private VPC Input. See VPC for more details.
         """
         if arn is not None:
@@ -420,6 +426,8 @@ class _InputState:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         The different types of inputs that AWS Elemental MediaLive supports.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -461,7 +469,6 @@ class Input(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -500,6 +507,8 @@ class Input(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSourceArgs']]]] sources: The source URLs for a PULL-type input. See Sources for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The different types of inputs that AWS Elemental MediaLive supports.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['InputVpcArgs']] vpc: Settings for a private VPC Input. See VPC for more details.
         """
         ...
@@ -513,7 +522,6 @@ class Input(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -640,6 +648,8 @@ class Input(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSourceArgs']]]] sources: The source URLs for a PULL-type input. See Sources for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The different types of inputs that AWS Elemental MediaLive supports.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['InputVpcArgs']] vpc: Settings for a private VPC Input. See VPC for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -778,6 +788,8 @@ class Input(pulumi.CustomResource):
     def type(self) -> pulumi.Output[str]:
         """
         The different types of inputs that AWS Elemental MediaLive supports.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

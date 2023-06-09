@@ -82,6 +82,8 @@ class RuleResourceTagArgs:
                  resource_tag_value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] resource_tag_key: The tag key.
+               
+               The following argument is optional:
         :param pulumi.Input[str] resource_tag_value: The tag value.
         """
         pulumi.set(__self__, "resource_tag_key", resource_tag_key)
@@ -93,6 +95,8 @@ class RuleResourceTagArgs:
     def resource_tag_key(self) -> pulumi.Input[str]:
         """
         The tag key.
+
+        The following argument is optional:
         """
         return pulumi.get(self, "resource_tag_key")
 

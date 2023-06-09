@@ -117,12 +117,16 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the Vocabulary.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="vocabularyName")
     private @Nullable Output<String> vocabularyName;
 
     /**
      * @return The name of the Vocabulary.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> vocabularyName() {
@@ -308,6 +312,8 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param vocabularyName The name of the Vocabulary.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -318,6 +324,8 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param vocabularyName The name of the Vocabulary.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

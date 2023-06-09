@@ -140,12 +140,16 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
     /**
      * Information about the location of a custom plugin. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="location", refs={CustomPluginLocation.class}, tree="[0]")
     private Output<CustomPluginLocation> location;
 
     /**
      * @return Information about the location of a custom plugin. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<CustomPluginLocation> location() {

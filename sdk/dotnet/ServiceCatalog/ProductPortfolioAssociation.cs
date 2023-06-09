@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,6 +56,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Product identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("productId")]
         public Output<string> ProductId { get; private set; } = null!;
@@ -127,6 +128,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Product identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
@@ -159,6 +162,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Product identifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("productId")]
         public Input<string>? ProductId { get; set; }

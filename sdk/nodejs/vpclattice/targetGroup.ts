@@ -129,6 +129,8 @@ export class TargetGroup extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     *
+     * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -200,6 +202,8 @@ export interface TargetGroupState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
 }
@@ -222,6 +226,8 @@ export interface TargetGroupArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Example Usage
     /// ### Basic
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### With Five Levels
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

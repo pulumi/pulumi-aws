@@ -122,25 +122,25 @@ def get_connection(arn: Optional[str] = None,
 
     ## Example Usage
     ### By ARN
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
+    example = aws.codestarconnections.get_connection(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
     ### By Name
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
+    example = aws.codestarconnections.get_connection(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
     :param str arn: CodeStar Connection ARN.
     :param str name: CodeStar Connection name.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
     :param Mapping[str, str] tags: Map of key-value resource tags to associate with the resource.
     """
     __args__ = dict()
@@ -170,25 +170,25 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
     ### By ARN
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
+    example = aws.codestarconnections.get_connection(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
     ### By Name
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
+    example = aws.codestarconnections.get_connection(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
     :param str arn: CodeStar Connection ARN.
     :param str name: CodeStar Connection name.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
     :param Mapping[str, str] tags: Map of key-value resource tags to associate with the resource.
     """
     ...

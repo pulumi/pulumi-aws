@@ -152,6 +152,14 @@ def get_virtual_gateway(mesh_name: Optional[str] = None,
     Data source for managing an AWS App Mesh Virtual Gateway.
 
     ## Example Usage
+    ### Basic Usage
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.appmesh.get_virtual_gateway(mesh_name="mesh-gateway",
+        name="example-mesh")
+    ```
 
 
     :param str mesh_name: Name of the service mesh in which the virtual gateway exists.
@@ -187,6 +195,14 @@ def get_virtual_gateway_output(mesh_name: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS App Mesh Virtual Gateway.
 
     ## Example Usage
+    ### Basic Usage
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.appmesh.get_virtual_gateway(mesh_name="mesh-gateway",
+        name="example-mesh")
+    ```
 
 
     :param str mesh_name: Name of the service mesh in which the virtual gateway exists.

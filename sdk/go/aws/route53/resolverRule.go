@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### System rule
-//
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //
 // ```
 // ### Forward rule
-//
 // ```go
 // package main
 //

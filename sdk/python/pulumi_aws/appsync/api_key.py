@@ -155,7 +155,6 @@ class ApiKey(pulumi.CustomResource):
         Provides an AppSync API Key.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -190,7 +189,6 @@ class ApiKey(pulumi.CustomResource):
         Provides an AppSync API Key.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

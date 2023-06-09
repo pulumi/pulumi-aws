@@ -31,12 +31,16 @@ public final class ThesaurusSourceS3PathArgs extends com.pulumi.resources.Resour
     /**
      * The name of the file.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
      * @return The name of the file.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> key() {
@@ -92,6 +96,8 @@ public final class ThesaurusSourceS3PathArgs extends com.pulumi.resources.Resour
         /**
          * @param key The name of the file.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -102,6 +108,8 @@ public final class ThesaurusSourceS3PathArgs extends com.pulumi.resources.Resour
 
         /**
          * @param key The name of the file.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

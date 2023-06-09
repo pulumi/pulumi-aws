@@ -246,7 +246,6 @@ class Snapshot(pulumi.CustomResource):
         Creates a new Amazon Redshift Serverless Snapshot.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,7 +279,6 @@ class Snapshot(pulumi.CustomResource):
         Creates a new Amazon Redshift Serverless Snapshot.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

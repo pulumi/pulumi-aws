@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Automation Tasks
-//
 // ```go
 // package main
 //
@@ -66,7 +65,6 @@ import (
 //
 // ```
 // ### Run Command Tasks
-//
 // ```go
 // package main
 //
@@ -127,7 +125,6 @@ import (
 //
 // ```
 // ### Step Function Tasks
-//
 // ```go
 // package main
 //

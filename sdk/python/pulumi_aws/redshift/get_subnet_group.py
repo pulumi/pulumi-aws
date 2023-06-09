@@ -108,12 +108,11 @@ def get_subnet_group(name: Optional[str] = None,
     Provides details about a specific redshift subnet group.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshift.get_subnet_group(name=aws_redshift_subnet_group["example"]["name"])
+    example = aws.redshift.get_subnet_group(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -143,12 +142,11 @@ def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
     Provides details about a specific redshift subnet group.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshift.get_subnet_group(name=aws_redshift_subnet_group["example"]["name"])
+    example = aws.redshift.get_subnet_group(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

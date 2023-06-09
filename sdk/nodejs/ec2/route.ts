@@ -109,6 +109,8 @@ export class Route extends pulumi.CustomResource {
     public readonly destinationIpv6CidrBlock!: pulumi.Output<string | undefined>;
     /**
      * The ID of a managed prefix list destination.
+     *
+     * One of the following target arguments must be supplied:
      */
     public readonly destinationPrefixListId!: pulumi.Output<string | undefined>;
     /**
@@ -147,6 +149,8 @@ export class Route extends pulumi.CustomResource {
     public /*out*/ readonly origin!: pulumi.Output<string>;
     /**
      * The ID of the routing table.
+     *
+     * One of the following destination arguments must be supplied:
      */
     public readonly routeTableId!: pulumi.Output<string>;
     /**
@@ -163,6 +167,8 @@ export class Route extends pulumi.CustomResource {
     public readonly vpcEndpointId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of a VPC peering connection.
+     *
+     * Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
      */
     public readonly vpcPeeringConnectionId!: pulumi.Output<string | undefined>;
 
@@ -248,6 +254,8 @@ export interface RouteState {
     destinationIpv6CidrBlock?: pulumi.Input<string>;
     /**
      * The ID of a managed prefix list destination.
+     *
+     * One of the following target arguments must be supplied:
      */
     destinationPrefixListId?: pulumi.Input<string>;
     /**
@@ -286,6 +294,8 @@ export interface RouteState {
     origin?: pulumi.Input<string>;
     /**
      * The ID of the routing table.
+     *
+     * One of the following destination arguments must be supplied:
      */
     routeTableId?: pulumi.Input<string>;
     /**
@@ -302,6 +312,8 @@ export interface RouteState {
     vpcEndpointId?: pulumi.Input<string>;
     /**
      * Identifier of a VPC peering connection.
+     *
+     * Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
      */
     vpcPeeringConnectionId?: pulumi.Input<string>;
 }
@@ -328,6 +340,8 @@ export interface RouteArgs {
     destinationIpv6CidrBlock?: pulumi.Input<string>;
     /**
      * The ID of a managed prefix list destination.
+     *
+     * One of the following target arguments must be supplied:
      */
     destinationPrefixListId?: pulumi.Input<string>;
     /**
@@ -358,6 +372,8 @@ export interface RouteArgs {
     networkInterfaceId?: pulumi.Input<string>;
     /**
      * The ID of the routing table.
+     *
+     * One of the following destination arguments must be supplied:
      */
     routeTableId: pulumi.Input<string>;
     /**
@@ -370,6 +386,8 @@ export interface RouteArgs {
     vpcEndpointId?: pulumi.Input<string>;
     /**
      * Identifier of a VPC peering connection.
+     *
+     * Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
      */
     vpcPeeringConnectionId?: pulumi.Input<string>;
 }

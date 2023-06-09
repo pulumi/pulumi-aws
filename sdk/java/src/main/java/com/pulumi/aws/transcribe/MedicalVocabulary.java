@@ -167,12 +167,16 @@ public class MedicalVocabulary extends com.pulumi.resources.CustomResource {
     /**
      * The name of the Medical Vocabulary.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vocabularyName", refs={String.class}, tree="[0]")
     private Output<String> vocabularyName;
 
     /**
      * @return The name of the Medical Vocabulary.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vocabularyName() {

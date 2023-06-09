@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides a subnet CIDR reservation resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -167,7 +167,6 @@ class Member(pulumi.CustomResource):
         Provides a Security Hub member resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -204,7 +203,6 @@ class Member(pulumi.CustomResource):
         Provides a Security Hub member resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

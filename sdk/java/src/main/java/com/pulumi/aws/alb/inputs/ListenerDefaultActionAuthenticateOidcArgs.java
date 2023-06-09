@@ -170,12 +170,16 @@ public final class ListenerDefaultActionAuthenticateOidcArgs extends com.pulumi.
     /**
      * User info endpoint of the IdP.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="userInfoEndpoint", required=true)
     private Output<String> userInfoEndpoint;
 
     /**
      * @return User info endpoint of the IdP.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userInfoEndpoint() {
@@ -429,6 +433,8 @@ public final class ListenerDefaultActionAuthenticateOidcArgs extends com.pulumi.
         /**
          * @param userInfoEndpoint User info endpoint of the IdP.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -439,6 +445,8 @@ public final class ListenerDefaultActionAuthenticateOidcArgs extends com.pulumi.
 
         /**
          * @param userInfoEndpoint User info endpoint of the IdP.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -26,6 +26,8 @@ namespace Pulumi.Aws.IdentityStore.Inputs
 
         /// <summary>
         /// The given name of the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("givenName", required: true)]
         public Input<string> GivenName { get; set; } = null!;

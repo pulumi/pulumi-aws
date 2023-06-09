@@ -283,7 +283,6 @@ class VirtualService(pulumi.CustomResource):
 
         ## Example Usage
         ### Virtual Node Provider
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,13 +292,12 @@ class VirtualService(pulumi.CustomResource):
             spec=aws.appmesh.VirtualServiceSpecArgs(
                 provider=aws.appmesh.VirtualServiceSpecProviderArgs(
                     virtual_node=aws.appmesh.VirtualServiceSpecProviderVirtualNodeArgs(
-                        virtual_node_name=aws_appmesh_virtual_node["serviceb1"]["name"],
+                        virtual_node_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ))
         ```
         ### Virtual Router Provider
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -309,7 +307,7 @@ class VirtualService(pulumi.CustomResource):
             spec=aws.appmesh.VirtualServiceSpecArgs(
                 provider=aws.appmesh.VirtualServiceSpecProviderArgs(
                     virtual_router=aws.appmesh.VirtualServiceSpecProviderVirtualRouterArgs(
-                        virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+                        virtual_router_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ))
@@ -342,7 +340,6 @@ class VirtualService(pulumi.CustomResource):
 
         ## Example Usage
         ### Virtual Node Provider
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,13 +349,12 @@ class VirtualService(pulumi.CustomResource):
             spec=aws.appmesh.VirtualServiceSpecArgs(
                 provider=aws.appmesh.VirtualServiceSpecProviderArgs(
                     virtual_node=aws.appmesh.VirtualServiceSpecProviderVirtualNodeArgs(
-                        virtual_node_name=aws_appmesh_virtual_node["serviceb1"]["name"],
+                        virtual_node_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ))
         ```
         ### Virtual Router Provider
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -368,7 +364,7 @@ class VirtualService(pulumi.CustomResource):
             spec=aws.appmesh.VirtualServiceSpecArgs(
                 provider=aws.appmesh.VirtualServiceSpecProviderArgs(
                     virtual_router=aws.appmesh.VirtualServiceSpecProviderVirtualRouterArgs(
-                        virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
+                        virtual_router_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ))

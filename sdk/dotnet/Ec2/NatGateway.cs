@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### Public NAT
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,7 +41,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Private NAT
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

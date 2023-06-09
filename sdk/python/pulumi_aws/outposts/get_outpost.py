@@ -174,7 +174,6 @@ def get_outpost(arn: Optional[str] = None,
     Provides details about an Outposts Outpost.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -224,7 +223,6 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     Provides details about an Outposts Outpost.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

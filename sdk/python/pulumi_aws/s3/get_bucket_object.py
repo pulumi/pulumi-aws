@@ -386,7 +386,7 @@ def get_bucket_object(bucket: Optional[str] = None,
         s3_bucket=lambda_.id,
         s3_key=lambda_.key,
         s3_object_version=lambda_.version_id,
-        role=aws_iam_role["iam_for_lambda"]["arn"],
+        role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         handler="exports.test")
     ```
 
@@ -482,7 +482,7 @@ def get_bucket_object_output(bucket: Optional[pulumi.Input[str]] = None,
         s3_bucket=lambda_.id,
         s3_key=lambda_.key,
         s3_object_version=lambda_.version_id,
-        role=aws_iam_role["iam_for_lambda"]["arn"],
+        role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         handler="exports.test")
     ```
 

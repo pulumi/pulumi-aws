@@ -233,7 +233,6 @@ class Pipeline(pulumi.CustomResource):
         Provides a CodePipeline.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -374,7 +373,6 @@ class Pipeline(pulumi.CustomResource):
         Provides a CodePipeline.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

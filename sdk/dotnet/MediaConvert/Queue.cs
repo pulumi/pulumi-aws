@@ -13,7 +13,6 @@ namespace Pulumi.Aws.MediaConvert
     /// Provides an AWS Elemental MediaConvert Queue.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -93,6 +93,8 @@ export class Function extends pulumi.CustomResource {
     public readonly publish!: pulumi.Output<boolean | undefined>;
     /**
      * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+     *
+     * The following arguments are optional:
      */
     public readonly runtime!: pulumi.Output<string>;
     /**
@@ -179,6 +181,8 @@ export interface FunctionState {
     publish?: pulumi.Input<boolean>;
     /**
      * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+     *
+     * The following arguments are optional:
      */
     runtime?: pulumi.Input<string>;
     /**
@@ -209,6 +213,8 @@ export interface FunctionArgs {
     publish?: pulumi.Input<boolean>;
     /**
      * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+     *
+     * The following arguments are optional:
      */
     runtime: pulumi.Input<string>;
 }

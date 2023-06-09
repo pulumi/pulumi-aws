@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// ### Basic Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,7 +55,6 @@ namespace Pulumi.Aws.Iam
     /// });
     /// ```
     /// ### Example of Using Data Source for Assume Role Policy
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,7 +99,6 @@ namespace Pulumi.Aws.Iam
     /// ### Example of Exclusive Inline Policies
     /// 
     /// This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -167,7 +164,6 @@ namespace Pulumi.Aws.Iam
     /// ### Example of Removing Inline Policies
     /// 
     /// This example creates an IAM role with what appears to be empty IAM `inline_policy` argument instead of using `inline_policy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -190,7 +186,6 @@ namespace Pulumi.Aws.Iam
     /// ### Example of Exclusive Managed Policies
     /// 
     /// This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -257,7 +252,6 @@ namespace Pulumi.Aws.Iam
     /// ### Example of Removing Managed Policies
     /// 
     /// This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -294,6 +288,10 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Policy that grants an entity permission to assume the role.
+        /// 
+        /// &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("assumeRolePolicy")]
         public Output<string> AssumeRolePolicy { get; private set; } = null!;
@@ -427,6 +425,10 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// Policy that grants an entity permission to assume the role.
+        /// 
+        /// &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("assumeRolePolicy", required: true)]
         public Input<string> AssumeRolePolicy { get; set; } = null!;
@@ -521,6 +523,10 @@ namespace Pulumi.Aws.Iam
 
         /// <summary>
         /// Policy that grants an entity permission to assume the role.
+        /// 
+        /// &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("assumeRolePolicy")]
         public Input<string>? AssumeRolePolicy { get; set; }

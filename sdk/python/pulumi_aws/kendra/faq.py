@@ -29,6 +29,8 @@ class FaqArgs:
         :param pulumi.Input[str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
+               
+               The `s3_path` configuration block supports the following arguments:
         :param pulumi.Input[str] description: The description for a FAQ.
         :param pulumi.Input[str] file_format: The file format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
         :param pulumi.Input[str] language_code: The code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
@@ -78,6 +80,8 @@ class FaqArgs:
     def s3_path(self) -> pulumi.Input['FaqS3PathArgs']:
         """
         The S3 location of the FAQ input data. Detailed below.
+
+        The `s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "s3_path")
 
@@ -177,6 +181,8 @@ class _FaqState:
         :param pulumi.Input[str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
+               
+               The `s3_path` configuration block supports the following arguments:
         :param pulumi.Input[str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -338,6 +344,8 @@ class _FaqState:
     def s3_path(self) -> Optional[pulumi.Input['FaqS3PathArgs']]:
         """
         The S3 location of the FAQ input data. Detailed below.
+
+        The `s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "s3_path")
 
@@ -413,7 +421,6 @@ class Faq(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -422,15 +429,14 @@ class Faq(pulumi.CustomResource):
             index_id=aws_kendra_index["example"]["id"],
             role_arn=aws_iam_role["example"]["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             tags={
                 "Name": "Example Kendra Faq",
             })
         ```
         ### With File Format
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -440,12 +446,11 @@ class Faq(pulumi.CustomResource):
             file_format="CSV",
             role_arn=aws_iam_role["example"]["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
         ### With Language Code
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -455,8 +460,8 @@ class Faq(pulumi.CustomResource):
             language_code="en",
             role_arn=aws_iam_role["example"]["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -477,6 +482,8 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input[pulumi.InputType['FaqS3PathArgs']] s3_path: The S3 location of the FAQ input data. Detailed below.
+               
+               The `s3_path` configuration block supports the following arguments:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -490,7 +497,6 @@ class Faq(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -499,15 +505,14 @@ class Faq(pulumi.CustomResource):
             index_id=aws_kendra_index["example"]["id"],
             role_arn=aws_iam_role["example"]["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             tags={
                 "Name": "Example Kendra Faq",
             })
         ```
         ### With File Format
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -517,12 +522,11 @@ class Faq(pulumi.CustomResource):
             file_format="CSV",
             role_arn=aws_iam_role["example"]["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
         ### With Language Code
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -532,8 +536,8 @@ class Faq(pulumi.CustomResource):
             language_code="en",
             role_arn=aws_iam_role["example"]["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=aws_s3_bucket["example"]["id"],
-                key=aws_s3_object["example"]["key"],
+                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -641,6 +645,8 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input[pulumi.InputType['FaqS3PathArgs']] s3_path: The S3 location of the FAQ input data. Detailed below.
+               
+               The `s3_path` configuration block supports the following arguments:
         :param pulumi.Input[str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -752,6 +758,8 @@ class Faq(pulumi.CustomResource):
     def s3_path(self) -> pulumi.Output['outputs.FaqS3Path']:
         """
         The S3 location of the FAQ input data. Detailed below.
+
+        The `s3_path` configuration block supports the following arguments:
         """
         return pulumi.get(self, "s3_path")
 

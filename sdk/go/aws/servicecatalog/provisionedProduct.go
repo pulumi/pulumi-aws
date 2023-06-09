@@ -21,41 +21,6 @@ import (
 // > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewProvisionedProduct(ctx, "example", &servicecatalog.ProvisionedProductArgs{
-//				ProductName:              pulumi.String("Example product"),
-//				ProvisioningArtifactName: pulumi.String("Example version"),
-//				ProvisioningParameters: servicecatalog.ProvisionedProductProvisioningParameterArray{
-//					&servicecatalog.ProvisionedProductProvisioningParameterArgs{
-//						Key:   pulumi.String("foo"),
-//						Value: pulumi.String("bar"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -88,6 +53,8 @@ type ProvisionedProduct struct {
 	// ARN of the launch role associated with the provisioned product.
 	LaunchRoleArn pulumi.StringOutput `pulumi:"launchRoleArn"`
 	// User-friendly name of the provisioned product.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 	NotificationArns pulumi.StringArrayOutput `pulumi:"notificationArns"`
@@ -171,6 +138,8 @@ type provisionedProductState struct {
 	// ARN of the launch role associated with the provisioned product.
 	LaunchRoleArn *string `pulumi:"launchRoleArn"`
 	// User-friendly name of the provisioned product.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 	NotificationArns []string `pulumi:"notificationArns"`
@@ -226,6 +195,8 @@ type ProvisionedProductState struct {
 	// ARN of the launch role associated with the provisioned product.
 	LaunchRoleArn pulumi.StringPtrInput
 	// User-friendly name of the provisioned product.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 	NotificationArns pulumi.StringArrayInput
@@ -271,6 +242,8 @@ type provisionedProductArgs struct {
 	// _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
 	IgnoreErrors *bool `pulumi:"ignoreErrors"`
 	// User-friendly name of the provisioned product.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 	NotificationArns []string `pulumi:"notificationArns"`
@@ -303,6 +276,8 @@ type ProvisionedProductArgs struct {
 	// _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
 	IgnoreErrors pulumi.BoolPtrInput
 	// User-friendly name of the provisioned product.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
 	NotificationArns pulumi.StringArrayInput
@@ -461,6 +436,8 @@ func (o ProvisionedProductOutput) LaunchRoleArn() pulumi.StringOutput {
 }
 
 // User-friendly name of the provisioned product.
+//
+// The following arguments are optional:
 func (o ProvisionedProductOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

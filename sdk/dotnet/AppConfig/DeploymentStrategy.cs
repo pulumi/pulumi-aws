@@ -13,7 +13,6 @@ namespace Pulumi.Aws.AppConfig
     /// Provides an AppConfig Deployment Strategy resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

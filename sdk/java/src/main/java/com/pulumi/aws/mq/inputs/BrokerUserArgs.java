@@ -65,12 +65,16 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Username of the user.
      * 
+     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+     * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
      * @return Username of the user.
+     * 
+     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
      * 
      */
     public Output<String> username() {
@@ -180,6 +184,8 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param username Username of the user.
          * 
+         * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+         * 
          * @return builder
          * 
          */
@@ -190,6 +196,8 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param username Username of the user.
+         * 
+         * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
          * 
          * @return builder
          * 

@@ -18,7 +18,6 @@ import (
 // ## Example Usage
 //
 // The example below creates a CloudFront response headers policy.
-//
 // ```go
 // package main
 //
@@ -63,7 +62,6 @@ import (
 // ```
 //
 // The example below creates a CloudFront response headers policy with a custom headers config.
-//
 // ```go
 // package main
 //
@@ -102,7 +100,6 @@ import (
 // ```
 //
 // The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
-//
 // ```go
 // package main
 //

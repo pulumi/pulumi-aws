@@ -11,6 +11,8 @@ namespace Pulumi.Aws.OpenSearch
 {
     /// <summary>
     /// Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
+    /// 
+    /// ## Example Usage
     /// </summary>
     [AwsResourceType("aws:opensearch/domainPolicy:DomainPolicy")]
     public partial class DomainPolicy : global::Pulumi.CustomResource

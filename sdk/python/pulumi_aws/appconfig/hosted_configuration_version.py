@@ -231,7 +231,6 @@ class HostedConfigurationVersion(pulumi.CustomResource):
 
         ## Example Usage
         ### Freeform
-
         ```python
         import pulumi
         import json
@@ -253,7 +252,6 @@ class HostedConfigurationVersion(pulumi.CustomResource):
             }))
         ```
         ### Feature Flags
-
         ```python
         import pulumi
         import json
@@ -331,7 +329,6 @@ class HostedConfigurationVersion(pulumi.CustomResource):
 
         ## Example Usage
         ### Freeform
-
         ```python
         import pulumi
         import json
@@ -353,7 +350,6 @@ class HostedConfigurationVersion(pulumi.CustomResource):
             }))
         ```
         ### Feature Flags
-
         ```python
         import pulumi
         import json

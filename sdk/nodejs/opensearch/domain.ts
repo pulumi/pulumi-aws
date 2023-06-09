@@ -330,6 +330,8 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly domainId!: pulumi.Output<string>;
     /**
      * Name of the domain.
+     *
+     * The following arguments are optional:
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -490,6 +492,8 @@ export interface DomainState {
     domainId?: pulumi.Input<string>;
     /**
      * Name of the domain.
+     *
+     * The following arguments are optional:
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -574,6 +578,8 @@ export interface DomainArgs {
     domainEndpointOptions?: pulumi.Input<inputs.opensearch.DomainDomainEndpointOptions>;
     /**
      * Name of the domain.
+     *
+     * The following arguments are optional:
      */
     domainName?: pulumi.Input<string>;
     /**

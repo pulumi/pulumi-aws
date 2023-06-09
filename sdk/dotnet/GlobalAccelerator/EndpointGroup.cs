@@ -13,7 +13,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// Provides a Global Accelerator endpoint group.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -100,6 +99,8 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+        /// 
+        /// **endpoint_configuration** supports the following attributes:
         /// </summary>
         [Output("portOverrides")]
         public Output<ImmutableArray<Outputs.EndpointGroupPortOverride>> PortOverrides { get; private set; } = null!;
@@ -216,6 +217,8 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+        /// 
+        /// **endpoint_configuration** supports the following attributes:
         /// </summary>
         public InputList<Inputs.EndpointGroupPortOverrideArgs> PortOverrides
         {
@@ -303,6 +306,8 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+        /// 
+        /// **endpoint_configuration** supports the following attributes:
         /// </summary>
         public InputList<Inputs.EndpointGroupPortOverrideGetArgs> PortOverrides
         {

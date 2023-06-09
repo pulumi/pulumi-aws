@@ -174,6 +174,8 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
      * Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
@@ -181,6 +183,8 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
     /**
      * @return Type of rule being created. Valid options are `ingress` (inbound)
      * or `egress` (outbound).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -485,6 +489,8 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
          * @param type Type of rule being created. Valid options are `ingress` (inbound)
          * or `egress` (outbound).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -496,6 +502,8 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param type Type of rule being created. Valid options are `ingress` (inbound)
          * or `egress` (outbound).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -23,6 +23,8 @@ class MedicalVocabularyArgs:
         :param pulumi.Input[str] language_code: The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         :param pulumi.Input[str] vocabulary_name: The name of the Medical Vocabulary.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "language_code", language_code)
@@ -60,6 +62,8 @@ class MedicalVocabularyArgs:
     def vocabulary_name(self) -> pulumi.Input[str]:
         """
         The name of the Medical Vocabulary.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vocabulary_name")
 
@@ -98,6 +102,8 @@ class _MedicalVocabularyState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         :param pulumi.Input[str] vocabulary_name: The name of the Medical Vocabulary.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -188,6 +194,8 @@ class _MedicalVocabularyState:
     def vocabulary_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the Medical Vocabulary.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vocabulary_name")
 
@@ -211,7 +219,6 @@ class MedicalVocabulary(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,6 +253,8 @@ class MedicalVocabulary(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         :param pulumi.Input[str] vocabulary_name: The name of the Medical Vocabulary.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -258,7 +267,6 @@ class MedicalVocabulary(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,6 +366,8 @@ class MedicalVocabulary(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vocabulary_file_uri: The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         :param pulumi.Input[str] vocabulary_name: The name of the Medical Vocabulary.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -422,6 +432,8 @@ class MedicalVocabulary(pulumi.CustomResource):
     def vocabulary_name(self) -> pulumi.Output[str]:
         """
         The name of the Medical Vocabulary.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "vocabulary_name")
 

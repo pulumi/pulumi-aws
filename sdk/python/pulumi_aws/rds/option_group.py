@@ -330,7 +330,7 @@ class OptionGroup(pulumi.CustomResource):
                     option_name="SQLSERVER_BACKUP_RESTORE",
                     option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
                         name="IAM_ROLE_ARN",
-                        value=aws_iam_role["example"]["arn"],
+                        value=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     )],
                 ),
                 aws.rds.OptionGroupOptionArgs(
@@ -403,7 +403,7 @@ class OptionGroup(pulumi.CustomResource):
                     option_name="SQLSERVER_BACKUP_RESTORE",
                     option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
                         name="IAM_ROLE_ARN",
-                        value=aws_iam_role["example"]["arn"],
+                        value=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     )],
                 ),
                 aws.rds.OptionGroupOptionArgs(

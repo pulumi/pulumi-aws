@@ -42,12 +42,20 @@ public final class GetLogDataProtectionPolicyDocumentArgs extends com.pulumi.res
     /**
      * Configures the data protection policy.
      * 
+     * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+     * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="statements", required=true)
     private Output<List<GetLogDataProtectionPolicyDocumentStatementArgs>> statements;
 
     /**
      * @return Configures the data protection policy.
+     * 
+     * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<GetLogDataProtectionPolicyDocumentStatementArgs>> statements() {
@@ -121,6 +129,10 @@ public final class GetLogDataProtectionPolicyDocumentArgs extends com.pulumi.res
         /**
          * @param statements Configures the data protection policy.
          * 
+         * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+         * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -132,6 +144,10 @@ public final class GetLogDataProtectionPolicyDocumentArgs extends com.pulumi.res
         /**
          * @param statements Configures the data protection policy.
          * 
+         * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+         * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -141,6 +157,10 @@ public final class GetLogDataProtectionPolicyDocumentArgs extends com.pulumi.res
 
         /**
          * @param statements Configures the data protection policy.
+         * 
+         * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

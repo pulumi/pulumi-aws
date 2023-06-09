@@ -272,12 +272,16 @@ public class Table extends com.pulumi.resources.CustomResource {
     /**
      * Unique within a region name of the table.
      * 
+     * Optional arguments:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Unique within a region name of the table.
+     * 
+     * Optional arguments:
      * 
      */
     public Output<String> name() {

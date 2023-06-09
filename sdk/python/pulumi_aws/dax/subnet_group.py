@@ -151,7 +151,6 @@ class SubnetGroup(pulumi.CustomResource):
         Provides a DAX Subnet Group resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,7 +185,6 @@ class SubnetGroup(pulumi.CustomResource):
         Provides a DAX Subnet Group resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

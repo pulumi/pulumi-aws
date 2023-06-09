@@ -187,12 +187,16 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="permissionType", required=true)
     private Output<String> permissionType;
 
     /**
      * @return The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> permissionType() {
@@ -572,6 +576,8 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param permissionType The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -582,6 +588,8 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param permissionType The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -71,12 +71,11 @@ def get_user_pool_signing_certificate(user_pool_id: Optional[str] = None,
     Use this data source to get the signing certificate for a Cognito IdP user pool.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=aws_cognito_user_pool["my_pool"]["id"])
+    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -100,12 +99,11 @@ def get_user_pool_signing_certificate_output(user_pool_id: Optional[pulumi.Input
     Use this data source to get the signing certificate for a Cognito IdP user pool.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=aws_cognito_user_pool["my_pool"]["id"])
+    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

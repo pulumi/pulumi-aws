@@ -14,7 +14,6 @@ import (
 // Provides an OpsWorks RDS DB Instance resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

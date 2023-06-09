@@ -217,7 +217,6 @@ def get_product(accept_language: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -228,6 +227,8 @@ def get_product(accept_language: Optional[str] = None,
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str id: Product ID.
+           
+           The following arguments are optional:
     :param Mapping[str, str] tags: Tags to apply to the product.
     """
     __args__ = dict()
@@ -267,7 +268,6 @@ def get_product_output(accept_language: Optional[pulumi.Input[Optional[str]]] = 
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -278,6 +278,8 @@ def get_product_output(accept_language: Optional[pulumi.Input[Optional[str]]] = 
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str id: Product ID.
+           
+           The following arguments are optional:
     :param Mapping[str, str] tags: Tags to apply to the product.
     """
     ...

@@ -12,12 +12,16 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
     /**
      * @return Analytics data export currently only supports an S3 bucket destination (documented below).
      * 
+     * The `s3_bucket_destination` configuration supports the following:
+     * 
      */
     private AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination s3BucketDestination;
 
     private AnalyticsConfigurationStorageClassAnalysisDataExportDestination() {}
     /**
      * @return Analytics data export currently only supports an S3 bucket destination (documented below).
+     * 
+     * The `s3_bucket_destination` configuration supports the following:
      * 
      */
     public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination s3BucketDestination() {

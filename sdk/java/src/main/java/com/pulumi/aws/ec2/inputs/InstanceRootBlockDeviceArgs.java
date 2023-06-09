@@ -156,12 +156,16 @@ public final class InstanceRootBlockDeviceArgs extends com.pulumi.resources.Reso
     /**
      * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
      * 
+     * Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
+     * 
      */
     @Import(name="volumeType")
     private @Nullable Output<String> volumeType;
 
     /**
      * @return Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+     * 
+     * Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
      * 
      */
     public Optional<Output<String>> volumeType() {
@@ -393,6 +397,8 @@ public final class InstanceRootBlockDeviceArgs extends com.pulumi.resources.Reso
         /**
          * @param volumeType Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          * 
+         * Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
+         * 
          * @return builder
          * 
          */
@@ -403,6 +409,8 @@ public final class InstanceRootBlockDeviceArgs extends com.pulumi.resources.Reso
 
         /**
          * @param volumeType Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+         * 
+         * Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
          * 
          * @return builder
          * 

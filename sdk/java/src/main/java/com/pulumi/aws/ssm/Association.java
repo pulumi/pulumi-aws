@@ -392,12 +392,16 @@ public class Association extends com.pulumi.resources.CustomResource {
     /**
      * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
      * 
+     * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
+     * 
      */
     @Export(name="waitForSuccessTimeoutSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> waitForSuccessTimeoutSeconds;
 
     /**
      * @return The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     * 
+     * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
      * 
      */
     public Output<Optional<Integer>> waitForSuccessTimeoutSeconds() {

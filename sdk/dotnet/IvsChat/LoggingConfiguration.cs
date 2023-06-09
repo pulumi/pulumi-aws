@@ -14,7 +14,6 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// ## Example Usage
     /// ### Basic Usage - Logging to CloudWatch
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Aws.IvsChat
     /// });
     /// ```
     /// ### Basic Usage - Logging to Kinesis Firehose with Extended S3
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

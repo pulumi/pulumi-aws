@@ -200,7 +200,6 @@ class Response(pulumi.CustomResource):
         Provides an API Gateway Gateway Response for a REST API Gateway.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,7 +243,6 @@ class Response(pulumi.CustomResource):
         Provides an API Gateway Gateway Response for a REST API Gateway.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

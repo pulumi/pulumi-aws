@@ -173,7 +173,6 @@ class BucketAclV2(pulumi.CustomResource):
 
         ## Example Usage
         ### With `private` ACL
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,7 +192,6 @@ class BucketAclV2(pulumi.CustomResource):
 
         > This example explicitly disables the default S3 bucket security settings. This
         should be done with caution, as all bucket objects become publicly exposed.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -219,7 +217,6 @@ class BucketAclV2(pulumi.CustomResource):
                 ]))
         ```
         ### With Grants
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -305,7 +302,6 @@ class BucketAclV2(pulumi.CustomResource):
 
         ## Example Usage
         ### With `private` ACL
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,7 +321,6 @@ class BucketAclV2(pulumi.CustomResource):
 
         > This example explicitly disables the default S3 bucket security settings. This
         should be done with caution, as all bucket objects become publicly exposed.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -351,7 +346,6 @@ class BucketAclV2(pulumi.CustomResource):
                 ]))
         ```
         ### With Grants
-
         ```python
         import pulumi
         import pulumi_aws as aws

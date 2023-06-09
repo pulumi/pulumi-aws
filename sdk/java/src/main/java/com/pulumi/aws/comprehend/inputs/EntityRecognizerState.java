@@ -102,6 +102,8 @@ public final class EntityRecognizerState extends com.pulumi.resources.ResourceAr
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
@@ -110,6 +112,8 @@ public final class EntityRecognizerState extends com.pulumi.resources.ResourceAr
      * @return Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -375,6 +379,8 @@ public final class EntityRecognizerState extends com.pulumi.resources.ResourceAr
          * Has a maximum length of 63 characters.
          * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -387,6 +393,8 @@ public final class EntityRecognizerState extends com.pulumi.resources.ResourceAr
          * @param name Name for the Entity Recognizer.
          * Has a maximum length of 63 characters.
          * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

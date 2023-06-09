@@ -13,7 +13,6 @@ import (
 // Provides a Resource Group.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

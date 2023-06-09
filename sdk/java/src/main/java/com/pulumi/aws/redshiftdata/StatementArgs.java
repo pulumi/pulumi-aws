@@ -88,12 +88,16 @@ public final class StatementArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The SQL statement text to run.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="sql", required=true)
     private Output<String> sql;
 
     /**
      * @return The SQL statement text to run.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> sql() {
@@ -277,6 +281,8 @@ public final class StatementArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sql The SQL statement text to run.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -287,6 +293,8 @@ public final class StatementArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sql The SQL statement text to run.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

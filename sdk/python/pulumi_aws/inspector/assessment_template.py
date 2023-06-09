@@ -266,7 +266,6 @@ class AssessmentTemplate(pulumi.CustomResource):
         Provides an Inspector Classic Assessment Template
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -282,7 +281,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             ],
             event_subscriptions=[aws.inspector.AssessmentTemplateEventSubscriptionArgs(
                 event="ASSESSMENT_RUN_COMPLETED",
-                topic_arn=aws_sns_topic["example"]["arn"],
+                topic_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
 
@@ -313,7 +312,6 @@ class AssessmentTemplate(pulumi.CustomResource):
         Provides an Inspector Classic Assessment Template
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -329,7 +327,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             ],
             event_subscriptions=[aws.inspector.AssessmentTemplateEventSubscriptionArgs(
                 event="ASSESSMENT_RUN_COMPLETED",
-                topic_arn=aws_sns_topic["example"]["arn"],
+                topic_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
 

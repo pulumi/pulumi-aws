@@ -104,7 +104,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -112,7 +111,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         example = aws.vpclattice.TargetGroupAttachment("example",
             target_group_identifier=aws_vpclattice_target_group["example"]["id"],
             target=aws.vpclattice.TargetGroupAttachmentTargetArgs(
-                id=aws_lb["example"]["arn"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 port=80,
             ))
         ```
@@ -133,7 +132,6 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -141,7 +139,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         example = aws.vpclattice.TargetGroupAttachment("example",
             target_group_identifier=aws_vpclattice_target_group["example"]["id"],
             target=aws.vpclattice.TargetGroupAttachmentTargetArgs(
-                id=aws_lb["example"]["arn"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 port=80,
             ))
         ```

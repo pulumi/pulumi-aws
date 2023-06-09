@@ -19,6 +19,8 @@ public final class PermissionsDatabase {
     /**
      * @return Name of the database resource. Unique to the Data Catalog.
      * 
+     * The following argument is optional:
+     * 
      */
     private String name;
 
@@ -32,6 +34,8 @@ public final class PermissionsDatabase {
     }
     /**
      * @return Name of the database resource. Unique to the Data Catalog.
+     * 
+     * The following argument is optional:
      * 
      */
     public String name() {

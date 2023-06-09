@@ -119,12 +119,16 @@ public class Resource extends com.pulumi.resources.CustomResource {
     /**
      * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="typeName", refs={String.class}, tree="[0]")
     private Output<String> typeName;
 
     /**
      * @return CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> typeName() {

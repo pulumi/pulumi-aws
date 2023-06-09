@@ -469,12 +469,16 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
     /**
      * Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="throughputCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughputCapacity;
 
     /**
      * @return Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> throughputCapacity() {

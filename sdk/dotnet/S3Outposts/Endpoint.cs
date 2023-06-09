@@ -13,7 +13,6 @@ namespace Pulumi.Aws.S3Outposts
     /// Provides a resource to manage an S3 Outposts Endpoint.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

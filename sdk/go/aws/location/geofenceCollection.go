@@ -14,7 +14,6 @@ import (
 // Resource for managing an AWS Location Geofence Collection.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -54,6 +53,8 @@ type GeofenceCollection struct {
 	// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
 	CollectionArn pulumi.StringOutput `pulumi:"collectionArn"`
 	// The name of the geofence collection.
+	//
+	// The following arguments are optional:
 	CollectionName pulumi.StringOutput `pulumi:"collectionName"`
 	// The timestamp for when the geofence collection resource was created in ISO 8601 format.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
@@ -103,6 +104,8 @@ type geofenceCollectionState struct {
 	// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
 	CollectionArn *string `pulumi:"collectionArn"`
 	// The name of the geofence collection.
+	//
+	// The following arguments are optional:
 	CollectionName *string `pulumi:"collectionName"`
 	// The timestamp for when the geofence collection resource was created in ISO 8601 format.
 	CreateTime *string `pulumi:"createTime"`
@@ -121,6 +124,8 @@ type GeofenceCollectionState struct {
 	// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
 	CollectionArn pulumi.StringPtrInput
 	// The name of the geofence collection.
+	//
+	// The following arguments are optional:
 	CollectionName pulumi.StringPtrInput
 	// The timestamp for when the geofence collection resource was created in ISO 8601 format.
 	CreateTime pulumi.StringPtrInput
@@ -141,6 +146,8 @@ func (GeofenceCollectionState) ElementType() reflect.Type {
 
 type geofenceCollectionArgs struct {
 	// The name of the geofence collection.
+	//
+	// The following arguments are optional:
 	CollectionName string `pulumi:"collectionName"`
 	// The optional description for the geofence collection.
 	Description *string `pulumi:"description"`
@@ -153,6 +160,8 @@ type geofenceCollectionArgs struct {
 // The set of arguments for constructing a GeofenceCollection resource.
 type GeofenceCollectionArgs struct {
 	// The name of the geofence collection.
+	//
+	// The following arguments are optional:
 	CollectionName pulumi.StringInput
 	// The optional description for the geofence collection.
 	Description pulumi.StringPtrInput
@@ -255,6 +264,8 @@ func (o GeofenceCollectionOutput) CollectionArn() pulumi.StringOutput {
 }
 
 // The name of the geofence collection.
+//
+// The following arguments are optional:
 func (o GeofenceCollectionOutput) CollectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.CollectionName }).(pulumi.StringOutput)
 }

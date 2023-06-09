@@ -1344,7 +1344,6 @@ class LaunchTemplate(pulumi.CustomResource):
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
 
         ## Example Usage
-
         ```python
         import pulumi
         import base64
@@ -1483,7 +1482,6 @@ class LaunchTemplate(pulumi.CustomResource):
         Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
 
         ## Example Usage
-
         ```python
         import pulumi
         import base64

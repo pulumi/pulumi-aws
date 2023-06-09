@@ -106,12 +106,16 @@ public final class ReplicationSetState extends com.pulumi.resources.ResourceArgs
     /**
      * Tags applied to the replication set.
      * 
+     * For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Tags applied to the replication set.
+     * 
+     * For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -287,6 +291,8 @@ public final class ReplicationSetState extends com.pulumi.resources.ResourceArgs
         /**
          * @param tags Tags applied to the replication set.
          * 
+         * For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
+         * 
          * @return builder
          * 
          */
@@ -297,6 +303,8 @@ public final class ReplicationSetState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tags Tags applied to the replication set.
+         * 
+         * For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
          * 
          * @return builder
          * 

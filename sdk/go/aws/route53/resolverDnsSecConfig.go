@@ -14,7 +14,6 @@ import (
 // Provides a Route 53 Resolver DNSSEC config resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

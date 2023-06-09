@@ -13,7 +13,6 @@ import (
 // Provides details about a specific Connect Lambda Function Association.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

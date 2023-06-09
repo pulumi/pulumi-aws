@@ -14,7 +14,6 @@ namespace Pulumi.Aws.RedshiftData
     /// 
     /// ## Example Usage
     /// ### cluster_identifier
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.RedshiftData
     /// });
     /// ```
     /// ### workgroup_name
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,6 +91,8 @@ namespace Pulumi.Aws.RedshiftData
 
         /// <summary>
         /// The SQL statement text to run.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("sql")]
         public Output<string> Sql { get; private set; } = null!;
@@ -195,6 +195,8 @@ namespace Pulumi.Aws.RedshiftData
 
         /// <summary>
         /// The SQL statement text to run.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("sql", required: true)]
         public Input<string> Sql { get; set; } = null!;
@@ -259,6 +261,8 @@ namespace Pulumi.Aws.RedshiftData
 
         /// <summary>
         /// The SQL statement text to run.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("sql")]
         public Input<string>? Sql { get; set; }

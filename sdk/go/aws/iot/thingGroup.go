@@ -13,7 +13,6 @@ import (
 // Manages an AWS IoT Thing Group.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

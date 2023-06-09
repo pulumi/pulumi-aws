@@ -136,7 +136,6 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
 
         ## Example Usage
         ### Cloud Watch Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -158,7 +157,6 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             ))
         ```
         ### Kinesis Firehose Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -169,15 +167,14 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 kinesis_firehose_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs(
-                    delivery_stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                    iam_role_arn=aws_iam_role["example"]["arn"],
+                    delivery_stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    iam_role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
             ))
         ```
         ### Pinpoint Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,14 +185,13 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 pinpoint_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs(
-                    application_arn=aws_pinpoint_app["example"]["arn"],
+                    application_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
             ))
         ```
         ### SNS Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -206,7 +202,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 sns_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs(
-                    topic_arn=aws_sns_topic["example"]["arn"],
+                    topic_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
@@ -238,7 +234,6 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
 
         ## Example Usage
         ### Cloud Watch Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,7 +255,6 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             ))
         ```
         ### Kinesis Firehose Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,15 +265,14 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 kinesis_firehose_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs(
-                    delivery_stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                    iam_role_arn=aws_iam_role["example"]["arn"],
+                    delivery_stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    iam_role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
             ))
         ```
         ### Pinpoint Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -290,14 +283,13 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 pinpoint_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs(
-                    application_arn=aws_pinpoint_app["example"]["arn"],
+                    application_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
             ))
         ```
         ### SNS Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,7 +300,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 sns_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs(
-                    topic_arn=aws_sns_topic["example"]["arn"],
+                    topic_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],

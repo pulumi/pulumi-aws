@@ -112,6 +112,10 @@ class InstanceArgs:
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+               
+               > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+               Replicate database managed by the provider will promote the database to a fully
+               standalone database.
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group. DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
@@ -527,6 +531,10 @@ class InstanceArgs:
     def customer_owned_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+
+        > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        Replicate database managed by the provider will promote the database to a fully
+        standalone database.
         """
         return pulumi.get(self, "customer_owned_ip_enabled")
 
@@ -1283,6 +1291,10 @@ class _InstanceState:
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+               
+               > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+               Replicate database managed by the provider will promote the database to a fully
+               standalone database.
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group. DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
@@ -1745,6 +1757,10 @@ class _InstanceState:
     def customer_owned_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+
+        > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        Replicate database managed by the provider will promote the database to a fully
+        standalone database.
         """
         return pulumi.get(self, "customer_owned_ip_enabled")
 
@@ -2626,7 +2642,6 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2645,7 +2660,6 @@ class Instance(pulumi.CustomResource):
         ### Storage Autoscaling
 
         To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2659,7 +2673,6 @@ class Instance(pulumi.CustomResource):
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2679,7 +2692,6 @@ class Instance(pulumi.CustomResource):
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2737,6 +2749,10 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+               
+               > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+               Replicate database managed by the provider will promote the database to a fully
+               standalone database.
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group. DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
@@ -2893,7 +2909,6 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2912,7 +2927,6 @@ class Instance(pulumi.CustomResource):
         ### Storage Autoscaling
 
         To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2926,7 +2940,6 @@ class Instance(pulumi.CustomResource):
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2946,7 +2959,6 @@ class Instance(pulumi.CustomResource):
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -3262,6 +3274,10 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+               
+               > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+               Replicate database managed by the provider will promote the database to a fully
+               standalone database.
         :param pulumi.Input[str] db_name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         :param pulumi.Input[str] db_subnet_group_name: Name of DB subnet group. DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
@@ -3596,6 +3612,10 @@ class Instance(pulumi.CustomResource):
     def customer_owned_ip_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+
+        > **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        Replicate database managed by the provider will promote the database to a fully
+        standalone database.
         """
         return pulumi.get(self, "customer_owned_ip_enabled")
 

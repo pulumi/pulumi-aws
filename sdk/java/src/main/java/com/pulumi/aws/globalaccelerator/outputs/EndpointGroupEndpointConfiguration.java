@@ -27,6 +27,8 @@ public final class EndpointGroupEndpointConfiguration {
     /**
      * @return The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
      * 
+     * **port_override** supports the following attributes:
+     * 
      */
     private @Nullable Integer weight;
 
@@ -48,6 +50,8 @@ public final class EndpointGroupEndpointConfiguration {
     }
     /**
      * @return The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
+     * 
+     * **port_override** supports the following attributes:
      * 
      */
     public Optional<Integer> weight() {

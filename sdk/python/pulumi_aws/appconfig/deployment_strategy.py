@@ -330,7 +330,6 @@ class DeploymentStrategy(pulumi.CustomResource):
         Provides an AppConfig Deployment Strategy resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -376,7 +375,6 @@ class DeploymentStrategy(pulumi.CustomResource):
         Provides an AppConfig Deployment Strategy resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

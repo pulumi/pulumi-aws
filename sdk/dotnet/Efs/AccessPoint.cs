@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Efs
     /// Provides an Elastic File System (EFS) access point.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

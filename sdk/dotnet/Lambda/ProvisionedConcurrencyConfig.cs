@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Example Usage
     /// ### Alias Name
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Function Version
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

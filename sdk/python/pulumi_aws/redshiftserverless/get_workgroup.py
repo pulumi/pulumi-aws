@@ -154,12 +154,11 @@ def get_workgroup(workgroup_name: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshiftserverless.get_workgroup(workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"])
+    example = aws.redshiftserverless.get_workgroup(workgroup_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -191,12 +190,11 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshiftserverless.get_workgroup(workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"])
+    example = aws.redshiftserverless.get_workgroup(workgroup_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

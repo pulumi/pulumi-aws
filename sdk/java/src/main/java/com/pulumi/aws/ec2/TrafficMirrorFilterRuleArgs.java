@@ -141,12 +141,16 @@ public final class TrafficMirrorFilterRuleArgs extends com.pulumi.resources.Reso
     /**
      * Direction of traffic to be captured. Valid values are `ingress` and `egress`
      * 
+     * Traffic mirror port range support following attributes:
+     * 
      */
     @Import(name="trafficDirection", required=true)
     private Output<String> trafficDirection;
 
     /**
      * @return Direction of traffic to be captured. Valid values are `ingress` and `egress`
+     * 
+     * Traffic mirror port range support following attributes:
      * 
      */
     public Output<String> trafficDirection() {
@@ -372,6 +376,8 @@ public final class TrafficMirrorFilterRuleArgs extends com.pulumi.resources.Reso
         /**
          * @param trafficDirection Direction of traffic to be captured. Valid values are `ingress` and `egress`
          * 
+         * Traffic mirror port range support following attributes:
+         * 
          * @return builder
          * 
          */
@@ -382,6 +388,8 @@ public final class TrafficMirrorFilterRuleArgs extends com.pulumi.resources.Reso
 
         /**
          * @param trafficDirection Direction of traffic to be captured. Valid values are `ingress` and `egress`
+         * 
+         * Traffic mirror port range support following attributes:
          * 
          * @return builder
          * 

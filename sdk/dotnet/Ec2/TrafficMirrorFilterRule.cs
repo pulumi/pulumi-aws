@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// To create a basic traffic mirror session
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -137,6 +136,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// 
+        /// Traffic mirror port range support following attributes:
         /// </summary>
         [Output("trafficDirection")]
         public Output<string> TrafficDirection { get; private set; } = null!;
@@ -243,6 +244,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// 
+        /// Traffic mirror port range support following attributes:
         /// </summary>
         [Input("trafficDirection", required: true)]
         public Input<string> TrafficDirection { get; set; } = null!;
@@ -317,6 +320,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
+        /// 
+        /// Traffic mirror port range support following attributes:
         /// </summary>
         [Input("trafficDirection")]
         public Input<string>? TrafficDirection { get; set; }

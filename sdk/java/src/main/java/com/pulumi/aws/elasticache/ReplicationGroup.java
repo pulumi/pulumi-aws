@@ -781,6 +781,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     /**
      * User-created description for the replication group. Must not be empty.
      * 
+     * The following arguments are optional:
+     * 
      * @deprecated
      * Use description instead
      * 
@@ -791,6 +793,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return User-created description for the replication group. Must not be empty.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> replicationGroupDescription() {

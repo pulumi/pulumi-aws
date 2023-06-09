@@ -15,7 +15,6 @@ namespace Pulumi.Aws.ApiGateway
     /// custom domain name.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

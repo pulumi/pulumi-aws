@@ -79,12 +79,16 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="runtime", required=true)
     private Output<String> runtime;
 
     /**
      * @return Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> runtime() {
@@ -206,6 +210,8 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param runtime Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -216,6 +222,8 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param runtime Identifier of the function&#39;s runtime. Currently only `cloudfront-js-1.0` is valid.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

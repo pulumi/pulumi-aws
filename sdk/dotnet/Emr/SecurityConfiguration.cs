@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Emr
     /// Provides a resource to manage AWS EMR Security Configurations
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

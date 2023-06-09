@@ -14,7 +14,6 @@ import (
 // Provides an AWS Quantum Ledger Database (QLDB) Stream resource
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

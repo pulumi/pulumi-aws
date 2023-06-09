@@ -235,7 +235,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
 
         ## Example Usage
         ### UI customization settings for a single client
-
         ```python
         import pulumi
         import base64
@@ -253,7 +252,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
             user_pool_id=example_user_pool_domain.user_pool_id)
         ```
         ### UI customization settings for all clients
-
         ```python
         import pulumi
         import base64
@@ -297,7 +295,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
 
         ## Example Usage
         ### UI customization settings for a single client
-
         ```python
         import pulumi
         import base64
@@ -315,7 +312,6 @@ class UserPoolUICustomization(pulumi.CustomResource):
             user_pool_id=example_user_pool_domain.user_pool_id)
         ```
         ### UI customization settings for all clients
-
         ```python
         import pulumi
         import base64

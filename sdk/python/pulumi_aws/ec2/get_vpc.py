@@ -247,6 +247,9 @@ def get_vpc(cidr_block: Optional[str] = None,
            Can be either `"pending"` or `"available"`.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['cidrBlock'] = cidr_block
@@ -306,5 +309,8 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
            Can be either `"pending"` or `"available"`.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

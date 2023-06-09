@@ -14,42 +14,6 @@ import (
 // Provides an Elastic network interface (ENI) resource.
 //
 // ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewNetworkInterface(ctx, "test", &ec2.NetworkInterfaceArgs{
-//				SubnetId: pulumi.Any(aws_subnet.Public_a.Id),
-//				PrivateIps: pulumi.StringArray{
-//					pulumi.String("10.0.0.50"),
-//				},
-//				SecurityGroups: pulumi.StringArray{
-//					aws_security_group.Web.Id,
-//				},
-//				Attachments: ec2.NetworkInterfaceAttachmentTypeArray{
-//					&ec2.NetworkInterfaceAttachmentTypeArgs{
-//						Instance:    pulumi.Any(aws_instance.Test.Id),
-//						DeviceIndex: pulumi.Int(1),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Example of Managing Multiple IPs on a Network Interface
 //
 // By default, private IPs are managed through the `privateIps` and `privateIpsCount` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
@@ -124,6 +88,8 @@ type NetworkInterface struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -208,6 +174,8 @@ type networkInterfaceState struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId *string `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -261,6 +229,8 @@ type NetworkInterfaceState struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck pulumi.BoolPtrInput
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -309,6 +279,8 @@ type networkInterfaceArgs struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId string `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -352,6 +324,8 @@ type NetworkInterfaceArgs struct {
 	// Whether to enable source destination checking for the ENI. Default true.
 	SourceDestCheck pulumi.BoolPtrInput
 	// Subnet ID to create the ENI in.
+	//
+	// The following arguments are optional:
 	SubnetId pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -558,6 +532,8 @@ func (o NetworkInterfaceOutput) SourceDestCheck() pulumi.BoolPtrOutput {
 }
 
 // Subnet ID to create the ENI in.
+//
+// The following arguments are optional:
 func (o NetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Aws.Kendra
     /// ```
     /// ### S3 Connector
     /// ### With Schedule
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,7 +64,6 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Access Control List
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -97,7 +94,6 @@ namespace Pulumi.Aws.Kendra
     /// ```
     /// ### Web Crawler Connector
     /// ### With Seed URLs
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -132,7 +128,6 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Site Maps
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -167,7 +162,6 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Web Crawler Mode
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -203,7 +197,6 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Authentication Configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -256,7 +249,6 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Crawl Depth
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -292,7 +284,6 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Max Links Per Page
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -328,7 +319,6 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Max Urls Per Minute Crawl Rate
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -364,7 +354,6 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Proxy Configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -411,7 +400,6 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With URL Exclusion and Inclusion Patterns
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -557,6 +545,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -675,6 +665,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -791,6 +783,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

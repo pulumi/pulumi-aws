@@ -212,7 +212,6 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
     ## Example Usage
 
     To retrieve a baseline provided by AWS:
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -223,7 +222,6 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
     ```
 
     To retrieve a baseline on your account:
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -278,7 +276,6 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
     ## Example Usage
 
     To retrieve a baseline provided by AWS:
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -289,7 +286,6 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
     ```
 
     To retrieve a baseline on your account:
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -13,12 +13,66 @@ namespace Pulumi.Aws.ControlTower
     {
         /// <summary>
         /// List of Control Tower controls applied to an OU.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const thisOrganization = aws.organizations.getOrganization({});
+        /// const thisOrganizationalUnits = thisOrganization.then(thisOrganization =&gt; aws.organizations.getOrganizationalUnits({
+        ///     parentId: thisOrganization.roots?.[0]?.id,
+        /// }));
+        /// const thisControls = thisOrganizationalUnits.then(thisOrganizationalUnits =&gt; aws.controltower.getControls({
+        ///     targetIdentifier: .filter(x =&gt; x.name == "Security").map(x =&gt; (x.arn))[0],
+        /// }));
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// this_organization = aws.organizations.get_organization()
+        /// this_organizational_units = aws.organizations.get_organizational_units(parent_id=this_organization.roots[0].id)
+        /// this_controls = aws.controltower.get_controls(target_identifier=[x.arn for x in this_organizational_units.childrens if x.name == "Security"][0])
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetControlsResult> InvokeAsync(GetControlsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetControlsResult>("aws:controltower/getControls:getControls", args ?? new GetControlsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of Control Tower controls applied to an OU.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const thisOrganization = aws.organizations.getOrganization({});
+        /// const thisOrganizationalUnits = thisOrganization.then(thisOrganization =&gt; aws.organizations.getOrganizationalUnits({
+        ///     parentId: thisOrganization.roots?.[0]?.id,
+        /// }));
+        /// const thisControls = thisOrganizationalUnits.then(thisOrganizationalUnits =&gt; aws.controltower.getControls({
+        ///     targetIdentifier: .filter(x =&gt; x.name == "Security").map(x =&gt; (x.arn))[0],
+        /// }));
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// this_organization = aws.organizations.get_organization()
+        /// this_organizational_units = aws.organizations.get_organizational_units(parent_id=this_organization.roots[0].id)
+        /// this_controls = aws.controltower.get_controls(target_identifier=[x.arn for x in this_organizational_units.childrens if x.name == "Security"][0])
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetControlsResult> Invoke(GetControlsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetControlsResult>("aws:controltower/getControls:getControls", args ?? new GetControlsInvokeArgs(), options.WithDefaults());

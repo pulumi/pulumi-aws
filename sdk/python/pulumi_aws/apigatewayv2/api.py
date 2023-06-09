@@ -599,7 +599,6 @@ class Api(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic WebSocket API
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -609,7 +608,6 @@ class Api(pulumi.CustomResource):
             route_selection_expression="$request.body.action")
         ```
         ### Basic HTTP API
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -662,7 +660,6 @@ class Api(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic WebSocket API
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -672,7 +669,6 @@ class Api(pulumi.CustomResource):
             route_selection_expression="$request.body.action")
         ```
         ### Basic HTTP API
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -18,12 +18,22 @@ public final class GetReplicationTaskPlainArgs extends com.pulumi.resources.Invo
     /**
      * The replication task identifier.
      * 
+     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen.
+     * - Cannot contain two consecutive hyphens.
+     * 
      */
     @Import(name="replicationTaskId", required=true)
     private String replicationTaskId;
 
     /**
      * @return The replication task identifier.
+     * 
+     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen.
+     * - Cannot contain two consecutive hyphens.
      * 
      */
     public String replicationTaskId() {
@@ -64,6 +74,11 @@ public final class GetReplicationTaskPlainArgs extends com.pulumi.resources.Invo
 
         /**
          * @param replicationTaskId The replication task identifier.
+         * 
+         * - Must contain from 1 to 255 alphanumeric characters or hyphens.
+         * - First character must be a letter.
+         * - Cannot end with a hyphen.
+         * - Cannot contain two consecutive hyphens.
          * 
          * @return builder
          * 

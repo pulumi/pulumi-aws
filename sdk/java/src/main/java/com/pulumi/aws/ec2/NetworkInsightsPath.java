@@ -121,12 +121,16 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
     /**
      * @return Protocol to use for analysis. Valid options are `tcp` or `udp`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> protocol() {

@@ -13,7 +13,6 @@ import (
 // Provides a resource to manage an [AWS Macie Account](https://docs.aws.amazon.com/macie/latest/APIReference/macie.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

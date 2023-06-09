@@ -15,6 +15,8 @@ import (
 // This data source can prove useful when a module accepts a coip pool id as
 // an input variable and needs to, for example, determine the CIDR block of that
 // COIP Pool.
+//
+// ## Example Usage
 func GetCoipPool(ctx *pulumi.Context, args *GetCoipPoolArgs, opts ...pulumi.InvokeOption) (*GetCoipPoolResult, error) {
 	var rv GetCoipPoolResult
 	err := ctx.Invoke("aws:ec2/getCoipPool:getCoipPool", args, &rv, opts...)
@@ -33,6 +35,9 @@ type GetCoipPoolArgs struct {
 	PoolId *string `pulumi:"poolId"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired COIP Pool.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -72,6 +77,9 @@ type GetCoipPoolOutputArgs struct {
 	PoolId pulumi.StringPtrInput `pulumi:"poolId"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired COIP Pool.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

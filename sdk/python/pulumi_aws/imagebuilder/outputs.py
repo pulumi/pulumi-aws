@@ -486,6 +486,8 @@ class DistributionConfigurationDistribution(dict):
                  license_configuration_arns: Optional[Sequence[str]] = None):
         """
         :param str region: AWS Region for the distribution.
+               
+               The following arguments are optional:
         :param 'DistributionConfigurationDistributionAmiDistributionConfigurationArgs' ami_distribution_configuration: Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
         :param 'DistributionConfigurationDistributionContainerDistributionConfigurationArgs' container_distribution_configuration: Configuration block with container distribution settings. Detailed below.
         :param Sequence['DistributionConfigurationDistributionFastLaunchConfigurationArgs'] fast_launch_configurations: Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
@@ -509,6 +511,8 @@ class DistributionConfigurationDistribution(dict):
     def region(self) -> str:
         """
         AWS Region for the distribution.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "region")
 
@@ -1379,6 +1383,8 @@ class ImagePipelineSchedule(dict):
                  timezone: Optional[str] = None):
         """
         :param str schedule_expression: Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+               
+               The following arguments are optional:
         :param str pipeline_execution_start_condition: Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
         :param str timezone: The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
         """
@@ -1393,6 +1399,8 @@ class ImagePipelineSchedule(dict):
     def schedule_expression(self) -> str:
         """
         Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "schedule_expression")
 
@@ -1839,6 +1847,8 @@ class InfrastructureConfigurationLoggingS3Logs(dict):
                  s3_key_prefix: Optional[str] = None):
         """
         :param str s3_bucket_name: Name of the S3 Bucket.
+               
+               The following arguments are optional:
         :param str s3_key_prefix: Prefix to use for S3 logs. Defaults to `/`.
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
@@ -1850,6 +1860,8 @@ class InfrastructureConfigurationLoggingS3Logs(dict):
     def s3_bucket_name(self) -> str:
         """
         Name of the S3 Bucket.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "s3_bucket_name")
 

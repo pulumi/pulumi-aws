@@ -19,6 +19,10 @@ namespace Pulumi.Aws.Glue.Outputs
         public readonly string? ConnectionName;
         /// <summary>
         /// The ARN of the dead-letter SQS queue.
+        /// 
+        /// &gt; **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+        /// 
+        /// &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
         /// </summary>
         public readonly string? DlqEventQueueArn;
         /// <summary>

@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Ec2
     /// ### Basic Example
     /// 
     /// The following config gives the Default Network ACL the same rules that AWS includes but pulls the resource under management by this provider. This means that any ACL rules added or changed will be detected as drift.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -72,7 +71,6 @@ namespace Pulumi.Aws.Ec2
     /// ### Example: Deny All Egress Traffic, Allow Ingress
     /// 
     /// The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -108,7 +106,6 @@ namespace Pulumi.Aws.Ec2
     /// ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
     /// 
     /// This config denies all traffic in the Default ACL. This can be useful if you want to lock down the VPC to force all resources to assign a non-default ACL.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -139,7 +136,6 @@ namespace Pulumi.Aws.Ec2
     /// Because Subnets are by default associated with the Default Network ACL, any non-explicit association will show up as a plan to remove the Subnet. For example: if you have a custom `aws.ec2.NetworkAcl` with two subnets attached, and you remove the `aws.ec2.NetworkAcl` resource, after successfully destroying this resource future plans will show a diff on the managed `aws.ec2.DefaultNetworkAcl`, as those two Subnets have been orphaned by the now destroyed network acl and thus adopted by the Default Network ACL. In order to avoid a reoccurring plan, they will need to be reassigned, destroyed, or added to the `subnet_ids` attribute of the `aws.ec2.DefaultNetworkAcl` entry.
     /// 
     /// As an alternative to the above, you can also specify the following lifecycle configuration in your `aws.ec2.DefaultNetworkAcl` resource:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -176,6 +172,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("defaultNetworkAclId")]
         public Output<string> DefaultNetworkAclId { get; private set; } = null!;
@@ -270,6 +268,8 @@ namespace Pulumi.Aws.Ec2
     {
         /// <summary>
         /// Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("defaultNetworkAclId", required: true)]
         public Input<string> DefaultNetworkAclId { get; set; } = null!;
@@ -338,6 +338,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("defaultNetworkAclId")]
         public Input<string>? DefaultNetworkAclId { get; set; }

@@ -131,12 +131,16 @@ public class RoutingControl extends com.pulumi.resources.CustomResource {
     /**
      * The name describing the routing control.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return The name describing the routing control.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

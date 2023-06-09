@@ -33,6 +33,11 @@ export function getReplicationInstance(args: GetReplicationInstanceArgs, opts?: 
 export interface GetReplicationInstanceArgs {
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
+     *
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
      */
     replicationInstanceId: string;
     tags?: {[key: string]: string};
@@ -137,6 +142,11 @@ export function getReplicationInstanceOutput(args: GetReplicationInstanceOutputA
 export interface GetReplicationInstanceOutputArgs {
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
+     *
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
      */
     replicationInstanceId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

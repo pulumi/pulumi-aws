@@ -218,7 +218,6 @@ class Plan(pulumi.CustomResource):
         Provides an AWS Backup plan resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,7 +225,7 @@ class Plan(pulumi.CustomResource):
         example = aws.backup.Plan("example",
             rules=[aws.backup.PlanRuleArgs(
                 rule_name="my_example_backup_rule",
-                target_vault_name=aws_backup_vault["test"]["name"],
+                target_vault_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 schedule="cron(0 12 * * ? *)",
                 lifecycle=aws.backup.PlanRuleLifecycleArgs(
                     delete_after=14,
@@ -265,7 +264,6 @@ class Plan(pulumi.CustomResource):
         Provides an AWS Backup plan resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -273,7 +271,7 @@ class Plan(pulumi.CustomResource):
         example = aws.backup.Plan("example",
             rules=[aws.backup.PlanRuleArgs(
                 rule_name="my_example_backup_rule",
-                target_vault_name=aws_backup_vault["test"]["name"],
+                target_vault_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 schedule="cron(0 12 * * ? *)",
                 lifecycle=aws.backup.PlanRuleLifecycleArgs(
                     delete_after=14,

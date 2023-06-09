@@ -154,7 +154,6 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -167,7 +166,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
                 actions=["GetObject"],
                 content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
                     aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
-                        function_arn=aws_lambda_function["example"]["arn"],
+                        function_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             )],
@@ -199,7 +198,6 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -212,7 +210,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
                 actions=["GetObject"],
                 content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
                     aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
-                        function_arn=aws_lambda_function["example"]["arn"],
+                        function_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             )],

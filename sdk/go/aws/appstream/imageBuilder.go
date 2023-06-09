@@ -14,7 +14,6 @@ import (
 // Provides an AppStream image builder.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -88,6 +87,8 @@ type ImageBuilder struct {
 	// Instance type to use when launching the image builder.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Unique name for the image builder.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
 	State pulumi.StringOutput `pulumi:"state"`
@@ -156,6 +157,8 @@ type imageBuilderState struct {
 	// Instance type to use when launching the image builder.
 	InstanceType *string `pulumi:"instanceType"`
 	// Unique name for the image builder.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
 	State *string `pulumi:"state"`
@@ -193,6 +196,8 @@ type ImageBuilderState struct {
 	// Instance type to use when launching the image builder.
 	InstanceType pulumi.StringPtrInput
 	// Unique name for the image builder.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
 	State pulumi.StringPtrInput
@@ -230,6 +235,8 @@ type imageBuilderArgs struct {
 	// Instance type to use when launching the image builder.
 	InstanceType string `pulumi:"instanceType"`
 	// Unique name for the image builder.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -260,6 +267,8 @@ type ImageBuilderArgs struct {
 	// Instance type to use when launching the image builder.
 	InstanceType pulumi.StringInput
 	// Unique name for the image builder.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -415,6 +424,8 @@ func (o ImageBuilderOutput) InstanceType() pulumi.StringOutput {
 }
 
 // Unique name for the image builder.
+//
+// The following arguments are optional:
 func (o ImageBuilderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

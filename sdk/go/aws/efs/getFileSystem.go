@@ -13,7 +13,6 @@ import (
 // Provides information about an Elastic File System (EFS) File System.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

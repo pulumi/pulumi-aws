@@ -15,7 +15,6 @@ import (
 // More information about keyspaces can be found in the [Keyspaces User Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is-keyspaces.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -53,6 +52,8 @@ type Keyspace struct {
 	// The ARN of the keyspace.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the keyspace to be created.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -92,6 +93,8 @@ type keyspaceState struct {
 	// The ARN of the keyspace.
 	Arn *string `pulumi:"arn"`
 	// The name of the keyspace to be created.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -103,6 +106,8 @@ type KeyspaceState struct {
 	// The ARN of the keyspace.
 	Arn pulumi.StringPtrInput
 	// The name of the keyspace to be created.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -116,6 +121,8 @@ func (KeyspaceState) ElementType() reflect.Type {
 
 type keyspaceArgs struct {
 	// The name of the keyspace to be created.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -124,6 +131,8 @@ type keyspaceArgs struct {
 // The set of arguments for constructing a Keyspace resource.
 type KeyspaceArgs struct {
 	// The name of the keyspace to be created.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -222,6 +231,8 @@ func (o KeyspaceOutput) Arn() pulumi.StringOutput {
 }
 
 // The name of the keyspace to be created.
+//
+// The following arguments are optional:
 func (o KeyspaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

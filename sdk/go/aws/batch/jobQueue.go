@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Job Queue
-//
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //
 // ```
 // ### Job Queue with a fair share scheduling policy
-//
 // ```go
 // package main
 //

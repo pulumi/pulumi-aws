@@ -117,7 +117,6 @@ def get_document(document_format: Optional[str] = None,
     ## Example Usage
 
     To get the contents of the document owned by AWS.
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -128,12 +127,11 @@ def get_document(document_format: Optional[str] = None,
     ```
 
     To get the contents of the custom document.
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ssm.get_document(name=aws_ssm_document["test"]["name"],
+    test = aws.ssm.get_document(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         document_format="JSON")
     ```
 
@@ -170,7 +168,6 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[str]]] =
     ## Example Usage
 
     To get the contents of the document owned by AWS.
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -181,12 +178,11 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[str]]] =
     ```
 
     To get the contents of the custom document.
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ssm.get_document(name=aws_ssm_document["test"]["name"],
+    test = aws.ssm.get_document(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         document_format="JSON")
     ```
 

@@ -78,6 +78,8 @@ export class Map extends pulumi.CustomResource {
     public /*out*/ readonly mapArn!: pulumi.Output<string>;
     /**
      * The name for the map resource.
+     *
+     * The following arguments are optional:
      */
     public readonly mapName!: pulumi.Output<string>;
     /**
@@ -158,6 +160,8 @@ export interface MapState {
     mapArn?: pulumi.Input<string>;
     /**
      * The name for the map resource.
+     *
+     * The following arguments are optional:
      */
     mapName?: pulumi.Input<string>;
     /**
@@ -188,6 +192,8 @@ export interface MapArgs {
     description?: pulumi.Input<string>;
     /**
      * The name for the map resource.
+     *
+     * The following arguments are optional:
      */
     mapName: pulumi.Input<string>;
     /**

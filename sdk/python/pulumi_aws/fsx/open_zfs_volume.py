@@ -492,7 +492,6 @@ class OpenZfsVolume(pulumi.CustomResource):
         See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -534,7 +533,6 @@ class OpenZfsVolume(pulumi.CustomResource):
         See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

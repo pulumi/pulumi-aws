@@ -13,7 +13,6 @@ import (
 // Provides details about a specific Nat Gateway.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 // ```
 //
 // Usage with tags:
-//
 // ```go
 // package main
 //
@@ -78,6 +76,9 @@ func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...p
 // A collection of arguments for invoking getNatGateway.
 type LookupNatGatewayArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetNatGatewayFilter `pulumi:"filters"`
 	// ID of the specific Nat Gateway to retrieve.
 	Id *string `pulumi:"id"`
@@ -130,6 +131,9 @@ func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs
 // A collection of arguments for invoking getNatGateway.
 type LookupNatGatewayOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetNatGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the specific Nat Gateway to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`

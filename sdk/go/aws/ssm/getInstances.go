@@ -13,7 +13,6 @@ import (
 // Use this data source to get the instance IDs of SSM managed instances.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Sagemaker
     /// ## Example Usage
     /// 
     /// Basic usage:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -129,6 +128,8 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The `primary_container` and `container` block both support:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -238,6 +239,8 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The `primary_container` and `container` block both support:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -312,6 +315,8 @@ namespace Pulumi.Aws.Sagemaker
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// The `primary_container` and `container` block both support:
         /// </summary>
         public InputMap<string> Tags
         {

@@ -265,7 +265,6 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         Manages an AWS DataSync FSx OpenZfs Location.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,7 +307,6 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         Manages an AWS DataSync FSx OpenZfs Location.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

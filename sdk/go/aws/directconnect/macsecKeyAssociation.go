@@ -101,6 +101,8 @@ type MacsecKeyAssociation struct {
 	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+	//
+	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 	// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
 	StartOn pulumi.StringOutput `pulumi:"startOn"`
@@ -147,6 +149,8 @@ type macsecKeyAssociationState struct {
 	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
 	ConnectionId *string `pulumi:"connectionId"`
 	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+	//
+	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 	SecretArn *string `pulumi:"secretArn"`
 	// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
 	StartOn *string `pulumi:"startOn"`
@@ -162,6 +166,8 @@ type MacsecKeyAssociationState struct {
 	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
 	ConnectionId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+	//
+	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 	SecretArn pulumi.StringPtrInput
 	// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
 	StartOn pulumi.StringPtrInput
@@ -181,6 +187,8 @@ type macsecKeyAssociationArgs struct {
 	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
 	ConnectionId string `pulumi:"connectionId"`
 	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+	//
+	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -193,6 +201,8 @@ type MacsecKeyAssociationArgs struct {
 	// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
 	ConnectionId pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+	//
+	// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 	SecretArn pulumi.StringPtrInput
 }
 
@@ -299,6 +309,8 @@ func (o MacsecKeyAssociationOutput) ConnectionId() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
+//
+// > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
 func (o MacsecKeyAssociationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MacsecKeyAssociation) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
 }

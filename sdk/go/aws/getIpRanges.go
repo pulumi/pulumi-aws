@@ -13,7 +13,6 @@ import (
 // Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -82,6 +81,9 @@ type GetIpRangesArgs struct {
 	// `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
 	// `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
 	// [`service` attribute][2] documentation for other possible values.
+	//
+	// > **NOTE:** If the specified combination of regions and services does not yield any
+	// CIDR blocks, this call will fail.
 	Services []string `pulumi:"services"`
 	// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
 	Url *string `pulumi:"url"`
@@ -129,6 +131,9 @@ type GetIpRangesOutputArgs struct {
 	// `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
 	// `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
 	// [`service` attribute][2] documentation for other possible values.
+	//
+	// > **NOTE:** If the specified combination of regions and services does not yield any
+	// CIDR blocks, this call will fail.
 	Services pulumi.StringArrayInput `pulumi:"services"`
 	// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
 	Url pulumi.StringPtrInput `pulumi:"url"`

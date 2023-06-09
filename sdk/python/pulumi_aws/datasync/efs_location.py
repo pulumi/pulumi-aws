@@ -314,16 +314,15 @@ class EfsLocation(pulumi.CustomResource):
         > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.EfsLocation("example",
-            efs_file_system_arn=aws_efs_mount_target["example"]["file_system_arn"],
+            efs_file_system_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ec2_config=aws.datasync.EfsLocationEc2ConfigArgs(
                 security_group_arns=[aws_security_group["example"]["arn"]],
-                subnet_arn=aws_subnet["example"]["arn"],
+                subnet_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -357,16 +356,15 @@ class EfsLocation(pulumi.CustomResource):
         > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.EfsLocation("example",
-            efs_file_system_arn=aws_efs_mount_target["example"]["file_system_arn"],
+            efs_file_system_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ec2_config=aws.datasync.EfsLocationEc2ConfigArgs(
                 security_group_arns=[aws_security_group["example"]["arn"]],
-                subnet_arn=aws_subnet["example"]["arn"],
+                subnet_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Account Analyzer
-//
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //
 // ```
 // ### Organization Analyzer
-//
 // ```go
 // package main
 //
@@ -90,6 +88,8 @@ type Analyzer struct {
 	pulumi.CustomResourceState
 
 	// Name of the Analyzer.
+	//
+	// The following arguments are optional:
 	AnalyzerName pulumi.StringOutput `pulumi:"analyzerName"`
 	// ARN of the Analyzer.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -134,6 +134,8 @@ func GetAnalyzer(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Analyzer resources.
 type analyzerState struct {
 	// Name of the Analyzer.
+	//
+	// The following arguments are optional:
 	AnalyzerName *string `pulumi:"analyzerName"`
 	// ARN of the Analyzer.
 	Arn *string `pulumi:"arn"`
@@ -147,6 +149,8 @@ type analyzerState struct {
 
 type AnalyzerState struct {
 	// Name of the Analyzer.
+	//
+	// The following arguments are optional:
 	AnalyzerName pulumi.StringPtrInput
 	// ARN of the Analyzer.
 	Arn pulumi.StringPtrInput
@@ -164,6 +168,8 @@ func (AnalyzerState) ElementType() reflect.Type {
 
 type analyzerArgs struct {
 	// Name of the Analyzer.
+	//
+	// The following arguments are optional:
 	AnalyzerName string `pulumi:"analyzerName"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -174,6 +180,8 @@ type analyzerArgs struct {
 // The set of arguments for constructing a Analyzer resource.
 type AnalyzerArgs struct {
 	// Name of the Analyzer.
+	//
+	// The following arguments are optional:
 	AnalyzerName pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -269,6 +277,8 @@ func (o AnalyzerOutput) ToAnalyzerOutputWithContext(ctx context.Context) Analyze
 }
 
 // Name of the Analyzer.
+//
+// The following arguments are optional:
 func (o AnalyzerOutput) AnalyzerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.AnalyzerName }).(pulumi.StringOutput)
 }

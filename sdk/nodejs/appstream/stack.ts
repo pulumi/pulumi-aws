@@ -136,6 +136,8 @@ export class Stack extends pulumi.CustomResource {
     public readonly feedbackUrl!: pulumi.Output<string>;
     /**
      * Unique name for the AppStream stack.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -254,6 +256,8 @@ export interface StackState {
     feedbackUrl?: pulumi.Input<string>;
     /**
      * Unique name for the AppStream stack.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -314,6 +318,8 @@ export interface StackArgs {
     feedbackUrl?: pulumi.Input<string>;
     /**
      * Unique name for the AppStream stack.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

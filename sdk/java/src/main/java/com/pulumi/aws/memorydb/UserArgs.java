@@ -65,12 +65,16 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the MemoryDB user. Up to 40 characters.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
     /**
      * @return Name of the MemoryDB user. Up to 40 characters.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userName() {
@@ -170,6 +174,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userName Name of the MemoryDB user. Up to 40 characters.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -180,6 +186,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param userName Name of the MemoryDB user. Up to 40 characters.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

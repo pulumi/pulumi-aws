@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Glacier
     /// &gt; **NOTE:** When removing a Glacier Vault, the Vault must be empty.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

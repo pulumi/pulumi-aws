@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ## Example Usage
     /// ### Basic Job Queue
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.Batch
     /// });
     /// ```
     /// ### Job Queue with a fair share scheduling policy
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

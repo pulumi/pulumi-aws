@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### By ARN
-//
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //
 // ```
 // ### By Name
-//
 // ```go
 // package main
 //
@@ -77,6 +75,8 @@ type LookupConnectionArgs struct {
 	// CodeStar Connection ARN.
 	Arn *string `pulumi:"arn"`
 	// CodeStar Connection name.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
 	Name *string `pulumi:"name"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -117,6 +117,8 @@ type LookupConnectionOutputArgs struct {
 	// CodeStar Connection ARN.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// CodeStar Connection name.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

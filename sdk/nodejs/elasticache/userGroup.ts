@@ -81,6 +81,8 @@ export class UserGroup extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the user group.
+     *
+     * The following arguments are optional:
      */
     public readonly userGroupId!: pulumi.Output<string>;
     /**
@@ -149,6 +151,8 @@ export interface UserGroupState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the user group.
+     *
+     * The following arguments are optional:
      */
     userGroupId?: pulumi.Input<string>;
     /**
@@ -171,6 +175,8 @@ export interface UserGroupArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the user group.
+     *
+     * The following arguments are optional:
      */
     userGroupId: pulumi.Input<string>;
     /**

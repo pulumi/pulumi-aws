@@ -14,7 +14,6 @@ import (
 // Provides an AWS Elemental MediaPackage Channel.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

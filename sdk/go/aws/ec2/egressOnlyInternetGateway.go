@@ -17,7 +17,6 @@ import (
 // outside of your VPC from initiating an IPv6 connection with your instance.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

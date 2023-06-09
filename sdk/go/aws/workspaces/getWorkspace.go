@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Filter By Workspace ID
-//
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //
 // ```
 // ### Filter By Directory ID & User Name
-//
 // ```go
 // package main
 //

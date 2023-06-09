@@ -13,6 +13,8 @@ import (
 type ListenerDefaultAction struct {
 	FixedResponse *ListenerDefaultActionFixedResponse `pulumi:"fixedResponse"`
 	// Route requests to one or more target groups. See Forward blocks below.
+	//
+	// > **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
 	Forwards []ListenerDefaultActionForward `pulumi:"forwards"`
 }
 
@@ -30,6 +32,8 @@ type ListenerDefaultActionInput interface {
 type ListenerDefaultActionArgs struct {
 	FixedResponse ListenerDefaultActionFixedResponsePtrInput `pulumi:"fixedResponse"`
 	// Route requests to one or more target groups. See Forward blocks below.
+	//
+	// > **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
 	Forwards ListenerDefaultActionForwardArrayInput `pulumi:"forwards"`
 }
 
@@ -115,6 +119,8 @@ func (o ListenerDefaultActionOutput) FixedResponse() ListenerDefaultActionFixedR
 }
 
 // Route requests to one or more target groups. See Forward blocks below.
+//
+// > **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
 func (o ListenerDefaultActionOutput) Forwards() ListenerDefaultActionForwardArrayOutput {
 	return o.ApplyT(func(v ListenerDefaultAction) []ListenerDefaultActionForward { return v.Forwards }).(ListenerDefaultActionForwardArrayOutput)
 }
@@ -153,6 +159,8 @@ func (o ListenerDefaultActionPtrOutput) FixedResponse() ListenerDefaultActionFix
 }
 
 // Route requests to one or more target groups. See Forward blocks below.
+//
+// > **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
 func (o ListenerDefaultActionPtrOutput) Forwards() ListenerDefaultActionForwardArrayOutput {
 	return o.ApplyT(func(v *ListenerDefaultAction) []ListenerDefaultActionForward {
 		if v == nil {
@@ -800,6 +808,8 @@ func (o ListenerRuleActionFixedResponsePtrOutput) StatusCode() pulumi.IntPtrOutp
 
 type ListenerRuleActionForward struct {
 	// The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+	//
+	// The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
 	TargetGroups []ListenerRuleActionForwardTargetGroup `pulumi:"targetGroups"`
 }
 
@@ -816,6 +826,8 @@ type ListenerRuleActionForwardInput interface {
 
 type ListenerRuleActionForwardArgs struct {
 	// The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+	//
+	// The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
 	TargetGroups ListenerRuleActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
 }
 
@@ -897,6 +909,8 @@ func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardPtrOutputWit
 }
 
 // The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+//
+// The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
 func (o ListenerRuleActionForwardOutput) TargetGroups() ListenerRuleActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v ListenerRuleActionForward) []ListenerRuleActionForwardTargetGroup { return v.TargetGroups }).(ListenerRuleActionForwardTargetGroupArrayOutput)
 }
@@ -926,6 +940,8 @@ func (o ListenerRuleActionForwardPtrOutput) Elem() ListenerRuleActionForwardOutp
 }
 
 // The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+//
+// The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
 func (o ListenerRuleActionForwardPtrOutput) TargetGroups() ListenerRuleActionForwardTargetGroupArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleActionForward) []ListenerRuleActionForwardTargetGroup {
 		if v == nil {

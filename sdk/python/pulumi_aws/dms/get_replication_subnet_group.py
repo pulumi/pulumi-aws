@@ -124,12 +124,11 @@ def get_replication_subnet_group(replication_subnet_group_id: Optional[str] = No
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=aws_dms_replication_subnet_group["test"]["replication_subnet_group_id"])
+    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -161,12 +160,11 @@ def get_replication_subnet_group_output(replication_subnet_group_id: Optional[pu
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=aws_dms_replication_subnet_group["test"]["replication_subnet_group_id"])
+    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

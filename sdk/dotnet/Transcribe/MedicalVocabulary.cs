@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -107,6 +106,8 @@ namespace Pulumi.Aws.Transcribe
 
         /// <summary>
         /// The name of the Medical Vocabulary.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vocabularyName")]
         public Output<string> VocabularyName { get; private set; } = null!;
@@ -183,6 +184,8 @@ namespace Pulumi.Aws.Transcribe
 
         /// <summary>
         /// The name of the Medical Vocabulary.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vocabularyName", required: true)]
         public Input<string> VocabularyName { get; set; } = null!;
@@ -241,6 +244,8 @@ namespace Pulumi.Aws.Transcribe
 
         /// <summary>
         /// The name of the Medical Vocabulary.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vocabularyName")]
         public Input<string>? VocabularyName { get; set; }

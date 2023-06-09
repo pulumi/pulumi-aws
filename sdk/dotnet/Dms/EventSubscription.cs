@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Dms
     /// Provides a DMS (Data Migration Service) event subscription resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

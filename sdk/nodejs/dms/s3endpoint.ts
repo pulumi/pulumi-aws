@@ -303,6 +303,8 @@ export class S3Endpoint extends pulumi.CustomResource {
     public readonly serverSideEncryptionKmsKeyId!: pulumi.Output<string | undefined>;
     /**
      * ARN of the IAM role with permissions to the S3 Bucket.
+     *
+     * The following arguments are optional:
      */
     public readonly serviceAccessRoleArn!: pulumi.Output<string>;
     /**
@@ -653,6 +655,8 @@ export interface S3EndpointState {
     serverSideEncryptionKmsKeyId?: pulumi.Input<string>;
     /**
      * ARN of the IAM role with permissions to the S3 Bucket.
+     *
+     * The following arguments are optional:
      */
     serviceAccessRoleArn?: pulumi.Input<string>;
     /**
@@ -855,6 +859,8 @@ export interface S3EndpointArgs {
     serverSideEncryptionKmsKeyId?: pulumi.Input<string>;
     /**
      * ARN of the IAM role with permissions to the S3 Bucket.
+     *
+     * The following arguments are optional:
      */
     serviceAccessRoleArn: pulumi.Input<string>;
     /**

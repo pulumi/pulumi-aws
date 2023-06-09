@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,7 +61,6 @@ namespace Pulumi.Aws.Rds
     /// in-use parameter group. This includes common situations like changing the group `name` or
     /// bumping the `family` version during a major version upgrade. This configuration will prevent destruction
     /// of the deposed parameter group while still in use by the database during upgrade.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -467,12 +467,16 @@ public class DataSet extends com.pulumi.resources.CustomResource {
     /**
      * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="physicalTableMaps", refs={List.class,DataSetPhysicalTableMap.class}, tree="[0,1]")
     private Output<List<DataSetPhysicalTableMap>> physicalTableMaps;
 
     /**
      * @return Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<DataSetPhysicalTableMap>> physicalTableMaps() {

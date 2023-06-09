@@ -66,6 +66,8 @@ public final class ListenerDefaultActionAuthenticateOidc {
     /**
      * @return User info endpoint of the IdP.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String userInfoEndpoint;
 
@@ -142,6 +144,8 @@ public final class ListenerDefaultActionAuthenticateOidc {
     }
     /**
      * @return User info endpoint of the IdP.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String userInfoEndpoint() {

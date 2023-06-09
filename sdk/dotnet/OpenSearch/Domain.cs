@@ -31,7 +31,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,7 +57,6 @@ namespace Pulumi.Aws.OpenSearch
     /// ### Access Policy
     /// 
     /// &gt; See also: `aws.opensearch.DomainPolicy` resource
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -123,7 +121,6 @@ namespace Pulumi.Aws.OpenSearch
     /// });
     /// ```
     /// ### Log publishing to CloudWatch Logs
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -188,7 +185,6 @@ namespace Pulumi.Aws.OpenSearch
     /// });
     /// ```
     /// ### VPC based OpenSearch
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -318,7 +314,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// This example shows two configurations: one to create a domain without fine-grained access control and the second to modify the domain to enable fine-grained access control. For more information, see [Enabling fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html).
     /// ### First apply
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -370,7 +365,6 @@ namespace Pulumi.Aws.OpenSearch
     /// ### Second apply
     /// 
     /// Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -493,6 +487,8 @@ namespace Pulumi.Aws.OpenSearch
 
         /// <summary>
         /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -661,6 +657,8 @@ namespace Pulumi.Aws.OpenSearch
 
         /// <summary>
         /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -801,6 +799,8 @@ namespace Pulumi.Aws.OpenSearch
 
         /// <summary>
         /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

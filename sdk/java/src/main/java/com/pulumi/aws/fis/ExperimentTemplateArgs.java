@@ -68,12 +68,16 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
     /**
      * When an ongoing experiment should be stopped. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="stopConditions", required=true)
     private Output<List<ExperimentTemplateStopConditionArgs>> stopConditions;
 
     /**
      * @return When an ongoing experiment should be stopped. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<ExperimentTemplateStopConditionArgs>> stopConditions() {
@@ -215,6 +219,8 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
         /**
          * @param stopConditions When an ongoing experiment should be stopped. See below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -226,6 +232,8 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
         /**
          * @param stopConditions When an ongoing experiment should be stopped. See below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -235,6 +243,8 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param stopConditions When an ongoing experiment should be stopped. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

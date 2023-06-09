@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Dms
     /// ### Minimal Configuration
     /// 
     /// This is the minimal configuration for an `aws.dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.Aws.Dms
     /// });
     /// ```
     /// ### Complete Configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -394,6 +392,8 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// ARN of the IAM role with permissions to the S3 Bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("serviceAccessRoleArn")]
         public Output<string> ServiceAccessRoleArn { get; private set; } = null!;
@@ -734,6 +734,8 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// ARN of the IAM role with permissions to the S3 Bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("serviceAccessRoleArn", required: true)]
         public Input<string> ServiceAccessRoleArn { get; set; } = null!;
@@ -1048,6 +1050,8 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// ARN of the IAM role with permissions to the S3 Bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("serviceAccessRoleArn")]
         public Input<string>? ServiceAccessRoleArn { get; set; }

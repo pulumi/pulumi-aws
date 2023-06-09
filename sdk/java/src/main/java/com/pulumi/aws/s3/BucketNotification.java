@@ -439,12 +439,16 @@ public class BucketNotification extends com.pulumi.resources.CustomResource {
     /**
      * Name of the bucket for notification configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
     /**
      * @return Name of the bucket for notification configuration.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> bucket() {

@@ -69,12 +69,16 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
     /**
      * An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="matchingEventTypes", required=true)
     private Output<List<String>> matchingEventTypes;
 
     /**
      * @return An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<String>> matchingEventTypes() {
@@ -206,6 +210,8 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         /**
          * @param matchingEventTypes An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -217,6 +223,8 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         /**
          * @param matchingEventTypes An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -226,6 +234,8 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
 
         /**
          * @param matchingEventTypes An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

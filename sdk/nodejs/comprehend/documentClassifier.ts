@@ -101,6 +101,8 @@ export class DocumentClassifier extends pulumi.CustomResource {
      * Name for the Document Classifier.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -239,6 +241,8 @@ export interface DocumentClassifierState {
      * Name for the Document Classifier.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -316,6 +320,8 @@ export interface DocumentClassifierArgs {
      * Name for the Document Classifier.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

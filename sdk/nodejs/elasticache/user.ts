@@ -131,6 +131,8 @@ export class User extends pulumi.CustomResource {
     public readonly userId!: pulumi.Output<string>;
     /**
      * The username of the user.
+     *
+     * The following arguments are optional:
      */
     public readonly userName!: pulumi.Output<string>;
 
@@ -228,6 +230,8 @@ export interface UserState {
     userId?: pulumi.Input<string>;
     /**
      * The username of the user.
+     *
+     * The following arguments are optional:
      */
     userName?: pulumi.Input<string>;
 }
@@ -266,6 +270,8 @@ export interface UserArgs {
     userId: pulumi.Input<string>;
     /**
      * The username of the user.
+     *
+     * The following arguments are optional:
      */
     userName: pulumi.Input<string>;
 }

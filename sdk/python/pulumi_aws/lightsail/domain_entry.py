@@ -201,7 +201,6 @@ class DomainEntry(pulumi.CustomResource):
         > **NOTE on `id`:** In an effort to simplify imports, this resource `id` field has been updated to the standard resource id separator, a comma (`,`). For backward compatibility, the previous separator (underscore `_`) can still be used to read and import existing resources. When state is refreshed, the `id` will be updated to use the new standard separator. The previous separator will be deprecated in a future major release.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,7 +240,6 @@ class DomainEntry(pulumi.CustomResource):
         > **NOTE on `id`:** In an effort to simplify imports, this resource `id` field has been updated to the standard resource id separator, a comma (`,`). For backward compatibility, the previous separator (underscore `_`) can still be used to read and import existing resources. When state is refreshed, the `id` will be updated to use the new standard separator. The previous separator will be deprecated in a future major release.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

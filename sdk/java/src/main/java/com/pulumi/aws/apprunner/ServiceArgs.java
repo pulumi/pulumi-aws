@@ -130,12 +130,16 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="sourceConfiguration", required=true)
     private Output<ServiceSourceConfigurationArgs> sourceConfiguration;
 
     /**
      * @return The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<ServiceSourceConfigurationArgs> sourceConfiguration() {
@@ -339,6 +343,8 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sourceConfiguration The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -349,6 +355,8 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sourceConfiguration The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

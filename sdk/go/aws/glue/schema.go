@@ -14,7 +14,6 @@ import (
 // Provides a Glue Schema resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// ### CloudWatch Destination
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.Aws.Ses
     /// });
     /// ```
     /// ### Kinesis Destination
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,7 +72,6 @@ namespace Pulumi.Aws.Ses
     /// });
     /// ```
     /// ### SNS Destination
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -156,6 +153,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Send the events to an SNS Topic destination
+        /// 
+        /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         /// </summary>
         [Output("snsDestination")]
         public Output<Outputs.EventDestinationSnsDestination?> SnsDestination { get; private set; } = null!;
@@ -256,6 +255,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Send the events to an SNS Topic destination
+        /// 
+        /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         /// </summary>
         [Input("snsDestination")]
         public Input<Inputs.EventDestinationSnsDestinationArgs>? SnsDestination { get; set; }
@@ -324,6 +325,8 @@ namespace Pulumi.Aws.Ses
 
         /// <summary>
         /// Send the events to an SNS Topic destination
+        /// 
+        /// &gt; **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         /// </summary>
         [Input("snsDestination")]
         public Input<Inputs.EventDestinationSnsDestinationGetArgs>? SnsDestination { get; set; }

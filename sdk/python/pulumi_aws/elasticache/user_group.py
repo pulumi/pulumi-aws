@@ -22,6 +22,8 @@ class UserGroupArgs:
         The set of arguments for constructing a UserGroup resource.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
@@ -49,6 +51,8 @@ class UserGroupArgs:
     def user_group_id(self) -> pulumi.Input[str]:
         """
         The ID of the user group.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_group_id")
 
@@ -97,6 +101,8 @@ class _UserGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
         if arn is not None:
@@ -165,6 +171,8 @@ class _UserGroupState:
     def user_group_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the user group.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_group_id")
 
@@ -199,7 +207,6 @@ class UserGroup(pulumi.CustomResource):
         Provides an ElastiCache user group resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -229,6 +236,8 @@ class UserGroup(pulumi.CustomResource):
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
         ...
@@ -241,7 +250,6 @@ class UserGroup(pulumi.CustomResource):
         Provides an ElastiCache user group resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,6 +340,8 @@ class UserGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -383,6 +393,8 @@ class UserGroup(pulumi.CustomResource):
     def user_group_id(self) -> pulumi.Output[str]:
         """
         The ID of the user group.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_group_id")
 

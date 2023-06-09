@@ -29,6 +29,8 @@ class CostCategoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
         :param pulumi.Input[str] default_value: Default value for the cost category.
         :param pulumi.Input[str] effective_start: The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Unique name for the Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleArgs']]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -87,6 +89,8 @@ class CostCategoryArgs:
     def effective_start(self) -> Optional[pulumi.Input[str]]:
         """
         The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "effective_start")
 
@@ -150,6 +154,8 @@ class _CostCategoryState:
         :param pulumi.Input[str] default_value: Default value for the cost category.
         :param pulumi.Input[str] effective_end: Effective end data of your Cost Category.
         :param pulumi.Input[str] effective_start: The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Unique name for the Cost Category.
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleArgs']]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
@@ -219,6 +225,8 @@ class _CostCategoryState:
     def effective_start(self) -> Optional[pulumi.Input[str]]:
         """
         The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "effective_start")
 
@@ -316,7 +324,6 @@ class CostCategory(pulumi.CustomResource):
         Provides a CE Cost Category.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -369,6 +376,8 @@ class CostCategory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_value: Default value for the cost category.
         :param pulumi.Input[str] effective_start: The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Unique name for the Cost Category.
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
@@ -385,7 +394,6 @@ class CostCategory(pulumi.CustomResource):
         Provides a CE Cost Category.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -510,6 +518,8 @@ class CostCategory(pulumi.CustomResource):
         :param pulumi.Input[str] default_value: Default value for the cost category.
         :param pulumi.Input[str] effective_end: Effective end data of your Cost Category.
         :param pulumi.Input[str] effective_start: The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] name: Unique name for the Cost Category.
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
@@ -562,6 +572,8 @@ class CostCategory(pulumi.CustomResource):
     def effective_start(self) -> pulumi.Output[str]:
         """
         The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "effective_start")
 

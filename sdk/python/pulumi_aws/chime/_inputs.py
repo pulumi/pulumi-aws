@@ -23,6 +23,8 @@ class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs:
                  kms_key_arn: pulumi.Input[str]):
         """
         :param pulumi.Input[str] kms_key_arn: ARN for KMS Key.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
@@ -31,6 +33,8 @@ class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs:
     def kms_key_arn(self) -> pulumi.Input[str]:
         """
         ARN for KMS Key.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "kms_key_arn")
 

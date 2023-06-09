@@ -135,7 +135,6 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         > **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,7 +143,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
             directory_id=aws_directory_service_directory["example"]["id"],
             notes="example",
             target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=data["aws_caller_identity"]["receiver"]["account_id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", shared_directory_id=example_shared_directory.shared_directory_id,
         opts=pulumi.ResourceOptions(provider="awsalternate"))
@@ -174,7 +173,6 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         > **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -183,7 +181,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
             directory_id=aws_directory_service_directory["example"]["id"],
             notes="example",
             target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=data["aws_caller_identity"]["receiver"]["account_id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", shared_directory_id=example_shared_directory.shared_directory_id,
         opts=pulumi.ResourceOptions(provider="awsalternate"))

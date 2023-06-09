@@ -95,6 +95,8 @@ export class ApplicationVersion extends pulumi.CustomResource {
     public readonly key!: pulumi.Output<string>;
     /**
      * Unique name for the this Application Version.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -184,6 +186,8 @@ export interface ApplicationVersionState {
     key?: pulumi.Input<string>;
     /**
      * Unique name for the this Application Version.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -222,6 +226,8 @@ export interface ApplicationVersionArgs {
     key: pulumi.Input<string>;
     /**
      * Unique name for the this Application Version.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

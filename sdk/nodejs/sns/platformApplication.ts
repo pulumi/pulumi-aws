@@ -136,6 +136,8 @@ export class PlatformApplication extends pulumi.CustomResource {
     public readonly successFeedbackRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The sample rate percentage (0-100) of successfully delivered messages.
+     *
+     * The following attributes are needed only when using APNS token credentials:
      */
     public readonly successFeedbackSampleRate!: pulumi.Output<string | undefined>;
 
@@ -254,6 +256,8 @@ export interface PlatformApplicationState {
     successFeedbackRoleArn?: pulumi.Input<string>;
     /**
      * The sample rate percentage (0-100) of successfully delivered messages.
+     *
+     * The following attributes are needed only when using APNS token credentials:
      */
     successFeedbackSampleRate?: pulumi.Input<string>;
 }
@@ -312,6 +316,8 @@ export interface PlatformApplicationArgs {
     successFeedbackRoleArn?: pulumi.Input<string>;
     /**
      * The sample rate percentage (0-100) of successfully delivered messages.
+     *
+     * The following attributes are needed only when using APNS token credentials:
      */
     successFeedbackSampleRate?: pulumi.Input<string>;
 }

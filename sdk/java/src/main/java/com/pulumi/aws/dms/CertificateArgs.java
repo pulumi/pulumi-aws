@@ -19,12 +19,16 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The certificate identifier.
      * 
+     * - Must contain from 1 to 255 alphanumeric characters and hyphens.
+     * 
      */
     @Import(name="certificateId", required=true)
     private Output<String> certificateId;
 
     /**
      * @return The certificate identifier.
+     * 
+     * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      * 
      */
     public Output<String> certificateId() {
@@ -106,6 +110,8 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param certificateId The certificate identifier.
          * 
+         * - Must contain from 1 to 255 alphanumeric characters and hyphens.
+         * 
          * @return builder
          * 
          */
@@ -116,6 +122,8 @@ public final class CertificateArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param certificateId The certificate identifier.
+         * 
+         * - Must contain from 1 to 255 alphanumeric characters and hyphens.
          * 
          * @return builder
          * 

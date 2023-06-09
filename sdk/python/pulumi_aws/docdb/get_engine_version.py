@@ -149,7 +149,6 @@ def get_engine_version(engine: Optional[str] = None,
     Information about a DocumentDB engine version.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -194,7 +193,6 @@ def get_engine_version_output(engine: Optional[pulumi.Input[Optional[str]]] = No
     Information about a DocumentDB engine version.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

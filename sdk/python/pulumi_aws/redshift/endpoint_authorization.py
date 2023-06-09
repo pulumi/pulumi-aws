@@ -231,7 +231,6 @@ class EndpointAuthorization(pulumi.CustomResource):
         Creates a new Amazon Redshift endpoint authorization.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -266,7 +265,6 @@ class EndpointAuthorization(pulumi.CustomResource):
         Creates a new Amazon Redshift endpoint authorization.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -96,6 +96,9 @@ def get_nat_gateways(filters: Optional[Sequence[pulumi.InputType['GetNatGateways
     :param Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired NAT Gateways.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str vpc_id: VPC ID that you want to filter from.
     """
     __args__ = dict()
@@ -125,6 +128,9 @@ def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     :param Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired NAT Gateways.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str vpc_id: VPC ID that you want to filter from.
     """
     ...

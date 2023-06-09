@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Fsx
     /// ### Using a Self-Managed Microsoft Active Directory
     /// 
     /// Additional information for using AWS Directory Service with ONTAP File Systems can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-managed-AD.html).
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

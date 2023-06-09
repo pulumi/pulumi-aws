@@ -120,7 +120,6 @@ def get_application(application_id: Optional[str] = None,
     Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -160,7 +159,6 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
     Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Attachment Routing
-//
 // ```go
 // package main
 //
@@ -42,7 +41,6 @@ import (
 //
 // ```
 // ### Blackhole Routing
-//
 // ```go
 // package main
 //
@@ -89,6 +87,8 @@ type PrefixListReference struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringOutput `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -135,6 +135,8 @@ type prefixListReferenceState struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId *string `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -147,6 +149,8 @@ type PrefixListReferenceState struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringPtrInput
 }
 
@@ -162,6 +166,8 @@ type prefixListReferenceArgs struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -174,6 +180,8 @@ type PrefixListReferenceArgs struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringInput
 }
 
@@ -284,6 +292,8 @@ func (o PrefixListReferenceOutput) TransitGatewayAttachmentId() pulumi.StringPtr
 }
 
 // Identifier of EC2 Transit Gateway Route Table.
+//
+// The following arguments are optional:
 func (o PrefixListReferenceOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrefixListReference) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
 }

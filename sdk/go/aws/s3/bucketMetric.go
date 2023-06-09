@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Add metrics configuration for entire S3 bucket
-//
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //
 // ```
 // ### Add metrics configuration with S3 object filter
-//
 // ```go
 // package main
 //

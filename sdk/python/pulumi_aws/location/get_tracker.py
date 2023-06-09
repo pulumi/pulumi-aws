@@ -144,7 +144,6 @@ def get_tracker(tags: Optional[Mapping[str, str]] = None,
     Retrieve information about a Location Service Tracker.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -182,7 +181,6 @@ def get_tracker_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]]
     Retrieve information about a Location Service Tracker.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

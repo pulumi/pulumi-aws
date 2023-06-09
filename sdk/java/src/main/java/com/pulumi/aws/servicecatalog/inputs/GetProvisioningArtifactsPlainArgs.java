@@ -32,12 +32,16 @@ public final class GetProvisioningArtifactsPlainArgs extends com.pulumi.resource
     /**
      * Product identifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="productId", required=true)
     private String productId;
 
     /**
      * @return Product identifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String productId() {
@@ -82,6 +86,8 @@ public final class GetProvisioningArtifactsPlainArgs extends com.pulumi.resource
 
         /**
          * @param productId Product identifier.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

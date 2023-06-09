@@ -16,7 +16,6 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Example Usage
     /// ### Create Empty Stored iSCSI Volume
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.StorageGateway
     /// });
     /// ```
     /// ### Create Stored iSCSI Volume From Snapshot
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

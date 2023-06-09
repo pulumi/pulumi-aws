@@ -14,7 +14,6 @@ import (
 // Provides a Route53 Resolver rule association.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Chime
     /// Enable origination settings to control inbound calling to your SIP infrastructure.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

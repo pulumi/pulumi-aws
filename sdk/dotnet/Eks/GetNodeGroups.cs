@@ -13,12 +13,66 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const exampleNodeGroups = aws.eks.getNodeGroups({
+        ///     clusterName: "example",
+        /// });
+        /// const exampleNodeGroup = exampleNodeGroups.then(exampleNodeGroups =&gt; .map(([, ]) =&gt; (aws.eks.getNodeGroup({
+        ///     clusterName: "example",
+        ///     nodeGroupName: __value,
+        /// }))));
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example_node_groups = aws.eks.get_node_groups(cluster_name="example")
+        /// example_node_group = [aws.eks.get_node_group(cluster_name="example",
+        ///     node_group_name=__value) for __key, __value in example_node_groups.names]
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNodeGroupsResult> InvokeAsync(GetNodeGroupsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const exampleNodeGroups = aws.eks.getNodeGroups({
+        ///     clusterName: "example",
+        /// });
+        /// const exampleNodeGroup = exampleNodeGroups.then(exampleNodeGroups =&gt; .map(([, ]) =&gt; (aws.eks.getNodeGroup({
+        ///     clusterName: "example",
+        ///     nodeGroupName: __value,
+        /// }))));
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example_node_groups = aws.eks.get_node_groups(cluster_name="example")
+        /// example_node_group = [aws.eks.get_node_group(cluster_name="example",
+        ///     node_group_name=__value) for __key, __value in example_node_groups.names]
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNodeGroupsResult> Invoke(GetNodeGroupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsInvokeArgs(), options.WithDefaults());

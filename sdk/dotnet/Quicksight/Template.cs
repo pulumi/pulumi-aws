@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Example Usage
     /// ### From Source Template
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -124,6 +123,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// A description of the current template version being created/updated.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("versionDescription")]
         public Output<string> VersionDescription { get; private set; } = null!;
@@ -230,6 +231,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// A description of the current template version being created/updated.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("versionDescription", required: true)]
         public Input<string> VersionDescription { get; set; } = null!;
@@ -334,6 +337,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// A description of the current template version being created/updated.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }

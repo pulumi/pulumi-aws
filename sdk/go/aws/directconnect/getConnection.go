@@ -13,7 +13,6 @@ import (
 // Retrieve information about a Direct Connect Connection.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Eks
     /// Manages an EKS Identity Provider Configuration.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

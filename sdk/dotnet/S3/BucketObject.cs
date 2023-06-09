@@ -14,7 +14,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### Encrypting with KMS Key
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,7 +47,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Server Side Encryption with S3 Default Master Key
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,7 +74,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Server Side Encryption with AWS-Managed Key
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -104,7 +101,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### S3 Object Lock
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -244,6 +240,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Name of the object once it is in the bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -322,6 +320,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        /// 
+        /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
         /// </summary>
         [Output("websiteRedirect")]
         public Output<string?> WebsiteRedirect { get; private set; } = null!;
@@ -446,6 +446,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Name of the object once it is in the bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -524,6 +526,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        /// 
+        /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
         /// </summary>
         [Input("websiteRedirect")]
         public Input<string>? WebsiteRedirect { get; set; }
@@ -610,6 +614,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Name of the object once it is in the bucket.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -706,6 +712,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        /// 
+        /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
         /// </summary>
         [Input("websiteRedirect")]
         public Input<string>? WebsiteRedirect { get; set; }

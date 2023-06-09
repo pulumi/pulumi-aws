@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -85,6 +84,8 @@ type DomainSamlOptions struct {
 	pulumi.CustomResourceState
 
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions DomainSamlOptionsSamlOptionsPtrOutput `pulumi:"samlOptions"`
@@ -123,6 +124,8 @@ func GetDomainSamlOptions(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DomainSamlOptions resources.
 type domainSamlOptionsState struct {
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
 	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions *DomainSamlOptionsSamlOptions `pulumi:"samlOptions"`
@@ -130,6 +133,8 @@ type domainSamlOptionsState struct {
 
 type DomainSamlOptionsState struct {
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
 	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions DomainSamlOptionsSamlOptionsPtrInput
@@ -141,6 +146,8 @@ func (DomainSamlOptionsState) ElementType() reflect.Type {
 
 type domainSamlOptionsArgs struct {
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName string `pulumi:"domainName"`
 	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions *DomainSamlOptionsSamlOptions `pulumi:"samlOptions"`
@@ -149,6 +156,8 @@ type domainSamlOptionsArgs struct {
 // The set of arguments for constructing a DomainSamlOptions resource.
 type DomainSamlOptionsArgs struct {
 	// Name of the domain.
+	//
+	// The following arguments are optional:
 	DomainName pulumi.StringInput
 	// SAML authentication options for an AWS OpenSearch Domain.
 	SamlOptions DomainSamlOptionsSamlOptionsPtrInput
@@ -242,6 +251,8 @@ func (o DomainSamlOptionsOutput) ToDomainSamlOptionsOutputWithContext(ctx contex
 }
 
 // Name of the domain.
+//
+// The following arguments are optional:
 func (o DomainSamlOptionsOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Shield
     /// 
     /// ## Example Usage
     /// ### Create protection group for all resources
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,7 +34,6 @@ namespace Pulumi.Aws.Shield
     /// });
     /// ```
     /// ### Create protection group for arbitrary number of resources
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,7 +88,6 @@ namespace Pulumi.Aws.Shield
     /// });
     /// ```
     /// ### Create protection group for a type of resource
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

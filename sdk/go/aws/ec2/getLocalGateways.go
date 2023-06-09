@@ -15,7 +15,6 @@ import (
 // ## Example Usage
 //
 // The following example retrieves Local Gateways with a resource tag of `service` set to `production`.
-//
 // ```go
 // package main
 //
@@ -54,6 +53,9 @@ func GetLocalGateways(ctx *pulumi.Context, args *GetLocalGatewaysArgs, opts ...p
 // A collection of arguments for invoking getLocalGateways.
 type GetLocalGatewaysArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetLocalGatewaysFilter `pulumi:"filters"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local_gateways.
@@ -86,6 +88,9 @@ func GetLocalGatewaysOutput(ctx *pulumi.Context, args GetLocalGatewaysOutputArgs
 // A collection of arguments for invoking getLocalGateways.
 type GetLocalGatewaysOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetLocalGatewaysFilterArrayInput `pulumi:"filters"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local_gateways.

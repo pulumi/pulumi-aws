@@ -22,6 +22,22 @@ namespace Pulumi.Aws.Sagemaker
         /// 
         /// Basic usage:
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const test = aws.sagemaker.getPrebuiltEcrImage({
+        ///     imageTag: "2.2-1.0.11.0",
+        ///     repositoryName: "sagemaker-scikit-learn",
+        /// });
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// test = aws.sagemaker.get_prebuilt_ecr_image(image_tag="2.2-1.0.11.0",
+        ///     repository_name="sagemaker-scikit-learn")
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,6 +53,65 @@ namespace Pulumi.Aws.Sagemaker
         ///     });
         /// 
         /// });
+        /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		_, err := sagemaker.GetPrebuiltEcrImage(ctx, &amp;sagemaker.GetPrebuiltEcrImageArgs{
+        /// 			ImageTag:       pulumi.StringRef("2.2-1.0.11.0"),
+        /// 			RepositoryName: "sagemaker-scikit-learn",
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.sagemaker.SagemakerFunctions;
+        /// import com.pulumi.aws.sagemaker.inputs.GetPrebuiltEcrImageArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
+        ///             .imageTag("2.2-1.0.11.0")
+        ///             .repositoryName("sagemaker-scikit-learn")
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// variables:
+        ///   test:
+        ///     fn::invoke:
+        ///       Function: aws:sagemaker:getPrebuiltEcrImage
+        ///       Arguments:
+        ///         imageTag: 2.2-1.0.11.0
+        ///         repositoryName: sagemaker-scikit-learn
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,6 +130,22 @@ namespace Pulumi.Aws.Sagemaker
         /// 
         /// Basic usage:
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const test = aws.sagemaker.getPrebuiltEcrImage({
+        ///     imageTag: "2.2-1.0.11.0",
+        ///     repositoryName: "sagemaker-scikit-learn",
+        /// });
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// test = aws.sagemaker.get_prebuilt_ecr_image(image_tag="2.2-1.0.11.0",
+        ///     repository_name="sagemaker-scikit-learn")
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -70,6 +161,65 @@ namespace Pulumi.Aws.Sagemaker
         ///     });
         /// 
         /// });
+        /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		_, err := sagemaker.GetPrebuiltEcrImage(ctx, &amp;sagemaker.GetPrebuiltEcrImageArgs{
+        /// 			ImageTag:       pulumi.StringRef("2.2-1.0.11.0"),
+        /// 			RepositoryName: "sagemaker-scikit-learn",
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.sagemaker.SagemakerFunctions;
+        /// import com.pulumi.aws.sagemaker.inputs.GetPrebuiltEcrImageArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var test = SagemakerFunctions.getPrebuiltEcrImage(GetPrebuiltEcrImageArgs.builder()
+        ///             .imageTag("2.2-1.0.11.0")
+        ///             .repositoryName("sagemaker-scikit-learn")
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// variables:
+        ///   test:
+        ///     fn::invoke:
+        ///       Function: aws:sagemaker:getPrebuiltEcrImage
+        ///       Arguments:
+        ///         imageTag: 2.2-1.0.11.0
+        ///         repositoryName: sagemaker-scikit-learn
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### By ARN
-//
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //
 // ```
 // ### By Name
-//
 // ```go
 // package main
 //

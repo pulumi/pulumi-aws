@@ -21,73 +21,6 @@ import (
 //
 // ## Example Usage
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
-//				DefaultRouteTableId: pulumi.Any(aws_vpc.Example.Default_route_table_id),
-//				Routes: ec2.DefaultRouteTableRouteArray{
-//					&ec2.DefaultRouteTableRouteArgs{
-//						CidrBlock: pulumi.String("10.0.1.0/24"),
-//						GatewayId: pulumi.Any(aws_internet_gateway.Example.Id),
-//					},
-//					&ec2.DefaultRouteTableRouteArgs{
-//						Ipv6CidrBlock:       pulumi.String("::/0"),
-//						EgressOnlyGatewayId: pulumi.Any(aws_egress_only_internet_gateway.Example.Id),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// To subsequently remove all managed routes:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewDefaultRouteTable(ctx, "example", &ec2.DefaultRouteTableArgs{
-//				DefaultRouteTableId: pulumi.Any(aws_vpc.Example.Default_route_table_id),
-//				Routes:              ec2.DefaultRouteTableRouteArray{},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Default VPC route tables can be imported using the `vpc_id`, e.g.,
@@ -103,6 +36,8 @@ type DefaultRouteTable struct {
 	// The ARN of the route table.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the default route table.
+	//
+	// The following arguments are optional:
 	DefaultRouteTableId pulumi.StringOutput `pulumi:"defaultRouteTableId"`
 	// ID of the AWS account that owns the route table.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
@@ -153,6 +88,8 @@ type defaultRouteTableState struct {
 	// The ARN of the route table.
 	Arn *string `pulumi:"arn"`
 	// ID of the default route table.
+	//
+	// The following arguments are optional:
 	DefaultRouteTableId *string `pulumi:"defaultRouteTableId"`
 	// ID of the AWS account that owns the route table.
 	OwnerId *string `pulumi:"ownerId"`
@@ -172,6 +109,8 @@ type DefaultRouteTableState struct {
 	// The ARN of the route table.
 	Arn pulumi.StringPtrInput
 	// ID of the default route table.
+	//
+	// The following arguments are optional:
 	DefaultRouteTableId pulumi.StringPtrInput
 	// ID of the AWS account that owns the route table.
 	OwnerId pulumi.StringPtrInput
@@ -193,6 +132,8 @@ func (DefaultRouteTableState) ElementType() reflect.Type {
 
 type defaultRouteTableArgs struct {
 	// ID of the default route table.
+	//
+	// The following arguments are optional:
 	DefaultRouteTableId string `pulumi:"defaultRouteTableId"`
 	// List of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
@@ -205,6 +146,8 @@ type defaultRouteTableArgs struct {
 // The set of arguments for constructing a DefaultRouteTable resource.
 type DefaultRouteTableArgs struct {
 	// ID of the default route table.
+	//
+	// The following arguments are optional:
 	DefaultRouteTableId pulumi.StringInput
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
@@ -307,6 +250,8 @@ func (o DefaultRouteTableOutput) Arn() pulumi.StringOutput {
 }
 
 // ID of the default route table.
+//
+// The following arguments are optional:
 func (o DefaultRouteTableOutput) DefaultRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringOutput { return v.DefaultRouteTableId }).(pulumi.StringOutput)
 }

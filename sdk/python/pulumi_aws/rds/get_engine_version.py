@@ -290,7 +290,6 @@ def get_engine_version(default_only: Optional[bool] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -302,7 +301,6 @@ def get_engine_version(default_only: Optional[bool] = None,
         ])
     ```
     ### With `filter`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -375,7 +373,6 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -387,7 +384,6 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
         ])
     ```
     ### With `filter`
-
     ```python
     import pulumi
     import pulumi_aws as aws

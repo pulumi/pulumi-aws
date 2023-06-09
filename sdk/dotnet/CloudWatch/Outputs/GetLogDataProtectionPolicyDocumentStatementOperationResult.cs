@@ -19,6 +19,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         public readonly Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditResult? Audit;
         /// <summary>
         /// Configures the masking of sensitive data.
+        /// 
+        /// &gt; Every policy statement must specify exactly one operation.
         /// </summary>
         public readonly Outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult? Deidentify;
 

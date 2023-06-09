@@ -14,7 +14,6 @@ import (
 // Manages a VPC Endpoint Route Table Association
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

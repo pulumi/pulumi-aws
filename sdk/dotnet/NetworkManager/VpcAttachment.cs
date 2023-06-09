@@ -14,7 +14,6 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -133,6 +132,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The ARN of the VPC.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vpcArn")]
         public Output<string> VpcArn { get; private set; } = null!;
@@ -221,6 +222,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The ARN of the VPC.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcArn", required: true)]
         public Input<string> VpcArn { get; set; } = null!;
@@ -337,6 +340,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The ARN of the VPC.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcArn")]
         public Input<string>? VpcArn { get; set; }

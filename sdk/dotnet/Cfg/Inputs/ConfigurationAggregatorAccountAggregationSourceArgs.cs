@@ -35,6 +35,8 @@ namespace Pulumi.Aws.Cfg.Inputs
 
         /// <summary>
         /// List of source regions being aggregated.
+        /// 
+        /// Either `regions` or `all_regions` (as true) must be specified.
         /// </summary>
         public InputList<string> Regions
         {

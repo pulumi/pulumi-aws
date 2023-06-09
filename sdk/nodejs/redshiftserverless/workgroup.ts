@@ -108,6 +108,8 @@ export class Workgroup extends pulumi.CustomResource {
     public /*out*/ readonly workgroupId!: pulumi.Output<string>;
     /**
      * The name of the workgroup.
+     *
+     * The following arguments are optional:
      */
     public readonly workgroupName!: pulumi.Output<string>;
 
@@ -218,6 +220,8 @@ export interface WorkgroupState {
     workgroupId?: pulumi.Input<string>;
     /**
      * The name of the workgroup.
+     *
+     * The following arguments are optional:
      */
     workgroupName?: pulumi.Input<string>;
 }
@@ -260,6 +264,8 @@ export interface WorkgroupArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workgroup.
+     *
+     * The following arguments are optional:
      */
     workgroupName: pulumi.Input<string>;
 }

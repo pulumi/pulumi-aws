@@ -303,7 +303,6 @@ class Database(pulumi.CustomResource):
         Provides an Athena database.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,7 +358,6 @@ class Database(pulumi.CustomResource):
         Provides an Athena database.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

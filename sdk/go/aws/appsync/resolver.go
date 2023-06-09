@@ -14,7 +14,6 @@ import (
 // Provides an AppSync Resolver.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -87,7 +86,6 @@ import (
 //
 // ```
 // ### JS
-//
 // ```go
 // package main
 //

@@ -24,6 +24,8 @@ public final class UserName {
     /**
      * @return The given name of the user.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String givenName;
     /**
@@ -59,6 +61,8 @@ public final class UserName {
     }
     /**
      * @return The given name of the user.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String givenName() {

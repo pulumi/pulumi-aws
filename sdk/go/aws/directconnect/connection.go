@@ -14,89 +14,6 @@ import (
 // Provides a Connection of Direct Connect.
 //
 // ## Example Usage
-// ### Create a connection
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewConnection(ctx, "hoge", &directconnect.ConnectionArgs{
-//				Bandwidth: pulumi.String("1Gbps"),
-//				Location:  pulumi.String("EqDC2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Request a MACsec-capable connection
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewConnection(ctx, "example", &directconnect.ConnectionArgs{
-//				Bandwidth:     pulumi.String("10Gbps"),
-//				Location:      pulumi.String("EqDA2"),
-//				RequestMacsec: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Configure encryption mode for MACsec-capable connections
-//
-// > **NOTE:** You can only specify the `encryptionMode` argument once the connection is in an `Available` state.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewConnection(ctx, "example", &directconnect.ConnectionArgs{
-//				Bandwidth:      pulumi.String("10Gbps"),
-//				EncryptionMode: pulumi.String("must_encrypt"),
-//				Location:       pulumi.String("EqDC2"),
-//				RequestMacsec:  pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -137,6 +54,8 @@ type Connection struct {
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+	//
+	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
 	RequestMacsec pulumi.BoolPtrOutput `pulumi:"requestMacsec"`
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
@@ -210,6 +129,8 @@ type connectionState struct {
 	// The name of the service provider associated with the connection.
 	ProviderName *string `pulumi:"providerName"`
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+	//
+	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
 	RequestMacsec *bool `pulumi:"requestMacsec"`
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
@@ -249,6 +170,8 @@ type ConnectionState struct {
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringPtrInput
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+	//
+	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
 	RequestMacsec pulumi.BoolPtrInput
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy pulumi.BoolPtrInput
@@ -276,6 +199,8 @@ type connectionArgs struct {
 	// The name of the service provider associated with the connection.
 	ProviderName *string `pulumi:"providerName"`
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+	//
+	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
 	RequestMacsec *bool `pulumi:"requestMacsec"`
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
@@ -296,6 +221,8 @@ type ConnectionArgs struct {
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringPtrInput
 	// Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+	//
+	// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
 	RequestMacsec pulumi.BoolPtrInput
 	// Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
 	SkipDestroy pulumi.BoolPtrInput
@@ -456,6 +383,8 @@ func (o ConnectionOutput) ProviderName() pulumi.StringOutput {
 }
 
 // Boolean value indicating whether you want the connection to support MAC Security (MACsec). MAC Security (MACsec) is only available on dedicated connections. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for more information about MAC Security (MACsec) prerequisites. Default value: `false`.
+//
+// > **NOTE:** Changing the value of `requestMacsec` will cause the resource to be destroyed and re-created.
 func (o ConnectionOutput) RequestMacsec() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.BoolPtrOutput { return v.RequestMacsec }).(pulumi.BoolPtrOutput)
 }

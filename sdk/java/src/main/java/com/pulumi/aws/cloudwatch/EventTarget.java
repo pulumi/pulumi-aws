@@ -753,12 +753,16 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
     /**
      * The name of the rule you want to add targets to.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="rule", refs={String.class}, tree="[0]")
     private Output<String> rule;
 
     /**
      * @return The name of the rule you want to add targets to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> rule() {

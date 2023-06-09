@@ -45,6 +45,8 @@ public final class ListenerRuleCondition {
     /**
      * @return Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
      * 
+     * &gt; **NOTE::** Exactly one of `host_header`, `http_header`, `http_request_method`, `path_pattern`, `query_string` or `source_ip` must be set per condition.
+     * 
      */
     private @Nullable ListenerRuleConditionSourceIp sourceIp;
 
@@ -86,6 +88,8 @@ public final class ListenerRuleCondition {
     }
     /**
      * @return Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
+     * 
+     * &gt; **NOTE::** Exactly one of `host_header`, `http_header`, `http_request_method`, `path_pattern`, `query_string` or `source_ip` must be set per condition.
      * 
      */
     public Optional<ListenerRuleConditionSourceIp> sourceIp() {

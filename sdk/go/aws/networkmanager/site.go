@@ -14,7 +14,6 @@ import (
 // Creates a site in a global network.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

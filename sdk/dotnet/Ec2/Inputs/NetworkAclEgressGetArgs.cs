@@ -33,6 +33,8 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// The ICMP type code to be used. Default 0.
+        /// 
+        /// &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         /// </summary>
         [Input("icmpCode")]
         public Input<int>? IcmpCode { get; set; }

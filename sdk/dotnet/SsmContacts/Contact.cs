@@ -14,7 +14,6 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.SsmContacts
     /// });
     /// ```
     /// ### Usage With All Fields
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -111,6 +109,8 @@ namespace Pulumi.Aws.SsmContacts
         /// <summary>
         /// The type of contact engaged. A single contact is type PERSONAL and an escalation
         /// plan is type ESCALATION.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -188,6 +188,8 @@ namespace Pulumi.Aws.SsmContacts
         /// <summary>
         /// The type of contact engaged. A single contact is type PERSONAL and an escalation
         /// plan is type ESCALATION.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -245,6 +247,8 @@ namespace Pulumi.Aws.SsmContacts
         /// <summary>
         /// The type of contact engaged. A single contact is type PERSONAL and an escalation
         /// plan is type ESCALATION.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

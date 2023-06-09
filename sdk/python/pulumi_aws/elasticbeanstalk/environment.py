@@ -712,7 +712,6 @@ class Environment(pulumi.CustomResource):
         `production`.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -735,7 +734,6 @@ class Environment(pulumi.CustomResource):
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 
         ### Example With Options
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -813,7 +811,6 @@ class Environment(pulumi.CustomResource):
         `production`.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -836,7 +833,6 @@ class Environment(pulumi.CustomResource):
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 
         ### Example With Options
-
         ```python
         import pulumi
         import pulumi_aws as aws

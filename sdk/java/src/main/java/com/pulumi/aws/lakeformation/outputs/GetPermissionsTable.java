@@ -20,6 +20,8 @@ public final class GetPermissionsTable {
     /**
      * @return Name of the database for the table. Unique to a Data Catalog.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String databaseName;
     /**
@@ -43,6 +45,8 @@ public final class GetPermissionsTable {
     }
     /**
      * @return Name of the database for the table. Unique to a Data Catalog.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String databaseName() {

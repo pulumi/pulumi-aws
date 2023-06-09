@@ -88,6 +88,8 @@ export class Multiplex extends pulumi.CustomResource {
     public readonly multiplexSettings!: pulumi.Output<outputs.medialive.MultiplexMultiplexSettings | undefined>;
     /**
      * name of Multiplex.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -156,6 +158,8 @@ export interface MultiplexState {
     multiplexSettings?: pulumi.Input<inputs.medialive.MultiplexMultiplexSettings>;
     /**
      * name of Multiplex.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -183,6 +187,8 @@ export interface MultiplexArgs {
     multiplexSettings?: pulumi.Input<inputs.medialive.MultiplexMultiplexSettings>;
     /**
      * name of Multiplex.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

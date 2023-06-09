@@ -15,7 +15,6 @@ import (
 // > **NOTE:** Removing this resource disables serial console access.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

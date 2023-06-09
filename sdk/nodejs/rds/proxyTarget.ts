@@ -93,6 +93,8 @@ export class ProxyTarget extends pulumi.CustomResource {
 
     /**
      * DB cluster identifier.
+     *
+     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      */
     public readonly dbClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -185,6 +187,8 @@ export class ProxyTarget extends pulumi.CustomResource {
 export interface ProxyTargetState {
     /**
      * DB cluster identifier.
+     *
+     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      */
     dbClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -231,6 +235,8 @@ export interface ProxyTargetState {
 export interface ProxyTargetArgs {
     /**
      * DB cluster identifier.
+     *
+     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      */
     dbClusterIdentifier?: pulumi.Input<string>;
     /**

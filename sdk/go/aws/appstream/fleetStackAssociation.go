@@ -14,7 +14,6 @@ import (
 // Manages an AppStream Fleet Stack association.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

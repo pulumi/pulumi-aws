@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// ## Example Usage
     /// ### Self-Signed Root Certificate Authority Certificate
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,7 +63,6 @@ namespace Pulumi.Aws.Acmpca
     /// ### Certificate for Subordinate Certificate Authority
     /// 
     /// Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

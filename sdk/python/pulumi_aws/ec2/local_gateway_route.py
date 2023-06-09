@@ -133,7 +133,6 @@ class LocalGatewayRoute(pulumi.CustomResource):
         Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,7 +167,6 @@ class LocalGatewayRoute(pulumi.CustomResource):
         Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

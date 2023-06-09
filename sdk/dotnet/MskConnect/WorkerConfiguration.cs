@@ -14,7 +14,6 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// ## Example Usage
     /// ### Basic configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,6 +70,8 @@ namespace Pulumi.Aws.MskConnect
 
         /// <summary>
         /// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("propertiesFileContent")]
         public Output<string> PropertiesFileContent { get; private set; } = null!;
@@ -135,6 +136,8 @@ namespace Pulumi.Aws.MskConnect
 
         /// <summary>
         /// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("propertiesFileContent", required: true)]
         public Input<string> PropertiesFileContent { get; set; } = null!;
@@ -173,6 +176,8 @@ namespace Pulumi.Aws.MskConnect
 
         /// <summary>
         /// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("propertiesFileContent")]
         public Input<string>? PropertiesFileContent { get; set; }

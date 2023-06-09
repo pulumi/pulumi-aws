@@ -27,6 +27,8 @@ namespace Pulumi.Aws.Mq.Outputs
         public readonly string Password;
         /// <summary>
         /// Username of the user.
+        /// 
+        /// &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         /// </summary>
         public readonly string Username;
 

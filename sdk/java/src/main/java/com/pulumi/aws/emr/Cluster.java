@@ -513,12 +513,104 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * JSON string for supplying list of configurations for the EMR cluster.
      * 
+     * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.Cluster;
+     * import com.pulumi.aws.emr.ClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
+     *             .configurationsJson(&#34;&#34;&#34;
+     * [
+     * {
+     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
+     * &#34;Configurations&#34;: [
+     * {
+     * &#34;Classification&#34;: &#34;export&#34;,
+     * &#34;Properties&#34;: {
+     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * }
+     * }
+     * ],
+     * &#34;Properties&#34;: {}
+     * }
+     * ]
+     * 
+     *             &#34;&#34;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     @Export(name="configurationsJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurationsJson;
 
     /**
      * @return JSON string for supplying list of configurations for the EMR cluster.
+     * 
+     * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.Cluster;
+     * import com.pulumi.aws.emr.ClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
+     *             .configurationsJson(&#34;&#34;&#34;
+     * [
+     * {
+     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
+     * &#34;Configurations&#34;: [
+     * {
+     * &#34;Classification&#34;: &#34;export&#34;,
+     * &#34;Properties&#34;: {
+     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * }
+     * }
+     * ],
+     * &#34;Properties&#34;: {}
+     * }
+     * ]
+     * 
+     *             &#34;&#34;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public Output<Optional<String>> configurationsJson() {
@@ -779,12 +871,16 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="serviceRole", refs={String.class}, tree="[0]")
     private Output<String> serviceRole;
 
     /**
      * @return IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> serviceRole() {

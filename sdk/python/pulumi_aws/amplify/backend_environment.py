@@ -183,7 +183,6 @@ class BackendEnvironment(pulumi.CustomResource):
         Provides an Amplify Backend Environment resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,7 +220,6 @@ class BackendEnvironment(pulumi.CustomResource):
         Provides an Amplify Backend Environment resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

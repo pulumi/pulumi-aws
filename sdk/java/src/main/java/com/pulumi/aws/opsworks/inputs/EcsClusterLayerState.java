@@ -314,12 +314,20 @@ public final class EcsClusterLayerState extends com.pulumi.resources.ResourceArg
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * The following extra optional arguments, all lists of Chef recipe names, allow
+     * custom Chef recipes to be applied to layer instances at the five different
+     * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * The following extra optional arguments, all lists of Chef recipe names, allow
+     * custom Chef recipes to be applied to layer instances at the five different
+     * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -849,6 +857,10 @@ public final class EcsClusterLayerState extends com.pulumi.resources.ResourceArg
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
+         * The following extra optional arguments, all lists of Chef recipe names, allow
+         * custom Chef recipes to be applied to layer instances at the five different
+         * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
+         * 
          * @return builder
          * 
          */
@@ -859,6 +871,10 @@ public final class EcsClusterLayerState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param tags A mapping of tags to assign to the resource.
+         * 
+         * The following extra optional arguments, all lists of Chef recipe names, allow
+         * custom Chef recipes to be applied to layer instances at the five different
+         * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
          * 
          * @return builder
          * 

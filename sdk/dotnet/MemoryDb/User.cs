@@ -16,7 +16,6 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,6 +98,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// Name of the MemoryDB user. Up to 40 characters.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -175,6 +176,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// Name of the MemoryDB user. Up to 40 characters.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -237,6 +240,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// Name of the MemoryDB user. Up to 40 characters.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

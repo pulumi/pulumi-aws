@@ -48,12 +48,16 @@ public final class MailFromArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="mailFromDomain", required=true)
     private Output<String> mailFromDomain;
 
     /**
      * @return Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> mailFromDomain() {
@@ -131,6 +135,8 @@ public final class MailFromArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param mailFromDomain Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -141,6 +147,8 @@ public final class MailFromArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param mailFromDomain Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

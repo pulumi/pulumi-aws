@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Lambda
     /// For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -91,6 +90,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// The Lambda alias' route configuration settings. Fields documented below
+        /// 
+        /// For **routing_config** the following attributes are supported:
         /// </summary>
         [Output("routingConfig")]
         public Output<Outputs.AliasRoutingConfig?> RoutingConfig { get; private set; } = null!;
@@ -167,6 +168,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// The Lambda alias' route configuration settings. Fields documented below
+        /// 
+        /// For **routing_config** the following attributes are supported:
         /// </summary>
         [Input("routingConfig")]
         public Input<Inputs.AliasRoutingConfigArgs>? RoutingConfig { get; set; }
@@ -217,6 +220,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// The Lambda alias' route configuration settings. Fields documented below
+        /// 
+        /// For **routing_config** the following attributes are supported:
         /// </summary>
         [Input("routingConfig")]
         public Input<Inputs.AliasRoutingConfigGetArgs>? RoutingConfig { get; set; }

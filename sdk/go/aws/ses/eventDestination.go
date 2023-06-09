@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### CloudWatch Destination
-//
 // ```go
 // package main
 //
@@ -52,7 +51,6 @@ import (
 //
 // ```
 // ### Kinesis Destination
-//
 // ```go
 // package main
 //
@@ -86,7 +84,6 @@ import (
 //
 // ```
 // ### SNS Destination
-//
 // ```go
 // package main
 //
@@ -146,6 +143,8 @@ type EventDestination struct {
 	// The name of the event destination
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Send the events to an SNS Topic destination
+	//
+	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
 	SnsDestination EventDestinationSnsDestinationPtrOutput `pulumi:"snsDestination"`
 }
 
@@ -199,6 +198,8 @@ type eventDestinationState struct {
 	// The name of the event destination
 	Name *string `pulumi:"name"`
 	// Send the events to an SNS Topic destination
+	//
+	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
 	SnsDestination *EventDestinationSnsDestination `pulumi:"snsDestination"`
 }
 
@@ -218,6 +219,8 @@ type EventDestinationState struct {
 	// The name of the event destination
 	Name pulumi.StringPtrInput
 	// Send the events to an SNS Topic destination
+	//
+	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
 	SnsDestination EventDestinationSnsDestinationPtrInput
 }
 
@@ -239,6 +242,8 @@ type eventDestinationArgs struct {
 	// The name of the event destination
 	Name *string `pulumi:"name"`
 	// Send the events to an SNS Topic destination
+	//
+	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
 	SnsDestination *EventDestinationSnsDestination `pulumi:"snsDestination"`
 }
 
@@ -257,6 +262,8 @@ type EventDestinationArgs struct {
 	// The name of the event destination
 	Name pulumi.StringPtrInput
 	// Send the events to an SNS Topic destination
+	//
+	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
 	SnsDestination EventDestinationSnsDestinationPtrInput
 }
 
@@ -385,6 +392,8 @@ func (o EventDestinationOutput) Name() pulumi.StringOutput {
 }
 
 // Send the events to an SNS Topic destination
+//
+// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
 func (o EventDestinationOutput) SnsDestination() EventDestinationSnsDestinationPtrOutput {
 	return o.ApplyT(func(v *EventDestination) EventDestinationSnsDestinationPtrOutput { return v.SnsDestination }).(EventDestinationSnsDestinationPtrOutput)
 }

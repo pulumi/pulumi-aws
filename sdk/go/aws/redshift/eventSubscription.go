@@ -14,7 +14,6 @@ import (
 // Provides a Redshift event subscription resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

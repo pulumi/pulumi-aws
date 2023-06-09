@@ -101,7 +101,6 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         Attaches Principal to AWS IoT Thing.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -130,7 +129,6 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         Attaches Principal to AWS IoT Thing.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

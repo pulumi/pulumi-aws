@@ -39,6 +39,8 @@ export interface GetParameterArgs {
     name: string;
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
+     *
+     * In addition to all arguments above, the following attributes are exported:
      */
     withDecryption?: boolean;
 }
@@ -88,6 +90,8 @@ export interface GetParameterOutputArgs {
     name: pulumi.Input<string>;
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
+     *
+     * In addition to all arguments above, the following attributes are exported:
      */
     withDecryption?: pulumi.Input<boolean>;
 }

@@ -104,7 +104,6 @@ class RestApiPolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -155,7 +154,6 @@ class RestApiPolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws

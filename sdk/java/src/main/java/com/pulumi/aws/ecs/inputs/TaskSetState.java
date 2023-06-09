@@ -266,12 +266,16 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="taskDefinition")
     private @Nullable Output<String> taskDefinition;
 
     /**
      * @return The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> taskDefinition() {
@@ -725,6 +729,8 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param taskDefinition The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -735,6 +741,8 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param taskDefinition The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

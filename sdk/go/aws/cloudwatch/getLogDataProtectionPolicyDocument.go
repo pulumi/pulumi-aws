@@ -15,73 +15,6 @@ import (
 // > For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 //
 // ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogDataProtectionPolicyDocument, err := cloudwatch.GetLogDataProtectionPolicyDocument(ctx, &cloudwatch.GetLogDataProtectionPolicyDocumentArgs{
-//				Name: "Example",
-//				Statements: []cloudwatch.GetLogDataProtectionPolicyDocumentStatement{
-//					{
-//						Sid: pulumi.StringRef("Audit"),
-//						DataIdentifiers: []string{
-//							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-//							"arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-//						},
-//						Operation: {
-//							Audit: {
-//								FindingsDestination: {
-//									CloudwatchLogs: {
-//										LogGroup: aws_cloudwatch_log_group.Audit.Name,
-//									},
-//									Firehose: {
-//										DeliveryStream: aws_kinesis_firehose_delivery_stream.Audit.Name,
-//									},
-//									S3: {
-//										Bucket: aws_s3_bucket.Audit.Bucket,
-//									},
-//								},
-//							},
-//						},
-//					},
-//					{
-//						Sid: pulumi.StringRef("Deidentify"),
-//						DataIdentifiers: []string{
-//							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-//							"arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-//						},
-//						Operation: {
-//							Deidentify: {
-//								MaskConfig: nil,
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogDataProtectionPolicy(ctx, "exampleLogDataProtectionPolicy", &cloudwatch.LogDataProtectionPolicyArgs{
-//				LogGroupName:   pulumi.Any(aws_cloudwatch_log_group.Example.Name),
-//				PolicyDocument: *pulumi.String(exampleLogDataProtectionPolicyDocument.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetLogDataProtectionPolicyDocument(ctx *pulumi.Context, args *GetLogDataProtectionPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetLogDataProtectionPolicyDocumentResult, error) {
 	var rv GetLogDataProtectionPolicyDocumentResult
 	err := ctx.Invoke("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args, &rv, opts...)
@@ -97,6 +30,10 @@ type GetLogDataProtectionPolicyDocumentArgs struct {
 	// The name of the data protection policy document.
 	Name string `pulumi:"name"`
 	// Configures the data protection policy.
+	//
+	// > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+	//
+	// The following arguments are optional:
 	Statements []GetLogDataProtectionPolicyDocumentStatement `pulumi:"statements"`
 	Version    *string                                       `pulumi:"version"`
 }
@@ -132,6 +69,10 @@ type GetLogDataProtectionPolicyDocumentOutputArgs struct {
 	// The name of the data protection policy document.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Configures the data protection policy.
+	//
+	// > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+	//
+	// The following arguments are optional:
 	Statements GetLogDataProtectionPolicyDocumentStatementArrayInput `pulumi:"statements"`
 	Version    pulumi.StringPtrInput                                 `pulumi:"version"`
 }

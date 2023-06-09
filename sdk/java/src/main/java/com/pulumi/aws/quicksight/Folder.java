@@ -239,12 +239,16 @@ public class Folder extends com.pulumi.resources.CustomResource {
     /**
      * Display name for the folder.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Display name for the folder.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

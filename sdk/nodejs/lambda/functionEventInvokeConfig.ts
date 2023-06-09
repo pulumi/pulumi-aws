@@ -140,6 +140,8 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
     public readonly destinationConfig!: pulumi.Output<outputs.lambda.FunctionEventInvokeConfigDestinationConfig | undefined>;
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     *
+     * The following arguments are optional:
      */
     public readonly functionName!: pulumi.Output<string>;
     /**
@@ -199,6 +201,8 @@ export interface FunctionEventInvokeConfigState {
     destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig>;
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     *
+     * The following arguments are optional:
      */
     functionName?: pulumi.Input<string>;
     /**
@@ -225,6 +229,8 @@ export interface FunctionEventInvokeConfigArgs {
     destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig>;
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     *
+     * The following arguments are optional:
      */
     functionName: pulumi.Input<string>;
     /**

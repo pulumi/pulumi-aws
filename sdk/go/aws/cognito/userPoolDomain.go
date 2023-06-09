@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Amazon Cognito domain
-//
 // ```go
 // package main
 //
@@ -45,7 +44,6 @@ import (
 //
 // ```
 // ### Custom Cognito domain
-//
 // ```go
 // package main
 //

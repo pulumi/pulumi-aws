@@ -14,7 +14,6 @@ import (
 // criteria.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -166,6 +166,8 @@ type Table struct {
 	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayOutput `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
+	//
+	// Optional arguments:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery TablePointInTimeRecoveryOutput `pulumi:"pointInTimeRecovery"`
@@ -249,6 +251,8 @@ type tableState struct {
 	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
+	//
+	// Optional arguments:
 	Name *string `pulumi:"name"`
 	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery *TablePointInTimeRecovery `pulumi:"pointInTimeRecovery"`
@@ -304,6 +308,8 @@ type TableState struct {
 	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
 	// Unique within a region name of the table.
+	//
+	// Optional arguments:
 	Name pulumi.StringPtrInput
 	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery TablePointInTimeRecoveryPtrInput
@@ -361,6 +367,8 @@ type tableArgs struct {
 	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// Unique within a region name of the table.
+	//
+	// Optional arguments:
 	Name *string `pulumi:"name"`
 	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery *TablePointInTimeRecovery `pulumi:"pointInTimeRecovery"`
@@ -409,6 +417,8 @@ type TableArgs struct {
 	// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
 	// Unique within a region name of the table.
+	//
+	// Optional arguments:
 	Name pulumi.StringPtrInput
 	// Enable point-in-time recovery options. See below.
 	PointInTimeRecovery TablePointInTimeRecoveryPtrInput
@@ -565,6 +575,8 @@ func (o TableOutput) LocalSecondaryIndexes() TableLocalSecondaryIndexArrayOutput
 }
 
 // Unique within a region name of the table.
+//
+// Optional arguments:
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

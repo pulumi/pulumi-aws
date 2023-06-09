@@ -33,12 +33,16 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
     /**
      * Whether to recursively return parameters under `path`. Defaults to `false`.
      * 
+     * In addition to all arguments above, the following attributes are exported:
+     * 
      */
     @Import(name="recursive")
     private @Nullable Boolean recursive;
 
     /**
      * @return Whether to recursively return parameters under `path`. Defaults to `false`.
+     * 
+     * In addition to all arguments above, the following attributes are exported:
      * 
      */
     public Optional<Boolean> recursive() {
@@ -99,6 +103,8 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
 
         /**
          * @param recursive Whether to recursively return parameters under `path`. Defaults to `false`.
+         * 
+         * In addition to all arguments above, the following attributes are exported:
          * 
          * @return builder
          * 

@@ -16,44 +16,6 @@ import (
 // > **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = servicecatalog.NewConstraint(ctx, "example", &servicecatalog.ConstraintArgs{
-//				Description: pulumi.String("Back off, man. I'm a scientist."),
-//				PortfolioId: pulumi.Any(aws_servicecatalog_portfolio.Example.Id),
-//				ProductId:   pulumi.Any(aws_servicecatalog_product.Example.Id),
-//				Type:        pulumi.String("LAUNCH"),
-//				Parameters:  pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -81,6 +43,8 @@ type Constraint struct {
 	ProductId pulumi.StringOutput `pulumi:"productId"`
 	Status    pulumi.StringOutput `pulumi:"status"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -139,6 +103,8 @@ type constraintState struct {
 	ProductId *string `pulumi:"productId"`
 	Status    *string `pulumi:"status"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
@@ -157,6 +123,8 @@ type ConstraintState struct {
 	ProductId pulumi.StringPtrInput
 	Status    pulumi.StringPtrInput
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -176,6 +144,8 @@ type constraintArgs struct {
 	// Product identifier.
 	ProductId string `pulumi:"productId"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -192,6 +162,8 @@ type ConstraintArgs struct {
 	// Product identifier.
 	ProductId pulumi.StringInput
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -317,6 +289,8 @@ func (o ConstraintOutput) Status() pulumi.StringOutput {
 }
 
 // Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+//
+// The following arguments are optional:
 func (o ConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

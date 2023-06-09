@@ -14,6 +14,8 @@ type PolicyExcludeMap struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts []string `pulumi:"accounts"`
 	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+	//
+	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits []string `pulumi:"orgunits"`
 }
 
@@ -32,6 +34,8 @@ type PolicyExcludeMapArgs struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
 	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+	//
+	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits pulumi.StringArrayInput `pulumi:"orgunits"`
 }
 
@@ -118,6 +122,8 @@ func (o PolicyExcludeMapOutput) Accounts() pulumi.StringArrayOutput {
 }
 
 // A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+//
+// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyExcludeMapOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyExcludeMap) []string { return v.Orgunits }).(pulumi.StringArrayOutput)
 }
@@ -157,6 +163,8 @@ func (o PolicyExcludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 }
 
 // A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+//
+// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyExcludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyExcludeMap) []string {
 		if v == nil {
@@ -170,6 +178,8 @@ type PolicyIncludeMap struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts []string `pulumi:"accounts"`
 	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+	//
+	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits []string `pulumi:"orgunits"`
 }
 
@@ -188,6 +198,8 @@ type PolicyIncludeMapArgs struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
 	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+	//
+	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits pulumi.StringArrayInput `pulumi:"orgunits"`
 }
 
@@ -274,6 +286,8 @@ func (o PolicyIncludeMapOutput) Accounts() pulumi.StringArrayOutput {
 }
 
 // A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+//
+// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyIncludeMapOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyIncludeMap) []string { return v.Orgunits }).(pulumi.StringArrayOutput)
 }
@@ -313,6 +327,8 @@ func (o PolicyIncludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 }
 
 // A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+//
+// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyIncludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyIncludeMap) []string {
 		if v == nil {

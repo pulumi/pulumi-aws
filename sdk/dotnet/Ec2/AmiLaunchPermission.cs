@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### AWS Account ID
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,7 +31,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Public Access
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,7 +48,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Organization Access
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -72,16 +72,15 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example_account = aws.macie2.Account("exampleAccount")
         example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", s3_destination=aws.macie2.ClassificationExportConfigurationS3DestinationArgs(
-            bucket_name=aws_s3_bucket["example"]["bucket"],
+            bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             key_prefix="exampleprefix/",
-            kms_key_arn=aws_kms_key["example"]["arn"],
+            kms_key_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         ),
         opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
@@ -108,16 +107,15 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example_account = aws.macie2.Account("exampleAccount")
         example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", s3_destination=aws.macie2.ClassificationExportConfigurationS3DestinationArgs(
-            bucket_name=aws_s3_bucket["example"]["bucket"],
+            bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             key_prefix="exampleprefix/",
-            kms_key_arn=aws_kms_key["example"]["arn"],
+            kms_key_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         ),
         opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```

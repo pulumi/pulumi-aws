@@ -501,6 +501,8 @@ class GetPortfolioConstraintsDetailResult(dict):
         :param str constraint_id: Identifier of the constraint.
         :param str description: Description of the constraint.
         :param str portfolio_id: Portfolio identifier.
+               
+               The following arguments are optional:
         :param str product_id: Product identifier.
         :param str type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
         """
@@ -537,6 +539,8 @@ class GetPortfolioConstraintsDetailResult(dict):
     def portfolio_id(self) -> str:
         """
         Portfolio identifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "portfolio_id")
 

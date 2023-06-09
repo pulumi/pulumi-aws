@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.Emr
     /// ### Default Configuration
     /// 
     /// By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,7 +60,6 @@ namespace Pulumi.Aws.Emr
     /// ### Multiple Permitted Public Security Group Rule Ranges
     /// 
     /// The resource permits specification of multiple `permitted_public_security_group_rule_range` blocks.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,7 +91,6 @@ namespace Pulumi.Aws.Emr
     /// ### Disabling Block Public Access
     /// 
     /// To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this resource.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -124,6 +120,8 @@ namespace Pulumi.Aws.Emr
     {
         /// <summary>
         /// Enable or disable EMR Block Public Access.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("blockPublicSecurityGroupRules")]
         public Output<bool> BlockPublicSecurityGroupRules { get; private set; } = null!;
@@ -182,6 +180,8 @@ namespace Pulumi.Aws.Emr
     {
         /// <summary>
         /// Enable or disable EMR Block Public Access.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("blockPublicSecurityGroupRules", required: true)]
         public Input<bool> BlockPublicSecurityGroupRules { get; set; } = null!;
@@ -208,6 +208,8 @@ namespace Pulumi.Aws.Emr
     {
         /// <summary>
         /// Enable or disable EMR Block Public Access.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("blockPublicSecurityGroupRules")]
         public Input<bool>? BlockPublicSecurityGroupRules { get; set; }

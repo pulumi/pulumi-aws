@@ -14,7 +14,6 @@ import (
 // Creates a new Amazon Redshift Partner Integration.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

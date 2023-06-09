@@ -18,7 +18,7 @@ public final class ServiceServiceConnectConfigurationService {
      * @return The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
      * 
      */
-    private @Nullable List<ServiceServiceConnectConfigurationServiceClientAlias> clientAlias;
+    private @Nullable List<ServiceServiceConnectConfigurationServiceClientAlias> clientAliases;
     /**
      * @return The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
      * 
@@ -40,8 +40,8 @@ public final class ServiceServiceConnectConfigurationService {
      * @return The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
      * 
      */
-    public List<ServiceServiceConnectConfigurationServiceClientAlias> clientAlias() {
-        return this.clientAlias == null ? List.of() : this.clientAlias;
+    public List<ServiceServiceConnectConfigurationServiceClientAlias> clientAliases() {
+        return this.clientAliases == null ? List.of() : this.clientAliases;
     }
     /**
      * @return The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
@@ -74,26 +74,26 @@ public final class ServiceServiceConnectConfigurationService {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<ServiceServiceConnectConfigurationServiceClientAlias> clientAlias;
+        private @Nullable List<ServiceServiceConnectConfigurationServiceClientAlias> clientAliases;
         private @Nullable String discoveryName;
         private @Nullable Integer ingressPortOverride;
         private String portName;
         public Builder() {}
         public Builder(ServiceServiceConnectConfigurationService defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.clientAlias = defaults.clientAlias;
+    	      this.clientAliases = defaults.clientAliases;
     	      this.discoveryName = defaults.discoveryName;
     	      this.ingressPortOverride = defaults.ingressPortOverride;
     	      this.portName = defaults.portName;
         }
 
         @CustomType.Setter
-        public Builder clientAlias(@Nullable List<ServiceServiceConnectConfigurationServiceClientAlias> clientAlias) {
-            this.clientAlias = clientAlias;
+        public Builder clientAliases(@Nullable List<ServiceServiceConnectConfigurationServiceClientAlias> clientAliases) {
+            this.clientAliases = clientAliases;
             return this;
         }
-        public Builder clientAlias(ServiceServiceConnectConfigurationServiceClientAlias... clientAlias) {
-            return clientAlias(List.of(clientAlias));
+        public Builder clientAliases(ServiceServiceConnectConfigurationServiceClientAlias... clientAliases) {
+            return clientAliases(List.of(clientAliases));
         }
         @CustomType.Setter
         public Builder discoveryName(@Nullable String discoveryName) {
@@ -112,7 +112,7 @@ public final class ServiceServiceConnectConfigurationService {
         }
         public ServiceServiceConnectConfigurationService build() {
             final var o = new ServiceServiceConnectConfigurationService();
-            o.clientAlias = clientAlias;
+            o.clientAliases = clientAliases;
             o.discoveryName = discoveryName;
             o.ingressPortOverride = ingressPortOverride;
             o.portName = portName;

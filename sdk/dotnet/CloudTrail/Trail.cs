@@ -21,7 +21,6 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// Enable CloudTrail to capture all compatible management events in region.
     /// For capturing events from services like IAM, `include_global_service_events` must be enabled.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -126,7 +125,6 @@ namespace Pulumi.Aws.CloudTrail
     /// * [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html) (for basic event selector).
     /// * [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) (for advanced event selector).
     /// ### Logging All Lambda Function Invocations By Using Basic Event Selectors
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -161,7 +159,6 @@ namespace Pulumi.Aws.CloudTrail
     /// });
     /// ```
     /// ### Logging All S3 Object Events By Using Basic Event Selectors
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -196,7 +193,6 @@ namespace Pulumi.Aws.CloudTrail
     /// });
     /// ```
     /// ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -236,7 +232,6 @@ namespace Pulumi.Aws.CloudTrail
     /// });
     /// ```
     /// ### Sending Events to CloudWatch Logs
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -353,6 +348,8 @@ namespace Pulumi.Aws.CloudTrail
 
         /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("s3BucketName")]
         public Output<string> S3BucketName { get; private set; } = null!;
@@ -519,6 +516,8 @@ namespace Pulumi.Aws.CloudTrail
 
         /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("s3BucketName", required: true)]
         public Input<string> S3BucketName { get; set; } = null!;
@@ -659,6 +658,8 @@ namespace Pulumi.Aws.CloudTrail
 
         /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("s3BucketName")]
         public Input<string>? S3BucketName { get; set; }

@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Ecs
     /// See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -152,6 +151,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("taskDefinition")]
         public Output<string> TaskDefinition { get; private set; } = null!;
@@ -312,6 +313,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("taskDefinition", required: true)]
         public Input<string> TaskDefinition { get; set; } = null!;
@@ -458,6 +461,8 @@ namespace Pulumi.Aws.Ecs
 
         /// <summary>
         /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("taskDefinition")]
         public Input<string>? TaskDefinition { get; set; }

@@ -134,7 +134,6 @@ class SinkPolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import json
@@ -194,7 +193,6 @@ class SinkPolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import json

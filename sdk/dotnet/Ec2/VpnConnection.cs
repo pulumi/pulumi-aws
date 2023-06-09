@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### EC2 Transit Gateway
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,7 +45,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Virtual Private Gateway
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -83,7 +81,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### AWS Site to Site Private VPN
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

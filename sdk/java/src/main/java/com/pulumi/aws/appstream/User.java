@@ -163,12 +163,16 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * Email address of the user.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
      * @return Email address of the user.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userName() {

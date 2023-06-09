@@ -413,7 +413,6 @@ class Proxy(pulumi.CustomResource):
         Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -430,7 +429,7 @@ class Proxy(pulumi.CustomResource):
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
-                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+                secret_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             tags={
                 "Name": "example",
@@ -469,7 +468,6 @@ class Proxy(pulumi.CustomResource):
         Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -486,7 +484,7 @@ class Proxy(pulumi.CustomResource):
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
-                secret_arn=aws_secretsmanager_secret["example"]["arn"],
+                secret_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             tags={
                 "Name": "example",

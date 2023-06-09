@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic configuration
-//
 // ```go
 // package main
 //
@@ -110,6 +109,8 @@ type Workspace struct {
 	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits pulumi.StringArrayOutput `pulumi:"organizationalUnits"`
 	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	//
+	// The following arguments are optional:
 	PermissionType pulumi.StringOutput `pulumi:"permissionType"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -189,6 +190,8 @@ type workspaceState struct {
 	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits []string `pulumi:"organizationalUnits"`
 	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	//
+	// The following arguments are optional:
 	PermissionType *string `pulumi:"permissionType"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 *string `pulumi:"roleArn"`
@@ -231,6 +234,8 @@ type WorkspaceState struct {
 	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits pulumi.StringArrayInput
 	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	//
+	// The following arguments are optional:
 	PermissionType pulumi.StringPtrInput
 	// The IAM role ARN that the workspace assumes.
 	RoleArn                 pulumi.StringPtrInput
@@ -273,6 +278,8 @@ type workspaceArgs struct {
 	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits []string `pulumi:"organizationalUnits"`
 	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	//
+	// The following arguments are optional:
 	PermissionType string `pulumi:"permissionType"`
 	// The IAM role ARN that the workspace assumes.
 	RoleArn *string `pulumi:"roleArn"`
@@ -309,6 +316,8 @@ type WorkspaceArgs struct {
 	// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
 	OrganizationalUnits pulumi.StringArrayInput
 	// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+	//
+	// The following arguments are optional:
 	PermissionType pulumi.StringInput
 	// The IAM role ARN that the workspace assumes.
 	RoleArn pulumi.StringPtrInput
@@ -473,6 +482,8 @@ func (o WorkspaceOutput) OrganizationalUnits() pulumi.StringArrayOutput {
 }
 
 // The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
+//
+// The following arguments are optional:
 func (o WorkspaceOutput) PermissionType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.PermissionType }).(pulumi.StringOutput)
 }

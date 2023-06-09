@@ -286,7 +286,6 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
 
     ## Example Usage
     ### Basic configuration
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -337,7 +336,6 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]
 
     ## Example Usage
     ### Basic configuration
-
     ```python
     import pulumi
     import pulumi_aws as aws

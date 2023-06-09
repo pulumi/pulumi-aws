@@ -29,8 +29,12 @@ type LookupGroupArgs struct {
 	// Deprecated: Use the alternate_identifier attribute instead.
 	Filter *GetGroupFilter `pulumi:"filter"`
 	// The identifier for a group in the Identity Store.
+	//
+	// > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
 	GroupId *string `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On Instance.
+	//
+	// The following arguments are optional:
 	IdentityStoreId string `pulumi:"identityStoreId"`
 }
 
@@ -73,8 +77,12 @@ type LookupGroupOutputArgs struct {
 	// Deprecated: Use the alternate_identifier attribute instead.
 	Filter GetGroupFilterPtrInput `pulumi:"filter"`
 	// The identifier for a group in the Identity Store.
+	//
+	// > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On Instance.
+	//
+	// The following arguments are optional:
 	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
 }
 

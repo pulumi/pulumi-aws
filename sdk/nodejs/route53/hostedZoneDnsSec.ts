@@ -97,6 +97,8 @@ export class HostedZoneDnsSec extends pulumi.CustomResource {
 
     /**
      * Identifier of the Route 53 Hosted Zone.
+     *
+     * The following arguments are optional:
      */
     public readonly hostedZoneId!: pulumi.Output<string>;
     /**
@@ -138,6 +140,8 @@ export class HostedZoneDnsSec extends pulumi.CustomResource {
 export interface HostedZoneDnsSecState {
     /**
      * Identifier of the Route 53 Hosted Zone.
+     *
+     * The following arguments are optional:
      */
     hostedZoneId?: pulumi.Input<string>;
     /**
@@ -152,6 +156,8 @@ export interface HostedZoneDnsSecState {
 export interface HostedZoneDnsSecArgs {
     /**
      * Identifier of the Route 53 Hosted Zone.
+     *
+     * The following arguments are optional:
      */
     hostedZoneId: pulumi.Input<string>;
     /**

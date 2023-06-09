@@ -211,6 +211,8 @@ export class MetricStream extends pulumi.CustomResource {
     public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+     *
+     * The following arguments are optional:
      */
     public readonly outputFormat!: pulumi.Output<string>;
     /**
@@ -336,6 +338,8 @@ export interface MetricStreamState {
     namePrefix?: pulumi.Input<string>;
     /**
      * Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+     *
+     * The following arguments are optional:
      */
     outputFormat?: pulumi.Input<string>;
     /**
@@ -390,6 +394,8 @@ export interface MetricStreamArgs {
     namePrefix?: pulumi.Input<string>;
     /**
      * Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+     *
+     * The following arguments are optional:
      */
     outputFormat: pulumi.Input<string>;
     /**

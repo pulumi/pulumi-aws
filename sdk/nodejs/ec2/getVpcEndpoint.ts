@@ -68,6 +68,9 @@ export interface GetVpcEndpointArgs {
     tags?: {[key: string]: string};
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     vpcId?: string;
 }
@@ -188,6 +191,9 @@ export interface GetVpcEndpointOutputArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     vpcId?: pulumi.Input<string>;
 }

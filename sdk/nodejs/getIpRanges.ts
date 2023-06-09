@@ -61,6 +61,9 @@ export interface GetIpRangesArgs {
      * `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
      * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
      * [`service` attribute][2] documentation for other possible values.
+     *
+     * > **NOTE:** If the specified combination of regions and services does not yield any
+     * CIDR blocks, this call will fail.
      */
     services: string[];
     /**
@@ -149,6 +152,9 @@ export interface GetIpRangesOutputArgs {
      * `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
      * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
      * [`service` attribute][2] documentation for other possible values.
+     *
+     * > **NOTE:** If the specified combination of regions and services does not yield any
+     * CIDR blocks, this call will fail.
      */
     services: pulumi.Input<pulumi.Input<string>[]>;
     /**

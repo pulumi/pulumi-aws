@@ -165,7 +165,6 @@ class UsagePlanKey(pulumi.CustomResource):
         Provides an API Gateway Usage Plan Key.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -174,7 +173,7 @@ class UsagePlanKey(pulumi.CustomResource):
         # ...
         myusageplan = aws.apigateway.UsagePlan("myusageplan", api_stages=[aws.apigateway.UsagePlanApiStageArgs(
             api_id=test.id,
-            stage=aws_api_gateway_stage["foo"]["stage_name"],
+            stage=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         )])
         mykey = aws.apigateway.ApiKey("mykey")
         main = aws.apigateway.UsagePlanKey("main",
@@ -207,7 +206,6 @@ class UsagePlanKey(pulumi.CustomResource):
         Provides an API Gateway Usage Plan Key.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,7 +214,7 @@ class UsagePlanKey(pulumi.CustomResource):
         # ...
         myusageplan = aws.apigateway.UsagePlan("myusageplan", api_stages=[aws.apigateway.UsagePlanApiStageArgs(
             api_id=test.id,
-            stage=aws_api_gateway_stage["foo"]["stage_name"],
+            stage=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         )])
         mykey = aws.apigateway.ApiKey("mykey")
         main = aws.apigateway.UsagePlanKey("main",

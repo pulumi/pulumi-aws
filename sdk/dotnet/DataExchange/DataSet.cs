@@ -13,7 +13,6 @@ namespace Pulumi.Aws.DataExchange
     /// Provides a resource to manage AWS Data Exchange DataSets.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

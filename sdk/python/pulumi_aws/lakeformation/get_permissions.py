@@ -168,35 +168,32 @@ def get_permissions(catalog_id: Optional[str] = None,
 
     ## Example Usage
     ### Permissions For A Lake Formation S3 Resource
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
+    test = aws.lakeformation.get_permissions(principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         data_location=aws.lakeformation.GetPermissionsDataLocationArgs(
-            arn=aws_lakeformation_resource["test"]["arn"],
+            arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         ))
     ```
     ### Permissions For A Glue Catalog Database
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
+    test = aws.lakeformation.get_permissions(principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         database=aws.lakeformation.GetPermissionsDatabaseArgs(
-            name=aws_glue_catalog_database["test"]["name"],
+            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             catalog_id="110376042874",
         ))
     ```
     ### Permissions For Tag-Based Access Control
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
+    test = aws.lakeformation.get_permissions(principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         lf_tag_policy=aws.lakeformation.GetPermissionsLfTagPolicyArgs(
             resource_type="DATABASE",
             expressions=[
@@ -223,8 +220,12 @@ def get_permissions(catalog_id: Optional[str] = None,
     :param pulumi.InputType['GetPermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
     :param pulumi.InputType['GetPermissionsLfTagPolicyArgs'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
     :param str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+           
+           One of the following is required:
     :param pulumi.InputType['GetPermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
     :param pulumi.InputType['GetPermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -272,35 +273,32 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
 
     ## Example Usage
     ### Permissions For A Lake Formation S3 Resource
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
+    test = aws.lakeformation.get_permissions(principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         data_location=aws.lakeformation.GetPermissionsDataLocationArgs(
-            arn=aws_lakeformation_resource["test"]["arn"],
+            arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         ))
     ```
     ### Permissions For A Glue Catalog Database
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
+    test = aws.lakeformation.get_permissions(principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         database=aws.lakeformation.GetPermissionsDatabaseArgs(
-            name=aws_glue_catalog_database["test"]["name"],
+            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             catalog_id="110376042874",
         ))
     ```
     ### Permissions For Tag-Based Access Control
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
+    test = aws.lakeformation.get_permissions(principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         lf_tag_policy=aws.lakeformation.GetPermissionsLfTagPolicyArgs(
             resource_type="DATABASE",
             expressions=[
@@ -327,7 +325,11 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
     :param pulumi.InputType['GetPermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
     :param pulumi.InputType['GetPermissionsLfTagPolicyArgs'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
     :param str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+           
+           One of the following is required:
     :param pulumi.InputType['GetPermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
     :param pulumi.InputType['GetPermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+           
+           The following arguments are optional:
     """
     ...

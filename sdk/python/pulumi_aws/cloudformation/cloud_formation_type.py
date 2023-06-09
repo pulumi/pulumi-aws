@@ -394,7 +394,6 @@ class CloudFormationType(pulumi.CustomResource):
         Manages a version of a CloudFormation Type.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -404,8 +403,8 @@ class CloudFormationType(pulumi.CustomResource):
             type="RESOURCE",
             type_name="ExampleCompany::ExampleService::ExampleResource",
             logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArgs(
-                log_group_name=aws_cloudwatch_log_group["example"]["name"],
-                log_role_arn=aws_iam_role["example"]["arn"],
+                log_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                log_role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -435,7 +434,6 @@ class CloudFormationType(pulumi.CustomResource):
         Manages a version of a CloudFormation Type.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,8 +443,8 @@ class CloudFormationType(pulumi.CustomResource):
             type="RESOURCE",
             type_name="ExampleCompany::ExampleService::ExampleResource",
             logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArgs(
-                log_group_name=aws_cloudwatch_log_group["example"]["name"],
-                log_role_arn=aws_iam_role["example"]["arn"],
+                log_group_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                log_role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 

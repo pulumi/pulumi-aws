@@ -15,7 +15,6 @@ namespace Pulumi.Aws.DataSync
     /// &gt; **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

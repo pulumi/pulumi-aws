@@ -10,7 +10,6 @@ import (
 // Use this data source to get the default EBS encryption KMS key in the current region.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

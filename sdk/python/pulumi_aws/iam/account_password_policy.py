@@ -354,7 +354,6 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         in the official AWS docs.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -402,7 +401,6 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         in the official AWS docs.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -14,7 +14,6 @@ import (
 // Provides an RDS DB proxy target resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -105,6 +104,8 @@ type ProxyTarget struct {
 	pulumi.CustomResourceState
 
 	// DB cluster identifier.
+	//
+	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier pulumi.StringPtrOutput `pulumi:"dbClusterIdentifier"`
 	// DB instance identifier.
 	DbInstanceIdentifier pulumi.StringPtrOutput `pulumi:"dbInstanceIdentifier"`
@@ -162,6 +163,8 @@ func GetProxyTarget(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ProxyTarget resources.
 type proxyTargetState struct {
 	// DB cluster identifier.
+	//
+	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
 	// DB instance identifier.
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
@@ -185,6 +188,8 @@ type proxyTargetState struct {
 
 type ProxyTargetState struct {
 	// DB cluster identifier.
+	//
+	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier pulumi.StringPtrInput
 	// DB instance identifier.
 	DbInstanceIdentifier pulumi.StringPtrInput
@@ -212,6 +217,8 @@ func (ProxyTargetState) ElementType() reflect.Type {
 
 type proxyTargetArgs struct {
 	// DB cluster identifier.
+	//
+	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
 	// DB instance identifier.
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
@@ -224,6 +231,8 @@ type proxyTargetArgs struct {
 // The set of arguments for constructing a ProxyTarget resource.
 type ProxyTargetArgs struct {
 	// DB cluster identifier.
+	//
+	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier pulumi.StringPtrInput
 	// DB instance identifier.
 	DbInstanceIdentifier pulumi.StringPtrInput
@@ -321,6 +330,8 @@ func (o ProxyTargetOutput) ToProxyTargetOutputWithContext(ctx context.Context) P
 }
 
 // DB cluster identifier.
+//
+// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 func (o ProxyTargetOutput) DbClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProxyTarget) pulumi.StringPtrOutput { return v.DbClusterIdentifier }).(pulumi.StringPtrOutput)
 }

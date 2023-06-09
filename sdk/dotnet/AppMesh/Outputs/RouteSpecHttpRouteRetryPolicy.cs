@@ -29,6 +29,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
         public readonly Outputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeout PerRetryTimeout;
         /// <summary>
         /// List of TCP retry events. The only valid value is `connection-error`.
+        /// 
+        /// 
+        /// You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         /// </summary>
         public readonly ImmutableArray<string> TcpRetryEvents;
 

@@ -142,7 +142,6 @@ def get_link(link_identifier: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -180,7 +179,6 @@ def get_link_output(link_identifier: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

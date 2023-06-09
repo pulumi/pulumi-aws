@@ -55,12 +55,16 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
+     * The follow arguments are optional:
+     * 
      */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
     /**
      * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     * 
+     * The follow arguments are optional:
      * 
      */
     public Optional<Output<String>> databaseName() {
@@ -330,6 +334,8 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param databaseName Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
          * 
+         * The follow arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -340,6 +346,8 @@ public final class CatalogTableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param databaseName Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+         * 
+         * The follow arguments are optional:
          * 
          * @return builder
          * 

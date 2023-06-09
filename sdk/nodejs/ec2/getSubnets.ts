@@ -31,6 +31,9 @@ export interface GetSubnetsArgs {
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     tags?: {[key: string]: string};
 }
@@ -68,6 +71,9 @@ export interface GetSubnetsOutputArgs {
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

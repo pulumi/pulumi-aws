@@ -68,6 +68,8 @@ class InstanceArgs:
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input['InstanceCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+               
+               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input['InstanceCpuOptionsArgs'] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -100,6 +102,8 @@ class InstanceArgs:
         :param pulumi.Input['InstanceRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group names to associate with.
+               
+               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -108,6 +112,8 @@ class InstanceArgs:
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         :param pulumi.Input[bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
+               
+               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
         if ami is not None:
@@ -251,6 +257,8 @@ class InstanceArgs:
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+
+        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
@@ -635,6 +643,8 @@ class InstanceArgs:
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of security group names to associate with.
+
+        > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
         return pulumi.get(self, "security_groups")
 
@@ -731,6 +741,8 @@ class InstanceArgs:
     def volume_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags to assign, at instance-creation time, to root and EBS volumes.
+
+        > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         """
         return pulumi.get(self, "volume_tags")
 
@@ -815,6 +827,8 @@ class _InstanceState:
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input['InstanceCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+               
+               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input['InstanceCpuOptionsArgs'] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -854,6 +868,8 @@ class _InstanceState:
         :param pulumi.Input['InstanceRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group names to associate with.
+               
+               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -863,6 +879,8 @@ class _InstanceState:
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         :param pulumi.Input[bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
+               
+               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
         if ami is not None:
@@ -1036,6 +1054,8 @@ class _InstanceState:
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']]:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+
+        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
@@ -1504,6 +1524,8 @@ class _InstanceState:
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of security group names to associate with.
+
+        > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
         return pulumi.get(self, "security_groups")
 
@@ -1612,6 +1634,8 @@ class _InstanceState:
     def volume_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags to assign, at instance-creation time, to root and EBS volumes.
+
+        > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         """
         return pulumi.get(self, "volume_tags")
 
@@ -1688,7 +1712,6 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic example using AMI lookup
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1713,7 +1736,6 @@ class Instance(pulumi.CustomResource):
             })
         ```
         ### Network and credit specification example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1748,7 +1770,6 @@ class Instance(pulumi.CustomResource):
             ))
         ```
         ### CPU options example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1788,7 +1809,6 @@ class Instance(pulumi.CustomResource):
         A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
 
         > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1814,6 +1834,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[pulumi.InputType['InstanceCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+               
+               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[pulumi.InputType['InstanceCpuOptionsArgs']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -1846,6 +1868,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group names to associate with.
+               
+               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1854,6 +1878,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         :param pulumi.Input[bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
+               
+               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
         ...
@@ -1867,7 +1893,6 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic example using AMI lookup
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1892,7 +1917,6 @@ class Instance(pulumi.CustomResource):
             })
         ```
         ### Network and credit specification example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1927,7 +1951,6 @@ class Instance(pulumi.CustomResource):
             ))
         ```
         ### CPU options example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1967,7 +1990,6 @@ class Instance(pulumi.CustomResource):
         A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
 
         > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2195,6 +2217,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[pulumi.InputType['InstanceCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+               
+               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[pulumi.InputType['InstanceCpuOptionsArgs']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -2234,6 +2258,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group names to associate with.
+               
+               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -2243,6 +2269,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         :param pulumi.Input[bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
+               
+               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -2342,6 +2370,8 @@ class Instance(pulumi.CustomResource):
     def capacity_reservation_specification(self) -> pulumi.Output['outputs.InstanceCapacityReservationSpecification']:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+
+        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
@@ -2654,6 +2684,8 @@ class Instance(pulumi.CustomResource):
     def security_groups(self) -> pulumi.Output[Sequence[str]]:
         """
         List of security group names to associate with.
+
+        > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
         return pulumi.get(self, "security_groups")
 
@@ -2726,6 +2758,8 @@ class Instance(pulumi.CustomResource):
     def volume_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Map of tags to assign, at instance-creation time, to root and EBS volumes.
+
+        > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         """
         return pulumi.get(self, "volume_tags")
 

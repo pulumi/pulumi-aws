@@ -29,6 +29,8 @@ class FolderArgs:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] folder_type: The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         :param pulumi.Input[str] name: Display name for the folder.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] parent_folder_arn: The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
         :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -88,6 +90,8 @@ class FolderArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Display name for the folder.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -157,6 +161,8 @@ class _FolderState:
         :param pulumi.Input[str] folder_type: The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         :param pulumi.Input[str] last_updated_time: The time that the folder was last updated.
         :param pulumi.Input[str] name: Display name for the folder.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] parent_folder_arn: The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
         :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -276,6 +282,8 @@ class _FolderState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Display name for the folder.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -350,7 +358,6 @@ class Folder(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,7 +365,6 @@ class Folder(pulumi.CustomResource):
         example = aws.quicksight.Folder("example", folder_id="example-id")
         ```
         ### With Permissions
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -376,11 +382,10 @@ class Folder(pulumi.CustomResource):
                     "quicksight:DescribeFolderPermissions",
                     "quicksight:UpdateFolderPermissions",
                 ],
-                principal=aws_quicksight_user["example"]["arn"],
+                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### With Parent Folder
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -405,6 +410,8 @@ class Folder(pulumi.CustomResource):
         :param pulumi.Input[str] folder_id: Identifier for the folder.
         :param pulumi.Input[str] folder_type: The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         :param pulumi.Input[str] name: Display name for the folder.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] parent_folder_arn: The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FolderPermissionArgs']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -420,7 +427,6 @@ class Folder(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -428,7 +434,6 @@ class Folder(pulumi.CustomResource):
         example = aws.quicksight.Folder("example", folder_id="example-id")
         ```
         ### With Permissions
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -446,11 +451,10 @@ class Folder(pulumi.CustomResource):
                     "quicksight:DescribeFolderPermissions",
                     "quicksight:UpdateFolderPermissions",
                 ],
-                principal=aws_quicksight_user["example"]["arn"],
+                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### With Parent Folder
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -551,6 +555,8 @@ class Folder(pulumi.CustomResource):
         :param pulumi.Input[str] folder_type: The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         :param pulumi.Input[str] last_updated_time: The time that the folder was last updated.
         :param pulumi.Input[str] name: Display name for the folder.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] parent_folder_arn: The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FolderPermissionArgs']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -635,6 +641,8 @@ class Folder(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Display name for the folder.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

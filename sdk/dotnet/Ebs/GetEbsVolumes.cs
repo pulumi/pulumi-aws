@@ -15,6 +15,45 @@ namespace Pulumi.Aws.Ebs
         /// `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
         /// 
         /// This data source can be useful for getting a list of volume IDs with (for example) matching tags.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
+        /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const exampleEbsVolumes = aws.ebs.getEbsVolumes({
+        ///     tags: {
+        ///         VolumeSet: "TestVolumeSet",
+        ///     },
+        /// });
+        /// const exampleVolume = exampleEbsVolumes.then(exampleEbsVolumes =&gt; .map(([, ]) =&gt; (aws.ebs.getVolume({
+        ///     filters: [{
+        ///         name: "volume-id",
+        ///         values: [each.value],
+        ///     }],
+        /// }))));
+        /// export const availabilityZoneToVolumeId = exampleVolume.reduce((__obj, s) =&gt; ({ ...__obj, [s.id]: s.availabilityZone }));
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example_ebs_volumes = aws.ebs.get_ebs_volumes(tags={
+        ///     "VolumeSet": "TestVolumeSet",
+        /// })
+        /// example_volume = [aws.ebs.get_volume(filters=[aws.ebs.GetVolumeFilterArgs(
+        ///     name="volume-id",
+        ///     values=[each["value"]],
+        /// )]) for __key, __value in example_ebs_volumes.ids]
+        /// pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_volume})
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetEbsVolumesResult> InvokeAsync(GetEbsVolumesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesArgs(), options.WithDefaults());
@@ -23,6 +62,45 @@ namespace Pulumi.Aws.Ebs
         /// `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
         /// 
         /// This data source can be useful for getting a list of volume IDs with (for example) matching tags.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
+        /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const exampleEbsVolumes = aws.ebs.getEbsVolumes({
+        ///     tags: {
+        ///         VolumeSet: "TestVolumeSet",
+        ///     },
+        /// });
+        /// const exampleVolume = exampleEbsVolumes.then(exampleEbsVolumes =&gt; .map(([, ]) =&gt; (aws.ebs.getVolume({
+        ///     filters: [{
+        ///         name: "volume-id",
+        ///         values: [each.value],
+        ///     }],
+        /// }))));
+        /// export const availabilityZoneToVolumeId = exampleVolume.reduce((__obj, s) =&gt; ({ ...__obj, [s.id]: s.availabilityZone }));
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example_ebs_volumes = aws.ebs.get_ebs_volumes(tags={
+        ///     "VolumeSet": "TestVolumeSet",
+        /// })
+        /// example_volume = [aws.ebs.get_volume(filters=[aws.ebs.GetVolumeFilterArgs(
+        ///     name="volume-id",
+        ///     values=[each["value"]],
+        /// )]) for __key, __value in example_ebs_volumes.ids]
+        /// pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_volume})
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetEbsVolumesResult> Invoke(GetEbsVolumesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEbsVolumesResult>("aws:ebs/getEbsVolumes:getEbsVolumes", args ?? new GetEbsVolumesInvokeArgs(), options.WithDefaults());
@@ -49,6 +127,9 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// Map of tags, each pair of which must exactly match
         /// a pair on the desired volumes.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -82,6 +163,9 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// Map of tags, each pair of which must exactly match
         /// a pair on the desired volumes.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         public InputMap<string> Tags
         {

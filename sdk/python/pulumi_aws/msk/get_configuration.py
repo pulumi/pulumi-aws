@@ -119,7 +119,6 @@ def get_configuration(name: Optional[str] = None,
     Get information on an Amazon MSK Configuration.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -152,7 +151,6 @@ def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
     Get information on an Amazon MSK Configuration.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

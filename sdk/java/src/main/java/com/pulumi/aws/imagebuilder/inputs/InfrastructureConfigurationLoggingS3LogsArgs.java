@@ -18,12 +18,16 @@ public final class InfrastructureConfigurationLoggingS3LogsArgs extends com.pulu
     /**
      * Name of the S3 Bucket.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="s3BucketName", required=true)
     private Output<String> s3BucketName;
 
     /**
      * @return Name of the S3 Bucket.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> s3BucketName() {
@@ -73,6 +77,8 @@ public final class InfrastructureConfigurationLoggingS3LogsArgs extends com.pulu
         /**
          * @param s3BucketName Name of the S3 Bucket.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -83,6 +89,8 @@ public final class InfrastructureConfigurationLoggingS3LogsArgs extends com.pulu
 
         /**
          * @param s3BucketName Name of the S3 Bucket.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

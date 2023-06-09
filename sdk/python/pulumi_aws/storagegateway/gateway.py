@@ -713,7 +713,6 @@ class Gateway(pulumi.CustomResource):
 
         ## Example Usage
         ### Local Cache
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -723,13 +722,12 @@ class Gateway(pulumi.CustomResource):
             volume_id=aws_ebs_volume["test"]["id"],
             instance_id=aws_instance["test"]["id"])
         test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk_output(disk_node=device_name,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"]))
+            gateway_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)))
         test_cache = aws.storagegateway.Cache("testCache",
             disk_id=test_local_disk.disk_id,
             gateway_arn=aws_storagegateway_gateway["test"]["arn"])
         ```
         ### FSx File Gateway
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -746,7 +744,6 @@ class Gateway(pulumi.CustomResource):
             ))
         ```
         ### S3 File Gateway
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -758,7 +755,6 @@ class Gateway(pulumi.CustomResource):
             gateway_type="FILE_S3")
         ```
         ### Tape Gateway
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -772,7 +768,6 @@ class Gateway(pulumi.CustomResource):
             tape_drive_type="IBM-ULT3580-TD5")
         ```
         ### Volume Gateway (Cached)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -784,7 +779,6 @@ class Gateway(pulumi.CustomResource):
             gateway_type="CACHED")
         ```
         ### Volume Gateway (Stored)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -851,7 +845,6 @@ class Gateway(pulumi.CustomResource):
 
         ## Example Usage
         ### Local Cache
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -861,13 +854,12 @@ class Gateway(pulumi.CustomResource):
             volume_id=aws_ebs_volume["test"]["id"],
             instance_id=aws_instance["test"]["id"])
         test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk_output(disk_node=device_name,
-            gateway_arn=aws_storagegateway_gateway["test"]["arn"]))
+            gateway_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)))
         test_cache = aws.storagegateway.Cache("testCache",
             disk_id=test_local_disk.disk_id,
             gateway_arn=aws_storagegateway_gateway["test"]["arn"])
         ```
         ### FSx File Gateway
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -884,7 +876,6 @@ class Gateway(pulumi.CustomResource):
             ))
         ```
         ### S3 File Gateway
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -896,7 +887,6 @@ class Gateway(pulumi.CustomResource):
             gateway_type="FILE_S3")
         ```
         ### Tape Gateway
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -910,7 +900,6 @@ class Gateway(pulumi.CustomResource):
             tape_drive_type="IBM-ULT3580-TD5")
         ```
         ### Volume Gateway (Cached)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -922,7 +911,6 @@ class Gateway(pulumi.CustomResource):
             gateway_type="CACHED")
         ```
         ### Volume Gateway (Stored)
-
         ```python
         import pulumi
         import pulumi_aws as aws

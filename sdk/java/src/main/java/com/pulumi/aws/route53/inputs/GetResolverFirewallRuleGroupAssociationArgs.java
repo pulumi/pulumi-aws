@@ -16,12 +16,16 @@ public final class GetResolverFirewallRuleGroupAssociationArgs extends com.pulum
     /**
      * The identifier for the association.
      * 
+     * The following attribute is additionally exported:
+     * 
      */
     @Import(name="firewallRuleGroupAssociationId", required=true)
     private Output<String> firewallRuleGroupAssociationId;
 
     /**
      * @return The identifier for the association.
+     * 
+     * The following attribute is additionally exported:
      * 
      */
     public Output<String> firewallRuleGroupAssociationId() {
@@ -55,6 +59,8 @@ public final class GetResolverFirewallRuleGroupAssociationArgs extends com.pulum
         /**
          * @param firewallRuleGroupAssociationId The identifier for the association.
          * 
+         * The following attribute is additionally exported:
+         * 
          * @return builder
          * 
          */
@@ -65,6 +71,8 @@ public final class GetResolverFirewallRuleGroupAssociationArgs extends com.pulum
 
         /**
          * @param firewallRuleGroupAssociationId The identifier for the association.
+         * 
+         * The following attribute is additionally exported:
          * 
          * @return builder
          * 

@@ -14,7 +14,6 @@ import (
 // Provides a CodePipeline Webhook.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

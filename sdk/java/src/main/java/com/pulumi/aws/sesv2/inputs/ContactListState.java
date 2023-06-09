@@ -28,12 +28,16 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the contact list.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="contactListName")
     private @Nullable Output<String> contactListName;
 
     /**
      * @return The name of the contact list.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> contactListName() {
@@ -165,6 +169,8 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param contactListName The name of the contact list.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -175,6 +181,8 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param contactListName The name of the contact list.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

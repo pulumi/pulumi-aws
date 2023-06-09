@@ -15,7 +15,6 @@ import (
 // the location of the site is used for visualization in the Network Manager console.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

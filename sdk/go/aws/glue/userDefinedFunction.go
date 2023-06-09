@@ -14,7 +14,6 @@ import (
 // Provides a Glue User Defined Function Resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

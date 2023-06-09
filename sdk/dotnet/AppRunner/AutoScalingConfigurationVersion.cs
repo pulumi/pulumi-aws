@@ -13,7 +13,6 @@ namespace Pulumi.Aws.AppRunner
     /// Manages an App Runner AutoScaling Configuration Version.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

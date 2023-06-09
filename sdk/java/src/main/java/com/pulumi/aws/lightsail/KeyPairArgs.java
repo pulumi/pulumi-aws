@@ -60,6 +60,10 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
      * The public key material. This public key will be
      * imported into Lightsail
      * 
+     * &gt; **NOTE:** a PGP key is not required, however it is strongly encouraged.
+     * Without a PGP key, the private key material will be stored in state unencrypted.
+     * `pgp_key` is ignored if `public_key` is supplied.
+     * 
      */
     @Import(name="publicKey")
     private @Nullable Output<String> publicKey;
@@ -67,6 +71,10 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The public key material. This public key will be
      * imported into Lightsail
+     * 
+     * &gt; **NOTE:** a PGP key is not required, however it is strongly encouraged.
+     * Without a PGP key, the private key material will be stored in state unencrypted.
+     * `pgp_key` is ignored if `public_key` is supplied.
      * 
      */
     public Optional<Output<String>> publicKey() {
@@ -159,6 +167,10 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
          * @param publicKey The public key material. This public key will be
          * imported into Lightsail
          * 
+         * &gt; **NOTE:** a PGP key is not required, however it is strongly encouraged.
+         * Without a PGP key, the private key material will be stored in state unencrypted.
+         * `pgp_key` is ignored if `public_key` is supplied.
+         * 
          * @return builder
          * 
          */
@@ -170,6 +182,10 @@ public final class KeyPairArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param publicKey The public key material. This public key will be
          * imported into Lightsail
+         * 
+         * &gt; **NOTE:** a PGP key is not required, however it is strongly encouraged.
+         * Without a PGP key, the private key material will be stored in state unencrypted.
+         * `pgp_key` is ignored if `public_key` is supplied.
          * 
          * @return builder
          * 

@@ -26,7 +26,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 2. Use `IAMAllowedPrincipals` without `aws.lakeformation.Permissions`
     /// 
     /// This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `aws.lakeformation.DataLakeSettings` resource, they are cleared.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,7 +66,6 @@ namespace Pulumi.Aws.LakeFormation
     /// ### Problem Using `IAMAllowedPrincipals`
     /// 
     /// AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -135,7 +133,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// ## Example Usage
     /// ### Grant Permissions For A Lake Formation S3 Resource
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -160,7 +157,6 @@ namespace Pulumi.Aws.LakeFormation
     /// });
     /// ```
     /// ### Grant Permissions For A Glue Catalog Database
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -188,7 +184,6 @@ namespace Pulumi.Aws.LakeFormation
     /// });
     /// ```
     /// ### Grant Permissions Using Tag-Based Access Control
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -288,6 +283,10 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        /// 
+        /// &gt; **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+        /// 
+        /// One of the following is required:
         /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
@@ -300,6 +299,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Configuration block for a table with columns resource. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("tableWithColumns")]
         public Output<Outputs.PermissionsTableWithColumns> TableWithColumns { get; private set; } = null!;
@@ -412,6 +413,10 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        /// 
+        /// &gt; **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+        /// 
+        /// One of the following is required:
         /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
@@ -424,6 +429,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Configuration block for a table with columns resource. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableWithColumns")]
         public Input<Inputs.PermissionsTableWithColumnsArgs>? TableWithColumns { get; set; }
@@ -498,6 +505,10 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        /// 
+        /// &gt; **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+        /// 
+        /// One of the following is required:
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
@@ -510,6 +521,8 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Configuration block for a table with columns resource. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableWithColumns")]
         public Input<Inputs.PermissionsTableWithColumnsGetArgs>? TableWithColumns { get; set; }

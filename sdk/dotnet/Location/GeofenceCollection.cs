@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Location
     /// Resource for managing an AWS Location Geofence Collection.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,6 +48,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name of the geofence collection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("collectionName")]
         public Output<string> CollectionName { get; private set; } = null!;
@@ -134,6 +135,8 @@ namespace Pulumi.Aws.Location
     {
         /// <summary>
         /// The name of the geofence collection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("collectionName", required: true)]
         public Input<string> CollectionName { get; set; } = null!;
@@ -178,6 +181,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name of the geofence collection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("collectionName")]
         public Input<string>? CollectionName { get; set; }

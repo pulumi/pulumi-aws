@@ -13,7 +13,6 @@ import (
 // Retrieve information about a GuardDuty detector.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

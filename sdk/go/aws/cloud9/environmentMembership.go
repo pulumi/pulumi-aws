@@ -14,7 +14,6 @@ import (
 // Provides an environment member to an AWS Cloud9 development environment.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -114,6 +114,8 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     public readonly logging!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationLogging | undefined>;
     /**
      * Name for the configuration.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -245,6 +247,8 @@ export interface InfrastructureConfigurationState {
     logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging>;
     /**
      * Name for the configuration.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -307,6 +311,8 @@ export interface InfrastructureConfigurationArgs {
     logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging>;
     /**
      * Name for the configuration.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

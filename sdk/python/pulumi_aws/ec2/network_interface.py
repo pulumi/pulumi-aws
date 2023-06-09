@@ -39,6 +39,8 @@ class NetworkInterfaceArgs:
         """
         The set of arguments for constructing a NetworkInterface resource.
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceAttachmentArgs']]] attachments: Configuration block to define the attachment of the ENI. See Attachment below for more details!
         :param pulumi.Input[str] description: Description for the network interface.
         :param pulumi.Input[str] interface_type: Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
@@ -103,6 +105,8 @@ class NetworkInterfaceArgs:
     def subnet_id(self) -> pulumi.Input[str]:
         """
         Subnet ID to create the ENI in.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "subnet_id")
 
@@ -389,6 +393,8 @@ class _NetworkInterfaceState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -720,6 +726,8 @@ class _NetworkInterfaceState:
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
         Subnet ID to create the ENI in.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "subnet_id")
 
@@ -782,7 +790,6 @@ class NetworkInterface(pulumi.CustomResource):
         Provides an Elastic network interface (ENI) resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -792,7 +799,7 @@ class NetworkInterface(pulumi.CustomResource):
             private_ips=["10.0.0.50"],
             security_groups=[aws_security_group["web"]["id"]],
             attachments=[aws.ec2.NetworkInterfaceAttachmentArgs(
-                instance=aws_instance["test"]["id"],
+                instance=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 device_index=1,
             )])
         ```
@@ -841,6 +848,8 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -853,7 +862,6 @@ class NetworkInterface(pulumi.CustomResource):
         Provides an Elastic network interface (ENI) resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -863,7 +871,7 @@ class NetworkInterface(pulumi.CustomResource):
             private_ips=["10.0.0.50"],
             security_groups=[aws_security_group["web"]["id"]],
             attachments=[aws.ec2.NetworkInterfaceAttachmentArgs(
-                instance=aws_instance["test"]["id"],
+                instance=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 device_index=1,
             )])
         ```
@@ -1029,6 +1037,8 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -1247,6 +1257,8 @@ class NetworkInterface(pulumi.CustomResource):
     def subnet_id(self) -> pulumi.Output[str]:
         """
         Subnet ID to create the ENI in.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "subnet_id")
 

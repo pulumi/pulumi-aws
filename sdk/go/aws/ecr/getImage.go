@@ -13,7 +13,6 @@ import (
 // The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

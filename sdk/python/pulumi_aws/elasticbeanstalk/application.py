@@ -200,7 +200,6 @@ class Application(pulumi.CustomResource):
         `default`, and no application versions
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -208,7 +207,7 @@ class Application(pulumi.CustomResource):
         tftest = aws.elasticbeanstalk.Application("tftest",
             description="tf-test-desc",
             appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArgs(
-                service_role=aws_iam_role["beanstalk_service"]["arn"],
+                service_role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 max_count=128,
                 delete_source_from_s3=True,
             ))
@@ -243,7 +242,6 @@ class Application(pulumi.CustomResource):
         `default`, and no application versions
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,7 +249,7 @@ class Application(pulumi.CustomResource):
         tftest = aws.elasticbeanstalk.Application("tftest",
             description="tf-test-desc",
             appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArgs(
-                service_role=aws_iam_role["beanstalk_service"]["arn"],
+                service_role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 max_count=128,
                 delete_source_from_s3=True,
             ))

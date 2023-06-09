@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### SimpleAD
-//
 // ```go
 // package main
 //
@@ -75,7 +74,6 @@ import (
 //
 // ```
 // ### Microsoft Active Directory (MicrosoftAD)
-//
 // ```go
 // package main
 //
@@ -136,7 +134,6 @@ import (
 //
 // ```
 // ### Microsoft Active Directory Connector (ADConnector)
-//
 // ```go
 // package main
 //

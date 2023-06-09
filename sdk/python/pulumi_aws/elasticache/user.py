@@ -30,6 +30,8 @@ class UserArgs:
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[str] user_id: The ID of the user.
         :param pulumi.Input[str] user_name: The username of the user.
+               
+               The following arguments are optional:
         :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
@@ -89,6 +91,8 @@ class UserArgs:
     def user_name(self) -> pulumi.Input[str]:
         """
         The username of the user.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 
@@ -169,6 +173,8 @@ class _UserState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[str] user_id: The ID of the user.
         :param pulumi.Input[str] user_name: The username of the user.
+               
+               The following arguments are optional:
         """
         if access_string is not None:
             pulumi.set(__self__, "access_string", access_string)
@@ -301,6 +307,8 @@ class _UserState:
     def user_name(self) -> Optional[pulumi.Input[str]]:
         """
         The username of the user.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 
@@ -328,7 +336,6 @@ class User(pulumi.CustomResource):
 
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -340,7 +347,6 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName")
         ```
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,7 +360,6 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName")
         ```
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,6 +396,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[str] user_id: The ID of the user.
         :param pulumi.Input[str] user_name: The username of the user.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -403,7 +410,6 @@ class User(pulumi.CustomResource):
 
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -415,7 +421,6 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName")
         ```
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -429,7 +434,6 @@ class User(pulumi.CustomResource):
             user_id="testUserId",
             user_name="testUserName")
         ```
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -544,6 +548,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[str] user_id: The ID of the user.
         :param pulumi.Input[str] user_name: The username of the user.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -635,6 +641,8 @@ class User(pulumi.CustomResource):
     def user_name(self) -> pulumi.Output[str]:
         """
         The username of the user.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 

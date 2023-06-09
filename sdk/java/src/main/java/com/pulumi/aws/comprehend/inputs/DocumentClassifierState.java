@@ -124,6 +124,8 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
@@ -132,6 +134,8 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
      * @return Name for the Document Classifier.
      * Has a maximum length of 63 characters.
      * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -445,6 +449,8 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
          * Has a maximum length of 63 characters.
          * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -457,6 +463,8 @@ public final class DocumentClassifierState extends com.pulumi.resources.Resource
          * @param name Name for the Document Classifier.
          * Has a maximum length of 63 characters.
          * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

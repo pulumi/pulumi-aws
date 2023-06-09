@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// ### Create a basic resource server
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Cognito
     /// });
     /// ```
     /// ### Create a resource server with sample-scope
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

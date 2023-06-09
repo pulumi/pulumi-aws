@@ -57,6 +57,8 @@ public final class SecurityGroupEgress {
     /**
      * @return End range port (or ICMP code if protocol is `icmp`).
      * 
+     * The following arguments are optional:
+     * 
      */
     private Integer toPort;
 
@@ -119,6 +121,8 @@ public final class SecurityGroupEgress {
     }
     /**
      * @return End range port (or ICMP code if protocol is `icmp`).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Integer toPort() {

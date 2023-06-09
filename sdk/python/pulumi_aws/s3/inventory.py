@@ -300,7 +300,6 @@ class Inventory(pulumi.CustomResource):
 
         ## Example Usage
         ### Add inventory configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -321,7 +320,6 @@ class Inventory(pulumi.CustomResource):
             ))
         ```
         ### Add inventory configuration with S3 object prefix
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -376,7 +374,6 @@ class Inventory(pulumi.CustomResource):
 
         ## Example Usage
         ### Add inventory configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -397,7 +394,6 @@ class Inventory(pulumi.CustomResource):
             ))
         ```
         ### Add inventory configuration with S3 object prefix
-
         ```python
         import pulumi
         import pulumi_aws as aws

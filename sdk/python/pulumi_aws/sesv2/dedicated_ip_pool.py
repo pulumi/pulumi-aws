@@ -20,6 +20,8 @@ class DedicatedIpPoolArgs:
         """
         The set of arguments for constructing a DedicatedIpPool resource.
         :param pulumi.Input[str] pool_name: Name of the dedicated IP pool.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] scaling_mode: IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -34,6 +36,8 @@ class DedicatedIpPoolArgs:
     def pool_name(self) -> pulumi.Input[str]:
         """
         Name of the dedicated IP pool.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "pool_name")
 
@@ -78,6 +82,8 @@ class _DedicatedIpPoolState:
         Input properties used for looking up and filtering DedicatedIpPool resources.
         :param pulumi.Input[str] arn: ARN of the Dedicated IP Pool.
         :param pulumi.Input[str] pool_name: Name of the dedicated IP pool.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] scaling_mode: IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -109,6 +115,8 @@ class _DedicatedIpPoolState:
     def pool_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the dedicated IP pool.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "pool_name")
 
@@ -164,7 +172,6 @@ class DedicatedIpPool(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -172,7 +179,6 @@ class DedicatedIpPool(pulumi.CustomResource):
         example = aws.sesv2.DedicatedIpPool("example", pool_name="my-pool")
         ```
         ### Managed Pool
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,6 +199,8 @@ class DedicatedIpPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] pool_name: Name of the dedicated IP pool.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] scaling_mode: IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -207,7 +215,6 @@ class DedicatedIpPool(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,7 +222,6 @@ class DedicatedIpPool(pulumi.CustomResource):
         example = aws.sesv2.DedicatedIpPool("example", pool_name="my-pool")
         ```
         ### Managed Pool
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,6 +297,8 @@ class DedicatedIpPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Dedicated IP Pool.
         :param pulumi.Input[str] pool_name: Name of the dedicated IP pool.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] scaling_mode: IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -318,6 +326,8 @@ class DedicatedIpPool(pulumi.CustomResource):
     def pool_name(self) -> pulumi.Output[str]:
         """
         Name of the dedicated IP pool.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "pool_name")
 

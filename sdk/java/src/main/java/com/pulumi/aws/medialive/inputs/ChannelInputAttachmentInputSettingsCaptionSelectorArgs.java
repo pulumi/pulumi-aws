@@ -34,12 +34,16 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
     /**
      * Name of the Channel.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
      * @return Name of the Channel.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -103,6 +107,8 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
         /**
          * @param name Name of the Channel.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -113,6 +119,8 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
 
         /**
          * @param name Name of the Channel.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

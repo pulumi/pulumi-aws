@@ -32,7 +32,6 @@ namespace Pulumi.Aws.Ec2
     /// the separate resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,7 +66,6 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// 
     /// To subsequently remove all managed routes:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -27,6 +27,8 @@ namespace Pulumi.Aws.WafRegional.Outputs
         public readonly string? TargetString;
         /// <summary>
         /// The formatting way for web request.
+        /// 
+        /// FieldToMatch(field_to_match) support following:
         /// </summary>
         public readonly string TextTransformation;
 

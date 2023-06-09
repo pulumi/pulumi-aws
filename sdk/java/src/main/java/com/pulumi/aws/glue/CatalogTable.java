@@ -169,12 +169,16 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
+     * The follow arguments are optional:
+     * 
      */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
      * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+     * 
+     * The follow arguments are optional:
      * 
      */
     public Output<String> databaseName() {

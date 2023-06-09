@@ -105,7 +105,6 @@ class WebAclAssociation(pulumi.CustomResource):
         [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
 
         ## Example Usage
-
         ```python
         import pulumi
         import hashlib
@@ -182,7 +181,6 @@ class WebAclAssociation(pulumi.CustomResource):
         [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
 
         ## Example Usage
-
         ```python
         import pulumi
         import hashlib

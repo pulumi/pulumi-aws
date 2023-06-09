@@ -269,7 +269,6 @@ class EventEndpoint(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,10 +277,10 @@ class EventEndpoint(pulumi.CustomResource):
             role_arn=aws_iam_role["replication"]["arn"],
             event_buses=[
                 aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=aws_cloudwatch_event_bus["primary"]["arn"],
+                    event_bus_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=aws_cloudwatch_event_bus["secondary"]["arn"],
+                    event_bus_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ],
             replication_config=aws.cloudwatch.EventEndpointReplicationConfigArgs(
@@ -290,7 +289,7 @@ class EventEndpoint(pulumi.CustomResource):
             routing_config=aws.cloudwatch.EventEndpointRoutingConfigArgs(
                 failover_config=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigArgs(
                     primary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigPrimaryArgs(
-                        health_check=aws_route53_health_check["primary"]["arn"],
+                        health_check=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                     secondary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigSecondaryArgs(
                         route="us-east-2",
@@ -328,7 +327,6 @@ class EventEndpoint(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -337,10 +335,10 @@ class EventEndpoint(pulumi.CustomResource):
             role_arn=aws_iam_role["replication"]["arn"],
             event_buses=[
                 aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=aws_cloudwatch_event_bus["primary"]["arn"],
+                    event_bus_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=aws_cloudwatch_event_bus["secondary"]["arn"],
+                    event_bus_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ],
             replication_config=aws.cloudwatch.EventEndpointReplicationConfigArgs(
@@ -349,7 +347,7 @@ class EventEndpoint(pulumi.CustomResource):
             routing_config=aws.cloudwatch.EventEndpointRoutingConfigArgs(
                 failover_config=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigArgs(
                     primary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigPrimaryArgs(
-                        health_check=aws_route53_health_check["primary"]["arn"],
+                        health_check=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                     secondary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigSecondaryArgs(
                         route="us-east-2",

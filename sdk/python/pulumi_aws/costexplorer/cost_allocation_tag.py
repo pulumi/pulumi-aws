@@ -117,7 +117,6 @@ class CostAllocationTag(pulumi.CustomResource):
         Provides a CE Cost Allocation Tag.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,7 +149,6 @@ class CostAllocationTag(pulumi.CustomResource):
         Provides a CE Cost Allocation Tag.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

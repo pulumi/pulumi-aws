@@ -848,6 +848,8 @@ type DeploymentGroupAutoRollbackConfiguration struct {
 	// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
 	Enabled *bool `pulumi:"enabled"`
 	// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+	//
+	// _Only one `autoRollbackConfiguration` is allowed_.
 	Events []string `pulumi:"events"`
 }
 
@@ -866,6 +868,8 @@ type DeploymentGroupAutoRollbackConfigurationArgs struct {
 	// Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+	//
+	// _Only one `autoRollbackConfiguration` is allowed_.
 	Events pulumi.StringArrayInput `pulumi:"events"`
 }
 
@@ -952,6 +956,8 @@ func (o DeploymentGroupAutoRollbackConfigurationOutput) Enabled() pulumi.BoolPtr
 }
 
 // The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+//
+// _Only one `autoRollbackConfiguration` is allowed_.
 func (o DeploymentGroupAutoRollbackConfigurationOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentGroupAutoRollbackConfiguration) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
@@ -991,6 +997,8 @@ func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) Enabled() pulumi.Bool
 }
 
 // The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+//
+// _Only one `autoRollbackConfiguration` is allowed_.
 func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentGroupAutoRollbackConfiguration) []string {
 		if v == nil {
@@ -1006,6 +1014,8 @@ type DeploymentGroupBlueGreenDeploymentConfig struct {
 	// Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
 	GreenFleetProvisioningOption *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption `pulumi:"greenFleetProvisioningOption"`
 	// Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+	//
+	// _Only one `blueGreenDeploymentConfig` is allowed_.
 	TerminateBlueInstancesOnDeploymentSuccess *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess `pulumi:"terminateBlueInstancesOnDeploymentSuccess"`
 }
 
@@ -1026,6 +1036,8 @@ type DeploymentGroupBlueGreenDeploymentConfigArgs struct {
 	// Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
 	GreenFleetProvisioningOption DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrInput `pulumi:"greenFleetProvisioningOption"`
 	// Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+	//
+	// _Only one `blueGreenDeploymentConfig` is allowed_.
 	TerminateBlueInstancesOnDeploymentSuccess DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrInput `pulumi:"terminateBlueInstancesOnDeploymentSuccess"`
 }
 
@@ -1121,6 +1133,8 @@ func (o DeploymentGroupBlueGreenDeploymentConfigOutput) GreenFleetProvisioningOp
 }
 
 // Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+//
+// _Only one `blueGreenDeploymentConfig` is allowed_.
 func (o DeploymentGroupBlueGreenDeploymentConfigOutput) TerminateBlueInstancesOnDeploymentSuccess() DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput {
 	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
 		return v.TerminateBlueInstancesOnDeploymentSuccess
@@ -1172,6 +1186,8 @@ func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) GreenFleetProvisionin
 }
 
 // Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+//
+// _Only one `blueGreenDeploymentConfig` is allowed_.
 func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) TerminateBlueInstancesOnDeploymentSuccess() DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput {
 	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
 		if v == nil {
@@ -1640,6 +1656,8 @@ type DeploymentGroupDeploymentStyle struct {
 	// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
 	DeploymentOption *string `pulumi:"deploymentOption"`
 	// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
+	//
+	// _Only one `deploymentStyle` is allowed_.
 	DeploymentType *string `pulumi:"deploymentType"`
 }
 
@@ -1658,6 +1676,8 @@ type DeploymentGroupDeploymentStyleArgs struct {
 	// Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
 	DeploymentOption pulumi.StringPtrInput `pulumi:"deploymentOption"`
 	// Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
+	//
+	// _Only one `deploymentStyle` is allowed_.
 	DeploymentType pulumi.StringPtrInput `pulumi:"deploymentType"`
 }
 
@@ -1744,6 +1764,8 @@ func (o DeploymentGroupDeploymentStyleOutput) DeploymentOption() pulumi.StringPt
 }
 
 // Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
+//
+// _Only one `deploymentStyle` is allowed_.
 func (o DeploymentGroupDeploymentStyleOutput) DeploymentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentGroupDeploymentStyle) *string { return v.DeploymentType }).(pulumi.StringPtrOutput)
 }
@@ -1783,6 +1805,8 @@ func (o DeploymentGroupDeploymentStylePtrOutput) DeploymentOption() pulumi.Strin
 }
 
 // Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
+//
+// _Only one `deploymentStyle` is allowed_.
 func (o DeploymentGroupDeploymentStylePtrOutput) DeploymentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentGroupDeploymentStyle) *string {
 		if v == nil {
@@ -1798,6 +1822,8 @@ type DeploymentGroupEc2TagFilter struct {
 	// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
 	Type *string `pulumi:"type"`
 	// The value of the tag filter.
+	//
+	// Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
 	Value *string `pulumi:"value"`
 }
 
@@ -1818,6 +1844,8 @@ type DeploymentGroupEc2TagFilterArgs struct {
 	// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The value of the tag filter.
+	//
+	// Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1883,6 +1911,8 @@ func (o DeploymentGroupEc2TagFilterOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The value of the tag filter.
+//
+// Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
 func (o DeploymentGroupEc2TagFilterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentGroupEc2TagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2010,6 +2040,8 @@ type DeploymentGroupEc2TagSetEc2TagFilter struct {
 	// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
 	Type *string `pulumi:"type"`
 	// The value of the tag filter.
+	//
+	// Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
 	Value *string `pulumi:"value"`
 }
 
@@ -2030,6 +2062,8 @@ type DeploymentGroupEc2TagSetEc2TagFilterArgs struct {
 	// The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The value of the tag filter.
+	//
+	// Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -2095,6 +2129,8 @@ func (o DeploymentGroupEc2TagSetEc2TagFilterOutput) Type() pulumi.StringPtrOutpu
 }
 
 // The value of the tag filter.
+//
+// Multiple occurrences of `ec2TagFilter` are allowed, where any instance that matches to at least one of the tag filters is selected.
 func (o DeploymentGroupEc2TagSetEc2TagFilterOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentGroupEc2TagSetEc2TagFilter) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

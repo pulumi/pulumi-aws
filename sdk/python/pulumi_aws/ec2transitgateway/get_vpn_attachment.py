@@ -102,8 +102,8 @@ def get_vpn_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpnAttach
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-        vpn_connection_id=aws_vpn_connection["example"]["id"])
+    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        vpn_connection_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
     ### Filter
 
@@ -157,8 +157,8 @@ def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-        vpn_connection_id=aws_vpn_connection["example"]["id"])
+    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        vpn_connection_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
     ### Filter
 

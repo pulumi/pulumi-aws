@@ -111,12 +111,16 @@ public class ResourceSet extends com.pulumi.resources.CustomResource {
     /**
      * List of resources to add to this resource set. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="resources", refs={List.class,ResourceSetResource.class}, tree="[0,1]")
     private Output<List<ResourceSetResource>> resources;
 
     /**
      * @return List of resources to add to this resource set. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<ResourceSetResource>> resources() {

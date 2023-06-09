@@ -63,7 +63,6 @@ def get_canonical_user_id(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     > **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

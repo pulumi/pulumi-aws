@@ -346,6 +346,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * User-created description for the replication group. Must not be empty.
      *
+     * The following arguments are optional:
+     *
      * @deprecated Use description instead
      */
     public readonly replicationGroupDescription!: pulumi.Output<string>;
@@ -665,6 +667,8 @@ export interface ReplicationGroupState {
     /**
      * User-created description for the replication group. Must not be empty.
      *
+     * The following arguments are optional:
+     *
      * @deprecated Use description instead
      */
     replicationGroupDescription?: pulumi.Input<string>;
@@ -841,6 +845,8 @@ export interface ReplicationGroupArgs {
     replicasPerNodeGroup?: pulumi.Input<number>;
     /**
      * User-created description for the replication group. Must not be empty.
+     *
+     * The following arguments are optional:
      *
      * @deprecated Use description instead
      */

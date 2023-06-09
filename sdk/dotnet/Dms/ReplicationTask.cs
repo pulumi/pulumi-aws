@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Dms
     /// &gt; **NOTE:** Changing most arguments will stop the task if it is running. You can set `start_replication_task` to resume the task afterwards.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,6 +86,11 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The replication task identifier.
+        /// 
+        /// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+        /// - First character must be a letter.
+        /// - Cannot end with a hyphen.
+        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Output("replicationTaskId")]
         public Output<string> ReplicationTaskId { get; private set; } = null!;
@@ -211,6 +215,11 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The replication task identifier.
+        /// 
+        /// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+        /// - First character must be a letter.
+        /// - Cannot end with a hyphen.
+        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationTaskId", required: true)]
         public Input<string> ReplicationTaskId { get; set; } = null!;
@@ -297,6 +306,11 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The replication task identifier.
+        /// 
+        /// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+        /// - First character must be a letter.
+        /// - Cannot end with a hyphen.
+        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationTaskId")]
         public Input<string>? ReplicationTaskId { get; set; }

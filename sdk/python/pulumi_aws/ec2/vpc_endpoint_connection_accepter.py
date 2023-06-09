@@ -118,7 +118,6 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
 
         ## Example Usage
         ### Accept cross-account request
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -162,7 +161,6 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
 
         ## Example Usage
         ### Accept cross-account request
-
         ```python
         import pulumi
         import pulumi_aws as aws

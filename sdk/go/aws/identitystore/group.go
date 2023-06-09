@@ -36,6 +36,8 @@ type Group struct {
 	// The identifier of the newly created group in the identity store.
 	GroupId pulumi.StringOutput `pulumi:"groupId"`
 	// The globally unique identifier for the identity store.
+	//
+	// The following arguments are optional:
 	IdentityStoreId pulumi.StringOutput `pulumi:"identityStoreId"`
 }
 
@@ -83,6 +85,8 @@ type groupState struct {
 	// The identifier of the newly created group in the identity store.
 	GroupId *string `pulumi:"groupId"`
 	// The globally unique identifier for the identity store.
+	//
+	// The following arguments are optional:
 	IdentityStoreId *string `pulumi:"identityStoreId"`
 }
 
@@ -96,6 +100,8 @@ type GroupState struct {
 	// The identifier of the newly created group in the identity store.
 	GroupId pulumi.StringPtrInput
 	// The globally unique identifier for the identity store.
+	//
+	// The following arguments are optional:
 	IdentityStoreId pulumi.StringPtrInput
 }
 
@@ -109,6 +115,8 @@ type groupArgs struct {
 	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
 	DisplayName string `pulumi:"displayName"`
 	// The globally unique identifier for the identity store.
+	//
+	// The following arguments are optional:
 	IdentityStoreId string `pulumi:"identityStoreId"`
 }
 
@@ -119,6 +127,8 @@ type GroupArgs struct {
 	// A string containing the name of the group. This value is commonly displayed when the group is referenced.
 	DisplayName pulumi.StringInput
 	// The globally unique identifier for the identity store.
+	//
+	// The following arguments are optional:
 	IdentityStoreId pulumi.StringInput
 }
 
@@ -230,6 +240,8 @@ func (o GroupOutput) GroupId() pulumi.StringOutput {
 }
 
 // The globally unique identifier for the identity store.
+//
+// The following arguments are optional:
 func (o GroupOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.IdentityStoreId }).(pulumi.StringOutput)
 }

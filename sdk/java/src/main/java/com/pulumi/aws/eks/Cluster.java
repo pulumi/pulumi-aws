@@ -484,12 +484,16 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vpcConfig", refs={ClusterVpcConfig.class}, tree="[0]")
     private Output<ClusterVpcConfig> vpcConfig;
 
     /**
      * @return Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<ClusterVpcConfig> vpcConfig() {

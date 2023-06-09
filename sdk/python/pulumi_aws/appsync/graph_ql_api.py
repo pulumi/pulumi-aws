@@ -417,7 +417,6 @@ class GraphQLApi(pulumi.CustomResource):
 
         ## Example Usage
         ### API Key Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -425,7 +424,6 @@ class GraphQLApi(pulumi.CustomResource):
         example = aws.appsync.GraphQLApi("example", authentication_type="API_KEY")
         ```
         ### AWS IAM Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -433,7 +431,6 @@ class GraphQLApi(pulumi.CustomResource):
         example = aws.appsync.GraphQLApi("example", authentication_type="AWS_IAM")
         ```
         ### AWS Cognito User Pool Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -441,13 +438,12 @@ class GraphQLApi(pulumi.CustomResource):
         example = aws.appsync.GraphQLApi("example",
             authentication_type="AMAZON_COGNITO_USER_POOLS",
             user_pool_config=aws.appsync.GraphQLApiUserPoolConfigArgs(
-                aws_region=data["aws_region"]["current"]["name"],
+                aws_region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 default_action="DENY",
-                user_pool_id=aws_cognito_user_pool["example"]["id"],
+                user_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
         ### OpenID Connect Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -459,7 +455,6 @@ class GraphQLApi(pulumi.CustomResource):
             ))
         ```
         ### AWS Lambda Authorizer Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -476,7 +471,6 @@ class GraphQLApi(pulumi.CustomResource):
             source_arn=example.arn)
         ```
         ### With Multiple Authentication Providers
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -488,7 +482,6 @@ class GraphQLApi(pulumi.CustomResource):
             authentication_type="API_KEY")
         ```
         ### With Schema
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -505,7 +498,6 @@ class GraphQLApi(pulumi.CustomResource):
         \"\"\")
         ```
         ### Enabling Logging
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -561,7 +553,6 @@ class GraphQLApi(pulumi.CustomResource):
 
         ## Example Usage
         ### API Key Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -569,7 +560,6 @@ class GraphQLApi(pulumi.CustomResource):
         example = aws.appsync.GraphQLApi("example", authentication_type="API_KEY")
         ```
         ### AWS IAM Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -577,7 +567,6 @@ class GraphQLApi(pulumi.CustomResource):
         example = aws.appsync.GraphQLApi("example", authentication_type="AWS_IAM")
         ```
         ### AWS Cognito User Pool Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -585,13 +574,12 @@ class GraphQLApi(pulumi.CustomResource):
         example = aws.appsync.GraphQLApi("example",
             authentication_type="AMAZON_COGNITO_USER_POOLS",
             user_pool_config=aws.appsync.GraphQLApiUserPoolConfigArgs(
-                aws_region=data["aws_region"]["current"]["name"],
+                aws_region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 default_action="DENY",
-                user_pool_id=aws_cognito_user_pool["example"]["id"],
+                user_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
         ### OpenID Connect Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -603,7 +591,6 @@ class GraphQLApi(pulumi.CustomResource):
             ))
         ```
         ### AWS Lambda Authorizer Authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -620,7 +607,6 @@ class GraphQLApi(pulumi.CustomResource):
             source_arn=example.arn)
         ```
         ### With Multiple Authentication Providers
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -632,7 +618,6 @@ class GraphQLApi(pulumi.CustomResource):
             authentication_type="API_KEY")
         ```
         ### With Schema
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -649,7 +634,6 @@ class GraphQLApi(pulumi.CustomResource):
         \"\"\")
         ```
         ### Enabling Logging
-
         ```python
         import pulumi
         import pulumi_aws as aws

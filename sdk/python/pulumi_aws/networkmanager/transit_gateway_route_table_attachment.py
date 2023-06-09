@@ -310,7 +310,6 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         Creates a transit gateway route table attachment.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,7 +343,6 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         Creates a transit gateway route table attachment.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

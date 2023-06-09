@@ -86,6 +86,8 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// End range port (or ICMP code if protocol is `icmp`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;

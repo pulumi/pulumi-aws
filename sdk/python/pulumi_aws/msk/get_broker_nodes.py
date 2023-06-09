@@ -69,12 +69,11 @@ def get_broker_nodes(cluster_arn: Optional[str] = None,
     Get information on an Amazon MSK Broker Nodes.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.msk.get_broker_nodes(cluster_arn=aws_msk_cluster["example"]["arn"])
+    example = aws.msk.get_broker_nodes(cluster_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -98,12 +97,11 @@ def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     Get information on an Amazon MSK Broker Nodes.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.msk.get_broker_nodes(cluster_arn=aws_msk_cluster["example"]["arn"])
+    example = aws.msk.get_broker_nodes(cluster_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

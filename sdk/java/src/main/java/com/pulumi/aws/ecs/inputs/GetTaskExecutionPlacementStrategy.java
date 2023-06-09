@@ -32,12 +32,16 @@ public final class GetTaskExecutionPlacementStrategy extends com.pulumi.resource
     /**
      * The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
      * 
+     * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+     * 
      */
     @Import(name="type", required=true)
     private String type;
 
     /**
      * @return The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+     * 
+     * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
      * 
      */
     public String type() {
@@ -82,6 +86,8 @@ public final class GetTaskExecutionPlacementStrategy extends com.pulumi.resource
 
         /**
          * @param type The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+         * 
+         * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
          * 
          * @return builder
          * 

@@ -121,7 +121,6 @@ class RegexMatchSet(pulumi.CustomResource):
         Provides a WAF Regex Match Set Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -163,7 +162,6 @@ class RegexMatchSet(pulumi.CustomResource):
         Provides a WAF Regex Match Set Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

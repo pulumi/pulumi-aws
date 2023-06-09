@@ -17,40 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.NewReplicationTask(ctx, "test", &dms.ReplicationTaskArgs{
-//				CdcStartTime:            pulumi.String("1484346880"),
-//				MigrationType:           pulumi.String("full-load"),
-//				ReplicationInstanceArn:  pulumi.Any(aws_dms_replication_instance.TestDmsReplicationInstanceTf.Replication_instance_arn),
-//				ReplicationTaskId:       pulumi.String("test-dms-replication-task-tf"),
-//				ReplicationTaskSettings: pulumi.String("..."),
-//				SourceEndpointArn:       pulumi.Any(aws_dms_endpoint.TestDmsSourceEndpointTf.Endpoint_arn),
-//				TableMappings:           pulumi.String("{\"rules\":[{\"rule-type\":\"selection\",\"rule-id\":\"1\",\"rule-name\":\"1\",\"object-locator\":{\"schema-name\":\"%\",\"table-name\":\"%\"},\"rule-action\":\"include\"}]}"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("test"),
-//				},
-//				TargetEndpointArn: pulumi.Any(aws_dms_endpoint.TestDmsTargetEndpointTf.Endpoint_arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Replication tasks can be imported using the `replication_task_id`, e.g.,
@@ -74,6 +40,11 @@ type ReplicationTask struct {
 	// The Amazon Resource Name (ARN) for the replication task.
 	ReplicationTaskArn pulumi.StringOutput `pulumi:"replicationTaskArn"`
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId pulumi.StringOutput `pulumi:"replicationTaskId"`
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings pulumi.StringPtrOutput `pulumi:"replicationTaskSettings"`
@@ -151,6 +122,11 @@ type replicationTaskState struct {
 	// The Amazon Resource Name (ARN) for the replication task.
 	ReplicationTaskArn *string `pulumi:"replicationTaskArn"`
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId *string `pulumi:"replicationTaskId"`
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings *string `pulumi:"replicationTaskSettings"`
@@ -182,6 +158,11 @@ type ReplicationTaskState struct {
 	// The Amazon Resource Name (ARN) for the replication task.
 	ReplicationTaskArn pulumi.StringPtrInput
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId pulumi.StringPtrInput
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings pulumi.StringPtrInput
@@ -215,6 +196,11 @@ type replicationTaskArgs struct {
 	// The Amazon Resource Name (ARN) of the replication instance.
 	ReplicationInstanceArn string `pulumi:"replicationInstanceArn"`
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId string `pulumi:"replicationTaskId"`
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings *string `pulumi:"replicationTaskSettings"`
@@ -241,6 +227,11 @@ type ReplicationTaskArgs struct {
 	// The Amazon Resource Name (ARN) of the replication instance.
 	ReplicationInstanceArn pulumi.StringInput
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId pulumi.StringInput
 	// An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
 	ReplicationTaskSettings pulumi.StringPtrInput
@@ -369,6 +360,11 @@ func (o ReplicationTaskOutput) ReplicationTaskArn() pulumi.StringOutput {
 }
 
 // The replication task identifier.
+//
+// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+// - First character must be a letter.
+// - Cannot end with a hyphen.
+// - Cannot contain two consecutive hyphens.
 func (o ReplicationTaskOutput) ReplicationTaskId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.ReplicationTaskId }).(pulumi.StringOutput)
 }

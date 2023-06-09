@@ -13,7 +13,6 @@ namespace Pulumi.Aws.GuardDuty
     /// Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -198,6 +197,8 @@ namespace Pulumi.Aws.GuardDuty
 
         /// <summary>
         /// Currently there is only "S3" available as destination type which is also the default value
+        /// 
+        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         /// </summary>
         [Output("destinationType")]
         public Output<string?> DestinationType { get; private set; } = null!;
@@ -268,6 +269,8 @@ namespace Pulumi.Aws.GuardDuty
 
         /// <summary>
         /// Currently there is only "S3" available as destination type which is also the default value
+        /// 
+        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         /// </summary>
         [Input("destinationType")]
         public Input<string>? DestinationType { get; set; }
@@ -300,6 +303,8 @@ namespace Pulumi.Aws.GuardDuty
 
         /// <summary>
         /// Currently there is only "S3" available as destination type which is also the default value
+        /// 
+        /// &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
         /// </summary>
         [Input("destinationType")]
         public Input<string>? DestinationType { get; set; }

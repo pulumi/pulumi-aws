@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Mq
     /// 
     /// ## Example Usage
     /// ### Basic Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,7 +57,6 @@ namespace Pulumi.Aws.Mq
     /// ### High-throughput Optimized Example
     /// 
     /// This example shows the use of EBS storage for high-throughput optimized performance.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -245,6 +243,8 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("users")]
         public Output<ImmutableArray<Outputs.BrokerUser>> Users { get; private set; } = null!;
@@ -426,6 +426,8 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.BrokerUserArgs> Users
         {
@@ -613,6 +615,8 @@ namespace Pulumi.Aws.Mq
 
         /// <summary>
         /// Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.BrokerUserGetArgs> Users
         {

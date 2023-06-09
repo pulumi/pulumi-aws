@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Example Usage
     /// ### Apple Push Notification Service (APNS) using certificate-based authentication
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.Sns
     /// });
     /// ```
     /// ### Apple Push Notification Service (APNS) using token-based authentication
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,7 +52,6 @@ namespace Pulumi.Aws.Sns
     /// });
     /// ```
     /// ### Google Cloud Messaging (GCM)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -163,6 +160,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// The sample rate percentage (0-100) of successfully delivered messages.
+        /// 
+        /// The following attributes are needed only when using APNS token credentials:
         /// </summary>
         [Output("successFeedbackSampleRate")]
         public Output<string?> SuccessFeedbackSampleRate { get; private set; } = null!;
@@ -312,6 +311,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// The sample rate percentage (0-100) of successfully delivered messages.
+        /// 
+        /// The following attributes are needed only when using APNS token credentials:
         /// </summary>
         [Input("successFeedbackSampleRate")]
         public Input<string>? SuccessFeedbackSampleRate { get; set; }
@@ -424,6 +425,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// The sample rate percentage (0-100) of successfully delivered messages.
+        /// 
+        /// The following attributes are needed only when using APNS token credentials:
         /// </summary>
         [Input("successFeedbackSampleRate")]
         public Input<string>? SuccessFeedbackSampleRate { get; set; }

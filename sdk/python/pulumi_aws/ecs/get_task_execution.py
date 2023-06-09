@@ -254,6 +254,8 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.In
     :param str started_by: An optional tag specified when a task is started.
     :param Mapping[str, str] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     :param str task_definition: The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['capacityProviderStrategies'] = capacity_provider_strategies
@@ -342,5 +344,7 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
     :param str started_by: An optional tag specified when a task is started.
     :param Mapping[str, str] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     :param str task_definition: The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+           
+           The following arguments are optional:
     """
     ...

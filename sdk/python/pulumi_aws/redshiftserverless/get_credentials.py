@@ -115,12 +115,11 @@ def get_credentials(db_name: Optional[str] = None,
     Provides redshift serverless temporary credentials for a workgroup.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshiftserverless.get_credentials(workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"])
+    example = aws.redshiftserverless.get_credentials(workgroup_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -154,12 +153,11 @@ def get_credentials_output(db_name: Optional[pulumi.Input[Optional[str]]] = None
     Provides redshift serverless temporary credentials for a workgroup.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshiftserverless.get_credentials(workgroup_name=aws_redshiftserverless_workgroup["example"]["workgroup_name"])
+    example = aws.redshiftserverless.get_credentials(workgroup_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

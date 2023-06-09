@@ -17,7 +17,6 @@ import (
 // ## Example Usage
 //
 // **Using certs on file:**
-//
 // ```go
 // package main
 //

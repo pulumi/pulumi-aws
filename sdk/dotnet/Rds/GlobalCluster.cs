@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// ### New MySQL Global Cluster
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -93,7 +92,6 @@ namespace Pulumi.Aws.Rds
     /// });
     /// ```
     /// ### New PostgreSQL Global Cluster
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -181,7 +179,6 @@ namespace Pulumi.Aws.Rds
     /// });
     /// ```
     /// ### New Global Cluster From Existing DB Cluster
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -205,7 +202,6 @@ namespace Pulumi.Aws.Rds
     /// ### Upgrading Engine Versions
     /// 
     /// When you upgrade the version of an `aws.rds.GlobalCluster`, the provider will attempt to in-place upgrade the engine versions of all associated clusters. Since the `aws.rds.Cluster` resource is being updated through the `aws.rds.GlobalCluster`, you are likely to get an error (`Provider produced inconsistent final plan`). To avoid this, use the `lifecycle` `ignore_changes` meta argument as shown below on the `aws.rds.Cluster`.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -81,7 +81,6 @@ def get_solution_stack(most_recent: Optional[bool] = None,
     Use this data source to get the name of a elastic beanstalk solution stack.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -96,6 +95,10 @@ def get_solution_stack(most_recent: Optional[bool] = None,
     :param str name_regex: Regex string to apply to the solution stack list returned
            by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
            AWS documentation for reference solution stack names.
+           
+           > **NOTE:** If more or less than a single match is returned by the search,
+           this call will fail. Ensure that your search is specific enough to return
+           a single solution stack, or use `most_recent` to choose the most recent one.
     """
     __args__ = dict()
     __args__['mostRecent'] = most_recent
@@ -118,7 +121,6 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[bool]]
     Use this data source to get the name of a elastic beanstalk solution stack.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -133,5 +135,9 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[bool]]
     :param str name_regex: Regex string to apply to the solution stack list returned
            by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
            AWS documentation for reference solution stack names.
+           
+           > **NOTE:** If more or less than a single match is returned by the search,
+           this call will fail. Ensure that your search is specific enough to return
+           a single solution stack, or use `most_recent` to choose the most recent one.
     """
     ...

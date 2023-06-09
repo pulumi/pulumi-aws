@@ -235,6 +235,8 @@ type SecurityGroupRule struct {
 	ToPort pulumi.IntOutput `pulumi:"toPort"`
 	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -306,6 +308,8 @@ type securityGroupRuleState struct {
 	ToPort *int `pulumi:"toPort"`
 	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
@@ -334,6 +338,8 @@ type SecurityGroupRuleState struct {
 	ToPort pulumi.IntPtrInput
 	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -364,6 +370,8 @@ type securityGroupRuleArgs struct {
 	ToPort int `pulumi:"toPort"`
 	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -391,6 +399,8 @@ type SecurityGroupRuleArgs struct {
 	ToPort pulumi.IntInput
 	// Type of rule being created. Valid options are `ingress` (inbound)
 	// or `egress` (outbound).
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -538,6 +548,8 @@ func (o SecurityGroupRuleOutput) ToPort() pulumi.IntOutput {
 
 // Type of rule being created. Valid options are `ingress` (inbound)
 // or `egress` (outbound).
+//
+// The following arguments are optional:
 func (o SecurityGroupRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

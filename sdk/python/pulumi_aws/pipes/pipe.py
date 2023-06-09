@@ -34,6 +34,8 @@ class PipeArgs:
         :param pulumi.Input['PipeSourceParametersArgs'] source_parameters: Parameters required to set up a source for the pipe. Detailed below.
         :param pulumi.Input[str] target: Target resource of the pipe (typically an ARN).
         :param pulumi.Input['PipeTargetParametersArgs'] target_parameters: Parameters required to set up a target for your pipe. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: A description of the pipe. At most 512 characters.
         :param pulumi.Input[str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
@@ -112,6 +114,8 @@ class PipeArgs:
     def target_parameters(self) -> pulumi.Input['PipeTargetParametersArgs']:
         """
         Parameters required to set up a target for your pipe. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target_parameters")
 
@@ -223,6 +227,8 @@ class _PipeState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target: Target resource of the pipe (typically an ARN).
         :param pulumi.Input['PipeTargetParametersArgs'] target_parameters: Parameters required to set up a target for your pipe. Detailed below.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -400,6 +406,8 @@ class _PipeState:
     def target_parameters(self) -> Optional[pulumi.Input['PipeTargetParametersArgs']]:
         """
         Parameters required to set up a target for your pipe. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target_parameters")
 
@@ -434,7 +442,6 @@ class Pipe(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import json
@@ -515,6 +522,8 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target: Target resource of the pipe (typically an ARN).
         :param pulumi.Input[pulumi.InputType['PipeTargetParametersArgs']] target_parameters: Parameters required to set up a target for your pipe. Detailed below.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -531,7 +540,6 @@ class Pipe(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import json
@@ -700,6 +708,8 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target: Target resource of the pipe (typically an ARN).
         :param pulumi.Input[pulumi.InputType['PipeTargetParametersArgs']] target_parameters: Parameters required to set up a target for your pipe. Detailed below.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -821,6 +831,8 @@ class Pipe(pulumi.CustomResource):
     def target_parameters(self) -> pulumi.Output['outputs.PipeTargetParameters']:
         """
         Parameters required to set up a target for your pipe. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target_parameters")
 

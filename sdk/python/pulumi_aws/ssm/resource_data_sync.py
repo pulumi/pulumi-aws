@@ -104,7 +104,6 @@ class ResourceDataSync(pulumi.CustomResource):
         Provides a SSM resource data sync.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -169,7 +168,6 @@ class ResourceDataSync(pulumi.CustomResource):
         Provides a SSM resource data sync.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -270,12 +270,20 @@ public class Fleet extends com.pulumi.resources.CustomResource {
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
      * 
+     * **network** requires the following:
+     * 
+     * &gt; **NOTE:** `network` is cannot removed without force recreating.
+     * 
      */
     @Export(name="optimizeForEndUserLocation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> optimizeForEndUserLocation;
 
     /**
      * @return The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
+     * 
+     * **network** requires the following:
+     * 
+     * &gt; **NOTE:** `network` is cannot removed without force recreating.
      * 
      */
     public Output<Optional<Boolean>> optimizeForEndUserLocation() {

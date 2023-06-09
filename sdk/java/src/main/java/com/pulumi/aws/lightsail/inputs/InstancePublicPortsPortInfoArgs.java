@@ -87,12 +87,16 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
     /**
      * Last port in a range of open ports on an instance.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="toPort", required=true)
     private Output<Integer> toPort;
 
     /**
      * @return Last port in a range of open ports on an instance.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> toPort() {
@@ -248,6 +252,8 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
         /**
          * @param toPort Last port in a range of open ports on an instance.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -258,6 +264,8 @@ public final class InstancePublicPortsPortInfoArgs extends com.pulumi.resources.
 
         /**
          * @param toPort Last port in a range of open ports on an instance.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

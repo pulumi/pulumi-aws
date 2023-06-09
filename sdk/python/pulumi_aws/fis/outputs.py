@@ -124,6 +124,8 @@ class ExperimentTemplateActionParameter(dict):
         """
         :param str key: Parameter name.
         :param str value: Parameter value.
+               
+               For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -141,6 +143,8 @@ class ExperimentTemplateActionParameter(dict):
     def value(self) -> str:
         """
         Parameter value.
+
+        For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
         """
         return pulumi.get(self, "value")
 
@@ -243,6 +247,8 @@ class ExperimentTemplateTarget(dict):
         :param Sequence['ExperimentTemplateTargetFilterArgs'] filters: Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
         :param Sequence[str] resource_arns: Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
         :param Sequence['ExperimentTemplateTargetResourceTagArgs'] resource_tags: Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+               
+               > **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -299,6 +305,8 @@ class ExperimentTemplateTarget(dict):
     def resource_tags(self) -> Optional[Sequence['outputs.ExperimentTemplateTargetResourceTag']]:
         """
         Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+
+        > **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
         """
         return pulumi.get(self, "resource_tags")
 
@@ -311,6 +319,8 @@ class ExperimentTemplateTargetFilter(dict):
         """
         :param str path: Attribute path for the filter.
         :param Sequence[str] values: Set of attribute values for the filter.
+               
+               > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
         """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "values", values)
@@ -328,6 +338,8 @@ class ExperimentTemplateTargetFilter(dict):
     def values(self) -> Sequence[str]:
         """
         Set of attribute values for the filter.
+
+        > **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
         """
         return pulumi.get(self, "values")
 

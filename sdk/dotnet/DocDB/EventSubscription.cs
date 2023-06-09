@@ -13,7 +13,6 @@ namespace Pulumi.Aws.DocDB
     /// Provides a DocumentDB event subscription resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

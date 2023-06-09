@@ -274,12 +274,11 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
     a specific VPC endpoint.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    s3 = aws.ec2.get_vpc_endpoint(vpc_id=aws_vpc["foo"]["id"],
+    s3 = aws.ec2.get_vpc_endpoint(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         service_name="com.amazonaws.us-west-2.s3")
     private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("privateS3",
         vpc_endpoint_id=s3.id,
@@ -294,6 +293,9 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the specific VPC Endpoint to retrieve.
     :param str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -342,12 +344,11 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     a specific VPC endpoint.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    s3 = aws.ec2.get_vpc_endpoint(vpc_id=aws_vpc["foo"]["id"],
+    s3 = aws.ec2.get_vpc_endpoint(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         service_name="com.amazonaws.us-west-2.s3")
     private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("privateS3",
         vpc_endpoint_id=s3.id,
@@ -362,5 +363,8 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the specific VPC Endpoint to retrieve.
     :param str vpc_id: ID of the VPC in which the specific VPC Endpoint is used.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

@@ -140,12 +140,16 @@ public class Thesaurus extends com.pulumi.resources.CustomResource {
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
      * 
+     * The `source_s3_path` configuration block supports the following arguments:
+     * 
      */
     @Export(name="sourceS3Path", refs={ThesaurusSourceS3Path.class}, tree="[0]")
     private Output<ThesaurusSourceS3Path> sourceS3Path;
 
     /**
      * @return The S3 path where your thesaurus file sits in S3. Detailed below.
+     * 
+     * The `source_s3_path` configuration block supports the following arguments:
      * 
      */
     public Output<ThesaurusSourceS3Path> sourceS3Path() {

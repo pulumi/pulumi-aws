@@ -101,7 +101,6 @@ class InviteAccepter(pulumi.CustomResource):
         Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,7 +145,6 @@ class InviteAccepter(pulumi.CustomResource):
         Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -1058,6 +1058,8 @@ type MultiRegionAccessPointPolicyDetails struct {
 	// The name of the Multi-Region Access Point.
 	Name string `pulumi:"name"`
 	// A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+	//
+	// > **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
 	Policy string `pulumi:"policy"`
 }
 
@@ -1076,6 +1078,8 @@ type MultiRegionAccessPointPolicyDetailsArgs struct {
 	// The name of the Multi-Region Access Point.
 	Name pulumi.StringInput `pulumi:"name"`
 	// A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+	//
+	// > **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
 	Policy pulumi.StringInput `pulumi:"policy"`
 }
 
@@ -1162,6 +1166,8 @@ func (o MultiRegionAccessPointPolicyDetailsOutput) Name() pulumi.StringOutput {
 }
 
 // A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+//
+// > **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
 func (o MultiRegionAccessPointPolicyDetailsOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointPolicyDetails) string { return v.Policy }).(pulumi.StringOutput)
 }
@@ -1201,6 +1207,8 @@ func (o MultiRegionAccessPointPolicyDetailsPtrOutput) Name() pulumi.StringPtrOut
 }
 
 // A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+//
+// > **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
 func (o MultiRegionAccessPointPolicyDetailsPtrOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicyDetails) *string {
 		if v == nil {

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// 
     /// ## Example Usage
     /// ### Custom Policy
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,7 +80,6 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     /// 
     /// This example shows how to customize the TLS settings of an HTTPS listener.
     /// ### AWS Predefined Security Policy
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

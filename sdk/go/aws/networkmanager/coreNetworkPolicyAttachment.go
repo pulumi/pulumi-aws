@@ -50,6 +50,188 @@ import (
 //	}
 //
 // ```
+// ### With VPC Attachment (Single Region)
+//
+// The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `createBasePolicy` argument of the `networkmanager.CoreNetwork` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `createBasePolicy` argument.
+//
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
+// if err != nil {
+// return err
+// }
+// exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "exampleCoreNetwork", &networkmanager.CoreNetworkArgs{
+// GlobalNetworkId: exampleGlobalNetwork.ID(),
+// CreateBasePolicy: pulumi.Bool(true),
+// })
+// if err != nil {
+// return err
+// }
+// exampleVpcAttachment, err := networkmanager.NewVpcAttachment(ctx, "exampleVpcAttachment", &networkmanager.VpcAttachmentArgs{
+// CoreNetworkId: exampleCoreNetwork.ID(),
+// SubnetArns: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:networkmanager-coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment.pp:31,20-45),
+// VpcArn: pulumi.Any(aws_vpc.Example.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// exampleCoreNetworkPolicyDocument := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
+// CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
+// &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
+// AsnRanges: pulumi.StringArray{
+// pulumi.String("65022-65534"),
+// },
+// EdgeLocations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{
+// &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
+// Location: pulumi.String("us-west-2"),
+// },
+// },
+// },
+// },
+// Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
+// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
+// Name: pulumi.String("segment"),
+// },
+// },
+// SegmentActions: networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArray{
+// &networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs{
+// Action: pulumi.String("create-route"),
+// Segment: pulumi.String("segment"),
+// DestinationCidrBlocks: pulumi.StringArray{
+// pulumi.String("0.0.0.0/0"),
+// },
+// Destinations: pulumi.StringArray{
+// exampleVpcAttachment.ID(),
+// },
+// },
+// },
+// }, nil);
+// _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "exampleCoreNetworkPolicyAttachment", &networkmanager.CoreNetworkPolicyAttachmentArgs{
+// CoreNetworkId: exampleCoreNetwork.ID(),
+// PolicyDocument: exampleCoreNetworkPolicyDocument.ApplyT(func(exampleCoreNetworkPolicyDocument networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
+// return &exampleCoreNetworkPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+// ### With VPC Attachment (Multi-Region)
+//
+// The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `createBasePolicy` argument of the `networkmanager.CoreNetwork` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `createBasePolicy` argument. For multi-region in a core network that does not yet have a `LIVE` policy, pass a list of regions to the `networkmanager.CoreNetwork` `basePolicyRegions` argument. In the example below, `us-west-2` and `us-east-1` are specified in the base policy.
+//
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
+// if err != nil {
+// return err
+// }
+// exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "exampleCoreNetwork", &networkmanager.CoreNetworkArgs{
+// GlobalNetworkId: exampleGlobalNetwork.ID(),
+// BasePolicyRegions: pulumi.StringArray{
+// pulumi.String("us-west-2"),
+// pulumi.String("us-east-1"),
+// },
+// CreateBasePolicy: pulumi.Bool(true),
+// })
+// if err != nil {
+// return err
+// }
+// exampleUsWest2, err := networkmanager.NewVpcAttachment(ctx, "exampleUsWest2", &networkmanager.VpcAttachmentArgs{
+// CoreNetworkId: exampleCoreNetwork.ID(),
+// SubnetArns: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:networkmanager-coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment.pp:47,20-55),
+// VpcArn: pulumi.Any(aws_vpc.Example_us_west_2.Arn),
+// })
+// if err != nil {
+// return err
+// }
+// exampleUsEast1, err := networkmanager.NewVpcAttachment(ctx, "exampleUsEast1", &networkmanager.VpcAttachmentArgs{
+// CoreNetworkId: exampleCoreNetwork.ID(),
+// SubnetArns: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:networkmanager-coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment.pp:57,20-55),
+// VpcArn: pulumi.Any(aws_vpc.Example_us_east_1.Arn),
+// }, pulumi.Provider("alternate"))
+// if err != nil {
+// return err
+// }
+// exampleCoreNetworkPolicyDocument := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
+// CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
+// &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
+// AsnRanges: pulumi.StringArray{
+// pulumi.String("65022-65534"),
+// },
+// EdgeLocations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{
+// &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
+// Location: pulumi.String("us-west-2"),
+// },
+// &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
+// Location: pulumi.String("us-east-1"),
+// },
+// },
+// },
+// },
+// Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
+// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
+// Name: pulumi.String("segment"),
+// },
+// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
+// Name: pulumi.String("segment2"),
+// },
+// },
+// SegmentActions: networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArray{
+// &networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs{
+// Action: pulumi.String("create-route"),
+// Segment: pulumi.String("segment"),
+// DestinationCidrBlocks: pulumi.StringArray{
+// pulumi.String("10.0.0.0/16"),
+// },
+// Destinations: pulumi.StringArray{
+// exampleUsWest2.ID(),
+// },
+// },
+// &networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs{
+// Action: pulumi.String("create-route"),
+// Segment: pulumi.String("segment"),
+// DestinationCidrBlocks: pulumi.StringArray{
+// pulumi.String("10.1.0.0/16"),
+// },
+// Destinations: pulumi.StringArray{
+// exampleUsEast1.ID(),
+// },
+// },
+// },
+// }, nil);
+// _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "exampleCoreNetworkPolicyAttachment", &networkmanager.CoreNetworkPolicyAttachmentArgs{
+// CoreNetworkId: exampleCoreNetwork.ID(),
+// PolicyDocument: exampleCoreNetworkPolicyDocument.ApplyT(func(exampleCoreNetworkPolicyDocument networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
+// return &exampleCoreNetworkPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 //
 // ## Import
 //

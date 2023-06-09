@@ -14,7 +14,6 @@ import (
 // Provides a Global Accelerator endpoint group.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -75,6 +74,8 @@ type EndpointGroup struct {
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
 	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	//
+	// **endpoint_configuration** supports the following attributes:
 	PortOverrides EndpointGroupPortOverrideArrayOutput `pulumi:"portOverrides"`
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount pulumi.IntPtrOutput `pulumi:"thresholdCount"`
@@ -132,6 +133,8 @@ type endpointGroupState struct {
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn *string `pulumi:"listenerArn"`
 	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	//
+	// **endpoint_configuration** supports the following attributes:
 	PortOverrides []EndpointGroupPortOverride `pulumi:"portOverrides"`
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount *int `pulumi:"thresholdCount"`
@@ -158,6 +161,8 @@ type EndpointGroupState struct {
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn pulumi.StringPtrInput
 	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	//
+	// **endpoint_configuration** supports the following attributes:
 	PortOverrides EndpointGroupPortOverrideArrayInput
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount pulumi.IntPtrInput
@@ -186,6 +191,8 @@ type endpointGroupArgs struct {
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn string `pulumi:"listenerArn"`
 	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	//
+	// **endpoint_configuration** supports the following attributes:
 	PortOverrides []EndpointGroupPortOverride `pulumi:"portOverrides"`
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount *int `pulumi:"thresholdCount"`
@@ -211,6 +218,8 @@ type EndpointGroupArgs struct {
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn pulumi.StringInput
 	// Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+	//
+	// **endpoint_configuration** supports the following attributes:
 	PortOverrides EndpointGroupPortOverrideArrayInput
 	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
 	ThresholdCount pulumi.IntPtrInput
@@ -347,6 +356,8 @@ func (o EndpointGroupOutput) ListenerArn() pulumi.StringOutput {
 }
 
 // Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+//
+// **endpoint_configuration** supports the following attributes:
 func (o EndpointGroupOutput) PortOverrides() EndpointGroupPortOverrideArrayOutput {
 	return o.ApplyT(func(v *EndpointGroup) EndpointGroupPortOverrideArrayOutput { return v.PortOverrides }).(EndpointGroupPortOverrideArrayOutput)
 }

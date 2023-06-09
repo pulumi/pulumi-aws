@@ -125,12 +125,16 @@ public class Multiplex extends com.pulumi.resources.CustomResource {
     /**
      * name of Multiplex.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return name of Multiplex.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

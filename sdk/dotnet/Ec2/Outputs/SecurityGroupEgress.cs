@@ -47,6 +47,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly bool? Self;
         /// <summary>
         /// End range port (or ICMP code if protocol is `icmp`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly int ToPort;
 

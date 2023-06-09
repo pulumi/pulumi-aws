@@ -20,6 +20,8 @@ public final class SpotInstanceRequestCapacityReservationSpecification {
     /**
      * @return Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
      * 
+     * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
+     * 
      */
     private @Nullable SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget;
 
@@ -33,6 +35,8 @@ public final class SpotInstanceRequestCapacityReservationSpecification {
     }
     /**
      * @return Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+     * 
+     * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
      * 
      */
     public Optional<SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTarget() {

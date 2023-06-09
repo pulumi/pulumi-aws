@@ -24,6 +24,8 @@ class PipelineDefinitionArgs:
         The set of arguments for constructing a PipelineDefinition resource.
         :param pulumi.Input[str] pipeline_id: ID of the pipeline.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectArgs']]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
         """
@@ -51,6 +53,8 @@ class PipelineDefinitionArgs:
     def pipeline_objects(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]]:
         """
         Configuration block for the objects that define the pipeline. See below
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "pipeline_objects")
 
@@ -96,6 +100,8 @@ class _PipelineDefinitionState:
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterValueArgs']]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
         :param pulumi.Input[str] pipeline_id: ID of the pipeline.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
+               
+               The following arguments are optional:
         """
         if parameter_objects is not None:
             pulumi.set(__self__, "parameter_objects", parameter_objects)
@@ -147,6 +153,8 @@ class _PipelineDefinitionState:
     def pipeline_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectArgs']]]]:
         """
         Configuration block for the objects that define the pipeline. See below
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "pipeline_objects")
 
@@ -169,7 +177,6 @@ class PipelineDefinition(pulumi.CustomResource):
         Provides a DataPipeline Pipeline Definition resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,6 +254,8 @@ class PipelineDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionParameterValueArgs']]]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
         :param pulumi.Input[str] pipeline_id: ID of the pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionPipelineObjectArgs']]]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -258,7 +267,6 @@ class PipelineDefinition(pulumi.CustomResource):
         Provides a DataPipeline Pipeline Definition resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,6 +399,8 @@ class PipelineDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionParameterValueArgs']]]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
         :param pulumi.Input[str] pipeline_id: ID of the pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionPipelineObjectArgs']]]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -431,6 +441,8 @@ class PipelineDefinition(pulumi.CustomResource):
     def pipeline_objects(self) -> pulumi.Output[Sequence['outputs.PipelineDefinitionPipelineObject']]:
         """
         Configuration block for the objects that define the pipeline. See below
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "pipeline_objects")
 

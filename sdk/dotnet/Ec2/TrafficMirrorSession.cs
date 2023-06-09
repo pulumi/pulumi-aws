@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// To create a basic traffic mirror session
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -20,7 +20,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### With Versioning Enabled
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,7 +48,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### With Versioning Disabled
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,7 +82,6 @@ namespace Pulumi.Aws.S3
     /// &gt; **NOTE:** For critical and/or production S3 objects, do not create a bucket, enable versioning, and create an object in the bucket within the same configuration. Doing so will not allow the AWS-recommended 15 minutes between enabling versioning and writing to the bucket.
     /// 
     /// This example shows the `aws_s3_object.example` depending implicitly on the versioning resource through the reference to `aws_s3_bucket_versioning.example.bucket` to define `bucket`:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -75,6 +75,8 @@ export class UserStackAssociation extends pulumi.CustomResource {
     public readonly stackName!: pulumi.Output<string>;
     /**
      * Email address of the user who is associated with the stack.
+     *
+     * The following arguments are optional:
      */
     public readonly userName!: pulumi.Output<string>;
 
@@ -134,6 +136,8 @@ export interface UserStackAssociationState {
     stackName?: pulumi.Input<string>;
     /**
      * Email address of the user who is associated with the stack.
+     *
+     * The following arguments are optional:
      */
     userName?: pulumi.Input<string>;
 }
@@ -156,6 +160,8 @@ export interface UserStackAssociationArgs {
     stackName: pulumi.Input<string>;
     /**
      * Email address of the user who is associated with the stack.
+     *
+     * The following arguments are optional:
      */
     userName: pulumi.Input<string>;
 }

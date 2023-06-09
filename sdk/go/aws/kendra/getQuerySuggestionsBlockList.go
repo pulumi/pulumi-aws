@@ -13,7 +13,6 @@ import (
 // Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

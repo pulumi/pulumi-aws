@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Eks
     /// which is only available in Kubernetes 1.18 and later.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Aws.Eks
     /// `resolve_conflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
     /// 
     /// &gt; **Note:** `resolve_conflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,7 +66,6 @@ namespace Pulumi.Aws.Eks
     /// 
     /// To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
     /// This below is an example for extracting the `configuration_values` schema for `coredns`.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,7 +77,6 @@ namespace Pulumi.Aws.Eks
     /// ```
     /// 
     /// Example to create a `coredns` managed addon with custom `configuration_values`.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -134,6 +130,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
@@ -176,6 +174,11 @@ namespace Pulumi.Aws.Eks
         /// assigned the IAM permissions required by the add-on. If you don't specify
         /// an existing IAM role, then the add-on uses the permissions assigned to the node
         /// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+        /// in the Amazon EKS User Guide.
+        /// 
+        /// &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+        /// provider created for your cluster. For more information, [see Enabling IAM roles
+        /// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
         /// in the Amazon EKS User Guide.
         /// </summary>
         [Output("serviceAccountRoleArn")]
@@ -255,6 +258,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -285,6 +290,11 @@ namespace Pulumi.Aws.Eks
         /// assigned the IAM permissions required by the add-on. If you don't specify
         /// an existing IAM role, then the add-on uses the permissions assigned to the node
         /// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+        /// in the Amazon EKS User Guide.
+        /// 
+        /// &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+        /// provider created for your cluster. For more information, [see Enabling IAM roles
+        /// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
         /// in the Amazon EKS User Guide.
         /// </summary>
         [Input("serviceAccountRoleArn")]
@@ -332,6 +342,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
@@ -374,6 +386,11 @@ namespace Pulumi.Aws.Eks
         /// assigned the IAM permissions required by the add-on. If you don't specify
         /// an existing IAM role, then the add-on uses the permissions assigned to the node
         /// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+        /// in the Amazon EKS User Guide.
+        /// 
+        /// &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+        /// provider created for your cluster. For more information, [see Enabling IAM roles
+        /// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
         /// in the Amazon EKS User Guide.
         /// </summary>
         [Input("serviceAccountRoleArn")]

@@ -104,7 +104,6 @@ class BackupPolicy(pulumi.CustomResource):
         Backup policies turn automatic backups on or off for an existing file system.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -141,7 +140,6 @@ class BackupPolicy(pulumi.CustomResource):
         Backup policies turn automatic backups on or off for an existing file system.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

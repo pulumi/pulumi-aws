@@ -71,12 +71,11 @@ def get_resource_policy(resource_arn: Optional[str] = None,
     Retrieve information about a Network Firewall resource policy.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_resource_policy(resource_arn=var["resource_policy_arn"])
+    example = aws.networkfirewall.get_resource_policy(resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -100,12 +99,11 @@ def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
     Retrieve information about a Network Firewall resource policy.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_resource_policy(resource_arn=var["resource_policy_arn"])
+    example = aws.networkfirewall.get_resource_policy(resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

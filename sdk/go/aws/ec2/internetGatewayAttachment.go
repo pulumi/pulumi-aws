@@ -14,7 +14,6 @@ import (
 // Provides a resource to create a VPC Internet Gateway Attachment.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

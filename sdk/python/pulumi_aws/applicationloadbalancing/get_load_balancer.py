@@ -315,6 +315,8 @@ def get_load_balancer(arn: Optional[str] = None,
     :param str arn: Full ARN of the load balancer.
     :param str name: Unique name of the load balancer.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
     """
     pulumi.log.warn("""get_load_balancer is deprecated: aws.applicationloadbalancing.getLoadBalancer has been deprecated in favor of aws.alb.getLoadBalancer""")
     __args__ = dict()
@@ -389,6 +391,8 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     :param str arn: Full ARN of the load balancer.
     :param str name: Unique name of the load balancer.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
     """
     pulumi.log.warn("""get_load_balancer is deprecated: aws.applicationloadbalancing.getLoadBalancer has been deprecated in favor of aws.alb.getLoadBalancer""")
     ...

@@ -14,7 +14,6 @@ import (
 // Provides a Pinpoint APNs VoIP Sandbox Channel resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -77,10 +76,16 @@ type ApnsVoipSandboxChannel struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod pulumi.StringPtrOutput `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrOutput `pulumi:"teamId"`
@@ -159,10 +164,16 @@ type apnsVoipSandboxChannelState struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey *string `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId *string `pulumi:"teamId"`
@@ -183,10 +194,16 @@ type ApnsVoipSandboxChannelState struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey pulumi.StringPtrInput
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrInput
@@ -211,10 +228,16 @@ type apnsVoipSandboxChannelArgs struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey *string `pulumi:"privateKey"`
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId *string `pulumi:"teamId"`
@@ -236,10 +259,16 @@ type ApnsVoipSandboxChannelArgs struct {
 	// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 	// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 	// If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+	//
+	// One of the following sets of credentials is also required.
+	//
+	// If you choose to use __Certificate credentials__ you will have to provide:
 	DefaultAuthenticationMethod pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The Certificate Private Key file (ie. `.key` file).
+	//
+	// If you choose to use __Key credentials__ you will have to provide:
 	PrivateKey pulumi.StringPtrInput
 	// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
 	TeamId pulumi.StringPtrInput
@@ -355,6 +384,10 @@ func (o ApnsVoipSandboxChannelOutput) Certificate() pulumi.StringPtrOutput {
 // __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
 // You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
 // If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+//
+// One of the following sets of credentials is also required.
+//
+// If you choose to use __Certificate credentials__ you will have to provide:
 func (o ApnsVoipSandboxChannelOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipSandboxChannel) pulumi.StringPtrOutput { return v.DefaultAuthenticationMethod }).(pulumi.StringPtrOutput)
 }
@@ -365,6 +398,8 @@ func (o ApnsVoipSandboxChannelOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // The Certificate Private Key file (ie. `.key` file).
+//
+// If you choose to use __Key credentials__ you will have to provide:
 func (o ApnsVoipSandboxChannelOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApnsVoipSandboxChannel) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
 }

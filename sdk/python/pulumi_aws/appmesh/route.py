@@ -315,7 +315,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
         ### HTTP Routing
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,11 +330,11 @@ class Route(pulumi.CustomResource):
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[
                             aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
+                                virtual_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                                 weight=90,
                             ),
                             aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb2"]["name"],
+                                virtual_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                                 weight=10,
                             ),
                         ],
@@ -344,7 +343,6 @@ class Route(pulumi.CustomResource):
             ))
         ```
         ### HTTP Header Routing
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -367,7 +365,7 @@ class Route(pulumi.CustomResource):
                     ),
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
+                            virtual_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weight=100,
                         )],
                     ),
@@ -375,7 +373,6 @@ class Route(pulumi.CustomResource):
             ))
         ```
         ### Retry Policy
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -398,7 +395,7 @@ class Route(pulumi.CustomResource):
                     ),
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
+                            virtual_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weight=100,
                         )],
                     ),
@@ -406,7 +403,6 @@ class Route(pulumi.CustomResource):
             ))
         ```
         ### TCP Routing
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -418,7 +414,7 @@ class Route(pulumi.CustomResource):
                 tcp_route=aws.appmesh.RouteSpecTcpRouteArgs(
                     action=aws.appmesh.RouteSpecTcpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecTcpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
+                            virtual_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weight=100,
                         )],
                     ),
@@ -454,7 +450,6 @@ class Route(pulumi.CustomResource):
 
         ## Example Usage
         ### HTTP Routing
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -470,11 +465,11 @@ class Route(pulumi.CustomResource):
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[
                             aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
+                                virtual_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                                 weight=90,
                             ),
                             aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb2"]["name"],
+                                virtual_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                                 weight=10,
                             ),
                         ],
@@ -483,7 +478,6 @@ class Route(pulumi.CustomResource):
             ))
         ```
         ### HTTP Header Routing
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -506,7 +500,7 @@ class Route(pulumi.CustomResource):
                     ),
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
+                            virtual_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weight=100,
                         )],
                     ),
@@ -514,7 +508,6 @@ class Route(pulumi.CustomResource):
             ))
         ```
         ### Retry Policy
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -537,7 +530,7 @@ class Route(pulumi.CustomResource):
                     ),
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
+                            virtual_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weight=100,
                         )],
                     ),
@@ -545,7 +538,6 @@ class Route(pulumi.CustomResource):
             ))
         ```
         ### TCP Routing
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -557,7 +549,7 @@ class Route(pulumi.CustomResource):
                 tcp_route=aws.appmesh.RouteSpecTcpRouteArgs(
                     action=aws.appmesh.RouteSpecTcpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecTcpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
+                            virtual_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weight=100,
                         )],
                     ),

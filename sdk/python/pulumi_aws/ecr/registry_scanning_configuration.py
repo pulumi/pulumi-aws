@@ -121,7 +121,6 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -137,7 +136,6 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
             scan_type="ENHANCED")
         ```
         ### Multiple rules
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,7 +184,6 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,7 +199,6 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
             scan_type="ENHANCED")
         ```
         ### Multiple rules
-
         ```python
         import pulumi
         import pulumi_aws as aws

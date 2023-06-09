@@ -16,7 +16,6 @@ import (
 // A hosted virtual interface is a virtual interface that is owned by another AWS account.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

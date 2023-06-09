@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Fsx
     /// ### Using AWS Directory Service
     /// 
     /// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/fsx-aws-managed-ad.html).
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,7 +43,6 @@ namespace Pulumi.Aws.Fsx
     /// ### Using a Self-Managed Microsoft Active Directory
     /// 
     /// Additional information for using AWS Directory Service with Windows File Systems can be found in the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html).
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -249,6 +247,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("throughputCapacity")]
         public Output<int> ThroughputCapacity { get; private set; } = null!;
@@ -439,6 +439,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("throughputCapacity", required: true)]
         public Input<int> ThroughputCapacity { get; set; } = null!;
@@ -639,6 +641,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("throughputCapacity")]
         public Input<int>? ThroughputCapacity { get; set; }

@@ -40,6 +40,8 @@ class RecordArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]] aliases: An alias block. Conflicts with `ttl` & `records`.
                Documented below.
         :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+               
+               Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         :param pulumi.Input['RecordCidrRoutingPolicyArgs'] cidr_routing_policy: A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
@@ -133,6 +135,8 @@ class RecordArgs:
     def allow_overwrite(self) -> Optional[pulumi.Input[bool]]:
         """
         Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+
+        Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         """
         return pulumi.get(self, "allow_overwrite")
 
@@ -285,6 +289,8 @@ class _RecordState:
         :param pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]] aliases: An alias block. Conflicts with `ttl` & `records`.
                Documented below.
         :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+               
+               Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         :param pulumi.Input['RecordCidrRoutingPolicyArgs'] cidr_routing_policy: A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[str] fqdn: [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
@@ -351,6 +357,8 @@ class _RecordState:
     def allow_overwrite(self) -> Optional[pulumi.Input[bool]]:
         """
         Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+
+        Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         """
         return pulumi.get(self, "allow_overwrite")
 
@@ -553,7 +561,6 @@ class Record(pulumi.CustomResource):
 
         ## Example Usage
         ### Simple routing policy
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -568,7 +575,6 @@ class Record(pulumi.CustomResource):
         ### Weighted routing policy
 
         Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -601,7 +607,6 @@ class Record(pulumi.CustomResource):
 
         TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
         you cannot change this, therefore `ttl` has to be omitted in alias records.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -627,7 +632,6 @@ class Record(pulumi.CustomResource):
         ### NS and SOA Record Management
 
         When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -666,6 +670,8 @@ class Record(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAliasArgs']]]] aliases: An alias block. Conflicts with `ttl` & `records`.
                Documented below.
         :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+               
+               Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         :param pulumi.Input[pulumi.InputType['RecordCidrRoutingPolicyArgs']] cidr_routing_policy: A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFailoverRoutingPolicyArgs']]]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordGeolocationRoutingPolicyArgs']]]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
@@ -691,7 +697,6 @@ class Record(pulumi.CustomResource):
 
         ## Example Usage
         ### Simple routing policy
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -706,7 +711,6 @@ class Record(pulumi.CustomResource):
         ### Weighted routing policy
 
         Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -739,7 +743,6 @@ class Record(pulumi.CustomResource):
 
         TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
         you cannot change this, therefore `ttl` has to be omitted in alias records.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -765,7 +768,6 @@ class Record(pulumi.CustomResource):
         ### NS and SOA Record Management
 
         When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -896,6 +898,8 @@ class Record(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAliasArgs']]]] aliases: An alias block. Conflicts with `ttl` & `records`.
                Documented below.
         :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+               
+               Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         :param pulumi.Input[pulumi.InputType['RecordCidrRoutingPolicyArgs']] cidr_routing_policy: A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFailoverRoutingPolicyArgs']]]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[str] fqdn: [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
@@ -947,6 +951,8 @@ class Record(pulumi.CustomResource):
     def allow_overwrite(self) -> pulumi.Output[bool]:
         """
         Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+
+        Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         """
         return pulumi.get(self, "allow_overwrite")
 

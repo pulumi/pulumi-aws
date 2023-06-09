@@ -108,12 +108,16 @@ public class ContactList extends com.pulumi.resources.CustomResource {
     /**
      * The name of the contact list.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="contactListName", refs={String.class}, tree="[0]")
     private Output<String> contactListName;
 
     /**
      * @return The name of the contact list.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> contactListName() {

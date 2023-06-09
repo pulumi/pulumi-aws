@@ -173,6 +173,8 @@ public class Contact extends com.pulumi.resources.CustomResource {
      * The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
@@ -180,6 +182,8 @@ public class Contact extends com.pulumi.resources.CustomResource {
     /**
      * @return The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

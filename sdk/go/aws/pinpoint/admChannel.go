@@ -14,7 +14,6 @@ import (
 // Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

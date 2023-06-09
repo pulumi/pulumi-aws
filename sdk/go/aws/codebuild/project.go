@@ -13,6 +13,8 @@ import (
 
 // Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g., the "rebuild every time a code change is pushed" option in the CodeBuild web console).
 //
+// ## Example Usage
+//
 // ## Import
 //
 // CodeBuild Project can be imported using the `name`, e.g.,
@@ -70,6 +72,8 @@ type Project struct {
 	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
+	//
+	// The following arguments are optional:
 	Source ProjectSourceOutput `pulumi:"source"`
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrOutput `pulumi:"sourceVersion"`
@@ -167,6 +171,8 @@ type projectState struct {
 	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
+	//
+	// The following arguments are optional:
 	Source *ProjectSource `pulumi:"source"`
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
@@ -224,6 +230,8 @@ type ProjectState struct {
 	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole pulumi.StringPtrInput
 	// Configuration block. Detailed below.
+	//
+	// The following arguments are optional:
 	Source ProjectSourcePtrInput
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
@@ -279,6 +287,8 @@ type projectArgs struct {
 	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole string `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
+	//
+	// The following arguments are optional:
 	Source ProjectSource `pulumi:"source"`
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion *string `pulumi:"sourceVersion"`
@@ -329,6 +339,8 @@ type ProjectArgs struct {
 	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole pulumi.StringInput
 	// Configuration block. Detailed below.
+	//
+	// The following arguments are optional:
 	Source ProjectSourceInput
 	// Version of the build input to be built for this project. If not specified, the latest version is used.
 	SourceVersion pulumi.StringPtrInput
@@ -536,6 +548,8 @@ func (o ProjectOutput) ServiceRole() pulumi.StringOutput {
 }
 
 // Configuration block. Detailed below.
+//
+// The following arguments are optional:
 func (o ProjectOutput) Source() ProjectSourceOutput {
 	return o.ApplyT(func(v *Project) ProjectSourceOutput { return v.Source }).(ProjectSourceOutput)
 }

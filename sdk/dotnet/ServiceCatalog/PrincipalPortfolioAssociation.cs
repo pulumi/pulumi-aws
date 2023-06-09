@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,6 +56,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Principal ARN.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
@@ -127,6 +128,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Principal ARN.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("principalArn", required: true)]
         public Input<string> PrincipalArn { get; set; } = null!;
@@ -159,6 +162,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Principal ARN.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }

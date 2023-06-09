@@ -25,6 +25,8 @@ public final class AppImageConfigKernelGatewayImageConfigFileSystemConfig {
     /**
      * @return The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
      * 
+     * &gt; **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
+     * 
      */
     private @Nullable String mountPath;
 
@@ -45,6 +47,8 @@ public final class AppImageConfigKernelGatewayImageConfigFileSystemConfig {
     }
     /**
      * @return The path within the image to mount the user&#39;s EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+     * 
+     * &gt; **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
      * 
      */
     public Optional<String> mountPath() {

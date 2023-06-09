@@ -25,6 +25,8 @@ class ConfigurationSetArgs:
         The set of arguments for constructing a ConfigurationSet resource.
         :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: Whether messages that use the configuration set are required to use TLS. See below.
         :param pulumi.Input[str] name: Name of the configuration set.
+               
+               The following argument is optional:
         :param pulumi.Input[bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
@@ -57,6 +59,8 @@ class ConfigurationSetArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the configuration set.
+
+        The following argument is optional:
         """
         return pulumi.get(self, "name")
 
@@ -117,6 +121,8 @@ class _ConfigurationSetState:
         :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: Whether messages that use the configuration set are required to use TLS. See below.
         :param pulumi.Input[str] last_fresh_start: Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         :param pulumi.Input[str] name: Name of the configuration set.
+               
+               The following argument is optional:
         :param pulumi.Input[bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
@@ -177,6 +183,8 @@ class _ConfigurationSetState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the configuration set.
+
+        The following argument is optional:
         """
         return pulumi.get(self, "name")
 
@@ -236,7 +244,6 @@ class ConfigurationSet(pulumi.CustomResource):
         Provides an SES configuration set resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,7 +251,6 @@ class ConfigurationSet(pulumi.CustomResource):
         test = aws.ses.ConfigurationSet("test")
         ```
         ### Require TLS Connections
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -266,6 +272,8 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: Whether messages that use the configuration set are required to use TLS. See below.
         :param pulumi.Input[str] name: Name of the configuration set.
+               
+               The following argument is optional:
         :param pulumi.Input[bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
@@ -280,7 +288,6 @@ class ConfigurationSet(pulumi.CustomResource):
         Provides an SES configuration set resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,7 +295,6 @@ class ConfigurationSet(pulumi.CustomResource):
         test = aws.ses.ConfigurationSet("test")
         ```
         ### Require TLS Connections
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -372,6 +378,8 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: Whether messages that use the configuration set are required to use TLS. See below.
         :param pulumi.Input[str] last_fresh_start: Date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
         :param pulumi.Input[str] name: Name of the configuration set.
+               
+               The following argument is optional:
         :param pulumi.Input[bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         :param pulumi.Input[bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
@@ -418,6 +426,8 @@ class ConfigurationSet(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name of the configuration set.
+
+        The following argument is optional:
         """
         return pulumi.get(self, "name")
 

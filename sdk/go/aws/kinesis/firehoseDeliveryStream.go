@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 // ### Extended S3 Destination
-//
 // ```go
 // package main
 //
@@ -143,7 +142,6 @@ import (
 // ### Extended S3 Destination with dynamic partitioning
 //
 // These examples use built-in Firehose functionality, rather than requiring a lambda.
-//
 // ```go
 // package main
 //
@@ -208,7 +206,6 @@ import (
 //
 // ```
 // ### S3 Destination (deprecated)
-//
 // ```go
 // package main
 //
@@ -277,7 +274,6 @@ import (
 //
 // ```
 // ### Redshift Destination
-//
 // ```go
 // package main
 //
@@ -344,7 +340,6 @@ import (
 //
 // ```
 // ### Elasticsearch Destination
-//
 // ```go
 // package main
 //
@@ -403,7 +398,6 @@ import (
 //
 // ```
 // ### Elasticsearch Destination With VPC
-//
 // ```go
 // package main
 //
@@ -518,7 +512,6 @@ import (
 //
 // ```
 // ### Opensearch Destination
-//
 // ```go
 // package main
 //
@@ -576,7 +569,6 @@ import (
 //
 // ```
 // ### Opensearch Destination With VPC
-//
 // ```go
 // package main
 //
@@ -693,7 +685,6 @@ import (
 //
 // ```
 // ### Splunk Destination
-//
 // ```go
 // package main
 //
@@ -732,7 +723,6 @@ import (
 //
 // ```
 // ### HTTP Endpoint (e.g., New Relic) Destination
-//
 // ```go
 // package main
 //

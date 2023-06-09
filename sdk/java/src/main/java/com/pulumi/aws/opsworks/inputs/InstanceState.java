@@ -608,12 +608,16 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Identifier of the stack the instance will belong to.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="stackId")
     private @Nullable Output<String> stackId;
 
     /**
      * @return Identifier of the stack the instance will belong to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> stackId() {
@@ -1635,6 +1639,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param stackId Identifier of the stack the instance will belong to.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -1645,6 +1651,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param stackId Identifier of the stack the instance will belong to.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

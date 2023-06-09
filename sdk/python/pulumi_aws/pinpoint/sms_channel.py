@@ -200,7 +200,6 @@ class SmsChannel(pulumi.CustomResource):
         Provides a Pinpoint SMS Channel resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,7 +233,6 @@ class SmsChannel(pulumi.CustomResource):
         Provides a Pinpoint SMS Channel resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

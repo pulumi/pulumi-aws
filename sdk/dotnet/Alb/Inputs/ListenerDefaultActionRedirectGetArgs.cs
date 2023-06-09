@@ -44,6 +44,8 @@ namespace Pulumi.Aws.Alb.Inputs
 
         /// <summary>
         /// HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("statusCode", required: true)]
         public Input<string> StatusCode { get; set; } = null!;

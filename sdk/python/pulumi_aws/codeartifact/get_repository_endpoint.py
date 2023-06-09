@@ -101,13 +101,12 @@ def get_repository_endpoint(domain: Optional[str] = None,
     The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.codeartifact.get_repository_endpoint(domain=aws_codeartifact_domain["test"]["domain"],
-        repository=aws_codeartifact_repository["test"]["repository"],
+    test = aws.codeartifact.get_repository_endpoint(domain=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        repository=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         format="npm")
     ```
 
@@ -144,13 +143,12 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[str]] = None,
     The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.codeartifact.get_repository_endpoint(domain=aws_codeartifact_domain["test"]["domain"],
-        repository=aws_codeartifact_repository["test"]["repository"],
+    test = aws.codeartifact.get_repository_endpoint(domain=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        repository=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         format="npm")
     ```
 

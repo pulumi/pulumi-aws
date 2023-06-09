@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic example
-//
 // ```go
 // package main
 //
@@ -51,7 +50,6 @@ import (
 //
 // ```
 // ### Multiple rules
-//
 // ```go
 // package main
 //

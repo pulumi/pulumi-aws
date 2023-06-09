@@ -221,12 +221,16 @@ public class SafetyRule extends com.pulumi.resources.CustomResource {
     /**
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="waitPeriodMs", refs={Integer.class}, tree="[0]")
     private Output<Integer> waitPeriodMs;
 
     /**
      * @return Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> waitPeriodMs() {

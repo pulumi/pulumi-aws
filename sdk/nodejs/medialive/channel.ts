@@ -160,6 +160,8 @@ export class Channel extends pulumi.CustomResource {
     public readonly maintenance!: pulumi.Output<outputs.medialive.ChannelMaintenance>;
     /**
      * Name of the Channel.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -294,6 +296,8 @@ export interface ChannelState {
     maintenance?: pulumi.Input<inputs.medialive.ChannelMaintenance>;
     /**
      * Name of the Channel.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -353,6 +357,8 @@ export interface ChannelArgs {
     maintenance?: pulumi.Input<inputs.medialive.ChannelMaintenance>;
     /**
      * Name of the Channel.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

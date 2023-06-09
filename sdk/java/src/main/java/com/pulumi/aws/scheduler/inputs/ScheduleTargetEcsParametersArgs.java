@@ -221,12 +221,16 @@ public final class ScheduleTargetEcsParametersArgs extends com.pulumi.resources.
     /**
      * ARN of the task definition to use.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="taskDefinitionArn", required=true)
     private Output<String> taskDefinitionArn;
 
     /**
      * @return ARN of the task definition to use.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> taskDefinitionArn() {
@@ -576,6 +580,8 @@ public final class ScheduleTargetEcsParametersArgs extends com.pulumi.resources.
         /**
          * @param taskDefinitionArn ARN of the task definition to use.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -586,6 +592,8 @@ public final class ScheduleTargetEcsParametersArgs extends com.pulumi.resources.
 
         /**
          * @param taskDefinitionArn ARN of the task definition to use.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

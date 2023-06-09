@@ -53,6 +53,9 @@ export interface GetPublicIpv4PoolsArgs {
     filters?: inputs.ec2.GetPublicIpv4PoolsFilter[];
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired pools.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     tags?: {[key: string]: string};
 }
@@ -112,6 +115,9 @@ export interface GetPublicIpv4PoolsOutputArgs {
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetPublicIpv4PoolsFilterArgs>[]>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired pools.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

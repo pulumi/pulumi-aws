@@ -16,7 +16,6 @@ import (
 // > **NOTE on Instance State Management:** AWS does not currently have an EC2 API operation to determine an instance has finished processing user data. As a result, this resource can interfere with user data processing. For example, this resource may stop an instance while the user data script is in mid run.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -93,6 +92,8 @@ type InstanceState struct {
 	// ID of the instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// State of the instance. Valid values are `stopped`, `running`.
+	//
+	// The following arguments are optional:
 	State pulumi.StringOutput `pulumi:"state"`
 }
 
@@ -136,6 +137,8 @@ type instanceStateState struct {
 	// ID of the instance.
 	InstanceId *string `pulumi:"instanceId"`
 	// State of the instance. Valid values are `stopped`, `running`.
+	//
+	// The following arguments are optional:
 	State *string `pulumi:"state"`
 }
 
@@ -145,6 +148,8 @@ type InstanceStateState struct {
 	// ID of the instance.
 	InstanceId pulumi.StringPtrInput
 	// State of the instance. Valid values are `stopped`, `running`.
+	//
+	// The following arguments are optional:
 	State pulumi.StringPtrInput
 }
 
@@ -158,6 +163,8 @@ type instanceStateArgs struct {
 	// ID of the instance.
 	InstanceId string `pulumi:"instanceId"`
 	// State of the instance. Valid values are `stopped`, `running`.
+	//
+	// The following arguments are optional:
 	State string `pulumi:"state"`
 }
 
@@ -168,6 +175,8 @@ type InstanceStateArgs struct {
 	// ID of the instance.
 	InstanceId pulumi.StringInput
 	// State of the instance. Valid values are `stopped`, `running`.
+	//
+	// The following arguments are optional:
 	State pulumi.StringInput
 }
 
@@ -269,6 +278,8 @@ func (o InstanceStateOutput) InstanceId() pulumi.StringOutput {
 }
 
 // State of the instance. Valid values are `stopped`, `running`.
+//
+// The following arguments are optional:
 func (o InstanceStateOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceState) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

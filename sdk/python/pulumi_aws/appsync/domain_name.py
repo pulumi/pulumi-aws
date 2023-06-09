@@ -166,7 +166,6 @@ class DomainName(pulumi.CustomResource):
         Provides an AppSync Domain Name.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -200,7 +199,6 @@ class DomainName(pulumi.CustomResource):
         Provides an AppSync Domain Name.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

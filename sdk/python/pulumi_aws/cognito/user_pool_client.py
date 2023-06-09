@@ -41,6 +41,8 @@ class UserPoolClientArgs:
         """
         The set of arguments for constructing a UserPoolClient resource.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] access_token_validity: Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
                By default, the unit is hours.
                The unit can be overridden by a value in `token_validity_units.access_token`.
@@ -118,6 +120,8 @@ class UserPoolClientArgs:
     def user_pool_id(self) -> pulumi.Input[str]:
         """
         User pool the client belongs to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_pool_id")
 
@@ -440,6 +444,8 @@ class _UserPoolClientState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input['UserPoolClientTokenValidityUnitsArgs'] token_validity_units: Configuration block for units in which the validity times are represented in. Detailed below.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
         """
         if access_token_validity is not None:
@@ -752,6 +758,8 @@ class _UserPoolClientState:
     def user_pool_id(self) -> Optional[pulumi.Input[str]]:
         """
         User pool the client belongs to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_pool_id")
 
@@ -808,7 +816,6 @@ class UserPoolClient(pulumi.CustomResource):
 
         ## Example Usage
         ### Create a basic user pool client
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -817,7 +824,6 @@ class UserPoolClient(pulumi.CustomResource):
         client = aws.cognito.UserPoolClient("client", user_pool_id=pool.id)
         ```
         ### Create a user pool client with no SRP authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -829,7 +835,6 @@ class UserPoolClient(pulumi.CustomResource):
             explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         ```
         ### Create a user pool client with pinpoint analytics
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -867,7 +872,6 @@ class UserPoolClient(pulumi.CustomResource):
             policy=test_policy_document.json)
         ```
         ### Create a user pool client with Cognito as the identity provider
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -925,6 +929,8 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input[pulumi.InputType['UserPoolClientTokenValidityUnitsArgs']] token_validity_units: Configuration block for units in which the validity times are represented in. Detailed below.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
         """
         ...
@@ -941,7 +947,6 @@ class UserPoolClient(pulumi.CustomResource):
 
         ## Example Usage
         ### Create a basic user pool client
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -950,7 +955,6 @@ class UserPoolClient(pulumi.CustomResource):
         client = aws.cognito.UserPoolClient("client", user_pool_id=pool.id)
         ```
         ### Create a user pool client with no SRP authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -962,7 +966,6 @@ class UserPoolClient(pulumi.CustomResource):
             explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         ```
         ### Create a user pool client with pinpoint analytics
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1000,7 +1003,6 @@ class UserPoolClient(pulumi.CustomResource):
             policy=test_policy_document.json)
         ```
         ### Create a user pool client with Cognito as the identity provider
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1170,6 +1172,8 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         :param pulumi.Input[pulumi.InputType['UserPoolClientTokenValidityUnitsArgs']] token_validity_units: Configuration block for units in which the validity times are represented in. Detailed below.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: List of user pool attributes the application client can write to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1380,6 +1384,8 @@ class UserPoolClient(pulumi.CustomResource):
     def user_pool_id(self) -> pulumi.Output[str]:
         """
         User pool the client belongs to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_pool_id")
 

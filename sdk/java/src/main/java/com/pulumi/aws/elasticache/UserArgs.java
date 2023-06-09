@@ -127,12 +127,16 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The username of the user.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
     /**
      * @return The username of the user.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userName() {
@@ -330,6 +334,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userName The username of the user.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -340,6 +346,8 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param userName The username of the user.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

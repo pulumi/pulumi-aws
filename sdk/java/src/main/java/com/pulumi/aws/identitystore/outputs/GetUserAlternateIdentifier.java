@@ -20,6 +20,8 @@ public final class GetUserAlternateIdentifier {
     /**
      * @return An entity attribute that&#39;s unique to a specific entity. Detailed below.
      * 
+     * &gt; Exactly one of the above arguments must be provided.
+     * 
      */
     private @Nullable GetUserAlternateIdentifierUniqueAttribute uniqueAttribute;
 
@@ -33,6 +35,8 @@ public final class GetUserAlternateIdentifier {
     }
     /**
      * @return An entity attribute that&#39;s unique to a specific entity. Detailed below.
+     * 
+     * &gt; Exactly one of the above arguments must be provided.
      * 
      */
     public Optional<GetUserAlternateIdentifierUniqueAttribute> uniqueAttribute() {

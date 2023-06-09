@@ -175,7 +175,6 @@ class GroupPolicy(pulumi.CustomResource):
         Provides an IAM policy attached to a group.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -221,7 +220,6 @@ class GroupPolicy(pulumi.CustomResource):
         Provides an IAM policy attached to a group.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

@@ -83,7 +83,6 @@ def get_access_points(file_system_id: Optional[str] = None,
     Provides information about multiple Elastic File System (EFS) Access Points.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -113,7 +112,6 @@ def get_access_points_output(file_system_id: Optional[pulumi.Input[str]] = None,
     Provides information about multiple Elastic File System (EFS) Access Points.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

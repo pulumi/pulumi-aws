@@ -16,7 +16,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -54,6 +53,8 @@ type GetQuicksightGroupArgs struct {
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The name of the group that you want to match.
+	//
+	// The following arguments are optional:
 	GroupName string `pulumi:"groupName"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
@@ -92,6 +93,8 @@ type GetQuicksightGroupOutputArgs struct {
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// The name of the group that you want to match.
+	//
+	// The following arguments are optional:
 	GroupName pulumi.StringInput `pulumi:"groupName"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`

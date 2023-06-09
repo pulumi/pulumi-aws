@@ -14,7 +14,6 @@ import (
 // Creates a new Amazon Redshift Serverless Workgroup.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -77,6 +76,8 @@ type Workgroup struct {
 	// The Redshift Workgroup ID.
 	WorkgroupId pulumi.StringOutput `pulumi:"workgroupId"`
 	// The name of the workgroup.
+	//
+	// The following arguments are optional:
 	WorkgroupName pulumi.StringOutput `pulumi:"workgroupName"`
 }
 
@@ -140,6 +141,8 @@ type workgroupState struct {
 	// The Redshift Workgroup ID.
 	WorkgroupId *string `pulumi:"workgroupId"`
 	// The name of the workgroup.
+	//
+	// The following arguments are optional:
 	WorkgroupName *string `pulumi:"workgroupName"`
 }
 
@@ -169,6 +172,8 @@ type WorkgroupState struct {
 	// The Redshift Workgroup ID.
 	WorkgroupId pulumi.StringPtrInput
 	// The name of the workgroup.
+	//
+	// The following arguments are optional:
 	WorkgroupName pulumi.StringPtrInput
 }
 
@@ -194,6 +199,8 @@ type workgroupArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the workgroup.
+	//
+	// The following arguments are optional:
 	WorkgroupName string `pulumi:"workgroupName"`
 }
 
@@ -216,6 +223,8 @@ type WorkgroupArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The name of the workgroup.
+	//
+	// The following arguments are optional:
 	WorkgroupName pulumi.StringInput
 }
 
@@ -367,6 +376,8 @@ func (o WorkgroupOutput) WorkgroupId() pulumi.StringOutput {
 }
 
 // The name of the workgroup.
+//
+// The following arguments are optional:
 func (o WorkgroupOutput) WorkgroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringOutput { return v.WorkgroupName }).(pulumi.StringOutput)
 }

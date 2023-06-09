@@ -49,12 +49,24 @@ public final class BucketObjectLockConfigurationRuleDefaultRetentionArgs extends
     /**
      * The number of years that you want to specify for the default retention period.
      * 
+     * Either `days` or `years` must be specified, but not both.
+     * 
+     * &gt; **NOTE on `object_lock_configuration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
+     * When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
+     * Once you create a bucket with S3 Object Lock enabled, you can&#39;t disable Object Lock or suspend versioning for the bucket.
+     * 
      */
     @Import(name="years")
     private @Nullable Output<Integer> years;
 
     /**
      * @return The number of years that you want to specify for the default retention period.
+     * 
+     * Either `days` or `years` must be specified, but not both.
+     * 
+     * &gt; **NOTE on `object_lock_configuration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
+     * When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
+     * Once you create a bucket with S3 Object Lock enabled, you can&#39;t disable Object Lock or suspend versioning for the bucket.
      * 
      */
     public Optional<Output<Integer>> years() {
@@ -132,6 +144,12 @@ public final class BucketObjectLockConfigurationRuleDefaultRetentionArgs extends
         /**
          * @param years The number of years that you want to specify for the default retention period.
          * 
+         * Either `days` or `years` must be specified, but not both.
+         * 
+         * &gt; **NOTE on `object_lock_configuration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
+         * When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
+         * Once you create a bucket with S3 Object Lock enabled, you can&#39;t disable Object Lock or suspend versioning for the bucket.
+         * 
          * @return builder
          * 
          */
@@ -142,6 +160,12 @@ public final class BucketObjectLockConfigurationRuleDefaultRetentionArgs extends
 
         /**
          * @param years The number of years that you want to specify for the default retention period.
+         * 
+         * Either `days` or `years` must be specified, but not both.
+         * 
+         * &gt; **NOTE on `object_lock_configuration`:** You can only enable S3 Object Lock for new buckets. If you need to turn on S3 Object Lock for an existing bucket, please contact AWS Support.
+         * When you create a bucket with S3 Object Lock enabled, Amazon S3 automatically enables versioning for the bucket.
+         * Once you create a bucket with S3 Object Lock enabled, you can&#39;t disable Object Lock or suspend versioning for the bucket.
          * 
          * @return builder
          * 

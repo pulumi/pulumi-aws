@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Chime
     /// Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

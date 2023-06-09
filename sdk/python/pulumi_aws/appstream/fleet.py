@@ -49,6 +49,8 @@ class FleetArgs:
         :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
         :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
         :param pulumi.Input[str] name: Unique name for the fleet.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to attach to AppStream instances.
         :param pulumi.Input['FleetVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
@@ -247,6 +249,8 @@ class FleetArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Unique name for the fleet.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -333,6 +337,8 @@ class _FleetState:
         :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
         :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
         :param pulumi.Input[str] name: Unique name for the fleet.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] state: State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
         :param pulumi.Input[str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to attach to AppStream instances.
@@ -566,6 +572,8 @@ class _FleetState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Unique name for the fleet.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -658,7 +666,6 @@ class Fleet(pulumi.CustomResource):
         Provides an AppStream fleet.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -707,6 +714,8 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
         :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
         :param pulumi.Input[str] name: Unique name for the fleet.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to attach to AppStream instances.
         :param pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
@@ -721,7 +730,6 @@ class Fleet(pulumi.CustomResource):
         Provides an AppStream fleet.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -874,6 +882,8 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
         :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
         :param pulumi.Input[str] name: Unique name for the fleet.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] state: State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
         :param pulumi.Input[str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to attach to AppStream instances.
@@ -1031,6 +1041,8 @@ class Fleet(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Unique name for the fleet.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

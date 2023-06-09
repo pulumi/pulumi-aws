@@ -23,6 +23,8 @@ class ContactArgs:
         :param pulumi.Input[str] alias: A unique and identifiable alias for the contact or escalation plan.
         :param pulumi.Input[str] type: The type of contact engaged. A single contact is type PERSONAL and an escalation
                plan is type ESCALATION.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] display_name: Full friendly name of the contact or escalation plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
         """
@@ -51,6 +53,8 @@ class ContactArgs:
         """
         The type of contact engaged. A single contact is type PERSONAL and an escalation
         plan is type ESCALATION.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -101,6 +105,8 @@ class _ContactState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of contact engaged. A single contact is type PERSONAL and an escalation
                plan is type ESCALATION.
+               
+               The following arguments are optional:
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -181,6 +187,8 @@ class _ContactState:
         """
         The type of contact engaged. A single contact is type PERSONAL and an escalation
         plan is type ESCALATION.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -204,7 +212,6 @@ class Contact(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,7 +222,6 @@ class Contact(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
         ```
         ### Usage With All Fields
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,6 +251,8 @@ class Contact(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of contact engaged. A single contact is type PERSONAL and an escalation
                plan is type ESCALATION.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -257,7 +265,6 @@ class Contact(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,7 +275,6 @@ class Contact(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_ssmincidents_replication_set["example"]]))
         ```
         ### Usage With All Fields
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,6 +365,8 @@ class Contact(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of contact engaged. A single contact is type PERSONAL and an escalation
                plan is type ESCALATION.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -418,6 +426,8 @@ class Contact(pulumi.CustomResource):
         """
         The type of contact engaged. A single contact is type PERSONAL and an escalation
         plan is type ESCALATION.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

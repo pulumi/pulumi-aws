@@ -16,7 +16,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// ### Kinesis Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -78,7 +77,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### SSM Document Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -229,7 +227,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### RunCommand Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -266,7 +263,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### API Gateway target
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -311,7 +307,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### Cross-Account Event Bus target
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -397,7 +392,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### Input Transformer Usage - JSON Object
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -431,7 +425,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### Input Transformer Usage - Simple String
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -461,7 +454,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### Cloudwatch Log Group Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -664,6 +656,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name of the rule you want to add targets to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("rule")]
         public Output<string> Rule { get; private set; } = null!;
@@ -813,6 +807,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name of the rule you want to add targets to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("rule", required: true)]
         public Input<string> Rule { get; set; } = null!;
@@ -930,6 +926,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// The name of the rule you want to add targets to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("rule")]
         public Input<string>? Rule { get; set; }

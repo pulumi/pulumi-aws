@@ -19,6 +19,8 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         public readonly string? CatalogId;
         /// <summary>
         /// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         public readonly ImmutableArray<Outputs.PermissionsLfTagPolicyExpression> Expressions;
         /// <summary>

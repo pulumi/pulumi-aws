@@ -232,7 +232,6 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,7 +270,6 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         - The required policies on `call_analytics_role` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
         ### Transcribe Call Analytics processor usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,13 +314,12 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ])
         ```
         ### Real time alerts usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -339,7 +336,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ],
@@ -375,7 +372,6 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             ))
         ```
         ### Transcribe processor usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -402,13 +398,12 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ])
         ```
         ### Voice analytics processor usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -444,13 +439,12 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["test"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ])
         ```
         ### S3 Recording sink usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -493,7 +487,6 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -532,7 +525,6 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         - The required policies on `call_analytics_role` will vary based on the selected processors. See [Call analytics resource access role](https://docs.aws.amazon.com/chime-sdk/latest/dg/ca-resource-access-role.html) for directions on choosing appropriate policies.
         ### Transcribe Call Analytics processor usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -577,13 +569,12 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ])
         ```
         ### Real time alerts usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -600,7 +591,7 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ],
@@ -636,7 +627,6 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             ))
         ```
         ### Transcribe processor usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -663,13 +653,12 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["example"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ])
         ```
         ### Voice analytics processor usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -705,13 +694,12 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
                 aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
                     type="KinesisDataStreamSink",
                     kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=aws_kinesis_stream["test"]["arn"],
+                        insights_target=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             ])
         ```
         ### S3 Recording sink usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

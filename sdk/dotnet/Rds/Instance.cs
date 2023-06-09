@@ -48,7 +48,6 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,7 +74,6 @@ namespace Pulumi.Aws.Rds
     /// ### Storage Autoscaling
     /// 
     /// To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -97,7 +95,6 @@ namespace Pulumi.Aws.Rds
     /// &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
     /// 
     /// You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -125,7 +122,6 @@ namespace Pulumi.Aws.Rds
     /// &gt; More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
     /// 
     /// You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -269,6 +265,10 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        /// 
+        /// &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        /// Replicate database managed by the provider will promote the database to a fully
+        /// standalone database.
         /// </summary>
         [Output("customerOwnedIpEnabled")]
         public Output<bool?> CustomerOwnedIpEnabled { get; private set; } = null!;
@@ -826,6 +826,10 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        /// 
+        /// &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        /// Replicate database managed by the provider will promote the database to a fully
+        /// standalone database.
         /// </summary>
         [Input("customerOwnedIpEnabled")]
         public Input<bool>? CustomerOwnedIpEnabled { get; set; }
@@ -1331,6 +1335,10 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        /// 
+        /// &gt; **NOTE:** Removing the `replicate_source_db` attribute from an existing RDS
+        /// Replicate database managed by the provider will promote the database to a fully
+        /// standalone database.
         /// </summary>
         [Input("customerOwnedIpEnabled")]
         public Input<bool>? CustomerOwnedIpEnabled { get; set; }

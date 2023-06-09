@@ -117,7 +117,6 @@ class Dashboard(pulumi.CustomResource):
         Provides a CloudWatch Dashboard resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -183,7 +182,6 @@ class Dashboard(pulumi.CustomResource):
         Provides a CloudWatch Dashboard resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

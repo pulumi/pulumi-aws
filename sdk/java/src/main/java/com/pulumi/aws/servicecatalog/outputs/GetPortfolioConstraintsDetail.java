@@ -23,6 +23,8 @@ public final class GetPortfolioConstraintsDetail {
     /**
      * @return Portfolio identifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String portfolioId;
     /**
@@ -56,6 +58,8 @@ public final class GetPortfolioConstraintsDetail {
     }
     /**
      * @return Portfolio identifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String portfolioId() {

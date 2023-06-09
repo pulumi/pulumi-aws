@@ -21,6 +21,8 @@ class ReadinessCheckArgs:
         The set of arguments for constructing a ReadinessCheck resource.
         :param pulumi.Input[str] readiness_check_name: Unique name describing the readiness check.
         :param pulumi.Input[str] resource_set_name: Name describing the resource set that will be monitored for readiness.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         pulumi.set(__self__, "readiness_check_name", readiness_check_name)
@@ -45,6 +47,8 @@ class ReadinessCheckArgs:
     def resource_set_name(self) -> pulumi.Input[str]:
         """
         Name describing the resource set that will be monitored for readiness.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "resource_set_name")
 
@@ -78,6 +82,8 @@ class _ReadinessCheckState:
         :param pulumi.Input[str] arn: ARN of the readiness_check
         :param pulumi.Input[str] readiness_check_name: Unique name describing the readiness check.
         :param pulumi.Input[str] resource_set_name: Name describing the resource set that will be monitored for readiness.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -121,6 +127,8 @@ class _ReadinessCheckState:
     def resource_set_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name describing the resource set that will be monitored for readiness.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "resource_set_name")
 
@@ -166,7 +174,6 @@ class ReadinessCheck(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Readiness Readiness Check.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,6 +195,8 @@ class ReadinessCheck(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] readiness_check_name: Unique name describing the readiness check.
         :param pulumi.Input[str] resource_set_name: Name describing the resource set that will be monitored for readiness.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
@@ -200,7 +209,6 @@ class ReadinessCheck(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Readiness Readiness Check.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -279,6 +287,8 @@ class ReadinessCheck(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the readiness_check
         :param pulumi.Input[str] readiness_check_name: Unique name describing the readiness check.
         :param pulumi.Input[str] resource_set_name: Name describing the resource set that will be monitored for readiness.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -314,6 +324,8 @@ class ReadinessCheck(pulumi.CustomResource):
     def resource_set_name(self) -> pulumi.Output[str]:
         """
         Name describing the resource set that will be monitored for readiness.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "resource_set_name")
 

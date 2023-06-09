@@ -18,7 +18,6 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Example Usage
     /// ### Basic Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -94,6 +93,8 @@ namespace Pulumi.Aws.CloudFront
 
         /// <summary>
         /// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("runtime")]
         public Output<string> Runtime { get; private set; } = null!;
@@ -176,6 +177,8 @@ namespace Pulumi.Aws.CloudFront
 
         /// <summary>
         /// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("runtime", required: true)]
         public Input<string> Runtime { get; set; } = null!;
@@ -232,6 +235,8 @@ namespace Pulumi.Aws.CloudFront
 
         /// <summary>
         /// Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("runtime")]
         public Input<string>? Runtime { get; set; }

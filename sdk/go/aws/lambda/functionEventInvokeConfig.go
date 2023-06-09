@@ -17,7 +17,6 @@ import (
 // ### Destination Configuration
 //
 // > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
-//
 // ```go
 // package main
 //
@@ -50,7 +49,6 @@ import (
 //
 // ```
 // ### Error Handling Configuration
-//
 // ```go
 // package main
 //
@@ -77,7 +75,6 @@ import (
 //
 // ```
 // ### Configuration for Alias Name
-//
 // ```go
 // package main
 //
@@ -103,7 +100,6 @@ import (
 //
 // ```
 // ### Configuration for Function Latest Unpublished Version
-//
 // ```go
 // package main
 //
@@ -129,7 +125,6 @@ import (
 //
 // ```
 // ### Configuration for Function Published Version
-//
 // ```go
 // package main
 //
@@ -194,6 +189,8 @@ type FunctionEventInvokeConfig struct {
 	// Configuration block with destination configuration. See below for details.
 	DestinationConfig FunctionEventInvokeConfigDestinationConfigPtrOutput `pulumi:"destinationConfig"`
 	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	//
+	// The following arguments are optional:
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 	MaximumEventAgeInSeconds pulumi.IntPtrOutput `pulumi:"maximumEventAgeInSeconds"`
@@ -238,6 +235,8 @@ type functionEventInvokeConfigState struct {
 	// Configuration block with destination configuration. See below for details.
 	DestinationConfig *FunctionEventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
 	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	//
+	// The following arguments are optional:
 	FunctionName *string `pulumi:"functionName"`
 	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
@@ -251,6 +250,8 @@ type FunctionEventInvokeConfigState struct {
 	// Configuration block with destination configuration. See below for details.
 	DestinationConfig FunctionEventInvokeConfigDestinationConfigPtrInput
 	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	//
+	// The following arguments are optional:
 	FunctionName pulumi.StringPtrInput
 	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 	MaximumEventAgeInSeconds pulumi.IntPtrInput
@@ -268,6 +269,8 @@ type functionEventInvokeConfigArgs struct {
 	// Configuration block with destination configuration. See below for details.
 	DestinationConfig *FunctionEventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
 	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	//
+	// The following arguments are optional:
 	FunctionName string `pulumi:"functionName"`
 	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
@@ -282,6 +285,8 @@ type FunctionEventInvokeConfigArgs struct {
 	// Configuration block with destination configuration. See below for details.
 	DestinationConfig FunctionEventInvokeConfigDestinationConfigPtrInput
 	// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+	//
+	// The following arguments are optional:
 	FunctionName pulumi.StringInput
 	// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
 	MaximumEventAgeInSeconds pulumi.IntPtrInput
@@ -386,6 +391,8 @@ func (o FunctionEventInvokeConfigOutput) DestinationConfig() FunctionEventInvoke
 }
 
 // Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+//
+// The following arguments are optional:
 func (o FunctionEventInvokeConfigOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfig) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }

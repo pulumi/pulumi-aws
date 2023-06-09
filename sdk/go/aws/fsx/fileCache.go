@@ -15,7 +15,6 @@ import (
 // See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -117,6 +116,8 @@ type FileCache struct {
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity pulumi.IntOutput `pulumi:"storageCapacity"`
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -195,6 +196,8 @@ type fileCacheState struct {
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+	//
+	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
@@ -233,6 +236,8 @@ type FileCacheState struct {
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity pulumi.IntPtrInput
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
@@ -264,6 +269,8 @@ type fileCacheArgs struct {
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity int `pulumi:"storageCapacity"`
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+	//
+	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -289,6 +296,8 @@ type FileCacheArgs struct {
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
 	StorageCapacity pulumi.IntInput
 	// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -452,6 +461,8 @@ func (o FileCacheOutput) StorageCapacity() pulumi.IntOutput {
 }
 
 // A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+//
+// The following arguments are optional:
 func (o FileCacheOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }

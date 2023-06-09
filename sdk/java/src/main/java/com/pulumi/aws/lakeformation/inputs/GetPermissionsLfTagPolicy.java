@@ -32,12 +32,16 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
     /**
      * List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
      * 
+     * The following argument is optional:
+     * 
      */
     @Import(name="expressions", required=true)
     private List<GetPermissionsLfTagPolicyExpression> expressions;
 
     /**
      * @return List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+     * 
+     * The following argument is optional:
      * 
      */
     public List<GetPermissionsLfTagPolicyExpression> expressions() {
@@ -99,6 +103,8 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
         /**
          * @param expressions List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
          * 
+         * The following argument is optional:
+         * 
          * @return builder
          * 
          */
@@ -109,6 +115,8 @@ public final class GetPermissionsLfTagPolicy extends com.pulumi.resources.Invoke
 
         /**
          * @param expressions List of tag conditions that apply to the resource&#39;s tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+         * 
+         * The following argument is optional:
          * 
          * @return builder
          * 

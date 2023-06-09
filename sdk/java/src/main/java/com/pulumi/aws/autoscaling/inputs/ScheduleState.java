@@ -124,12 +124,16 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of this scaling action.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="scheduledActionName")
     private @Nullable Output<String> scheduledActionName;
 
     /**
      * @return The name of this scaling action.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> scheduledActionName() {
@@ -154,12 +158,16 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
      * 
+     * &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
+     * 
      */
     @Import(name="timeZone")
     private @Nullable Output<String> timeZone;
 
     /**
      * @return Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+     * 
+     * &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
      * 
      */
     public Optional<Output<String>> timeZone() {
@@ -349,6 +357,8 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param scheduledActionName The name of this scaling action.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -359,6 +369,8 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param scheduledActionName The name of this scaling action.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -391,6 +403,8 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param timeZone Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
          * 
+         * &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
+         * 
          * @return builder
          * 
          */
@@ -401,6 +415,8 @@ public final class ScheduleState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param timeZone Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
+         * 
+         * &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
          * 
          * @return builder
          * 

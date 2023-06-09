@@ -205,7 +205,6 @@ class BucketLoggingV2(pulumi.CustomResource):
         to decide which method meets your requirements.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,7 +259,6 @@ class BucketLoggingV2(pulumi.CustomResource):
         to decide which method meets your requirements.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

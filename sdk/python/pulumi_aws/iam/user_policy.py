@@ -167,7 +167,6 @@ class UserPolicy(pulumi.CustomResource):
         Provides an IAM policy attached to a user.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -212,7 +211,6 @@ class UserPolicy(pulumi.CustomResource):
         Provides an IAM policy attached to a user.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

@@ -102,12 +102,11 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dynamodb.get_table_item(table_name=aws_dynamodb_table["example"]["name"],
+    test = aws.dynamodb.get_table_item(table_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         expression_attribute_names={
             "#P": "Percentile",
         },
@@ -121,6 +120,8 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
 
     :param str key: A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
            For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+           
+           The following arguments are optional:
     :param str projection_expression: A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
            If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
     :param str table_name: The name of the table containing the requested item.
@@ -153,12 +154,11 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dynamodb.get_table_item(table_name=aws_dynamodb_table["example"]["name"],
+    test = aws.dynamodb.get_table_item(table_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         expression_attribute_names={
             "#P": "Percentile",
         },
@@ -172,6 +172,8 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
 
     :param str key: A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
            For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+           
+           The following arguments are optional:
     :param str projection_expression: A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
            If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
     :param str table_name: The name of the table containing the requested item.

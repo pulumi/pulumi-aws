@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// ### Create an association for a specific instance
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.Ssm
     /// ### Create an association for all managed instances in an AWS account
     /// 
     /// To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -72,7 +70,6 @@ namespace Pulumi.Aws.Ssm
     /// ### Create an association for a specific tag
     /// 
     /// This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,7 +98,6 @@ namespace Pulumi.Aws.Ssm
     /// ### Create an association with a specific schedule
     /// 
     /// This example shows how to schedule an association in various ways.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -232,6 +228,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// 
+        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Output("waitForSuccessTimeoutSeconds")]
         public Output<int?> WaitForSuccessTimeoutSeconds { get; private set; } = null!;
@@ -374,6 +372,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// 
+        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Input("waitForSuccessTimeoutSeconds")]
         public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }
@@ -490,6 +490,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// 
+        /// Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
         [Input("waitForSuccessTimeoutSeconds")]
         public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }

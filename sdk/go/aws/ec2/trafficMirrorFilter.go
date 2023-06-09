@@ -15,8 +15,7 @@ import (
 //
 // ## Example Usage
 //
-// # To create a basic traffic mirror filter
-//
+// To create a basic traffic mirror filter
 // ```go
 // package main
 //

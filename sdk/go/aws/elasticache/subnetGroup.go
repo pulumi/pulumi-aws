@@ -18,7 +18,6 @@ import (
 // ElastiCache Security Group resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

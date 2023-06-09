@@ -184,7 +184,6 @@ class Connection(pulumi.CustomResource):
         > **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,7 +222,6 @@ class Connection(pulumi.CustomResource):
         > **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

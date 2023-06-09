@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// ### Basic example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// ### Encrypted string using default SSM KMS key
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -150,12 +148,16 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
         /// Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+        /// 
+        /// &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -284,6 +286,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.Aws.Ssm.ParameterType> Type { get; set; } = null!;
@@ -293,6 +297,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+        /// 
+        /// &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         /// </summary>
         public Input<string>? Value
         {
@@ -392,6 +398,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.Aws.Ssm.ParameterType>? Type { get; set; }
@@ -401,6 +409,8 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+        /// 
+        /// &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         /// </summary>
         public Input<string>? Value
         {

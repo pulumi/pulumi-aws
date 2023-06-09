@@ -13,7 +13,6 @@ import (
 // Creates and manages an AWS IoT Thing Type.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -314,7 +314,6 @@ class Webhook(pulumi.CustomResource):
         Provides a CodePipeline Webhook.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,10 +322,10 @@ class Webhook(pulumi.CustomResource):
         bar_pipeline = aws.codepipeline.Pipeline("barPipeline",
             role_arn=aws_iam_role["bar"]["arn"],
             artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
-                location=aws_s3_bucket["bar"]["bucket"],
+                location=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 type="S3",
                 encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
-                    id=data["aws_kms_alias"]["s3kmskey"]["arn"],
+                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     type="KMS",
                 ),
             )],
@@ -414,7 +413,6 @@ class Webhook(pulumi.CustomResource):
         Provides a CodePipeline Webhook.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -423,10 +421,10 @@ class Webhook(pulumi.CustomResource):
         bar_pipeline = aws.codepipeline.Pipeline("barPipeline",
             role_arn=aws_iam_role["bar"]["arn"],
             artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
-                location=aws_s3_bucket["bar"]["bucket"],
+                location=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 type="S3",
                 encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
-                    id=data["aws_kms_alias"]["s3kmskey"]["arn"],
+                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     type="KMS",
                 ),
             )],

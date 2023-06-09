@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Rds
     /// Provides an RDS DB proxy target resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,6 +98,8 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// DB cluster identifier.
+        /// 
+        /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         /// </summary>
         [Output("dbClusterIdentifier")]
         public Output<string?> DbClusterIdentifier { get; private set; } = null!;
@@ -205,6 +206,8 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// DB cluster identifier.
+        /// 
+        /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }
@@ -237,6 +240,8 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// DB cluster identifier.
+        /// 
+        /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }

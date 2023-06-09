@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,7 +50,6 @@ namespace Pulumi.Aws.Eks
     /// });
     /// ```
     /// ### Example IAM Role for EKS Cluster
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -112,7 +110,6 @@ namespace Pulumi.Aws.Eks
     /// [EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) can be enabled via the `enabled_cluster_log_types` argument. To manage the CloudWatch Log Group retention period, the `aws.cloudwatch.LogGroup` resource can be used.
     /// 
     /// &gt; The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with EKS automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -150,7 +147,6 @@ namespace Pulumi.Aws.Eks
     /// ### EKS Cluster on AWS Outpost
     /// 
     /// [Creating a local Amazon EKS cluster on an AWS Outpost](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -309,6 +305,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.ClusterVpcConfig> VpcConfig { get; private set; } = null!;
@@ -429,6 +427,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcConfig", required: true)]
         public Input<Inputs.ClusterVpcConfigArgs> VpcConfig { get; set; } = null!;
@@ -586,6 +586,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.ClusterVpcConfigGetArgs>? VpcConfig { get; set; }

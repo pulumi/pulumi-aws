@@ -270,7 +270,6 @@ class Domain(pulumi.CustomResource):
         The provider waits for the domain to become `Active` when applying a configuration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -329,7 +328,6 @@ class Domain(pulumi.CustomResource):
         The provider waits for the domain to become `Active` when applying a configuration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

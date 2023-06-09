@@ -133,7 +133,6 @@ class Instance(pulumi.CustomResource):
         Provides a Service Discovery Instance resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -165,7 +164,6 @@ class Instance(pulumi.CustomResource):
                 "custom_attribute": "custom",
             })
         ```
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -204,7 +202,6 @@ class Instance(pulumi.CustomResource):
         Provides a Service Discovery Instance resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,7 +233,6 @@ class Instance(pulumi.CustomResource):
                 "custom_attribute": "custom",
             })
         ```
-
         ```python
         import pulumi
         import pulumi_aws as aws

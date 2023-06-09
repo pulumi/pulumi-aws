@@ -213,12 +213,11 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
     a specific VPC peering connection.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    pc = aws.ec2.get_vpc_peering_connection(vpc_id=aws_vpc["foo"]["id"],
+    pc = aws.ec2.get_vpc_peering_connection(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         peer_cidr_block="10.0.1.0/22")
     # Create a route table
     rt = aws.ec2.RouteTable("rt", vpc_id=aws_vpc["foo"]["id"])
@@ -242,6 +241,9 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
     :param str status: Status of the specific VPC Peering Connection to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str vpc_id: ID of the requester VPC of the specific VPC Peering Connection to retrieve.
     """
     __args__ = dict()
@@ -298,12 +300,11 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
     a specific VPC peering connection.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    pc = aws.ec2.get_vpc_peering_connection(vpc_id=aws_vpc["foo"]["id"],
+    pc = aws.ec2.get_vpc_peering_connection(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         peer_cidr_block="10.0.1.0/22")
     # Create a route table
     rt = aws.ec2.RouteTable("rt", vpc_id=aws_vpc["foo"]["id"])
@@ -327,6 +328,9 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
     :param str status: Status of the specific VPC Peering Connection to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str vpc_id: ID of the requester VPC of the specific VPC Peering Connection to retrieve.
     """
     ...

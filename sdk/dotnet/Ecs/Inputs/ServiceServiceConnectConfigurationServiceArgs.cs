@@ -12,16 +12,16 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ServiceServiceConnectConfigurationServiceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("clientAlias")]
-        private InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs>? _clientAlias;
+        [Input("clientAliases")]
+        private InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs>? _clientAliases;
 
         /// <summary>
         /// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         /// </summary>
-        public InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs> ClientAlias
+        public InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs> ClientAliases
         {
-            get => _clientAlias ?? (_clientAlias = new InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs>());
-            set => _clientAlias = value;
+            get => _clientAliases ?? (_clientAliases = new InputList<Inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs>());
+            set => _clientAliases = value;
         }
 
         /// <summary>

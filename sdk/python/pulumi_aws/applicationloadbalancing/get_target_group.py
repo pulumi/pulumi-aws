@@ -252,6 +252,8 @@ def get_target_group(arn: Optional[str] = None,
     :param str arn: Full ARN of the target group.
     :param str name: Unique name of the target group.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
     """
     pulumi.log.warn("""get_target_group is deprecated: aws.applicationloadbalancing.getTargetGroup has been deprecated in favor of aws.alb.getTargetGroup""")
     __args__ = dict()
@@ -319,6 +321,8 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     :param str arn: Full ARN of the target group.
     :param str name: Unique name of the target group.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired target group.
+           
+           > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
     """
     pulumi.log.warn("""get_target_group is deprecated: aws.applicationloadbalancing.getTargetGroup has been deprecated in favor of aws.alb.getTargetGroup""")
     ...

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.LightSail
     /// Provides a lightsail certificate.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

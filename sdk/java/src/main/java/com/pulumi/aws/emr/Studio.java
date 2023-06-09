@@ -272,12 +272,16 @@ public class Studio extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="workspaceSecurityGroupId", refs={String.class}, tree="[0]")
     private Output<String> workspaceSecurityGroupId;
 
     /**
      * @return The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> workspaceSecurityGroupId() {

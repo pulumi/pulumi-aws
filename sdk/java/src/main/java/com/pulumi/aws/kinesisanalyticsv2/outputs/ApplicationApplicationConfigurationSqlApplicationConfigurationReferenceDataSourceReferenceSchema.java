@@ -22,6 +22,8 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     /**
      * @return Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
      * 
+     * The `s3_reference_data_source` object supports the following:
+     * 
      */
     private @Nullable String recordEncoding;
     /**
@@ -40,6 +42,8 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
     /**
      * @return Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+     * 
+     * The `s3_reference_data_source` object supports the following:
      * 
      */
     public Optional<String> recordEncoding() {

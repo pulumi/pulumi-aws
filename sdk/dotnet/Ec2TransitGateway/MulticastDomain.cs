@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// Manages an EC2 Transit Gateway Multicast Domain.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

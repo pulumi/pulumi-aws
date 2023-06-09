@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,7 +40,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// When managing subnets in one of a VPC's secondary CIDR blocks created using a `aws.ec2.VpcIpv4CidrBlockAssociation`
     /// resource, it is recommended to reference that resource's `vpc_id` attribute to ensure correct dependency ordering.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -256,7 +256,6 @@ class KeyPair(pulumi.CustomResource):
         * SSH public key file format as specified in RFC4716
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,7 +296,6 @@ class KeyPair(pulumi.CustomResource):
         * SSH public key file format as specified in RFC4716
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

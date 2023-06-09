@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,7 +58,6 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -153,6 +150,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The username of the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -267,6 +266,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The username of the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -353,6 +354,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The username of the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

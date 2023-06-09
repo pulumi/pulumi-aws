@@ -127,12 +127,16 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
     /**
      * The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
      * 
+     * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
+     * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
      * @return The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+     * 
+     * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
      * 
      */
     public Output<String> status() {
@@ -320,6 +324,8 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
         /**
          * @param status The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
          * 
+         * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -330,6 +336,8 @@ public final class BucketReplicationConfigurationRuleArgs extends com.pulumi.res
 
         /**
          * @param status The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+         * 
+         * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
          * 
          * @return builder
          * 

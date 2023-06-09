@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CodeBuild
     /// Provides a CodeBuild Report Groups Resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

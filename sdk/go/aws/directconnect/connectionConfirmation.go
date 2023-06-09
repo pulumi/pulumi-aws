@@ -14,7 +14,6 @@ import (
 // Provides a confirmation of the creation of the specified hosted connection on an interconnect.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

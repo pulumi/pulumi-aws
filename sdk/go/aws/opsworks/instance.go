@@ -14,36 +14,6 @@ import (
 // Provides an OpsWorks instance resource.
 //
 // ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewInstance(ctx, "my-instance", &opsworks.InstanceArgs{
-//				StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
-//				LayerIds: pulumi.StringArray{
-//					aws_opsworks_custom_layer.MyLayer.Id,
-//				},
-//				InstanceType: pulumi.String("t2.micro"),
-//				Os:           pulumi.String("Amazon Linux 2015.09"),
-//				State:        pulumi.String("stopped"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Block devices
 //
 // Each of the `*_block_device` attributes controls a portion of the AWS
@@ -179,6 +149,8 @@ type Instance struct {
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName pulumi.StringOutput `pulumi:"sshKeyName"`
 	// Identifier of the stack the instance will belong to.
+	//
+	// The following arguments are optional:
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// Desired state of the instance. Valid values are `running` or `stopped`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
@@ -306,6 +278,8 @@ type instanceState struct {
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName *string `pulumi:"sshKeyName"`
 	// Identifier of the stack the instance will belong to.
+	//
+	// The following arguments are optional:
 	StackId *string `pulumi:"stackId"`
 	// Desired state of the instance. Valid values are `running` or `stopped`.
 	State *string `pulumi:"state"`
@@ -399,6 +373,8 @@ type InstanceState struct {
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName pulumi.StringPtrInput
 	// Identifier of the stack the instance will belong to.
+	//
+	// The following arguments are optional:
 	StackId pulumi.StringPtrInput
 	// Desired state of the instance. Valid values are `running` or `stopped`.
 	State pulumi.StringPtrInput
@@ -466,6 +442,8 @@ type instanceArgs struct {
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName *string `pulumi:"sshKeyName"`
 	// Identifier of the stack the instance will belong to.
+	//
+	// The following arguments are optional:
 	StackId string `pulumi:"stackId"`
 	// Desired state of the instance. Valid values are `running` or `stopped`.
 	State *string `pulumi:"state"`
@@ -530,6 +508,8 @@ type InstanceArgs struct {
 	// Name of the SSH keypair that instances will have by default.
 	SshKeyName pulumi.StringPtrInput
 	// Identifier of the stack the instance will belong to.
+	//
+	// The following arguments are optional:
 	StackId pulumi.StringInput
 	// Desired state of the instance. Valid values are `running` or `stopped`.
 	State pulumi.StringPtrInput
@@ -826,6 +806,8 @@ func (o InstanceOutput) SshKeyName() pulumi.StringOutput {
 }
 
 // Identifier of the stack the instance will belong to.
+//
+// The following arguments are optional:
 func (o InstanceOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
 }

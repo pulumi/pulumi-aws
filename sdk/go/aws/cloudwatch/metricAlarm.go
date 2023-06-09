@@ -14,249 +14,11 @@ import (
 // Provides a CloudWatch Metric Alarm resource.
 //
 // ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewMetricAlarm(ctx, "foobar", &cloudwatch.MetricAlarmArgs{
-//				AlarmDescription:        pulumi.String("This metric monitors ec2 cpu utilization"),
-//				ComparisonOperator:      pulumi.String("GreaterThanOrEqualToThreshold"),
-//				EvaluationPeriods:       pulumi.Int(2),
-//				InsufficientDataActions: pulumi.AnyArray{},
-//				MetricName:              pulumi.String("CPUUtilization"),
-//				Namespace:               pulumi.String("AWS/EC2"),
-//				Period:                  pulumi.Int(120),
-//				Statistic:               pulumi.String("Average"),
-//				Threshold:               pulumi.Float64(80),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Example in Conjunction with Scaling Policies
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			batPolicy, err := autoscaling.NewPolicy(ctx, "batPolicy", &autoscaling.PolicyArgs{
-//				ScalingAdjustment:    pulumi.Int(4),
-//				AdjustmentType:       pulumi.String("ChangeInCapacity"),
-//				Cooldown:             pulumi.Int(300),
-//				AutoscalingGroupName: pulumi.Any(aws_autoscaling_group.Bar.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewMetricAlarm(ctx, "batMetricAlarm", &cloudwatch.MetricAlarmArgs{
-//				ComparisonOperator: pulumi.String("GreaterThanOrEqualToThreshold"),
-//				EvaluationPeriods:  pulumi.Int(2),
-//				MetricName:         pulumi.String("CPUUtilization"),
-//				Namespace:          pulumi.String("AWS/EC2"),
-//				Period:             pulumi.Int(120),
-//				Statistic:          pulumi.String("Average"),
-//				Threshold:          pulumi.Float64(80),
-//				Dimensions: pulumi.StringMap{
-//					"AutoScalingGroupName": pulumi.Any(aws_autoscaling_group.Bar.Name),
-//				},
-//				AlarmDescription: pulumi.String("This metric monitors ec2 cpu utilization"),
-//				AlarmActions: pulumi.AnyArray{
-//					batPolicy.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Example with an Expression
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewMetricAlarm(ctx, "foobar", &cloudwatch.MetricAlarmArgs{
-//				AlarmDescription:        pulumi.String("Request error rate has exceeded 10%"),
-//				ComparisonOperator:      pulumi.String("GreaterThanOrEqualToThreshold"),
-//				EvaluationPeriods:       pulumi.Int(2),
-//				InsufficientDataActions: pulumi.AnyArray{},
-//				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
-//					&cloudwatch.MetricAlarmMetricQueryArgs{
-//						Expression: pulumi.String("m2/m1*100"),
-//						Id:         pulumi.String("e1"),
-//						Label:      pulumi.String("Error Rate"),
-//						ReturnData: pulumi.Bool(true),
-//					},
-//					&cloudwatch.MetricAlarmMetricQueryArgs{
-//						Id: pulumi.String("m1"),
-//						Metric: &cloudwatch.MetricAlarmMetricQueryMetricArgs{
-//							Dimensions: pulumi.StringMap{
-//								"LoadBalancer": pulumi.String("app/web"),
-//							},
-//							MetricName: pulumi.String("RequestCount"),
-//							Namespace:  pulumi.String("AWS/ApplicationELB"),
-//							Period:     pulumi.Int(120),
-//							Stat:       pulumi.String("Sum"),
-//							Unit:       pulumi.String("Count"),
-//						},
-//					},
-//					&cloudwatch.MetricAlarmMetricQueryArgs{
-//						Id: pulumi.String("m2"),
-//						Metric: &cloudwatch.MetricAlarmMetricQueryMetricArgs{
-//							Dimensions: pulumi.StringMap{
-//								"LoadBalancer": pulumi.String("app/web"),
-//							},
-//							MetricName: pulumi.String("HTTPCode_ELB_5XX_Count"),
-//							Namespace:  pulumi.String("AWS/ApplicationELB"),
-//							Period:     pulumi.Int(120),
-//							Stat:       pulumi.String("Sum"),
-//							Unit:       pulumi.String("Count"),
-//						},
-//					},
-//				},
-//				Threshold: pulumi.Float64(10),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewMetricAlarm(ctx, "xxAnomalyDetection", &cloudwatch.MetricAlarmArgs{
-//				AlarmDescription:        pulumi.String("This metric monitors ec2 cpu utilization"),
-//				ComparisonOperator:      pulumi.String("GreaterThanUpperThreshold"),
-//				EvaluationPeriods:       pulumi.Int(2),
-//				InsufficientDataActions: pulumi.AnyArray{},
-//				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
-//					&cloudwatch.MetricAlarmMetricQueryArgs{
-//						Expression: pulumi.String("ANOMALY_DETECTION_BAND(m1)"),
-//						Id:         pulumi.String("e1"),
-//						Label:      pulumi.String("CPUUtilization (Expected)"),
-//						ReturnData: pulumi.Bool(true),
-//					},
-//					&cloudwatch.MetricAlarmMetricQueryArgs{
-//						Id: pulumi.String("m1"),
-//						Metric: &cloudwatch.MetricAlarmMetricQueryMetricArgs{
-//							Dimensions: pulumi.StringMap{
-//								"InstanceId": pulumi.String("i-abc123"),
-//							},
-//							MetricName: pulumi.String("CPUUtilization"),
-//							Namespace:  pulumi.String("AWS/EC2"),
-//							Period:     pulumi.Int(120),
-//							Stat:       pulumi.String("Average"),
-//							Unit:       pulumi.String("Count"),
-//						},
-//						ReturnData: pulumi.Bool(true),
-//					},
-//				},
-//				ThresholdMetricId: pulumi.String("e1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewMetricAlarm(ctx, "nlbHealthyhosts", &cloudwatch.MetricAlarmArgs{
-//				ComparisonOperator: pulumi.String("LessThanThreshold"),
-//				EvaluationPeriods:  pulumi.Int(1),
-//				MetricName:         pulumi.String("HealthyHostCount"),
-//				Namespace:          pulumi.String("AWS/NetworkELB"),
-//				Period:             pulumi.Int(60),
-//				Statistic:          pulumi.String("Average"),
-//				Threshold:          pulumi.Any(_var.Logstash_servers_count),
-//				AlarmDescription:   pulumi.String("Number of healthy nodes in Target Group"),
-//				ActionsEnabled:     pulumi.Bool(true),
-//				AlarmActions: pulumi.AnyArray{
-//					aws_sns_topic.Sns.Arn,
-//				},
-//				OkActions: pulumi.AnyArray{
-//					aws_sns_topic.Sns.Arn,
-//				},
-//				Dimensions: pulumi.StringMap{
-//					"TargetGroup":  pulumi.Any(aws_lb_target_group.LbTg.Arn_suffix),
-//					"LoadBalancer": pulumi.Any(aws_lb.Lb.Arn_suffix),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
 // You must choose one or the other
@@ -317,6 +79,8 @@ type MetricAlarm struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrOutput `pulumi:"statistic"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -409,6 +173,8 @@ type metricAlarmState struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic *string `pulumi:"statistic"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -467,6 +233,8 @@ type MetricAlarmState struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -527,6 +295,8 @@ type metricAlarmArgs struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic *string `pulumi:"statistic"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags map[string]string `pulumi:"tags"`
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold *float64 `pulumi:"threshold"`
@@ -582,6 +352,8 @@ type MetricAlarmArgs struct {
 	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
 	Statistic pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 	Tags pulumi.StringMapInput
 	// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
 	Threshold pulumi.Float64PtrInput
@@ -778,6 +550,8 @@ func (o MetricAlarmOutput) Statistic() pulumi.StringPtrOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// > **NOTE:**  If you specify at least one `metricQuery`, you may not specify a `metricName`, `namespace`, `period` or `statistic`. If you do not specify a `metricQuery`, you must specify each of these (although you may use `extendedStatistic` instead of `statistic`).
 func (o MetricAlarmOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -25,6 +25,8 @@ class ResourceSetArgs:
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]] resources: List of resources to add to this resource set. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         pulumi.set(__self__, "resource_set_name", resource_set_name)
@@ -62,6 +64,8 @@ class ResourceSetArgs:
     def resources(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]]:
         """
         List of resources to add to this resource set. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "resources")
 
@@ -97,6 +101,8 @@ class _ResourceSetState:
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]] resources: List of resources to add to this resource set. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -154,6 +160,8 @@ class _ResourceSetState:
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]]]:
         """
         List of resources to add to this resource set. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "resources")
 
@@ -200,7 +208,6 @@ class ResourceSet(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Readiness Resource Set.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,7 +216,7 @@ class ResourceSet(pulumi.CustomResource):
             resource_set_name=my_cw_alarm_set,
             resource_set_type="AWS::CloudWatch::Alarm",
             resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
-                resource_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
+                resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
 
@@ -226,6 +233,8 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]] resources: List of resources to add to this resource set. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
@@ -238,7 +247,6 @@ class ResourceSet(pulumi.CustomResource):
         Provides an AWS Route 53 Recovery Readiness Resource Set.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,7 +255,7 @@ class ResourceSet(pulumi.CustomResource):
             resource_set_name=my_cw_alarm_set,
             resource_set_type="AWS::CloudWatch::Alarm",
             resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
-                resource_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
+                resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
 
@@ -326,6 +334,8 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]] resources: List of resources to add to this resource set. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -370,6 +380,8 @@ class ResourceSet(pulumi.CustomResource):
     def resources(self) -> pulumi.Output[Sequence['outputs.ResourceSetResource']]:
         """
         List of resources to add to this resource set. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "resources")
 

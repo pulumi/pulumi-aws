@@ -46,6 +46,8 @@ type ConnectPeer struct {
 	// The inside IP addresses used for BGP peering.
 	InsideCidrBlocks pulumi.StringArrayOutput `pulumi:"insideCidrBlocks"`
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress pulumi.StringOutput `pulumi:"peerAddress"`
 	// The state of the Connect peer.
 	State pulumi.StringOutput `pulumi:"state"`
@@ -112,6 +114,8 @@ type connectPeerState struct {
 	// The inside IP addresses used for BGP peering.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress *string `pulumi:"peerAddress"`
 	// The state of the Connect peer.
 	State *string `pulumi:"state"`
@@ -141,6 +145,8 @@ type ConnectPeerState struct {
 	// The inside IP addresses used for BGP peering.
 	InsideCidrBlocks pulumi.StringArrayInput
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress pulumi.StringPtrInput
 	// The state of the Connect peer.
 	State pulumi.StringPtrInput
@@ -164,6 +170,8 @@ type connectPeerArgs struct {
 	// The inside IP addresses used for BGP peering.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress string `pulumi:"peerAddress"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -180,6 +188,8 @@ type ConnectPeerArgs struct {
 	// The inside IP addresses used for BGP peering.
 	InsideCidrBlocks pulumi.StringArrayInput
 	// The Connect peer address.
+	//
+	// The following arguments are optional:
 	PeerAddress pulumi.StringInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -321,6 +331,8 @@ func (o ConnectPeerOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 }
 
 // The Connect peer address.
+//
+// The following arguments are optional:
 func (o ConnectPeerOutput) PeerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.PeerAddress }).(pulumi.StringOutput)
 }

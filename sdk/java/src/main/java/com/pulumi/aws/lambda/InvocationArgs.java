@@ -34,12 +34,16 @@ public final class InvocationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * JSON payload to the lambda function.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="input", required=true)
     private Output<String> input;
 
     /**
      * @return JSON payload to the lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> input() {
@@ -127,6 +131,8 @@ public final class InvocationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param input JSON payload to the lambda function.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -137,6 +143,8 @@ public final class InvocationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param input JSON payload to the lambda function.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

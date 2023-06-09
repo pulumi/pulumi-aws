@@ -269,12 +269,16 @@ public class Input extends com.pulumi.resources.CustomResource {
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return The different types of inputs that AWS Elemental MediaLive supports.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

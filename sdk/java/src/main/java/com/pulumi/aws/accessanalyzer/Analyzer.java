@@ -102,12 +102,16 @@ public class Analyzer extends com.pulumi.resources.CustomResource {
     /**
      * Name of the Analyzer.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="analyzerName", refs={String.class}, tree="[0]")
     private Output<String> analyzerName;
 
     /**
      * @return Name of the Analyzer.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> analyzerName() {

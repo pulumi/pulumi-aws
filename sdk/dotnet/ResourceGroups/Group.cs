@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ResourceGroups
     /// Provides a Resource Group.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Route53
     /// Manages a Route 53 Key Signing Key. To manage Domain Name System Security Extensions (DNSSEC) for a Hosted Zone, see the `aws.route53.HostedZoneDnsSec` resource. For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -189,6 +188,8 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -277,6 +278,8 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -351,6 +354,8 @@ namespace Pulumi.Aws.Route53
 
         /// <summary>
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -17,7 +17,6 @@ import (
 //
 // > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -83,6 +82,8 @@ type User struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Name of the MemoryDB user. Up to 40 characters.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -137,6 +138,8 @@ type userState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Name of the MemoryDB user. Up to 40 characters.
+	//
+	// The following arguments are optional:
 	UserName *string `pulumi:"userName"`
 }
 
@@ -154,6 +157,8 @@ type UserState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Name of the MemoryDB user. Up to 40 characters.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringPtrInput
 }
 
@@ -169,6 +174,8 @@ type userArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the MemoryDB user. Up to 40 characters.
+	//
+	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
 }
 
@@ -181,6 +188,8 @@ type UserArgs struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Name of the MemoryDB user. Up to 40 characters.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringInput
 }
 
@@ -302,6 +311,8 @@ func (o UserOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Name of the MemoryDB user. Up to 40 characters.
+//
+// The following arguments are optional:
 func (o UserOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

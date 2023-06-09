@@ -107,7 +107,6 @@ def get_router_configuration(router_type_identifier: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -118,6 +117,62 @@ def get_router_configuration(router_type_identifier: Optional[str] = None,
 
 
     :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+           
+           There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
+           
+           ```typescript
+           import * as pulumi from "@pulumi/pulumi";
+           ```
+           ```python
+           import pulumi
+           ```
+           ```csharp
+           using System.Collections.Generic;
+           using System.Linq;
+           using Pulumi;
+           
+           return await Deployment.RunAsync(() => 
+           {
+           });
+           ```
+           ```go
+           package main
+           
+           import (
+           	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+           )
+           
+           func main() {
+           	pulumi.Run(func(ctx *pulumi.Context) error {
+           		return nil
+           	})
+           }
+           ```
+           ```java
+           package generated_program;
+           
+           import com.pulumi.Context;
+           import com.pulumi.Pulumi;
+           import com.pulumi.core.Output;
+           import java.util.List;
+           import java.util.ArrayList;
+           import java.util.Map;
+           import java.io.File;
+           import java.nio.file.Files;
+           import java.nio.file.Paths;
+           
+           public class App {
+               public static void main(String[] args) {
+                   Pulumi.run(App::stack);
+               }
+           
+               public static void stack(Context ctx) {
+               }
+           }
+           ```
+           ```yaml
+           {}
+           ```
     :param str virtual_interface_id: ID of the Direct Connect Virtual Interface
     """
     __args__ = dict()
@@ -144,7 +199,6 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -155,6 +209,62 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
 
 
     :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+           
+           There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
+           
+           ```typescript
+           import * as pulumi from "@pulumi/pulumi";
+           ```
+           ```python
+           import pulumi
+           ```
+           ```csharp
+           using System.Collections.Generic;
+           using System.Linq;
+           using Pulumi;
+           
+           return await Deployment.RunAsync(() => 
+           {
+           });
+           ```
+           ```go
+           package main
+           
+           import (
+           	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+           )
+           
+           func main() {
+           	pulumi.Run(func(ctx *pulumi.Context) error {
+           		return nil
+           	})
+           }
+           ```
+           ```java
+           package generated_program;
+           
+           import com.pulumi.Context;
+           import com.pulumi.Pulumi;
+           import com.pulumi.core.Output;
+           import java.util.List;
+           import java.util.ArrayList;
+           import java.util.Map;
+           import java.io.File;
+           import java.nio.file.Files;
+           import java.nio.file.Paths;
+           
+           public class App {
+               public static void main(String[] args) {
+                   Pulumi.run(App::stack);
+               }
+           
+               public static void stack(Context ctx) {
+               }
+           }
+           ```
+           ```yaml
+           {}
+           ```
     :param str virtual_interface_id: ID of the Direct Connect Virtual Interface
     """
     ...

@@ -33,12 +33,16 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
     /**
      * CodeStar Connection name.
      * 
+     * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
      * @return CodeStar Connection name.
+     * 
+     * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      * 
      */
     public Optional<String> name() {
@@ -99,6 +103,8 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
 
         /**
          * @param name CodeStar Connection name.
+         * 
+         * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
          * 
          * @return builder
          * 

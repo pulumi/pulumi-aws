@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Amp
     /// Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,6 +65,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Self-service action name.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -136,6 +137,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Self-service action name.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -168,6 +171,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Self-service action name.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

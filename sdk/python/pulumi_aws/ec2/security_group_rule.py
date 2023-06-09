@@ -34,6 +34,8 @@ class SecurityGroupRuleArgs:
         :param pulumi.Input[int] to_port: End port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: Type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
+               
+               The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
@@ -113,6 +115,8 @@ class SecurityGroupRuleArgs:
         """
         Type of rule being created. Valid options are `ingress` (inbound)
         or `egress` (outbound).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -223,6 +227,8 @@ class _SecurityGroupRuleState:
         :param pulumi.Input[int] to_port: End port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: Type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
+               
+               The following arguments are optional:
         """
         if cidr_blocks is not None:
             pulumi.set(__self__, "cidr_blocks", cidr_blocks)
@@ -387,6 +393,8 @@ class _SecurityGroupRuleState:
         """
         Type of rule being created. Valid options are `ingress` (inbound)
         or `egress` (outbound).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -543,6 +551,8 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[int] to_port: End port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: Type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -766,6 +776,8 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[int] to_port: End port (or ICMP code if protocol is "icmp").
         :param pulumi.Input[str] type: Type of rule being created. Valid options are `ingress` (inbound)
                or `egress` (outbound).
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -879,6 +891,8 @@ class SecurityGroupRule(pulumi.CustomResource):
         """
         Type of rule being created. Valid options are `ingress` (inbound)
         or `egress` (outbound).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

@@ -36,6 +36,8 @@ public final class GetPermissionsTableWithColumns {
     /**
      * @return Name of the table resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String name;
     /**
@@ -75,6 +77,8 @@ public final class GetPermissionsTableWithColumns {
     }
     /**
      * @return Name of the table resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {

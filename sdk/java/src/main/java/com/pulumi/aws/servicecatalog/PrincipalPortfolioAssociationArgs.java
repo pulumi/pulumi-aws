@@ -48,12 +48,16 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
     /**
      * Principal ARN.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="principalArn", required=true)
     private Output<String> principalArn;
 
     /**
      * @return Principal ARN.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> principalArn() {
@@ -147,6 +151,8 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
         /**
          * @param principalArn Principal ARN.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -157,6 +163,8 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
 
         /**
          * @param principalArn Principal ARN.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

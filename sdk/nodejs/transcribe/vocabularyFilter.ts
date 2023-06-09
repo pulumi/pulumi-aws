@@ -87,6 +87,8 @@ export class VocabularyFilter extends pulumi.CustomResource {
     public readonly vocabularyFilterFileUri!: pulumi.Output<string | undefined>;
     /**
      * The name of the VocabularyFilter.
+     *
+     * The following arguments are optional:
      */
     public readonly vocabularyFilterName!: pulumi.Output<string>;
     /**
@@ -164,6 +166,8 @@ export interface VocabularyFilterState {
     vocabularyFilterFileUri?: pulumi.Input<string>;
     /**
      * The name of the VocabularyFilter.
+     *
+     * The following arguments are optional:
      */
     vocabularyFilterName?: pulumi.Input<string>;
     /**
@@ -190,6 +194,8 @@ export interface VocabularyFilterArgs {
     vocabularyFilterFileUri?: pulumi.Input<string>;
     /**
      * The name of the VocabularyFilter.
+     *
+     * The following arguments are optional:
      */
     vocabularyFilterName: pulumi.Input<string>;
     /**

@@ -204,7 +204,6 @@ def get_listener(listener_identifier: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -251,7 +250,6 @@ def get_listener_output(listener_identifier: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

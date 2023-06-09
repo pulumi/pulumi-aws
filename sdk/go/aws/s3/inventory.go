@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Add inventory configuration
-//
 // ```go
 // package main
 //
@@ -58,7 +57,6 @@ import (
 //
 // ```
 // ### Add inventory configuration with S3 object prefix
-//
 // ```go
 // package main
 //

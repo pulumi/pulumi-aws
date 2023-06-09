@@ -15,7 +15,6 @@ import (
 // it by domain without having to hard code the ARNs as input.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

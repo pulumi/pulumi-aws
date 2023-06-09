@@ -14,7 +14,6 @@ import (
 // Provides an AWS Backup plan resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

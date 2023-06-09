@@ -13,7 +13,6 @@ import (
 // Provides details about a specific CE Tags.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -60,6 +59,8 @@ type GetTagsArgs struct {
 	// Key of the tag that you want to return values for.
 	TagKey *string `pulumi:"tagKey"`
 	// Configuration block for the start and end dates for retrieving the dimension values.
+	//
+	// The following arguments are optional:
 	TimePeriod GetTagsTimePeriod `pulumi:"timePeriod"`
 }
 
@@ -100,6 +101,8 @@ type GetTagsOutputArgs struct {
 	// Key of the tag that you want to return values for.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
 	// Configuration block for the start and end dates for retrieving the dimension values.
+	//
+	// The following arguments are optional:
 	TimePeriod GetTagsTimePeriodInput `pulumi:"timePeriod"`
 }
 

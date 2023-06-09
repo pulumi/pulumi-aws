@@ -50,6 +50,8 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
         /// <summary>
         /// Name of the table resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

@@ -32,8 +32,14 @@ class ApnsVoipSandboxChannelArgs:
                __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
                You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
                If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+               
+               One of the following sets of credentials is also required.
+               
+               If you choose to use __Certificate credentials__ you will have to provide:
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[str] private_key: The Certificate Private Key file (ie. `.key` file).
+               
+               If you choose to use __Key credentials__ you will have to provide:
         :param pulumi.Input[str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
         :param pulumi.Input[str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
@@ -100,6 +106,10 @@ class ApnsVoipSandboxChannelArgs:
         __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+
+        One of the following sets of credentials is also required.
+
+        If you choose to use __Certificate credentials__ you will have to provide:
         """
         return pulumi.get(self, "default_authentication_method")
 
@@ -124,6 +134,8 @@ class ApnsVoipSandboxChannelArgs:
     def private_key(self) -> Optional[pulumi.Input[str]]:
         """
         The Certificate Private Key file (ie. `.key` file).
+
+        If you choose to use __Key credentials__ you will have to provide:
         """
         return pulumi.get(self, "private_key")
 
@@ -189,8 +201,14 @@ class _ApnsVoipSandboxChannelState:
                __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
                You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
                If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+               
+               One of the following sets of credentials is also required.
+               
+               If you choose to use __Certificate credentials__ you will have to provide:
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[str] private_key: The Certificate Private Key file (ie. `.key` file).
+               
+               If you choose to use __Key credentials__ you will have to provide:
         :param pulumi.Input[str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
         :param pulumi.Input[str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
@@ -258,6 +276,10 @@ class _ApnsVoipSandboxChannelState:
         __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+
+        One of the following sets of credentials is also required.
+
+        If you choose to use __Certificate credentials__ you will have to provide:
         """
         return pulumi.get(self, "default_authentication_method")
 
@@ -282,6 +304,8 @@ class _ApnsVoipSandboxChannelState:
     def private_key(self) -> Optional[pulumi.Input[str]]:
         """
         The Certificate Private Key file (ie. `.key` file).
+
+        If you choose to use __Key credentials__ you will have to provide:
         """
         return pulumi.get(self, "private_key")
 
@@ -345,7 +369,6 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         Provides a Pinpoint APNs VoIP Sandbox Channel resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -374,8 +397,14 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
                __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
                You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
                If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+               
+               One of the following sets of credentials is also required.
+               
+               If you choose to use __Certificate credentials__ you will have to provide:
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[str] private_key: The Certificate Private Key file (ie. `.key` file).
+               
+               If you choose to use __Key credentials__ you will have to provide:
         :param pulumi.Input[str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
         :param pulumi.Input[str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
@@ -390,7 +419,6 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         Provides a Pinpoint APNs VoIP Sandbox Channel resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -489,8 +517,14 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
                __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
                You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
                If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+               
+               One of the following sets of credentials is also required.
+               
+               If you choose to use __Certificate credentials__ you will have to provide:
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[str] private_key: The Certificate Private Key file (ie. `.key` file).
+               
+               If you choose to use __Key credentials__ you will have to provide:
         :param pulumi.Input[str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         :param pulumi.Input[str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
         :param pulumi.Input[str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
@@ -542,6 +576,10 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
         __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
         If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
+
+        One of the following sets of credentials is also required.
+
+        If you choose to use __Certificate credentials__ you will have to provide:
         """
         return pulumi.get(self, "default_authentication_method")
 
@@ -558,6 +596,8 @@ class ApnsVoipSandboxChannel(pulumi.CustomResource):
     def private_key(self) -> pulumi.Output[Optional[str]]:
         """
         The Certificate Private Key file (ie. `.key` file).
+
+        If you choose to use __Key credentials__ you will have to provide:
         """
         return pulumi.get(self, "private_key")
 

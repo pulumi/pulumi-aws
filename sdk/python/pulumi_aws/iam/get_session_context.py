@@ -131,6 +131,8 @@ def get_session_context(arn: Optional[str] = None,
 
 
     :param str arn: ARN for an assumed role.
+           
+           > If `arn` is a non-role ARN, the provider gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -177,5 +179,7 @@ def get_session_context_output(arn: Optional[pulumi.Input[str]] = None,
 
 
     :param str arn: ARN for an assumed role.
+           
+           > If `arn` is a non-role ARN, the provider gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
     """
     ...

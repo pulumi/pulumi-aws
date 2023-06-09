@@ -238,7 +238,6 @@ class Workforce(pulumi.CustomResource):
 
         ## Example Usage
         ### Cognito Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,7 +257,6 @@ class Workforce(pulumi.CustomResource):
             ))
         ```
         ### Oidc Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -304,7 +302,6 @@ class Workforce(pulumi.CustomResource):
 
         ## Example Usage
         ### Cognito Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -324,7 +321,6 @@ class Workforce(pulumi.CustomResource):
             ))
         ```
         ### Oidc Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

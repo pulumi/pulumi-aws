@@ -125,12 +125,16 @@ public final class ListenerDefaultActionAuthenticateCognitoArgs extends com.pulu
     /**
      * Domain prefix or fully-qualified domain name of the Cognito user pool.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="userPoolDomain", required=true)
     private Output<String> userPoolDomain;
 
     /**
      * @return Domain prefix or fully-qualified domain name of the Cognito user pool.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userPoolDomain() {
@@ -318,6 +322,8 @@ public final class ListenerDefaultActionAuthenticateCognitoArgs extends com.pulu
         /**
          * @param userPoolDomain Domain prefix or fully-qualified domain name of the Cognito user pool.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -328,6 +334,8 @@ public final class ListenerDefaultActionAuthenticateCognitoArgs extends com.pulu
 
         /**
          * @param userPoolDomain Domain prefix or fully-qualified domain name of the Cognito user pool.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

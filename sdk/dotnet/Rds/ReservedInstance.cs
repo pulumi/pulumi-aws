@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Rds
     /// &gt; **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -106,6 +105,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("offeringId")]
         public Output<string> OfferingId { get; private set; } = null!;
@@ -218,6 +219,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("offeringId", required: true)]
         public Input<string> OfferingId { get; set; } = null!;
@@ -298,6 +301,8 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("offeringId")]
         public Input<string>? OfferingId { get; set; }

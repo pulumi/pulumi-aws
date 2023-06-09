@@ -158,12 +158,16 @@ public final class RemediationConfigurationState extends com.pulumi.resources.Re
     /**
      * Type of the target. Target executes remediation. For example, SSM document.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="targetType")
     private @Nullable Output<String> targetType;
 
     /**
      * @return Type of the target. Target executes remediation. For example, SSM document.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> targetType() {
@@ -421,6 +425,8 @@ public final class RemediationConfigurationState extends com.pulumi.resources.Re
         /**
          * @param targetType Type of the target. Target executes remediation. For example, SSM document.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -431,6 +437,8 @@ public final class RemediationConfigurationState extends com.pulumi.resources.Re
 
         /**
          * @param targetType Type of the target. Target executes remediation. For example, SSM document.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

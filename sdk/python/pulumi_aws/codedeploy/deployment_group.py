@@ -630,7 +630,6 @@ class DeploymentGroup(pulumi.CustomResource):
         > **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -682,7 +681,6 @@ class DeploymentGroup(pulumi.CustomResource):
             ))
         ```
         ### Blue Green Deployments with ECS
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -711,8 +709,8 @@ class DeploymentGroup(pulumi.CustomResource):
                 deployment_type="BLUE_GREEN",
             ),
             ecs_service=aws.codedeploy.DeploymentGroupEcsServiceArgs(
-                cluster_name=aws_ecs_cluster["example"]["name"],
-                service_name=aws_ecs_service["example"]["name"],
+                cluster_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                service_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
                 target_group_pair_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs(
@@ -721,17 +719,16 @@ class DeploymentGroup(pulumi.CustomResource):
                     ),
                     target_groups=[
                         aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=aws_lb_target_group["blue"]["name"],
+                            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         ),
                         aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=aws_lb_target_group["green"]["name"],
+                            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         ),
                     ],
                 ),
             ))
         ```
         ### Blue Green Deployments with Servers and Classic ELB
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -747,7 +744,7 @@ class DeploymentGroup(pulumi.CustomResource):
             ),
             load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
                 elb_infos=[aws.codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs(
-                    name=aws_elb["example"]["name"],
+                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 )],
             ),
             blue_green_deployment_config=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs(
@@ -805,7 +802,6 @@ class DeploymentGroup(pulumi.CustomResource):
         > **NOTE on blue/green deployments:** When using `green_fleet_provisioning_option` with the `COPY_AUTO_SCALING_GROUP` action, CodeDeploy will create a new ASG with a different name. This ASG is _not_ managed by this provider and will conflict with existing configuration and state. You may want to use a different approach to managing deployments that involve multiple ASG, such as `DISCOVER_EXISTING` with separate blue and green ASG.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -857,7 +853,6 @@ class DeploymentGroup(pulumi.CustomResource):
             ))
         ```
         ### Blue Green Deployments with ECS
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -886,8 +881,8 @@ class DeploymentGroup(pulumi.CustomResource):
                 deployment_type="BLUE_GREEN",
             ),
             ecs_service=aws.codedeploy.DeploymentGroupEcsServiceArgs(
-                cluster_name=aws_ecs_cluster["example"]["name"],
-                service_name=aws_ecs_service["example"]["name"],
+                cluster_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                service_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
                 target_group_pair_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs(
@@ -896,17 +891,16 @@ class DeploymentGroup(pulumi.CustomResource):
                     ),
                     target_groups=[
                         aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=aws_lb_target_group["blue"]["name"],
+                            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         ),
                         aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=aws_lb_target_group["green"]["name"],
+                            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         ),
                     ],
                 ),
             ))
         ```
         ### Blue Green Deployments with Servers and Classic ELB
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -922,7 +916,7 @@ class DeploymentGroup(pulumi.CustomResource):
             ),
             load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
                 elb_infos=[aws.codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs(
-                    name=aws_elb["example"]["name"],
+                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 )],
             ),
             blue_green_deployment_config=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs(

@@ -14,7 +14,6 @@ import (
 // Attaches Principal to AWS IoT Thing.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

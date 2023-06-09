@@ -105,7 +105,6 @@ def get_parameter(name: Optional[str] = None,
     Provides an SSM Parameter data source.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -118,6 +117,8 @@ def get_parameter(name: Optional[str] = None,
 
     :param str name: Name of the parameter.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
+           
+           In addition to all arguments above, the following attributes are exported:
     """
     __args__ = dict()
     __args__['name'] = name
@@ -143,7 +144,6 @@ def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
     Provides an SSM Parameter data source.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,5 +156,7 @@ def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: Name of the parameter.
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
+           
+           In addition to all arguments above, the following attributes are exported:
     """
     ...

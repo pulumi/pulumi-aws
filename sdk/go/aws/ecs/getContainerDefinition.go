@@ -14,7 +14,6 @@ import (
 // a specific container within an AWS ECS service.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

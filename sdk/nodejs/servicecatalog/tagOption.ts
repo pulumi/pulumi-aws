@@ -67,6 +67,8 @@ export class TagOption extends pulumi.CustomResource {
     public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
      * Tag option value.
+     *
+     * The following arguments are optional:
      */
     public readonly value!: pulumi.Output<string>;
 
@@ -120,6 +122,8 @@ export interface TagOptionState {
     owner?: pulumi.Input<string>;
     /**
      * Tag option value.
+     *
+     * The following arguments are optional:
      */
     value?: pulumi.Input<string>;
 }
@@ -138,6 +142,8 @@ export interface TagOptionArgs {
     key: pulumi.Input<string>;
     /**
      * Tag option value.
+     *
+     * The following arguments are optional:
      */
     value: pulumi.Input<string>;
 }

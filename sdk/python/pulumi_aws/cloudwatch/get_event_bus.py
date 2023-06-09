@@ -73,7 +73,6 @@ def get_event_bus(name: Optional[str] = None,
     an event bus, given the name of the bus.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -104,7 +103,6 @@ def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
     an event bus, given the name of the bus.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

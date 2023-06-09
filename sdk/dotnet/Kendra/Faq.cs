@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Example Usage
     /// ### Basic
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,7 +40,6 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With File Format
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,7 +63,6 @@ namespace Pulumi.Aws.Kendra
     /// });
     /// ```
     /// ### With Language Code
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -162,6 +159,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 location of the FAQ input data. Detailed below.
+        /// 
+        /// The `s3_path` configuration block supports the following arguments:
         /// </summary>
         [Output("s3Path")]
         public Output<Outputs.FaqS3Path> S3Path { get; private set; } = null!;
@@ -274,6 +273,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 location of the FAQ input data. Detailed below.
+        /// 
+        /// The `s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("s3Path", required: true)]
         public Input<Inputs.FaqS3PathArgs> S3Path { get; set; } = null!;
@@ -360,6 +361,8 @@ namespace Pulumi.Aws.Kendra
 
         /// <summary>
         /// The S3 location of the FAQ input data. Detailed below.
+        /// 
+        /// The `s3_path` configuration block supports the following arguments:
         /// </summary>
         [Input("s3Path")]
         public Input<Inputs.FaqS3PathGetArgs>? S3Path { get; set; }

@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Lambda
     /// &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -108,6 +107,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Unique name for your Lambda Layer
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("layerName")]
         public Output<string> LayerName { get; private set; } = null!;
@@ -256,6 +257,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Unique name for your Lambda Layer
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("layerName", required: true)]
         public Input<string> LayerName { get; set; } = null!;
@@ -360,6 +363,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Unique name for your Lambda Layer
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("layerName")]
         public Input<string>? LayerName { get; set; }

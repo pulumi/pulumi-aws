@@ -127,12 +127,16 @@ public class DefaultRouteTable extends com.pulumi.resources.CustomResource {
     /**
      * ID of the default route table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="defaultRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> defaultRouteTableId;
 
     /**
      * @return ID of the default route table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> defaultRouteTableId() {

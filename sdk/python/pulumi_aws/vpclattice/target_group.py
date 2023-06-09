@@ -23,6 +23,8 @@ class TargetGroupArgs:
         """
         The set of arguments for constructing a TargetGroup resource.
         :param pulumi.Input[str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+               
+               The following arguments are optional:
         :param pulumi.Input['TargetGroupConfigArgs'] config: The target group configuration. If type is set to `LAMBDA,` this parameter should not be specified.
         :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -40,6 +42,8 @@ class TargetGroupArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -103,6 +107,8 @@ class _TargetGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -196,6 +202,8 @@ class _TargetGroupState:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -219,7 +227,6 @@ class TargetGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -229,11 +236,10 @@ class TargetGroup(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=443,
                 protocol="HTTPS",
-                vpc_identifier=aws_vpc["example"]["id"],
+                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
         ### Basic usage with Health check
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -243,7 +249,7 @@ class TargetGroup(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=443,
                 protocol="HTTPS",
-                vpc_identifier=aws_vpc["example"]["id"],
+                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 protocol_version="HTTP1",
                 health_check=aws.vpclattice.TargetGroupConfigHealthCheckArgs(
                     enabled=True,
@@ -264,7 +270,6 @@ class TargetGroup(pulumi.CustomResource):
         ### Lambda
 
         If the type is Lambda, `config` block is not supported.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,6 +291,8 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -298,7 +305,6 @@ class TargetGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,11 +314,10 @@ class TargetGroup(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=443,
                 protocol="HTTPS",
-                vpc_identifier=aws_vpc["example"]["id"],
+                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
         ### Basic usage with Health check
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,7 +327,7 @@ class TargetGroup(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=443,
                 protocol="HTTPS",
-                vpc_identifier=aws_vpc["example"]["id"],
+                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 protocol_version="HTTP1",
                 health_check=aws.vpclattice.TargetGroupConfigHealthCheckArgs(
                     enabled=True,
@@ -343,7 +348,6 @@ class TargetGroup(pulumi.CustomResource):
         ### Lambda
 
         If the type is Lambda, `config` block is not supported.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -427,6 +431,8 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -494,6 +500,8 @@ class TargetGroup(pulumi.CustomResource):
     def type(self) -> pulumi.Output[str]:
         """
         The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

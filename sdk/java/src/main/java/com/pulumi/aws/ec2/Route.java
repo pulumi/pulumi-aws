@@ -182,12 +182,16 @@ public class Route extends com.pulumi.resources.CustomResource {
     /**
      * The ID of a managed prefix list destination.
      * 
+     * One of the following target arguments must be supplied:
+     * 
      */
     @Export(name="destinationPrefixListId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationPrefixListId;
 
     /**
      * @return The ID of a managed prefix list destination.
+     * 
+     * One of the following target arguments must be supplied:
      * 
      */
     public Output<Optional<String>> destinationPrefixListId() {
@@ -312,12 +316,16 @@ public class Route extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the routing table.
      * 
+     * One of the following destination arguments must be supplied:
+     * 
      */
     @Export(name="routeTableId", refs={String.class}, tree="[0]")
     private Output<String> routeTableId;
 
     /**
      * @return The ID of the routing table.
+     * 
+     * One of the following destination arguments must be supplied:
      * 
      */
     public Output<String> routeTableId() {
@@ -368,12 +376,16 @@ public class Route extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of a VPC peering connection.
      * 
+     * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
+     * 
      */
     @Export(name="vpcPeeringConnectionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcPeeringConnectionId;
 
     /**
      * @return Identifier of a VPC peering connection.
+     * 
+     * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
      * 
      */
     public Output<Optional<String>> vpcPeeringConnectionId() {

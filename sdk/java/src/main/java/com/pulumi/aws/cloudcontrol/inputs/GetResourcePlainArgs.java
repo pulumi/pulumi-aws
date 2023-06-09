@@ -47,12 +47,16 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="typeName", required=true)
     private String typeName;
 
     /**
      * @return CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String typeName() {
@@ -125,6 +129,8 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
 
         /**
          * @param typeName CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

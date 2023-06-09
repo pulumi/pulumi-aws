@@ -310,7 +310,6 @@ class ResolverRule(pulumi.CustomResource):
 
         ## Example Usage
         ### System rule
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -320,7 +319,6 @@ class ResolverRule(pulumi.CustomResource):
             rule_type="SYSTEM")
         ```
         ### Forward rule
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -367,7 +365,6 @@ class ResolverRule(pulumi.CustomResource):
 
         ## Example Usage
         ### System rule
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -377,7 +374,6 @@ class ResolverRule(pulumi.CustomResource):
             rule_type="SYSTEM")
         ```
         ### Forward rule
-
         ```python
         import pulumi
         import pulumi_aws as aws

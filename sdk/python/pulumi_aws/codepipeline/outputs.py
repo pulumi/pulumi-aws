@@ -459,6 +459,8 @@ class PipelineStageAction(dict):
         :param Mapping[str, str] configuration: A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
         :param Sequence[str] input_artifacts: A list of artifact names to be worked on.
         :param str namespace: The namespace all output variables will be accessed from.
+               
+               > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         :param Sequence[str] output_artifacts: A list of artifact names to output. Output artifact names must be unique within a pipeline.
         :param str region: The region in which to run the action.
         :param str role_arn: The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
@@ -545,6 +547,8 @@ class PipelineStageAction(dict):
     def namespace(self) -> Optional[str]:
         """
         The namespace all output variables will be accessed from.
+
+        > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
         """
         return pulumi.get(self, "namespace")
 

@@ -25,6 +25,8 @@ class PlaceIndexArgs:
         The set of arguments for constructing a PlaceIndex resource.
         :param pulumi.Input[str] data_source: Specifies the geospatial data provider for the new place index.
         :param pulumi.Input[str] index_name: The name of the place index resource.
+               
+               The following arguments are optional:
         :param pulumi.Input['PlaceIndexDataSourceConfigurationArgs'] data_source_configuration: Configuration block with the data storage option chosen for requesting Places. Detailed below.
         :param pulumi.Input[str] description: The optional description for the place index resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -55,6 +57,8 @@ class PlaceIndexArgs:
     def index_name(self) -> pulumi.Input[str]:
         """
         The name of the place index resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "index_name")
 
@@ -119,6 +123,8 @@ class _PlaceIndexState:
         :param pulumi.Input[str] description: The optional description for the place index resource.
         :param pulumi.Input[str] index_arn: The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
         :param pulumi.Input[str] index_name: The name of the place index resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] update_time: The timestamp for when the place index resource was last update in ISO 8601.
@@ -207,6 +213,8 @@ class _PlaceIndexState:
     def index_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the place index resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "index_name")
 
@@ -266,7 +274,6 @@ class PlaceIndex(pulumi.CustomResource):
         Provides a Location Service Place Index.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -290,6 +297,8 @@ class PlaceIndex(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PlaceIndexDataSourceConfigurationArgs']] data_source_configuration: Configuration block with the data storage option chosen for requesting Places. Detailed below.
         :param pulumi.Input[str] description: The optional description for the place index resource.
         :param pulumi.Input[str] index_name: The name of the place index resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -302,7 +311,6 @@ class PlaceIndex(pulumi.CustomResource):
         Provides a Location Service Place Index.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -394,6 +402,8 @@ class PlaceIndex(pulumi.CustomResource):
         :param pulumi.Input[str] description: The optional description for the place index resource.
         :param pulumi.Input[str] index_arn: The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
         :param pulumi.Input[str] index_name: The name of the place index resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] update_time: The timestamp for when the place index resource was last update in ISO 8601.
@@ -458,6 +468,8 @@ class PlaceIndex(pulumi.CustomResource):
     def index_name(self) -> pulumi.Output[str]:
         """
         The name of the place index resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "index_name")
 

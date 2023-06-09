@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// Manages an Image Builder Image.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,6 +86,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("infrastructureConfigurationArn")]
         public Output<string> InfrastructureConfigurationArn { get; private set; } = null!;
@@ -211,6 +212,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("infrastructureConfigurationArn", required: true)]
         public Input<string> InfrastructureConfigurationArn { get; set; } = null!;
@@ -279,6 +282,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("infrastructureConfigurationArn")]
         public Input<string>? InfrastructureConfigurationArn { get; set; }

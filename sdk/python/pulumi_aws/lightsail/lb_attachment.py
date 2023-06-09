@@ -101,7 +101,6 @@ class LbAttachment(pulumi.CustomResource):
         Attaches a Lightsail Instance to a Lightsail Load Balancer.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -149,7 +148,6 @@ class LbAttachment(pulumi.CustomResource):
         Attaches a Lightsail Instance to a Lightsail Load Balancer.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

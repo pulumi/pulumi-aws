@@ -349,7 +349,6 @@ class ConfigurationProfile(pulumi.CustomResource):
         Provides an AppConfig Configuration Profile resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,7 +358,7 @@ class ConfigurationProfile(pulumi.CustomResource):
             description="Example Configuration Profile",
             location_uri="hosted",
             validators=[aws.appconfig.ConfigurationProfileValidatorArgs(
-                content=aws_lambda_function["example"]["arn"],
+                content=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 type="LAMBDA",
             )],
             tags={
@@ -396,7 +395,6 @@ class ConfigurationProfile(pulumi.CustomResource):
         Provides an AppConfig Configuration Profile resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -406,7 +404,7 @@ class ConfigurationProfile(pulumi.CustomResource):
             description="Example Configuration Profile",
             location_uri="hosted",
             validators=[aws.appconfig.ConfigurationProfileValidatorArgs(
-                content=aws_lambda_function["example"]["arn"],
+                content=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 type="LAMBDA",
             )],
             tags={

@@ -110,12 +110,16 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the resource group.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
      * @return Name of the resource group.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> resourceGroupName() {
@@ -297,6 +301,8 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceGroupName Name of the resource group.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -307,6 +313,8 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param resourceGroupName Name of the resource group.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

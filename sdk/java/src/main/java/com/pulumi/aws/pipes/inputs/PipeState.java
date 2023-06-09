@@ -201,12 +201,16 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     /**
      * Parameters required to set up a target for your pipe. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="targetParameters")
     private @Nullable Output<PipeTargetParametersArgs> targetParameters;
 
     /**
      * @return Parameters required to set up a target for your pipe. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<PipeTargetParametersArgs>> targetParameters() {
@@ -504,6 +508,8 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param targetParameters Parameters required to set up a target for your pipe. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -514,6 +520,8 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param targetParameters Parameters required to set up a target for your pipe. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

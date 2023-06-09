@@ -20,41 +20,6 @@ import (
 //
 // ## Example Usage
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			lbArn := ""
-//			if param := cfg.Get("lbArn"); param != "" {
-//				lbArn = param
-//			}
-//			lbName := ""
-//			if param := cfg.Get("lbName"); param != "" {
-//				lbName = param
-//			}
-//			_, err := lb.LookupLoadBalancer(ctx, &lb.LookupLoadBalancerArgs{
-//				Arn:  pulumi.StringRef(lbArn),
-//				Name: pulumi.StringRef(lbName),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // Deprecated: aws.applicationloadbalancing.getLoadBalancer has been deprecated in favor of aws.alb.getLoadBalancer
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	var rv LookupLoadBalancerResult
@@ -72,6 +37,8 @@ type LookupLoadBalancerArgs struct {
 	// Unique name of the load balancer.
 	Name *string `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -127,6 +94,8 @@ type LookupLoadBalancerOutputArgs struct {
 	// Unique name of the load balancer.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+	//
+	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

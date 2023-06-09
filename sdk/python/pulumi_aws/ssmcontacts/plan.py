@@ -104,7 +104,6 @@ class Plan(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -116,7 +115,6 @@ class Plan(pulumi.CustomResource):
             )])
         ```
         ### Usage with SSM Contact
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -131,7 +129,6 @@ class Plan(pulumi.CustomResource):
             )])
         ```
         ### Usage With All Fields
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -190,7 +187,6 @@ class Plan(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,7 +198,6 @@ class Plan(pulumi.CustomResource):
             )])
         ```
         ### Usage with SSM Contact
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,7 +212,6 @@ class Plan(pulumi.CustomResource):
             )])
         ```
         ### Usage With All Fields
-
         ```python
         import pulumi
         import pulumi_aws as aws

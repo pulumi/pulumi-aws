@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CodeGuruReviewer
     /// Resource for managing an AWS CodeGuru Reviewer Repository Association.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -95,6 +94,8 @@ namespace Pulumi.Aws.CodeGuruReviewer
 
         /// <summary>
         /// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("repository")]
         public Output<Outputs.RepositoryAssociationRepository> Repository { get; private set; } = null!;
@@ -174,6 +175,8 @@ namespace Pulumi.Aws.CodeGuruReviewer
 
         /// <summary>
         /// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("repository", required: true)]
         public Input<Inputs.RepositoryAssociationRepositoryArgs> Repository { get; set; } = null!;
@@ -238,6 +241,8 @@ namespace Pulumi.Aws.CodeGuruReviewer
 
         /// <summary>
         /// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("repository")]
         public Input<Inputs.RepositoryAssociationRepositoryGetArgs>? Repository { get; set; }

@@ -20,6 +20,8 @@ public final class EmailIdentityDkimSigningAttributes {
     /**
      * @return [Bring Your Own DKIM] A private key that&#39;s used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
      * 
+     * &gt; **NOTE:** You have to delete the first and last lines (&#39;-----BEGIN PRIVATE KEY-----&#39; and &#39;-----END PRIVATE KEY-----&#39;, respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
+     * 
      */
     private @Nullable String domainSigningPrivateKey;
     /**
@@ -63,6 +65,8 @@ public final class EmailIdentityDkimSigningAttributes {
     }
     /**
      * @return [Bring Your Own DKIM] A private key that&#39;s used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+     * 
+     * &gt; **NOTE:** You have to delete the first and last lines (&#39;-----BEGIN PRIVATE KEY-----&#39; and &#39;-----END PRIVATE KEY-----&#39;, respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
      * 
      */
     public Optional<String> domainSigningPrivateKey() {

@@ -236,7 +236,6 @@ class AnomalyMonitor(pulumi.CustomResource):
 
         There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
         ### Dimensional Example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,7 +245,6 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_type="DIMENSIONAL")
         ```
         ### Custom Example
-
         ```python
         import pulumi
         import json
@@ -297,7 +295,6 @@ class AnomalyMonitor(pulumi.CustomResource):
 
         There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
         ### Dimensional Example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,7 +304,6 @@ class AnomalyMonitor(pulumi.CustomResource):
             monitor_type="DIMENSIONAL")
         ```
         ### Custom Example
-
         ```python
         import pulumi
         import json

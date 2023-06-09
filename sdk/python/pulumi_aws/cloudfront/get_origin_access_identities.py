@@ -96,7 +96,6 @@ def get_origin_access_identities(comments: Optional[Sequence[str]] = None,
 
     ## Example Usage
     ### All origin access identities in the account
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -106,7 +105,6 @@ def get_origin_access_identities(comments: Optional[Sequence[str]] = None,
     ### Origin access identities filtered by comment/name
 
     Origin access identities whose comments are `example-comment1`, `example-comment2`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -141,7 +139,6 @@ def get_origin_access_identities_output(comments: Optional[pulumi.Input[Optional
 
     ## Example Usage
     ### All origin access identities in the account
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -151,7 +148,6 @@ def get_origin_access_identities_output(comments: Optional[pulumi.Input[Optional
     ### Origin access identities filtered by comment/name
 
     Origin access identities whose comments are `example-comment1`, `example-comment2`
-
     ```python
     import pulumi
     import pulumi_aws as aws

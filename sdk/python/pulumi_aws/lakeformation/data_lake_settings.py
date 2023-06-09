@@ -29,6 +29,8 @@ class DataLakeSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         :param pulumi.Input[bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+               
+               > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
@@ -81,6 +83,8 @@ class DataLakeSettingsArgs:
     def authorized_session_tag_value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+
+        > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         """
         return pulumi.get(self, "authorized_session_tag_value_lists")
 
@@ -165,6 +169,8 @@ class _DataLakeSettingsState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         :param pulumi.Input[bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+               
+               > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
@@ -217,6 +223,8 @@ class _DataLakeSettingsState:
     def authorized_session_tag_value_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+
+        > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         """
         return pulumi.get(self, "authorized_session_tag_value_lists")
 
@@ -306,7 +314,6 @@ class DataLakeSettings(pulumi.CustomResource):
 
         ## Example Usage
         ### Data Lake Admins
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,7 +324,6 @@ class DataLakeSettings(pulumi.CustomResource):
         ])
         ```
         ### Create Default Permissions
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -333,15 +339,14 @@ class DataLakeSettings(pulumi.CustomResource):
                     "ALTER",
                     "DROP",
                 ],
-                principal=aws_iam_user["test"]["arn"],
+                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
                 permissions=["ALL"],
-                principal=aws_iam_role["test"]["arn"],
+                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### Enable EMR access to LakeFormation resources
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,11 +362,11 @@ class DataLakeSettings(pulumi.CustomResource):
                     "ALTER",
                     "DROP",
                 ],
-                principal=aws_iam_user["test"]["arn"],
+                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
                 permissions=["ALL"],
-                principal=aws_iam_role["test"]["arn"],
+                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             allow_external_data_filtering=True,
             external_data_filtering_allow_lists=[
@@ -376,6 +381,8 @@ class DataLakeSettings(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         :param pulumi.Input[bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+               
+               > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
@@ -395,7 +402,6 @@ class DataLakeSettings(pulumi.CustomResource):
 
         ## Example Usage
         ### Data Lake Admins
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -406,7 +412,6 @@ class DataLakeSettings(pulumi.CustomResource):
         ])
         ```
         ### Create Default Permissions
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -422,15 +427,14 @@ class DataLakeSettings(pulumi.CustomResource):
                     "ALTER",
                     "DROP",
                 ],
-                principal=aws_iam_user["test"]["arn"],
+                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
                 permissions=["ALL"],
-                principal=aws_iam_role["test"]["arn"],
+                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### Enable EMR access to LakeFormation resources
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -446,11 +450,11 @@ class DataLakeSettings(pulumi.CustomResource):
                     "ALTER",
                     "DROP",
                 ],
-                principal=aws_iam_user["test"]["arn"],
+                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
                 permissions=["ALL"],
-                principal=aws_iam_role["test"]["arn"],
+                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             allow_external_data_filtering=True,
             external_data_filtering_allow_lists=[
@@ -528,6 +532,8 @@ class DataLakeSettings(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         :param pulumi.Input[bool] allow_external_data_filtering: Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+               
+               > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
@@ -569,6 +575,8 @@ class DataLakeSettings(pulumi.CustomResource):
     def authorized_session_tag_value_lists(self) -> pulumi.Output[Sequence[str]]:
         """
         Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+
+        > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         """
         return pulumi.get(self, "authorized_session_tag_value_lists")
 

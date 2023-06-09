@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Example Usage
     /// ### EFS File System w/ tags
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.Efs
     /// });
     /// ```
     /// ### Using lifecycle policy
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

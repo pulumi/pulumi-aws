@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ses
     /// Resource for managing SES Identity Notification Topics
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

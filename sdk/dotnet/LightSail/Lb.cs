@@ -13,7 +13,6 @@ namespace Pulumi.Aws.LightSail
     /// Creates a Lightsail load balancer resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

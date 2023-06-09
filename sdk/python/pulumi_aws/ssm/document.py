@@ -558,7 +558,6 @@ class Document(pulumi.CustomResource):
 
         ## Example Usage
         ### Create an ssm document in JSON format
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -586,7 +585,6 @@ class Document(pulumi.CustomResource):
             document_type="Command")
         ```
         ### Create an ssm document in YAML format
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -677,7 +675,6 @@ class Document(pulumi.CustomResource):
 
         ## Example Usage
         ### Create an ssm document in JSON format
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -705,7 +702,6 @@ class Document(pulumi.CustomResource):
             document_type="Command")
         ```
         ### Create an ssm document in YAML format
-
         ```python
         import pulumi
         import pulumi_aws as aws

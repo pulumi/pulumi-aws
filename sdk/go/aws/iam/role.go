@@ -334,6 +334,10 @@ type Role struct {
 	// Amazon Resource Name (ARN) specifying the role.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Policy that grants an entity permission to assume the role.
+	//
+	// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
+	//
+	// The following arguments are optional:
 	AssumeRolePolicy pulumi.StringOutput `pulumi:"assumeRolePolicy"`
 	// Creation date of the IAM role.
 	CreateDate pulumi.StringOutput `pulumi:"createDate"`
@@ -399,6 +403,10 @@ type roleState struct {
 	// Amazon Resource Name (ARN) specifying the role.
 	Arn *string `pulumi:"arn"`
 	// Policy that grants an entity permission to assume the role.
+	//
+	// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
+	//
+	// The following arguments are optional:
 	AssumeRolePolicy interface{} `pulumi:"assumeRolePolicy"`
 	// Creation date of the IAM role.
 	CreateDate *string `pulumi:"createDate"`
@@ -433,6 +441,10 @@ type RoleState struct {
 	// Amazon Resource Name (ARN) specifying the role.
 	Arn pulumi.StringPtrInput
 	// Policy that grants an entity permission to assume the role.
+	//
+	// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
+	//
+	// The following arguments are optional:
 	AssumeRolePolicy pulumi.Input
 	// Creation date of the IAM role.
 	CreateDate pulumi.StringPtrInput
@@ -469,6 +481,10 @@ func (RoleState) ElementType() reflect.Type {
 
 type roleArgs struct {
 	// Policy that grants an entity permission to assume the role.
+	//
+	// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
+	//
+	// The following arguments are optional:
 	AssumeRolePolicy interface{} `pulumi:"assumeRolePolicy"`
 	// Description of the role.
 	Description *string `pulumi:"description"`
@@ -494,6 +510,10 @@ type roleArgs struct {
 // The set of arguments for constructing a Role resource.
 type RoleArgs struct {
 	// Policy that grants an entity permission to assume the role.
+	//
+	// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
+	//
+	// The following arguments are optional:
 	AssumeRolePolicy pulumi.Input
 	// Description of the role.
 	Description pulumi.StringPtrInput
@@ -609,6 +629,10 @@ func (o RoleOutput) Arn() pulumi.StringOutput {
 }
 
 // Policy that grants an entity permission to assume the role.
+//
+// > **NOTE:** The `assumeRolePolicy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam.getPolicyDocument` data source. See the example above of how this works.
+//
+// The following arguments are optional:
 func (o RoleOutput) AssumeRolePolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.AssumeRolePolicy }).(pulumi.StringOutput)
 }

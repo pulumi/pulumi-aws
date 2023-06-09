@@ -22,12 +22,16 @@ public final class DefaultNetworkAclArgs extends com.pulumi.resources.ResourceAr
     /**
      * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="defaultNetworkAclId", required=true)
     private Output<String> defaultNetworkAclId;
 
     /**
      * @return Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> defaultNetworkAclId() {
@@ -125,6 +129,8 @@ public final class DefaultNetworkAclArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param defaultNetworkAclId Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -135,6 +141,8 @@ public final class DefaultNetworkAclArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param defaultNetworkAclId Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

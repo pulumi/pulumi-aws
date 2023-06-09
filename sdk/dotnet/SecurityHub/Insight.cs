@@ -14,7 +14,6 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Example Usage
     /// ### Filter by AWS account ID
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,7 +54,6 @@ namespace Pulumi.Aws.SecurityHub
     /// });
     /// ```
     /// ### Filter by date range
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,7 +92,6 @@ namespace Pulumi.Aws.SecurityHub
     /// });
     /// ```
     /// ### Filter by destination IPv4 address
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -129,7 +126,6 @@ namespace Pulumi.Aws.SecurityHub
     /// });
     /// ```
     /// ### Filter by finding's confidence
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -164,7 +160,6 @@ namespace Pulumi.Aws.SecurityHub
     /// });
     /// ```
     /// ### Filter by resource tags
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

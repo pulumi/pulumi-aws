@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -50,6 +49,11 @@ func LookupReplicationTask(ctx *pulumi.Context, args *LookupReplicationTaskArgs,
 // A collection of arguments for invoking getReplicationTask.
 type LookupReplicationTaskArgs struct {
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId string            `pulumi:"replicationTaskId"`
 	Tags              map[string]string `pulumi:"tags"`
 }
@@ -100,6 +104,11 @@ func LookupReplicationTaskOutput(ctx *pulumi.Context, args LookupReplicationTask
 // A collection of arguments for invoking getReplicationTask.
 type LookupReplicationTaskOutputArgs struct {
 	// The replication task identifier.
+	//
+	// - Must contain from 1 to 255 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen.
+	// - Cannot contain two consecutive hyphens.
 	ReplicationTaskId pulumi.StringInput    `pulumi:"replicationTaskId"`
 	Tags              pulumi.StringMapInput `pulumi:"tags"`
 }

@@ -14,7 +14,6 @@ import (
 // Manages an EC2 Transit Gateway Policy Table association.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

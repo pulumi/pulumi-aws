@@ -126,12 +126,16 @@ public final class ExperienceState extends com.pulumi.resources.ResourceArgs {
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -345,6 +349,8 @@ public final class ExperienceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param roleArn The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -355,6 +361,8 @@ public final class ExperienceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param roleArn The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

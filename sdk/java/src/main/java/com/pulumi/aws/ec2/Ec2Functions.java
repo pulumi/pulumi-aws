@@ -13107,6 +13107,61 @@ public final class Ec2Functions {
      * 
      * &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
      * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all cidr blocks for every subnet id in a vpc.
+     * 
+     * The following example retrieves a set of all subnets in a VPC with a custom
+     * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
+     * can loop through the subnets, putting instances across availability zones.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var private = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
+     *             .vpcId(var_.vpc_id())
+     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
+     *             .build());
+     * 
+     *         final var app = private.applyValue(getSubnetIdsResult -&gt; {
+     *             final var resources = new ArrayList&lt;Instance&gt;();
+     *             for (var range : KeyedValue.of(getSubnetIdsResult.ids()) {
+     *                 var resource = new Instance(&#34;app-&#34; + range.key(), InstanceArgs.builder()                
+     *                     .ami(var_.ami())
+     *                     .instanceType(&#34;t2.micro&#34;)
+     *                     .subnetId(range.value())
+     *                     .build());
+     * 
+     *                 resources.add(resource);
+     *             }
+     * 
+     *             return resources;
+     *         });
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetSubnetIdsResult> getSubnetIds(GetSubnetIdsArgs args) {
         return getSubnetIds(args, InvokeOptions.Empty);
@@ -13117,6 +13172,61 @@ public final class Ec2Functions {
      * This resource can be useful for getting back a set of subnet ids for a vpc.
      * 
      * &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all cidr blocks for every subnet id in a vpc.
+     * 
+     * The following example retrieves a set of all subnets in a VPC with a custom
+     * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
+     * can loop through the subnets, putting instances across availability zones.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var private = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
+     *             .vpcId(var_.vpc_id())
+     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
+     *             .build());
+     * 
+     *         final var app = private.applyValue(getSubnetIdsResult -&gt; {
+     *             final var resources = new ArrayList&lt;Instance&gt;();
+     *             for (var range : KeyedValue.of(getSubnetIdsResult.ids()) {
+     *                 var resource = new Instance(&#34;app-&#34; + range.key(), InstanceArgs.builder()                
+     *                     .ami(var_.ami())
+     *                     .instanceType(&#34;t2.micro&#34;)
+     *                     .subnetId(range.value())
+     *                     .build());
+     * 
+     *                 resources.add(resource);
+     *             }
+     * 
+     *             return resources;
+     *         });
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetSubnetIdsResult> getSubnetIdsPlain(GetSubnetIdsPlainArgs args) {
@@ -13129,6 +13239,61 @@ public final class Ec2Functions {
      * 
      * &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
      * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all cidr blocks for every subnet id in a vpc.
+     * 
+     * The following example retrieves a set of all subnets in a VPC with a custom
+     * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
+     * can loop through the subnets, putting instances across availability zones.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var private = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
+     *             .vpcId(var_.vpc_id())
+     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
+     *             .build());
+     * 
+     *         final var app = private.applyValue(getSubnetIdsResult -&gt; {
+     *             final var resources = new ArrayList&lt;Instance&gt;();
+     *             for (var range : KeyedValue.of(getSubnetIdsResult.ids()) {
+     *                 var resource = new Instance(&#34;app-&#34; + range.key(), InstanceArgs.builder()                
+     *                     .ami(var_.ami())
+     *                     .instanceType(&#34;t2.micro&#34;)
+     *                     .subnetId(range.value())
+     *                     .build());
+     * 
+     *                 resources.add(resource);
+     *             }
+     * 
+     *             return resources;
+     *         });
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetSubnetIdsResult> getSubnetIds(GetSubnetIdsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getSubnetIds:getSubnetIds", TypeShape.of(GetSubnetIdsResult.class), args, Utilities.withVersion(options));
@@ -13139,6 +13304,61 @@ public final class Ec2Functions {
      * This resource can be useful for getting back a set of subnet ids for a vpc.
      * 
      * &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
+     * 
+     * ## Example Usage
+     * 
+     * The following shows outputting all cidr blocks for every subnet id in a vpc.
+     * 
+     * The following example retrieves a set of all subnets in a VPC with a custom
+     * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
+     * can loop through the subnets, putting instances across availability zones.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var private = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
+     *             .vpcId(var_.vpc_id())
+     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
+     *             .build());
+     * 
+     *         final var app = private.applyValue(getSubnetIdsResult -&gt; {
+     *             final var resources = new ArrayList&lt;Instance&gt;();
+     *             for (var range : KeyedValue.of(getSubnetIdsResult.ids()) {
+     *                 var resource = new Instance(&#34;app-&#34; + range.key(), InstanceArgs.builder()                
+     *                     .ami(var_.ami())
+     *                     .instanceType(&#34;t2.micro&#34;)
+     *                     .subnetId(range.value())
+     *                     .build());
+     * 
+     *                 resources.add(resource);
+     *             }
+     * 
+     *             return resources;
+     *         });
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetSubnetIdsResult> getSubnetIdsPlain(GetSubnetIdsPlainArgs args, InvokeOptions options) {

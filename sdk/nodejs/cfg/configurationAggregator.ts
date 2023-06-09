@@ -105,6 +105,8 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     public readonly organizationAggregationSource!: pulumi.Output<outputs.cfg.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -167,6 +169,8 @@ export interface ConfigurationAggregatorState {
     organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -193,6 +197,8 @@ export interface ConfigurationAggregatorArgs {
     organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * Either `accountAggregationSource` or `organizationAggregationSource` must be specified.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

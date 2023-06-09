@@ -343,12 +343,16 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
     /**
      * The type of job definition. Must be `container`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return The type of job definition. Must be `container`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

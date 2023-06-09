@@ -2452,6 +2452,9 @@ class RouteSpecGrpcRouteRetryPolicy(dict):
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
+               
+               
+               You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
@@ -2502,6 +2505,9 @@ class RouteSpecGrpcRouteRetryPolicy(dict):
     def tcp_retry_events(self) -> Optional[Sequence[str]]:
         """
         List of TCP retry events. The only valid value is `connection-error`.
+
+
+        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         return pulumi.get(self, "tcp_retry_events")
 
@@ -3173,6 +3179,9 @@ class RouteSpecHttp2RouteRetryPolicy(dict):
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
+               
+               
+               You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
@@ -3212,6 +3221,9 @@ class RouteSpecHttp2RouteRetryPolicy(dict):
     def tcp_retry_events(self) -> Optional[Sequence[str]]:
         """
         List of TCP retry events. The only valid value is `connection-error`.
+
+
+        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         return pulumi.get(self, "tcp_retry_events")
 
@@ -3883,6 +3895,9 @@ class RouteSpecHttpRouteRetryPolicy(dict):
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
+               
+               
+               You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
@@ -3922,6 +3937,9 @@ class RouteSpecHttpRouteRetryPolicy(dict):
     def tcp_retry_events(self) -> Optional[Sequence[str]]:
         """
         List of TCP retry events. The only valid value is `connection-error`.
+
+
+        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
         """
         return pulumi.get(self, "tcp_retry_events")
 
@@ -4993,6 +5011,8 @@ class VirtualGatewaySpecListenerConnectionPoolHttp(dict):
         """
         :param int max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
         :param int max_pending_requests: Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+               
+               The `http2` connection pool object supports the following:
         """
         pulumi.set(__self__, "max_connections", max_connections)
         if max_pending_requests is not None:
@@ -5011,6 +5031,8 @@ class VirtualGatewaySpecListenerConnectionPoolHttp(dict):
     def max_pending_requests(self) -> Optional[int]:
         """
         Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+
+        The `http2` connection pool object supports the following:
         """
         return pulumi.get(self, "max_pending_requests")
 
@@ -6979,6 +7001,8 @@ class VirtualNodeSpecListenerConnectionPoolHttp(dict):
         """
         :param int max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
         :param int max_pending_requests: Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+               
+               The `http2` connection pool object supports the following:
         """
         pulumi.set(__self__, "max_connections", max_connections)
         if max_pending_requests is not None:
@@ -6997,6 +7021,8 @@ class VirtualNodeSpecListenerConnectionPoolHttp(dict):
     def max_pending_requests(self) -> Optional[int]:
         """
         Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+
+        The `http2` connection pool object supports the following:
         """
         return pulumi.get(self, "max_pending_requests")
 

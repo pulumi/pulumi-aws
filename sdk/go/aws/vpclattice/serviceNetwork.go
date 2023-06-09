@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -56,6 +55,8 @@ type ServiceNetwork struct {
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType pulumi.StringOutput `pulumi:"authType"`
 	// Name of the service network
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -97,6 +98,8 @@ type serviceNetworkState struct {
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType *string `pulumi:"authType"`
 	// Name of the service network
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -110,6 +113,8 @@ type ServiceNetworkState struct {
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType pulumi.StringPtrInput
 	// Name of the service network
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -125,6 +130,8 @@ type serviceNetworkArgs struct {
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType *string `pulumi:"authType"`
 	// Name of the service network
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -135,6 +142,8 @@ type ServiceNetworkArgs struct {
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType pulumi.StringPtrInput
 	// Name of the service network
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -238,6 +247,8 @@ func (o ServiceNetworkOutput) AuthType() pulumi.StringOutput {
 }
 
 // Name of the service network
+//
+// The following arguments are optional:
 func (o ServiceNetworkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

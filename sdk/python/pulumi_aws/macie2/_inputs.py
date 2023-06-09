@@ -48,6 +48,8 @@ class ClassificationExportConfigurationS3DestinationArgs:
         """
         :param pulumi.Input[str] bucket_name: The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+               
+               Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
         :param pulumi.Input[str] key_prefix: The object key for the bucket in which Amazon Macie exports the data classification results.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -72,6 +74,8 @@ class ClassificationExportConfigurationS3DestinationArgs:
     def kms_key_arn(self) -> pulumi.Input[str]:
         """
         Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+
+        Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -1115,6 +1119,8 @@ class ClassificationJobScheduleFrequencyArgs:
         """
         :param pulumi.Input[bool] daily_schedule: Specifies a daily recurrence pattern for running the job.
         :param pulumi.Input[int] monthly_schedule: Specifies a monthly recurrence pattern for running the job.
+               
+               The `s3_job_definition` object supports the following:
         :param pulumi.Input[str] weekly_schedule: Specifies a weekly recurrence pattern for running the job.
         """
         if daily_schedule is not None:
@@ -1141,6 +1147,8 @@ class ClassificationJobScheduleFrequencyArgs:
     def monthly_schedule(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies a monthly recurrence pattern for running the job.
+
+        The `s3_job_definition` object supports the following:
         """
         return pulumi.get(self, "monthly_schedule")
 

@@ -36,6 +36,8 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
     /**
      * @return The CloudWatch Logging Options for the delivery stream. More details are given below
      * 
+     * The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
+     * 
      */
     private @Nullable FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
     /**
@@ -115,6 +117,8 @@ public final class FirehoseDeliveryStreamExtendedS3Configuration {
     }
     /**
      * @return The CloudWatch Logging Options for the delivery stream. More details are given below
+     * 
+     * The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
      * 
      */
     public Optional<FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {

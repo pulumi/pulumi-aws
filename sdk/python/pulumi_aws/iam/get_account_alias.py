@@ -61,7 +61,6 @@ def get_account_alias(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     for the effective account in which this provider is working.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

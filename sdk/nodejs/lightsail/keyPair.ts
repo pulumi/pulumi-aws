@@ -109,6 +109,10 @@ export class KeyPair extends pulumi.CustomResource {
     /**
      * The public key material. This public key will be
      * imported into Lightsail
+     *
+     * > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+     * Without a PGP key, the private key material will be stored in state unencrypted.
+     * `pgpKey` is ignored if `publicKey` is supplied.
      */
     public readonly publicKey!: pulumi.Output<string>;
 
@@ -193,6 +197,10 @@ export interface KeyPairState {
     /**
      * The public key material. This public key will be
      * imported into Lightsail
+     *
+     * > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+     * Without a PGP key, the private key material will be stored in state unencrypted.
+     * `pgpKey` is ignored if `publicKey` is supplied.
      */
     publicKey?: pulumi.Input<string>;
 }
@@ -215,6 +223,10 @@ export interface KeyPairArgs {
     /**
      * The public key material. This public key will be
      * imported into Lightsail
+     *
+     * > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+     * Without a PGP key, the private key material will be stored in state unencrypted.
+     * `pgpKey` is ignored if `publicKey` is supplied.
      */
     publicKey?: pulumi.Input<string>;
 }

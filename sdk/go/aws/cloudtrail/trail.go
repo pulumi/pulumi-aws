@@ -18,274 +18,12 @@ import (
 // > **Tip:** For an organization trail, this resource must be in the master account of the organization.
 //
 // ## Example Usage
-// ### Basic
-//
-// Enable CloudTrail to capture all compatible management events in region.
-// For capturing events from services like IAM, `includeGlobalServiceEvents` must be enabled.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooBucketV2, err := s3.NewBucketV2(ctx, "fooBucketV2", &s3.BucketV2Args{
-//				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudtrail.NewTrail(ctx, "foobar", &cloudtrail.TrailArgs{
-//				S3BucketName:               fooBucketV2.ID(),
-//				S3KeyPrefix:                pulumi.String("prefix"),
-//				IncludeGlobalServiceEvents: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			fooPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				Statements: iam.GetPolicyDocumentStatementArray{
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("AWSCloudTrailAclCheck"),
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("cloudtrail.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:GetBucketAcl"),
-//						},
-//						Resources: pulumi.StringArray{
-//							fooBucketV2.Arn,
-//						},
-//					},
-//					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("AWSCloudTrailWrite"),
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("Service"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("cloudtrail.amazonaws.com"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:PutObject"),
-//						},
-//						Resources: pulumi.StringArray{
-//							fooBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/prefix/AWSLogs/%v/*", arn, current.AccountId), nil
-//							}).(pulumi.StringOutput),
-//						},
-//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
-//							&iam.GetPolicyDocumentStatementConditionArgs{
-//								Test:     pulumi.String("StringEquals"),
-//								Variable: pulumi.String("s3:x-amz-acl"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("bucket-owner-full-control"),
-//								},
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			_, err = s3.NewBucketPolicy(ctx, "fooBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: fooBucketV2.ID(),
-//				Policy: fooPolicyDocument.ApplyT(func(fooPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &fooPolicyDocument.Json, nil
-//				}).(pulumi.StringPtrOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Data Event Logging
 //
 // CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
 //
 // * [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html) (for basic event selector).
 // * [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) (for advanced event selector).
-// ### Logging All Lambda Function Invocations By Using Basic Event Selectors
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
-//				EventSelectors: cloudtrail.TrailEventSelectorArray{
-//					&cloudtrail.TrailEventSelectorArgs{
-//						DataResources: cloudtrail.TrailEventSelectorDataResourceArray{
-//							&cloudtrail.TrailEventSelectorDataResourceArgs{
-//								Type: pulumi.String("AWS::Lambda::Function"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("arn:aws:lambda"),
-//								},
-//							},
-//						},
-//						IncludeManagementEvents: pulumi.Bool(true),
-//						ReadWriteType:           pulumi.String("All"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Logging All S3 Object Events By Using Basic Event Selectors
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
-//				EventSelectors: cloudtrail.TrailEventSelectorArray{
-//					&cloudtrail.TrailEventSelectorArgs{
-//						DataResources: cloudtrail.TrailEventSelectorDataResourceArray{
-//							&cloudtrail.TrailEventSelectorDataResourceArgs{
-//								Type: pulumi.String("AWS::S3::Object"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("arn:aws:s3"),
-//								},
-//							},
-//						},
-//						IncludeManagementEvents: pulumi.Bool(true),
-//						ReadWriteType:           pulumi.String("All"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			important_bucket, err := s3.LookupBucket(ctx, &s3.LookupBucketArgs{
-//				Bucket: "important-bucket",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudtrail.NewTrail(ctx, "example", &cloudtrail.TrailArgs{
-//				EventSelectors: cloudtrail.TrailEventSelectorArray{
-//					&cloudtrail.TrailEventSelectorArgs{
-//						DataResources: cloudtrail.TrailEventSelectorDataResourceArray{
-//							&cloudtrail.TrailEventSelectorDataResourceArgs{
-//								Type: pulumi.String("AWS::S3::Object"),
-//								Values: pulumi.StringArray{
-//									pulumi.String(fmt.Sprintf("%v/", important_bucket.Arn)),
-//								},
-//							},
-//						},
-//						IncludeManagementEvents: pulumi.Bool(true),
-//						ReadWriteType:           pulumi.String("All"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Sending Events to CloudWatch Logs
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
-//				CloudWatchLogsGroupArn: exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf("%v:*", arn), nil
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -328,6 +66,8 @@ type Trail struct {
 	// Name of the trail.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix pulumi.StringPtrOutput `pulumi:"s3KeyPrefix"`
@@ -400,6 +140,8 @@ type trailState struct {
 	// Name of the trail.
 	Name *string `pulumi:"name"`
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName *string `pulumi:"s3BucketName"`
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
@@ -441,6 +183,8 @@ type TrailState struct {
 	// Name of the trail.
 	Name pulumi.StringPtrInput
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName pulumi.StringPtrInput
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix pulumi.StringPtrInput
@@ -482,6 +226,8 @@ type trailArgs struct {
 	// Name of the trail.
 	Name *string `pulumi:"name"`
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName string `pulumi:"s3BucketName"`
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
@@ -518,6 +264,8 @@ type TrailArgs struct {
 	// Name of the trail.
 	Name pulumi.StringPtrInput
 	// Name of the S3 bucket designated for publishing log files.
+	//
+	// The following arguments are optional:
 	S3BucketName pulumi.StringInput
 	// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
 	S3KeyPrefix pulumi.StringPtrInput
@@ -685,6 +433,8 @@ func (o TrailOutput) Name() pulumi.StringOutput {
 }
 
 // Name of the S3 bucket designated for publishing log files.
+//
+// The following arguments are optional:
 func (o TrailOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.S3BucketName }).(pulumi.StringOutput)
 }

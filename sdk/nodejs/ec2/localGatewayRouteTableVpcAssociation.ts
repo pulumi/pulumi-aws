@@ -74,6 +74,8 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of EC2 VPC.
+     *
+     * The following arguments are optional:
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -133,6 +135,8 @@ export interface LocalGatewayRouteTableVpcAssociationState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 VPC.
+     *
+     * The following arguments are optional:
      */
     vpcId?: pulumi.Input<string>;
 }
@@ -151,6 +155,8 @@ export interface LocalGatewayRouteTableVpcAssociationArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 VPC.
+     *
+     * The following arguments are optional:
      */
     vpcId: pulumi.Input<string>;
 }

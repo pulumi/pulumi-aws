@@ -89,6 +89,10 @@ class FleetNetwork(dict):
                  vpc_id: str):
         """
         :param Sequence[str] security_group_ids: A list of security group IDs associated with access to the provided subnets.
+               
+               **identity_provider** requires the following:
+               
+               > **NOTE:** `identity_provider` cannot be removed without force recreating.
         :param Sequence[str] subnet_ids: A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
         :param str vpc_id: The VPC ID with connectivity to associated websites.
         """
@@ -101,6 +105,10 @@ class FleetNetwork(dict):
     def security_group_ids(self) -> Sequence[str]:
         """
         A list of security group IDs associated with access to the provided subnets.
+
+        **identity_provider** requires the following:
+
+        > **NOTE:** `identity_provider` cannot be removed without force recreating.
         """
         return pulumi.get(self, "security_group_ids")
 

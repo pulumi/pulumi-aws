@@ -251,7 +251,6 @@ class FirewallPolicy(pulumi.CustomResource):
         Provides an AWS Network Firewall Firewall Policy Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -262,7 +261,7 @@ class FirewallPolicy(pulumi.CustomResource):
                 stateless_fragment_default_actions=["aws:drop"],
                 stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
                     priority=1,
-                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
+                    resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 )],
             ),
             tags={
@@ -270,6 +269,7 @@ class FirewallPolicy(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        ## Policy with a Custom Action for Stateless Inspection
 
         ## Import
 
@@ -297,7 +297,6 @@ class FirewallPolicy(pulumi.CustomResource):
         Provides an AWS Network Firewall Firewall Policy Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,7 +307,7 @@ class FirewallPolicy(pulumi.CustomResource):
                 stateless_fragment_default_actions=["aws:drop"],
                 stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
                     priority=1,
-                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
+                    resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 )],
             ),
             tags={
@@ -316,6 +315,7 @@ class FirewallPolicy(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        ## Policy with a Custom Action for Stateless Inspection
 
         ## Import
 

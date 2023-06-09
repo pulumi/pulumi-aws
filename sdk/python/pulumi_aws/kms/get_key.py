@@ -313,7 +313,6 @@ def get_key(grant_tokens: Optional[Sequence[str]] = None,
     without having to hard code the ARN as input.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -375,7 +374,6 @@ def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[str]]]]
     without having to hard code the ARN as input.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

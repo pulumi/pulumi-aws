@@ -286,7 +286,6 @@ class Policy(pulumi.CustomResource):
         Provides an IAM policy.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -333,7 +332,6 @@ class Policy(pulumi.CustomResource):
         Provides an IAM policy.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

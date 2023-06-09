@@ -14,7 +14,6 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// 
     /// ## Example Usage
     /// ### Account Analyzer
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,7 +30,6 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// });
     /// ```
     /// ### Organization Analyzer
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,6 +74,8 @@ namespace Pulumi.Aws.AccessAnalyzer
     {
         /// <summary>
         /// Name of the Analyzer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("analyzerName")]
         public Output<string> AnalyzerName { get; private set; } = null!;
@@ -152,6 +152,8 @@ namespace Pulumi.Aws.AccessAnalyzer
     {
         /// <summary>
         /// Name of the Analyzer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("analyzerName", required: true)]
         public Input<string> AnalyzerName { get; set; } = null!;
@@ -184,6 +186,8 @@ namespace Pulumi.Aws.AccessAnalyzer
     {
         /// <summary>
         /// Name of the Analyzer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("analyzerName")]
         public Input<string>? AnalyzerName { get; set; }

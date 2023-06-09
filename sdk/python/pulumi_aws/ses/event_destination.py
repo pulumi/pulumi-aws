@@ -32,6 +32,8 @@ class EventDestinationArgs:
         :param pulumi.Input['EventDestinationKinesisDestinationArgs'] kinesis_destination: Send the events to a kinesis firehose destination
         :param pulumi.Input[str] name: The name of the event destination
         :param pulumi.Input['EventDestinationSnsDestinationArgs'] sns_destination: Send the events to an SNS Topic destination
+               
+               > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         """
         pulumi.set(__self__, "configuration_set_name", configuration_set_name)
         pulumi.set(__self__, "matching_types", matching_types)
@@ -123,6 +125,8 @@ class EventDestinationArgs:
     def sns_destination(self) -> Optional[pulumi.Input['EventDestinationSnsDestinationArgs']]:
         """
         Send the events to an SNS Topic destination
+
+        > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         """
         return pulumi.get(self, "sns_destination")
 
@@ -152,6 +156,8 @@ class _EventDestinationState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         :param pulumi.Input[str] name: The name of the event destination
         :param pulumi.Input['EventDestinationSnsDestinationArgs'] sns_destination: Send the events to an SNS Topic destination
+               
+               > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -259,6 +265,8 @@ class _EventDestinationState:
     def sns_destination(self) -> Optional[pulumi.Input['EventDestinationSnsDestinationArgs']]:
         """
         Send the events to an SNS Topic destination
+
+        > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         """
         return pulumi.get(self, "sns_destination")
 
@@ -285,7 +293,6 @@ class EventDestination(pulumi.CustomResource):
 
         ## Example Usage
         ### CloudWatch Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -304,7 +311,6 @@ class EventDestination(pulumi.CustomResource):
             )])
         ```
         ### Kinesis Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,12 +323,11 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             kinesis_destination=aws.ses.EventDestinationKinesisDestinationArgs(
-                stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
+                stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
         ### SNS Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -335,7 +340,7 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             sns_destination=aws.ses.EventDestinationSnsDestinationArgs(
-                topic_arn=aws_sns_topic["example"]["arn"],
+                topic_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -356,6 +361,8 @@ class EventDestination(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         :param pulumi.Input[str] name: The name of the event destination
         :param pulumi.Input[pulumi.InputType['EventDestinationSnsDestinationArgs']] sns_destination: Send the events to an SNS Topic destination
+               
+               > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         """
         ...
     @overload
@@ -368,7 +375,6 @@ class EventDestination(pulumi.CustomResource):
 
         ## Example Usage
         ### CloudWatch Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -387,7 +393,6 @@ class EventDestination(pulumi.CustomResource):
             )])
         ```
         ### Kinesis Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -400,12 +405,11 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             kinesis_destination=aws.ses.EventDestinationKinesisDestinationArgs(
-                stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
+                stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
         ### SNS Destination
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -418,7 +422,7 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             sns_destination=aws.ses.EventDestinationSnsDestinationArgs(
-                topic_arn=aws_sns_topic["example"]["arn"],
+                topic_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -506,6 +510,8 @@ class EventDestination(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
         :param pulumi.Input[str] name: The name of the event destination
         :param pulumi.Input[pulumi.InputType['EventDestinationSnsDestinationArgs']] sns_destination: Send the events to an SNS Topic destination
+               
+               > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -582,6 +588,8 @@ class EventDestination(pulumi.CustomResource):
     def sns_destination(self) -> pulumi.Output[Optional['outputs.EventDestinationSnsDestination']]:
         """
         Send the events to an SNS Topic destination
+
+        > **NOTE:** You can specify `"cloudwatch_destination"` or `"kinesis_destination"` but not both
         """
         return pulumi.get(self, "sns_destination")
 

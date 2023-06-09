@@ -86,7 +86,6 @@ def get_domain_identity(domain: Optional[str] = None,
     Retrieve the SES domain identity
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -116,7 +115,6 @@ def get_domain_identity_output(domain: Optional[pulumi.Input[str]] = None,
     Retrieve the SES domain identity
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

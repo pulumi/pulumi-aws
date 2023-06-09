@@ -19,6 +19,8 @@ class GroupArgs:
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[str] name: Name of the group.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
@@ -31,6 +33,8 @@ class GroupArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the group.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -64,6 +68,8 @@ class _GroupState:
         :param pulumi.Input[str] arn: ARN of the Group.
         :param pulumi.Input[str] group_id: ID of the Group.
         :param pulumi.Input[str] name: Name of the group.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -107,6 +113,8 @@ class _GroupState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the group.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -152,7 +160,6 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -171,6 +178,8 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the group.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -184,7 +193,6 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,6 +264,8 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the Group.
         :param pulumi.Input[str] group_id: ID of the Group.
         :param pulumi.Input[str] name: Name of the group.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -291,6 +301,8 @@ class Group(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name of the group.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

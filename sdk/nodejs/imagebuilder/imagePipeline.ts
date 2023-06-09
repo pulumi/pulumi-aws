@@ -111,6 +111,8 @@ export class ImagePipeline extends pulumi.CustomResource {
     public readonly infrastructureConfigurationArn!: pulumi.Output<string>;
     /**
      * Name of the image pipeline.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -248,6 +250,8 @@ export interface ImagePipelineState {
     infrastructureConfigurationArn?: pulumi.Input<string>;
     /**
      * Name of the image pipeline.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -306,6 +310,8 @@ export interface ImagePipelineArgs {
     infrastructureConfigurationArn: pulumi.Input<string>;
     /**
      * Name of the image pipeline.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

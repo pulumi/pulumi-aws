@@ -81,12 +81,16 @@ public class Invocation extends com.pulumi.resources.CustomResource {
     /**
      * JSON payload to the lambda function.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="input", refs={String.class}, tree="[0]")
     private Output<String> input;
 
     /**
      * @return JSON payload to the lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> input() {

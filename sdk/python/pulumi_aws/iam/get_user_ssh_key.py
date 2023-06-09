@@ -115,7 +115,6 @@ def get_user_ssh_key(encoding: Optional[str] = None,
     Use this data source to get information about a SSH public key associated with the specified IAM user.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,7 +155,6 @@ def get_user_ssh_key_output(encoding: Optional[pulumi.Input[str]] = None,
     Use this data source to get information about a SSH public key associated with the specified IAM user.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

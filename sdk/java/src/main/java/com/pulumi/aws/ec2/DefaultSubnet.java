@@ -86,6 +86,8 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
      * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
      * * The default value for `map_public_ip_on_launch` is `true`
      * 
+     * The following additional arguments are supported:
+     * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
@@ -94,6 +96,8 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
      * @return is required
      * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
      * * The default value for `map_public_ip_on_launch` is `true`
+     * 
+     * The following additional arguments are supported:
      * 
      */
     public Output<String> availabilityZone() {

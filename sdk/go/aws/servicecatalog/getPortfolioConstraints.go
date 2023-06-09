@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -52,6 +51,8 @@ type GetPortfolioConstraintsArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	// Portfolio identifier.
+	//
+	// The following arguments are optional:
 	PortfolioId string `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId *string `pulumi:"productId"`
@@ -88,6 +89,8 @@ type GetPortfolioConstraintsOutputArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
 	// Portfolio identifier.
+	//
+	// The following arguments are optional:
 	PortfolioId pulumi.StringInput `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId pulumi.StringPtrInput `pulumi:"productId"`

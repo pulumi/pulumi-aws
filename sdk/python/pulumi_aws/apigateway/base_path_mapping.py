@@ -175,8 +175,8 @@ class BasePathMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=aws_api_gateway_deployment["example"]["id"],
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            deployment=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             stage_name="example")
         example_domain_name = aws.apigateway.DomainName("exampleDomainName",
             domain_name="example.com",
@@ -185,7 +185,7 @@ class BasePathMapping(pulumi.CustomResource):
             certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
             certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
         example_base_path_mapping = aws.apigateway.BasePathMapping("exampleBasePathMapping",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             stage_name=example_stage.stage_name,
             domain_name=example_domain_name.domain_name)
         ```
@@ -229,8 +229,8 @@ class BasePathMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=aws_api_gateway_deployment["example"]["id"],
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            deployment=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             stage_name="example")
         example_domain_name = aws.apigateway.DomainName("exampleDomainName",
             domain_name="example.com",
@@ -239,7 +239,7 @@ class BasePathMapping(pulumi.CustomResource):
             certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
             certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
         example_base_path_mapping = aws.apigateway.BasePathMapping("exampleBasePathMapping",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
+            rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             stage_name=example_stage.stage_name,
             domain_name=example_domain_name.domain_name)
         ```

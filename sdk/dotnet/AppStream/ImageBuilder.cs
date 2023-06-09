@@ -13,7 +13,6 @@ namespace Pulumi.Aws.AppStream
     /// Provides an AppStream image builder.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -130,6 +129,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Unique name for the image builder.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -272,6 +273,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Unique name for the image builder.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -382,6 +385,8 @@ namespace Pulumi.Aws.AppStream
 
         /// <summary>
         /// Unique name for the image builder.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -14,7 +14,6 @@ import (
 // Creates a Signer Signing Profile Permission. That is, a cross-account permission for a signing profile.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

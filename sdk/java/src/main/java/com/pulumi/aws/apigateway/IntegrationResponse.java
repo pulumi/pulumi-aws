@@ -214,12 +214,16 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
     /**
      * HTTP status code.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="statusCode", refs={String.class}, tree="[0]")
     private Output<String> statusCode;
 
     /**
      * @return HTTP status code.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> statusCode() {

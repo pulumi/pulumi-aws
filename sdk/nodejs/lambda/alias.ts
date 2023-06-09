@@ -93,6 +93,8 @@ export class Alias extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The Lambda alias' route configuration settings. Fields documented below
+     *
+     * For **routing_config** the following attributes are supported:
      */
     public readonly routingConfig!: pulumi.Output<outputs.lambda.AliasRoutingConfig | undefined>;
 
@@ -167,6 +169,8 @@ export interface AliasState {
     name?: pulumi.Input<string>;
     /**
      * The Lambda alias' route configuration settings. Fields documented below
+     *
+     * For **routing_config** the following attributes are supported:
      */
     routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
 }
@@ -193,6 +197,8 @@ export interface AliasArgs {
     name?: pulumi.Input<string>;
     /**
      * The Lambda alias' route configuration settings. Fields documented below
+     *
+     * For **routing_config** the following attributes are supported:
      */
     routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
 }

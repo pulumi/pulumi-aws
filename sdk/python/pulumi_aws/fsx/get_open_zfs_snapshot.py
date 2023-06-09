@@ -156,7 +156,6 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[pulumi.InputType['GetOpenZf
 
     ## Example Usage
     ### Root volume Example
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -210,7 +209,6 @@ def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
     ## Example Usage
     ### Root volume Example
-
     ```python
     import pulumi
     import pulumi_aws as aws

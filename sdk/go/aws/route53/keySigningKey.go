@@ -15,114 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Statement": []interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"kms:DescribeKey",
-//							"kms:GetPublicKey",
-//							"kms:Sign",
-//						},
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dnssec-route53.amazonaws.com",
-//						},
-//						"Sid":      "Allow Route 53 DNSSEC Service",
-//						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"StringEquals": map[string]interface{}{
-//								"aws:SourceAccount": current.AccountId,
-//							},
-//							"ArnLike": map[string]interface{}{
-//								"aws:SourceArn": "arn:aws:route53:::hostedzone/*",
-//							},
-//						},
-//					},
-//					map[string]interface{}{
-//						"Action": "kms:CreateGrant",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"Service": "dnssec-route53.amazonaws.com",
-//						},
-//						"Sid":      "Allow Route 53 DNSSEC Service to CreateGrant",
-//						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"Bool": map[string]interface{}{
-//								"kms:GrantIsForAWSResource": "true",
-//							},
-//						},
-//					},
-//					map[string]interface{}{
-//						"Action": "kms:*",
-//						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
-//							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
-//						},
-//						"Resource": "*",
-//						"Sid":      "Enable IAM User Permissions",
-//					},
-//				},
-//				"Version": "2012-10-17",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
-//				CustomerMasterKeySpec: pulumi.String("ECC_NIST_P256"),
-//				DeletionWindowInDays:  pulumi.Int(7),
-//				KeyUsage:              pulumi.String("SIGN_VERIFY"),
-//				Policy:                pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewZone(ctx, "exampleZone", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleKeySigningKey, err := route53.NewKeySigningKey(ctx, "exampleKeySigningKey", &route53.KeySigningKeyArgs{
-//				HostedZoneId:            pulumi.Any(aws_route53_zone.Test.Id),
-//				KeyManagementServiceArn: pulumi.Any(aws_kms_key.Test.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewHostedZoneDnsSec(ctx, "exampleHostedZoneDnsSec", &route53.HostedZoneDnsSecArgs{
-//				HostedZoneId: exampleKeySigningKey.HostedZoneId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleKeySigningKey,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // `aws_route53_key_signing_key` resources can be imported by using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`), e.g.,
@@ -154,6 +46,8 @@ type KeySigningKey struct {
 	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
 	KeyTag pulumi.IntOutput `pulumi:"keyTag"`
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
@@ -219,6 +113,8 @@ type keySigningKeyState struct {
 	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
 	KeyTag *int `pulumi:"keyTag"`
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
 	PublicKey *string `pulumi:"publicKey"`
@@ -250,6 +146,8 @@ type KeySigningKeyState struct {
 	// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
 	KeyTag pulumi.IntPtrInput
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
 	PublicKey pulumi.StringPtrInput
@@ -271,6 +169,8 @@ type keySigningKeyArgs struct {
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
 	KeyManagementServiceArn string `pulumi:"keyManagementServiceArn"`
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
 	Status *string `pulumi:"status"`
@@ -283,6 +183,8 @@ type KeySigningKeyArgs struct {
 	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
 	KeyManagementServiceArn pulumi.StringInput
 	// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
 	Status pulumi.StringPtrInput
@@ -421,6 +323,8 @@ func (o KeySigningKeyOutput) KeyTag() pulumi.IntOutput {
 }
 
 // Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+//
+// The following arguments are optional:
 func (o KeySigningKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeySigningKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

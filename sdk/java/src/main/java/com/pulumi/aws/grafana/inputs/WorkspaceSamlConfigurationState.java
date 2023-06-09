@@ -215,12 +215,16 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     /**
      * The workspace id.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
     /**
      * @return The workspace id.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> workspaceId() {
@@ -570,6 +574,8 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         /**
          * @param workspaceId The workspace id.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -580,6 +586,8 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
 
         /**
          * @param workspaceId The workspace id.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

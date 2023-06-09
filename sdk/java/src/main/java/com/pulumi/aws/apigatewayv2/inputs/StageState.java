@@ -184,12 +184,16 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the stage. Must be between 1 and 128 characters in length.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the stage. Must be between 1 and 128 characters in length.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -517,6 +521,8 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Name of the stage. Must be between 1 and 128 characters in length.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -527,6 +533,8 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Name of the stage. Must be between 1 and 128 characters in length.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

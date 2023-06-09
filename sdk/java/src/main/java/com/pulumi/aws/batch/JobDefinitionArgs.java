@@ -147,12 +147,16 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of job definition. Must be `container`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return The type of job definition. Must be `container`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -376,6 +380,8 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The type of job definition. Must be `container`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -386,6 +392,8 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type The type of job definition. Must be `container`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

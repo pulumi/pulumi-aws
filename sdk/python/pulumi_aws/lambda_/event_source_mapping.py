@@ -897,7 +897,6 @@ class EventSourceMapping(pulumi.CustomResource):
 
         ## Example Usage
         ### DynamoDB
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -908,7 +907,6 @@ class EventSourceMapping(pulumi.CustomResource):
             starting_position="LATEST")
         ```
         ### Kinesis
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -919,7 +917,6 @@ class EventSourceMapping(pulumi.CustomResource):
             starting_position="LATEST")
         ```
         ### Managed Streaming for Apache Kafka (MSK)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -931,7 +928,6 @@ class EventSourceMapping(pulumi.CustomResource):
             starting_position="TRIM_HORIZON")
         ```
         ### Self Managed Apache Kafka
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -961,7 +957,6 @@ class EventSourceMapping(pulumi.CustomResource):
             ])
         ```
         ### SQS
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -971,7 +966,6 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name=aws_lambda_function["example"]["arn"])
         ```
         ### SQS with event filter
-
         ```python
         import pulumi
         import json
@@ -999,7 +993,6 @@ class EventSourceMapping(pulumi.CustomResource):
             ))
         ```
         ### Amazon MQ (ActiveMQ)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1012,11 +1005,10 @@ class EventSourceMapping(pulumi.CustomResource):
             queues=["example"],
             source_access_configurations=[aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
                 type="BASIC_AUTH",
-                uri=aws_secretsmanager_secret_version["example"]["arn"],
+                uri=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### Amazon MQ (RabbitMQ)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1034,7 +1026,7 @@ class EventSourceMapping(pulumi.CustomResource):
                 ),
                 aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
                     type="BASIC_AUTH",
-                    uri=aws_secretsmanager_secret_version["example"]["arn"],
+                    uri=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ])
         ```
@@ -1087,7 +1079,6 @@ class EventSourceMapping(pulumi.CustomResource):
 
         ## Example Usage
         ### DynamoDB
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1098,7 +1089,6 @@ class EventSourceMapping(pulumi.CustomResource):
             starting_position="LATEST")
         ```
         ### Kinesis
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1109,7 +1099,6 @@ class EventSourceMapping(pulumi.CustomResource):
             starting_position="LATEST")
         ```
         ### Managed Streaming for Apache Kafka (MSK)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1121,7 +1110,6 @@ class EventSourceMapping(pulumi.CustomResource):
             starting_position="TRIM_HORIZON")
         ```
         ### Self Managed Apache Kafka
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1151,7 +1139,6 @@ class EventSourceMapping(pulumi.CustomResource):
             ])
         ```
         ### SQS
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1161,7 +1148,6 @@ class EventSourceMapping(pulumi.CustomResource):
             function_name=aws_lambda_function["example"]["arn"])
         ```
         ### SQS with event filter
-
         ```python
         import pulumi
         import json
@@ -1189,7 +1175,6 @@ class EventSourceMapping(pulumi.CustomResource):
             ))
         ```
         ### Amazon MQ (ActiveMQ)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1202,11 +1187,10 @@ class EventSourceMapping(pulumi.CustomResource):
             queues=["example"],
             source_access_configurations=[aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
                 type="BASIC_AUTH",
-                uri=aws_secretsmanager_secret_version["example"]["arn"],
+                uri=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### Amazon MQ (RabbitMQ)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1224,7 +1208,7 @@ class EventSourceMapping(pulumi.CustomResource):
                 ),
                 aws.lambda_.EventSourceMappingSourceAccessConfigurationArgs(
                     type="BASIC_AUTH",
-                    uri=aws_secretsmanager_secret_version["example"]["arn"],
+                    uri=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ])
         ```

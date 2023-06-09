@@ -13,7 +13,6 @@ namespace Pulumi.Aws.DocDB
     /// Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

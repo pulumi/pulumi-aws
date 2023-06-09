@@ -135,6 +135,8 @@ export class EventDestination extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Send the events to an SNS Topic destination
+     *
+     * > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
      */
     public readonly snsDestination!: pulumi.Output<outputs.ses.EventDestinationSnsDestination | undefined>;
 
@@ -215,6 +217,8 @@ export interface EventDestinationState {
     name?: pulumi.Input<string>;
     /**
      * Send the events to an SNS Topic destination
+     *
+     * > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
      */
     snsDestination?: pulumi.Input<inputs.ses.EventDestinationSnsDestination>;
 }
@@ -249,6 +253,8 @@ export interface EventDestinationArgs {
     name?: pulumi.Input<string>;
     /**
      * Send the events to an SNS Topic destination
+     *
+     * > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
      */
     snsDestination?: pulumi.Input<inputs.ses.EventDestinationSnsDestination>;
 }

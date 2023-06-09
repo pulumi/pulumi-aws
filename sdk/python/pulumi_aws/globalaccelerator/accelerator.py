@@ -30,6 +30,8 @@ class AcceleratorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         :param pulumi.Input[str] name: The name of the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               **attributes** supports the following attributes:
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -109,6 +111,8 @@ class AcceleratorArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        **attributes** supports the following attributes:
         """
         return pulumi.get(self, "tags")
 
@@ -145,6 +149,8 @@ class _AcceleratorState:
         :param pulumi.Input[Sequence[pulumi.Input['AcceleratorIpSetArgs']]] ip_sets: IP address set associated with the accelerator.
         :param pulumi.Input[str] name: The name of the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               **attributes** supports the following attributes:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if attributes is not None:
@@ -285,6 +291,8 @@ class _AcceleratorState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        **attributes** supports the following attributes:
         """
         return pulumi.get(self, "tags")
 
@@ -321,7 +329,6 @@ class Accelerator(pulumi.CustomResource):
         Creates a Global Accelerator accelerator.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,6 +360,8 @@ class Accelerator(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         :param pulumi.Input[str] name: The name of the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               **attributes** supports the following attributes:
         """
         ...
     @overload
@@ -364,7 +373,6 @@ class Accelerator(pulumi.CustomResource):
         Creates a Global Accelerator accelerator.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -469,6 +477,8 @@ class Accelerator(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AcceleratorIpSetArgs']]]] ip_sets: IP address set associated with the accelerator.
         :param pulumi.Input[str] name: The name of the accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               **attributes** supports the following attributes:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -567,6 +577,8 @@ class Accelerator(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        **attributes** supports the following attributes:
         """
         return pulumi.get(self, "tags")
 

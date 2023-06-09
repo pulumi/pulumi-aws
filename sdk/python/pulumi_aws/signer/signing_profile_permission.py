@@ -232,7 +232,6 @@ class SigningProfilePermission(pulumi.CustomResource):
         Creates a Signer Signing Profile Permission. That is, a cross-account permission for a signing profile.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -292,7 +291,6 @@ class SigningProfilePermission(pulumi.CustomResource):
         Creates a Signer Signing Profile Permission. That is, a cross-account permission for a signing profile.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

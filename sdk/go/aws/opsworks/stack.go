@@ -14,7 +14,6 @@ import (
 // Provides an OpsWorks stack resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

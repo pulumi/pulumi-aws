@@ -250,7 +250,6 @@ class ConfigurationTemplate(pulumi.CustomResource):
         application with the same configuration settings.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,7 +292,6 @@ class ConfigurationTemplate(pulumi.CustomResource):
         application with the same configuration settings.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

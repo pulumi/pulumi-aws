@@ -15,113 +15,6 @@ import (
 //
 // ## Example Usage
 //
-// Create required roles and then create a DMS instance, setting the dependsOn to the required role policy attachments.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			dmsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Identifiers: []string{
-//									"dms.amazonaws.com",
-//								},
-//								Type: "Service",
-//							},
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRole(ctx, "dms-access-for-endpoint", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(dmsAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "dms-access-for-endpoint-AmazonDMSRedshiftS3Role", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role"),
-//				Role:      dms_access_for_endpoint.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRole(ctx, "dms-cloudwatch-logs-role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(dmsAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "dms-cloudwatch-logs-role-AmazonDMSCloudWatchLogsRole", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole"),
-//				Role:      dms_cloudwatch_logs_role.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRole(ctx, "dms-vpc-role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(dmsAssumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "dms-vpc-role-AmazonDMSVPCManagementRole", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole"),
-//				Role:      dms_vpc_role.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dms.NewReplicationInstance(ctx, "test", &dms.ReplicationInstanceArgs{
-//				AllocatedStorage:           pulumi.Int(20),
-//				ApplyImmediately:           pulumi.Bool(true),
-//				AutoMinorVersionUpgrade:    pulumi.Bool(true),
-//				AvailabilityZone:           pulumi.String("us-west-2c"),
-//				EngineVersion:              pulumi.String("3.1.4"),
-//				KmsKeyArn:                  pulumi.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"),
-//				MultiAz:                    pulumi.Bool(false),
-//				PreferredMaintenanceWindow: pulumi.String("sun:10:30-sun:14:30"),
-//				PubliclyAccessible:         pulumi.Bool(true),
-//				ReplicationInstanceClass:   pulumi.String("dms.t2.micro"),
-//				ReplicationInstanceId:      pulumi.String("test-dms-replication-instance-tf"),
-//				ReplicationSubnetGroupId:   pulumi.Any(aws_dms_replication_subnet_group.TestDmsReplicationSubnetGroupTf.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("test"),
-//				},
-//				VpcSecurityGroupIds: pulumi.StringArray{
-//					pulumi.String("sg-12345678"),
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
-//				dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole,
-//				dms_vpc_role_AmazonDMSVPCManagementRole,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Replication instances can be imported using the `replication_instance_id`, e.g.,
@@ -151,6 +44,11 @@ type ReplicationInstance struct {
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
@@ -159,6 +57,11 @@ type ReplicationInstance struct {
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass pulumi.StringOutput `pulumi:"replicationInstanceClass"`
 	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen
+	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId pulumi.StringOutput `pulumi:"replicationInstanceId"`
 	// A list of the private IP addresses of the replication instance.
 	ReplicationInstancePrivateIps pulumi.StringArrayOutput `pulumi:"replicationInstancePrivateIps"`
@@ -226,6 +129,11 @@ type replicationInstanceState struct {
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz *bool `pulumi:"multiAz"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
@@ -234,6 +142,11 @@ type replicationInstanceState struct {
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass *string `pulumi:"replicationInstanceClass"`
 	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen
+	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId *string `pulumi:"replicationInstanceId"`
 	// A list of the private IP addresses of the replication instance.
 	ReplicationInstancePrivateIps []string `pulumi:"replicationInstancePrivateIps"`
@@ -267,6 +180,11 @@ type ReplicationInstanceState struct {
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolPtrInput
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible pulumi.BoolPtrInput
@@ -275,6 +193,11 @@ type ReplicationInstanceState struct {
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass pulumi.StringPtrInput
 	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen
+	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId pulumi.StringPtrInput
 	// A list of the private IP addresses of the replication instance.
 	ReplicationInstancePrivateIps pulumi.StringArrayInput
@@ -312,12 +235,22 @@ type replicationInstanceArgs struct {
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz *bool `pulumi:"multiAz"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass string `pulumi:"replicationInstanceClass"`
 	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen
+	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId string `pulumi:"replicationInstanceId"`
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId *string `pulumi:"replicationSubnetGroupId"`
@@ -346,12 +279,22 @@ type ReplicationInstanceArgs struct {
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolPtrInput
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+	//
+	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+	// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+	// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+	// - Constraints: Minimum 30-minute window.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
 	ReplicationInstanceClass pulumi.StringInput
 	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen
+	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId pulumi.StringInput
 	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId pulumi.StringPtrInput
@@ -489,6 +432,11 @@ func (o ReplicationInstanceOutput) MultiAz() pulumi.BoolOutput {
 }
 
 // The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+//
+// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+// - Format: `ddd:hh24:mi-ddd:hh24:mi`
+// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+// - Constraints: Minimum 30-minute window.
 func (o ReplicationInstanceOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }
@@ -509,6 +457,11 @@ func (o ReplicationInstanceOutput) ReplicationInstanceClass() pulumi.StringOutpu
 }
 
 // The replication instance identifier. This parameter is stored as a lowercase string.
+//
+// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+// - First character must be a letter.
+// - Cannot end with a hyphen
+// - Cannot contain two consecutive hyphens.
 func (o ReplicationInstanceOutput) ReplicationInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.ReplicationInstanceId }).(pulumi.StringOutput)
 }

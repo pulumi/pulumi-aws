@@ -14,7 +14,6 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ## Example Usage
     /// ### Basic
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,7 +27,6 @@ namespace Pulumi.Aws.AppMesh
     /// });
     /// ```
     /// ### Egress Filter
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

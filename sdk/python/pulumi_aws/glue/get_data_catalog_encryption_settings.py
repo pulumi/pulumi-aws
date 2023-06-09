@@ -71,6 +71,8 @@ def get_data_catalog_encryption_settings(catalog_id: Optional[str] = None,
     """
     This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
 
+    ## Example Usage
+
 
     :param str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
     """
@@ -90,6 +92,8 @@ def get_data_catalog_encryption_settings_output(catalog_id: Optional[pulumi.Inpu
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCatalogEncryptionSettingsResult]:
     """
     This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+
+    ## Example Usage
 
 
     :param str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.

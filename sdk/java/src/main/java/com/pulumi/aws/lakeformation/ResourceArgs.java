@@ -33,12 +33,16 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
      * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
      * @return Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -94,6 +98,8 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param roleArn Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
          * 
+         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * 
          * @return builder
          * 
          */
@@ -104,6 +110,8 @@ public final class ResourceArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param roleArn Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+         * 
+         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
          * 
          * @return builder
          * 

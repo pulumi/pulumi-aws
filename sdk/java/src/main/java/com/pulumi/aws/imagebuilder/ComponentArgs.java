@@ -156,12 +156,16 @@ public final class ComponentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
      * 
+     * &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
+     * 
      */
     @Import(name="uri")
     private @Nullable Output<String> uri;
 
     /**
      * @return S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+     * 
+     * &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
      * 
      */
     public Optional<Output<String>> uri() {
@@ -171,12 +175,16 @@ public final class ComponentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Version of the component.
      * 
+     * The following attributes are optional:
+     * 
      */
     @Import(name="version", required=true)
     private Output<String> version;
 
     /**
      * @return Version of the component.
+     * 
+     * The following attributes are optional:
      * 
      */
     public Output<String> version() {
@@ -419,6 +427,8 @@ public final class ComponentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param uri S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
          * 
+         * &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
+         * 
          * @return builder
          * 
          */
@@ -430,6 +440,8 @@ public final class ComponentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param uri S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
          * 
+         * &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
+         * 
          * @return builder
          * 
          */
@@ -439,6 +451,8 @@ public final class ComponentArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param version Version of the component.
+         * 
+         * The following attributes are optional:
          * 
          * @return builder
          * 
@@ -450,6 +464,8 @@ public final class ComponentArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param version Version of the component.
+         * 
+         * The following attributes are optional:
          * 
          * @return builder
          * 

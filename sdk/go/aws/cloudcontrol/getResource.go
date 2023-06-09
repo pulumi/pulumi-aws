@@ -13,7 +13,6 @@ import (
 // Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -54,6 +53,8 @@ type LookupResourceArgs struct {
 	// ARN of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName string `pulumi:"typeName"`
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId *string `pulumi:"typeVersionId"`
@@ -91,6 +92,8 @@ type LookupResourceOutputArgs struct {
 	// ARN of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName pulumi.StringInput `pulumi:"typeName"`
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId pulumi.StringPtrInput `pulumi:"typeVersionId"`

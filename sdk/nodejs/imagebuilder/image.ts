@@ -89,6 +89,8 @@ export class Image extends pulumi.CustomResource {
     public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     *
+     * The following arguments are optional:
      */
     public readonly infrastructureConfigurationArn!: pulumi.Output<string>;
     /**
@@ -208,6 +210,8 @@ export interface ImageState {
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     *
+     * The following arguments are optional:
      */
     infrastructureConfigurationArn?: pulumi.Input<string>;
     /**
@@ -266,6 +270,8 @@ export interface ImageArgs {
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     *
+     * The following arguments are optional:
      */
     infrastructureConfigurationArn: pulumi.Input<string>;
     /**

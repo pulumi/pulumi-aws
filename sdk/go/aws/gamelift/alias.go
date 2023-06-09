@@ -14,7 +14,6 @@ import (
 // Provides a GameLift Alias resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

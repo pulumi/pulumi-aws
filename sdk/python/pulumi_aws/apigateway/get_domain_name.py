@@ -217,7 +217,6 @@ def get_domain_name(domain_name: Optional[str] = None,
     Use this data source to get the custom domain name for use with AWS API Gateway.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -261,7 +260,6 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
     Use this data source to get the custom domain name for use with AWS API Gateway.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

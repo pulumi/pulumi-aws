@@ -15,7 +15,6 @@ import (
 // ## Example Usage
 //
 // Basic usage:
-//
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 // ```
 //
 // Basic usage with tags:
-//
 // ```go
 // package main
 //
@@ -71,7 +69,6 @@ import (
 // ```
 //
 // VPC with CIDR from AWS IPAM:
-//
 // ```go
 // package main
 //

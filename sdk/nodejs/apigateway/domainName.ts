@@ -177,6 +177,8 @@ export class DomainName extends pulumi.CustomResource {
     public readonly ownershipVerificationCertificateArn!: pulumi.Output<string>;
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
+     *
+     * When uploading a certificate, the following arguments are supported:
      */
     public readonly regionalCertificateArn!: pulumi.Output<string | undefined>;
     /**
@@ -197,6 +199,8 @@ export class DomainName extends pulumi.CustomResource {
     public readonly securityPolicy!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * When referencing an AWS-managed certificate, the following arguments are supported:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -328,6 +332,8 @@ export interface DomainNameState {
     ownershipVerificationCertificateArn?: pulumi.Input<string>;
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
+     *
+     * When uploading a certificate, the following arguments are supported:
      */
     regionalCertificateArn?: pulumi.Input<string>;
     /**
@@ -348,6 +354,8 @@ export interface DomainNameState {
     securityPolicy?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * When referencing an AWS-managed certificate, the following arguments are supported:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -398,6 +406,8 @@ export interface DomainNameArgs {
     ownershipVerificationCertificateArn?: pulumi.Input<string>;
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
+     *
+     * When uploading a certificate, the following arguments are supported:
      */
     regionalCertificateArn?: pulumi.Input<string>;
     /**
@@ -410,6 +420,8 @@ export interface DomainNameArgs {
     securityPolicy?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * When referencing an AWS-managed certificate, the following arguments are supported:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

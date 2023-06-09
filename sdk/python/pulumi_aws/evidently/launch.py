@@ -430,7 +430,6 @@ class Launch(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -438,7 +437,7 @@ class Launch(pulumi.CustomResource):
         example = aws.evidently.Launch("example",
             project=aws_evidently_project["example"]["name"],
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -452,7 +451,6 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With description
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -461,7 +459,7 @@ class Launch(pulumi.CustomResource):
             project=aws_evidently_project["example"]["name"],
             description="example description",
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -475,7 +473,6 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With multiple groups
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -484,13 +481,13 @@ class Launch(pulumi.CustomResource):
             project=aws_evidently_project["example"]["name"],
             groups=[
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     name="Variation1",
                     variation="Variation1",
                     description="first-group",
                 ),
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     name="Variation2",
                     variation="Variation2",
                     description="second-group",
@@ -507,7 +504,6 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With metric_monitors
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -515,7 +511,7 @@ class Launch(pulumi.CustomResource):
         example = aws.evidently.Launch("example",
             project=aws_evidently_project["example"]["name"],
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -549,7 +545,6 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With randomization_salt
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -558,7 +553,7 @@ class Launch(pulumi.CustomResource):
             project=aws_evidently_project["example"]["name"],
             randomization_salt="example randomization salt",
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -572,7 +567,6 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With multiple steps
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -581,12 +575,12 @@ class Launch(pulumi.CustomResource):
             project=aws_evidently_project["example"]["name"],
             groups=[
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     name="Variation1",
                     variation="Variation1",
                 ),
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     name="Variation2",
                     variation="Variation2",
                 ),
@@ -611,7 +605,6 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With segment overrides
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -620,12 +613,12 @@ class Launch(pulumi.CustomResource):
             project=aws_evidently_project["example"]["name"],
             groups=[
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     name="Variation1",
                     variation="Variation1",
                 ),
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     name="Variation2",
                     variation="Variation2",
                 ),
@@ -639,14 +632,14 @@ class Launch(pulumi.CustomResource):
                     segment_overrides=[
                         aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
                             evaluation_order=1,
-                            segment=aws_evidently_segment["example"]["name"],
+                            segment=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weights={
                                 "Variation2": 10000,
                             },
                         ),
                         aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
                             evaluation_order=2,
-                            segment=aws_evidently_segment["example"]["name"],
+                            segment=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weights={
                                 "Variation1": 40000,
                                 "Variation2": 30000,
@@ -694,7 +687,6 @@ class Launch(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -702,7 +694,7 @@ class Launch(pulumi.CustomResource):
         example = aws.evidently.Launch("example",
             project=aws_evidently_project["example"]["name"],
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -716,7 +708,6 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With description
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -725,7 +716,7 @@ class Launch(pulumi.CustomResource):
             project=aws_evidently_project["example"]["name"],
             description="example description",
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -739,7 +730,6 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With multiple groups
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -748,13 +738,13 @@ class Launch(pulumi.CustomResource):
             project=aws_evidently_project["example"]["name"],
             groups=[
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     name="Variation1",
                     variation="Variation1",
                     description="first-group",
                 ),
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     name="Variation2",
                     variation="Variation2",
                     description="second-group",
@@ -771,7 +761,6 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With metric_monitors
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -779,7 +768,7 @@ class Launch(pulumi.CustomResource):
         example = aws.evidently.Launch("example",
             project=aws_evidently_project["example"]["name"],
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -813,7 +802,6 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With randomization_salt
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -822,7 +810,7 @@ class Launch(pulumi.CustomResource):
             project=aws_evidently_project["example"]["name"],
             randomization_salt="example randomization salt",
             groups=[aws.evidently.LaunchGroupArgs(
-                feature=aws_evidently_feature["example"]["name"],
+                feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 name="Variation1",
                 variation="Variation1",
             )],
@@ -836,7 +824,6 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With multiple steps
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -845,12 +832,12 @@ class Launch(pulumi.CustomResource):
             project=aws_evidently_project["example"]["name"],
             groups=[
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     name="Variation1",
                     variation="Variation1",
                 ),
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     name="Variation2",
                     variation="Variation2",
                 ),
@@ -875,7 +862,6 @@ class Launch(pulumi.CustomResource):
             ))
         ```
         ### With segment overrides
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -884,12 +870,12 @@ class Launch(pulumi.CustomResource):
             project=aws_evidently_project["example"]["name"],
             groups=[
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     name="Variation1",
                     variation="Variation1",
                 ),
                 aws.evidently.LaunchGroupArgs(
-                    feature=aws_evidently_feature["example"]["name"],
+                    feature=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     name="Variation2",
                     variation="Variation2",
                 ),
@@ -903,14 +889,14 @@ class Launch(pulumi.CustomResource):
                     segment_overrides=[
                         aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
                             evaluation_order=1,
-                            segment=aws_evidently_segment["example"]["name"],
+                            segment=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weights={
                                 "Variation2": 10000,
                             },
                         ),
                         aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
                             evaluation_order=2,
-                            segment=aws_evidently_segment["example"]["name"],
+                            segment=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             weights={
                                 "Variation1": 40000,
                                 "Variation2": 30000,

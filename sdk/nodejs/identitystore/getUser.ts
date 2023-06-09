@@ -37,10 +37,14 @@ export interface GetUserArgs {
     filter?: inputs.identitystore.GetUserFilter;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
+     *
+     * The following arguments are optional:
      */
     identityStoreId: string;
     /**
      * The identifier for a user in the Identity Store.
+     *
+     * > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
      */
     userId?: string;
 }
@@ -140,10 +144,14 @@ export interface GetUserOutputArgs {
     filter?: pulumi.Input<inputs.identitystore.GetUserFilterArgs>;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
+     *
+     * The following arguments are optional:
      */
     identityStoreId: pulumi.Input<string>;
     /**
      * The identifier for a user in the Identity Store.
+     *
+     * > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
      */
     userId?: pulumi.Input<string>;
 }

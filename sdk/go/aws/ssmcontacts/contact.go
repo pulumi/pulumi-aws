@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -43,7 +42,6 @@ import (
 //
 // ```
 // ### Usage With All Fields
-//
 // ```go
 // package main
 //
@@ -99,6 +97,8 @@ type Contact struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of contact engaged. A single contact is type PERSONAL and an escalation
 	// plan is type ESCALATION.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -149,6 +149,8 @@ type contactState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of contact engaged. A single contact is type PERSONAL and an escalation
 	// plan is type ESCALATION.
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
@@ -165,6 +167,8 @@ type ContactState struct {
 	TagsAll pulumi.StringMapInput
 	// The type of contact engaged. A single contact is type PERSONAL and an escalation
 	// plan is type ESCALATION.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -181,6 +185,8 @@ type contactArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of contact engaged. A single contact is type PERSONAL and an escalation
 	// plan is type ESCALATION.
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -194,6 +200,8 @@ type ContactArgs struct {
 	Tags pulumi.StringMapInput
 	// The type of contact engaged. A single contact is type PERSONAL and an escalation
 	// plan is type ESCALATION.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -311,6 +319,8 @@ func (o ContactOutput) TagsAll() pulumi.StringMapOutput {
 
 // The type of contact engaged. A single contact is type PERSONAL and an escalation
 // plan is type ESCALATION.
+//
+// The following arguments are optional:
 func (o ContactOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

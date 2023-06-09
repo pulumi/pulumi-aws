@@ -16,6 +16,8 @@ type ClassificationExportConfigurationS3Destination struct {
 	// The object key for the bucket in which Amazon Macie exports the data classification results.
 	KeyPrefix *string `pulumi:"keyPrefix"`
 	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	//
+	// Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 }
 
@@ -36,6 +38,8 @@ type ClassificationExportConfigurationS3DestinationArgs struct {
 	// The object key for the bucket in which Amazon Macie exports the data classification results.
 	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
 	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	//
+	// Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 }
 
@@ -127,6 +131,8 @@ func (o ClassificationExportConfigurationS3DestinationOutput) KeyPrefix() pulumi
 }
 
 // Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+//
+// Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
 func (o ClassificationExportConfigurationS3DestinationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ClassificationExportConfigurationS3Destination) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -176,6 +182,8 @@ func (o ClassificationExportConfigurationS3DestinationPtrOutput) KeyPrefix() pul
 }
 
 // Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+//
+// Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
 func (o ClassificationExportConfigurationS3DestinationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClassificationExportConfigurationS3Destination) *string {
 		if v == nil {
@@ -3642,6 +3650,8 @@ type ClassificationJobScheduleFrequency struct {
 	// Specifies a daily recurrence pattern for running the job.
 	DailySchedule *bool `pulumi:"dailySchedule"`
 	// Specifies a monthly recurrence pattern for running the job.
+	//
+	// The `s3JobDefinition` object supports the following:
 	MonthlySchedule *int `pulumi:"monthlySchedule"`
 	// Specifies a weekly recurrence pattern for running the job.
 	WeeklySchedule *string `pulumi:"weeklySchedule"`
@@ -3662,6 +3672,8 @@ type ClassificationJobScheduleFrequencyArgs struct {
 	// Specifies a daily recurrence pattern for running the job.
 	DailySchedule pulumi.BoolPtrInput `pulumi:"dailySchedule"`
 	// Specifies a monthly recurrence pattern for running the job.
+	//
+	// The `s3JobDefinition` object supports the following:
 	MonthlySchedule pulumi.IntPtrInput `pulumi:"monthlySchedule"`
 	// Specifies a weekly recurrence pattern for running the job.
 	WeeklySchedule pulumi.StringPtrInput `pulumi:"weeklySchedule"`
@@ -3750,6 +3762,8 @@ func (o ClassificationJobScheduleFrequencyOutput) DailySchedule() pulumi.BoolPtr
 }
 
 // Specifies a monthly recurrence pattern for running the job.
+//
+// The `s3JobDefinition` object supports the following:
 func (o ClassificationJobScheduleFrequencyOutput) MonthlySchedule() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClassificationJobScheduleFrequency) *int { return v.MonthlySchedule }).(pulumi.IntPtrOutput)
 }
@@ -3794,6 +3808,8 @@ func (o ClassificationJobScheduleFrequencyPtrOutput) DailySchedule() pulumi.Bool
 }
 
 // Specifies a monthly recurrence pattern for running the job.
+//
+// The `s3JobDefinition` object supports the following:
 func (o ClassificationJobScheduleFrequencyPtrOutput) MonthlySchedule() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClassificationJobScheduleFrequency) *int {
 		if v == nil {

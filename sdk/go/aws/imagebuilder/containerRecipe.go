@@ -14,7 +14,6 @@ import (
 // Manages an Image Builder Container Recipe.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -110,6 +109,8 @@ type ContainerRecipe struct {
 	// The destination repository for the container image. Detailed below.
 	TargetRepository ContainerRecipeTargetRepositoryOutput `pulumi:"targetRepository"`
 	// Version of the container recipe.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrOutput `pulumi:"workingDirectory"`
@@ -196,6 +197,8 @@ type containerRecipeState struct {
 	// The destination repository for the container image. Detailed below.
 	TargetRepository *ContainerRecipeTargetRepository `pulumi:"targetRepository"`
 	// Version of the container recipe.
+	//
+	// The following attributes are optional:
 	Version *string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
@@ -239,6 +242,8 @@ type ContainerRecipeState struct {
 	// The destination repository for the container image. Detailed below.
 	TargetRepository ContainerRecipeTargetRepositoryPtrInput
 	// Version of the container recipe.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringPtrInput
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrInput
@@ -274,6 +279,8 @@ type containerRecipeArgs struct {
 	// The destination repository for the container image. Detailed below.
 	TargetRepository ContainerRecipeTargetRepository `pulumi:"targetRepository"`
 	// Version of the container recipe.
+	//
+	// The following attributes are optional:
 	Version string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
@@ -306,6 +313,8 @@ type ContainerRecipeArgs struct {
 	// The destination repository for the container image. Detailed below.
 	TargetRepository ContainerRecipeTargetRepositoryInput
 	// Version of the container recipe.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringInput
 	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrInput
@@ -489,6 +498,8 @@ func (o ContainerRecipeOutput) TargetRepository() ContainerRecipeTargetRepositor
 }
 
 // Version of the container recipe.
+//
+// The following attributes are optional:
 func (o ContainerRecipeOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.LightSail
     /// ### Basic Usage
     /// 
     /// Below is a basic example with a bucket as an origin.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,7 +68,6 @@ namespace Pulumi.Aws.LightSail
     /// ### instance origin example
     /// 
     /// Below is an example of an instance as the origin.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -134,7 +132,6 @@ namespace Pulumi.Aws.LightSail
     /// ### lb origin example
     /// 
     /// Below is an example with a load balancer as an origin
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -236,6 +233,8 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// An object that describes the cache behavior settings of the distribution. Detailed below
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("cacheBehaviorSettings")]
         public Output<Outputs.DistributionCacheBehaviorSettings?> CacheBehaviorSettings { get; private set; } = null!;
@@ -393,6 +392,8 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// An object that describes the cache behavior settings of the distribution. Detailed below
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("cacheBehaviorSettings")]
         public Input<Inputs.DistributionCacheBehaviorSettingsArgs>? CacheBehaviorSettings { get; set; }
@@ -494,6 +495,8 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// An object that describes the cache behavior settings of the distribution. Detailed below
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("cacheBehaviorSettings")]
         public Input<Inputs.DistributionCacheBehaviorSettingsGetArgs>? CacheBehaviorSettings { get; set; }

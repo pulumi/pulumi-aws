@@ -42,6 +42,8 @@ class PlatformApplicationArgs:
         :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
+               
+               The following attributes are needed only when using APNS token credentials:
         """
         pulumi.set(__self__, "platform", platform)
         pulumi.set(__self__, "platform_credential", platform_credential)
@@ -217,6 +219,8 @@ class PlatformApplicationArgs:
     def success_feedback_sample_rate(self) -> Optional[pulumi.Input[str]]:
         """
         The sample rate percentage (0-100) of successfully delivered messages.
+
+        The following attributes are needed only when using APNS token credentials:
         """
         return pulumi.get(self, "success_feedback_sample_rate")
 
@@ -258,6 +262,8 @@ class _PlatformApplicationState:
         :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
+               
+               The following attributes are needed only when using APNS token credentials:
         """
         if apple_platform_bundle_id is not None:
             pulumi.set(__self__, "apple_platform_bundle_id", apple_platform_bundle_id)
@@ -449,6 +455,8 @@ class _PlatformApplicationState:
     def success_feedback_sample_rate(self) -> Optional[pulumi.Input[str]]:
         """
         The sample rate percentage (0-100) of successfully delivered messages.
+
+        The following attributes are needed only when using APNS token credentials:
         """
         return pulumi.get(self, "success_feedback_sample_rate")
 
@@ -481,7 +489,6 @@ class PlatformApplication(pulumi.CustomResource):
 
         ## Example Usage
         ### Apple Push Notification Service (APNS) using certificate-based authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -492,7 +499,6 @@ class PlatformApplication(pulumi.CustomResource):
             platform_principal="<APNS CERTIFICATE>")
         ```
         ### Apple Push Notification Service (APNS) using token-based authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -505,7 +511,6 @@ class PlatformApplication(pulumi.CustomResource):
             platform_principal="<APNS SIGNING KEY ID>")
         ```
         ### Google Cloud Messaging (GCM)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -538,6 +543,8 @@ class PlatformApplication(pulumi.CustomResource):
         :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
+               
+               The following attributes are needed only when using APNS token credentials:
         """
         ...
     @overload
@@ -550,7 +557,6 @@ class PlatformApplication(pulumi.CustomResource):
 
         ## Example Usage
         ### Apple Push Notification Service (APNS) using certificate-based authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -561,7 +567,6 @@ class PlatformApplication(pulumi.CustomResource):
             platform_principal="<APNS CERTIFICATE>")
         ```
         ### Apple Push Notification Service (APNS) using token-based authentication
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -574,7 +579,6 @@ class PlatformApplication(pulumi.CustomResource):
             platform_principal="<APNS SIGNING KEY ID>")
         ```
         ### Google Cloud Messaging (GCM)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -694,6 +698,8 @@ class PlatformApplication(pulumi.CustomResource):
         :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
+               
+               The following attributes are needed only when using APNS token credentials:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -824,6 +830,8 @@ class PlatformApplication(pulumi.CustomResource):
     def success_feedback_sample_rate(self) -> pulumi.Output[Optional[str]]:
         """
         The sample rate percentage (0-100) of successfully delivered messages.
+
+        The following attributes are needed only when using APNS token credentials:
         """
         return pulumi.get(self, "success_feedback_sample_rate")
 

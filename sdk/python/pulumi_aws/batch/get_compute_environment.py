@@ -157,7 +157,6 @@ def get_compute_environment(compute_environment_name: Optional[str] = None,
     compute environment within AWS Batch.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -197,7 +196,6 @@ def get_compute_environment_output(compute_environment_name: Optional[pulumi.Inp
     compute environment within AWS Batch.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

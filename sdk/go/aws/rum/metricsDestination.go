@@ -14,7 +14,6 @@ import (
 // Provides a CloudWatch RUM Metrics Destination resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

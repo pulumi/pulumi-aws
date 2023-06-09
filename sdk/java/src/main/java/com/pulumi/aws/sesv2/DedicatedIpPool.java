@@ -107,12 +107,16 @@ public class DedicatedIpPool extends com.pulumi.resources.CustomResource {
     /**
      * Name of the dedicated IP pool.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="poolName", refs={String.class}, tree="[0]")
     private Output<String> poolName;
 
     /**
      * @return Name of the dedicated IP pool.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> poolName() {

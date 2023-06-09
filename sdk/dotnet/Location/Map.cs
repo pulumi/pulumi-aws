@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Location
     /// Provides a Location Service Map.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,6 +70,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name for the map resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("mapName")]
         public Output<string> MapName { get; private set; } = null!;
@@ -153,6 +154,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name for the map resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("mapName", required: true)]
         public Input<string> MapName { get; set; } = null!;
@@ -203,6 +206,8 @@ namespace Pulumi.Aws.Location
 
         /// <summary>
         /// The name for the map resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("mapName")]
         public Input<string>? MapName { get; set; }

@@ -345,7 +345,6 @@ class Listener(pulumi.CustomResource):
 
         ## Example Usage
         ### Forward action
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -356,7 +355,7 @@ class Listener(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=80,
                 protocol="HTTP",
-                vpc_identifier=aws_vpc["test"]["id"],
+                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         example_listener = aws.vpclattice.Listener("exampleListener",
             protocol="HTTP",
@@ -370,7 +369,6 @@ class Listener(pulumi.CustomResource):
             ))
         ```
         ### Forward action with weighted target groups
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -381,14 +379,14 @@ class Listener(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=80,
                 protocol="HTTP",
-                vpc_identifier=aws_vpc["test"]["id"],
+                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         example2 = aws.vpclattice.TargetGroup("example2",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=8080,
                 protocol="HTTP",
-                vpc_identifier=aws_vpc["test"]["id"],
+                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         example = aws.vpclattice.Listener("example",
             protocol="HTTP",
@@ -439,7 +437,6 @@ class Listener(pulumi.CustomResource):
 
         ## Example Usage
         ### Forward action
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -450,7 +447,7 @@ class Listener(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=80,
                 protocol="HTTP",
-                vpc_identifier=aws_vpc["test"]["id"],
+                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         example_listener = aws.vpclattice.Listener("exampleListener",
             protocol="HTTP",
@@ -464,7 +461,6 @@ class Listener(pulumi.CustomResource):
             ))
         ```
         ### Forward action with weighted target groups
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -475,14 +471,14 @@ class Listener(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=80,
                 protocol="HTTP",
-                vpc_identifier=aws_vpc["test"]["id"],
+                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         example2 = aws.vpclattice.TargetGroup("example2",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=8080,
                 protocol="HTTP",
-                vpc_identifier=aws_vpc["test"]["id"],
+                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         example = aws.vpclattice.Listener("example",
             protocol="HTTP",

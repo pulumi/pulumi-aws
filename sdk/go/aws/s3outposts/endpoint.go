@@ -14,7 +14,6 @@ import (
 // Provides a resource to manage an S3 Outposts Endpoint.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

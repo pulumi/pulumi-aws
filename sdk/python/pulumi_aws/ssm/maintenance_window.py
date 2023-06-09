@@ -446,7 +446,6 @@ class MaintenanceWindow(pulumi.CustomResource):
         Provides an SSM Maintenance Window resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -492,7 +491,6 @@ class MaintenanceWindow(pulumi.CustomResource):
         Provides an SSM Maintenance Window resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

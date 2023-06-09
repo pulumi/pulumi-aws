@@ -15,6 +15,8 @@ public final class TopicRuleErrorActionRepublish {
     /**
      * @return The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
      * 
+     * The `s3` object takes the following arguments:
+     * 
      */
     private @Nullable Integer qos;
     /**
@@ -31,6 +33,8 @@ public final class TopicRuleErrorActionRepublish {
     private TopicRuleErrorActionRepublish() {}
     /**
      * @return The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+     * 
+     * The `s3` object takes the following arguments:
      * 
      */
     public Optional<Integer> qos() {

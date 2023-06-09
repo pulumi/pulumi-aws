@@ -84,6 +84,8 @@ export class PrefixListReference extends pulumi.CustomResource {
     public readonly transitGatewayAttachmentId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
+     *
+     * The following arguments are optional:
      */
     public readonly transitGatewayRouteTableId!: pulumi.Output<string>;
 
@@ -143,6 +145,8 @@ export interface PrefixListReferenceState {
     transitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
+     *
+     * The following arguments are optional:
      */
     transitGatewayRouteTableId?: pulumi.Input<string>;
 }
@@ -165,6 +169,8 @@ export interface PrefixListReferenceArgs {
     transitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
+     *
+     * The following arguments are optional:
      */
     transitGatewayRouteTableId: pulumi.Input<string>;
 }

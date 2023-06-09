@@ -281,7 +281,6 @@ class ClusterEndpoint(pulumi.CustomResource):
         You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -367,7 +366,6 @@ class ClusterEndpoint(pulumi.CustomResource):
         You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

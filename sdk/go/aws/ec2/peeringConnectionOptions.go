@@ -24,7 +24,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -76,7 +75,6 @@ import (
 //
 // ```
 // ### Cross-Account Usage
-//
 // ```go
 // package main
 //

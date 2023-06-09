@@ -446,7 +446,6 @@ class ReplicaExternalKey(pulumi.CustomResource):
         See the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html) for more information on importing key material into multi-Region keys.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -502,7 +501,6 @@ class ReplicaExternalKey(pulumi.CustomResource):
         See the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html) for more information on importing key material into multi-Region keys.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

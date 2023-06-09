@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### By ID
-//
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 //
 // ```
 // ### By Owner & Name
-//
 // ```go
 // package main
 //

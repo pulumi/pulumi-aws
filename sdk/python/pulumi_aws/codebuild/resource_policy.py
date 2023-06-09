@@ -101,7 +101,6 @@ class ResourcePolicy(pulumi.CustomResource):
         Provides a CodeBuild Resource Policy Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -159,7 +158,6 @@ class ResourcePolicy(pulumi.CustomResource):
         Provides a CodeBuild Resource Policy Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

@@ -14,7 +14,6 @@ import (
 // See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

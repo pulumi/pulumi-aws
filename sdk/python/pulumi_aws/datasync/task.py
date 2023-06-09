@@ -367,27 +367,25 @@ class Task(pulumi.CustomResource):
 
         ## Example Usage
         ### With Scheduling
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
+            destination_location_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            source_location_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             schedule=aws.datasync.TaskScheduleArgs(
                 schedule_expression="cron(0 12 ? * SUN,WED *)",
             ))
         ```
         ### With Filtering
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
+            destination_location_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            source_location_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             excludes=aws.datasync.TaskExcludesArgs(
                 filter_type="SIMPLE_PATTERN",
                 value="/folder1|/folder2",
@@ -429,27 +427,25 @@ class Task(pulumi.CustomResource):
 
         ## Example Usage
         ### With Scheduling
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
+            destination_location_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            source_location_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             schedule=aws.datasync.TaskScheduleArgs(
                 schedule_expression="cron(0 12 ? * SUN,WED *)",
             ))
         ```
         ### With Filtering
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.datasync.Task("example",
-            destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
-            source_location_arn=aws_datasync_location_nfs["source"]["arn"],
+            destination_location_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            source_location_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             excludes=aws.datasync.TaskExcludesArgs(
                 filter_type="SIMPLE_PATTERN",
                 value="/folder1|/folder2",

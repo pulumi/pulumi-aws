@@ -15,7 +15,6 @@ import (
 // ## Example Usage
 //
 // The following shows outputting all Elastic IPs with the a specific tag value.
-//
 // ```go
 // package main
 //

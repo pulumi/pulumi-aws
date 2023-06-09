@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Aws.Scheduler
     /// });
     /// ```
     /// ### Universal Target
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -164,6 +162,8 @@ namespace Pulumi.Aws.Scheduler
 
         /// <summary>
         /// Configures the target of the schedule. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("target")]
         public Output<Outputs.ScheduleTarget> Target { get; private set; } = null!;
@@ -282,6 +282,8 @@ namespace Pulumi.Aws.Scheduler
 
         /// <summary>
         /// Configures the target of the schedule. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.ScheduleTargetArgs> Target { get; set; } = null!;
@@ -368,6 +370,8 @@ namespace Pulumi.Aws.Scheduler
 
         /// <summary>
         /// Configures the target of the schedule. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("target")]
         public Input<Inputs.ScheduleTargetGetArgs>? Target { get; set; }

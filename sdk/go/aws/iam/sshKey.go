@@ -14,7 +14,6 @@ import (
 // Uploads an SSH public key and associates it with the specified IAM user.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

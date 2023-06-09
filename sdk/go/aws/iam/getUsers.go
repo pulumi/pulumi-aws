@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### All users in an account
-//
 // ```go
 // package main
 //
@@ -39,7 +38,6 @@ import (
 // ### Users filtered by name regex
 //
 // Users whose username contains `abc`
-//
 // ```go
 // package main
 //
@@ -64,7 +62,6 @@ import (
 //
 // ```
 // ### Users filtered by path prefix
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ import (
 // Data source for managing an AWS DMS (Database Migration) Replication Instance.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -49,6 +48,11 @@ func LookupReplicationInstance(ctx *pulumi.Context, args *LookupReplicationInsta
 // A collection of arguments for invoking getReplicationInstance.
 type LookupReplicationInstanceArgs struct {
 	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen
+	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId string            `pulumi:"replicationInstanceId"`
 	Tags                  map[string]string `pulumi:"tags"`
 }
@@ -109,6 +113,11 @@ func LookupReplicationInstanceOutput(ctx *pulumi.Context, args LookupReplication
 // A collection of arguments for invoking getReplicationInstance.
 type LookupReplicationInstanceOutputArgs struct {
 	// The replication instance identifier. This parameter is stored as a lowercase string.
+	//
+	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
+	// - First character must be a letter.
+	// - Cannot end with a hyphen
+	// - Cannot contain two consecutive hyphens.
 	ReplicationInstanceId pulumi.StringInput    `pulumi:"replicationInstanceId"`
 	Tags                  pulumi.StringMapInput `pulumi:"tags"`
 }

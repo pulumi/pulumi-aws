@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Acmpca
     /// Currently, this is only required in order to allow the ACM service to automatically renew certificates issued by a PCA.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

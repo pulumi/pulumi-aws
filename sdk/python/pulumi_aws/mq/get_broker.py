@@ -242,7 +242,6 @@ def get_broker(broker_id: Optional[str] = None,
     Provides information about a MQ Broker.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -303,7 +302,6 @@ def get_broker_output(broker_id: Optional[pulumi.Input[Optional[str]]] = None,
     Provides information about a MQ Broker.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

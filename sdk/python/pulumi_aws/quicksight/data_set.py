@@ -36,6 +36,8 @@ class DataSetArgs:
         :param pulumi.Input[str] data_set_id: Identifier for the data set.
         :param pulumi.Input[str] import_mode: Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
@@ -106,6 +108,8 @@ class DataSetArgs:
     def physical_table_maps(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]]:
         """
         Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "physical_table_maps")
 
@@ -293,6 +297,8 @@ class _DataSetState:
         :param pulumi.Input[str] name: Display name for the dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetPermissionArgs']]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+               
+               The following arguments are optional:
         :param pulumi.Input['DataSetRefreshPropertiesArgs'] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
         :param pulumi.Input['DataSetRowLevelPermissionDataSetArgs'] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         :param pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs'] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
@@ -482,6 +488,8 @@ class _DataSetState:
     def physical_table_maps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]]]:
         """
         Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "physical_table_maps")
 
@@ -576,7 +584,6 @@ class DataSet(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -587,7 +594,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -599,7 +606,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Column Level Permission Rules
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -610,7 +616,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -626,7 +632,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Field Folders
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -637,7 +642,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -654,7 +659,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Permissions
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -665,7 +669,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -683,11 +687,10 @@ class DataSet(pulumi.CustomResource):
                     "quicksight:DescribeIngestion",
                     "quicksight:ListIngestions",
                 ],
-                principal=aws_quicksight_user["example"]["arn"],
+                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### With Row Level Permission Tag Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -698,7 +701,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -740,6 +743,8 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: Display name for the dataset.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPermissionArgs']]]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
         :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
@@ -756,7 +761,6 @@ class DataSet(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -767,7 +771,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -779,7 +783,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Column Level Permission Rules
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -790,7 +793,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -806,7 +809,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Field Folders
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -817,7 +819,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -834,7 +836,6 @@ class DataSet(pulumi.CustomResource):
             )])
         ```
         ### With Permissions
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -845,7 +846,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -863,11 +864,10 @@ class DataSet(pulumi.CustomResource):
                     "quicksight:DescribeIngestion",
                     "quicksight:ListIngestions",
                 ],
-                principal=aws_quicksight_user["example"]["arn"],
+                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### With Row Level Permission Tag Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -878,7 +878,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
+                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -1017,6 +1017,8 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[str] name: Display name for the dataset.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPermissionArgs']]]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DataSetRefreshPropertiesArgs']] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
         :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionTagConfigurationArgs']] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
@@ -1145,6 +1147,8 @@ class DataSet(pulumi.CustomResource):
     def physical_table_maps(self) -> pulumi.Output[Sequence['outputs.DataSetPhysicalTableMap']]:
         """
         Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "physical_table_maps")
 

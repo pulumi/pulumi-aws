@@ -22,7 +22,6 @@ import (
 //
 // ## Example Usage
 // ### Basic
-//
 // ```go
 // package main
 //

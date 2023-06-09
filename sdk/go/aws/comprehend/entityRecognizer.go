@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -101,6 +100,8 @@ type EntityRecognizer struct {
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -179,6 +180,8 @@ type entityRecognizerState struct {
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -220,6 +223,8 @@ type EntityRecognizerState struct {
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -263,6 +268,8 @@ type entityRecognizerArgs struct {
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -301,6 +308,8 @@ type EntityRecognizerArgs struct {
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
 	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -441,6 +450,8 @@ func (o EntityRecognizerOutput) ModelKmsKeyId() pulumi.StringPtrOutput {
 // Name for the Entity Recognizer.
 // Has a maximum length of 63 characters.
 // Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+//
+// The following arguments are optional:
 func (o EntityRecognizerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

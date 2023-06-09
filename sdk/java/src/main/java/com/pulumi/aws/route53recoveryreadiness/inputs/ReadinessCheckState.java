@@ -49,12 +49,16 @@ public final class ReadinessCheckState extends com.pulumi.resources.ResourceArgs
     /**
      * Name describing the resource set that will be monitored for readiness.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="resourceSetName")
     private @Nullable Output<String> resourceSetName;
 
     /**
      * @return Name describing the resource set that will be monitored for readiness.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> resourceSetName() {
@@ -164,6 +168,8 @@ public final class ReadinessCheckState extends com.pulumi.resources.ResourceArgs
         /**
          * @param resourceSetName Name describing the resource set that will be monitored for readiness.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -174,6 +180,8 @@ public final class ReadinessCheckState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param resourceSetName Name describing the resource set that will be monitored for readiness.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

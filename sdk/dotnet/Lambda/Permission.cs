@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Lambda
     /// Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,7 +70,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ## Usage with SNS
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -131,7 +129,6 @@ namespace Pulumi.Aws.Lambda
     /// ```
     /// 
     /// ## Specify Lambda permissions for API Gateway REST API
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -157,7 +154,6 @@ namespace Pulumi.Aws.Lambda
     /// ```
     /// 
     /// ## Usage with CloudWatch log group
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -232,7 +228,6 @@ namespace Pulumi.Aws.Lambda
     /// ```
     /// 
     /// ## Example function URL cross-account invoke policy
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -306,6 +301,10 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+        /// 
+        /// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+        /// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+        /// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         /// </summary>
         [Output("principalOrgId")]
         public Output<string?> PrincipalOrgId { get; private set; } = null!;
@@ -422,6 +421,10 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+        /// 
+        /// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+        /// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+        /// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         /// </summary>
         [Input("principalOrgId")]
         public Input<string>? PrincipalOrgId { get; set; }
@@ -500,6 +503,10 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+        /// 
+        /// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+        /// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+        /// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         /// </summary>
         [Input("principalOrgId")]
         public Input<string>? PrincipalOrgId { get; set; }

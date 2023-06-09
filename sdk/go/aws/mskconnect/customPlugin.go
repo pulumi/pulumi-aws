@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic configuration
-//
 // ```go
 // package main
 //
@@ -80,6 +79,8 @@ type CustomPlugin struct {
 	// an ID of the latest successfully created revision of the custom plugin.
 	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
 	// Information about the location of a custom plugin. See below.
+	//
+	// The following arguments are optional:
 	Location CustomPluginLocationOutput `pulumi:"location"`
 	// The name of the custom plugin..
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -131,6 +132,8 @@ type customPluginState struct {
 	// an ID of the latest successfully created revision of the custom plugin.
 	LatestRevision *int `pulumi:"latestRevision"`
 	// Information about the location of a custom plugin. See below.
+	//
+	// The following arguments are optional:
 	Location *CustomPluginLocation `pulumi:"location"`
 	// The name of the custom plugin..
 	Name *string `pulumi:"name"`
@@ -148,6 +151,8 @@ type CustomPluginState struct {
 	// an ID of the latest successfully created revision of the custom plugin.
 	LatestRevision pulumi.IntPtrInput
 	// Information about the location of a custom plugin. See below.
+	//
+	// The following arguments are optional:
 	Location CustomPluginLocationPtrInput
 	// The name of the custom plugin..
 	Name pulumi.StringPtrInput
@@ -165,6 +170,8 @@ type customPluginArgs struct {
 	// A summary description of the custom plugin.
 	Description *string `pulumi:"description"`
 	// Information about the location of a custom plugin. See below.
+	//
+	// The following arguments are optional:
 	Location CustomPluginLocation `pulumi:"location"`
 	// The name of the custom plugin..
 	Name *string `pulumi:"name"`
@@ -177,6 +184,8 @@ type CustomPluginArgs struct {
 	// A summary description of the custom plugin.
 	Description pulumi.StringPtrInput
 	// Information about the location of a custom plugin. See below.
+	//
+	// The following arguments are optional:
 	Location CustomPluginLocationInput
 	// The name of the custom plugin..
 	Name pulumi.StringPtrInput
@@ -290,6 +299,8 @@ func (o CustomPluginOutput) LatestRevision() pulumi.IntOutput {
 }
 
 // Information about the location of a custom plugin. See below.
+//
+// The following arguments are optional:
 func (o CustomPluginOutput) Location() CustomPluginLocationOutput {
 	return o.ApplyT(func(v *CustomPlugin) CustomPluginLocationOutput { return v.Location }).(CustomPluginLocationOutput)
 }

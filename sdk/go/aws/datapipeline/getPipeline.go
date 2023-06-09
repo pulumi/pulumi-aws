@@ -13,7 +13,6 @@ import (
 // Provides details about a specific DataPipeline Pipeline.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

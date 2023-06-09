@@ -20,6 +20,39 @@ type PolicyStepScalingPolicyConfiguration struct {
 	// Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
 	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
 	// Set of adjustments that manage scaling. These have the following structure:
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+	// 			StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
+	// 				StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
+	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+	// 						MetricIntervalLowerBound: pulumi.String("1"),
+	// 						MetricIntervalUpperBound: pulumi.String("2"),
+	// 						ScalingAdjustment:        -1,
+	// 					},
+	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+	// 						MetricIntervalLowerBound: pulumi.String("2"),
+	// 						MetricIntervalUpperBound: pulumi.String("3"),
+	// 						ScalingAdjustment:        pulumi.Int(1),
+	// 					},
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	StepAdjustments []PolicyStepScalingPolicyConfigurationStepAdjustment `pulumi:"stepAdjustments"`
 }
 
@@ -44,6 +77,39 @@ type PolicyStepScalingPolicyConfigurationArgs struct {
 	// Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
 	MinAdjustmentMagnitude pulumi.IntPtrInput `pulumi:"minAdjustmentMagnitude"`
 	// Set of adjustments that manage scaling. These have the following structure:
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+	// 			StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
+	// 				StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
+	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+	// 						MetricIntervalLowerBound: pulumi.String("1"),
+	// 						MetricIntervalUpperBound: pulumi.String("2"),
+	// 						ScalingAdjustment:        -1,
+	// 					},
+	// 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+	// 						MetricIntervalLowerBound: pulumi.String("2"),
+	// 						MetricIntervalUpperBound: pulumi.String("3"),
+	// 						ScalingAdjustment:        pulumi.Int(1),
+	// 					},
+	// 				},
+	// 			},
+	// 		})
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	StepAdjustments PolicyStepScalingPolicyConfigurationStepAdjustmentArrayInput `pulumi:"stepAdjustments"`
 }
 
@@ -145,6 +211,42 @@ func (o PolicyStepScalingPolicyConfigurationOutput) MinAdjustmentMagnitude() pul
 }
 
 // Set of adjustments that manage scaling. These have the following structure:
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+//				StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
+//					StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
+//						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+//							MetricIntervalLowerBound: pulumi.String("1"),
+//							MetricIntervalUpperBound: pulumi.String("2"),
+//							ScalingAdjustment:        -1,
+//						},
+//						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+//							MetricIntervalLowerBound: pulumi.String("2"),
+//							MetricIntervalUpperBound: pulumi.String("3"),
+//							ScalingAdjustment:        pulumi.Int(1),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o PolicyStepScalingPolicyConfigurationOutput) StepAdjustments() PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput {
 	return o.ApplyT(func(v PolicyStepScalingPolicyConfiguration) []PolicyStepScalingPolicyConfigurationStepAdjustment {
 		return v.StepAdjustments
@@ -216,6 +318,42 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) MinAdjustmentMagnitude() 
 }
 
 // Set of adjustments that manage scaling. These have the following structure:
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appautoscaling.NewPolicy(ctx, "ecsPolicy", &appautoscaling.PolicyArgs{
+//				StepScalingPolicyConfiguration: &appautoscaling.PolicyStepScalingPolicyConfigurationArgs{
+//					StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
+//						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+//							MetricIntervalLowerBound: pulumi.String("1"),
+//							MetricIntervalUpperBound: pulumi.String("2"),
+//							ScalingAdjustment:        -1,
+//						},
+//						&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
+//							MetricIntervalLowerBound: pulumi.String("2"),
+//							MetricIntervalUpperBound: pulumi.String("3"),
+//							ScalingAdjustment:        pulumi.Int(1),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o PolicyStepScalingPolicyConfigurationPtrOutput) StepAdjustments() PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput {
 	return o.ApplyT(func(v *PolicyStepScalingPolicyConfiguration) []PolicyStepScalingPolicyConfigurationStepAdjustment {
 		if v == nil {

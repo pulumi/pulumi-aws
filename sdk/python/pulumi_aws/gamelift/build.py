@@ -234,7 +234,6 @@ class Build(pulumi.CustomResource):
         Provides an GameLift Build resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -242,9 +241,9 @@ class Build(pulumi.CustomResource):
         test = aws.gamelift.Build("test",
             operating_system="WINDOWS_2012",
             storage_location=aws.gamelift.BuildStorageLocationArgs(
-                bucket=aws_s3_bucket["test"]["id"],
-                key=aws_s3_object["test"]["key"],
-                role_arn=aws_iam_role["test"]["arn"],
+                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -274,7 +273,6 @@ class Build(pulumi.CustomResource):
         Provides an GameLift Build resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -282,9 +280,9 @@ class Build(pulumi.CustomResource):
         test = aws.gamelift.Build("test",
             operating_system="WINDOWS_2012",
             storage_location=aws.gamelift.BuildStorageLocationArgs(
-                bucket=aws_s3_bucket["test"]["id"],
-                key=aws_s3_object["test"]["key"],
-                role_arn=aws_iam_role["test"]["arn"],
+                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 

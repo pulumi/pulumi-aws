@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -58,7 +57,6 @@ import (
 //
 // ```
 // ### With Column Level Permission Rules
-//
 // ```go
 // package main
 //
@@ -111,7 +109,6 @@ import (
 //
 // ```
 // ### With Field Folders
-//
 // ```go
 // package main
 //
@@ -163,7 +160,6 @@ import (
 //
 // ```
 // ### With Permissions
-//
 // ```go
 // package main
 //
@@ -218,7 +214,6 @@ import (
 //
 // ```
 // ### With Row Level Permission Tag Configuration
-//
 // ```go
 // package main
 //
@@ -308,6 +303,8 @@ type DataSet struct {
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayOutput `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+	//
+	// The following arguments are optional:
 	PhysicalTableMaps DataSetPhysicalTableMapArrayOutput `pulumi:"physicalTableMaps"`
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties DataSetRefreshPropertiesPtrOutput `pulumi:"refreshProperties"`
@@ -383,6 +380,8 @@ type dataSetState struct {
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions []DataSetPermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+	//
+	// The following arguments are optional:
 	PhysicalTableMaps []DataSetPhysicalTableMap `pulumi:"physicalTableMaps"`
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties *DataSetRefreshProperties `pulumi:"refreshProperties"`
@@ -421,6 +420,8 @@ type DataSetState struct {
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayInput
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+	//
+	// The following arguments are optional:
 	PhysicalTableMaps DataSetPhysicalTableMapArrayInput
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties DataSetRefreshPropertiesPtrInput
@@ -460,6 +461,8 @@ type dataSetArgs struct {
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions []DataSetPermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+	//
+	// The following arguments are optional:
 	PhysicalTableMaps []DataSetPhysicalTableMap `pulumi:"physicalTableMaps"`
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties *DataSetRefreshProperties `pulumi:"refreshProperties"`
@@ -494,6 +497,8 @@ type DataSetArgs struct {
 	// A set of resource permissions on the data source. Maximum of 64 items. See permissions.
 	Permissions DataSetPermissionArrayInput
 	// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+	//
+	// The following arguments are optional:
 	PhysicalTableMaps DataSetPhysicalTableMapArrayInput
 	// The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
 	RefreshProperties DataSetRefreshPropertiesPtrInput
@@ -652,6 +657,8 @@ func (o DataSetOutput) Permissions() DataSetPermissionArrayOutput {
 }
 
 // Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+//
+// The following arguments are optional:
 func (o DataSetOutput) PhysicalTableMaps() DataSetPhysicalTableMapArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetPhysicalTableMapArrayOutput { return v.PhysicalTableMaps }).(DataSetPhysicalTableMapArrayOutput)
 }

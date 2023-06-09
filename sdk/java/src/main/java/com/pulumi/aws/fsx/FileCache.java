@@ -284,12 +284,16 @@ public class FileCache extends com.pulumi.resources.CustomResource {
     /**
      * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
      * @return A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<String>> subnetIds() {

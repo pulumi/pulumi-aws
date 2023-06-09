@@ -14,7 +14,6 @@ import (
 // Provides an Neptune Cluster Endpoint Resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

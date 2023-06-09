@@ -494,12 +494,16 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
     /**
      * A unique name for your task definition.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
     /**
      * @return A unique name for your task definition.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> family() {

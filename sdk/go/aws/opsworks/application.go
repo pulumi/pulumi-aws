@@ -14,7 +14,6 @@ import (
 // Provides an OpsWorks application resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

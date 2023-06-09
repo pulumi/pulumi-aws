@@ -169,7 +169,6 @@ class CodeRepository(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -181,7 +180,6 @@ class CodeRepository(pulumi.CustomResource):
             ))
         ```
         ### Example with Secret
-
         ```python
         import pulumi
         import json
@@ -228,7 +226,6 @@ class CodeRepository(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,7 +237,6 @@ class CodeRepository(pulumi.CustomResource):
             ))
         ```
         ### Example with Secret
-
         ```python
         import pulumi
         import json

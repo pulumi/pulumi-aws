@@ -201,7 +201,6 @@ class StorageLensConfiguration(pulumi.CustomResource):
         Provides a resource to manage an S3 Storage Lens configuration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,7 +226,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
                     ),
                     s3_bucket_destination=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(
                         account_id=current.account_id,
-                        arn=aws_s3_bucket["target"]["arn"],
+                        arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         format="CSV",
                         output_schema_version="V_1",
                         encryption=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(
@@ -270,7 +269,6 @@ class StorageLensConfiguration(pulumi.CustomResource):
         Provides a resource to manage an S3 Storage Lens configuration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,7 +294,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
                     ),
                     s3_bucket_destination=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(
                         account_id=current.account_id,
-                        arn=aws_s3_bucket["target"]["arn"],
+                        arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         format="CSV",
                         output_schema_version="V_1",
                         encryption=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(

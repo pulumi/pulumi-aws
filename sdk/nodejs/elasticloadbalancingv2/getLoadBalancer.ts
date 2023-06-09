@@ -58,6 +58,8 @@ export interface GetLoadBalancerArgs {
     name?: string;
     /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+     *
+     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
      */
     tags?: {[key: string]: string};
 }
@@ -140,6 +142,8 @@ export interface GetLoadBalancerOutputArgs {
     name?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+     *
+     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

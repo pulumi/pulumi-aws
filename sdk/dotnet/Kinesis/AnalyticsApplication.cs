@@ -19,7 +19,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// ## Example Usage
     /// ### Kinesis Stream Input
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,7 +75,6 @@ namespace Pulumi.Aws.Kinesis
     /// });
     /// ```
     /// ### Starting An Application
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

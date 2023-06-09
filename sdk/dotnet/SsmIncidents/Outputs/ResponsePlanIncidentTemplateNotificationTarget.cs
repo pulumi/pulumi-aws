@@ -15,6 +15,8 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
     {
         /// <summary>
         /// The ARN of the Amazon SNS topic.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string SnsTopicArn;
 

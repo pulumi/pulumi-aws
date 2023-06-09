@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic
-//
 // ```go
 // package main
 //
@@ -88,6 +87,8 @@ type SecretPolicy struct {
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Secret ARN.
+	//
+	// The following arguments are optional:
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 }
 
@@ -131,6 +132,8 @@ type secretPolicyState struct {
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy *string `pulumi:"policy"`
 	// Secret ARN.
+	//
+	// The following arguments are optional:
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -140,6 +143,8 @@ type SecretPolicyState struct {
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy pulumi.StringPtrInput
 	// Secret ARN.
+	//
+	// The following arguments are optional:
 	SecretArn pulumi.StringPtrInput
 }
 
@@ -153,6 +158,8 @@ type secretPolicyArgs struct {
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy string `pulumi:"policy"`
 	// Secret ARN.
+	//
+	// The following arguments are optional:
 	SecretArn string `pulumi:"secretArn"`
 }
 
@@ -163,6 +170,8 @@ type SecretPolicyArgs struct {
 	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy pulumi.StringInput
 	// Secret ARN.
+	//
+	// The following arguments are optional:
 	SecretArn pulumi.StringInput
 }
 
@@ -264,6 +273,8 @@ func (o SecretPolicyOutput) Policy() pulumi.StringOutput {
 }
 
 // Secret ARN.
+//
+// The following arguments are optional:
 func (o SecretPolicyOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretPolicy) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
 }

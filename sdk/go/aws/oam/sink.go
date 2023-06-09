@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -56,6 +55,8 @@ type Sink struct {
 	// ARN of the Sink.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name for the sink.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId pulumi.StringOutput `pulumi:"sinkId"`
@@ -96,6 +97,8 @@ type sinkState struct {
 	// ARN of the Sink.
 	Arn *string `pulumi:"arn"`
 	// Name for the sink.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId *string `pulumi:"sinkId"`
@@ -108,6 +111,8 @@ type SinkState struct {
 	// ARN of the Sink.
 	Arn pulumi.StringPtrInput
 	// Name for the sink.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId pulumi.StringPtrInput
@@ -122,6 +127,8 @@ func (SinkState) ElementType() reflect.Type {
 
 type sinkArgs struct {
 	// Name for the sink.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -130,6 +137,8 @@ type sinkArgs struct {
 // The set of arguments for constructing a Sink resource.
 type SinkArgs struct {
 	// Name for the sink.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -228,6 +237,8 @@ func (o SinkOutput) Arn() pulumi.StringOutput {
 }
 
 // Name for the sink.
+//
+// The following arguments are optional:
 func (o SinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

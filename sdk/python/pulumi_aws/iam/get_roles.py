@@ -94,7 +94,6 @@ def get_roles(name_regex: Optional[str] = None,
 
     ## Example Usage
     ### All roles in an account
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -104,7 +103,6 @@ def get_roles(name_regex: Optional[str] = None,
     ### Roles filtered by name regex
 
     Roles whose role-name contains `project`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -112,7 +110,6 @@ def get_roles(name_regex: Optional[str] = None,
     roles = aws.iam.get_roles(name_regex=".*project.*")
     ```
     ### Roles filtered by path prefix
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -122,7 +119,6 @@ def get_roles(name_regex: Optional[str] = None,
     ### Roles provisioned by AWS SSO
 
     Roles in the account filtered by path prefix
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -131,7 +127,6 @@ def get_roles(name_regex: Optional[str] = None,
     ```
 
     Specific role in the account filtered by name regex and path prefix
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -167,7 +162,6 @@ def get_roles_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
     ### All roles in an account
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -177,7 +171,6 @@ def get_roles_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
     ### Roles filtered by name regex
 
     Roles whose role-name contains `project`
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -185,7 +178,6 @@ def get_roles_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
     roles = aws.iam.get_roles(name_regex=".*project.*")
     ```
     ### Roles filtered by path prefix
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -195,7 +187,6 @@ def get_roles_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
     ### Roles provisioned by AWS SSO
 
     Roles in the account filtered by path prefix
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -204,7 +195,6 @@ def get_roles_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
     ```
 
     Specific role in the account filtered by name regex and path prefix
-
     ```python
     import pulumi
     import pulumi_aws as aws

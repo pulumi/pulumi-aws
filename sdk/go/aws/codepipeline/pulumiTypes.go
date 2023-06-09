@@ -1063,6 +1063,8 @@ type PipelineStageAction struct {
 	// The action declaration's name.
 	Name string `pulumi:"name"`
 	// The namespace all output variables will be accessed from.
+	//
+	// > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 	Namespace *string `pulumi:"namespace"`
 	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
 	OutputArtifacts []string `pulumi:"outputArtifacts"`
@@ -1101,6 +1103,8 @@ type PipelineStageActionArgs struct {
 	// The action declaration's name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The namespace all output variables will be accessed from.
+	//
+	// > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
 	OutputArtifacts pulumi.StringArrayInput `pulumi:"outputArtifacts"`
@@ -1190,6 +1194,8 @@ func (o PipelineStageActionOutput) Name() pulumi.StringOutput {
 }
 
 // The namespace all output variables will be accessed from.
+//
+// > **Note:** The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions.
 func (o PipelineStageActionOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageAction) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }

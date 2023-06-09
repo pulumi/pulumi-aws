@@ -13,7 +13,6 @@ import (
 // Provides a Service Discovery Service resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -65,7 +64,6 @@ import (
 //	}
 //
 // ```
-//
 // ```go
 // package main
 //

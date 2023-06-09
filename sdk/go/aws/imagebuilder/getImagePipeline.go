@@ -13,7 +13,6 @@ import (
 // Provides details about an Image Builder Image Pipeline.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

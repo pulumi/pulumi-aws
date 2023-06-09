@@ -11,6 +11,104 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// mytopic, err := sns.NewTopic(ctx, "mytopic", nil)
+// if err != nil {
+// return err
+// }
+// myerrortopic, err := sns.NewTopic(ctx, "myerrortopic", nil)
+// if err != nil {
+// return err
+// }
+// assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: pulumi.StringRef("Allow"),
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "Service",
+// Identifiers: []string{
+// "iot.amazonaws.com",
+// },
+// },
+// },
+// Actions: []string{
+// "sts:AssumeRole",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
+// AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iot.NewTopicRule(ctx, "rule", &iot.TopicRuleArgs{
+// Description: pulumi.String("Example rule"),
+// Enabled: pulumi.Bool(true),
+// Sql: pulumi.String("SELECT * FROM 'topic/test'"),
+// SqlVersion: pulumi.String("2016-03-23"),
+// Sns: &iot.TopicRuleSnsArgs{
+// MessageFormat: pulumi.String("RAW"),
+// RoleArn: role.Arn,
+// TargetArn: mytopic.Arn,
+// },
+// ErrorAction: &iot.TopicRuleErrorActionArgs{
+// Sns: &iot.TopicRuleErrorActionSnsArgs{
+// MessageFormat: pulumi.String("RAW"),
+// RoleArn: role.Arn,
+// TargetArn: myerrortopic.Arn,
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// iamPolicyForLambdaPolicyDocument := mytopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Effect: "Allow",
+// Actions: []string{
+// "sns:Publish",
+// },
+// Resources: interface{}{
+// arn,
+// },
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = iam.NewRolePolicy(ctx, "iamPolicyForLambdaRolePolicy", &iam.RolePolicyArgs{
+// Role: role.ID(),
+// Policy: iamPolicyForLambdaPolicyDocument.ApplyT(func(iamPolicyForLambdaPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+// return &iamPolicyForLambdaPolicyDocument.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // IoT Topic Rules can be imported using the `name`, e.g.,

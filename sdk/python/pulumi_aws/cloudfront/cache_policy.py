@@ -252,7 +252,6 @@ class CachePolicy(pulumi.CustomResource):
         ## Example Usage
 
         The following example below creates a CloudFront cache policy.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -311,7 +310,6 @@ class CachePolicy(pulumi.CustomResource):
         ## Example Usage
 
         The following example below creates a CloudFront cache policy.
-
         ```python
         import pulumi
         import pulumi_aws as aws

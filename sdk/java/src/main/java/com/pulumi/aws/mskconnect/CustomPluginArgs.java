@@ -49,12 +49,16 @@ public final class CustomPluginArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Information about the location of a custom plugin. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="location", required=true)
     private Output<CustomPluginLocationArgs> location;
 
     /**
      * @return Information about the location of a custom plugin. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<CustomPluginLocationArgs> location() {
@@ -148,6 +152,8 @@ public final class CustomPluginArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param location Information about the location of a custom plugin. See below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -158,6 +164,8 @@ public final class CustomPluginArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param location Information about the location of a custom plugin. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

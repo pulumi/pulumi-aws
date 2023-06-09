@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -143,6 +142,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("triggerTypes")]
         public Output<ImmutableArray<string>> TriggerTypes { get; private set; } = null!;
@@ -288,6 +289,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> TriggerTypes
         {
@@ -404,6 +407,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> TriggerTypes
         {

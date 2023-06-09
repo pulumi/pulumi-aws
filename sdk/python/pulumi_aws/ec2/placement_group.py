@@ -263,7 +263,6 @@ class PlacementGroup(pulumi.CustomResource):
         in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,7 +300,6 @@ class PlacementGroup(pulumi.CustomResource):
         in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -633,7 +633,6 @@ class Endpoint(pulumi.CustomResource):
         > **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -644,12 +643,12 @@ class Endpoint(pulumi.CustomResource):
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["root_cert"]["arn"],
+                root_certificate_chain_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=True,
-                cloudwatch_log_group=aws_cloudwatch_log_group["lg"]["name"],
-                cloudwatch_log_stream=aws_cloudwatch_log_stream["ls"]["name"],
+                cloudwatch_log_group=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                cloudwatch_log_stream=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 
@@ -693,7 +692,6 @@ class Endpoint(pulumi.CustomResource):
         > **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `security_groups` argument and a Client VPN endpoint resource with a `security_group_ids` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -704,12 +702,12 @@ class Endpoint(pulumi.CustomResource):
             client_cidr_block="10.0.0.0/16",
             authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
                 type="certificate-authentication",
-                root_certificate_chain_arn=aws_acm_certificate["root_cert"]["arn"],
+                root_certificate_chain_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
                 enabled=True,
-                cloudwatch_log_group=aws_cloudwatch_log_group["lg"]["name"],
-                cloudwatch_log_stream=aws_cloudwatch_log_stream["ls"]["name"],
+                cloudwatch_log_group=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                cloudwatch_log_stream=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         ```
 

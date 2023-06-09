@@ -161,12 +161,16 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
     /**
      * The Connect peer address.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="peerAddress", refs={String.class}, tree="[0]")
     private Output<String> peerAddress;
 
     /**
      * @return The Connect peer address.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> peerAddress() {

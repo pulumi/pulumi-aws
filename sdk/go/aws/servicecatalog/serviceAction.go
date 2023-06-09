@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -62,6 +61,8 @@ type ServiceAction struct {
 	// Self-service action description.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Self-service action name.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -104,6 +105,8 @@ type serviceActionState struct {
 	// Self-service action description.
 	Description *string `pulumi:"description"`
 	// Self-service action name.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 }
 
@@ -115,6 +118,8 @@ type ServiceActionState struct {
 	// Self-service action description.
 	Description pulumi.StringPtrInput
 	// Self-service action name.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 }
 
@@ -130,6 +135,8 @@ type serviceActionArgs struct {
 	// Self-service action description.
 	Description *string `pulumi:"description"`
 	// Self-service action name.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 }
 
@@ -142,6 +149,8 @@ type ServiceActionArgs struct {
 	// Self-service action description.
 	Description pulumi.StringPtrInput
 	// Self-service action name.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 }
 
@@ -248,6 +257,8 @@ func (o ServiceActionOutput) Description() pulumi.StringOutput {
 }
 
 // Self-service action name.
+//
+// The following arguments are optional:
 func (o ServiceActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

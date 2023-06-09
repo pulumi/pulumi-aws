@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// ### Python Job
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### Scala Job
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,7 +60,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### Streaming Job
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,7 +81,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### Enabling CloudWatch Logs and Metrics
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

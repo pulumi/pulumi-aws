@@ -352,12 +352,16 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     /**
      * Subnet ID to create the ENI in.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
      * @return Subnet ID to create the ENI in.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -985,6 +989,8 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         /**
          * @param subnetId Subnet ID to create the ENI in.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -995,6 +1001,8 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param subnetId Subnet ID to create the ENI in.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

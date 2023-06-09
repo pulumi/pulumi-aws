@@ -102,6 +102,8 @@ export interface GetRouteArgs {
     networkInterfaceId?: string;
     /**
      * ID of the specific Route Table containing the Route entry.
+     *
+     * The following arguments are optional:
      */
     routeTableId: string;
     /**
@@ -218,6 +220,8 @@ export interface GetRouteOutputArgs {
     networkInterfaceId?: pulumi.Input<string>;
     /**
      * ID of the specific Route Table containing the Route entry.
+     *
+     * The following arguments are optional:
      */
     routeTableId: pulumi.Input<string>;
     /**

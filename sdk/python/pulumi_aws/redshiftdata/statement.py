@@ -29,6 +29,8 @@ class StatementArgs:
         The set of arguments for constructing a Statement resource.
         :param pulumi.Input[str] database: The name of the database.
         :param pulumi.Input[str] sql: The SQL statement text to run.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         :param pulumi.Input[str] db_user: The database user name.
         :param pulumi.Input[str] secret_arn: The name or ARN of the secret that enables access to the database.
@@ -70,6 +72,8 @@ class StatementArgs:
     def sql(self) -> pulumi.Input[str]:
         """
         The SQL statement text to run.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "sql")
 
@@ -178,6 +182,8 @@ class _StatementState:
         :param pulumi.Input[str] db_user: The database user name.
         :param pulumi.Input[str] secret_arn: The name or ARN of the secret that enables access to the database.
         :param pulumi.Input[str] sql: The SQL statement text to run.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         :param pulumi.Input[bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         :param pulumi.Input[str] workgroup_name: The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
@@ -263,6 +269,8 @@ class _StatementState:
     def sql(self) -> Optional[pulumi.Input[str]]:
         """
         The SQL statement text to run.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "sql")
 
@@ -327,7 +335,6 @@ class Statement(pulumi.CustomResource):
 
         ## Example Usage
         ### cluster_identifier
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -339,7 +346,6 @@ class Statement(pulumi.CustomResource):
             sql="CREATE GROUP group_name;")
         ```
         ### workgroup_name
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -365,6 +371,8 @@ class Statement(pulumi.CustomResource):
         :param pulumi.Input[str] db_user: The database user name.
         :param pulumi.Input[str] secret_arn: The name or ARN of the secret that enables access to the database.
         :param pulumi.Input[str] sql: The SQL statement text to run.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         :param pulumi.Input[bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         :param pulumi.Input[str] workgroup_name: The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
@@ -380,7 +388,6 @@ class Statement(pulumi.CustomResource):
 
         ## Example Usage
         ### cluster_identifier
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -392,7 +399,6 @@ class Statement(pulumi.CustomResource):
             sql="CREATE GROUP group_name;")
         ```
         ### workgroup_name
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -488,6 +494,8 @@ class Statement(pulumi.CustomResource):
         :param pulumi.Input[str] db_user: The database user name.
         :param pulumi.Input[str] secret_arn: The name or ARN of the secret that enables access to the database.
         :param pulumi.Input[str] sql: The SQL statement text to run.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         :param pulumi.Input[bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         :param pulumi.Input[str] workgroup_name: The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
@@ -549,6 +557,8 @@ class Statement(pulumi.CustomResource):
     def sql(self) -> pulumi.Output[str]:
         """
         The SQL statement text to run.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "sql")
 

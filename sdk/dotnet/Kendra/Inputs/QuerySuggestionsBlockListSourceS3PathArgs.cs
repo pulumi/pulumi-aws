@@ -20,6 +20,8 @@ namespace Pulumi.Aws.Kendra.Inputs
 
         /// <summary>
         /// The name of the file.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

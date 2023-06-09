@@ -104,19 +104,18 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         Provides a Glue Data Catalog Encryption Settings resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs(
             connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(
-                aws_kms_key_id=aws_kms_key["test"]["arn"],
+                aws_kms_key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 return_connection_password_encrypted=True,
             ),
             encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
                 catalog_encryption_mode="SSE-KMS",
-                sse_aws_kms_key_id=aws_kms_key["test"]["arn"],
+                sse_aws_kms_key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
         ))
         ```
@@ -144,19 +143,18 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         Provides a Glue Data Catalog Encryption Settings resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs(
             connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(
-                aws_kms_key_id=aws_kms_key["test"]["arn"],
+                aws_kms_key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 return_connection_password_encrypted=True,
             ),
             encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
                 catalog_encryption_mode="SSE-KMS",
-                sse_aws_kms_key_id=aws_kms_key["test"]["arn"],
+                sse_aws_kms_key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
         ))
         ```

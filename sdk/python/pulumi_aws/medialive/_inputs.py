@@ -8588,6 +8588,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
                  selector_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs']] = None):
         """
         :param pulumi.Input[str] name: Name of the Channel.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "name", name)
         if selector_settings is not None:
@@ -8598,6 +8600,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
     def name(self) -> pulumi.Input[str]:
         """
         Name of the Channel.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -8675,6 +8679,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
                  name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: Name of the Channel.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "name", name)
@@ -8693,6 +8699,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
     def name(self) -> pulumi.Input[str]:
         """
         Name of the Channel.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -8791,6 +8799,8 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
                  selector_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs']] = None):
         """
         :param pulumi.Input[str] name: Name of the Channel.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
         """
         pulumi.set(__self__, "name", name)
@@ -8804,6 +8814,8 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
     def name(self) -> pulumi.Input[str]:
         """
         Name of the Channel.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

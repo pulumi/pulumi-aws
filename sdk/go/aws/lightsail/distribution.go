@@ -17,7 +17,6 @@ import (
 // ### Basic Usage
 //
 // Below is a basic example with a bucket as an origin.
-//
 // ```go
 // package main
 //
@@ -73,7 +72,6 @@ import (
 // ### instance origin example
 //
 // Below is an example of an instance as the origin.
-//
 // ```go
 // package main
 //
@@ -142,8 +140,7 @@ import (
 // ```
 // ### lb origin example
 //
-// # Below is an example with a load balancer as an origin
-//
+// Below is an example with a load balancer as an origin
 // ```go
 // package main
 //
@@ -236,6 +233,8 @@ type Distribution struct {
 	// Bundle ID to use for the distribution.
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
 	// An object that describes the cache behavior settings of the distribution. Detailed below
+	//
+	// The following arguments are optional:
 	CacheBehaviorSettings DistributionCacheBehaviorSettingsPtrOutput `pulumi:"cacheBehaviorSettings"`
 	// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
 	CacheBehaviors DistributionCacheBehaviorArrayOutput `pulumi:"cacheBehaviors"`
@@ -319,6 +318,8 @@ type distributionState struct {
 	// Bundle ID to use for the distribution.
 	BundleId *string `pulumi:"bundleId"`
 	// An object that describes the cache behavior settings of the distribution. Detailed below
+	//
+	// The following arguments are optional:
 	CacheBehaviorSettings *DistributionCacheBehaviorSettings `pulumi:"cacheBehaviorSettings"`
 	// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
 	CacheBehaviors []DistributionCacheBehavior `pulumi:"cacheBehaviors"`
@@ -365,6 +366,8 @@ type DistributionState struct {
 	// Bundle ID to use for the distribution.
 	BundleId pulumi.StringPtrInput
 	// An object that describes the cache behavior settings of the distribution. Detailed below
+	//
+	// The following arguments are optional:
 	CacheBehaviorSettings DistributionCacheBehaviorSettingsPtrInput
 	// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
 	CacheBehaviors DistributionCacheBehaviorArrayInput
@@ -411,6 +414,8 @@ type distributionArgs struct {
 	// Bundle ID to use for the distribution.
 	BundleId string `pulumi:"bundleId"`
 	// An object that describes the cache behavior settings of the distribution. Detailed below
+	//
+	// The following arguments are optional:
 	CacheBehaviorSettings *DistributionCacheBehaviorSettings `pulumi:"cacheBehaviorSettings"`
 	// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
 	CacheBehaviors []DistributionCacheBehavior `pulumi:"cacheBehaviors"`
@@ -438,6 +443,8 @@ type DistributionArgs struct {
 	// Bundle ID to use for the distribution.
 	BundleId pulumi.StringInput
 	// An object that describes the cache behavior settings of the distribution. Detailed below
+	//
+	// The following arguments are optional:
 	CacheBehaviorSettings DistributionCacheBehaviorSettingsPtrInput
 	// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
 	CacheBehaviors DistributionCacheBehaviorArrayInput
@@ -563,6 +570,8 @@ func (o DistributionOutput) BundleId() pulumi.StringOutput {
 }
 
 // An object that describes the cache behavior settings of the distribution. Detailed below
+//
+// The following arguments are optional:
 func (o DistributionOutput) CacheBehaviorSettings() DistributionCacheBehaviorSettingsPtrOutput {
 	return o.ApplyT(func(v *Distribution) DistributionCacheBehaviorSettingsPtrOutput { return v.CacheBehaviorSettings }).(DistributionCacheBehaviorSettingsPtrOutput)
 }

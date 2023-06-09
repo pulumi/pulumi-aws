@@ -41,12 +41,20 @@ public final class GetLogDataProtectionPolicyDocumentPlainArgs extends com.pulum
     /**
      * Configures the data protection policy.
      * 
+     * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+     * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="statements", required=true)
     private List<GetLogDataProtectionPolicyDocumentStatement> statements;
 
     /**
      * @return Configures the data protection policy.
+     * 
+     * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+     * 
+     * The following arguments are optional:
      * 
      */
     public List<GetLogDataProtectionPolicyDocumentStatement> statements() {
@@ -106,6 +114,10 @@ public final class GetLogDataProtectionPolicyDocumentPlainArgs extends com.pulum
         /**
          * @param statements Configures the data protection policy.
          * 
+         * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+         * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -116,6 +128,10 @@ public final class GetLogDataProtectionPolicyDocumentPlainArgs extends com.pulum
 
         /**
          * @param statements Configures the data protection policy.
+         * 
+         * &gt; There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

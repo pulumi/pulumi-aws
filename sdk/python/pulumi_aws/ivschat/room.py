@@ -290,7 +290,6 @@ class Room(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,7 +297,6 @@ class Room(pulumi.CustomResource):
         example = aws.ivschat.Room("example")
         ```
         ## Usage with Logging Configuration to S3 Bucket
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -347,7 +345,6 @@ class Room(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -355,7 +352,6 @@ class Room(pulumi.CustomResource):
         example = aws.ivschat.Room("example")
         ```
         ## Usage with Logging Configuration to S3 Bucket
-
         ```python
         import pulumi
         import pulumi_aws as aws

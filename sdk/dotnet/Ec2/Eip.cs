@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### Single EIP associated with an instance
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Multiple EIPs associated with a single network interface
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -72,7 +70,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -129,7 +126,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Allocating EIP from the BYOIP pool
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -276,6 +272,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Boolean if the EIP is in a VPC or not.
         /// Defaults to `true` unless the region supports EC2-Classic.
+        /// 
+        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+        /// 
+        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
+        /// case both options are defined as the api only requires one or the other.
         /// </summary>
         [Output("vpc")]
         public Output<bool> Vpc { get; private set; } = null!;
@@ -384,6 +385,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Boolean if the EIP is in a VPC or not.
         /// Defaults to `true` unless the region supports EC2-Classic.
+        /// 
+        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+        /// 
+        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
+        /// case both options are defined as the api only requires one or the other.
         /// </summary>
         [Input("vpc")]
         public Input<bool>? Vpc { get; set; }
@@ -520,6 +526,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Boolean if the EIP is in a VPC or not.
         /// Defaults to `true` unless the region supports EC2-Classic.
+        /// 
+        /// &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+        /// 
+        /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
+        /// case both options are defined as the api only requires one or the other.
         /// </summary>
         [Input("vpc")]
         public Input<bool>? Vpc { get; set; }

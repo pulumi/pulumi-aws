@@ -269,7 +269,6 @@ class SubnetGroup(pulumi.CustomResource):
         Provides an RDS DB subnet group resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,7 +309,6 @@ class SubnetGroup(pulumi.CustomResource):
         Provides an RDS DB subnet group resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -14,7 +14,6 @@ import (
 // Resource for managing QuickSight Group
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

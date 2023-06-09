@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Efs
     /// Provides an Elastic File System (EFS) File System Policy resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -102,6 +101,8 @@ namespace Pulumi.Aws.Efs
 
         /// <summary>
         /// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -166,6 +167,8 @@ namespace Pulumi.Aws.Efs
 
         /// <summary>
         /// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -192,6 +195,8 @@ namespace Pulumi.Aws.Efs
 
         /// <summary>
         /// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

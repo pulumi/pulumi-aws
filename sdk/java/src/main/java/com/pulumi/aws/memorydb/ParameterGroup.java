@@ -99,12 +99,16 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
     /**
      * The engine version that the parameter group can be used with.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
     /**
      * @return The engine version that the parameter group can be used with.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> family() {

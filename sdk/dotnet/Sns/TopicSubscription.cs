@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Sns
     /// ## Example Usage
     /// 
     /// You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Aws.Sns
     /// ```
     /// 
     /// Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,7 +67,6 @@ namespace Pulumi.Aws.Sns
     /// ```
     /// 
     /// You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -386,6 +383,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// ARN of the SNS topic to subscribe to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("topic")]
         public Output<string> Topic { get; private set; } = null!;
@@ -498,6 +497,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// ARN of the SNS topic to subscribe to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("topic", required: true)]
         public Input<string> Topic { get; set; } = null!;
@@ -596,6 +597,8 @@ namespace Pulumi.Aws.Sns
 
         /// <summary>
         /// ARN of the SNS topic to subscribe to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("topic")]
         public Input<string>? Topic { get; set; }

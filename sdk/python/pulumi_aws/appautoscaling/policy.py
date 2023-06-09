@@ -300,7 +300,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
         ### DynamoDB Table Autoscaling
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -324,7 +323,6 @@ class Policy(pulumi.CustomResource):
             ))
         ```
         ### ECS Service Autoscaling
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -351,7 +349,6 @@ class Policy(pulumi.CustomResource):
             ))
         ```
         ### Preserve desired count when updating an autoscaled ECS Service
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -362,7 +359,6 @@ class Policy(pulumi.CustomResource):
             desired_count=2)
         ```
         ### Aurora Read Replica Autoscaling
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,7 +384,6 @@ class Policy(pulumi.CustomResource):
             ))
         ```
         ### Create target tracking scaling policy using metric math
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -457,7 +452,6 @@ class Policy(pulumi.CustomResource):
             ))
         ```
         ### MSK / Kafka Autoscaling
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -510,7 +504,6 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
         ### DynamoDB Table Autoscaling
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -534,7 +527,6 @@ class Policy(pulumi.CustomResource):
             ))
         ```
         ### ECS Service Autoscaling
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -561,7 +553,6 @@ class Policy(pulumi.CustomResource):
             ))
         ```
         ### Preserve desired count when updating an autoscaled ECS Service
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -572,7 +563,6 @@ class Policy(pulumi.CustomResource):
             desired_count=2)
         ```
         ### Aurora Read Replica Autoscaling
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -598,7 +588,6 @@ class Policy(pulumi.CustomResource):
             ))
         ```
         ### Create target tracking scaling policy using metric math
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -667,7 +656,6 @@ class Policy(pulumi.CustomResource):
             ))
         ```
         ### MSK / Kafka Autoscaling
-
         ```python
         import pulumi
         import pulumi_aws as aws

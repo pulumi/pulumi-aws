@@ -24,6 +24,8 @@ class FunctionEventInvokeConfigArgs:
         """
         The set of arguments for constructing a FunctionEventInvokeConfig resource.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+               
+               The following arguments are optional:
         :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs'] destination_config: Configuration block with destination configuration. See below for details.
         :param pulumi.Input[int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
@@ -44,6 +46,8 @@ class FunctionEventInvokeConfigArgs:
     def function_name(self) -> pulumi.Input[str]:
         """
         Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "function_name")
 
@@ -112,6 +116,8 @@ class _FunctionEventInvokeConfigState:
         Input properties used for looking up and filtering FunctionEventInvokeConfig resources.
         :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs'] destination_config: Configuration block with destination configuration. See below for details.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
@@ -144,6 +150,8 @@ class _FunctionEventInvokeConfigState:
     def function_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "function_name")
 
@@ -206,7 +214,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         ### Destination Configuration
 
         > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,15 +222,14 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=aws_lambda_alias["example"]["function_name"],
             destination_config=aws.lambda_.FunctionEventInvokeConfigDestinationConfigArgs(
                 on_failure=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnFailureArgs(
-                    destination=aws_sqs_queue["example"]["arn"],
+                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 on_success=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs(
-                    destination=aws_sns_topic["example"]["arn"],
+                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ))
         ```
         ### Error Handling Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,7 +240,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             maximum_retry_attempts=0)
         ```
         ### Configuration for Alias Name
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,7 +250,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         # ... other configuration ...
         ```
         ### Configuration for Function Latest Unpublished Version
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,7 +260,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         # ... other configuration ...
         ```
         ### Configuration for Function Published Version
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,6 +300,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']] destination_config: Configuration block with destination configuration. See below for details.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
@@ -314,7 +319,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         ### Destination Configuration
 
         > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,15 +327,14 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=aws_lambda_alias["example"]["function_name"],
             destination_config=aws.lambda_.FunctionEventInvokeConfigDestinationConfigArgs(
                 on_failure=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnFailureArgs(
-                    destination=aws_sqs_queue["example"]["arn"],
+                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 on_success=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs(
-                    destination=aws_sns_topic["example"]["arn"],
+                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ))
         ```
         ### Error Handling Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,7 +345,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             maximum_retry_attempts=0)
         ```
         ### Configuration for Alias Name
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,7 +355,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         # ... other configuration ...
         ```
         ### Configuration for Function Latest Unpublished Version
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -364,7 +365,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         # ... other configuration ...
         ```
         ### Configuration for Function Published Version
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -461,6 +461,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']] destination_config: Configuration block with destination configuration. See below for details.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
@@ -489,6 +491,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
     def function_name(self) -> pulumi.Output[str]:
         """
         Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "function_name")
 

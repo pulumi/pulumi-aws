@@ -35,12 +35,16 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
     /**
      * Set of 1-5 target group blocks. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="targetGroups", required=true)
     private Output<List<ListenerDefaultActionForwardTargetGroupArgs>> targetGroups;
 
     /**
      * @return Set of 1-5 target group blocks. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<ListenerDefaultActionForwardTargetGroupArgs>> targetGroups() {
@@ -96,6 +100,8 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
         /**
          * @param targetGroups Set of 1-5 target group blocks. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -107,6 +113,8 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
         /**
          * @param targetGroups Set of 1-5 target group blocks. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -116,6 +124,8 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
 
         /**
          * @param targetGroups Set of 1-5 target group blocks. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

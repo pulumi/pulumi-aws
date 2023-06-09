@@ -44,6 +44,8 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] acl_name: The name of the Access Control List to associate with the cluster.
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] auto_minor_version_upgrade: When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
         :param pulumi.Input[bool] data_tiering: Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
         :param pulumi.Input[str] description: Description for the cluster.
@@ -131,6 +133,8 @@ class ClusterArgs:
     def node_type(self) -> pulumi.Input[str]:
         """
         The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "node_type")
 
@@ -450,6 +454,8 @@ class _ClusterState:
         :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+               
+               The following arguments are optional:
         :param pulumi.Input[int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
         :param pulumi.Input[int] num_shards: The number of shards in the cluster. Defaults to `1`.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
@@ -683,6 +689,8 @@ class _ClusterState:
     def node_type(self) -> Optional[pulumi.Input[str]]:
         """
         The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "node_type")
 
@@ -907,7 +915,6 @@ class Cluster(pulumi.CustomResource):
         More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -942,6 +949,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+               
+               The following arguments are optional:
         :param pulumi.Input[int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
         :param pulumi.Input[int] num_shards: The number of shards in the cluster. Defaults to `1`.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
@@ -968,7 +977,6 @@ class Cluster(pulumi.CustomResource):
         More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1130,6 +1138,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+               
+               The following arguments are optional:
         :param pulumi.Input[int] num_replicas_per_shard: The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
         :param pulumi.Input[int] num_shards: The number of shards in the cluster. Defaults to `1`.
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
@@ -1287,6 +1297,8 @@ class Cluster(pulumi.CustomResource):
     def node_type(self) -> pulumi.Output[str]:
         """
         The compute and memory capacity of the nodes in the cluster. See AWS documentation on [supported node types](https://docs.aws.amazon.com/memorydb/latest/devguide/nodes.supportedtypes.html) as well as [vertical scaling](https://docs.aws.amazon.com/memorydb/latest/devguide/cluster-vertical-scaling.html).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "node_type")
 

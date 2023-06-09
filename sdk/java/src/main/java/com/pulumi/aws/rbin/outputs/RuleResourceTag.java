@@ -14,6 +14,8 @@ public final class RuleResourceTag {
     /**
      * @return The tag key.
      * 
+     * The following argument is optional:
+     * 
      */
     private String resourceTagKey;
     /**
@@ -25,6 +27,8 @@ public final class RuleResourceTag {
     private RuleResourceTag() {}
     /**
      * @return The tag key.
+     * 
+     * The following argument is optional:
      * 
      */
     public String resourceTagKey() {

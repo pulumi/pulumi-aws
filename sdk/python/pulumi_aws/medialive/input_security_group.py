@@ -21,6 +21,8 @@ class InputSecurityGroupArgs:
         """
         The set of arguments for constructing a InputSecurityGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "whitelist_rules", whitelist_rules)
@@ -32,6 +34,8 @@ class InputSecurityGroupArgs:
     def whitelist_rules(self) -> pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]]:
         """
         Whitelist rules. See Whitelist Rules for more details.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "whitelist_rules")
 
@@ -66,6 +70,8 @@ class _InputSecurityGroupState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: The list of inputs currently using this InputSecurityGroup.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -128,6 +134,8 @@ class _InputSecurityGroupState:
     def whitelist_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupWhitelistRuleArgs']]]]:
         """
         Whitelist rules. See Whitelist Rules for more details.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "whitelist_rules")
 
@@ -149,7 +157,6 @@ class InputSecurityGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -175,6 +182,8 @@ class InputSecurityGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSecurityGroupWhitelistRuleArgs']]]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -187,7 +196,6 @@ class InputSecurityGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,6 +276,8 @@ class InputSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: The list of inputs currently using this InputSecurityGroup.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSecurityGroupWhitelistRuleArgs']]]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -314,6 +324,8 @@ class InputSecurityGroup(pulumi.CustomResource):
     def whitelist_rules(self) -> pulumi.Output[Sequence['outputs.InputSecurityGroupWhitelistRule']]:
         """
         Whitelist rules. See Whitelist Rules for more details.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "whitelist_rules")
 

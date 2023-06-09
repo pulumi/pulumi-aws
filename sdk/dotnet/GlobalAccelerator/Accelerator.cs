@@ -13,7 +13,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// Creates a Global Accelerator accelerator.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,6 +109,8 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **attributes** supports the following attributes:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -207,6 +208,8 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **attributes** supports the following attributes:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -295,6 +298,8 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **attributes** supports the following attributes:
         /// </summary>
         public InputMap<string> Tags
         {

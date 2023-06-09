@@ -234,12 +234,16 @@ public final class TrailState extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the S3 bucket designated for publishing log files.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="s3BucketName")
     private @Nullable Output<String> s3BucketName;
 
     /**
      * @return Name of the S3 bucket designated for publishing log files.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> s3BucketName() {
@@ -675,6 +679,8 @@ public final class TrailState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param s3BucketName Name of the S3 bucket designated for publishing log files.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -685,6 +691,8 @@ public final class TrailState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param s3BucketName Name of the S3 bucket designated for publishing log files.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### By Transit Gateway Identifier
-//
 // ```go
 // package main
 //
@@ -50,8 +49,13 @@ func GetRouteTablePropagations(ctx *pulumi.Context, args *GetRouteTablePropagati
 // A collection of arguments for invoking getRouteTablePropagations.
 type GetRouteTablePropagationsArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetRouteTablePropagationsFilter `pulumi:"filters"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -81,8 +85,13 @@ func GetRouteTablePropagationsOutput(ctx *pulumi.Context, args GetRouteTableProp
 // A collection of arguments for invoking getRouteTablePropagations.
 type GetRouteTablePropagationsOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetRouteTablePropagationsFilterArrayInput `pulumi:"filters"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringInput `pulumi:"transitGatewayRouteTableId"`
 }
 

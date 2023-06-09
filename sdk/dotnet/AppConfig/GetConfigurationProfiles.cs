@@ -17,6 +17,30 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const exampleConfigurationProfiles = aws.appconfig.getConfigurationProfiles({
+        ///     applicationId: "a1d3rpe",
+        /// });
+        /// const exampleConfigurationProfile = exampleConfigurationProfiles.then(exampleConfigurationProfiles =&gt; .map(([, ]) =&gt; (aws.appconfig.getConfigurationProfile({
+        ///     configurationProfileId: __value,
+        ///     applicationId: aws_appconfig_application.example.id,
+        /// }))));
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example_configuration_profiles = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
+        /// example_configuration_profile = [aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
+        ///     application_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)) for __key, __value in example_configuration_profiles.configuration_profile_ids]
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfigurationProfilesResult> InvokeAsync(GetConfigurationProfilesArgs args, InvokeOptions? options = null)
@@ -28,6 +52,30 @@ namespace Pulumi.Aws.AppConfig
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const exampleConfigurationProfiles = aws.appconfig.getConfigurationProfiles({
+        ///     applicationId: "a1d3rpe",
+        /// });
+        /// const exampleConfigurationProfile = exampleConfigurationProfiles.then(exampleConfigurationProfiles =&gt; .map(([, ]) =&gt; (aws.appconfig.getConfigurationProfile({
+        ///     configurationProfileId: __value,
+        ///     applicationId: aws_appconfig_application.example.id,
+        /// }))));
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example_configuration_profiles = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
+        /// example_configuration_profile = [aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
+        ///     application_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)) for __key, __value in example_configuration_profiles.configuration_profile_ids]
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConfigurationProfilesResult> Invoke(GetConfigurationProfilesInvokeArgs args, InvokeOptions? options = null)

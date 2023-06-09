@@ -14,6 +14,8 @@ public final class InfrastructureConfigurationLoggingS3Logs {
     /**
      * @return Name of the S3 Bucket.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String s3BucketName;
     /**
@@ -25,6 +27,8 @@ public final class InfrastructureConfigurationLoggingS3Logs {
     private InfrastructureConfigurationLoggingS3Logs() {}
     /**
      * @return Name of the S3 Bucket.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String s3BucketName() {

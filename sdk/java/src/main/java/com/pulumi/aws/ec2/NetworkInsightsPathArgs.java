@@ -65,12 +65,16 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
      * @return Protocol to use for analysis. Valid options are `tcp` or `udp`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> protocol() {
@@ -218,6 +222,8 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
         /**
          * @param protocol Protocol to use for analysis. Valid options are `tcp` or `udp`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -228,6 +234,8 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
 
         /**
          * @param protocol Protocol to use for analysis. Valid options are `tcp` or `udp`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -104,7 +104,6 @@ class SecurityConfiguration(pulumi.CustomResource):
         Manages a Glue Security Configuration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -117,7 +116,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                 job_bookmarks_encryption_mode="DISABLED",
             ),
             s3_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs(
-                kms_key_arn=data["aws_kms_key"]["example"]["arn"],
+                kms_key_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 s3_encryption_mode="SSE-KMS",
             ),
         ))
@@ -146,7 +145,6 @@ class SecurityConfiguration(pulumi.CustomResource):
         Manages a Glue Security Configuration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -159,7 +157,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                 job_bookmarks_encryption_mode="DISABLED",
             ),
             s3_encryption=aws.glue.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs(
-                kms_key_arn=data["aws_kms_key"]["example"]["arn"],
+                kms_key_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 s3_encryption_mode="SSE-KMS",
             ),
         ))

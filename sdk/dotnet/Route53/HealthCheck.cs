@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// ### Connectivity and HTTP Status Code Check
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,7 +39,6 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// ### Connectivity and String Matching Check
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,7 +61,6 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// ### Aggregate Check
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,7 +86,6 @@ namespace Pulumi.Aws.Route53
     /// });
     /// ```
     /// ### CloudWatch Alarm Check
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -167,6 +163,8 @@ namespace Pulumi.Aws.Route53
         /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
         /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+        /// 
+        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
         /// </summary>
         [Output("disabled")]
         public Output<bool?> Disabled { get; private set; } = null!;
@@ -355,6 +353,8 @@ namespace Pulumi.Aws.Route53
         /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
         /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+        /// 
+        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }
@@ -517,6 +517,8 @@ namespace Pulumi.Aws.Route53
         /// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
         /// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
         /// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+        /// 
+        /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
         /// </summary>
         [Input("disabled")]
         public Input<bool>? Disabled { get; set; }

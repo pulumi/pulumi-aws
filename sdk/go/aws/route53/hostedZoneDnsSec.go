@@ -16,7 +16,6 @@ import (
 // !> **WARNING:** If you disable DNSSEC signing for your hosted zone before the DNS changes have propagated, your domain could become unavailable on the internet. When you remove the DS records, you must wait until the longest TTL for the DS records that you remove has expired before you complete the step to disable DNSSEC signing. Please refer to the [Route 53 Developer Guide - Disable DNSSEC](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-disable.html) for a detailed breakdown on the steps required to disable DNSSEC safely for a hosted zone.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -117,6 +116,8 @@ type HostedZoneDnsSec struct {
 	pulumi.CustomResourceState
 
 	// Identifier of the Route 53 Hosted Zone.
+	//
+	// The following arguments are optional:
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus pulumi.StringPtrOutput `pulumi:"signingStatus"`
@@ -155,6 +156,8 @@ func GetHostedZoneDnsSec(ctx *pulumi.Context,
 // Input properties used for looking up and filtering HostedZoneDnsSec resources.
 type hostedZoneDnsSecState struct {
 	// Identifier of the Route 53 Hosted Zone.
+	//
+	// The following arguments are optional:
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus *string `pulumi:"signingStatus"`
@@ -162,6 +165,8 @@ type hostedZoneDnsSecState struct {
 
 type HostedZoneDnsSecState struct {
 	// Identifier of the Route 53 Hosted Zone.
+	//
+	// The following arguments are optional:
 	HostedZoneId pulumi.StringPtrInput
 	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus pulumi.StringPtrInput
@@ -173,6 +178,8 @@ func (HostedZoneDnsSecState) ElementType() reflect.Type {
 
 type hostedZoneDnsSecArgs struct {
 	// Identifier of the Route 53 Hosted Zone.
+	//
+	// The following arguments are optional:
 	HostedZoneId string `pulumi:"hostedZoneId"`
 	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus *string `pulumi:"signingStatus"`
@@ -181,6 +188,8 @@ type hostedZoneDnsSecArgs struct {
 // The set of arguments for constructing a HostedZoneDnsSec resource.
 type HostedZoneDnsSecArgs struct {
 	// Identifier of the Route 53 Hosted Zone.
+	//
+	// The following arguments are optional:
 	HostedZoneId pulumi.StringInput
 	// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
 	SigningStatus pulumi.StringPtrInput
@@ -274,6 +283,8 @@ func (o HostedZoneDnsSecOutput) ToHostedZoneDnsSecOutputWithContext(ctx context.
 }
 
 // Identifier of the Route 53 Hosted Zone.
+//
+// The following arguments are optional:
 func (o HostedZoneDnsSecOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedZoneDnsSec) pulumi.StringOutput { return v.HostedZoneId }).(pulumi.StringOutput)
 }

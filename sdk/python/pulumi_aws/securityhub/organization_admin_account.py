@@ -69,7 +69,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -106,7 +105,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

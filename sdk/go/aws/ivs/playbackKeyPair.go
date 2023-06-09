@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -69,6 +68,8 @@ type PlaybackKeyPair struct {
 	// Playback Key Pair name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+	//
+	// The following arguments are optional:
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -115,6 +116,8 @@ type playbackKeyPairState struct {
 	// Playback Key Pair name.
 	Name *string `pulumi:"name"`
 	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+	//
+	// The following arguments are optional:
 	PublicKey *string `pulumi:"publicKey"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -130,6 +133,8 @@ type PlaybackKeyPairState struct {
 	// Playback Key Pair name.
 	Name pulumi.StringPtrInput
 	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+	//
+	// The following arguments are optional:
 	PublicKey pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -145,6 +150,8 @@ type playbackKeyPairArgs struct {
 	// Playback Key Pair name.
 	Name *string `pulumi:"name"`
 	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+	//
+	// The following arguments are optional:
 	PublicKey string `pulumi:"publicKey"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -155,6 +162,8 @@ type PlaybackKeyPairArgs struct {
 	// Playback Key Pair name.
 	Name pulumi.StringPtrInput
 	// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+	//
+	// The following arguments are optional:
 	PublicKey pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -263,6 +272,8 @@ func (o PlaybackKeyPairOutput) Name() pulumi.StringOutput {
 }
 
 // Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+//
+// The following arguments are optional:
 func (o PlaybackKeyPairOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
 }

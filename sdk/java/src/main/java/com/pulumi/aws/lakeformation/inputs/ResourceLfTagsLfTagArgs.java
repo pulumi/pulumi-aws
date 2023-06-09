@@ -48,12 +48,16 @@ public final class ResourceLfTagsLfTagArgs extends com.pulumi.resources.Resource
     /**
      * Value from the possible values for the LF-tag.
      * 
+     * The following argument is optional:
+     * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
      * @return Value from the possible values for the LF-tag.
+     * 
+     * The following argument is optional:
      * 
      */
     public Output<String> value() {
@@ -131,6 +135,8 @@ public final class ResourceLfTagsLfTagArgs extends com.pulumi.resources.Resource
         /**
          * @param value Value from the possible values for the LF-tag.
          * 
+         * The following argument is optional:
+         * 
          * @return builder
          * 
          */
@@ -141,6 +147,8 @@ public final class ResourceLfTagsLfTagArgs extends com.pulumi.resources.Resource
 
         /**
          * @param value Value from the possible values for the LF-tag.
+         * 
+         * The following argument is optional:
          * 
          * @return builder
          * 

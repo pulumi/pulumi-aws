@@ -84,6 +84,8 @@ export class ConnectPeer extends pulumi.CustomResource {
     public readonly insideCidrBlocks!: pulumi.Output<string[]>;
     /**
      * The Connect peer address.
+     *
+     * The following arguments are optional:
      */
     public readonly peerAddress!: pulumi.Output<string>;
     /**
@@ -197,6 +199,8 @@ export interface ConnectPeerState {
     insideCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Connect peer address.
+     *
+     * The following arguments are optional:
      */
     peerAddress?: pulumi.Input<string>;
     /**
@@ -235,6 +239,8 @@ export interface ConnectPeerArgs {
     insideCidrBlocks: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Connect peer address.
+     *
+     * The following arguments are optional:
      */
     peerAddress: pulumi.Input<string>;
     /**

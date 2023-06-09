@@ -78,6 +78,8 @@ class SpotInstanceRequestArgs:
                The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
                Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
         :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+               
+               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input['SpotInstanceRequestCpuOptionsArgs'] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -113,6 +115,8 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group names to associate with.
+               
+               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] spot_price: The maximum price to request on the spot market.
         :param pulumi.Input[str] spot_type: If set to `one-time`, after
@@ -126,6 +130,8 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         :param pulumi.Input[str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
+               
+               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         :param pulumi.Input[bool] wait_for_fulfillment: If set, this provider will
                wait for the Spot Request to be fulfilled, and will throw an error if the
@@ -299,6 +305,8 @@ class SpotInstanceRequestArgs:
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']]:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+
+        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
@@ -708,6 +716,8 @@ class SpotInstanceRequestArgs:
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of security group names to associate with.
+
+        > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
         return pulumi.get(self, "security_groups")
 
@@ -853,6 +863,8 @@ class SpotInstanceRequestArgs:
     def volume_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags to assign, at instance-creation time, to root and EBS volumes.
+
+        > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         """
         return pulumi.get(self, "volume_tags")
 
@@ -964,6 +976,8 @@ class _SpotInstanceRequestState:
                The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
                Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
         :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+               
+               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input['SpotInstanceRequestCpuOptionsArgs'] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -1005,6 +1019,8 @@ class _SpotInstanceRequestState:
         :param pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group names to associate with.
+               
+               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] spot_bid_status: The current [bid
                status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
@@ -1027,6 +1043,8 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         :param pulumi.Input[str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
+               
+               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         :param pulumi.Input[bool] wait_for_fulfillment: If set, this provider will
                wait for the Spot Request to be fulfilled, and will throw an error if the
@@ -1233,6 +1251,8 @@ class _SpotInstanceRequestState:
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs']]:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+
+        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
@@ -1717,6 +1737,8 @@ class _SpotInstanceRequestState:
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of security group names to associate with.
+
+        > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
         return pulumi.get(self, "security_groups")
 
@@ -1915,6 +1937,8 @@ class _SpotInstanceRequestState:
     def volume_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags to assign, at instance-creation time, to root and EBS volumes.
+
+        > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         """
         return pulumi.get(self, "volume_tags")
 
@@ -2033,7 +2057,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
         for more information.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2057,6 +2080,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
                The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
                Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+               
+               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCpuOptionsArgs']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -2092,6 +2117,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group names to associate with.
+               
+               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] spot_price: The maximum price to request on the spot market.
         :param pulumi.Input[str] spot_type: If set to `one-time`, after
@@ -2105,6 +2132,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         :param pulumi.Input[str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
+               
+               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         :param pulumi.Input[bool] wait_for_fulfillment: If set, this provider will
                wait for the Spot Request to be fulfilled, and will throw an error if the
@@ -2141,7 +2170,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
         for more information.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2393,6 +2421,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
                The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
                Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+               
+               > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCpuOptionsArgs']] cpu_options: The CPU options for the instance. See CPU Options below for more details.
         :param pulumi.Input[int] cpu_threads_per_core: If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -2434,6 +2464,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group names to associate with.
+               
+               > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] spot_bid_status: The current [bid
                status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
@@ -2456,6 +2488,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         :param pulumi.Input[str] valid_until: The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: Map of tags to assign, at instance-creation time, to root and EBS volumes.
+               
+               > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of security group IDs to associate with.
         :param pulumi.Input[bool] wait_for_fulfillment: If set, this provider will
                wait for the Spot Request to be fulfilled, and will throw an error if the
@@ -2576,6 +2610,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
     def capacity_reservation_specification(self) -> pulumi.Output['outputs.SpotInstanceRequestCapacityReservationSpecification']:
         """
         Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+
+        > **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
@@ -2896,6 +2932,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
     def security_groups(self) -> pulumi.Output[Sequence[str]]:
         """
         List of security group names to associate with.
+
+        > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
         return pulumi.get(self, "security_groups")
 
@@ -3030,6 +3068,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
     def volume_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Map of tags to assign, at instance-creation time, to root and EBS volumes.
+
+        > **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         """
         return pulumi.get(self, "volume_tags")
 

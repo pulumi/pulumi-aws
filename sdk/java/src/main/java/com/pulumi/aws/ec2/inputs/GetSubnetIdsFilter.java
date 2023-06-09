@@ -17,6 +17,37 @@ public final class GetSubnetIdsFilter extends com.pulumi.resources.InvokeArgs {
      * Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * For example, if matching against tag `Name`, use:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
+     *             .filters(GetSubnetIdsFilterArgs.builder()
+     *                 .name(&#34;tag:Name&#34;)
+     *                 .values(&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     @Import(name="name", required=true)
@@ -26,6 +57,37 @@ public final class GetSubnetIdsFilter extends com.pulumi.resources.InvokeArgs {
      * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
      * For example, if matching against tag `Name`, use:
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var selected = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
+     *             .filters(GetSubnetIdsFilterArgs.builder()
+     *                 .name(&#34;tag:Name&#34;)
+     *                 .values(&#34;&#34;)
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public String name() {
@@ -78,6 +140,37 @@ public final class GetSubnetIdsFilter extends com.pulumi.resources.InvokeArgs {
          * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.ec2.Ec2Functions;
+         * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         final var selected = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
+         *             .filters(GetSubnetIdsFilterArgs.builder()
+         *                 .name(&#34;tag:Name&#34;)
+         *                 .values(&#34;&#34;)
+         *                 .build())
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 

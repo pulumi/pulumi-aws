@@ -13,7 +13,6 @@ import (
 // Provides a WAF Regional Size Constraint Set Resource for use with Application Load Balancer.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

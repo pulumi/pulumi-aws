@@ -23,6 +23,8 @@ public final class GetPermissionsLfTag {
     /**
      * @return List of possible values an attribute can take.
      * 
+     * The following argument is optional:
+     * 
      */
     private List<String> values;
 
@@ -43,6 +45,8 @@ public final class GetPermissionsLfTag {
     }
     /**
      * @return List of possible values an attribute can take.
+     * 
+     * The following argument is optional:
      * 
      */
     public List<String> values() {

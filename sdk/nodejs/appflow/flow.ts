@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppFlow flow resource.
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * AppFlow flows can be imported using the `arn`, e.g.

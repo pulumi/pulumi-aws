@@ -169,12 +169,16 @@ public class Rule extends com.pulumi.resources.CustomResource {
     /**
      * Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="retentionPeriod", refs={RuleRetentionPeriod.class}, tree="[0]")
     private Output<RuleRetentionPeriod> retentionPeriod;
 
     /**
      * @return Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<RuleRetentionPeriod> retentionPeriod() {

@@ -99,7 +99,6 @@ def get_portfolio_constraints(accept_language: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -110,6 +109,8 @@ def get_portfolio_constraints(accept_language: Optional[str] = None,
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str portfolio_id: Portfolio identifier.
+           
+           The following arguments are optional:
     :param str product_id: Product identifier.
     """
     __args__ = dict()
@@ -137,7 +138,6 @@ def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Opti
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -148,6 +148,8 @@ def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Opti
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str portfolio_id: Portfolio identifier.
+           
+           The following arguments are optional:
     :param str product_id: Product identifier.
     """
     ...

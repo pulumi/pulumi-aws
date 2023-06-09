@@ -175,12 +175,16 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> type() {
@@ -460,6 +464,8 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -470,6 +476,8 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

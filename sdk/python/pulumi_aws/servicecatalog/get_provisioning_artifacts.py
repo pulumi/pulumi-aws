@@ -83,7 +83,6 @@ def get_provisioning_artifacts(accept_language: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -94,6 +93,8 @@ def get_provisioning_artifacts(accept_language: Optional[str] = None,
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str product_id: Product identifier.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -117,7 +118,6 @@ def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Opt
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -128,5 +128,7 @@ def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Opt
 
     :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
     :param str product_id: Product identifier.
+           
+           The following arguments are optional:
     """
     ...

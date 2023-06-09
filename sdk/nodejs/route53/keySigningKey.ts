@@ -152,6 +152,8 @@ export class KeySigningKey extends pulumi.CustomResource {
     public /*out*/ readonly keyTag!: pulumi.Output<number>;
     /**
      * Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+     *
+     * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -268,6 +270,8 @@ export interface KeySigningKeyState {
     keyTag?: pulumi.Input<number>;
     /**
      * Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**
@@ -302,6 +306,8 @@ export interface KeySigningKeyArgs {
     keyManagementServiceArn: pulumi.Input<string>;
     /**
      * Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
     /**

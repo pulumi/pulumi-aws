@@ -401,7 +401,6 @@ class Queue(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -415,7 +414,6 @@ class Queue(pulumi.CustomResource):
             })
         ```
         ### With Quick Connect IDs
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -430,7 +428,6 @@ class Queue(pulumi.CustomResource):
             })
         ```
         ### With Outbound Caller Config
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -483,7 +480,6 @@ class Queue(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -497,7 +493,6 @@ class Queue(pulumi.CustomResource):
             })
         ```
         ### With Quick Connect IDs
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -512,7 +507,6 @@ class Queue(pulumi.CustomResource):
             })
         ```
         ### With Outbound Caller Config
-
         ```python
         import pulumi
         import pulumi_aws as aws

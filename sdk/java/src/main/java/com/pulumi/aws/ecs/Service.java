@@ -441,12 +441,16 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the service (up to 255 letters, numbers, hyphens, and underscores)
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

@@ -124,6 +124,8 @@ class ConfigurationSetEventDestinationEventDestination(dict):
                  sns_destination: Optional['outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination'] = None):
         """
         :param Sequence[str] matching_event_types: An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+               
+               The following arguments are optional:
         :param 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs' cloud_watch_destination: An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
         :param bool enabled: When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
         :param 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs' kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
@@ -147,6 +149,8 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     def matching_event_types(self) -> Sequence[str]:
         """
         An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "matching_event_types")
 
@@ -708,6 +712,8 @@ class ContactListTopic(dict):
         :param str default_subscription_status: The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
         :param str display_name: The name of the topic the contact will see.
         :param str topic_name: The name of the topic.
+               
+               The following arguments are optional:
         :param str description: A description of what the topic is about, which the contact will see.
         """
         pulumi.set(__self__, "default_subscription_status", default_subscription_status)
@@ -737,6 +743,8 @@ class ContactListTopic(dict):
     def topic_name(self) -> str:
         """
         The name of the topic.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "topic_name")
 
@@ -790,6 +798,8 @@ class EmailIdentityDkimSigningAttributes(dict):
         """
         :param str current_signing_key_length: [Easy DKIM] The key length of the DKIM key pair in use.
         :param str domain_signing_private_key: [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+               
+               > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
         :param str domain_signing_selector: [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
         :param str last_key_generation_timestamp: [Easy DKIM] The last time a key pair was generated for this identity.
         :param str next_signing_key_length: [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
@@ -827,6 +837,8 @@ class EmailIdentityDkimSigningAttributes(dict):
     def domain_signing_private_key(self) -> Optional[str]:
         """
         [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+
+        > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
         """
         return pulumi.get(self, "domain_signing_private_key")
 

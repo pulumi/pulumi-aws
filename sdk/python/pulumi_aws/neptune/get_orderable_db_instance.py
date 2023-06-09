@@ -289,7 +289,6 @@ def get_orderable_db_instance(engine: Optional[str] = None,
     Information about Neptune orderable DB instances.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -357,7 +356,6 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]
     Information about Neptune orderable DB instances.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

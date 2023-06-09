@@ -13,7 +13,6 @@ import (
 // The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

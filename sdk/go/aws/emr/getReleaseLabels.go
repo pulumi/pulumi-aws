@@ -13,7 +13,6 @@ import (
 // Retrieve information about EMR Release Labels.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

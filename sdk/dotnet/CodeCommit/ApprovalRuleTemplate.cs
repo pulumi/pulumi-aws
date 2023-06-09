@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CodeCommit
     /// Provides a CodeCommit Approval Rule Template Resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

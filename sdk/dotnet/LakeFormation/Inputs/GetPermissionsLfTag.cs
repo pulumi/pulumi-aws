@@ -29,6 +29,8 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
         /// <summary>
         /// List of possible values an attribute can take.
+        /// 
+        /// The following argument is optional:
         /// </summary>
         public List<string> Values
         {

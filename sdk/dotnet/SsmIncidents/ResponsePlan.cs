@@ -14,7 +14,6 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Aws.SsmIncidents
     /// });
     /// ```
     /// ### Usage With All Fields
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

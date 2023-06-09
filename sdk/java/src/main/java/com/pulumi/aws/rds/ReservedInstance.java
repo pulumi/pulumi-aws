@@ -195,12 +195,16 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="offeringId", refs={String.class}, tree="[0]")
     private Output<String> offeringId;
 
     /**
      * @return ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> offeringId() {

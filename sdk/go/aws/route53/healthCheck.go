@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Connectivity and HTTP Status Code Check
-//
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //
 // ```
 // ### Connectivity and String Matching Check
-//
 // ```go
 // package main
 //
@@ -79,7 +77,6 @@ import (
 //
 // ```
 // ### Aggregate Check
-//
 // ```go
 // package main
 //
@@ -111,7 +108,6 @@ import (
 //
 // ```
 // ### CloudWatch Alarm Check
-//
 // ```go
 // package main
 //
@@ -179,6 +175,8 @@ type HealthCheck struct {
 	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
 	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
 	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	//
+	// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni pulumi.BoolOutput `pulumi:"enableSni"`
@@ -263,6 +261,8 @@ type healthCheckState struct {
 	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
 	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
 	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	//
+	// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 	Disabled *bool `pulumi:"disabled"`
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni *bool `pulumi:"enableSni"`
@@ -316,6 +316,8 @@ type HealthCheckState struct {
 	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
 	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
 	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	//
+	// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 	Disabled pulumi.BoolPtrInput
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni pulumi.BoolPtrInput
@@ -371,6 +373,8 @@ type healthCheckArgs struct {
 	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
 	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
 	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	//
+	// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 	Disabled *bool `pulumi:"disabled"`
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni *bool `pulumi:"enableSni"`
@@ -421,6 +425,8 @@ type HealthCheckArgs struct {
 	// * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
 	// * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
 	// * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+	//
+	// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 	Disabled pulumi.BoolPtrInput
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni pulumi.BoolPtrInput
@@ -573,6 +579,8 @@ func (o HealthCheckOutput) CloudwatchAlarmRegion() pulumi.StringPtrOutput {
 // * For health checks that check the health of endpoints, Route5 53 stops submitting requests to your application, server, or other resource.
 // * For calculated health checks, Route 53 stops aggregating the status of the referenced health checks.
 // * For health checks that monitor CloudWatch alarms, Route 53 stops monitoring the corresponding CloudWatch metrics.
+//
+// > **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invertHealthcheck`.
 func (o HealthCheckOutput) Disabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HealthCheck) pulumi.BoolPtrOutput { return v.Disabled }).(pulumi.BoolPtrOutput)
 }

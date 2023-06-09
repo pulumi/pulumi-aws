@@ -22,6 +22,8 @@ class RouteCalculationArgs:
         The set of arguments for constructing a RouteCalculation resource.
         :param pulumi.Input[str] calculator_name: The name of the route calculator resource.
         :param pulumi.Input[str] data_source: Specifies the data provider of traffic and road network data.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: The optional description for the route calculator resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -49,6 +51,8 @@ class RouteCalculationArgs:
     def data_source(self) -> pulumi.Input[str]:
         """
         Specifies the data provider of traffic and road network data.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "data_source")
 
@@ -98,6 +102,8 @@ class _RouteCalculationState:
         :param pulumi.Input[str] calculator_name: The name of the route calculator resource.
         :param pulumi.Input[str] create_time: The timestamp for when the route calculator resource was created in ISO 8601 format.
         :param pulumi.Input[str] data_source: Specifies the data provider of traffic and road network data.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: The optional description for the route calculator resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -161,6 +167,8 @@ class _RouteCalculationState:
     def data_source(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the data provider of traffic and road network data.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "data_source")
 
@@ -231,7 +239,6 @@ class RouteCalculation(pulumi.CustomResource):
         Provides a Location Service Route Calculator.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,6 +260,8 @@ class RouteCalculation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] calculator_name: The name of the route calculator resource.
         :param pulumi.Input[str] data_source: Specifies the data provider of traffic and road network data.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: The optional description for the route calculator resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -266,7 +275,6 @@ class RouteCalculation(pulumi.CustomResource):
         Provides a Location Service Route Calculator.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,6 +361,8 @@ class RouteCalculation(pulumi.CustomResource):
         :param pulumi.Input[str] calculator_name: The name of the route calculator resource.
         :param pulumi.Input[str] create_time: The timestamp for when the route calculator resource was created in ISO 8601 format.
         :param pulumi.Input[str] data_source: Specifies the data provider of traffic and road network data.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: The optional description for the route calculator resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -401,6 +411,8 @@ class RouteCalculation(pulumi.CustomResource):
     def data_source(self) -> pulumi.Output[str]:
         """
         Specifies the data provider of traffic and road network data.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "data_source")
 

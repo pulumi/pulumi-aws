@@ -213,7 +213,6 @@ class DelegatedAdministrator(pulumi.CustomResource):
         Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,7 +245,6 @@ class DelegatedAdministrator(pulumi.CustomResource):
         Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

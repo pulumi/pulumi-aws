@@ -202,7 +202,6 @@ class TrustAnchor(pulumi.CustomResource):
         Resource for managing a Roles Anywhere Trust Anchor.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,7 +264,6 @@ class TrustAnchor(pulumi.CustomResource):
         Resource for managing a Roles Anywhere Trust Anchor.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

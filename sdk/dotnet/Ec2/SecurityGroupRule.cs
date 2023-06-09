@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Ec2
     /// ## Example Usage
     /// 
     /// Basic usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,7 +59,6 @@ namespace Pulumi.Aws.Ec2
     /// AWS are associated with a prefix list name, or service name, that is linked to a specific region.
     /// 
     /// Prefix list IDs are exported on VPC Endpoints, so you can use this format:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -91,7 +89,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// You can also find a specific Prefix List using the `aws.ec2.getPrefixList`
     /// or `ec2_managed_prefix_list` data sources:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -240,6 +237,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Type of rule being created. Valid options are `ingress` (inbound)
         /// or `egress` (outbound).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -371,6 +370,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Type of rule being created. Valid options are `ingress` (inbound)
         /// or `egress` (outbound).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -470,6 +471,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Type of rule being created. Valid options are `ingress` (inbound)
         /// or `egress` (outbound).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

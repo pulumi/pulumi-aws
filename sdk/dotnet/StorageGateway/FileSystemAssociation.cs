@@ -15,7 +15,6 @@ namespace Pulumi.Aws.StorageGateway
     /// [FSx File Gateway requirements](https://docs.aws.amazon.com/filegateway/latest/filefsxw/Requirements.html).
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,7 +35,6 @@ namespace Pulumi.Aws.StorageGateway
     /// });
     /// ```
     /// ## Required Services Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

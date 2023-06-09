@@ -13,7 +13,6 @@ namespace Pulumi.Aws.DirectConnect
     /// Associates a Direct Connect Connection with a LAG.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

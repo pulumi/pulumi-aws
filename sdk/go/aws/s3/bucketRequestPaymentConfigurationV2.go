@@ -17,31 +17,6 @@ import (
 //
 // ## Example Usage
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketRequestPaymentConfigurationV2(ctx, "example", &s3.BucketRequestPaymentConfigurationV2Args{
-//				Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//				Payer:  pulumi.String("Requester"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // S3 bucket request payment configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` e.g.,

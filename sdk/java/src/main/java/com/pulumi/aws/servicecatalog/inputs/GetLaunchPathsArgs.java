@@ -33,12 +33,16 @@ public final class GetLaunchPathsArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Product identifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="productId", required=true)
     private Output<String> productId;
 
     /**
      * @return Product identifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> productId() {
@@ -94,6 +98,8 @@ public final class GetLaunchPathsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param productId Product identifier.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -104,6 +110,8 @@ public final class GetLaunchPathsArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param productId Product identifier.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

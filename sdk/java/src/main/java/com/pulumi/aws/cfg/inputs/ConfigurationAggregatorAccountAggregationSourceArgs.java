@@ -50,12 +50,16 @@ public final class ConfigurationAggregatorAccountAggregationSourceArgs extends c
     /**
      * List of source regions being aggregated.
      * 
+     * Either `regions` or `all_regions` (as true) must be specified.
+     * 
      */
     @Import(name="regions")
     private @Nullable Output<List<String>> regions;
 
     /**
      * @return List of source regions being aggregated.
+     * 
+     * Either `regions` or `all_regions` (as true) must be specified.
      * 
      */
     public Optional<Output<List<String>>> regions() {
@@ -143,6 +147,8 @@ public final class ConfigurationAggregatorAccountAggregationSourceArgs extends c
         /**
          * @param regions List of source regions being aggregated.
          * 
+         * Either `regions` or `all_regions` (as true) must be specified.
+         * 
          * @return builder
          * 
          */
@@ -154,6 +160,8 @@ public final class ConfigurationAggregatorAccountAggregationSourceArgs extends c
         /**
          * @param regions List of source regions being aggregated.
          * 
+         * Either `regions` or `all_regions` (as true) must be specified.
+         * 
          * @return builder
          * 
          */
@@ -163,6 +171,8 @@ public final class ConfigurationAggregatorAccountAggregationSourceArgs extends c
 
         /**
          * @param regions List of source regions being aggregated.
+         * 
+         * Either `regions` or `all_regions` (as true) must be specified.
          * 
          * @return builder
          * 

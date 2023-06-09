@@ -77,12 +77,16 @@ public class Sink extends com.pulumi.resources.CustomResource {
     /**
      * Name for the sink.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name for the sink.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

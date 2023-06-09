@@ -14,7 +14,6 @@ import (
 // Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -86,7 +85,6 @@ import (
 //
 // ```
 // ## Usage with SNS
-//
 // ```go
 // package main
 //
@@ -163,7 +161,6 @@ import (
 // ```
 //
 // ## Specify Lambda permissions for API Gateway REST API
-//
 // ```go
 // package main
 //
@@ -203,7 +200,6 @@ import (
 // ```
 //
 // ## Usage with CloudWatch log group
-//
 // ```go
 // package main
 //
@@ -288,7 +284,6 @@ import (
 // ```
 //
 // ## Example function URL cross-account invoke policy
-//
 // ```go
 // package main
 //
@@ -353,6 +348,10 @@ type Permission struct {
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	//
+	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
 	PrincipalOrgId pulumi.StringPtrOutput `pulumi:"principalOrgId"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
@@ -419,6 +418,10 @@ type permissionState struct {
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal *string `pulumi:"principal"`
 	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	//
+	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
 	PrincipalOrgId *string `pulumi:"principalOrgId"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier *string `pulumi:"qualifier"`
@@ -448,6 +451,10 @@ type PermissionState struct {
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringPtrInput
 	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	//
+	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
 	PrincipalOrgId pulumi.StringPtrInput
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrInput
@@ -481,6 +488,10 @@ type permissionArgs struct {
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal string `pulumi:"principal"`
 	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	//
+	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
 	PrincipalOrgId *string `pulumi:"principalOrgId"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier *string `pulumi:"qualifier"`
@@ -511,6 +522,10 @@ type PermissionArgs struct {
 	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringInput
 	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	//
+	// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+	// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+	// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
 	PrincipalOrgId pulumi.StringPtrInput
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrInput
@@ -641,6 +656,10 @@ func (o PermissionOutput) Principal() pulumi.StringOutput {
 }
 
 // The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+//
+// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
+// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
+// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
 func (o PermissionOutput) PrincipalOrgId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringPtrOutput { return v.PrincipalOrgId }).(pulumi.StringPtrOutput)
 }

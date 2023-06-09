@@ -13,7 +13,6 @@ namespace Pulumi.Aws.SecurityHub
     /// Provides a Security Hub member resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

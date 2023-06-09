@@ -14,7 +14,6 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Example Usage
     /// ### API Key Authentication
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,7 +30,6 @@ namespace Pulumi.Aws.AppSync
     /// });
     /// ```
     /// ### AWS IAM Authentication
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,7 +46,6 @@ namespace Pulumi.Aws.AppSync
     /// });
     /// ```
     /// ### AWS Cognito User Pool Authentication
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,7 +68,6 @@ namespace Pulumi.Aws.AppSync
     /// });
     /// ```
     /// ### OpenID Connect Authentication
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,7 +88,6 @@ namespace Pulumi.Aws.AppSync
     /// });
     /// ```
     /// ### AWS Lambda Authorizer Authentication
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,7 +116,6 @@ namespace Pulumi.Aws.AppSync
     /// });
     /// ```
     /// ### With Multiple Authentication Providers
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -145,7 +139,6 @@ namespace Pulumi.Aws.AppSync
     /// });
     /// ```
     /// ### With Schema
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -170,7 +163,6 @@ namespace Pulumi.Aws.AppSync
     /// });
     /// ```
     /// ### Enabling Logging
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

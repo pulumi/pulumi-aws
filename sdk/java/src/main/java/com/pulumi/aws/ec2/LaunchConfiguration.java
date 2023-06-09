@@ -380,12 +380,16 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
     /**
      * The size of instance to launch.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
     /**
      * @return The size of instance to launch.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> instanceType() {

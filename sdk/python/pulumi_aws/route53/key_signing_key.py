@@ -23,6 +23,8 @@ class KeySigningKeyArgs:
         :param pulumi.Input[str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
         :param pulumi.Input[str] key_management_service_arn: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
         :param pulumi.Input[str] name: Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
         """
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
@@ -61,6 +63,8 @@ class KeySigningKeyArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -110,6 +114,8 @@ class _KeySigningKeyState:
         :param pulumi.Input[str] key_management_service_arn: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
         :param pulumi.Input[int] key_tag: An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
         :param pulumi.Input[str] name: Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] public_key: The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
         :param pulumi.Input[str] signing_algorithm_mnemonic: A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         :param pulumi.Input[int] signing_algorithm_type: An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
@@ -257,6 +263,8 @@ class _KeySigningKeyState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -408,6 +416,8 @@ class KeySigningKey(pulumi.CustomResource):
         :param pulumi.Input[str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
         :param pulumi.Input[str] key_management_service_arn: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
         :param pulumi.Input[str] name: Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
         """
         ...
@@ -583,6 +593,8 @@ class KeySigningKey(pulumi.CustomResource):
         :param pulumi.Input[str] key_management_service_arn: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
         :param pulumi.Input[int] key_tag: An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
         :param pulumi.Input[str] name: Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] public_key: The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
         :param pulumi.Input[str] signing_algorithm_mnemonic: A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         :param pulumi.Input[int] signing_algorithm_type: An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
@@ -685,6 +697,8 @@ class KeySigningKey(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

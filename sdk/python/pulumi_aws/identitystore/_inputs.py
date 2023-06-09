@@ -306,6 +306,8 @@ class UserNameArgs:
         """
         :param pulumi.Input[str] family_name: The family name of the user.
         :param pulumi.Input[str] given_name: The given name of the user.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] formatted: The name that is typically displayed when the name is shown for display.
         :param pulumi.Input[str] honorific_prefix: The honorific prefix of the user.
         :param pulumi.Input[str] honorific_suffix: The honorific suffix of the user.
@@ -339,6 +341,8 @@ class UserNameArgs:
     def given_name(self) -> pulumi.Input[str]:
         """
         The given name of the user.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "given_name")
 
@@ -458,6 +462,8 @@ class GetGroupAlternateIdentifierArgs:
         """
         :param 'GetGroupAlternateIdentifierExternalIdArgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
         :param 'GetGroupAlternateIdentifierUniqueAttributeArgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
+               
+               > Exactly one of the above arguments must be provided.
         """
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
@@ -481,6 +487,8 @@ class GetGroupAlternateIdentifierArgs:
     def unique_attribute(self) -> Optional['GetGroupAlternateIdentifierUniqueAttributeArgs']:
         """
         An entity attribute that's unique to a specific entity. Detailed below.
+
+        > Exactly one of the above arguments must be provided.
         """
         return pulumi.get(self, "unique_attribute")
 
@@ -608,6 +616,8 @@ class GetUserAlternateIdentifierArgs:
         """
         :param 'GetUserAlternateIdentifierExternalIdArgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
         :param 'GetUserAlternateIdentifierUniqueAttributeArgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
+               
+               > Exactly one of the above arguments must be provided.
         """
         if external_id is not None:
             pulumi.set(__self__, "external_id", external_id)
@@ -631,6 +641,8 @@ class GetUserAlternateIdentifierArgs:
     def unique_attribute(self) -> Optional['GetUserAlternateIdentifierUniqueAttributeArgs']:
         """
         An entity attribute that's unique to a specific entity. Detailed below.
+
+        > Exactly one of the above arguments must be provided.
         """
         return pulumi.get(self, "unique_attribute")
 

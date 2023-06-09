@@ -204,12 +204,16 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the workgroup.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="workgroupName")
     private @Nullable Output<String> workgroupName;
 
     /**
      * @return The name of the workgroup.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> workgroupName() {
@@ -547,6 +551,8 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param workgroupName The name of the workgroup.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -557,6 +563,8 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param workgroupName The name of the workgroup.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

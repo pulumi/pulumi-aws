@@ -14,7 +14,6 @@ import (
 // Resource for managing an AWS VPC Lattice Listener Rule.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -74,7 +73,6 @@ import (
 //
 // ```
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -139,6 +137,8 @@ type ListenerRule struct {
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+	//
+	// The following arguments are optional:
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// Unique identifier for the target group.
 	RuleId pulumi.StringOutput `pulumi:"ruleId"`
@@ -205,6 +205,8 @@ type listenerRuleState struct {
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name *string `pulumi:"name"`
 	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+	//
+	// The following arguments are optional:
 	Priority *int `pulumi:"priority"`
 	// Unique identifier for the target group.
 	RuleId *string `pulumi:"ruleId"`
@@ -228,6 +230,8 @@ type ListenerRuleState struct {
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringPtrInput
 	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+	//
+	// The following arguments are optional:
 	Priority pulumi.IntPtrInput
 	// Unique identifier for the target group.
 	RuleId pulumi.StringPtrInput
@@ -253,6 +257,8 @@ type listenerRuleArgs struct {
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name *string `pulumi:"name"`
 	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+	//
+	// The following arguments are optional:
 	Priority int `pulumi:"priority"`
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier string `pulumi:"serviceIdentifier"`
@@ -271,6 +277,8 @@ type ListenerRuleArgs struct {
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	Name pulumi.StringPtrInput
 	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+	//
+	// The following arguments are optional:
 	Priority pulumi.IntInput
 	// The ID or Amazon Resource Identifier (ARN) of the service.
 	ServiceIdentifier pulumi.StringInput
@@ -391,6 +399,8 @@ func (o ListenerRuleOutput) Name() pulumi.StringOutput {
 }
 
 // The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
+//
+// The following arguments are optional:
 func (o ListenerRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }

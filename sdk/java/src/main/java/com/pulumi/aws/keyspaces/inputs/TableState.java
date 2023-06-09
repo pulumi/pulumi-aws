@@ -146,12 +146,16 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
     /**
      * @return The name of the table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> tableName() {
@@ -409,6 +413,8 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tableName The name of the table.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -419,6 +425,8 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tableName The name of the table.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -459,12 +459,16 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the SNS topic to subscribe to.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="topic", refs={String.class}, tree="[0]")
     private Output<String> topic;
 
     /**
      * @return ARN of the SNS topic to subscribe to.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> topic() {

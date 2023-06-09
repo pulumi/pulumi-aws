@@ -16,7 +16,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// 
     /// ## Example Usage
     /// ### Forward Action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,7 +51,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// ```
     /// 
     /// To a NLB:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,7 +79,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// });
     /// ```
     /// ### Redirect Action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -116,7 +113,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// });
     /// ```
     /// ### Fixed-response Action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -151,7 +147,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// });
     /// ```
     /// ### Authenticate-cognito Action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -203,7 +198,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// });
     /// ```
     /// ### Authenticate-OIDC Action
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -249,7 +243,6 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// });
     /// ```
     /// ### Gateway Load Balancer Listener
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -318,6 +311,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         /// <summary>
         /// ARN of the target group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -336,6 +331,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         /// <summary>
         /// ARN of the load balancer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("loadBalancerArn")]
         public Output<string> LoadBalancerArn { get; private set; } = null!;
@@ -360,6 +357,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -442,6 +441,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         /// <summary>
         /// ARN of the load balancer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("loadBalancerArn", required: true)]
         public Input<string> LoadBalancerArn { get; set; } = null!;
@@ -469,6 +470,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -492,6 +495,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         /// <summary>
         /// ARN of the target group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -516,6 +521,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         /// <summary>
         /// ARN of the load balancer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("loadBalancerArn")]
         public Input<string>? LoadBalancerArn { get; set; }
@@ -543,6 +550,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// &gt; **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
         /// </summary>
         public InputMap<string> Tags
         {

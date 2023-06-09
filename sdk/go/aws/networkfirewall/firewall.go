@@ -14,7 +14,6 @@ import (
 // Provides an AWS Network Firewall Firewall Resource
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

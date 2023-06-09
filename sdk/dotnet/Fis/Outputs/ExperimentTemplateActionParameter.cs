@@ -19,6 +19,8 @@ namespace Pulumi.Aws.Fis.Outputs
         public readonly string Key;
         /// <summary>
         /// Parameter value.
+        /// 
+        /// For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
         /// </summary>
         public readonly string Value;
 

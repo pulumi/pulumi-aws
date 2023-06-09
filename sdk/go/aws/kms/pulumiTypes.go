@@ -664,6 +664,9 @@ type GetSecretsSecret struct {
 	// An optional list of Grant Tokens for the secret.
 	GrantTokens []string `pulumi:"grantTokens"`
 	// Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+	//
+	// For more information on `context` and `grantTokens` see the [KMS
+	// Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
 	KeyId *string `pulumi:"keyId"`
 	// Name to export this secret under in the attributes.
 	Name string `pulumi:"name"`
@@ -690,6 +693,9 @@ type GetSecretsSecretArgs struct {
 	// An optional list of Grant Tokens for the secret.
 	GrantTokens pulumi.StringArrayInput `pulumi:"grantTokens"`
 	// Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+	//
+	// For more information on `context` and `grantTokens` see the [KMS
+	// Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
 	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
 	// Name to export this secret under in the attributes.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -764,6 +770,9 @@ func (o GetSecretsSecretOutput) GrantTokens() pulumi.StringArrayOutput {
 }
 
 // Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+//
+// For more information on `context` and `grantTokens` see the [KMS
+// Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
 func (o GetSecretsSecretOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSecretsSecret) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }

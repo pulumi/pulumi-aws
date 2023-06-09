@@ -14,7 +14,6 @@ import (
 // Manages an App Runner VPC Connector.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

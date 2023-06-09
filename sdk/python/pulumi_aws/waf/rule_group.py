@@ -202,7 +202,6 @@ class RuleGroup(pulumi.CustomResource):
         Provides a WAF Rule Group Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,7 +243,6 @@ class RuleGroup(pulumi.CustomResource):
         Provides a WAF Rule Group Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

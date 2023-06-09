@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -63,6 +62,8 @@ namespace Pulumi.Aws.Ivs
 
         /// <summary>
         /// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
@@ -133,6 +134,8 @@ namespace Pulumi.Aws.Ivs
 
         /// <summary>
         /// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
@@ -177,6 +180,8 @@ namespace Pulumi.Aws.Ivs
 
         /// <summary>
         /// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }

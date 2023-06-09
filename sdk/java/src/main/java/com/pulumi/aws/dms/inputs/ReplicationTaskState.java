@@ -95,12 +95,22 @@ public final class ReplicationTaskState extends com.pulumi.resources.ResourceArg
     /**
      * The replication task identifier.
      * 
+     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen.
+     * - Cannot contain two consecutive hyphens.
+     * 
      */
     @Import(name="replicationTaskId")
     private @Nullable Output<String> replicationTaskId;
 
     /**
      * @return The replication task identifier.
+     * 
+     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen.
+     * - Cannot contain two consecutive hyphens.
      * 
      */
     public Optional<Output<String>> replicationTaskId() {
@@ -372,6 +382,11 @@ public final class ReplicationTaskState extends com.pulumi.resources.ResourceArg
         /**
          * @param replicationTaskId The replication task identifier.
          * 
+         * - Must contain from 1 to 255 alphanumeric characters or hyphens.
+         * - First character must be a letter.
+         * - Cannot end with a hyphen.
+         * - Cannot contain two consecutive hyphens.
+         * 
          * @return builder
          * 
          */
@@ -382,6 +397,11 @@ public final class ReplicationTaskState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param replicationTaskId The replication task identifier.
+         * 
+         * - Must contain from 1 to 255 alphanumeric characters or hyphens.
+         * - First character must be a letter.
+         * - Cannot end with a hyphen.
+         * - Cannot contain two consecutive hyphens.
          * 
          * @return builder
          * 

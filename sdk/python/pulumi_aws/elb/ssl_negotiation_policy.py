@@ -31,6 +31,10 @@ class SslNegotiationPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]] attributes: An SSL Negotiation policy attribute. Each has two properties:
         :param pulumi.Input[str] name: The name of the attribute
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+               
+               To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+               
+               > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         """
         pulumi.set(__self__, "lb_port", lb_port)
         pulumi.set(__self__, "load_balancer", load_balancer)
@@ -97,6 +101,10 @@ class SslNegotiationPolicyArgs:
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+
+        To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+
+        > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         """
         return pulumi.get(self, "triggers")
 
@@ -123,6 +131,10 @@ class _SslNegotiationPolicyState:
                should be attached.
         :param pulumi.Input[str] name: The name of the attribute
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+               
+               To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+               
+               > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -191,6 +203,10 @@ class _SslNegotiationPolicyState:
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+
+        To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+
+        > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         """
         return pulumi.get(self, "triggers")
 
@@ -214,7 +230,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -273,6 +288,10 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                should be attached.
         :param pulumi.Input[str] name: The name of the attribute
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+               
+               To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+               
+               > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         """
         ...
     @overload
@@ -284,7 +303,6 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,6 +421,10 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                should be attached.
         :param pulumi.Input[str] name: The name of the attribute
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+               
+               To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+               
+               > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -455,6 +477,10 @@ class SslNegotiationPolicy(pulumi.CustomResource):
     def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+
+        To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+
+        > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         """
         return pulumi.get(self, "triggers")
 

@@ -95,7 +95,6 @@ def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[pulumi
     Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -129,7 +128,6 @@ def get_local_gateway_virtual_interface_groups_output(filters: Optional[pulumi.I
     Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

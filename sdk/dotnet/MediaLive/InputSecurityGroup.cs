@@ -14,7 +14,6 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,6 +74,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// Whitelist rules. See Whitelist Rules for more details.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("whitelistRules")]
         public Output<ImmutableArray<Outputs.InputSecurityGroupWhitelistRule>> WhitelistRules { get; private set; } = null!;
@@ -142,6 +143,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// Whitelist rules. See Whitelist Rules for more details.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.InputSecurityGroupWhitelistRuleArgs> WhitelistRules
         {
@@ -200,6 +203,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// Whitelist rules. See Whitelist Rules for more details.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.InputSecurityGroupWhitelistRuleGetArgs> WhitelistRules
         {

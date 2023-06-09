@@ -170,7 +170,6 @@ class AppImageConfig(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,7 +183,6 @@ class AppImageConfig(pulumi.CustomResource):
             ))
         ```
         ### Default File System Config
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -224,7 +222,6 @@ class AppImageConfig(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -238,7 +235,6 @@ class AppImageConfig(pulumi.CustomResource):
             ))
         ```
         ### Default File System Config
-
         ```python
         import pulumi
         import pulumi_aws as aws

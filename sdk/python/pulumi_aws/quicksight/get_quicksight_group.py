@@ -118,7 +118,6 @@ def get_quicksight_group(aws_account_id: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -129,6 +128,8 @@ def get_quicksight_group(aws_account_id: Optional[str] = None,
 
     :param str aws_account_id: AWS account ID.
     :param str group_name: The name of the group that you want to match.
+           
+           The following arguments are optional:
     :param str namespace: QuickSight namespace. Defaults to `default`.
     """
     __args__ = dict()
@@ -160,7 +161,6 @@ def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[s
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -171,6 +171,8 @@ def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[s
 
     :param str aws_account_id: AWS account ID.
     :param str group_name: The name of the group that you want to match.
+           
+           The following arguments are optional:
     :param str namespace: QuickSight namespace. Defaults to `default`.
     """
     ...

@@ -279,12 +279,16 @@ public class Component extends com.pulumi.resources.CustomResource {
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
      * 
+     * &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
+     * 
      */
     @Export(name="uri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> uri;
 
     /**
      * @return S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+     * 
+     * &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
      * 
      */
     public Output<Optional<String>> uri() {
@@ -293,12 +297,16 @@ public class Component extends com.pulumi.resources.CustomResource {
     /**
      * Version of the component.
      * 
+     * The following attributes are optional:
+     * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
      * @return Version of the component.
+     * 
+     * The following attributes are optional:
      * 
      */
     public Output<String> version() {

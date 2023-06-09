@@ -72,7 +72,6 @@ def get_service_account(region: Optional[str] = None,
     in a given region for the purpose of allowing CloudTrail to store trail data in S3.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -129,7 +128,6 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     in a given region for the purpose of allowing CloudTrail to store trail data in S3.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

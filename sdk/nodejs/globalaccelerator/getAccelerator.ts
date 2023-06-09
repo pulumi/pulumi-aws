@@ -46,6 +46,8 @@ export interface GetAcceleratorArgs {
     arn?: string;
     /**
      * Unique name of the Global Accelerator.
+     *
+     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
     name?: string;
     tags?: {[key: string]: string};
@@ -101,6 +103,8 @@ export interface GetAcceleratorOutputArgs {
     arn?: pulumi.Input<string>;
     /**
      * Unique name of the Global Accelerator.
+     *
+     * > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
      */
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

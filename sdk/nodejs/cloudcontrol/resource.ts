@@ -71,6 +71,8 @@ export class Resource extends pulumi.CustomResource {
     public readonly schema!: pulumi.Output<string>;
     /**
      * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     *
+     * The following arguments are optional:
      */
     public readonly typeName!: pulumi.Output<string>;
     /**
@@ -141,6 +143,8 @@ export interface ResourceState {
     schema?: pulumi.Input<string>;
     /**
      * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     *
+     * The following arguments are optional:
      */
     typeName?: pulumi.Input<string>;
     /**
@@ -167,6 +171,8 @@ export interface ResourceArgs {
     schema?: pulumi.Input<string>;
     /**
      * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     *
+     * The following arguments are optional:
      */
     typeName: pulumi.Input<string>;
     /**

@@ -23,6 +23,8 @@ func GetOutpostInstanceType(ctx *pulumi.Context, args *GetOutpostInstanceTypeArg
 // A collection of arguments for invoking getOutpostInstanceType.
 type GetOutpostInstanceTypeArgs struct {
 	// Outpost ARN.
+	//
+	// The following arguments are optional:
 	Arn string `pulumi:"arn"`
 	// Desired instance type. Conflicts with `preferredInstanceTypes`.
 	InstanceType *string `pulumi:"instanceType"`
@@ -55,6 +57,8 @@ func GetOutpostInstanceTypeOutput(ctx *pulumi.Context, args GetOutpostInstanceTy
 // A collection of arguments for invoking getOutpostInstanceType.
 type GetOutpostInstanceTypeOutputArgs struct {
 	// Outpost ARN.
+	//
+	// The following arguments are optional:
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Desired instance type. Conflicts with `preferredInstanceTypes`.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`

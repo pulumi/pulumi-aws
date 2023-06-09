@@ -105,7 +105,6 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         Provides a WAF SQL Injection Match Set Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -141,7 +140,6 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         Provides a WAF SQL Injection Match Set Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -81,6 +81,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The Connect peer address.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("peerAddress")]
         public Output<string> PeerAddress { get; private set; } = null!;
@@ -181,6 +183,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The Connect peer address.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("peerAddress", required: true)]
         public Input<string> PeerAddress { get; set; } = null!;
@@ -273,6 +277,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The Connect peer address.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("peerAddress")]
         public Input<string>? PeerAddress { get; set; }

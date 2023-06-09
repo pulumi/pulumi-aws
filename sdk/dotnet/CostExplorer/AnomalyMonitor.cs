@@ -16,7 +16,6 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
     /// ### Dimensional Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,7 +33,6 @@ namespace Pulumi.Aws.CostExplorer
     /// });
     /// ```
     /// ### Custom Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

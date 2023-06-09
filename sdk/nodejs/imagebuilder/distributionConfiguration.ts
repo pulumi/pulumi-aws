@@ -87,6 +87,8 @@ export class DistributionConfiguration extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * One or more configuration blocks with distribution settings. Detailed below.
+     *
+     * The following arguments are optional:
      */
     public readonly distributions!: pulumi.Output<outputs.imagebuilder.DistributionConfigurationDistribution[]>;
     /**
@@ -164,6 +166,8 @@ export interface DistributionConfigurationState {
     description?: pulumi.Input<string>;
     /**
      * One or more configuration blocks with distribution settings. Detailed below.
+     *
+     * The following arguments are optional:
      */
     distributions?: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistribution>[]>;
     /**
@@ -190,6 +194,8 @@ export interface DistributionConfigurationArgs {
     description?: pulumi.Input<string>;
     /**
      * One or more configuration blocks with distribution settings. Detailed below.
+     *
+     * The following arguments are optional:
      */
     distributions: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistribution>[]>;
     /**

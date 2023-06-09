@@ -136,7 +136,6 @@ def get_replication_set(tags: Optional[Mapping[str, str]] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -173,7 +172,6 @@ def get_replication_set_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

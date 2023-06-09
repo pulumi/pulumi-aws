@@ -176,6 +176,8 @@ type AppImageConfigKernelGatewayImageConfigFileSystemConfig struct {
 	// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
 	DefaultUid *int `pulumi:"defaultUid"`
 	// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+	//
+	// > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
 	MountPath *string `pulumi:"mountPath"`
 }
 
@@ -196,6 +198,8 @@ type AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs struct {
 	// The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
 	DefaultUid pulumi.IntPtrInput `pulumi:"defaultUid"`
 	// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+	//
+	// > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
 	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
 }
 
@@ -287,6 +291,8 @@ func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) DefaultUid
 }
 
 // The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+//
+// > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
 func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigFileSystemConfig) *string { return v.MountPath }).(pulumi.StringPtrOutput)
 }
@@ -336,6 +342,8 @@ func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) Default
 }
 
 // The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to `/home/sagemaker-user`.
+//
+// > **Note:** When specifying `defaultGid` and `defaultUid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
 func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigFileSystemConfig) *string {
 		if v == nil {

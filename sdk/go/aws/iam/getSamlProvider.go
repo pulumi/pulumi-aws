@@ -15,7 +15,6 @@ import (
 // document of an existing SAML provider.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

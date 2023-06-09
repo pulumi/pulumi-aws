@@ -101,7 +101,6 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         Manages a VPC Endpoint Route Table Association
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -134,7 +133,6 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         Manages a VPC Endpoint Route Table Association
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

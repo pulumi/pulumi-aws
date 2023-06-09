@@ -275,12 +275,16 @@ public class WorkspaceSamlConfiguration extends com.pulumi.resources.CustomResou
     /**
      * The workspace id.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
     /**
      * @return The workspace id.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> workspaceId() {

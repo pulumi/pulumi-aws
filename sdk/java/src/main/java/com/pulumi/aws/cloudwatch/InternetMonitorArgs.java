@@ -52,12 +52,16 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
     /**
      * The name of the monitor.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="monitorName", required=true)
     private Output<String> monitorName;
 
     /**
      * @return The name of the monitor.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> monitorName() {
@@ -199,6 +203,8 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param monitorName The name of the monitor.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -209,6 +215,8 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param monitorName The name of the monitor.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

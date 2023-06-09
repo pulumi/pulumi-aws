@@ -13,7 +13,6 @@ import (
 // Provides information about a DynamoDB table.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

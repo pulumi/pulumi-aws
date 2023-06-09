@@ -83,13 +83,12 @@ def get_user_pools(name: Optional[str] = None,
     Use this data source to get a list of cognito user pools.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    selected_rest_api = aws.apigateway.get_rest_api(name=var["api_gateway_name"])
-    selected_user_pools = aws.cognito.get_user_pools(name=var["cognito_user_pool_name"])
+    selected_rest_api = aws.apigateway.get_rest_api(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    selected_user_pools = aws.cognito.get_user_pools(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     cognito = aws.apigateway.Authorizer("cognito",
         type="COGNITO_USER_POOLS",
         rest_api=selected_rest_api.id,
@@ -118,13 +117,12 @@ def get_user_pools_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to get a list of cognito user pools.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    selected_rest_api = aws.apigateway.get_rest_api(name=var["api_gateway_name"])
-    selected_user_pools = aws.cognito.get_user_pools(name=var["cognito_user_pool_name"])
+    selected_rest_api = aws.apigateway.get_rest_api(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    selected_user_pools = aws.cognito.get_user_pools(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     cognito = aws.apigateway.Authorizer("cognito",
         type="COGNITO_USER_POOLS",
         rest_api=selected_rest_api.id,

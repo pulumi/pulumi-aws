@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ebs
     /// Imports a disk image from S3 as a Snapshot.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

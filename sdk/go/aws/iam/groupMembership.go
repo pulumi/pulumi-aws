@@ -21,46 +21,6 @@ import (
 // `iam.UserGroupMembership` resource.
 //
 // ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			group, err := iam.NewGroup(ctx, "group", nil)
-//			if err != nil {
-//				return err
-//			}
-//			userOne, err := iam.NewUser(ctx, "userOne", nil)
-//			if err != nil {
-//				return err
-//			}
-//			userTwo, err := iam.NewUser(ctx, "userTwo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewGroupMembership(ctx, "team", &iam.GroupMembershipArgs{
-//				Users: pulumi.StringArray{
-//					userOne.Name,
-//					userTwo.Name,
-//				},
-//				Group: group.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type GroupMembership struct {
 	pulumi.CustomResourceState
 

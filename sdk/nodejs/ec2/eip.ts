@@ -209,6 +209,11 @@ export class Eip extends pulumi.CustomResource {
     /**
      * Boolean if the EIP is in a VPC or not.
      * Defaults to `true` unless the region supports EC2-Classic.
+     *
+     * > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+     *
+     * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
+     * case both options are defined as the api only requires one or the other.
      */
     public readonly vpc!: pulumi.Output<boolean>;
 
@@ -351,6 +356,11 @@ export interface EipState {
     /**
      * Boolean if the EIP is in a VPC or not.
      * Defaults to `true` unless the region supports EC2-Classic.
+     *
+     * > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+     *
+     * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
+     * case both options are defined as the api only requires one or the other.
      */
     vpc?: pulumi.Input<boolean>;
 }
@@ -395,6 +405,11 @@ export interface EipArgs {
     /**
      * Boolean if the EIP is in a VPC or not.
      * Defaults to `true` unless the region supports EC2-Classic.
+     *
+     * > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+     *
+     * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
+     * case both options are defined as the api only requires one or the other.
      */
     vpc?: pulumi.Input<boolean>;
 }

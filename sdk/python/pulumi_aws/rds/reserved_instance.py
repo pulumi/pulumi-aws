@@ -23,6 +23,8 @@ class ReservedInstanceArgs:
         """
         The set of arguments for constructing a ReservedInstance resource.
         :param pulumi.Input[str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] instance_count: Number of instances to reserve. Default value is `1`.
         :param pulumi.Input[str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -40,6 +42,8 @@ class ReservedInstanceArgs:
     def offering_id(self) -> pulumi.Input[str]:
         """
         ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "offering_id")
 
@@ -116,6 +120,8 @@ class _ReservedInstanceState:
         :param pulumi.Input[str] lease_id: Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
         :param pulumi.Input[bool] multi_az: Whether the reservation applies to Multi-AZ deployments.
         :param pulumi.Input[str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] offering_type: Offering type of this reserved DB instance.
         :param pulumi.Input[str] product_description: Description of the reserved DB instance.
         :param pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]] recurring_charges: Recurring price charged to run this reserved DB instance.
@@ -264,6 +270,8 @@ class _ReservedInstanceState:
     def offering_id(self) -> Optional[pulumi.Input[str]]:
         """
         ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "offering_id")
 
@@ -398,7 +406,6 @@ class ReservedInstance(pulumi.CustomResource):
         > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -426,6 +433,8 @@ class ReservedInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] instance_count: Number of instances to reserve. Default value is `1`.
         :param pulumi.Input[str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -443,7 +452,6 @@ class ReservedInstance(pulumi.CustomResource):
         > **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -559,6 +567,8 @@ class ReservedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] lease_id: Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
         :param pulumi.Input[bool] multi_az: Whether the reservation applies to Multi-AZ deployments.
         :param pulumi.Input[str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] offering_type: Offering type of this reserved DB instance.
         :param pulumi.Input[str] product_description: Description of the reserved DB instance.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReservedInstanceRecurringChargeArgs']]]] recurring_charges: Recurring price charged to run this reserved DB instance.
@@ -662,6 +672,8 @@ class ReservedInstance(pulumi.CustomResource):
     def offering_id(self) -> pulumi.Output[str]:
         """
         ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "offering_id")
 

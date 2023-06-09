@@ -4656,6 +4656,8 @@ type FaqS3Path struct {
 	// The name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
 	// The name of the file.
+	//
+	// The following arguments are optional:
 	Key string `pulumi:"key"`
 }
 
@@ -4674,6 +4676,8 @@ type FaqS3PathArgs struct {
 	// The name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// The name of the file.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -4760,6 +4764,8 @@ func (o FaqS3PathOutput) Bucket() pulumi.StringOutput {
 }
 
 // The name of the file.
+//
+// The following arguments are optional:
 func (o FaqS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v FaqS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -4799,6 +4805,8 @@ func (o FaqS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 }
 
 // The name of the file.
+//
+// The following arguments are optional:
 func (o FaqS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FaqS3Path) *string {
 		if v == nil {
@@ -6655,6 +6663,8 @@ type QuerySuggestionsBlockListSourceS3Path struct {
 	// The name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
 	// The name of the file.
+	//
+	// The following arguments are optional:
 	Key string `pulumi:"key"`
 }
 
@@ -6673,6 +6683,8 @@ type QuerySuggestionsBlockListSourceS3PathArgs struct {
 	// The name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// The name of the file.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -6759,6 +6771,8 @@ func (o QuerySuggestionsBlockListSourceS3PathOutput) Bucket() pulumi.StringOutpu
 }
 
 // The name of the file.
+//
+// The following arguments are optional:
 func (o QuerySuggestionsBlockListSourceS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v QuerySuggestionsBlockListSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -6798,6 +6812,8 @@ func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Bucket() pulumi.StringPt
 }
 
 // The name of the file.
+//
+// The following arguments are optional:
 func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockListSourceS3Path) *string {
 		if v == nil {
@@ -6811,6 +6827,8 @@ type ThesaurusSourceS3Path struct {
 	// The name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
 	// The name of the file.
+	//
+	// The following arguments are optional:
 	Key string `pulumi:"key"`
 }
 
@@ -6829,6 +6847,8 @@ type ThesaurusSourceS3PathArgs struct {
 	// The name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// The name of the file.
+	//
+	// The following arguments are optional:
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -6915,6 +6935,8 @@ func (o ThesaurusSourceS3PathOutput) Bucket() pulumi.StringOutput {
 }
 
 // The name of the file.
+//
+// The following arguments are optional:
 func (o ThesaurusSourceS3PathOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ThesaurusSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -6954,6 +6976,8 @@ func (o ThesaurusSourceS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 }
 
 // The name of the file.
+//
+// The following arguments are optional:
 func (o ThesaurusSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThesaurusSourceS3Path) *string {
 		if v == nil {

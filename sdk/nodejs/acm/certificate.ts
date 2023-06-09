@@ -112,11 +112,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example: aws.route53.Record[] = [];
- * for (const range of Object.entries(.reduce((__obj, dvo) => { ...__obj, [dvo.domainName]: {
+ * for (const range of Object.entries(.reduce((__obj, dvo) => ({ ...__obj, [dvo.domainName]: {
  *     name: dvo.resourceRecordName,
  *     record: dvo.resourceRecordValue,
  *     type: dvo.resourceRecordType,
- * } })).map(([k, v]) => ({key: k, value: v}))) {
+ * } }))).map(([k, v]) => ({key: k, value: v}))) {
  *     example.push(new aws.route53.Record(`example-${range.key}`, {
  *         allowOverwrite: true,
  *         name: range.value.name,

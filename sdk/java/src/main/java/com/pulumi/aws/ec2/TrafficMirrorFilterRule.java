@@ -227,12 +227,16 @@ public class TrafficMirrorFilterRule extends com.pulumi.resources.CustomResource
     /**
      * Direction of traffic to be captured. Valid values are `ingress` and `egress`
      * 
+     * Traffic mirror port range support following attributes:
+     * 
      */
     @Export(name="trafficDirection", refs={String.class}, tree="[0]")
     private Output<String> trafficDirection;
 
     /**
      * @return Direction of traffic to be captured. Valid values are `ingress` and `egress`
+     * 
+     * Traffic mirror port range support following attributes:
      * 
      */
     public Output<String> trafficDirection() {

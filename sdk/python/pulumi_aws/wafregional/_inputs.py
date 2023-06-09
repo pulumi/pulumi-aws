@@ -46,6 +46,8 @@ class ByteMatchSetByteMatchTupleArgs:
         :param pulumi.Input['ByteMatchSetByteMatchTupleFieldToMatchArgs'] field_to_match: Settings for the ByteMatchTuple. FieldToMatch documented below.
         :param pulumi.Input[str] positional_constraint: Within the portion of a web request that you want to search.
         :param pulumi.Input[str] text_transformation: The formatting way for web request.
+               
+               FieldToMatch(field_to_match) support following:
         :param pulumi.Input[str] target_string: The value that you want AWS WAF to search for. The maximum length of the value is 50 bytes.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
@@ -83,6 +85,8 @@ class ByteMatchSetByteMatchTupleArgs:
     def text_transformation(self) -> pulumi.Input[str]:
         """
         The formatting way for web request.
+
+        FieldToMatch(field_to_match) support following:
         """
         return pulumi.get(self, "text_transformation")
 

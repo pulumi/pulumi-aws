@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Emr
     /// Provides an Elastic MapReduce Studio.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -140,6 +139,8 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("workspaceSecurityGroupId")]
         public Output<string> WorkspaceSecurityGroupId { get; private set; } = null!;
@@ -276,6 +277,8 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("workspaceSecurityGroupId", required: true)]
         public Input<string> WorkspaceSecurityGroupId { get; set; } = null!;
@@ -394,6 +397,8 @@ namespace Pulumi.Aws.Emr
 
         /// <summary>
         /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("workspaceSecurityGroupId")]
         public Input<string>? WorkspaceSecurityGroupId { get; set; }

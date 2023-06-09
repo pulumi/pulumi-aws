@@ -363,12 +363,16 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     /**
      * Configuration block. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="source")
     private @Nullable Output<ProjectSourceArgs> source;
 
     /**
      * @return Configuration block. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<ProjectSourceArgs>> source() {
@@ -990,6 +994,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param source Configuration block. Detailed below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -1000,6 +1006,8 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param source Configuration block. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

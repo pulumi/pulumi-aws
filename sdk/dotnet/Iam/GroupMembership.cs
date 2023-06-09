@@ -20,7 +20,6 @@ namespace Pulumi.Aws.Iam
     /// `aws.iam.UserGroupMembership` resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -456,7 +456,6 @@ class GameServerGroup(pulumi.CustomResource):
         Provides an GameLift Game Server Group resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -472,7 +471,7 @@ class GameServerGroup(pulumi.CustomResource):
                 ),
             ],
             launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=aws_launch_template["example"]["id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             max_size=1,
             min_size=1,
@@ -481,7 +480,6 @@ class GameServerGroup(pulumi.CustomResource):
         ```
 
         Full usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -507,7 +505,7 @@ class GameServerGroup(pulumi.CustomResource):
                 ),
             ],
             launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=aws_launch_template["example"]["id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 version="1",
             ),
             max_size=1,
@@ -523,7 +521,6 @@ class GameServerGroup(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
         ```
         ### Example IAM Role for GameLift Game Server Group
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -585,7 +582,6 @@ class GameServerGroup(pulumi.CustomResource):
         Provides an GameLift Game Server Group resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -601,7 +597,7 @@ class GameServerGroup(pulumi.CustomResource):
                 ),
             ],
             launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=aws_launch_template["example"]["id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             max_size=1,
             min_size=1,
@@ -610,7 +606,6 @@ class GameServerGroup(pulumi.CustomResource):
         ```
 
         Full usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -636,7 +631,7 @@ class GameServerGroup(pulumi.CustomResource):
                 ),
             ],
             launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=aws_launch_template["example"]["id"],
+                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 version="1",
             ),
             max_size=1,
@@ -652,7 +647,6 @@ class GameServerGroup(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
         ```
         ### Example IAM Role for GameLift Game Server Group
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -71,6 +70,8 @@ namespace Pulumi.Aws.OpenSearch
     {
         /// <summary>
         /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -129,6 +130,8 @@ namespace Pulumi.Aws.OpenSearch
     {
         /// <summary>
         /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -149,6 +152,8 @@ namespace Pulumi.Aws.OpenSearch
     {
         /// <summary>
         /// Name of the domain.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

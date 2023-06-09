@@ -14,7 +14,6 @@ import (
 // a specific VPC endpoint.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -69,6 +68,9 @@ type LookupVpcEndpointArgs struct {
 	// a pair on the specific VPC Endpoint to retrieve.
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the VPC in which the specific VPC Endpoint is used.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -137,6 +139,9 @@ type LookupVpcEndpointOutputArgs struct {
 	// a pair on the specific VPC Endpoint to retrieve.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// ID of the VPC in which the specific VPC Endpoint is used.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 

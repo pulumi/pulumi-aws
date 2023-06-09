@@ -120,7 +120,6 @@ class PullThroughCacheRule(pulumi.CustomResource):
         upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,7 +155,6 @@ class PullThroughCacheRule(pulumi.CustomResource):
         upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

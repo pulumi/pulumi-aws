@@ -14,7 +14,6 @@ namespace Pulumi.Aws.S3Control
     /// An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

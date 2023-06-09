@@ -13,7 +13,6 @@ import (
 // Provides details on a specific S3 Multi-Region Access Point.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

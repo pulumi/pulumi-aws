@@ -147,7 +147,6 @@ def get_bucket(bucket: Optional[str] = None,
 
     ## Example Usage
     ### Route53 Record
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -164,7 +163,6 @@ def get_bucket(bucket: Optional[str] = None,
         )])
     ```
     ### CloudFront Origin
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -207,7 +205,6 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
     ### Route53 Record
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -224,7 +221,6 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
         )])
     ```
     ### CloudFront Origin
-
     ```python
     import pulumi
     import pulumi_aws as aws

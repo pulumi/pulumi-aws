@@ -13,7 +13,6 @@ import (
 // Data source for managing an AWS App Mesh Virtual Node.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

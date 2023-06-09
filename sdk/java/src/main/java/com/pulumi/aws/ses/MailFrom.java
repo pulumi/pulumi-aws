@@ -153,12 +153,16 @@ public class MailFrom extends com.pulumi.resources.CustomResource {
     /**
      * Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="mailFromDomain", refs={String.class}, tree="[0]")
     private Output<String> mailFromDomain;
 
     /**
      * @return Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> mailFromDomain() {

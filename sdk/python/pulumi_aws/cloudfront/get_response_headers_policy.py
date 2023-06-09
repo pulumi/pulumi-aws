@@ -143,7 +143,6 @@ def get_response_headers_policy(id: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -153,7 +152,6 @@ def get_response_headers_policy(id: Optional[str] = None,
     ### AWS-Managed Policies
 
     AWS managed response header policy names are prefixed with `Managed-`:
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -192,7 +190,6 @@ def get_response_headers_policy_output(id: Optional[pulumi.Input[Optional[str]]]
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -202,7 +199,6 @@ def get_response_headers_policy_output(id: Optional[pulumi.Input[Optional[str]]]
     ### AWS-Managed Policies
 
     AWS managed response header policy names are prefixed with `Managed-`:
-
     ```python
     import pulumi
     import pulumi_aws as aws

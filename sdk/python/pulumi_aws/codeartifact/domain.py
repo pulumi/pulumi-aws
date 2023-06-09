@@ -231,7 +231,6 @@ class Domain(pulumi.CustomResource):
         Provides a CodeArtifact Domain Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,7 +262,6 @@ class Domain(pulumi.CustomResource):
         Provides a CodeArtifact Domain Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

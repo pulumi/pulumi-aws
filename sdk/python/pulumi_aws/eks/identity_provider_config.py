@@ -184,7 +184,6 @@ class IdentityProviderConfig(pulumi.CustomResource):
         Manages an EKS Identity Provider Configuration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,7 +221,6 @@ class IdentityProviderConfig(pulumi.CustomResource):
         Manages an EKS Identity Provider Configuration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

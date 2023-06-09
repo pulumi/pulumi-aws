@@ -25,6 +25,62 @@ class GetRouterConfigurationRouterResult(dict):
         """
         :param str platform: Router platform
         :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+               
+               There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param str software: Router operating system
         :param str vendor: Router vendor
         :param str xslt_template_name: Router XSLT Template Name
@@ -49,6 +105,62 @@ class GetRouterConfigurationRouterResult(dict):
     def router_type_identifier(self) -> str:
         """
         ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
+
+        There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "router_type_identifier")
 

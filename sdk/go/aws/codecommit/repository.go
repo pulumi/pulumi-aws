@@ -14,7 +14,6 @@ import (
 // Provides a CodeCommit Repository Resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

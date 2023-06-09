@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### Basic example using AMI lookup
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,7 +63,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Network and credit specification example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -127,7 +125,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### CPU options example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -199,7 +196,6 @@ namespace Pulumi.Aws.Ec2
     /// A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
     /// 
     /// &gt; **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -256,6 +252,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// 
+        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Output("capacityReservationSpecification")]
         public Output<Outputs.InstanceCapacityReservationSpecification> CapacityReservationSpecification { get; private set; } = null!;
@@ -490,6 +488,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// List of security group names to associate with.
+        /// 
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
@@ -544,6 +544,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+        /// 
+        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         [Output("volumeTags")]
         public Output<ImmutableDictionary<string, string>?> VolumeTags { get; private set; } = null!;
@@ -620,6 +622,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// 
+        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.InstanceCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
@@ -845,6 +849,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// List of security group names to associate with.
+        /// 
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         /// </summary>
         [Obsolete(@"Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.")]
         public InputList<string> SecurityGroups
@@ -906,6 +912,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+        /// 
+        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         public InputMap<string> VolumeTags
         {
@@ -959,6 +967,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
+        /// 
+        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.InstanceCapacityReservationSpecificationGetArgs>? CapacityReservationSpecification { get; set; }
@@ -1226,6 +1236,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// List of security group names to associate with.
+        /// 
+        /// &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         /// </summary>
         [Obsolete(@"Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.")]
         public InputList<string> SecurityGroups
@@ -1299,6 +1311,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Map of tags to assign, at instance-creation time, to root and EBS volumes.
+        /// 
+        /// &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
         /// </summary>
         public InputMap<string> VolumeTags
         {

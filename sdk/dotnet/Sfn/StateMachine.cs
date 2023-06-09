@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// ## Example Usage
     /// ### Basic (Standard Workflow)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,7 +43,6 @@ namespace Pulumi.Aws.Sfn
     /// });
     /// ```
     /// ### Basic (Express Workflow)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,7 +75,6 @@ namespace Pulumi.Aws.Sfn
     /// ### Logging
     /// 
     /// &gt; *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

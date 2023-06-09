@@ -283,6 +283,8 @@ public final class EbsFunctions {
      * 
      * This data source can be useful for getting a list of volume IDs with (for example) matching tags.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetEbsVolumesResult> getEbsVolumes() {
         return getEbsVolumes(GetEbsVolumesArgs.Empty, InvokeOptions.Empty);
@@ -291,6 +293,8 @@ public final class EbsFunctions {
      * `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
      * 
      * This data source can be useful for getting a list of volume IDs with (for example) matching tags.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetEbsVolumesResult> getEbsVolumesPlain() {
@@ -301,6 +305,8 @@ public final class EbsFunctions {
      * 
      * This data source can be useful for getting a list of volume IDs with (for example) matching tags.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetEbsVolumesResult> getEbsVolumes(GetEbsVolumesArgs args) {
         return getEbsVolumes(args, InvokeOptions.Empty);
@@ -309,6 +315,8 @@ public final class EbsFunctions {
      * `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
      * 
      * This data source can be useful for getting a list of volume IDs with (for example) matching tags.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetEbsVolumesResult> getEbsVolumesPlain(GetEbsVolumesPlainArgs args) {
@@ -319,6 +327,8 @@ public final class EbsFunctions {
      * 
      * This data source can be useful for getting a list of volume IDs with (for example) matching tags.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetEbsVolumesResult> getEbsVolumes(GetEbsVolumesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ebs/getEbsVolumes:getEbsVolumes", TypeShape.of(GetEbsVolumesResult.class), args, Utilities.withVersion(options));
@@ -327,6 +337,8 @@ public final class EbsFunctions {
      * `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
      * 
      * This data source can be useful for getting a list of volume IDs with (for example) matching tags.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetEbsVolumesResult> getEbsVolumesPlain(GetEbsVolumesPlainArgs args, InvokeOptions options) {

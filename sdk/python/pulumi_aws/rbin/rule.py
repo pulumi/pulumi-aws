@@ -26,6 +26,8 @@ class RuleArgs:
         The set of arguments for constructing a Rule resource.
         :param pulumi.Input[str] resource_type: The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         :param pulumi.Input['RuleRetentionPeriodArgs'] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: The retention rule description.
         :param pulumi.Input['RuleLockConfigurationArgs'] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
@@ -58,6 +60,8 @@ class RuleArgs:
     def retention_period(self) -> pulumi.Input['RuleRetentionPeriodArgs']:
         """
         Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "retention_period")
 
@@ -134,6 +138,8 @@ class _RuleState:
         :param pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         :param pulumi.Input[str] resource_type: The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         :param pulumi.Input['RuleRetentionPeriodArgs'] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
         """
         if arn is not None:
@@ -245,6 +251,8 @@ class _RuleState:
     def retention_period(self) -> Optional[pulumi.Input['RuleRetentionPeriodArgs']]:
         """
         Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "retention_period")
 
@@ -300,7 +308,6 @@ class Rule(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -336,6 +343,8 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleResourceTagArgs']]]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         :param pulumi.Input[str] resource_type: The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         :param pulumi.Input[pulumi.InputType['RuleRetentionPeriodArgs']] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -348,7 +357,6 @@ class Rule(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -457,6 +465,8 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleResourceTagArgs']]]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         :param pulumi.Input[str] resource_type: The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         :param pulumi.Input[pulumi.InputType['RuleRetentionPeriodArgs']] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -534,6 +544,8 @@ class Rule(pulumi.CustomResource):
     def retention_period(self) -> pulumi.Output['outputs.RuleRetentionPeriod']:
         """
         Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "retention_period")
 

@@ -163,7 +163,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,7 +184,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             ))
         ```
         ### Cross-Account Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,7 +273,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,7 +294,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             ))
         ```
         ### Cross-Account Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

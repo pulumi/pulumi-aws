@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ElastiCache
     /// Provides an ElastiCache user group resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,6 +83,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The ID of the user group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("userGroupId")]
         public Output<string> UserGroupId { get; private set; } = null!;
@@ -160,6 +161,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The ID of the user group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userGroupId", required: true)]
         public Input<string> UserGroupId { get; set; } = null!;
@@ -222,6 +225,8 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// The ID of the user group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userGroupId")]
         public Input<string>? UserGroupId { get; set; }

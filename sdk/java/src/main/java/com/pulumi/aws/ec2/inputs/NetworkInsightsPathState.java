@@ -80,12 +80,16 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
      * @return Protocol to use for analysis. Valid options are `tcp` or `udp`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -271,6 +275,8 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
         /**
          * @param protocol Protocol to use for analysis. Valid options are `tcp` or `udp`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -281,6 +287,8 @@ public final class NetworkInsightsPathState extends com.pulumi.resources.Resourc
 
         /**
          * @param protocol Protocol to use for analysis. Valid options are `tcp` or `udp`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

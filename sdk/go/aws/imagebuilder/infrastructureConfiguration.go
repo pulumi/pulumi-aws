@@ -14,7 +14,6 @@ import (
 // Manages an Image Builder Infrastructure Configuration.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -91,6 +90,8 @@ type InfrastructureConfiguration struct {
 	// Configuration block with logging settings. Detailed below.
 	Logging InfrastructureConfigurationLoggingPtrOutput `pulumi:"logging"`
 	// Name for the configuration.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
@@ -159,6 +160,8 @@ type infrastructureConfigurationState struct {
 	// Configuration block with logging settings. Detailed below.
 	Logging *InfrastructureConfigurationLogging `pulumi:"logging"`
 	// Name for the configuration.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
@@ -196,6 +199,8 @@ type InfrastructureConfigurationState struct {
 	// Configuration block with logging settings. Detailed below.
 	Logging InfrastructureConfigurationLoggingPtrInput
 	// Name for the configuration.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapInput
@@ -231,6 +236,8 @@ type infrastructureConfigurationArgs struct {
 	// Configuration block with logging settings. Detailed below.
 	Logging *InfrastructureConfigurationLogging `pulumi:"logging"`
 	// Name for the configuration.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
@@ -261,6 +268,8 @@ type InfrastructureConfigurationArgs struct {
 	// Configuration block with logging settings. Detailed below.
 	Logging InfrastructureConfigurationLoggingPtrInput
 	// Name for the configuration.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapInput
@@ -411,6 +420,8 @@ func (o InfrastructureConfigurationOutput) Logging() InfrastructureConfiguration
 }
 
 // Name for the configuration.
+//
+// The following arguments are optional:
 func (o InfrastructureConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Example Usage
     /// ### Basic
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### Description
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,7 +56,6 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// ### Prefix to filter phone numbers
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

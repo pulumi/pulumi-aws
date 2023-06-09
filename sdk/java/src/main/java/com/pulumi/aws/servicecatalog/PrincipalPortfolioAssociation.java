@@ -91,12 +91,16 @@ public class PrincipalPortfolioAssociation extends com.pulumi.resources.CustomRe
     /**
      * Principal ARN.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="principalArn", refs={String.class}, tree="[0]")
     private Output<String> principalArn;
 
     /**
      * @return Principal ARN.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> principalArn() {

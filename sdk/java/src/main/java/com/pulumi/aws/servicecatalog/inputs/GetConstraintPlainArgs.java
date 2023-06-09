@@ -47,12 +47,16 @@ public final class GetConstraintPlainArgs extends com.pulumi.resources.InvokeArg
     /**
      * Constraint identifier.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
      * @return Constraint identifier.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String id() {
@@ -109,6 +113,8 @@ public final class GetConstraintPlainArgs extends com.pulumi.resources.InvokeArg
 
         /**
          * @param id Constraint identifier.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

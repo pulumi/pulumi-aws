@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Ses
     /// Domain ownership needs to be confirmed first using ses_domain_identity Resource
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

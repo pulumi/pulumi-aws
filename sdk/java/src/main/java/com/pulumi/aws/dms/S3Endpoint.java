@@ -772,12 +772,16 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the IAM role with permissions to the S3 Bucket.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="serviceAccessRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceAccessRoleArn;
 
     /**
      * @return ARN of the IAM role with permissions to the S3 Bucket.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> serviceAccessRoleArn() {

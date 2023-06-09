@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// ### Automation Tasks
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,7 +64,6 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// ### Run Command Tasks
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -128,7 +126,6 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// ### Step Function Tasks
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

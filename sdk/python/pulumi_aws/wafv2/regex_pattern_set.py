@@ -247,7 +247,6 @@ class RegexPatternSet(pulumi.CustomResource):
         Provides an AWS WAFv2 Regex Pattern Set Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,7 +294,6 @@ class RegexPatternSet(pulumi.CustomResource):
         Provides an AWS WAFv2 Regex Pattern Set Resource
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

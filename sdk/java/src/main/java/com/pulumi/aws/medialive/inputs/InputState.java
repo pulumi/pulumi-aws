@@ -227,12 +227,16 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return The different types of inputs that AWS Elemental MediaLive supports.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> type() {
@@ -648,6 +652,8 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type The different types of inputs that AWS Elemental MediaLive supports.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -658,6 +664,8 @@ public final class InputState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param type The different types of inputs that AWS Elemental MediaLive supports.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Ec2
     /// &gt; **Note** When using `aws.ec2.LaunchConfiguration` with `aws.autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,7 +70,6 @@ namespace Pulumi.Aws.Ec2
     /// it's recommended to specify `create_before_destroy` in a lifecycle block.
     /// Either omit the Launch Configuration `name` attribute, or specify a partial name
     /// with `name_prefix`.  Example:
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -137,7 +135,6 @@ namespace Pulumi.Aws.Ec2
     /// reserve your instances at this price.  See the [AWS Spot Instance
     /// documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
     /// for more information or how to launch [Spot Instances][3] with this provider.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -302,6 +299,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The size of instance to launch.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -480,6 +479,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The size of instance to launch.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
@@ -639,6 +640,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The size of instance to launch.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }

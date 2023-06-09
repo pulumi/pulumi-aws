@@ -18,7 +18,6 @@ import (
 //
 // ## Example Usage
 // ### Create New Key Pair
-//
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //
 // ```
 // ### Create New Key Pair with PGP Encrypted Private Key
-//
 // ```go
 // package main
 //
@@ -66,7 +64,6 @@ import (
 //
 // ```
 // ### Existing Public Key Import
-//
 // ```go
 // package main
 //
@@ -130,6 +127,10 @@ type KeyPair struct {
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
 	// The public key material. This public key will be
 	// imported into Lightsail
+	//
+	// > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+	// Without a PGP key, the private key material will be stored in state unencrypted.
+	// `pgpKey` is ignored if `publicKey` is supplied.
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
 }
 
@@ -185,6 +186,10 @@ type keyPairState struct {
 	PrivateKey *string `pulumi:"privateKey"`
 	// The public key material. This public key will be
 	// imported into Lightsail
+	//
+	// > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+	// Without a PGP key, the private key material will be stored in state unencrypted.
+	// `pgpKey` is ignored if `publicKey` is supplied.
 	PublicKey *string `pulumi:"publicKey"`
 }
 
@@ -212,6 +217,10 @@ type KeyPairState struct {
 	PrivateKey pulumi.StringPtrInput
 	// The public key material. This public key will be
 	// imported into Lightsail
+	//
+	// > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+	// Without a PGP key, the private key material will be stored in state unencrypted.
+	// `pgpKey` is ignored if `publicKey` is supplied.
 	PublicKey pulumi.StringPtrInput
 }
 
@@ -229,6 +238,10 @@ type keyPairArgs struct {
 	PgpKey *string `pulumi:"pgpKey"`
 	// The public key material. This public key will be
 	// imported into Lightsail
+	//
+	// > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+	// Without a PGP key, the private key material will be stored in state unencrypted.
+	// `pgpKey` is ignored if `publicKey` is supplied.
 	PublicKey *string `pulumi:"publicKey"`
 }
 
@@ -243,6 +256,10 @@ type KeyPairArgs struct {
 	PgpKey pulumi.StringPtrInput
 	// The public key material. This public key will be
 	// imported into Lightsail
+	//
+	// > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+	// Without a PGP key, the private key material will be stored in state unencrypted.
+	// `pgpKey` is ignored if `publicKey` is supplied.
 	PublicKey pulumi.StringPtrInput
 }
 
@@ -380,6 +397,10 @@ func (o KeyPairOutput) PrivateKey() pulumi.StringOutput {
 
 // The public key material. This public key will be
 // imported into Lightsail
+//
+// > **NOTE:** a PGP key is not required, however it is strongly encouraged.
+// Without a PGP key, the private key material will be stored in state unencrypted.
+// `pgpKey` is ignored if `publicKey` is supplied.
 func (o KeyPairOutput) PublicKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
 }

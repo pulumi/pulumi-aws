@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### From Source Template
-//
 // ```go
 // package main
 //
@@ -83,6 +82,8 @@ type Template struct {
 	// Identifier for the template.
 	TemplateId pulumi.StringOutput `pulumi:"templateId"`
 	// A description of the current template version being created/updated.
+	//
+	// The following arguments are optional:
 	VersionDescription pulumi.StringOutput `pulumi:"versionDescription"`
 	// The version number of the template version.
 	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
@@ -148,6 +149,8 @@ type templateState struct {
 	// Identifier for the template.
 	TemplateId *string `pulumi:"templateId"`
 	// A description of the current template version being created/updated.
+	//
+	// The following arguments are optional:
 	VersionDescription *string `pulumi:"versionDescription"`
 	// The version number of the template version.
 	VersionNumber *int `pulumi:"versionNumber"`
@@ -179,6 +182,8 @@ type TemplateState struct {
 	// Identifier for the template.
 	TemplateId pulumi.StringPtrInput
 	// A description of the current template version being created/updated.
+	//
+	// The following arguments are optional:
 	VersionDescription pulumi.StringPtrInput
 	// The version number of the template version.
 	VersionNumber pulumi.IntPtrInput
@@ -202,6 +207,8 @@ type templateArgs struct {
 	// Identifier for the template.
 	TemplateId string `pulumi:"templateId"`
 	// A description of the current template version being created/updated.
+	//
+	// The following arguments are optional:
 	VersionDescription string `pulumi:"versionDescription"`
 }
 
@@ -220,6 +227,8 @@ type TemplateArgs struct {
 	// Identifier for the template.
 	TemplateId pulumi.StringInput
 	// A description of the current template version being created/updated.
+	//
+	// The following arguments are optional:
 	VersionDescription pulumi.StringInput
 }
 
@@ -371,6 +380,8 @@ func (o TemplateOutput) TemplateId() pulumi.StringOutput {
 }
 
 // A description of the current template version being created/updated.
+//
+// The following arguments are optional:
 func (o TemplateOutput) VersionDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.VersionDescription }).(pulumi.StringOutput)
 }

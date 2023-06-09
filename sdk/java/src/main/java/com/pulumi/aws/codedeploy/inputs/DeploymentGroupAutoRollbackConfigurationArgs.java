@@ -35,12 +35,16 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs extends com.pulu
     /**
      * The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
      * 
+     * _Only one `auto_rollback_configuration` is allowed_.
+     * 
      */
     @Import(name="events")
     private @Nullable Output<List<String>> events;
 
     /**
      * @return The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+     * 
+     * _Only one `auto_rollback_configuration` is allowed_.
      * 
      */
     public Optional<Output<List<String>>> events() {
@@ -96,6 +100,8 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs extends com.pulu
         /**
          * @param events The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
          * 
+         * _Only one `auto_rollback_configuration` is allowed_.
+         * 
          * @return builder
          * 
          */
@@ -107,6 +113,8 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs extends com.pulu
         /**
          * @param events The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
          * 
+         * _Only one `auto_rollback_configuration` is allowed_.
+         * 
          * @return builder
          * 
          */
@@ -116,6 +124,8 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs extends com.pulu
 
         /**
          * @param events The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+         * 
+         * _Only one `auto_rollback_configuration` is allowed_.
          * 
          * @return builder
          * 

@@ -13,6 +13,45 @@ import (
 
 // Manages a directory in your account (directory owner) shared with another account (directory consumer).
 //
+// ## Example Usage
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// exampleDirectory, err := directoryservice.NewDirectory(ctx, "exampleDirectory", &directoryservice.DirectoryArgs{
+// Name: pulumi.String("tf-example"),
+// Password: pulumi.String("SuperSecretPassw0rd"),
+// Type: pulumi.String("MicrosoftAD"),
+// Edition: pulumi.String("Standard"),
+// VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
+// VpcId: pulumi.Any(aws_vpc.Example.Id),
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:directoryservice-sharedDirectory:SharedDirectory.pp:7,17-41),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// _, err = directoryservice.NewSharedDirectory(ctx, "exampleSharedDirectory", &directoryservice.SharedDirectoryArgs{
+// DirectoryId: exampleDirectory.ID(),
+// Notes: pulumi.String("You wanna have a catch?"),
+// Target: &directoryservice.SharedDirectoryTargetArgs{
+// Id: pulumi.Any(data.Aws_caller_identity.Receiver.Account_id),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Directory Service Shared Directories can be imported using the owner directory ID/shared directory ID, e.g.,
@@ -34,6 +73,8 @@ type SharedDirectory struct {
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringOutput `pulumi:"sharedDirectoryId"`
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+	//
+	// The following arguments are optional:
 	Target SharedDirectoryTargetOutput `pulumi:"target"`
 }
 
@@ -88,6 +129,8 @@ type sharedDirectoryState struct {
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId *string `pulumi:"sharedDirectoryId"`
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+	//
+	// The following arguments are optional:
 	Target *SharedDirectoryTarget `pulumi:"target"`
 }
 
@@ -101,6 +144,8 @@ type SharedDirectoryState struct {
 	// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
 	SharedDirectoryId pulumi.StringPtrInput
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+	//
+	// The following arguments are optional:
 	Target SharedDirectoryTargetPtrInput
 }
 
@@ -116,6 +161,8 @@ type sharedDirectoryArgs struct {
 	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 	Notes *string `pulumi:"notes"`
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+	//
+	// The following arguments are optional:
 	Target SharedDirectoryTarget `pulumi:"target"`
 }
 
@@ -128,6 +175,8 @@ type SharedDirectoryArgs struct {
 	// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
 	Notes pulumi.StringPtrInput
 	// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+	//
+	// The following arguments are optional:
 	Target SharedDirectoryTargetInput
 }
 
@@ -239,6 +288,8 @@ func (o SharedDirectoryOutput) SharedDirectoryId() pulumi.StringOutput {
 }
 
 // Identifier for the directory consumer account with whom the directory is to be shared. See below.
+//
+// The following arguments are optional:
 func (o SharedDirectoryOutput) Target() SharedDirectoryTargetOutput {
 	return o.ApplyT(func(v *SharedDirectory) SharedDirectoryTargetOutput { return v.Target }).(SharedDirectoryTargetOutput)
 }

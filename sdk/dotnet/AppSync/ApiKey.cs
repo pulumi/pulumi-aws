@@ -13,7 +13,6 @@ namespace Pulumi.Aws.AppSync
     /// Provides an AppSync API Key.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

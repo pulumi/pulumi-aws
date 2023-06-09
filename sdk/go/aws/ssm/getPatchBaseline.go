@@ -15,7 +15,6 @@ import (
 // ## Example Usage
 //
 // To retrieve a baseline provided by AWS:
-//
 // ```go
 // package main
 //
@@ -43,7 +42,6 @@ import (
 // ```
 //
 // To retrieve a baseline on your account:
-//
 // ```go
 // package main
 //

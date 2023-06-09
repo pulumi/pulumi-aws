@@ -110,12 +110,16 @@ public class SecretPolicy extends com.pulumi.resources.CustomResource {
     /**
      * Secret ARN.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="secretArn", refs={String.class}, tree="[0]")
     private Output<String> secretArn;
 
     /**
      * @return Secret ARN.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> secretArn() {

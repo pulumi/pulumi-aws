@@ -13,7 +13,6 @@ import (
 // Provides information for a Service Catalog Portfolio.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -51,6 +50,8 @@ type LookupPortfolioArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	// Portfolio identifier.
+	//
+	// The following arguments are optional:
 	Id string `pulumi:"id"`
 	// Tags applied to the portfolio.
 	Tags map[string]string `pulumi:"tags"`
@@ -92,6 +93,8 @@ type LookupPortfolioOutputArgs struct {
 	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
 	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
 	// Portfolio identifier.
+	//
+	// The following arguments are optional:
 	Id pulumi.StringInput `pulumi:"id"`
 	// Tags applied to the portfolio.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

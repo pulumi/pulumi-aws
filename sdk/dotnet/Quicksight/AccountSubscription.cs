@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing an AWS QuickSight Account Subscription.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -120,6 +119,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("notificationEmail")]
         public Output<string> NotificationEmail { get; private set; } = null!;
@@ -268,6 +269,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("notificationEmail", required: true)]
         public Input<string> NotificationEmail { get; set; } = null!;
@@ -390,6 +393,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("notificationEmail")]
         public Input<string>? NotificationEmail { get; set; }

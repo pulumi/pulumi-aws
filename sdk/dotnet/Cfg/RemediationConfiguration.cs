@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Cfg
     /// ## Example Usage
     /// 
     /// AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -143,6 +142,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// Type of the target. Target executes remediation. For example, SSM document.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("targetType")]
         public Output<string> TargetType { get; private set; } = null!;
@@ -255,6 +256,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// Type of the target. Target executes remediation. For example, SSM document.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("targetType", required: true)]
         public Input<string> TargetType { get; set; } = null!;
@@ -335,6 +338,8 @@ namespace Pulumi.Aws.Cfg
 
         /// <summary>
         /// Type of the target. Target executes remediation. For example, SSM document.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }

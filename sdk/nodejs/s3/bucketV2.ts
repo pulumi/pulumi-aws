@@ -225,6 +225,8 @@ export class BucketV2 extends pulumi.CustomResource {
     public readonly serverSideEncryptionConfigurations!: pulumi.Output<outputs.s3.BucketV2ServerSideEncryptionConfiguration[]>;
     /**
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * The following arguments are deprecated, and will be removed in a future major version:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -454,6 +456,8 @@ export interface BucketV2State {
     serverSideEncryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ServerSideEncryptionConfiguration>[]>;
     /**
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * The following arguments are deprecated, and will be removed in a future major version:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -589,6 +593,8 @@ export interface BucketV2Args {
     serverSideEncryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ServerSideEncryptionConfiguration>[]>;
     /**
      * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * The following arguments are deprecated, and will be removed in a future major version:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

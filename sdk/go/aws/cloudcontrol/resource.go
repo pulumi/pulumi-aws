@@ -14,7 +14,6 @@ import (
 // Manages a Cloud Control API Resource. The configuration and lifecycle handling of these resources is proxied through Cloud Control API handlers to the backend service.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -66,6 +65,8 @@ type Resource struct {
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName pulumi.StringOutput `pulumi:"typeName"`
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId pulumi.StringPtrOutput `pulumi:"typeVersionId"`
@@ -122,6 +123,8 @@ type resourceState struct {
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema *string `pulumi:"schema"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName *string `pulumi:"typeName"`
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId *string `pulumi:"typeVersionId"`
@@ -137,6 +140,8 @@ type ResourceState struct {
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema pulumi.StringPtrInput
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName pulumi.StringPtrInput
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId pulumi.StringPtrInput
@@ -154,6 +159,8 @@ type resourceArgs struct {
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema *string `pulumi:"schema"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName string `pulumi:"typeName"`
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId *string `pulumi:"typeVersionId"`
@@ -168,6 +175,8 @@ type ResourceArgs struct {
 	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema pulumi.StringPtrInput
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+	//
+	// The following arguments are optional:
 	TypeName pulumi.StringInput
 	// Identifier of the CloudFormation resource type version.
 	TypeVersionId pulumi.StringPtrInput
@@ -281,6 +290,8 @@ func (o ResourceOutput) Schema() pulumi.StringOutput {
 }
 
 // CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+//
+// The following arguments are optional:
 func (o ResourceOutput) TypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.TypeName }).(pulumi.StringOutput)
 }

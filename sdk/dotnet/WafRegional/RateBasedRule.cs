@@ -13,7 +13,6 @@ namespace Pulumi.Aws.WafRegional
     /// Provides a WAF Rate Based Rule Resource
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

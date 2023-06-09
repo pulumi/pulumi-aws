@@ -14,7 +14,6 @@ import (
 // Provides a Location Service Place Index.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -63,6 +62,8 @@ type PlaceIndex struct {
 	// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
 	IndexArn pulumi.StringOutput `pulumi:"indexArn"`
 	// The name of the place index resource.
+	//
+	// The following arguments are optional:
 	IndexName pulumi.StringOutput `pulumi:"indexName"`
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -118,6 +119,8 @@ type placeIndexState struct {
 	// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
 	IndexArn *string `pulumi:"indexArn"`
 	// The name of the place index resource.
+	//
+	// The following arguments are optional:
 	IndexName *string `pulumi:"indexName"`
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -139,6 +142,8 @@ type PlaceIndexState struct {
 	// The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
 	IndexArn pulumi.StringPtrInput
 	// The name of the place index resource.
+	//
+	// The following arguments are optional:
 	IndexName pulumi.StringPtrInput
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -160,6 +165,8 @@ type placeIndexArgs struct {
 	// The optional description for the place index resource.
 	Description *string `pulumi:"description"`
 	// The name of the place index resource.
+	//
+	// The following arguments are optional:
 	IndexName string `pulumi:"indexName"`
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -174,6 +181,8 @@ type PlaceIndexArgs struct {
 	// The optional description for the place index resource.
 	Description pulumi.StringPtrInput
 	// The name of the place index resource.
+	//
+	// The following arguments are optional:
 	IndexName pulumi.StringInput
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -292,6 +301,8 @@ func (o PlaceIndexOutput) IndexArn() pulumi.StringOutput {
 }
 
 // The name of the place index resource.
+//
+// The following arguments are optional:
 func (o PlaceIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlaceIndex) pulumi.StringOutput { return v.IndexName }).(pulumi.StringOutput)
 }

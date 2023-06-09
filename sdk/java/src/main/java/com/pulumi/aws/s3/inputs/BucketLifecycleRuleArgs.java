@@ -101,12 +101,16 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
     /**
      * Specifies when noncurrent object versions transitions (documented below).
      * 
+     * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
+     * 
      */
     @Import(name="noncurrentVersionTransitions")
     private @Nullable Output<List<BucketLifecycleRuleNoncurrentVersionTransitionArgs>> noncurrentVersionTransitions;
 
     /**
      * @return Specifies when noncurrent object versions transitions (documented below).
+     * 
+     * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
      * 
      */
     public Optional<Output<List<BucketLifecycleRuleNoncurrentVersionTransitionArgs>>> noncurrentVersionTransitions() {
@@ -298,6 +302,8 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         /**
          * @param noncurrentVersionTransitions Specifies when noncurrent object versions transitions (documented below).
          * 
+         * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -309,6 +315,8 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
         /**
          * @param noncurrentVersionTransitions Specifies when noncurrent object versions transitions (documented below).
          * 
+         * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
+         * 
          * @return builder
          * 
          */
@@ -318,6 +326,8 @@ public final class BucketLifecycleRuleArgs extends com.pulumi.resources.Resource
 
         /**
          * @param noncurrentVersionTransitions Specifies when noncurrent object versions transitions (documented below).
+         * 
+         * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
          * 
          * @return builder
          * 

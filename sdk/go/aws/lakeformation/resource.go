@@ -16,7 +16,6 @@ import (
 // Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role. When you register the S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -55,6 +54,8 @@ type Resource struct {
 	// (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+	//
+	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
 
@@ -95,6 +96,8 @@ type resourceState struct {
 	// (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified *string `pulumi:"lastModified"`
 	// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+	//
+	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -104,6 +107,8 @@ type ResourceState struct {
 	// (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	LastModified pulumi.StringPtrInput
 	// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+	//
+	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 	RoleArn pulumi.StringPtrInput
 }
 
@@ -115,6 +120,8 @@ type resourceArgs struct {
 	// Amazon Resource Name (ARN) of the resource, an S3 path.
 	Arn string `pulumi:"arn"`
 	// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+	//
+	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -123,6 +130,8 @@ type ResourceArgs struct {
 	// Amazon Resource Name (ARN) of the resource, an S3 path.
 	Arn pulumi.StringInput
 	// Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+	//
+	// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 	RoleArn pulumi.StringPtrInput
 }
 
@@ -224,6 +233,8 @@ func (o ResourceOutput) LastModified() pulumi.StringOutput {
 }
 
 // Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
+//
+// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
 func (o ResourceOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

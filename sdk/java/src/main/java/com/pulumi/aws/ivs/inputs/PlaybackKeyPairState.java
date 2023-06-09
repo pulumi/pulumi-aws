@@ -64,12 +64,16 @@ public final class PlaybackKeyPairState extends com.pulumi.resources.ResourceArg
     /**
      * Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="publicKey")
     private @Nullable Output<String> publicKey;
 
     /**
      * @return Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> publicKey() {
@@ -201,6 +205,8 @@ public final class PlaybackKeyPairState extends com.pulumi.resources.ResourceArg
         /**
          * @param publicKey Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -211,6 +217,8 @@ public final class PlaybackKeyPairState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param publicKey Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

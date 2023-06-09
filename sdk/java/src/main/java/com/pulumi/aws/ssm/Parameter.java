@@ -270,12 +270,16 @@ public class Parameter extends com.pulumi.resources.CustomResource {
     /**
      * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -284,12 +288,16 @@ public class Parameter extends com.pulumi.resources.CustomResource {
     /**
      * Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
      * 
+     * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
+     * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
     /**
      * @return Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
+     * 
+     * &gt; **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
      * 
      */
     public Output<String> value() {

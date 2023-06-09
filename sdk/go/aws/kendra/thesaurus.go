@@ -14,7 +14,6 @@ import (
 // Resource for managing an AWS Kendra Thesaurus.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -70,6 +69,8 @@ type Thesaurus struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3PathOutput `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -129,6 +130,8 @@ type thesaurusState struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn *string `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path *ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
 	// The current status of the thesaurus.
 	Status *string `pulumi:"status"`
@@ -151,6 +154,8 @@ type ThesaurusState struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringPtrInput
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3PathPtrInput
 	// The current status of the thesaurus.
 	Status pulumi.StringPtrInput
@@ -175,6 +180,8 @@ type thesaurusArgs struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn string `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -191,6 +198,8 @@ type ThesaurusArgs struct {
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringInput
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The `sourceS3Path` configuration block supports the following arguments:
 	SourceS3Path ThesaurusSourceS3PathInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -309,6 +318,8 @@ func (o ThesaurusOutput) RoleArn() pulumi.StringOutput {
 }
 
 // The S3 path where your thesaurus file sits in S3. Detailed below.
+//
+// The `sourceS3Path` configuration block supports the following arguments:
 func (o ThesaurusOutput) SourceS3Path() ThesaurusSourceS3PathOutput {
 	return o.ApplyT(func(v *Thesaurus) ThesaurusSourceS3PathOutput { return v.SourceS3Path }).(ThesaurusSourceS3PathOutput)
 }

@@ -25,6 +25,8 @@ class UserArgs:
         :param pulumi.Input[str] access_string: The access permissions string used for this user.
         :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[str] user_name: Name of the MemoryDB user. Up to 40 characters.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "access_string", access_string)
@@ -62,6 +64,8 @@ class UserArgs:
     def user_name(self) -> pulumi.Input[str]:
         """
         Name of the MemoryDB user. Up to 40 characters.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 
@@ -101,6 +105,8 @@ class _UserState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_name: Name of the MemoryDB user. Up to 40 characters.
+               
+               The following arguments are optional:
         """
         if access_string is not None:
             pulumi.set(__self__, "access_string", access_string)
@@ -194,6 +200,8 @@ class _UserState:
     def user_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the MemoryDB user. Up to 40 characters.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 
@@ -219,7 +227,6 @@ class User(pulumi.CustomResource):
 
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,6 +258,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_name: Name of the MemoryDB user. Up to 40 characters.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -265,7 +274,6 @@ class User(pulumi.CustomResource):
 
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -363,6 +371,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_name: Name of the MemoryDB user. Up to 40 characters.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -430,6 +440,8 @@ class User(pulumi.CustomResource):
     def user_name(self) -> pulumi.Output[str]:
         """
         Name of the MemoryDB user. Up to 40 characters.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "user_name")
 

@@ -199,12 +199,16 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
     /**
      * Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="notificationEmail", required=true)
     private Output<String> notificationEmail;
 
     /**
      * @return Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> notificationEmail() {
@@ -554,6 +558,8 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         /**
          * @param notificationEmail Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -564,6 +570,8 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
 
         /**
          * @param notificationEmail Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

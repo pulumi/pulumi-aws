@@ -20,7 +20,6 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -112,6 +111,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Template source as URL of the CloudFormation template in Amazon S3.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("templateUrl")]
         public Output<string?> TemplateUrl { get; private set; } = null!;
@@ -218,6 +219,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Template source as URL of the CloudFormation template in Amazon S3.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("templateUrl")]
         public Input<string>? TemplateUrl { get; set; }
@@ -298,6 +301,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Template source as URL of the CloudFormation template in Amazon S3.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("templateUrl")]
         public Input<string>? TemplateUrl { get; set; }

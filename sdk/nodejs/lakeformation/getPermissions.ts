@@ -113,6 +113,8 @@ export interface GetPermissionsArgs {
     lfTagPolicy?: inputs.lakeformation.GetPermissionsLfTagPolicy;
     /**
      * Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+     *
+     * One of the following is required:
      */
     principal: string;
     /**
@@ -121,6 +123,8 @@ export interface GetPermissionsArgs {
     table?: inputs.lakeformation.GetPermissionsTable;
     /**
      * Configuration block for a table with columns resource. Detailed below.
+     *
+     * The following arguments are optional:
      */
     tableWithColumns?: inputs.lakeformation.GetPermissionsTableWithColumns;
 }
@@ -245,6 +249,8 @@ export interface GetPermissionsOutputArgs {
     lfTagPolicy?: pulumi.Input<inputs.lakeformation.GetPermissionsLfTagPolicyArgs>;
     /**
      * Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+     *
+     * One of the following is required:
      */
     principal: pulumi.Input<string>;
     /**
@@ -253,6 +259,8 @@ export interface GetPermissionsOutputArgs {
     table?: pulumi.Input<inputs.lakeformation.GetPermissionsTableArgs>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
+     *
+     * The following arguments are optional:
      */
     tableWithColumns?: pulumi.Input<inputs.lakeformation.GetPermissionsTableWithColumnsArgs>;
 }

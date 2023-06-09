@@ -216,12 +216,16 @@ public class Addon extends com.pulumi.resources.CustomResource {
     /**
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
     /**
      * @return Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> clusterName() {
@@ -309,6 +313,11 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
      * in the Amazon EKS User Guide.
      * 
+     * &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+     * provider created for your cluster. For more information, [see Enabling IAM roles
+     * for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
+     * in the Amazon EKS User Guide.
+     * 
      */
     @Export(name="serviceAccountRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceAccountRoleArn;
@@ -319,6 +328,11 @@ public class Addon extends com.pulumi.resources.CustomResource {
      * assigned the IAM permissions required by the add-on. If you don&#39;t specify
      * an existing IAM role, then the add-on uses the permissions assigned to the node
      * IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
+     * in the Amazon EKS User Guide.
+     * 
+     * &gt; **Note:** To specify an existing IAM role, you must have an IAM OpenID Connect (OIDC)
+     * provider created for your cluster. For more information, [see Enabling IAM roles
+     * for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
      * in the Amazon EKS User Guide.
      * 
      */

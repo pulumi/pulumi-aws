@@ -15,6 +15,78 @@ import (
 //
 // > **NOTE:** If a Principal is specified as just an AWS account ID rather than an ARN, AWS silently converts it to the ARN for the root user, causing future deployments to differ. To avoid this problem, just specify the full ARN, e.g. `arn:aws:iam::123456789012:root`
 //
+// ## Example Usage
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// test, err := sns.NewTopic(ctx, "test", nil)
+// if err != nil {
+// return err
+// }
+// snsTopicPolicy := test.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
+// return iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// PolicyId: "__default_policy_ID",
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
+// Actions: []string{
+// "SNS:Subscribe",
+// "SNS:SetTopicAttributes",
+// "SNS:RemovePermission",
+// "SNS:Receive",
+// "SNS:Publish",
+// "SNS:ListSubscriptionsByTopic",
+// "SNS:GetTopicAttributes",
+// "SNS:DeleteTopic",
+// "SNS:AddPermission",
+// },
+// Conditions: []iam.GetPolicyDocumentStatementCondition{
+// {
+// Test: "StringEquals",
+// Variable: "AWS:SourceOwner",
+// Values: interface{}{
+// _var.AccountId,
+// },
+// },
+// },
+// Effect: "Allow",
+// Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// {
+// Type: "AWS",
+// Identifiers: []string{
+// "*",
+// },
+// },
+// },
+// Resources: interface{}{
+// arn,
+// },
+// Sid: "__default_statement_ID",
+// },
+// },
+// }, nil), nil
+// }).(iam.GetPolicyDocumentResultOutput)
+// _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
+// Arn: test.Arn,
+// Policy: snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
+// return &snsTopicPolicy.Json, nil
+// }).(pulumi.StringPtrOutput),
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // SNS Topic Policy can be imported using the topic ARN, e.g.,

@@ -183,7 +183,6 @@ class ClientCertificate(pulumi.CustomResource):
         Provides an API Gateway Client Certificate.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,7 +213,6 @@ class ClientCertificate(pulumi.CustomResource):
         Provides an API Gateway Client Certificate.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Example Usage
     /// ### Root volume Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,7 +42,6 @@ namespace Pulumi.Aws.Fsx
     /// });
     /// ```
     /// ### Child volume Example
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

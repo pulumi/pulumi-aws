@@ -15,128 +15,6 @@ import (
 // > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
 //
 // ## Example Usage
-// ### Instance Target Group
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewTargetGroup(ctx, "test", &lb.TargetGroupArgs{
-//				Port:     pulumi.Int(80),
-//				Protocol: pulumi.String("HTTP"),
-//				VpcId:    main.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### IP Target Group
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lb.NewTargetGroup(ctx, "ip-example", &lb.TargetGroupArgs{
-//				Port:       pulumi.Int(80),
-//				Protocol:   pulumi.String("HTTP"),
-//				TargetType: pulumi.String("ip"),
-//				VpcId:      main.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Lambda Target Group
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewTargetGroup(ctx, "lambda-example", &lb.TargetGroupArgs{
-//				TargetType: pulumi.String("lambda"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### ALB Target Group
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewTargetGroup(ctx, "alb-example", &lb.TargetGroupArgs{
-//				TargetType: pulumi.String("alb"),
-//				Port:       pulumi.Int(80),
-//				Protocol:   pulumi.String("TCP"),
-//				VpcId:      pulumi.Any(aws_vpc.Main.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -193,6 +71,14 @@ type TargetGroup struct {
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayOutput `pulumi:"targetFailovers"`
 	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+	//
+	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
+	//
+	// If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+	//
+	// Network Load Balancers do not support the `lambda` target type.
+	//
+	// Application Load Balancers do not support the `alb` target type.
 	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
 	// Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
 	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
@@ -276,6 +162,14 @@ type targetGroupState struct {
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers []TargetGroupTargetFailover `pulumi:"targetFailovers"`
 	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+	//
+	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
+	//
+	// If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+	//
+	// Network Load Balancers do not support the `lambda` target type.
+	//
+	// Application Load Balancers do not support the `alb` target type.
 	TargetType *string `pulumi:"targetType"`
 	// Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
 	VpcId *string `pulumi:"vpcId"`
@@ -325,6 +219,14 @@ type TargetGroupState struct {
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayInput
 	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+	//
+	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
+	//
+	// If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+	//
+	// Network Load Balancers do not support the `lambda` target type.
+	//
+	// Application Load Balancers do not support the `alb` target type.
 	TargetType pulumi.StringPtrInput
 	// Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
 	VpcId pulumi.StringPtrInput
@@ -372,6 +274,14 @@ type targetGroupArgs struct {
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers []TargetGroupTargetFailover `pulumi:"targetFailovers"`
 	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+	//
+	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
+	//
+	// If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+	//
+	// Network Load Balancers do not support the `lambda` target type.
+	//
+	// Application Load Balancers do not support the `alb` target type.
 	TargetType *string `pulumi:"targetType"`
 	// Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
 	VpcId *string `pulumi:"vpcId"`
@@ -416,6 +326,14 @@ type TargetGroupArgs struct {
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayInput
 	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+	//
+	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
+	//
+	// If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+	//
+	// Network Load Balancers do not support the `lambda` target type.
+	//
+	// Application Load Balancers do not support the `alb` target type.
 	TargetType pulumi.StringPtrInput
 	// Identifier of the VPC in which to create the target group. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
 	VpcId pulumi.StringPtrInput
@@ -614,6 +532,14 @@ func (o TargetGroupOutput) TargetFailovers() TargetGroupTargetFailoverArrayOutpu
 }
 
 // Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
+//
+// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
+//
+// If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+//
+// Network Load Balancers do not support the `lambda` target type.
+//
+// Application Load Balancers do not support the `alb` target type.
 func (o TargetGroupOutput) TargetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.TargetType }).(pulumi.StringPtrOutput)
 }

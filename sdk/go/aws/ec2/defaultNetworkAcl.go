@@ -201,6 +201,8 @@ type DefaultNetworkAcl struct {
 	// ARN of the Default Network ACL
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+	//
+	// The following arguments are optional:
 	DefaultNetworkAclId pulumi.StringOutput `pulumi:"defaultNetworkAclId"`
 	// Configuration block for an egress rule. Detailed below.
 	Egress DefaultNetworkAclEgressArrayOutput `pulumi:"egress"`
@@ -253,6 +255,8 @@ type defaultNetworkAclState struct {
 	// ARN of the Default Network ACL
 	Arn *string `pulumi:"arn"`
 	// Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+	//
+	// The following arguments are optional:
 	DefaultNetworkAclId *string `pulumi:"defaultNetworkAclId"`
 	// Configuration block for an egress rule. Detailed below.
 	Egress []DefaultNetworkAclEgress `pulumi:"egress"`
@@ -274,6 +278,8 @@ type DefaultNetworkAclState struct {
 	// ARN of the Default Network ACL
 	Arn pulumi.StringPtrInput
 	// Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+	//
+	// The following arguments are optional:
 	DefaultNetworkAclId pulumi.StringPtrInput
 	// Configuration block for an egress rule. Detailed below.
 	Egress DefaultNetworkAclEgressArrayInput
@@ -297,6 +303,8 @@ func (DefaultNetworkAclState) ElementType() reflect.Type {
 
 type defaultNetworkAclArgs struct {
 	// Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+	//
+	// The following arguments are optional:
 	DefaultNetworkAclId string `pulumi:"defaultNetworkAclId"`
 	// Configuration block for an egress rule. Detailed below.
 	Egress []DefaultNetworkAclEgress `pulumi:"egress"`
@@ -311,6 +319,8 @@ type defaultNetworkAclArgs struct {
 // The set of arguments for constructing a DefaultNetworkAcl resource.
 type DefaultNetworkAclArgs struct {
 	// Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+	//
+	// The following arguments are optional:
 	DefaultNetworkAclId pulumi.StringInput
 	// Configuration block for an egress rule. Detailed below.
 	Egress DefaultNetworkAclEgressArrayInput
@@ -415,6 +425,8 @@ func (o DefaultNetworkAclOutput) Arn() pulumi.StringOutput {
 }
 
 // Network ACL ID to manage. This attribute is exported from `ec2.Vpc`, or manually found via the AWS Console.
+//
+// The following arguments are optional:
 func (o DefaultNetworkAclOutput) DefaultNetworkAclId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultNetworkAcl) pulumi.StringOutput { return v.DefaultNetworkAclId }).(pulumi.StringOutput)
 }

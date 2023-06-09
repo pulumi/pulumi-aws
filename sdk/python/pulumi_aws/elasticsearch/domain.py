@@ -42,6 +42,8 @@ class DomainArgs:
         :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         :param pulumi.Input[str] elasticsearch_version: Version of Elasticsearch to deploy. Defaults to `1.5`.
         :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
@@ -173,6 +175,8 @@ class DomainArgs:
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the domain.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 
@@ -313,6 +317,8 @@ class _DomainState:
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         :param pulumi.Input[str] elasticsearch_version: Version of Elasticsearch to deploy. Defaults to `1.5`.
         :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
@@ -483,6 +489,8 @@ class _DomainState:
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the domain.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 
@@ -807,6 +815,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         :param pulumi.Input[str] elasticsearch_version: Version of Elasticsearch to deploy. Defaults to `1.5`.
         :param pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
@@ -1081,6 +1091,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         :param pulumi.Input[str] elasticsearch_version: Version of Elasticsearch to deploy. Defaults to `1.5`.
         :param pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
@@ -1199,6 +1211,8 @@ class Domain(pulumi.CustomResource):
     def domain_name(self) -> pulumi.Output[str]:
         """
         Name of the domain.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 

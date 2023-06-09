@@ -41,6 +41,8 @@ export interface GetParametersByPathArgs {
     path: string;
     /**
      * Whether to recursively return parameters under `path`. Defaults to `false`.
+     *
+     * In addition to all arguments above, the following attributes are exported:
      */
     recursive?: boolean;
     /**
@@ -96,6 +98,8 @@ export interface GetParametersByPathOutputArgs {
     path: pulumi.Input<string>;
     /**
      * Whether to recursively return parameters under `path`. Defaults to `false`.
+     *
+     * In addition to all arguments above, the following attributes are exported:
      */
     recursive?: pulumi.Input<boolean>;
     /**

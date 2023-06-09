@@ -14,7 +14,6 @@ import (
 // Provides a CloudWatch Dashboard resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

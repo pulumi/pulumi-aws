@@ -22,6 +22,8 @@ class TrackerArgs:
         """
         The set of arguments for constructing a Tracker resource.
         :param pulumi.Input[str] tracker_name: The name of the tracker resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: The optional description for the tracker resource.
         :param pulumi.Input[str] kms_key_id: A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         :param pulumi.Input[str] position_filtering: The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
@@ -42,6 +44,8 @@ class TrackerArgs:
     def tracker_name(self) -> pulumi.Input[str]:
         """
         The name of the tracker resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "tracker_name")
 
@@ -120,6 +124,8 @@ class _TrackerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tracker_arn: The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[str] tracker_name: The name of the tracker resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] update_time: The timestamp for when the tracker resource was last updated in ISO 8601 format.
         """
         if create_time is not None:
@@ -230,6 +236,8 @@ class _TrackerState:
     def tracker_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the tracker resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "tracker_name")
 
@@ -265,7 +273,6 @@ class Tracker(pulumi.CustomResource):
         Provides a Location Service Tracker.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,6 +295,8 @@ class Tracker(pulumi.CustomResource):
         :param pulumi.Input[str] position_filtering: The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] tracker_name: The name of the tracker resource.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -299,7 +308,6 @@ class Tracker(pulumi.CustomResource):
         Provides a Location Service Tracker.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,6 +397,8 @@ class Tracker(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] tracker_arn: The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
         :param pulumi.Input[str] tracker_name: The name of the tracker resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] update_time: The timestamp for when the tracker resource was last updated in ISO 8601 format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -467,6 +477,8 @@ class Tracker(pulumi.CustomResource):
     def tracker_name(self) -> pulumi.Output[str]:
         """
         The name of the tracker resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "tracker_name")
 

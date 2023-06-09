@@ -208,6 +208,8 @@ export class BucketNotification extends pulumi.CustomResource {
 
     /**
      * Name of the bucket for notification configuration.
+     *
+     * The following arguments are optional:
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -267,6 +269,8 @@ export class BucketNotification extends pulumi.CustomResource {
 export interface BucketNotificationState {
     /**
      * Name of the bucket for notification configuration.
+     *
+     * The following arguments are optional:
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -293,6 +297,8 @@ export interface BucketNotificationState {
 export interface BucketNotificationArgs {
     /**
      * Name of the bucket for notification configuration.
+     *
+     * The following arguments are optional:
      */
     bucket: pulumi.Input<string>;
     /**

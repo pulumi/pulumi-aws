@@ -345,7 +345,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
         Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,7 +388,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
         Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Iam
     /// Manages the account alias for the AWS Account.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

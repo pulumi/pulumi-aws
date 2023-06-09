@@ -14,7 +14,6 @@ import (
 // in a given region for the purpose of using in an AWS Route53 Alias.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

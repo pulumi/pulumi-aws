@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 // ### New Neptune Global Cluster
-//
 // ```go
 // package main
 //
@@ -101,7 +100,6 @@ import (
 //
 // ```
 // ### New Global Cluster From Existing DB Cluster
-//
 // ```go
 // package main
 //

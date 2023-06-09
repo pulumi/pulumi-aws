@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Keyspaces
     /// More information about Keyspaces tables can be found in the [Keyspaces Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html).
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -112,6 +111,8 @@ namespace Pulumi.Aws.Keyspaces
 
         /// <summary>
         /// The name of the table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
@@ -224,6 +225,8 @@ namespace Pulumi.Aws.Keyspaces
 
         /// <summary>
         /// The name of the table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
@@ -304,6 +307,8 @@ namespace Pulumi.Aws.Keyspaces
 
         /// <summary>
         /// The name of the table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }

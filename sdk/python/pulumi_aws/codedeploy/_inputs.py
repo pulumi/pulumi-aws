@@ -277,6 +277,8 @@ class DeploymentGroupAutoRollbackConfigurationArgs:
         """
         :param pulumi.Input[bool] enabled: Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+               
+               _Only one `auto_rollback_configuration` is allowed_.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -300,6 +302,8 @@ class DeploymentGroupAutoRollbackConfigurationArgs:
     def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE` and `DEPLOYMENT_STOP_ON_ALARM`.
+
+        _Only one `auto_rollback_configuration` is allowed_.
         """
         return pulumi.get(self, "events")
 
@@ -318,6 +322,8 @@ class DeploymentGroupBlueGreenDeploymentConfigArgs:
         :param pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs'] deployment_ready_option: Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
         :param pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs'] green_fleet_provisioning_option: Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
         :param pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs'] terminate_blue_instances_on_deployment_success: Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+               
+               _Only one `blue_green_deployment_config` is allowed_.
         """
         if deployment_ready_option is not None:
             pulumi.set(__self__, "deployment_ready_option", deployment_ready_option)
@@ -355,6 +361,8 @@ class DeploymentGroupBlueGreenDeploymentConfigArgs:
     def terminate_blue_instances_on_deployment_success(self) -> Optional[pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs']]:
         """
         Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+
+        _Only one `blue_green_deployment_config` is allowed_.
         """
         return pulumi.get(self, "terminate_blue_instances_on_deployment_success")
 
@@ -472,6 +480,8 @@ class DeploymentGroupDeploymentStyleArgs:
         """
         :param pulumi.Input[str] deployment_option: Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
         :param pulumi.Input[str] deployment_type: Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
+               
+               _Only one `deployment_style` is allowed_.
         """
         if deployment_option is not None:
             pulumi.set(__self__, "deployment_option", deployment_option)
@@ -495,6 +505,8 @@ class DeploymentGroupDeploymentStyleArgs:
     def deployment_type(self) -> Optional[pulumi.Input[str]]:
         """
         Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
+
+        _Only one `deployment_style` is allowed_.
         """
         return pulumi.get(self, "deployment_type")
 
@@ -513,6 +525,8 @@ class DeploymentGroupEc2TagFilterArgs:
         :param pulumi.Input[str] key: The key of the tag filter.
         :param pulumi.Input[str] type: The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
         :param pulumi.Input[str] value: The value of the tag filter.
+               
+               Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -550,6 +564,8 @@ class DeploymentGroupEc2TagFilterArgs:
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         The value of the tag filter.
+
+        Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
         """
         return pulumi.get(self, "value")
 
@@ -591,6 +607,8 @@ class DeploymentGroupEc2TagSetEc2TagFilterArgs:
         :param pulumi.Input[str] key: The key of the tag filter.
         :param pulumi.Input[str] type: The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
         :param pulumi.Input[str] value: The value of the tag filter.
+               
+               Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -628,6 +646,8 @@ class DeploymentGroupEc2TagSetEc2TagFilterArgs:
     def value(self) -> Optional[pulumi.Input[str]]:
         """
         The value of the tag filter.
+
+        Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
         """
         return pulumi.get(self, "value")
 

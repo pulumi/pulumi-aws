@@ -62,7 +62,6 @@ def get_rules_packages(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitable
     configured in the provider.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -13,7 +13,6 @@ import (
 // Provides details about a specific Amazon Kendra Index.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

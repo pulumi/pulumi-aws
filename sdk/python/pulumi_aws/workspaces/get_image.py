@@ -116,7 +116,6 @@ def get_image(image_id: Optional[str] = None,
     Use this data source to get information about a Workspaces image.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -149,7 +148,6 @@ def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
     Use this data source to get information about a Workspaces image.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

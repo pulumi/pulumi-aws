@@ -23,6 +23,8 @@ namespace Pulumi.Aws.IdentityStore.Outputs
         public readonly string? Formatted;
         /// <summary>
         /// The given name of the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string GivenName;
         /// <summary>

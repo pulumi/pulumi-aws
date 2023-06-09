@@ -34,12 +34,16 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
     /**
      * The port on the container to associate with the load balancer. Defaults to `0` if not specified.
      * 
+     * &gt; **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
+     * 
      */
     @Import(name="containerPort")
     private @Nullable Output<Integer> containerPort;
 
     /**
      * @return The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+     * 
+     * &gt; **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
      * 
      */
     public Optional<Output<Integer>> containerPort() {
@@ -127,6 +131,8 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
         /**
          * @param containerPort The port on the container to associate with the load balancer. Defaults to `0` if not specified.
          * 
+         * &gt; **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
+         * 
          * @return builder
          * 
          */
@@ -137,6 +143,8 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
 
         /**
          * @param containerPort The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+         * 
+         * &gt; **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
          * 
          * @return builder
          * 

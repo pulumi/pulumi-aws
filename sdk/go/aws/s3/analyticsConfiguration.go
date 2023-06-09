@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
-//
 // ```go
 // package main
 //
@@ -57,7 +56,6 @@ import (
 //
 // ```
 // ### Add analytics configuration with S3 object filter
-//
 // ```go
 // package main
 //

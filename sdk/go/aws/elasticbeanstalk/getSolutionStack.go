@@ -13,7 +13,6 @@ import (
 // Use this data source to get the name of a elastic beanstalk solution stack.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -55,6 +54,10 @@ type GetSolutionStackArgs struct {
 	// Regex string to apply to the solution stack list returned
 	// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
 	// AWS documentation for reference solution stack names.
+	//
+	// > **NOTE:** If more or less than a single match is returned by the search,
+	// this call will fail. Ensure that your search is specific enough to return
+	// a single solution stack, or use `mostRecent` to choose the most recent one.
 	NameRegex string `pulumi:"nameRegex"`
 }
 
@@ -89,6 +92,10 @@ type GetSolutionStackOutputArgs struct {
 	// Regex string to apply to the solution stack list returned
 	// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
 	// AWS documentation for reference solution stack names.
+	//
+	// > **NOTE:** If more or less than a single match is returned by the search,
+	// this call will fail. Ensure that your search is specific enough to return
+	// a single solution stack, or use `mostRecent` to choose the most recent one.
 	NameRegex pulumi.StringInput `pulumi:"nameRegex"`
 }
 

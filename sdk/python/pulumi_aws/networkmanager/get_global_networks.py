@@ -71,7 +71,6 @@ def get_global_networks(tags: Optional[Mapping[str, str]] = None,
     Retrieve information about global networks.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,7 +101,6 @@ def get_global_networks_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
     Retrieve information about global networks.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

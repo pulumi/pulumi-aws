@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// ### Csv Classifier
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,7 +44,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### Grok Classifier
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,7 +64,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### JSON Classifier
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -86,7 +83,6 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// ### XML Classifier
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

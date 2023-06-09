@@ -14,7 +14,6 @@ import (
 // Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

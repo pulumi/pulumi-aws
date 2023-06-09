@@ -200,6 +200,9 @@ export class LoadBalancer extends pulumi.CustomResource {
     public readonly subnets!: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * Exactly one of `availabilityZones` or `subnets` must be specified: this
+     * determines if the ELB exists in a VPC or in EC2-classic.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -370,6 +373,9 @@ export interface LoadBalancerState {
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * Exactly one of `availabilityZones` or `subnets` must be specified: this
+     * determines if the ELB exists in a VPC or in EC2-classic.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -456,6 +462,9 @@ export interface LoadBalancerArgs {
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * Exactly one of `availabilityZones` or `subnets` must be specified: this
+     * determines if the ELB exists in a VPC or in EC2-classic.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

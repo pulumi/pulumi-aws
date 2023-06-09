@@ -13,7 +13,6 @@ import (
 // Provides details about a specific Amazon Lex Intent.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -90,6 +90,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing.Inputs
 
         /// <summary>
         /// User info endpoint of the IdP.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("userInfoEndpoint", required: true)]
         public Input<string> UserInfoEndpoint { get; set; } = null!;

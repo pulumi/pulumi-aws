@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Iot
     /// Provides an IoT policy.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -103,7 +103,6 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -138,7 +137,6 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -75,7 +75,6 @@ def get_received_licenses(filters: Optional[Sequence[pulumi.InputType['GetReceiv
     ## Example Usage
 
     The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -88,6 +87,9 @@ def get_received_licenses(filters: Optional[Sequence[pulumi.InputType['GetReceiv
 
 
     :param Sequence[pulumi.InputType['GetReceivedLicensesFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -109,7 +111,6 @@ def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequenc
     ## Example Usage
 
     The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -122,5 +123,8 @@ def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
 
     :param Sequence[pulumi.InputType['GetReceivedLicensesFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

@@ -14,7 +14,6 @@ import (
 // Provides a Direct Connect BGP peer resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

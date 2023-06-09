@@ -86,6 +86,9 @@ def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]] 
 
 
     :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired vpcs.
     """
@@ -113,6 +116,9 @@ def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
 
 
     :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired vpcs.
     """

@@ -24,6 +24,8 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         public readonly ImmutableArray<string> InsideCidrBlocks;
         /// <summary>
         /// The Connect peer address.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string? PeerAddress;
         public readonly string? Protocol;

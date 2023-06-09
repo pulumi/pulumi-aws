@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ## Policy with a Custom Action for Stateless Inspection
  *
  * ## Import
  *

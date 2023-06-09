@@ -20,6 +20,8 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     /**
      * @return The text-format code for the application.
      * 
+     * The `s3_content_location` object supports the following:
+     * 
      */
     private @Nullable String textContent;
 
@@ -33,6 +35,8 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     }
     /**
      * @return The text-format code for the application.
+     * 
+     * The `s3_content_location` object supports the following:
      * 
      */
     public Optional<String> textContent() {

@@ -40,12 +40,16 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * An object that describes the cache behavior settings of the distribution. Detailed below
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="cacheBehaviorSettings")
     private @Nullable Output<DistributionCacheBehaviorSettingsArgs> cacheBehaviorSettings;
 
     /**
      * @return An object that describes the cache behavior settings of the distribution. Detailed below
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<DistributionCacheBehaviorSettingsArgs>> cacheBehaviorSettings() {
@@ -235,6 +239,8 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param cacheBehaviorSettings An object that describes the cache behavior settings of the distribution. Detailed below
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -245,6 +251,8 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cacheBehaviorSettings An object that describes the cache behavior settings of the distribution. Detailed below
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

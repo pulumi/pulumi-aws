@@ -14,7 +14,6 @@ import (
 // Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

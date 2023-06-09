@@ -23,6 +23,8 @@ class FunctionArgs:
         The set of arguments for constructing a Function resource.
         :param pulumi.Input[str] code: Source code of the function
         :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] comment: Comment.
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
@@ -53,6 +55,8 @@ class FunctionArgs:
     def runtime(self) -> pulumi.Input[str]:
         """
         Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "runtime")
 
@@ -119,6 +123,8 @@ class _FunctionState:
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
         """
         if arn is not None:
@@ -229,6 +235,8 @@ class _FunctionState:
     def runtime(self) -> Optional[pulumi.Input[str]]:
         """
         Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "runtime")
 
@@ -269,7 +277,6 @@ class Function(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,6 +303,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -312,7 +321,6 @@ class Function(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Example
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -408,6 +416,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -486,6 +496,8 @@ class Function(pulumi.CustomResource):
     def runtime(self) -> pulumi.Output[str]:
         """
         Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "runtime")
 

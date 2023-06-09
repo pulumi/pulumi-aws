@@ -202,7 +202,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
 
         ## Example Usage
         ### AWS Account ID
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -212,7 +211,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678")
         ```
         ### Public Access
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,7 +220,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678")
         ```
         ### Organization Access
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,7 +257,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
 
         ## Example Usage
         ### AWS Account ID
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -270,7 +266,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678")
         ```
         ### Public Access
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,7 +275,6 @@ class AmiLaunchPermission(pulumi.CustomResource):
             image_id="ami-12345678")
         ```
         ### Organization Access
-
         ```python
         import pulumi
         import pulumi_aws as aws

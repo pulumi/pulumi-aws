@@ -103,7 +103,6 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
         The provider waits for the domain service access policy to become `Active` when applying a configuration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,7 +155,6 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
         The provider waits for the domain service access policy to become `Active` when applying a configuration.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

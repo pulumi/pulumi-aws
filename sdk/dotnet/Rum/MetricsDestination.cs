@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Rum
     /// Provides a CloudWatch RUM Metrics Destination resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

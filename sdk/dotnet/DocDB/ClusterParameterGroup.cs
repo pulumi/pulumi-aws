@@ -13,7 +13,6 @@ namespace Pulumi.Aws.DocDB
     /// Manages a DocumentDB Cluster Parameter Group
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic
-//
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //
 // ```
 // ### With File Format
-//
 // ```go
 // package main
 //
@@ -79,7 +77,6 @@ import (
 //
 // ```
 // ### With Language Code
-//
 // ```go
 // package main
 //
@@ -143,6 +140,8 @@ type Faq struct {
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The S3 location of the FAQ input data. Detailed below.
+	//
+	// The `s3Path` configuration block supports the following arguments:
 	S3Path FaqS3PathOutput `pulumi:"s3Path"`
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -213,6 +212,8 @@ type faqState struct {
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn *string `pulumi:"roleArn"`
 	// The S3 location of the FAQ input data. Detailed below.
+	//
+	// The `s3Path` configuration block supports the following arguments:
 	S3Path *FaqS3Path `pulumi:"s3Path"`
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
 	Status *string `pulumi:"status"`
@@ -246,6 +247,8 @@ type FaqState struct {
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringPtrInput
 	// The S3 location of the FAQ input data. Detailed below.
+	//
+	// The `s3Path` configuration block supports the following arguments:
 	S3Path FaqS3PathPtrInput
 	// The status of the FAQ. It is ready to use when the status is ACTIVE.
 	Status pulumi.StringPtrInput
@@ -275,6 +278,8 @@ type faqArgs struct {
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn string `pulumi:"roleArn"`
 	// The S3 location of the FAQ input data. Detailed below.
+	//
+	// The `s3Path` configuration block supports the following arguments:
 	S3Path FaqS3Path `pulumi:"s3Path"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -295,6 +300,8 @@ type FaqArgs struct {
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringInput
 	// The S3 location of the FAQ input data. Detailed below.
+	//
+	// The `s3Path` configuration block supports the following arguments:
 	S3Path FaqS3PathInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -438,6 +445,8 @@ func (o FaqOutput) RoleArn() pulumi.StringOutput {
 }
 
 // The S3 location of the FAQ input data. Detailed below.
+//
+// The `s3Path` configuration block supports the following arguments:
 func (o FaqOutput) S3Path() FaqS3PathOutput {
 	return o.ApplyT(func(v *Faq) FaqS3PathOutput { return v.S3Path }).(FaqS3PathOutput)
 }

@@ -69,6 +69,12 @@ class SpotFleetRequestArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationArgs']]] launch_specifications: Used to define the launch configuration of the
                spot-fleet request. Can be specified multiple times to define different bids
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+               
+               **Note**: This takes in similar but not
+               identical inputs as `ec2.Instance`.  There are limitations on
+               what you can specify. See the list of officially supported inputs in the
+               [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+               a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
@@ -258,6 +264,12 @@ class SpotFleetRequestArgs:
         Used to define the launch configuration of the
         spot-fleet request. Can be specified multiple times to define different bids
         across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+
+        **Note**: This takes in similar but not
+        identical inputs as `ec2.Instance`.  There are limitations on
+        what you can specify. See the list of officially supported inputs in the
+        [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         """
         return pulumi.get(self, "launch_specifications")
 
@@ -519,6 +531,12 @@ class _SpotFleetRequestState:
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationArgs']]] launch_specifications: Used to define the launch configuration of the
                spot-fleet request. Can be specified multiple times to define different bids
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+               
+               **Note**: This takes in similar but not
+               identical inputs as `ec2.Instance`.  There are limitations on
+               what you can specify. See the list of officially supported inputs in the
+               [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+               a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
@@ -716,6 +734,12 @@ class _SpotFleetRequestState:
         Used to define the launch configuration of the
         spot-fleet request. Can be specified multiple times to define different bids
         across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+
+        **Note**: This takes in similar but not
+        identical inputs as `ec2.Instance`.  There are limitations on
+        what you can specify. See the list of officially supported inputs in the
+        [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         """
         return pulumi.get(self, "launch_specifications")
 
@@ -996,7 +1020,6 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         ## Example Usage
         ### Using launch specifications
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1014,14 +1037,14 @@ class SpotFleetRequest(pulumi.CustomResource):
                     ami="ami-1234",
                     spot_price="2.793",
                     placement_tenancy="dedicated",
-                    iam_instance_profile_arn=aws_iam_instance_profile["example"]["arn"],
+                    iam_instance_profile_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
                     instance_type="m4.4xlarge",
                     ami="ami-5678",
                     key_name="my-key",
                     spot_price="1.117",
-                    iam_instance_profile_arn=aws_iam_instance_profile["example"]["arn"],
+                    iam_instance_profile_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     availability_zone="us-west-1a",
                     subnet_id="subnet-1234",
                     weighted_capacity="35",
@@ -1036,7 +1059,6 @@ class SpotFleetRequest(pulumi.CustomResource):
             ])
         ```
         ### Using launch templates
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1061,13 +1083,39 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
         launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
-        ### Using multiple launch configurations
-
+        ### Using multiple launch specifications
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"])
+        foo = aws.ec2.SpotFleetRequest("foo",
+            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
+            launch_specifications=[
+                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
+                    ami="ami-d06a90b0",
+                    availability_zone="us-west-2a",
+                    instance_type="m1.small",
+                    key_name="my-key",
+                ),
+                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
+                    ami="ami-d06a90b0",
+                    availability_zone="us-west-2a",
+                    instance_type="m5.large",
+                    key_name="my-key",
+                ),
+            ],
+            spot_price="0.005",
+            target_capacity=2,
+            valid_until="2019-11-04T20:44:20Z")
+        ```
+
+        > In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
+        ### Using multiple launch configurations
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
         foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
             image_id="ami-516b9131",
             instance_type="m1.small",
@@ -1084,13 +1132,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
                 overrides=[
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ],
             )],
@@ -1130,6 +1178,12 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchSpecificationArgs']]]] launch_specifications: Used to define the launch configuration of the
                spot-fleet request. Can be specified multiple times to define different bids
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+               
+               **Note**: This takes in similar but not
+               identical inputs as `ec2.Instance`.  There are limitations on
+               what you can specify. See the list of officially supported inputs in the
+               [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+               a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
@@ -1167,7 +1221,6 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         ## Example Usage
         ### Using launch specifications
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1185,14 +1238,14 @@ class SpotFleetRequest(pulumi.CustomResource):
                     ami="ami-1234",
                     spot_price="2.793",
                     placement_tenancy="dedicated",
-                    iam_instance_profile_arn=aws_iam_instance_profile["example"]["arn"],
+                    iam_instance_profile_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
                     instance_type="m4.4xlarge",
                     ami="ami-5678",
                     key_name="my-key",
                     spot_price="1.117",
-                    iam_instance_profile_arn=aws_iam_instance_profile["example"]["arn"],
+                    iam_instance_profile_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     availability_zone="us-west-1a",
                     subnet_id="subnet-1234",
                     weighted_capacity="35",
@@ -1207,7 +1260,6 @@ class SpotFleetRequest(pulumi.CustomResource):
             ])
         ```
         ### Using launch templates
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1232,13 +1284,39 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         > **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
         launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
-        ### Using multiple launch configurations
-
+        ### Using multiple launch specifications
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"])
+        foo = aws.ec2.SpotFleetRequest("foo",
+            iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
+            launch_specifications=[
+                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
+                    ami="ami-d06a90b0",
+                    availability_zone="us-west-2a",
+                    instance_type="m1.small",
+                    key_name="my-key",
+                ),
+                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
+                    ami="ami-d06a90b0",
+                    availability_zone="us-west-2a",
+                    instance_type="m5.large",
+                    key_name="my-key",
+                ),
+            ],
+            spot_price="0.005",
+            target_capacity=2,
+            valid_until="2019-11-04T20:44:20Z")
+        ```
+
+        > In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
+        ### Using multiple launch configurations
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
         foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
             image_id="ami-516b9131",
             instance_type="m1.small",
@@ -1255,13 +1333,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
                 overrides=[
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ],
             )],
@@ -1425,6 +1503,12 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchSpecificationArgs']]]] launch_specifications: Used to define the launch configuration of the
                spot-fleet request. Can be specified multiple times to define different bids
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+               
+               **Note**: This takes in similar but not
+               identical inputs as `ec2.Instance`.  There are limitations on
+               what you can specify. See the list of officially supported inputs in the
+               [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+               a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
@@ -1567,6 +1651,12 @@ class SpotFleetRequest(pulumi.CustomResource):
         Used to define the launch configuration of the
         spot-fleet request. Can be specified multiple times to define different bids
         across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+
+        **Note**: This takes in similar but not
+        identical inputs as `ec2.Instance`.  There are limitations on
+        what you can specify. See the list of officially supported inputs in the
+        [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
         """
         return pulumi.get(self, "launch_specifications")
 

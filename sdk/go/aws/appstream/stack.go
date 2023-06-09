@@ -13,7 +13,6 @@ import (
 // Provides an AppStream stack.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -114,6 +113,8 @@ type Stack struct {
 	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
 	FeedbackUrl pulumi.StringOutput `pulumi:"feedbackUrl"`
 	// Unique name for the AppStream stack.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringOutput `pulumi:"redirectUrl"`
@@ -179,6 +180,8 @@ type stackState struct {
 	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
 	FeedbackUrl *string `pulumi:"feedbackUrl"`
 	// Unique name for the AppStream stack.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl *string `pulumi:"redirectUrl"`
@@ -216,6 +219,8 @@ type StackState struct {
 	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
 	FeedbackUrl pulumi.StringPtrInput
 	// Unique name for the AppStream stack.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringPtrInput
@@ -253,6 +258,8 @@ type stackArgs struct {
 	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
 	FeedbackUrl *string `pulumi:"feedbackUrl"`
 	// Unique name for the AppStream stack.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl *string `pulumi:"redirectUrl"`
@@ -286,6 +293,8 @@ type StackArgs struct {
 	// URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
 	FeedbackUrl pulumi.StringPtrInput
 	// Unique name for the AppStream stack.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringPtrInput
@@ -432,6 +441,8 @@ func (o StackOutput) FeedbackUrl() pulumi.StringOutput {
 }
 
 // Unique name for the AppStream stack.
+//
+// The following arguments are optional:
 func (o StackOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

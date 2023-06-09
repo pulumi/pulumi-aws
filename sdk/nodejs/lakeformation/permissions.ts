@@ -219,6 +219,10 @@ export class Permissions extends pulumi.CustomResource {
     public readonly permissionsWithGrantOptions!: pulumi.Output<string[]>;
     /**
      * Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+     *
+     * > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+     *
+     * One of the following is required:
      */
     public readonly principal!: pulumi.Output<string>;
     /**
@@ -227,6 +231,8 @@ export class Permissions extends pulumi.CustomResource {
     public readonly table!: pulumi.Output<outputs.lakeformation.PermissionsTable>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
+     *
+     * The following arguments are optional:
      */
     public readonly tableWithColumns!: pulumi.Output<outputs.lakeformation.PermissionsTableWithColumns>;
 
@@ -317,6 +323,10 @@ export interface PermissionsState {
     permissionsWithGrantOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+     *
+     * > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+     *
+     * One of the following is required:
      */
     principal?: pulumi.Input<string>;
     /**
@@ -325,6 +335,8 @@ export interface PermissionsState {
     table?: pulumi.Input<inputs.lakeformation.PermissionsTable>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
+     *
+     * The following arguments are optional:
      */
     tableWithColumns?: pulumi.Input<inputs.lakeformation.PermissionsTableWithColumns>;
 }
@@ -367,6 +379,10 @@ export interface PermissionsArgs {
     permissionsWithGrantOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+     *
+     * > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
+     *
+     * One of the following is required:
      */
     principal: pulumi.Input<string>;
     /**
@@ -375,6 +391,8 @@ export interface PermissionsArgs {
     table?: pulumi.Input<inputs.lakeformation.PermissionsTable>;
     /**
      * Configuration block for a table with columns resource. Detailed below.
+     *
+     * The following arguments are optional:
      */
     tableWithColumns?: pulumi.Input<inputs.lakeformation.PermissionsTableWithColumns>;
 }

@@ -22,6 +22,8 @@ class PrincipalPortfolioAssociationArgs:
         The set of arguments for constructing a PrincipalPortfolioAssociation resource.
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] principal_arn: Principal ARN.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
         """
@@ -49,6 +51,8 @@ class PrincipalPortfolioAssociationArgs:
     def principal_arn(self) -> pulumi.Input[str]:
         """
         Principal ARN.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "principal_arn")
 
@@ -93,6 +97,8 @@ class _PrincipalPortfolioAssociationState:
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] principal_arn: Principal ARN.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
         """
         if accept_language is not None:
@@ -133,6 +139,8 @@ class _PrincipalPortfolioAssociationState:
     def principal_arn(self) -> Optional[pulumi.Input[str]]:
         """
         Principal ARN.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "principal_arn")
 
@@ -168,7 +176,6 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -191,6 +198,8 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] principal_arn: Principal ARN.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
         """
         ...
@@ -204,7 +213,6 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -282,6 +290,8 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] principal_arn: Principal ARN.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -315,6 +325,8 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
     def principal_arn(self) -> pulumi.Output[str]:
         """
         Principal ARN.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "principal_arn")
 

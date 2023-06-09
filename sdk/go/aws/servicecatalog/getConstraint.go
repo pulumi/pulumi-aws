@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -55,6 +54,8 @@ type LookupConstraintArgs struct {
 	// Description of the constraint.
 	Description *string `pulumi:"description"`
 	// Constraint identifier.
+	//
+	// The following arguments are optional:
 	Id string `pulumi:"id"`
 }
 
@@ -98,6 +99,8 @@ type LookupConstraintOutputArgs struct {
 	// Description of the constraint.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Constraint identifier.
+	//
+	// The following arguments are optional:
 	Id pulumi.StringInput `pulumi:"id"`
 }
 

@@ -18,7 +18,6 @@ import (
 // ## Example Usage
 //
 // AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-//
 // ```go
 // package main
 //
@@ -110,6 +109,8 @@ type RemediationConfiguration struct {
 	// Target ID is the name of the public document.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 	// Type of the target. Target executes remediation. For example, SSM document.
+	//
+	// The following arguments are optional:
 	TargetType pulumi.StringOutput `pulumi:"targetType"`
 	// Version of the target. For example, version of the SSM document
 	TargetVersion pulumi.StringPtrOutput `pulumi:"targetVersion"`
@@ -172,6 +173,8 @@ type remediationConfigurationState struct {
 	// Target ID is the name of the public document.
 	TargetId *string `pulumi:"targetId"`
 	// Type of the target. Target executes remediation. For example, SSM document.
+	//
+	// The following arguments are optional:
 	TargetType *string `pulumi:"targetType"`
 	// Version of the target. For example, version of the SSM document
 	TargetVersion *string `pulumi:"targetVersion"`
@@ -197,6 +200,8 @@ type RemediationConfigurationState struct {
 	// Target ID is the name of the public document.
 	TargetId pulumi.StringPtrInput
 	// Type of the target. Target executes remediation. For example, SSM document.
+	//
+	// The following arguments are optional:
 	TargetType pulumi.StringPtrInput
 	// Version of the target. For example, version of the SSM document
 	TargetVersion pulumi.StringPtrInput
@@ -224,6 +229,8 @@ type remediationConfigurationArgs struct {
 	// Target ID is the name of the public document.
 	TargetId string `pulumi:"targetId"`
 	// Type of the target. Target executes remediation. For example, SSM document.
+	//
+	// The following arguments are optional:
 	TargetType string `pulumi:"targetType"`
 	// Version of the target. For example, version of the SSM document
 	TargetVersion *string `pulumi:"targetVersion"`
@@ -248,6 +255,8 @@ type RemediationConfigurationArgs struct {
 	// Target ID is the name of the public document.
 	TargetId pulumi.StringInput
 	// Type of the target. Target executes remediation. For example, SSM document.
+	//
+	// The following arguments are optional:
 	TargetType pulumi.StringInput
 	// Version of the target. For example, version of the SSM document
 	TargetVersion pulumi.StringPtrInput
@@ -388,6 +397,8 @@ func (o RemediationConfigurationOutput) TargetId() pulumi.StringOutput {
 }
 
 // Type of the target. Target executes remediation. For example, SSM document.
+//
+// The following arguments are optional:
 func (o RemediationConfigurationOutput) TargetType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemediationConfiguration) pulumi.StringOutput { return v.TargetType }).(pulumi.StringOutput)
 }

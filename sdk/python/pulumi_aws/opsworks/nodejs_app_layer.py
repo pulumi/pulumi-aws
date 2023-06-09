@@ -58,6 +58,10 @@ class NodejsAppLayerArgs:
         :param pulumi.Input[str] nodejs_version: The version of NodeJS to use. Defaults to "0.10.38".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following extra optional arguments, all lists of Chef recipe names, allow
+               custom Chef recipes to be applied to layer instances at the five different
+               lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
         pulumi.set(__self__, "stack_id", stack_id)
@@ -356,6 +360,10 @@ class NodejsAppLayerArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        The following extra optional arguments, all lists of Chef recipe names, allow
+        custom Chef recipes to be applied to layer instances at the five different
+        lifecycle events, if custom cookbooks are enabled on the layer's stack:
         """
         return pulumi.get(self, "tags")
 
@@ -424,6 +432,10 @@ class _NodejsAppLayerState:
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following extra optional arguments, all lists of Chef recipe names, allow
+               custom Chef recipes to be applied to layer instances at the five different
+               lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
@@ -740,6 +752,10 @@ class _NodejsAppLayerState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        The following extra optional arguments, all lists of Chef recipe names, allow
+        custom Chef recipes to be applied to layer instances at the five different
+        lifecycle events, if custom cookbooks are enabled on the layer's stack:
         """
         return pulumi.get(self, "tags")
 
@@ -806,7 +822,6 @@ class NodejsAppLayer(pulumi.CustomResource):
         Provides an OpsWorks NodeJS application layer resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -832,6 +847,10 @@ class NodejsAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following extra optional arguments, all lists of Chef recipe names, allow
+               custom Chef recipes to be applied to layer instances at the five different
+               lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
         ...
@@ -844,7 +863,6 @@ class NodejsAppLayer(pulumi.CustomResource):
         Provides an OpsWorks NodeJS application layer resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -988,6 +1006,10 @@ class NodejsAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following extra optional arguments, all lists of Chef recipe names, allow
+               custom Chef recipes to be applied to layer instances at the five different
+               lifecycle events, if custom cookbooks are enabled on the layer's stack:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
@@ -1191,6 +1213,10 @@ class NodejsAppLayer(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        The following extra optional arguments, all lists of Chef recipe names, allow
+        custom Chef recipes to be applied to layer instances at the five different
+        lifecycle events, if custom cookbooks are enabled on the layer's stack:
         """
         return pulumi.get(self, "tags")
 

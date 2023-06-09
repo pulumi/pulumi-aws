@@ -13,7 +13,6 @@ namespace Pulumi.Aws.RolesAnywhere
     /// Resource for managing a Roles Anywhere Trust Anchor.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

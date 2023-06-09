@@ -199,7 +199,6 @@ class LogDestination(pulumi.CustomResource):
         Provides a CloudWatch Logs destination resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,7 +233,6 @@ class LogDestination(pulumi.CustomResource):
         Provides a CloudWatch Logs destination resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

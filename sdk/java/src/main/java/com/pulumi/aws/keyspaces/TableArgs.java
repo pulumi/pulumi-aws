@@ -131,12 +131,16 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
      * @return The name of the table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> tableName() {
@@ -356,6 +360,8 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tableName The name of the table.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -366,6 +372,8 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tableName The name of the table.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

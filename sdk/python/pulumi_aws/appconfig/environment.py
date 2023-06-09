@@ -283,8 +283,8 @@ class Environment(pulumi.CustomResource):
             description="Example AppConfig Environment",
             application_id=example_application.id,
             monitors=[aws.appconfig.EnvironmentMonitorArgs(
-                alarm_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
-                alarm_role_arn=aws_iam_role["example"]["arn"],
+                alarm_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                alarm_role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             tags={
                 "Type": "AppConfig Environment",
@@ -331,8 +331,8 @@ class Environment(pulumi.CustomResource):
             description="Example AppConfig Environment",
             application_id=example_application.id,
             monitors=[aws.appconfig.EnvironmentMonitorArgs(
-                alarm_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
-                alarm_role_arn=aws_iam_role["example"]["arn"],
+                alarm_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                alarm_role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             tags={
                 "Type": "AppConfig Environment",

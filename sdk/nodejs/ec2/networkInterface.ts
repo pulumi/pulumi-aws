@@ -167,6 +167,8 @@ export class NetworkInterface extends pulumi.CustomResource {
     public readonly sourceDestCheck!: pulumi.Output<boolean | undefined>;
     /**
      * Subnet ID to create the ENI in.
+     *
+     * The following arguments are optional:
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
@@ -346,6 +348,8 @@ export interface NetworkInterfaceState {
     sourceDestCheck?: pulumi.Input<boolean>;
     /**
      * Subnet ID to create the ENI in.
+     *
+     * The following arguments are optional:
      */
     subnetId?: pulumi.Input<string>;
     /**
@@ -433,6 +437,8 @@ export interface NetworkInterfaceArgs {
     sourceDestCheck?: pulumi.Input<boolean>;
     /**
      * Subnet ID to create the ENI in.
+     *
+     * The following arguments are optional:
      */
     subnetId: pulumi.Input<string>;
     /**

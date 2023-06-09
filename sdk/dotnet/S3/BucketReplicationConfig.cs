@@ -16,7 +16,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### Using replication configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -192,7 +191,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Bi-Directional Replication
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

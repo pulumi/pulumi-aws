@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Virtual Node Provider
-//
 // ```go
 // package main
 //
@@ -47,7 +46,6 @@ import (
 //
 // ```
 // ### Virtual Router Provider
-//
 // ```go
 // package main
 //

@@ -110,7 +110,6 @@ def get_group(group_name: Optional[str] = None,
     properties without having to hard code ARNs as input.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -144,7 +143,6 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
     properties without having to hard code ARNs as input.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

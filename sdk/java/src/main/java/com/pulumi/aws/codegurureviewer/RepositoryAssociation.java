@@ -176,12 +176,16 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="repository", refs={RepositoryAssociationRepository.class}, tree="[0]")
     private Output<RepositoryAssociationRepository> repository;
 
     /**
      * @return An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<RepositoryAssociationRepository> repository() {

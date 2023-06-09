@@ -17,7 +17,6 @@ import (
 // This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

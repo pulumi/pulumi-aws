@@ -269,7 +269,6 @@ class Workgroup(pulumi.CustomResource):
         Provides an Athena Workgroup.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,7 +280,7 @@ class Workgroup(pulumi.CustomResource):
                 output_location=f"s3://{aws_s3_bucket['example']['bucket']}/output/",
                 encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
                     encryption_option="SSE_KMS",
-                    kms_key_arn=aws_kms_key["example"]["arn"],
+                    kms_key_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ),
         ))
@@ -314,7 +313,6 @@ class Workgroup(pulumi.CustomResource):
         Provides an Athena Workgroup.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,7 +324,7 @@ class Workgroup(pulumi.CustomResource):
                 output_location=f"s3://{aws_s3_bucket['example']['bucket']}/output/",
                 encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
                     encryption_option="SSE_KMS",
-                    kms_key_arn=aws_kms_key["example"]["arn"],
+                    kms_key_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ),
         ))

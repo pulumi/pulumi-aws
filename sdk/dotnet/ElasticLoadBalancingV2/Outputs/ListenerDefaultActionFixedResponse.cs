@@ -15,6 +15,8 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
     {
         /// <summary>
         /// Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string ContentType;
         /// <summary>

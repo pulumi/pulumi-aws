@@ -314,7 +314,6 @@ class GatewayRoute(pulumi.CustomResource):
         Provides an AWS App Mesh gateway route resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,7 +326,7 @@ class GatewayRoute(pulumi.CustomResource):
                     action=aws.appmesh.GatewayRouteSpecHttpRouteActionArgs(
                         target=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetArgs(
                             virtual_service=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs(
-                                virtual_service_name=aws_appmesh_virtual_service["example"]["name"],
+                                virtual_service_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             ),
                         ),
                     ),
@@ -368,7 +367,6 @@ class GatewayRoute(pulumi.CustomResource):
         Provides an AWS App Mesh gateway route resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -381,7 +379,7 @@ class GatewayRoute(pulumi.CustomResource):
                     action=aws.appmesh.GatewayRouteSpecHttpRouteActionArgs(
                         target=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetArgs(
                             virtual_service=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs(
-                                virtual_service_name=aws_appmesh_virtual_service["example"]["name"],
+                                virtual_service_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             ),
                         ),
                     ),

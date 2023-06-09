@@ -34,12 +34,16 @@ public final class GetUserAlternateIdentifierArgs extends com.pulumi.resources.R
     /**
      * An entity attribute that&#39;s unique to a specific entity. Detailed below.
      * 
+     * &gt; Exactly one of the above arguments must be provided.
+     * 
      */
     @Import(name="uniqueAttribute")
     private @Nullable Output<GetUserAlternateIdentifierUniqueAttributeArgs> uniqueAttribute;
 
     /**
      * @return An entity attribute that&#39;s unique to a specific entity. Detailed below.
+     * 
+     * &gt; Exactly one of the above arguments must be provided.
      * 
      */
     public Optional<Output<GetUserAlternateIdentifierUniqueAttributeArgs>> uniqueAttribute() {
@@ -95,6 +99,8 @@ public final class GetUserAlternateIdentifierArgs extends com.pulumi.resources.R
         /**
          * @param uniqueAttribute An entity attribute that&#39;s unique to a specific entity. Detailed below.
          * 
+         * &gt; Exactly one of the above arguments must be provided.
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class GetUserAlternateIdentifierArgs extends com.pulumi.resources.R
 
         /**
          * @param uniqueAttribute An entity attribute that&#39;s unique to a specific entity. Detailed below.
+         * 
+         * &gt; Exactly one of the above arguments must be provided.
          * 
          * @return builder
          * 

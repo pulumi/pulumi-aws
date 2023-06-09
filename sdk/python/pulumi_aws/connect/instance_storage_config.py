@@ -153,7 +153,6 @@ class InstanceStorageConfig(pulumi.CustomResource):
 
         ## Example Usage
         ### Storage Config Kinesis Firehose Config
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -163,13 +162,12 @@ class InstanceStorageConfig(pulumi.CustomResource):
             resource_type="CONTACT_TRACE_RECORDS",
             storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
                 kinesis_firehose_config=aws.connect.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs(
-                    firehose_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+                    firehose_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 storage_type="KINESIS_FIREHOSE",
             ))
         ```
         ### Storage Config Kinesis Stream Config
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,13 +177,12 @@ class InstanceStorageConfig(pulumi.CustomResource):
             resource_type="CONTACT_TRACE_RECORDS",
             storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
                 kinesis_stream_config=aws.connect.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs(
-                    stream_arn=aws_kinesis_stream["example"]["arn"],
+                    stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 storage_type="KINESIS_STREAM",
             ))
         ```
         ### Storage Config Kinesis Video Stream Config
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,14 +196,13 @@ class InstanceStorageConfig(pulumi.CustomResource):
                     retention_period_hours=3,
                     encryption_config=aws.connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs(
                         encryption_type="KMS",
-                        key_id=aws_kms_key["example"]["arn"],
+                        key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
                 storage_type="KINESIS_VIDEO_STREAM",
             ))
         ```
         ### Storage Config S3 Config
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,14 +212,13 @@ class InstanceStorageConfig(pulumi.CustomResource):
             resource_type="CHAT_TRANSCRIPTS",
             storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
                 s3_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigArgs(
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     bucket_prefix="example",
                 ),
                 storage_type="S3",
             ))
         ```
         ### Storage Config S3 Config with Encryption Config
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,11 +228,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
             resource_type="CHAT_TRANSCRIPTS",
             storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
                 s3_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigArgs(
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     bucket_prefix="example",
                     encryption_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs(
                         encryption_type="KMS",
-                        key_id=aws_kms_key["example"]["arn"],
+                        key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
                 storage_type="S3",
@@ -270,7 +265,6 @@ class InstanceStorageConfig(pulumi.CustomResource):
 
         ## Example Usage
         ### Storage Config Kinesis Firehose Config
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,13 +274,12 @@ class InstanceStorageConfig(pulumi.CustomResource):
             resource_type="CONTACT_TRACE_RECORDS",
             storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
                 kinesis_firehose_config=aws.connect.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs(
-                    firehose_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+                    firehose_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 storage_type="KINESIS_FIREHOSE",
             ))
         ```
         ### Storage Config Kinesis Stream Config
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,13 +289,12 @@ class InstanceStorageConfig(pulumi.CustomResource):
             resource_type="CONTACT_TRACE_RECORDS",
             storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
                 kinesis_stream_config=aws.connect.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs(
-                    stream_arn=aws_kinesis_stream["example"]["arn"],
+                    stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 storage_type="KINESIS_STREAM",
             ))
         ```
         ### Storage Config Kinesis Video Stream Config
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,14 +308,13 @@ class InstanceStorageConfig(pulumi.CustomResource):
                     retention_period_hours=3,
                     encryption_config=aws.connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs(
                         encryption_type="KMS",
-                        key_id=aws_kms_key["example"]["arn"],
+                        key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
                 storage_type="KINESIS_VIDEO_STREAM",
             ))
         ```
         ### Storage Config S3 Config
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -333,14 +324,13 @@ class InstanceStorageConfig(pulumi.CustomResource):
             resource_type="CHAT_TRANSCRIPTS",
             storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
                 s3_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigArgs(
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     bucket_prefix="example",
                 ),
                 storage_type="S3",
             ))
         ```
         ### Storage Config S3 Config with Encryption Config
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -350,11 +340,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
             resource_type="CHAT_TRANSCRIPTS",
             storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
                 s3_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigArgs(
-                    bucket_name=aws_s3_bucket["example"]["id"],
+                    bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     bucket_prefix="example",
                     encryption_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs(
                         encryption_type="KMS",
-                        key_id=aws_kms_key["example"]["arn"],
+                        key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
                 storage_type="S3",

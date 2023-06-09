@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides a resource to manage an Infrastructure Performance subscription.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -14,7 +14,6 @@ import (
 // Manages an EKS Identity Provider Configuration.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.MediaStore
     /// Provides a MediaStore Container Policy.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

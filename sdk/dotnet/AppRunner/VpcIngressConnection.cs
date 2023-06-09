@@ -13,7 +13,6 @@ namespace Pulumi.Aws.AppRunner
     /// Manages an App Runner VPC Ingress Connection.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

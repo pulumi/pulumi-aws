@@ -13,7 +13,6 @@ import (
 // Retrieve information about a connection.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

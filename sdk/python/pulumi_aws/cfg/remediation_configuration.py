@@ -31,6 +31,8 @@ class RemediationConfigurationArgs:
         :param pulumi.Input[str] config_rule_name: Name of the AWS Config rule.
         :param pulumi.Input[str] target_id: Target ID is the name of the public document.
         :param pulumi.Input[str] target_type: Type of the target. Target executes remediation. For example, SSM document.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] automatic: Remediation is triggered automatically if `true`.
         :param pulumi.Input['RemediationConfigurationExecutionControlsArgs'] execution_controls: Configuration block for execution controls. See below.
         :param pulumi.Input[int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
@@ -86,6 +88,8 @@ class RemediationConfigurationArgs:
     def target_type(self) -> pulumi.Input[str]:
         """
         Type of the target. Target executes remediation. For example, SSM document.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target_type")
 
@@ -204,6 +208,8 @@ class _RemediationConfigurationState:
         :param pulumi.Input[int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         :param pulumi.Input[str] target_id: Target ID is the name of the public document.
         :param pulumi.Input[str] target_type: Type of the target. Target executes remediation. For example, SSM document.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] target_version: Version of the target. For example, version of the SSM document
         """
         if arn is not None:
@@ -342,6 +348,8 @@ class _RemediationConfigurationState:
     def target_type(self) -> Optional[pulumi.Input[str]]:
         """
         Type of the target. Target executes remediation. For example, SSM document.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target_type")
 
@@ -386,7 +394,6 @@ class RemediationConfiguration(pulumi.CustomResource):
         ## Example Usage
 
         AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,6 +452,8 @@ class RemediationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         :param pulumi.Input[str] target_id: Target ID is the name of the public document.
         :param pulumi.Input[str] target_type: Type of the target. Target executes remediation. For example, SSM document.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] target_version: Version of the target. For example, version of the SSM document
         """
         ...
@@ -461,7 +470,6 @@ class RemediationConfiguration(pulumi.CustomResource):
         ## Example Usage
 
         AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -598,6 +606,8 @@ class RemediationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         :param pulumi.Input[str] target_id: Target ID is the name of the public document.
         :param pulumi.Input[str] target_type: Type of the target. Target executes remediation. For example, SSM document.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] target_version: Version of the target. For example, version of the SSM document
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -694,6 +704,8 @@ class RemediationConfiguration(pulumi.CustomResource):
     def target_type(self) -> pulumi.Output[str]:
         """
         Type of the target. Target executes remediation. For example, SSM document.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target_type")
 

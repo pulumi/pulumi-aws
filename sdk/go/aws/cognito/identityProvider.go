@@ -14,7 +14,6 @@ import (
 // Provides a Cognito User Identity Provider resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -432,7 +432,6 @@ class Function(pulumi.CustomResource):
         Provides an AppSync Function.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -485,7 +484,6 @@ class Function(pulumi.CustomResource):
         \"\"\")
         ```
         ### With Code
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -533,7 +531,6 @@ class Function(pulumi.CustomResource):
         Provides an AppSync Function.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -586,7 +583,6 @@ class Function(pulumi.CustomResource):
         \"\"\")
         ```
         ### With Code
-
         ```python
         import pulumi
         import pulumi_aws as aws

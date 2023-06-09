@@ -38,6 +38,10 @@ public final class GetSolutionStackArgs extends com.pulumi.resources.InvokeArgs 
      * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
      * AWS documentation for reference solution stack names.
      * 
+     * &gt; **NOTE:** If more or less than a single match is returned by the search,
+     * this call will fail. Ensure that your search is specific enough to return
+     * a single solution stack, or use `most_recent` to choose the most recent one.
+     * 
      */
     @Import(name="nameRegex", required=true)
     private Output<String> nameRegex;
@@ -46,6 +50,10 @@ public final class GetSolutionStackArgs extends com.pulumi.resources.InvokeArgs 
      * @return Regex string to apply to the solution stack list returned
      * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
      * AWS documentation for reference solution stack names.
+     * 
+     * &gt; **NOTE:** If more or less than a single match is returned by the search,
+     * this call will fail. Ensure that your search is specific enough to return
+     * a single solution stack, or use `most_recent` to choose the most recent one.
      * 
      */
     public Output<String> nameRegex() {
@@ -105,6 +113,10 @@ public final class GetSolutionStackArgs extends com.pulumi.resources.InvokeArgs 
          * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
          * AWS documentation for reference solution stack names.
          * 
+         * &gt; **NOTE:** If more or less than a single match is returned by the search,
+         * this call will fail. Ensure that your search is specific enough to return
+         * a single solution stack, or use `most_recent` to choose the most recent one.
+         * 
          * @return builder
          * 
          */
@@ -117,6 +129,10 @@ public final class GetSolutionStackArgs extends com.pulumi.resources.InvokeArgs 
          * @param nameRegex Regex string to apply to the solution stack list returned
          * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
          * AWS documentation for reference solution stack names.
+         * 
+         * &gt; **NOTE:** If more or less than a single match is returned by the search,
+         * this call will fail. Ensure that your search is specific enough to return
+         * a single solution stack, or use `most_recent` to choose the most recent one.
          * 
          * @return builder
          * 

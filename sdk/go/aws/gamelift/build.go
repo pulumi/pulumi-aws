@@ -14,7 +14,6 @@ import (
 // Provides an GameLift Build resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

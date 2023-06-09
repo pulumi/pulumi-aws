@@ -141,12 +141,16 @@ public final class SecurityGroupEgressArgs extends com.pulumi.resources.Resource
     /**
      * End range port (or ICMP code if protocol is `icmp`).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="toPort", required=true)
     private Output<Integer> toPort;
 
     /**
      * @return End range port (or ICMP code if protocol is `icmp`).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> toPort() {
@@ -396,6 +400,8 @@ public final class SecurityGroupEgressArgs extends com.pulumi.resources.Resource
         /**
          * @param toPort End range port (or ICMP code if protocol is `icmp`).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -406,6 +412,8 @@ public final class SecurityGroupEgressArgs extends com.pulumi.resources.Resource
 
         /**
          * @param toPort End range port (or ICMP code if protocol is `icmp`).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

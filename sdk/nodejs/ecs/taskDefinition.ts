@@ -290,6 +290,8 @@ export class TaskDefinition extends pulumi.CustomResource {
     public readonly executionRoleArn!: pulumi.Output<string | undefined>;
     /**
      * A unique name for your task definition.
+     *
+     * The following arguments are optional:
      */
     public readonly family!: pulumi.Output<string>;
     /**
@@ -454,6 +456,8 @@ export interface TaskDefinitionState {
     executionRoleArn?: pulumi.Input<string>;
     /**
      * A unique name for your task definition.
+     *
+     * The following arguments are optional:
      */
     family?: pulumi.Input<string>;
     /**
@@ -540,6 +544,8 @@ export interface TaskDefinitionArgs {
     executionRoleArn?: pulumi.Input<string>;
     /**
      * A unique name for your task definition.
+     *
+     * The following arguments are optional:
      */
     family: pulumi.Input<string>;
     /**

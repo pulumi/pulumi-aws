@@ -22,6 +22,8 @@ class SubnetGroupArgs:
         """
         The set of arguments for constructing a SubnetGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] description: Description for the subnet group.
         :param pulumi.Input[str] name: Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -42,6 +44,8 @@ class SubnetGroupArgs:
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -116,6 +120,8 @@ class _SubnetGroupState:
         :param pulumi.Input[str] name: Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC in which the subnet group exists.
@@ -190,6 +196,8 @@ class _SubnetGroupState:
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -251,7 +259,6 @@ class SubnetGroup(pulumi.CustomResource):
         More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,6 +285,8 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -292,7 +301,6 @@ class SubnetGroup(pulumi.CustomResource):
         More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -382,6 +390,8 @@ class SubnetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the subnet group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC in which the subnet group exists.
@@ -437,6 +447,8 @@ class SubnetGroup(pulumi.CustomResource):
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         Set of VPC Subnet ID-s for the subnet group. At least one subnet must be provided.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "subnet_ids")
 

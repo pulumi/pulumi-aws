@@ -14,7 +14,6 @@ import (
 // Provides a resource to manage an Infrastructure Performance subscription.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

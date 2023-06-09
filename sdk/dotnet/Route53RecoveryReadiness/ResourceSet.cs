@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// Provides an AWS Route 53 Recovery Readiness Resource Set.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,6 +68,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// List of resources to add to this resource set. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<Outputs.ResourceSetResource>> Resources { get; private set; } = null!;
@@ -148,6 +149,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// List of resources to add to this resource set. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.ResourceSetResourceArgs> Resources
         {
@@ -198,6 +201,8 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
 
         /// <summary>
         /// List of resources to add to this resource set. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.ResourceSetResourceGetArgs> Resources
         {

@@ -51,12 +51,16 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * List of resources to add to this resource set. See below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="resources", required=true)
     private Output<List<ResourceSetResourceArgs>> resources;
 
     /**
      * @return List of resources to add to this resource set. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<ResourceSetResourceArgs>> resources() {
@@ -150,6 +154,8 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resources List of resources to add to this resource set. See below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -161,6 +167,8 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resources List of resources to add to this resource set. See below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -170,6 +178,8 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param resources List of resources to add to this resource set. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

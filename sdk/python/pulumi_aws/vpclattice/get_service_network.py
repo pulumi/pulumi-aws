@@ -154,7 +154,6 @@ def get_service_network(service_network_identifier: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -193,7 +192,6 @@ def get_service_network_output(service_network_identifier: Optional[pulumi.Input
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -133,7 +133,6 @@ class LbStickinessPolicy(pulumi.CustomResource):
         Configures Session Stickiness for a Lightsail Load Balancer.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -174,7 +173,6 @@ class LbStickinessPolicy(pulumi.CustomResource):
         Configures Session Stickiness for a Lightsail Load Balancer.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

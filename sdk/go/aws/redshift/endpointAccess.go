@@ -14,7 +14,6 @@ import (
 // Creates a new Amazon Redshift endpoint access.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

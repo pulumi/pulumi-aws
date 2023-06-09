@@ -144,12 +144,16 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="transitGatewayRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayRouteTableId;
 
     /**
      * @return Identifier of EC2 Transit Gateway Route Table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> transitGatewayRouteTableId() {

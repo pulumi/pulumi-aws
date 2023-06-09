@@ -496,7 +496,6 @@ class MLTransform(pulumi.CustomResource):
         Provides a Glue ML Transform resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -615,7 +614,6 @@ class MLTransform(pulumi.CustomResource):
         Provides a Glue ML Transform resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

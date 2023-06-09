@@ -435,7 +435,6 @@ class Instance(pulumi.CustomResource):
         !> **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits).  For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance.  Use care when creating or deleting instances.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -447,7 +446,6 @@ class Instance(pulumi.CustomResource):
             outbound_calls_enabled=True)
         ```
         ### With Existing Active Directory
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -460,7 +458,6 @@ class Instance(pulumi.CustomResource):
             outbound_calls_enabled=True)
         ```
         ### With SAML
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -507,7 +504,6 @@ class Instance(pulumi.CustomResource):
         !> **WARN:** Amazon Connect enforces a limit of [100 combined instance creation and deletions every 30 days](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits).  For example, if you create 80 instances and delete 20 of them, you must wait 30 days to create or delete another instance.  Use care when creating or deleting instances.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -519,7 +515,6 @@ class Instance(pulumi.CustomResource):
             outbound_calls_enabled=True)
         ```
         ### With Existing Active Directory
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -532,7 +527,6 @@ class Instance(pulumi.CustomResource):
             outbound_calls_enabled=True)
         ```
         ### With SAML
-
         ```python
         import pulumi
         import pulumi_aws as aws

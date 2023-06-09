@@ -13,7 +13,6 @@ namespace Pulumi.Aws.S3Control
     /// Provides a resource to manage an S3 Storage Lens configuration.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

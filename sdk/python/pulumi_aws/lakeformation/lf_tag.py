@@ -134,7 +134,6 @@ class LfTag(pulumi.CustomResource):
         Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -172,7 +171,6 @@ class LfTag(pulumi.CustomResource):
         Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

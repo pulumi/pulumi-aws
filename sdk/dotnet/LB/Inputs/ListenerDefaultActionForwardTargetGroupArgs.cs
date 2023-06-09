@@ -14,6 +14,8 @@ namespace Pulumi.Aws.LB.Inputs
     {
         /// <summary>
         /// ARN of the target group.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;

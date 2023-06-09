@@ -29,6 +29,8 @@ public final class RouteTableRoute {
     /**
      * @return The ID of a managed prefix list destination of the route.
      * 
+     * One of the following target arguments must be supplied:
+     * 
      */
     private @Nullable String destinationPrefixListId;
     /**
@@ -83,6 +85,8 @@ public final class RouteTableRoute {
     /**
      * @return Identifier of a VPC peering connection.
      * 
+     * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
+     * 
      */
     private @Nullable String vpcPeeringConnectionId;
 
@@ -110,6 +114,8 @@ public final class RouteTableRoute {
     }
     /**
      * @return The ID of a managed prefix list destination of the route.
+     * 
+     * One of the following target arguments must be supplied:
      * 
      */
     public Optional<String> destinationPrefixListId() {
@@ -184,6 +190,8 @@ public final class RouteTableRoute {
     }
     /**
      * @return Identifier of a VPC peering connection.
+     * 
+     * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
      * 
      */
     public Optional<String> vpcPeeringConnectionId() {

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CodeBuild
     /// Provides a CodeBuild Resource Policy Resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

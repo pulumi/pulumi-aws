@@ -14,7 +14,6 @@ import (
 // Provides a CodeCommit Trigger Resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

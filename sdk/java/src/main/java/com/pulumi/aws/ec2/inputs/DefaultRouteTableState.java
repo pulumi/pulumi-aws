@@ -36,12 +36,16 @@ public final class DefaultRouteTableState extends com.pulumi.resources.ResourceA
     /**
      * ID of the default route table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="defaultRouteTableId")
     private @Nullable Output<String> defaultRouteTableId;
 
     /**
      * @return ID of the default route table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> defaultRouteTableId() {
@@ -193,6 +197,8 @@ public final class DefaultRouteTableState extends com.pulumi.resources.ResourceA
         /**
          * @param defaultRouteTableId ID of the default route table.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -203,6 +209,8 @@ public final class DefaultRouteTableState extends com.pulumi.resources.ResourceA
 
         /**
          * @param defaultRouteTableId ID of the default route table.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -195,6 +195,12 @@ class ClusterKubernetesNetworkConfig(dict):
         """
         :param str ip_family: The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
         :param str service_ipv4_cidr: The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+               
+               * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
+               
+               * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
+               
+               * Between /24 and /12.
         """
         if ip_family is not None:
             pulumi.set(__self__, "ip_family", ip_family)
@@ -216,6 +222,12 @@ class ClusterKubernetesNetworkConfig(dict):
     def service_ipv4_cidr(self) -> Optional[str]:
         """
         The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+
+        * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
+
+        * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
+
+        * Between /24 and /12.
         """
         return pulumi.get(self, "service_ipv4_cidr")
 
@@ -254,6 +266,14 @@ class ClusterOutpostConfig(dict):
                  control_plane_placement: Optional['outputs.ClusterOutpostConfigControlPlanePlacement'] = None):
         """
         :param str control_plane_instance_type: The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+               
+               * 1–20 nodes, then we recommend specifying a large instance type.
+               
+               * 21–100 nodes, then we recommend specifying an xlarge instance type.
+               
+               * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
+               
+               For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
         :param Sequence[str] outpost_arns: The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
         :param 'ClusterOutpostConfigControlPlanePlacementArgs' control_plane_placement: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
                The following arguments are supported in the `control_plane_placement` configuration block:
@@ -268,6 +288,14 @@ class ClusterOutpostConfig(dict):
     def control_plane_instance_type(self) -> str:
         """
         The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+
+        * 1–20 nodes, then we recommend specifying a large instance type.
+
+        * 21–100 nodes, then we recommend specifying an xlarge instance type.
+
+        * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
+
+        For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
         """
         return pulumi.get(self, "control_plane_instance_type")
 
@@ -450,6 +478,8 @@ class FargateProfileSelector(dict):
                  labels: Optional[Mapping[str, str]] = None):
         """
         :param str namespace: Kubernetes namespace for selection.
+               
+               The following arguments are optional:
         :param Mapping[str, str] labels: Key-value map of Kubernetes labels for selection.
         """
         pulumi.set(__self__, "namespace", namespace)
@@ -461,6 +491,8 @@ class FargateProfileSelector(dict):
     def namespace(self) -> str:
         """
         Kubernetes namespace for selection.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "namespace")
 

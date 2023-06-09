@@ -65,6 +65,8 @@ export class Invocation extends pulumi.CustomResource {
     public readonly functionName!: pulumi.Output<string>;
     /**
      * JSON payload to the lambda function.
+     *
+     * The following arguments are optional:
      */
     public readonly input!: pulumi.Output<string>;
     /**
@@ -127,6 +129,8 @@ export interface InvocationState {
     functionName?: pulumi.Input<string>;
     /**
      * JSON payload to the lambda function.
+     *
+     * The following arguments are optional:
      */
     input?: pulumi.Input<string>;
     /**
@@ -153,6 +157,8 @@ export interface InvocationArgs {
     functionName: pulumi.Input<string>;
     /**
      * JSON payload to the lambda function.
+     *
+     * The following arguments are optional:
      */
     input: pulumi.Input<string>;
     /**

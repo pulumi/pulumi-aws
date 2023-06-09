@@ -21,7 +21,6 @@ namespace Pulumi.Aws.Neptune
     /// (see documentation below).
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -119,6 +119,8 @@ export class DataLakeSettings extends pulumi.CustomResource {
     public readonly allowExternalDataFiltering!: pulumi.Output<boolean | undefined>;
     /**
      * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+     *
+     * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
     public readonly authorizedSessionTagValueLists!: pulumi.Output<string[]>;
     /**
@@ -193,6 +195,8 @@ export interface DataLakeSettingsState {
     allowExternalDataFiltering?: pulumi.Input<boolean>;
     /**
      * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+     *
+     * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
     authorizedSessionTagValueLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -231,6 +235,8 @@ export interface DataLakeSettingsArgs {
     allowExternalDataFiltering?: pulumi.Input<boolean>;
     /**
      * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
+     *
+     * > **NOTE:** Although optional, not including `admins`, `createDatabaseDefaultPermissions`, `createTableDefaultPermissions`, and/or `trustedResourceOwners` results in the setting being cleared.
      */
     authorizedSessionTagValueLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**

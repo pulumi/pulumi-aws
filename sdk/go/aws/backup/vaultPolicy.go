@@ -14,7 +14,6 @@ import (
 // Provides an AWS Backup vault policy resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

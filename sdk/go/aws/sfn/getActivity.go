@@ -13,7 +13,6 @@ import (
 // Provides a Step Functions Activity data source
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

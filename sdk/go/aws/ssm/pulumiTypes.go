@@ -16,6 +16,8 @@ type AssociationOutputLocation struct {
 	// The S3 bucket prefix. Results stored in the root if not configured.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 	// The S3 bucket region.
+	//
+	// Targets specify what instance IDs or tags to apply the document to and has these keys:
 	S3Region *string `pulumi:"s3Region"`
 }
 
@@ -36,6 +38,8 @@ type AssociationOutputLocationArgs struct {
 	// The S3 bucket prefix. Results stored in the root if not configured.
 	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 	// The S3 bucket region.
+	//
+	// Targets specify what instance IDs or tags to apply the document to and has these keys:
 	S3Region pulumi.StringPtrInput `pulumi:"s3Region"`
 }
 
@@ -127,6 +131,8 @@ func (o AssociationOutputLocationOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 }
 
 // The S3 bucket region.
+//
+// Targets specify what instance IDs or tags to apply the document to and has these keys:
 func (o AssociationOutputLocationOutput) S3Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssociationOutputLocation) *string { return v.S3Region }).(pulumi.StringPtrOutput)
 }
@@ -176,6 +182,8 @@ func (o AssociationOutputLocationPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput
 }
 
 // The S3 bucket region.
+//
+// Targets specify what instance IDs or tags to apply the document to and has these keys:
 func (o AssociationOutputLocationPtrOutput) S3Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssociationOutputLocation) *string {
 		if v == nil {

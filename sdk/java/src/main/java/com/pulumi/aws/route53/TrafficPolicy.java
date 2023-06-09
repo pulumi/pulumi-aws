@@ -90,12 +90,16 @@ public class TrafficPolicy extends com.pulumi.resources.CustomResource {
     /**
      * Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="document", refs={String.class}, tree="[0]")
     private Output<String> document;
 
     /**
      * @return Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> document() {

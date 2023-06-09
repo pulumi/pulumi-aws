@@ -18,7 +18,6 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// ### Resources
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

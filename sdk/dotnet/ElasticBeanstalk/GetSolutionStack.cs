@@ -18,6 +18,22 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// ## Example Usage
         /// {{% example %}}
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const multiDocker = aws.elasticbeanstalk.getSolutionStack({
+        ///     mostRecent: true,
+        ///     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
+        /// });
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// multi_docker = aws.elasticbeanstalk.get_solution_stack(most_recent=True,
+        ///     name_regex="^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,6 +50,65 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// 
         /// });
         /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		_, err := elasticbeanstalk.GetSolutionStack(ctx, &amp;elasticbeanstalk.GetSolutionStackArgs{
+        /// 			MostRecent: pulumi.BoolRef(true),
+        /// 			NameRegex:  "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+        /// import com.pulumi.aws.elasticbeanstalk.inputs.GetSolutionStackArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var multiDocker = ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
+        ///             .mostRecent(true)
+        ///             .nameRegex("^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// variables:
+        ///   multiDocker:
+        ///     fn::invoke:
+        ///       Function: aws:elasticbeanstalk:getSolutionStack
+        ///       Arguments:
+        ///         mostRecent: true
+        ///         nameRegex: ^64bit Amazon Linux (.*) Multi-container Docker (.*)$
+        /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -47,6 +122,22 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// ## Example Usage
         /// {{% example %}}
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const multiDocker = aws.elasticbeanstalk.getSolutionStack({
+        ///     mostRecent: true,
+        ///     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
+        /// });
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// multi_docker = aws.elasticbeanstalk.get_solution_stack(most_recent=True,
+        ///     name_regex="^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -62,6 +153,65 @@ namespace Pulumi.Aws.ElasticBeanstalk
         ///     });
         /// 
         /// });
+        /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		_, err := elasticbeanstalk.GetSolutionStack(ctx, &amp;elasticbeanstalk.GetSolutionStackArgs{
+        /// 			MostRecent: pulumi.BoolRef(true),
+        /// 			NameRegex:  "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+        /// import com.pulumi.aws.elasticbeanstalk.inputs.GetSolutionStackArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var multiDocker = ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
+        ///             .mostRecent(true)
+        ///             .nameRegex("^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// variables:
+        ///   multiDocker:
+        ///     fn::invoke:
+        ///       Function: aws:elasticbeanstalk:getSolutionStack
+        ///       Arguments:
+        ///         mostRecent: true
+        ///         nameRegex: ^64bit Amazon Linux (.*) Multi-container Docker (.*)$
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -84,6 +234,10 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// Regex string to apply to the solution stack list returned
         /// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
         /// AWS documentation for reference solution stack names.
+        /// 
+        /// &gt; **NOTE:** If more or less than a single match is returned by the search,
+        /// this call will fail. Ensure that your search is specific enough to return
+        /// a single solution stack, or use `most_recent` to choose the most recent one.
         /// </summary>
         [Input("nameRegex", required: true)]
         public string NameRegex { get; set; } = null!;
@@ -107,6 +261,10 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// Regex string to apply to the solution stack list returned
         /// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
         /// AWS documentation for reference solution stack names.
+        /// 
+        /// &gt; **NOTE:** If more or less than a single match is returned by the search,
+        /// this call will fail. Ensure that your search is specific enough to return
+        /// a single solution stack, or use `most_recent` to choose the most recent one.
         /// </summary>
         [Input("nameRegex", required: true)]
         public Input<string> NameRegex { get; set; } = null!;

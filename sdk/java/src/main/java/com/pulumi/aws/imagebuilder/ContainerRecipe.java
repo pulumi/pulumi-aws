@@ -344,12 +344,16 @@ public class ContainerRecipe extends com.pulumi.resources.CustomResource {
     /**
      * Version of the container recipe.
      * 
+     * The following attributes are optional:
+     * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
      * @return Version of the container recipe.
+     * 
+     * The following attributes are optional:
      * 
      */
     public Output<String> version() {

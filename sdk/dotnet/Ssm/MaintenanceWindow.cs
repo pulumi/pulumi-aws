@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ssm
     /// Provides an SSM Maintenance Window resource
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

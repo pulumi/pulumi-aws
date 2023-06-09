@@ -86,7 +86,6 @@ class InboundConnectionAccepter(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -98,12 +97,12 @@ class InboundConnectionAccepter(pulumi.CustomResource):
             local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
                 owner_id=current_caller_identity.account_id,
                 region=current_region.name,
-                domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
+                domain_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
                 owner_id=current_caller_identity.account_id,
                 region=current_region.name,
-                domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
+                domain_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("fooInboundConnectionAccepter", connection_id=foo_outbound_connection.id)
         ```
@@ -131,7 +130,6 @@ class InboundConnectionAccepter(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,12 +141,12 @@ class InboundConnectionAccepter(pulumi.CustomResource):
             local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
                 owner_id=current_caller_identity.account_id,
                 region=current_region.name,
-                domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
+                domain_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
                 owner_id=current_caller_identity.account_id,
                 region=current_region.name,
-                domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
+                domain_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ))
         foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("fooInboundConnectionAccepter", connection_id=foo_outbound_connection.id)
         ```

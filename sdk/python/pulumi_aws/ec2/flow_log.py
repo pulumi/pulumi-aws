@@ -586,7 +586,6 @@ class FlowLog(pulumi.CustomResource):
 
         ## Example Usage
         ### CloudWatch Logging
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -622,7 +621,6 @@ class FlowLog(pulumi.CustomResource):
             policy=example_policy_document.json)
         ```
         ### S3 Logging
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -635,7 +633,6 @@ class FlowLog(pulumi.CustomResource):
             vpc_id=aws_vpc["example"]["id"])
         ```
         ### S3 Logging in Apache Parquet format with per-hour partitions
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -693,7 +690,6 @@ class FlowLog(pulumi.CustomResource):
 
         ## Example Usage
         ### CloudWatch Logging
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -729,7 +725,6 @@ class FlowLog(pulumi.CustomResource):
             policy=example_policy_document.json)
         ```
         ### S3 Logging
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -742,7 +737,6 @@ class FlowLog(pulumi.CustomResource):
             vpc_id=aws_vpc["example"]["id"])
         ```
         ### S3 Logging in Apache Parquet format with per-hour partitions
-
         ```python
         import pulumi
         import pulumi_aws as aws

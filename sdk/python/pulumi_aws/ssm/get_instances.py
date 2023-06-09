@@ -73,7 +73,6 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     Use this data source to get the instance IDs of SSM managed instances.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -105,7 +104,6 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     Use this data source to get the instance IDs of SSM managed instances.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

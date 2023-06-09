@@ -169,7 +169,6 @@ def get_signing_profile(name: Optional[str] = None,
     Provides information about a Signer Signing Profile.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -209,7 +208,6 @@ def get_signing_profile_output(name: Optional[pulumi.Input[str]] = None,
     Provides information about a Signer Signing Profile.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

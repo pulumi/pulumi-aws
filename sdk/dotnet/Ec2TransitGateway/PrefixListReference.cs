@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// ### Attachment Routing
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// });
     /// ```
     /// ### Blackhole Routing
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -86,6 +84,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("transitGatewayRouteTableId")]
         public Output<string> TransitGatewayRouteTableId { get; private set; } = null!;
@@ -156,6 +156,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayRouteTableId", required: true)]
         public Input<string> TransitGatewayRouteTableId { get; set; } = null!;
@@ -191,6 +193,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("transitGatewayRouteTableId")]
         public Input<string>? TransitGatewayRouteTableId { get; set; }

@@ -46,6 +46,8 @@ class AssociationArgs:
         :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+               
+               Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
         if apply_only_at_cron_interval is not None:
             pulumi.set(__self__, "apply_only_at_cron_interval", apply_only_at_cron_interval)
@@ -240,6 +242,8 @@ class AssociationArgs:
     def wait_for_success_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+
+        Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
         return pulumi.get(self, "wait_for_success_timeout_seconds")
 
@@ -285,6 +289,8 @@ class _AssociationState:
         :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+               
+               Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
         if apply_only_at_cron_interval is not None:
             pulumi.set(__self__, "apply_only_at_cron_interval", apply_only_at_cron_interval)
@@ -507,6 +513,8 @@ class _AssociationState:
     def wait_for_success_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+
+        Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
         return pulumi.get(self, "wait_for_success_timeout_seconds")
 
@@ -540,7 +548,6 @@ class Association(pulumi.CustomResource):
 
         ## Example Usage
         ### Create an association for a specific instance
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -553,7 +560,6 @@ class Association(pulumi.CustomResource):
         ### Create an association for all managed instances in an AWS account
 
         To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -566,7 +572,6 @@ class Association(pulumi.CustomResource):
         ### Create an association for a specific tag
 
         This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -579,7 +584,6 @@ class Association(pulumi.CustomResource):
         ### Create an association with a specific schedule
 
         This example shows how to schedule an association in various ways.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -616,6 +620,8 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+               
+               Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
         ...
     @overload
@@ -628,7 +634,6 @@ class Association(pulumi.CustomResource):
 
         ## Example Usage
         ### Create an association for a specific instance
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -641,7 +646,6 @@ class Association(pulumi.CustomResource):
         ### Create an association for all managed instances in an AWS account
 
         To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -654,7 +658,6 @@ class Association(pulumi.CustomResource):
         ### Create an association for a specific tag
 
         This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -667,7 +670,6 @@ class Association(pulumi.CustomResource):
         ### Create an association with a specific schedule
 
         This example shows how to schedule an association in various ways.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -794,6 +796,8 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+               
+               Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -942,6 +946,8 @@ class Association(pulumi.CustomResource):
     def wait_for_success_timeout_seconds(self) -> pulumi.Output[Optional[int]]:
         """
         The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+
+        Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
         """
         return pulumi.get(self, "wait_for_success_timeout_seconds")
 

@@ -14,7 +14,6 @@ import (
 // Provides an AppSync Data Source.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

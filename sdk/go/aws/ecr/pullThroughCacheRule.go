@@ -17,7 +17,6 @@ import (
 // upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

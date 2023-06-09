@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Synthetics
     /// &gt; **NOTE:** When you create a canary, AWS creates supporting implicit resources. See the Amazon CloudWatch Synthetics documentation on [DeleteCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DeleteCanary.html) for a full list. Neither AWS nor this provider deletes these implicit resources automatically when the canary is deleted. Before deleting a canary, ensure you have all the information about the canary that you need to delete the implicit resources using the AWS Console, or AWS CLI.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -137,6 +136,8 @@ namespace Pulumi.Aws.Synthetics
 
         /// <summary>
         /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.CanarySchedule> Schedule { get; private set; } = null!;
@@ -315,6 +316,8 @@ namespace Pulumi.Aws.Synthetics
 
         /// <summary>
         /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("schedule", required: true)]
         public Input<Inputs.CanaryScheduleArgs> Schedule { get; set; } = null!;
@@ -449,6 +452,8 @@ namespace Pulumi.Aws.Synthetics
 
         /// <summary>
         /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.CanaryScheduleGetArgs>? Schedule { get; set; }

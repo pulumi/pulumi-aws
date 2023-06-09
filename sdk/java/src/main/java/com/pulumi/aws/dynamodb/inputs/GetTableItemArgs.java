@@ -27,6 +27,8 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
      * A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
      * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
@@ -34,6 +36,8 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
      * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> key() {
@@ -112,6 +116,8 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
          * @param key A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
          * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -123,6 +129,8 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param key A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
          * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

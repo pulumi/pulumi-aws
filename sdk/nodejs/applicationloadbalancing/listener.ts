@@ -242,6 +242,8 @@ export class Listener extends pulumi.CustomResource {
     public readonly alpnPolicy!: pulumi.Output<string | undefined>;
     /**
      * ARN of the target group.
+     *
+     * The following arguments are optional:
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -254,6 +256,8 @@ export class Listener extends pulumi.CustomResource {
     public readonly defaultActions!: pulumi.Output<outputs.applicationloadbalancing.ListenerDefaultAction[]>;
     /**
      * ARN of the load balancer.
+     *
+     * The following arguments are optional:
      */
     public readonly loadBalancerArn!: pulumi.Output<string>;
     /**
@@ -270,6 +274,8 @@ export class Listener extends pulumi.CustomResource {
     public readonly sslPolicy!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -337,6 +343,8 @@ export interface ListenerState {
     alpnPolicy?: pulumi.Input<string>;
     /**
      * ARN of the target group.
+     *
+     * The following arguments are optional:
      */
     arn?: pulumi.Input<string>;
     /**
@@ -349,6 +357,8 @@ export interface ListenerState {
     defaultActions?: pulumi.Input<pulumi.Input<inputs.applicationloadbalancing.ListenerDefaultAction>[]>;
     /**
      * ARN of the load balancer.
+     *
+     * The following arguments are optional:
      */
     loadBalancerArn?: pulumi.Input<string>;
     /**
@@ -365,6 +375,8 @@ export interface ListenerState {
     sslPolicy?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -391,6 +403,8 @@ export interface ListenerArgs {
     defaultActions: pulumi.Input<pulumi.Input<inputs.applicationloadbalancing.ListenerDefaultAction>[]>;
     /**
      * ARN of the load balancer.
+     *
+     * The following arguments are optional:
      */
     loadBalancerArn: pulumi.Input<string>;
     /**
@@ -407,6 +421,8 @@ export interface ListenerArgs {
     sslPolicy?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * > **NOTE::** Please note that listeners that are attached to Application Load Balancers must use either `HTTP` or `HTTPS` protocols while listeners that are attached to Network Load Balancers must use the `TCP` protocol.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

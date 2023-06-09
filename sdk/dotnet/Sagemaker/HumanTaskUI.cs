@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Human Task UI resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

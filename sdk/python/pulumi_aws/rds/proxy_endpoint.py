@@ -308,7 +308,6 @@ class ProxyEndpoint(pulumi.CustomResource):
         Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -347,7 +346,6 @@ class ProxyEndpoint(pulumi.CustomResource):
         Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

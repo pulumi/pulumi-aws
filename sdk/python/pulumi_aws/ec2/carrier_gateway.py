@@ -150,7 +150,6 @@ class CarrierGateway(pulumi.CustomResource):
         Manages an EC2 Carrier Gateway. See the AWS [documentation](https://docs.aws.amazon.com/vpc/latest/userguide/Carrier_Gateway.html) for more information.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,7 +184,6 @@ class CarrierGateway(pulumi.CustomResource):
         Manages an EC2 Carrier Gateway. See the AWS [documentation](https://docs.aws.amazon.com/vpc/latest/userguide/Carrier_Gateway.html) for more information.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

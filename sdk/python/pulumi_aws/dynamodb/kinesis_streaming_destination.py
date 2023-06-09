@@ -105,7 +105,6 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,7 +145,6 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -13,6 +13,8 @@ import (
 
 // Provides an IoT role alias.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // IOT Role Alias can be imported via the alias, e.g.,

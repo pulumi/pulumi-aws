@@ -16,7 +16,6 @@ namespace Pulumi.Aws.Lambda
     /// ### Destination Configuration
     /// 
     /// &gt; **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,7 +43,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Error Handling Configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,7 +61,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Configuration for Alias Name
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,7 +79,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Configuration for Function Latest Unpublished Version
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,7 +97,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// ### Configuration for Function Published Version
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -157,6 +152,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
@@ -233,6 +230,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
@@ -271,6 +270,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }

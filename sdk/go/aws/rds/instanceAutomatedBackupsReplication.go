@@ -18,7 +18,6 @@ import (
 // > **Note:** This resource has to be created in the destination region.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -44,7 +43,6 @@ import (
 //
 // ```
 // ## Encrypting the automated backup with KMS
-//
 // ```go
 // package main
 //
@@ -71,7 +69,6 @@ import (
 // ```
 //
 // ## Example including a RDS DB instance
-//
 // ```go
 // package main
 //

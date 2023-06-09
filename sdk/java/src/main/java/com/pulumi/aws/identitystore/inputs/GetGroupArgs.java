@@ -58,12 +58,16 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The identifier for a group in the Identity Store.
      * 
+     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+     * 
      */
     @Import(name="groupId")
     private @Nullable Output<String> groupId;
 
     /**
      * @return The identifier for a group in the Identity Store.
+     * 
+     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
      * 
      */
     public Optional<Output<String>> groupId() {
@@ -73,12 +77,16 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="identityStoreId", required=true)
     private Output<String> identityStoreId;
 
     /**
      * @return Identity Store ID associated with the Single Sign-On Instance.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> identityStoreId() {
@@ -165,6 +173,8 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param groupId The identifier for a group in the Identity Store.
          * 
+         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+         * 
          * @return builder
          * 
          */
@@ -176,6 +186,8 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param groupId The identifier for a group in the Identity Store.
          * 
+         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+         * 
          * @return builder
          * 
          */
@@ -185,6 +197,8 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -196,6 +210,8 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

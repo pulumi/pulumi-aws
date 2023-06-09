@@ -13,7 +13,6 @@ import (
 // Provides a global network resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

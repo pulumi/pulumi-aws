@@ -90,6 +90,8 @@ type Endpoint struct {
 	// Configuration block for Kinesis settings. See below.
 	KinesisSettings EndpointKinesisSettingsPtrOutput `pulumi:"kinesisSettings"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+	//
+	// The following arguments are optional:
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings EndpointMongodbSettingsPtrOutput `pulumi:"mongodbSettings"`
@@ -186,6 +188,8 @@ type endpointState struct {
 	// Configuration block for Kinesis settings. See below.
 	KinesisSettings *EndpointKinesisSettings `pulumi:"kinesisSettings"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+	//
+	// The following arguments are optional:
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings *EndpointMongodbSettings `pulumi:"mongodbSettings"`
@@ -238,6 +242,8 @@ type EndpointState struct {
 	// Configuration block for Kinesis settings. See below.
 	KinesisSettings EndpointKinesisSettingsPtrInput
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+	//
+	// The following arguments are optional:
 	KmsKeyArn pulumi.StringPtrInput
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings EndpointMongodbSettingsPtrInput
@@ -292,6 +298,8 @@ type endpointArgs struct {
 	// Configuration block for Kinesis settings. See below.
 	KinesisSettings *EndpointKinesisSettings `pulumi:"kinesisSettings"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+	//
+	// The following arguments are optional:
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings *EndpointMongodbSettings `pulumi:"mongodbSettings"`
@@ -341,6 +349,8 @@ type EndpointArgs struct {
 	// Configuration block for Kinesis settings. See below.
 	KinesisSettings EndpointKinesisSettingsPtrInput
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+	//
+	// The following arguments are optional:
 	KmsKeyArn pulumi.StringPtrInput
 	// Configuration block for MongoDB settings. See below.
 	MongodbSettings EndpointMongodbSettingsPtrInput
@@ -507,6 +517,8 @@ func (o EndpointOutput) KinesisSettings() EndpointKinesisSettingsPtrOutput {
 }
 
 // ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engineName` is `redshift`, `kmsKeyArn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
+//
+// The following arguments are optional:
 func (o EndpointOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
 }

@@ -332,7 +332,6 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,7 +343,6 @@ class Project(pulumi.CustomResource):
             })
         ```
         ### Store evaluation events in a CloudWatch Log Group
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -361,7 +359,6 @@ class Project(pulumi.CustomResource):
             })
         ```
         ### Store evaluation events in an S3 bucket
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -405,7 +402,6 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -417,7 +413,6 @@ class Project(pulumi.CustomResource):
             })
         ```
         ### Store evaluation events in a CloudWatch Log Group
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -434,7 +429,6 @@ class Project(pulumi.CustomResource):
             })
         ```
         ### Store evaluation events in an S3 bucket
-
         ```python
         import pulumi
         import pulumi_aws as aws

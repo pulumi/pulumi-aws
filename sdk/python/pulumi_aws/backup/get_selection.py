@@ -105,12 +105,11 @@ def get_selection(plan_id: Optional[str] = None,
     Use this data source to get information on an existing backup selection.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.backup.get_selection(plan_id=data["aws_backup_plan"]["example"]["id"],
+    example = aws.backup.get_selection(plan_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         selection_id="selection-id-example")
     ```
 
@@ -141,12 +140,11 @@ def get_selection_output(plan_id: Optional[pulumi.Input[str]] = None,
     Use this data source to get information on an existing backup selection.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.backup.get_selection(plan_id=data["aws_backup_plan"]["example"]["id"],
+    example = aws.backup.get_selection(plan_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         selection_id="selection-id-example")
     ```
 

@@ -134,7 +134,6 @@ class MulticastGroupMember(pulumi.CustomResource):
         A member is a network interface associated with a supported EC2 instance that receives multicast traffic.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -162,7 +161,6 @@ class MulticastGroupMember(pulumi.CustomResource):
         A member is a network interface associated with a supported EC2 instance that receives multicast traffic.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

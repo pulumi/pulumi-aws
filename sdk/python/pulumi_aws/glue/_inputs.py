@@ -1179,6 +1179,10 @@ class CrawlerCatalogTargetArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables: A list of catalog tables to be synchronized.
         :param pulumi.Input[str] connection_name: The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
         :param pulumi.Input[str] dlq_event_queue_arn: A valid Amazon SQS ARN.
+               
+               > **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+               
+               > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
         :param pulumi.Input[str] event_queue_arn: A valid Amazon SQS ARN.
         """
         pulumi.set(__self__, "database_name", database_name)
@@ -1231,6 +1235,10 @@ class CrawlerCatalogTargetArgs:
     def dlq_event_queue_arn(self) -> Optional[pulumi.Input[str]]:
         """
         A valid Amazon SQS ARN.
+
+        > **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+
+        > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
         """
         return pulumi.get(self, "dlq_event_queue_arn")
 
@@ -1594,6 +1602,10 @@ class CrawlerS3TargetArgs:
         :param pulumi.Input[str] path: The name of the DynamoDB table to crawl.
         :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the JDBC target.
         :param pulumi.Input[str] dlq_event_queue_arn: The ARN of the dead-letter SQS queue.
+               
+               > **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+               
+               > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
         :param pulumi.Input[str] event_queue_arn: The ARN of the SQS queue to receive S3 notifications from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
         :param pulumi.Input[int] sample_size: Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
@@ -1639,6 +1651,10 @@ class CrawlerS3TargetArgs:
     def dlq_event_queue_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The ARN of the dead-letter SQS queue.
+
+        > **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+
+        > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
         """
         return pulumi.get(self, "dlq_event_queue_arn")
 

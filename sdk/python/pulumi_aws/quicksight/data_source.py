@@ -31,6 +31,8 @@ class DataSourceArgs:
         :param pulumi.Input[str] data_source_id: An identifier for the data source.
         :param pulumi.Input['DataSourceParametersArgs'] parameters: The parameters used to connect to this data source (exactly one).
         :param pulumi.Input[str] type: The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         :param pulumi.Input['DataSourceCredentialsArgs'] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. Currently, only credentials based on user name and password are supported. See Credentials below for more details.
         :param pulumi.Input[str] name: A name for the data source, maximum of 128 characters.
@@ -86,6 +88,8 @@ class DataSourceArgs:
     def type(self) -> pulumi.Input[str]:
         """
         The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -206,6 +210,8 @@ class _DataSourceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+               
+               The following arguments are optional:
         :param pulumi.Input['DataSourceVpcConnectionPropertiesArgs'] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
         if arn is not None:
@@ -358,6 +364,8 @@ class _DataSourceState:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -398,7 +406,6 @@ class DataSource(pulumi.CustomResource):
         Resource for managing QuickSight Data Source
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,6 +442,8 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
         ...
@@ -447,7 +456,6 @@ class DataSource(pulumi.CustomResource):
         Resource for managing QuickSight Data Source
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -565,6 +573,8 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -670,6 +680,8 @@ class DataSource(pulumi.CustomResource):
     def type(self) -> pulumi.Output[str]:
         """
         The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

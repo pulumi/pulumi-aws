@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 // ### AWS-Managed Policies
 //
 // AWS managed response header policy names are prefixed with `Managed-`:
-//
 // ```go
 // package main
 //

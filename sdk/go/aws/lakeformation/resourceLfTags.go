@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Database Example
-//
 // ```go
 // package main
 //
@@ -64,7 +63,6 @@ import (
 //
 // ```
 // ### Multiple Tags Example
-//
 // ```go
 // package main
 //
@@ -139,10 +137,14 @@ type ResourceLfTags struct {
 	// Configuration block for a database resource. See below.
 	Database ResourceLfTagsDatabaseOutput `pulumi:"database"`
 	// Set of LF-tags to attach to the resource. See below.
+	//
+	// Exactly one of the following is required:
 	LfTags ResourceLfTagsLfTagArrayOutput `pulumi:"lfTags"`
 	// Configuration block for a table resource. See below.
 	Table ResourceLfTagsTableOutput `pulumi:"table"`
 	// Configuration block for a table with columns resource. See below.
+	//
+	// The following arguments are optional:
 	TableWithColumns ResourceLfTagsTableWithColumnsOutput `pulumi:"tableWithColumns"`
 }
 
@@ -183,10 +185,14 @@ type resourceLfTagsState struct {
 	// Configuration block for a database resource. See below.
 	Database *ResourceLfTagsDatabase `pulumi:"database"`
 	// Set of LF-tags to attach to the resource. See below.
+	//
+	// Exactly one of the following is required:
 	LfTags []ResourceLfTagsLfTag `pulumi:"lfTags"`
 	// Configuration block for a table resource. See below.
 	Table *ResourceLfTagsTable `pulumi:"table"`
 	// Configuration block for a table with columns resource. See below.
+	//
+	// The following arguments are optional:
 	TableWithColumns *ResourceLfTagsTableWithColumns `pulumi:"tableWithColumns"`
 }
 
@@ -196,10 +202,14 @@ type ResourceLfTagsState struct {
 	// Configuration block for a database resource. See below.
 	Database ResourceLfTagsDatabasePtrInput
 	// Set of LF-tags to attach to the resource. See below.
+	//
+	// Exactly one of the following is required:
 	LfTags ResourceLfTagsLfTagArrayInput
 	// Configuration block for a table resource. See below.
 	Table ResourceLfTagsTablePtrInput
 	// Configuration block for a table with columns resource. See below.
+	//
+	// The following arguments are optional:
 	TableWithColumns ResourceLfTagsTableWithColumnsPtrInput
 }
 
@@ -213,10 +223,14 @@ type resourceLfTagsArgs struct {
 	// Configuration block for a database resource. See below.
 	Database *ResourceLfTagsDatabase `pulumi:"database"`
 	// Set of LF-tags to attach to the resource. See below.
+	//
+	// Exactly one of the following is required:
 	LfTags []ResourceLfTagsLfTag `pulumi:"lfTags"`
 	// Configuration block for a table resource. See below.
 	Table *ResourceLfTagsTable `pulumi:"table"`
 	// Configuration block for a table with columns resource. See below.
+	//
+	// The following arguments are optional:
 	TableWithColumns *ResourceLfTagsTableWithColumns `pulumi:"tableWithColumns"`
 }
 
@@ -227,10 +241,14 @@ type ResourceLfTagsArgs struct {
 	// Configuration block for a database resource. See below.
 	Database ResourceLfTagsDatabasePtrInput
 	// Set of LF-tags to attach to the resource. See below.
+	//
+	// Exactly one of the following is required:
 	LfTags ResourceLfTagsLfTagArrayInput
 	// Configuration block for a table resource. See below.
 	Table ResourceLfTagsTablePtrInput
 	// Configuration block for a table with columns resource. See below.
+	//
+	// The following arguments are optional:
 	TableWithColumns ResourceLfTagsTableWithColumnsPtrInput
 }
 
@@ -332,6 +350,8 @@ func (o ResourceLfTagsOutput) Database() ResourceLfTagsDatabaseOutput {
 }
 
 // Set of LF-tags to attach to the resource. See below.
+//
+// Exactly one of the following is required:
 func (o ResourceLfTagsOutput) LfTags() ResourceLfTagsLfTagArrayOutput {
 	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsLfTagArrayOutput { return v.LfTags }).(ResourceLfTagsLfTagArrayOutput)
 }
@@ -342,6 +362,8 @@ func (o ResourceLfTagsOutput) Table() ResourceLfTagsTableOutput {
 }
 
 // Configuration block for a table with columns resource. See below.
+//
+// The following arguments are optional:
 func (o ResourceLfTagsOutput) TableWithColumns() ResourceLfTagsTableWithColumnsOutput {
 	return o.ApplyT(func(v *ResourceLfTags) ResourceLfTagsTableWithColumnsOutput { return v.TableWithColumns }).(ResourceLfTagsTableWithColumnsOutput)
 }

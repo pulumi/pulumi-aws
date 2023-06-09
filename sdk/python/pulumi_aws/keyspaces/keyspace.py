@@ -19,6 +19,8 @@ class KeyspaceArgs:
         """
         The set of arguments for constructing a Keyspace resource.
         :param pulumi.Input[str] name: The name of the keyspace to be created.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
@@ -31,6 +33,8 @@ class KeyspaceArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the keyspace to be created.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -62,6 +66,8 @@ class _KeyspaceState:
         Input properties used for looking up and filtering Keyspace resources.
         :param pulumi.Input[str] arn: The ARN of the keyspace.
         :param pulumi.Input[str] name: The name of the keyspace to be created.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -91,6 +97,8 @@ class _KeyspaceState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the keyspace to be created.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -137,7 +145,6 @@ class Keyspace(pulumi.CustomResource):
         More information about keyspaces can be found in the [Keyspaces User Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is-keyspaces.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,6 +163,8 @@ class Keyspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the keyspace to be created.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -170,7 +179,6 @@ class Keyspace(pulumi.CustomResource):
         More information about keyspaces can be found in the [Keyspaces User Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is-keyspaces.html).
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -239,6 +247,8 @@ class Keyspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the keyspace.
         :param pulumi.Input[str] name: The name of the keyspace to be created.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -265,6 +275,8 @@ class Keyspace(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         The name of the keyspace to be created.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

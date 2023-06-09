@@ -110,12 +110,16 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
     /**
      * The S3 path where your block list text file sits in S3. Detailed below.
      * 
+     * The `source_s3_path` configuration block supports the following arguments:
+     * 
      */
     @Import(name="sourceS3Path")
     private @Nullable Output<QuerySuggestionsBlockListSourceS3PathArgs> sourceS3Path;
 
     /**
      * @return The S3 path where your block list text file sits in S3. Detailed below.
+     * 
+     * The `source_s3_path` configuration block supports the following arguments:
      * 
      */
     public Optional<Output<QuerySuggestionsBlockListSourceS3PathArgs>> sourceS3Path() {
@@ -321,6 +325,8 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
         /**
          * @param sourceS3Path The S3 path where your block list text file sits in S3. Detailed below.
          * 
+         * The `source_s3_path` configuration block supports the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -331,6 +337,8 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
 
         /**
          * @param sourceS3Path The S3 path where your block list text file sits in S3. Detailed below.
+         * 
+         * The `source_s3_path` configuration block supports the following arguments:
          * 
          * @return builder
          * 

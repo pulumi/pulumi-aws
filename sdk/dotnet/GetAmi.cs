@@ -20,6 +20,54 @@ namespace Pulumi.Aws
         /// ## Example Usage
         /// {{% example %}}
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const example = aws.ec2.getAmi({
+        ///     executableUsers: ["self"],
+        ///     filters: [
+        ///         {
+        ///             name: "name",
+        ///             values: ["myami-*"],
+        ///         },
+        ///         {
+        ///             name: "root-device-type",
+        ///             values: ["ebs"],
+        ///         },
+        ///         {
+        ///             name: "virtualization-type",
+        ///             values: ["hvm"],
+        ///         },
+        ///     ],
+        ///     mostRecent: true,
+        ///     nameRegex: "^myami-\\d{3}",
+        ///     owners: ["self"],
+        /// });
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example = aws.ec2.get_ami(executable_users=["self"],
+        ///     filters=[
+        ///         aws.ec2.GetAmiFilterArgs(
+        ///             name="name",
+        ///             values=["myami-*"],
+        ///         ),
+        ///         aws.ec2.GetAmiFilterArgs(
+        ///             name="root-device-type",
+        ///             values=["ebs"],
+        ///         ),
+        ///         aws.ec2.GetAmiFilterArgs(
+        ///             name="virtualization-type",
+        ///             values=["hvm"],
+        ///         ),
+        ///     ],
+        ///     most_recent=True,
+        ///     name_regex="^myami-\\d{3}",
+        ///     owners=["self"])
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,6 +119,120 @@ namespace Pulumi.Aws
         /// 
         /// });
         /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		_, err := ec2.LookupAmi(ctx, &amp;ec2.LookupAmiArgs{
+        /// 			ExecutableUsers: []string{
+        /// 				"self",
+        /// 			},
+        /// 			Filters: []ec2.GetAmiFilter{
+        /// 				{
+        /// 					Name: "name",
+        /// 					Values: []string{
+        /// 						"myami-*",
+        /// 					},
+        /// 				},
+        /// 				{
+        /// 					Name: "root-device-type",
+        /// 					Values: []string{
+        /// 						"ebs",
+        /// 					},
+        /// 				},
+        /// 				{
+        /// 					Name: "virtualization-type",
+        /// 					Values: []string{
+        /// 						"hvm",
+        /// 					},
+        /// 				},
+        /// 			},
+        /// 			MostRecent: pulumi.BoolRef(true),
+        /// 			NameRegex:  pulumi.StringRef("^myami-\\d{3}"),
+        /// 			Owners: []string{
+        /// 				"self",
+        /// 			},
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.ec2.Ec2Functions;
+        /// import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
+        ///             .executableUsers("self")
+        ///             .filters(            
+        ///                 GetAmiFilterArgs.builder()
+        ///                     .name("name")
+        ///                     .values("myami-*")
+        ///                     .build(),
+        ///                 GetAmiFilterArgs.builder()
+        ///                     .name("root-device-type")
+        ///                     .values("ebs")
+        ///                     .build(),
+        ///                 GetAmiFilterArgs.builder()
+        ///                     .name("virtualization-type")
+        ///                     .values("hvm")
+        ///                     .build())
+        ///             .mostRecent(true)
+        ///             .nameRegex("^myami-\\d{3}")
+        ///             .owners("self")
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// variables:
+        ///   example:
+        ///     fn::invoke:
+        ///       Function: aws:ec2:getAmi
+        ///       Arguments:
+        ///         executableUsers:
+        ///           - self
+        ///         filters:
+        ///           - name: name
+        ///             values:
+        ///               - myami-*
+        ///           - name: root-device-type
+        ///             values:
+        ///               - ebs
+        ///           - name: virtualization-type
+        ///             values:
+        ///               - hvm
+        ///         mostRecent: true
+        ///         nameRegex: ^myami-\d{3}
+        ///         owners:
+        ///           - self
+        /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -85,6 +247,54 @@ namespace Pulumi.Aws
         /// ## Example Usage
         /// {{% example %}}
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const example = aws.ec2.getAmi({
+        ///     executableUsers: ["self"],
+        ///     filters: [
+        ///         {
+        ///             name: "name",
+        ///             values: ["myami-*"],
+        ///         },
+        ///         {
+        ///             name: "root-device-type",
+        ///             values: ["ebs"],
+        ///         },
+        ///         {
+        ///             name: "virtualization-type",
+        ///             values: ["hvm"],
+        ///         },
+        ///     ],
+        ///     mostRecent: true,
+        ///     nameRegex: "^myami-\\d{3}",
+        ///     owners: ["self"],
+        /// });
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example = aws.ec2.get_ami(executable_users=["self"],
+        ///     filters=[
+        ///         aws.ec2.GetAmiFilterArgs(
+        ///             name="name",
+        ///             values=["myami-*"],
+        ///         ),
+        ///         aws.ec2.GetAmiFilterArgs(
+        ///             name="root-device-type",
+        ///             values=["ebs"],
+        ///         ),
+        ///         aws.ec2.GetAmiFilterArgs(
+        ///             name="virtualization-type",
+        ///             values=["hvm"],
+        ///         ),
+        ///     ],
+        ///     most_recent=True,
+        ///     name_regex="^myami-\\d{3}",
+        ///     owners=["self"])
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -135,6 +345,120 @@ namespace Pulumi.Aws
         ///     });
         /// 
         /// });
+        /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		_, err := ec2.LookupAmi(ctx, &amp;ec2.LookupAmiArgs{
+        /// 			ExecutableUsers: []string{
+        /// 				"self",
+        /// 			},
+        /// 			Filters: []ec2.GetAmiFilter{
+        /// 				{
+        /// 					Name: "name",
+        /// 					Values: []string{
+        /// 						"myami-*",
+        /// 					},
+        /// 				},
+        /// 				{
+        /// 					Name: "root-device-type",
+        /// 					Values: []string{
+        /// 						"ebs",
+        /// 					},
+        /// 				},
+        /// 				{
+        /// 					Name: "virtualization-type",
+        /// 					Values: []string{
+        /// 						"hvm",
+        /// 					},
+        /// 				},
+        /// 			},
+        /// 			MostRecent: pulumi.BoolRef(true),
+        /// 			NameRegex:  pulumi.StringRef("^myami-\\d{3}"),
+        /// 			Owners: []string{
+        /// 				"self",
+        /// 			},
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.ec2.Ec2Functions;
+        /// import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
+        ///             .executableUsers("self")
+        ///             .filters(            
+        ///                 GetAmiFilterArgs.builder()
+        ///                     .name("name")
+        ///                     .values("myami-*")
+        ///                     .build(),
+        ///                 GetAmiFilterArgs.builder()
+        ///                     .name("root-device-type")
+        ///                     .values("ebs")
+        ///                     .build(),
+        ///                 GetAmiFilterArgs.builder()
+        ///                     .name("virtualization-type")
+        ///                     .values("hvm")
+        ///                     .build())
+        ///             .mostRecent(true)
+        ///             .nameRegex("^myami-\\d{3}")
+        ///             .owners("self")
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// variables:
+        ///   example:
+        ///     fn::invoke:
+        ///       Function: aws:ec2:getAmi
+        ///       Arguments:
+        ///         executableUsers:
+        ///           - self
+        ///         filters:
+        ///           - name: name
+        ///             values:
+        ///               - myami-*
+        ///           - name: root-device-type
+        ///             values:
+        ///               - ebs
+        ///           - name: virtualization-type
+        ///             values:
+        ///               - hvm
+        ///         mostRecent: true
+        ///         nameRegex: ^myami-\d{3}
+        ///         owners:
+        ///           - self
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -192,6 +516,11 @@ namespace Pulumi.Aws
         /// filtering is done locally on what AWS returns, and could have a performance
         /// impact if the result is large. Combine this with other
         /// options to narrow down the list AWS returns.
+        /// 
+        /// &gt; **NOTE:** If more or less than a single match is returned by the search,
+        /// this call will fail. Ensure that your search is specific enough to return
+        /// a single AMI ID only, or use `most_recent` to choose the most recent one. If
+        /// you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
         /// </summary>
         [Input("nameRegex")]
         public string? NameRegex { get; set; }
@@ -276,6 +605,11 @@ namespace Pulumi.Aws
         /// filtering is done locally on what AWS returns, and could have a performance
         /// impact if the result is large. Combine this with other
         /// options to narrow down the list AWS returns.
+        /// 
+        /// &gt; **NOTE:** If more or less than a single match is returned by the search,
+        /// this call will fail. Ensure that your search is specific enough to return
+        /// a single AMI ID only, or use `most_recent` to choose the most recent one. If
+        /// you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
         /// </summary>
         [Input("nameRegex")]
         public Input<string>? NameRegex { get; set; }

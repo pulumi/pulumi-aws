@@ -202,7 +202,6 @@ class Site(pulumi.CustomResource):
         Creates a site in a global network.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,7 +235,6 @@ class Site(pulumi.CustomResource):
         Creates a site in a global network.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

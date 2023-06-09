@@ -144,12 +144,104 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * JSON string for supplying list of configurations for the EMR cluster.
      * 
+     * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.Cluster;
+     * import com.pulumi.aws.emr.ClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
+     *             .configurationsJson(&#34;&#34;&#34;
+     * [
+     * {
+     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
+     * &#34;Configurations&#34;: [
+     * {
+     * &#34;Classification&#34;: &#34;export&#34;,
+     * &#34;Properties&#34;: {
+     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * }
+     * }
+     * ],
+     * &#34;Properties&#34;: {}
+     * }
+     * ]
+     * 
+     *             &#34;&#34;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     @Import(name="configurationsJson")
     private @Nullable Output<String> configurationsJson;
 
     /**
      * @return JSON string for supplying list of configurations for the EMR cluster.
+     * 
+     * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.emr.Cluster;
+     * import com.pulumi.aws.emr.ClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
+     *             .configurationsJson(&#34;&#34;&#34;
+     * [
+     * {
+     * &#34;Classification&#34;: &#34;hadoop-env&#34;,
+     * &#34;Configurations&#34;: [
+     * {
+     * &#34;Classification&#34;: &#34;export&#34;,
+     * &#34;Properties&#34;: {
+     * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+     * }
+     * }
+     * ],
+     * &#34;Properties&#34;: {}
+     * }
+     * ]
+     * 
+     *             &#34;&#34;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public Optional<Output<String>> configurationsJson() {
@@ -429,12 +521,16 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="serviceRole")
     private @Nullable Output<String> serviceRole;
 
     /**
      * @return IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> serviceRole() {
@@ -767,6 +863,52 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param configurationsJson JSON string for supplying list of configurations for the EMR cluster.
          * 
+         * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.emr.Cluster;
+         * import com.pulumi.aws.emr.ClusterArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
+         *             .configurationsJson(&#34;&#34;&#34;
+         * [
+         * {
+         * &#34;Classification&#34;: &#34;hadoop-env&#34;,
+         * &#34;Configurations&#34;: [
+         * {
+         * &#34;Classification&#34;: &#34;export&#34;,
+         * &#34;Properties&#34;: {
+         * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+         * }
+         * }
+         * ],
+         * &#34;Properties&#34;: {}
+         * }
+         * ]
+         * 
+         *             &#34;&#34;&#34;)
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
+         * 
          * @return builder
          * 
          */
@@ -777,6 +919,52 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param configurationsJson JSON string for supplying list of configurations for the EMR cluster.
+         * 
+         * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
+         * ```java
+         * package generated_program;
+         * 
+         * import com.pulumi.Context;
+         * import com.pulumi.Pulumi;
+         * import com.pulumi.core.Output;
+         * import com.pulumi.aws.emr.Cluster;
+         * import com.pulumi.aws.emr.ClusterArgs;
+         * import java.util.List;
+         * import java.util.ArrayList;
+         * import java.util.Map;
+         * import java.io.File;
+         * import java.nio.file.Files;
+         * import java.nio.file.Paths;
+         * 
+         * public class App {
+         *     public static void main(String[] args) {
+         *         Pulumi.run(App::stack);
+         *     }
+         * 
+         *     public static void stack(Context ctx) {
+         *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
+         *             .configurationsJson(&#34;&#34;&#34;
+         * [
+         * {
+         * &#34;Classification&#34;: &#34;hadoop-env&#34;,
+         * &#34;Configurations&#34;: [
+         * {
+         * &#34;Classification&#34;: &#34;export&#34;,
+         * &#34;Properties&#34;: {
+         * &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
+         * }
+         * }
+         * ],
+         * &#34;Properties&#34;: {}
+         * }
+         * ]
+         * 
+         *             &#34;&#34;&#34;)
+         *             .build());
+         * 
+         *     }
+         * }
+         * ```
          * 
          * @return builder
          * 
@@ -1186,6 +1374,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param serviceRole IAM role that will be assumed by the Amazon EMR service to access AWS resources.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -1196,6 +1386,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param serviceRole IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

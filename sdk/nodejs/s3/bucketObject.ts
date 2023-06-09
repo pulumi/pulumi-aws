@@ -190,6 +190,8 @@ export class BucketObject extends pulumi.CustomResource {
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the object once it is in the bucket.
+     *
+     * The following arguments are optional:
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -242,6 +244,8 @@ export class BucketObject extends pulumi.CustomResource {
     public /*out*/ readonly versionId!: pulumi.Output<string>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     *
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      */
     public readonly websiteRedirect!: pulumi.Output<string | undefined>;
 
@@ -375,6 +379,8 @@ export interface BucketObjectState {
     forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the object once it is in the bucket.
+     *
+     * The following arguments are optional:
      */
     key?: pulumi.Input<string>;
     /**
@@ -427,6 +433,8 @@ export interface BucketObjectState {
     versionId?: pulumi.Input<string>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     *
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      */
     websiteRedirect?: pulumi.Input<string>;
 }
@@ -485,6 +493,8 @@ export interface BucketObjectArgs {
     forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the object once it is in the bucket.
+     *
+     * The following arguments are optional:
      */
     key?: pulumi.Input<string>;
     /**
@@ -529,6 +539,8 @@ export interface BucketObjectArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     *
+     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      */
     websiteRedirect?: pulumi.Input<string>;
 }

@@ -53,6 +53,8 @@ func LookupResolverFirewallDomainList(ctx *pulumi.Context, args *LookupResolverF
 // A collection of arguments for invoking getResolverFirewallDomainList.
 type LookupResolverFirewallDomainListArgs struct {
 	// The ID of the domain list.
+	//
+	// The following attribute is additionally exported:
 	FirewallDomainListId string `pulumi:"firewallDomainListId"`
 }
 
@@ -88,6 +90,8 @@ func LookupResolverFirewallDomainListOutput(ctx *pulumi.Context, args LookupReso
 // A collection of arguments for invoking getResolverFirewallDomainList.
 type LookupResolverFirewallDomainListOutputArgs struct {
 	// The ID of the domain list.
+	//
+	// The following attribute is additionally exported:
 	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
 }
 

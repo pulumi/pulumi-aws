@@ -14,7 +14,6 @@ import (
 // Provides an AWS Route 53 Recovery Control Config Control Panel.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

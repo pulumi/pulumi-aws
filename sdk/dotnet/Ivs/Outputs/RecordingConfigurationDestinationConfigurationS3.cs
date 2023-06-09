@@ -15,6 +15,8 @@ namespace Pulumi.Aws.Ivs.Outputs
     {
         /// <summary>
         /// S3 bucket name where recorded videos will be stored.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string BucketName;
 

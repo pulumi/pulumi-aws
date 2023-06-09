@@ -25,6 +25,8 @@ class NetworkInsightsPathArgs:
         The set of arguments for constructing a NetworkInsightsPath resource.
         :param pulumi.Input[str] destination: ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
         :param pulumi.Input[str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] source: ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
         :param pulumi.Input[str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[int] destination_port: Destination port to analyze access to.
@@ -60,6 +62,8 @@ class NetworkInsightsPathArgs:
     def protocol(self) -> pulumi.Input[str]:
         """
         Protocol to use for analysis. Valid options are `tcp` or `udp`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "protocol")
 
@@ -147,6 +151,8 @@ class _NetworkInsightsPathState:
         :param pulumi.Input[str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[int] destination_port: Destination port to analyze access to.
         :param pulumi.Input[str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] source: ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
         :param pulumi.Input[str] source_ip: IP address of the source resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -224,6 +230,8 @@ class _NetworkInsightsPathState:
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
         Protocol to use for analysis. Valid options are `tcp` or `udp`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "protocol")
 
@@ -297,7 +305,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
         Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,6 +329,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
         :param pulumi.Input[str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[int] destination_port: Destination port to analyze access to.
         :param pulumi.Input[str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] source: ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
         :param pulumi.Input[str] source_ip: IP address of the source resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -336,7 +345,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
         Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -432,6 +440,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
         :param pulumi.Input[str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[int] destination_port: Destination port to analyze access to.
         :param pulumi.Input[str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] source: ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
         :param pulumi.Input[str] source_ip: IP address of the source resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -489,6 +499,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
     def protocol(self) -> pulumi.Output[str]:
         """
         Protocol to use for analysis. Valid options are `tcp` or `udp`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "protocol")
 

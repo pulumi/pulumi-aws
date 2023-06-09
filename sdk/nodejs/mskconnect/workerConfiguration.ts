@@ -74,6 +74,8 @@ export class WorkerConfiguration extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+     *
+     * The following arguments are optional:
      */
     public readonly propertiesFileContent!: pulumi.Output<string>;
 
@@ -133,6 +135,8 @@ export interface WorkerConfigurationState {
     name?: pulumi.Input<string>;
     /**
      * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+     *
+     * The following arguments are optional:
      */
     propertiesFileContent?: pulumi.Input<string>;
 }
@@ -151,6 +155,8 @@ export interface WorkerConfigurationArgs {
     name?: pulumi.Input<string>;
     /**
      * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
+     *
+     * The following arguments are optional:
      */
     propertiesFileContent: pulumi.Input<string>;
 }

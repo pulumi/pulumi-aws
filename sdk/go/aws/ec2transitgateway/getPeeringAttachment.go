@@ -14,7 +14,6 @@ import (
 //
 // ## Example Usage
 // ### By Filter
-//
 // ```go
 // package main
 //
@@ -46,7 +45,6 @@ import (
 //
 // ```
 // ### By Identifier
-//
 // ```go
 // package main
 //
@@ -87,6 +85,9 @@ type LookupPeeringAttachmentArgs struct {
 	Id *string `pulumi:"id"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -126,6 +127,9 @@ type LookupPeeringAttachmentOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

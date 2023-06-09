@@ -61,7 +61,6 @@ def get_links(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinksR
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

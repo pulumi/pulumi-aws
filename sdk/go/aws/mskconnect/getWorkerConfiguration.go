@@ -13,7 +13,6 @@ import (
 // Get information on an Amazon MSK Connect Worker Configuration.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -18,7 +18,6 @@ import (
 // `default`, and no application versions
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ import (
 // Retrieve information about a Network Firewall resource policy.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

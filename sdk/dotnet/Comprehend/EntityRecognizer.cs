@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Comprehend
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -113,6 +112,8 @@ namespace Pulumi.Aws.Comprehend
         /// Name for the Entity Recognizer.
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -239,6 +240,8 @@ namespace Pulumi.Aws.Comprehend
         /// Name for the Entity Recognizer.
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -333,6 +336,8 @@ namespace Pulumi.Aws.Comprehend
         /// Name for the Entity Recognizer.
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -104,6 +104,8 @@ export class ReservedInstance extends pulumi.CustomResource {
     public /*out*/ readonly multiAz!: pulumi.Output<boolean>;
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
+     *
+     * The following arguments are optional:
      */
     public readonly offeringId!: pulumi.Output<string>;
     /**
@@ -241,6 +243,8 @@ export interface ReservedInstanceState {
     multiAz?: pulumi.Input<boolean>;
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
+     *
+     * The following arguments are optional:
      */
     offeringId?: pulumi.Input<string>;
     /**
@@ -291,6 +295,8 @@ export interface ReservedInstanceArgs {
     instanceCount?: pulumi.Input<number>;
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `aws.rds.getReservedInstanceOffering` data source.
+     *
+     * The following arguments are optional:
      */
     offeringId: pulumi.Input<string>;
     /**

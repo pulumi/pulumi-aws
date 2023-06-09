@@ -20,12 +20,16 @@ public final class BlockPublicAccessConfigurationArgs extends com.pulumi.resourc
     /**
      * Enable or disable EMR Block Public Access.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="blockPublicSecurityGroupRules", required=true)
     private Output<Boolean> blockPublicSecurityGroupRules;
 
     /**
      * @return Enable or disable EMR Block Public Access.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Boolean> blockPublicSecurityGroupRules() {
@@ -75,6 +79,8 @@ public final class BlockPublicAccessConfigurationArgs extends com.pulumi.resourc
         /**
          * @param blockPublicSecurityGroupRules Enable or disable EMR Block Public Access.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -85,6 +91,8 @@ public final class BlockPublicAccessConfigurationArgs extends com.pulumi.resourc
 
         /**
          * @param blockPublicSecurityGroupRules Enable or disable EMR Block Public Access.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

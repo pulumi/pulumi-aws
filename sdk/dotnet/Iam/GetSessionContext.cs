@@ -21,6 +21,20 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// ### Basic Example
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const example = aws.iam.getSessionContext({
+        ///     arn: "arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes",
+        /// });
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example = aws.iam.get_session_context(arn="arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,12 +50,84 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		_, err := iam.GetSessionContext(ctx, &amp;iam.GetSessionContextArgs{
+        /// 			Arn: "arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes",
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.iam.IamFunctions;
+        /// import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+        ///             .arn("arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// variables:
+        ///   example:
+        ///     fn::invoke:
+        ///       Function: aws:iam:getSessionContext
+        ///       Arguments:
+        ///         arn: arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes
+        /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Find the Provider's Source Role
         /// 
         /// Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const current = aws.getCallerIdentity({});
+        /// const example = current.then(current =&gt; aws.iam.getSessionContext({
+        ///     arn: current.arn,
+        /// }));
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// current = aws.get_caller_identity()
+        /// example = aws.iam.get_session_context(arn=current.arn)
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,6 +144,74 @@ namespace Pulumi.Aws.Iam
         ///     });
         /// 
         /// });
+        /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		current, err := aws.GetCallerIdentity(ctx, nil, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		_, err = iam.GetSessionContext(ctx, &amp;iam.GetSessionContextArgs{
+        /// 			Arn: current.Arn,
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.AwsFunctions;
+        /// import com.pulumi.aws.iam.IamFunctions;
+        /// import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var current = AwsFunctions.getCallerIdentity();
+        /// 
+        ///         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+        ///             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// variables:
+        ///   current:
+        ///     fn::invoke:
+        ///       Function: aws:getCallerIdentity
+        ///       Arguments: {}
+        ///   example:
+        ///     fn::invoke:
+        ///       Function: aws:iam:getSessionContext
+        ///       Arguments:
+        ///         arn: ${current.arn}
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,6 +229,20 @@ namespace Pulumi.Aws.Iam
         /// {{% example %}}
         /// ### Basic Example
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const example = aws.iam.getSessionContext({
+        ///     arn: "arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes",
+        /// });
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example = aws.iam.get_session_context(arn="arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -90,12 +258,84 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		_, err := iam.GetSessionContext(ctx, &amp;iam.GetSessionContextArgs{
+        /// 			Arn: "arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes",
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.iam.IamFunctions;
+        /// import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+        ///             .arn("arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// variables:
+        ///   example:
+        ///     fn::invoke:
+        ///       Function: aws:iam:getSessionContext
+        ///       Arguments:
+        ///         arn: arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes
+        /// ```
         /// {{% /example %}}
         /// {{% example %}}
         /// ### Find the Provider's Source Role
         /// 
         /// Combined with `aws.getCallerIdentity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
         /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const current = aws.getCallerIdentity({});
+        /// const example = current.then(current =&gt; aws.iam.getSessionContext({
+        ///     arn: current.arn,
+        /// }));
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// current = aws.get_caller_identity()
+        /// example = aws.iam.get_session_context(arn=current.arn)
+        /// ```
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -113,6 +353,74 @@ namespace Pulumi.Aws.Iam
         /// 
         /// });
         /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		current, err := aws.GetCallerIdentity(ctx, nil, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		_, err = iam.GetSessionContext(ctx, &amp;iam.GetSessionContextArgs{
+        /// 			Arn: current.Arn,
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.AwsFunctions;
+        /// import com.pulumi.aws.iam.IamFunctions;
+        /// import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var current = AwsFunctions.getCallerIdentity();
+        /// 
+        ///         final var example = IamFunctions.getSessionContext(GetSessionContextArgs.builder()
+        ///             .arn(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.arn()))
+        ///             .build());
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// variables:
+        ///   current:
+        ///     fn::invoke:
+        ///       Function: aws:getCallerIdentity
+        ///       Arguments: {}
+        ///   example:
+        ///     fn::invoke:
+        ///       Function: aws:iam:getSessionContext
+        ///       Arguments:
+        ///         arn: ${current.arn}
+        /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
@@ -125,6 +433,8 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// ARN for an assumed role.
+        /// 
+        /// &gt; If `arn` is a non-role ARN, the provider gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -139,6 +449,8 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// ARN for an assumed role.
+        /// 
+        /// &gt; If `arn` is a non-role ARN, the provider gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;

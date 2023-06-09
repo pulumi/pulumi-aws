@@ -14,7 +14,6 @@ import (
 // Manages an AppStream User Stack association.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -71,6 +70,8 @@ type UserStackAssociation struct {
 	// Name of the stack that is associated with the user.
 	StackName pulumi.StringOutput `pulumi:"stackName"`
 	// Email address of the user who is associated with the stack.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -119,6 +120,8 @@ type userStackAssociationState struct {
 	// Name of the stack that is associated with the user.
 	StackName *string `pulumi:"stackName"`
 	// Email address of the user who is associated with the stack.
+	//
+	// The following arguments are optional:
 	UserName *string `pulumi:"userName"`
 }
 
@@ -130,6 +133,8 @@ type UserStackAssociationState struct {
 	// Name of the stack that is associated with the user.
 	StackName pulumi.StringPtrInput
 	// Email address of the user who is associated with the stack.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringPtrInput
 }
 
@@ -145,6 +150,8 @@ type userStackAssociationArgs struct {
 	// Name of the stack that is associated with the user.
 	StackName string `pulumi:"stackName"`
 	// Email address of the user who is associated with the stack.
+	//
+	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
 }
 
@@ -157,6 +164,8 @@ type UserStackAssociationArgs struct {
 	// Name of the stack that is associated with the user.
 	StackName pulumi.StringInput
 	// Email address of the user who is associated with the stack.
+	//
+	// The following arguments are optional:
 	UserName pulumi.StringInput
 }
 
@@ -263,6 +272,8 @@ func (o UserStackAssociationOutput) StackName() pulumi.StringOutput {
 }
 
 // Email address of the user who is associated with the stack.
+//
+// The following arguments are optional:
 func (o UserStackAssociationOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserStackAssociation) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

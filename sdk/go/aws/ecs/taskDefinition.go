@@ -396,6 +396,8 @@ type TaskDefinition struct {
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
 	// A unique name for your task definition.
+	//
+	// The following arguments are optional:
 	Family pulumi.StringOutput `pulumi:"family"`
 	// Configuration block(s) with Inference Accelerators settings. Detailed below.
 	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayOutput `pulumi:"inferenceAccelerators"`
@@ -477,6 +479,8 @@ type taskDefinitionState struct {
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// A unique name for your task definition.
+	//
+	// The following arguments are optional:
 	Family *string `pulumi:"family"`
 	// Configuration block(s) with Inference Accelerators settings. Detailed below.
 	InferenceAccelerators []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
@@ -524,6 +528,8 @@ type TaskDefinitionState struct {
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn pulumi.StringPtrInput
 	// A unique name for your task definition.
+	//
+	// The following arguments are optional:
 	Family pulumi.StringPtrInput
 	// Configuration block(s) with Inference Accelerators settings. Detailed below.
 	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayInput
@@ -571,6 +577,8 @@ type taskDefinitionArgs struct {
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// A unique name for your task definition.
+	//
+	// The following arguments are optional:
 	Family string `pulumi:"family"`
 	// Configuration block(s) with Inference Accelerators settings. Detailed below.
 	InferenceAccelerators []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
@@ -611,6 +619,8 @@ type TaskDefinitionArgs struct {
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn pulumi.StringPtrInput
 	// A unique name for your task definition.
+	//
+	// The following arguments are optional:
 	Family pulumi.StringInput
 	// Configuration block(s) with Inference Accelerators settings. Detailed below.
 	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayInput
@@ -758,6 +768,8 @@ func (o TaskDefinitionOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 }
 
 // A unique name for your task definition.
+//
+// The following arguments are optional:
 func (o TaskDefinitionOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }

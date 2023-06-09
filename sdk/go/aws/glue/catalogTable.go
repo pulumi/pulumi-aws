@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Table
-//
 // ```go
 // package main
 //
@@ -41,7 +40,6 @@ import (
 //
 // ```
 // ### Parquet Table for Athena
-//
 // ```go
 // package main
 //
@@ -126,6 +124,8 @@ type CatalogTable struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	//
+	// The follow arguments are optional:
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Description of the table.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -190,6 +190,8 @@ type catalogTableState struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	//
+	// The follow arguments are optional:
 	DatabaseName *string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
@@ -223,6 +225,8 @@ type CatalogTableState struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	//
+	// The follow arguments are optional:
 	DatabaseName pulumi.StringPtrInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
@@ -258,6 +262,8 @@ type catalogTableArgs struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	//
+	// The follow arguments are optional:
 	DatabaseName string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
@@ -290,6 +296,8 @@ type CatalogTableArgs struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+	//
+	// The follow arguments are optional:
 	DatabaseName pulumi.StringInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
@@ -415,6 +423,8 @@ func (o CatalogTableOutput) CatalogId() pulumi.StringOutput {
 }
 
 // Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
+//
+// The follow arguments are optional:
 func (o CatalogTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }

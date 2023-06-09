@@ -133,7 +133,6 @@ class EventStream(pulumi.CustomResource):
         Provides a Pinpoint Event Stream resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -190,7 +189,6 @@ class EventStream(pulumi.CustomResource):
         Provides a Pinpoint Event Stream resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

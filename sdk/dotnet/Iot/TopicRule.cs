@@ -11,7 +11,6 @@ namespace Pulumi.Aws.Iot
 {
     /// <summary>
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

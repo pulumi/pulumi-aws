@@ -46,12 +46,16 @@ public final class GetPermissionsLfTag extends com.pulumi.resources.InvokeArgs {
     /**
      * List of possible values an attribute can take.
      * 
+     * The following argument is optional:
+     * 
      */
     @Import(name="values", required=true)
     private List<String> values;
 
     /**
      * @return List of possible values an attribute can take.
+     * 
+     * The following argument is optional:
      * 
      */
     public List<String> values() {
@@ -109,6 +113,8 @@ public final class GetPermissionsLfTag extends com.pulumi.resources.InvokeArgs {
         /**
          * @param values List of possible values an attribute can take.
          * 
+         * The following argument is optional:
+         * 
          * @return builder
          * 
          */
@@ -119,6 +125,8 @@ public final class GetPermissionsLfTag extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param values List of possible values an attribute can take.
+         * 
+         * The following argument is optional:
          * 
          * @return builder
          * 

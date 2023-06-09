@@ -36,6 +36,8 @@ export function getDelegationSet(args: GetDelegationSetArgs, opts?: pulumi.Invok
 export interface GetDelegationSetArgs {
     /**
      * Delegation set ID.
+     *
+     * The following attribute is additionally exported:
      */
     id: string;
 }
@@ -77,6 +79,8 @@ export function getDelegationSetOutput(args: GetDelegationSetOutputArgs, opts?: 
 export interface GetDelegationSetOutputArgs {
     /**
      * Delegation set ID.
+     *
+     * The following attribute is additionally exported:
      */
     id: pulumi.Input<string>;
 }

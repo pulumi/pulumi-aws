@@ -102,7 +102,6 @@ class ResourcePolicy(pulumi.CustomResource):
         Provides a Glue resource policy. Only one can exist per region.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,7 +143,6 @@ class ResourcePolicy(pulumi.CustomResource):
         Provides a Glue resource policy. Only one can exist per region.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

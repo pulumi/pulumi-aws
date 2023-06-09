@@ -50,12 +50,16 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the user group.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="userGroupId", required=true)
     private Output<String> userGroupId;
 
     /**
      * @return The ID of the user group.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> userGroupId() {
@@ -149,6 +153,8 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param userGroupId The ID of the user group.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -159,6 +165,8 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param userGroupId The ID of the user group.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

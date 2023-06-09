@@ -316,7 +316,6 @@ class Repository(pulumi.CustomResource):
         Provides a CodeArtifact Repository Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -330,7 +329,6 @@ class Repository(pulumi.CustomResource):
             domain=example_domain.domain)
         ```
         ### With Upstream Repository
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -346,7 +344,6 @@ class Repository(pulumi.CustomResource):
             )])
         ```
         ### With External Connection
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -390,7 +387,6 @@ class Repository(pulumi.CustomResource):
         Provides a CodeArtifact Repository Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -404,7 +400,6 @@ class Repository(pulumi.CustomResource):
             domain=example_domain.domain)
         ```
         ### With Upstream Repository
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -420,7 +415,6 @@ class Repository(pulumi.CustomResource):
             )])
         ```
         ### With External Connection
-
         ```python
         import pulumi
         import pulumi_aws as aws

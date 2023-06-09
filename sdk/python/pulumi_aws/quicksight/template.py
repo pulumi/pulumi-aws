@@ -27,6 +27,8 @@ class TemplateArgs:
         The set of arguments for constructing a Template resource.
         :param pulumi.Input[str] template_id: Identifier for the template.
         :param pulumi.Input[str] version_description: A description of the current template version being created/updated.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] name: Display name for the template.
         :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
@@ -63,6 +65,8 @@ class TemplateArgs:
     def version_description(self) -> pulumi.Input[str]:
         """
         A description of the current template version being created/updated.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "version_description")
 
@@ -163,6 +167,8 @@ class _TemplateState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] template_id: Identifier for the template.
         :param pulumi.Input[str] version_description: A description of the current template version being created/updated.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] version_number: The version number of the template version.
         """
         if arn is not None:
@@ -343,6 +349,8 @@ class _TemplateState:
     def version_description(self) -> Optional[pulumi.Input[str]]:
         """
         A description of the current template version being created/updated.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "version_description")
 
@@ -381,7 +389,6 @@ class Template(pulumi.CustomResource):
 
         ## Example Usage
         ### From Source Template
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,7 +398,7 @@ class Template(pulumi.CustomResource):
             version_description="version",
             source_entity=aws.quicksight.TemplateSourceEntityArgs(
                 source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ))
         ```
@@ -413,6 +420,8 @@ class Template(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] template_id: Identifier for the template.
         :param pulumi.Input[str] version_description: A description of the current template version being created/updated.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -425,7 +434,6 @@ class Template(pulumi.CustomResource):
 
         ## Example Usage
         ### From Source Template
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,7 +443,7 @@ class Template(pulumi.CustomResource):
             version_description="version",
             source_entity=aws.quicksight.TemplateSourceEntityArgs(
                 source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
-                    arn=aws_quicksight_template["source"]["arn"],
+                    arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ))
         ```
@@ -541,6 +549,8 @@ class Template(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] template_id: Identifier for the template.
         :param pulumi.Input[str] version_description: A description of the current template version being created/updated.
+               
+               The following arguments are optional:
         :param pulumi.Input[int] version_number: The version number of the template version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -664,6 +674,8 @@ class Template(pulumi.CustomResource):
     def version_description(self) -> pulumi.Output[str]:
         """
         A description of the current template version being created/updated.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "version_description")
 

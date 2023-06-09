@@ -66,6 +66,8 @@ class BucketV2Args:
                The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following arguments are deprecated, and will be removed in a future major version:
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]] versionings: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]] websites: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketWebsiteConfigurationV2` instead.
@@ -345,6 +347,8 @@ class BucketV2Args:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        The following arguments are deprecated, and will be removed in a future major version:
         """
         return pulumi.get(self, "tags")
 
@@ -444,6 +448,8 @@ class _BucketV2State:
                The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following arguments are deprecated, and will be removed in a future major version:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]] versionings: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
         :param pulumi.Input[str] website_domain: (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
@@ -808,6 +814,8 @@ class _BucketV2State:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        The following arguments are deprecated, and will be removed in a future major version:
         """
         return pulumi.get(self, "tags")
 
@@ -1005,6 +1013,8 @@ class BucketV2(pulumi.CustomResource):
                The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following arguments are deprecated, and will be removed in a future major version:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2VersioningArgs']]]] versionings: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2WebsiteArgs']]]] websites: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketWebsiteConfigurationV2` instead.
@@ -1274,6 +1284,8 @@ class BucketV2(pulumi.CustomResource):
                The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following arguments are deprecated, and will be removed in a future major version:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketV2VersioningArgs']]]] versionings: Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
         :param pulumi.Input[str] website_domain: (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
@@ -1492,6 +1504,8 @@ class BucketV2(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        The following arguments are deprecated, and will be removed in a future major version:
         """
         return pulumi.get(self, "tags")
 

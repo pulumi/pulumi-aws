@@ -185,6 +185,8 @@ export class NodeGroup extends pulumi.CustomResource {
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+     *
+     * The following arguments are optional:
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
@@ -358,6 +360,8 @@ export interface NodeGroupState {
     status?: pulumi.Input<string>;
     /**
      * Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+     *
+     * The following arguments are optional:
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -441,6 +445,8 @@ export interface NodeGroupArgs {
     scalingConfig: pulumi.Input<inputs.eks.NodeGroupScalingConfig>;
     /**
      * Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+     *
+     * The following arguments are optional:
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**

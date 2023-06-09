@@ -14,7 +14,6 @@ import (
 // Resource for managing an AWS QuickSight Account Subscription.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -75,6 +74,8 @@ type AccountSubscription struct {
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+	//
+	// The following arguments are optional:
 	NotificationEmail pulumi.StringOutput `pulumi:"notificationEmail"`
 	// Reader group associated with your Active Direcrtory.
 	ReaderGroups pulumi.StringArrayOutput `pulumi:"readerGroups"`
@@ -150,6 +151,8 @@ type accountSubscriptionState struct {
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName *string `pulumi:"lastName"`
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+	//
+	// The following arguments are optional:
 	NotificationEmail *string `pulumi:"notificationEmail"`
 	// Reader group associated with your Active Direcrtory.
 	ReaderGroups []string `pulumi:"readerGroups"`
@@ -185,6 +188,8 @@ type AccountSubscriptionState struct {
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrInput
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+	//
+	// The following arguments are optional:
 	NotificationEmail pulumi.StringPtrInput
 	// Reader group associated with your Active Direcrtory.
 	ReaderGroups pulumi.StringArrayInput
@@ -222,6 +227,8 @@ type accountSubscriptionArgs struct {
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName *string `pulumi:"lastName"`
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+	//
+	// The following arguments are optional:
 	NotificationEmail string `pulumi:"notificationEmail"`
 	// Reader group associated with your Active Direcrtory.
 	ReaderGroups []string `pulumi:"readerGroups"`
@@ -256,6 +263,8 @@ type AccountSubscriptionArgs struct {
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrInput
 	// Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+	//
+	// The following arguments are optional:
 	NotificationEmail pulumi.StringInput
 	// Reader group associated with your Active Direcrtory.
 	ReaderGroups pulumi.StringArrayInput
@@ -416,6 +425,8 @@ func (o AccountSubscriptionOutput) LastName() pulumi.StringPtrOutput {
 }
 
 // Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+//
+// The following arguments are optional:
 func (o AccountSubscriptionOutput) NotificationEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringOutput { return v.NotificationEmail }).(pulumi.StringOutput)
 }

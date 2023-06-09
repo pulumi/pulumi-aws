@@ -14,7 +14,6 @@ import (
 // Provides an Amplify Backend Environment resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -43,6 +43,8 @@ class DocumentClassifierArgs:
         :param pulumi.Input[str] name: Name for the Document Classifier.
                Has a maximum length of 63 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               
+               The following arguments are optional:
         :param pulumi.Input['DocumentClassifierOutputDataConfigArgs'] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -156,6 +158,8 @@ class DocumentClassifierArgs:
         Name for the Document Classifier.
         Has a maximum length of 63 characters.
         Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -281,6 +285,8 @@ class _DocumentClassifierState:
         :param pulumi.Input[str] name: Name for the Document Classifier.
                Has a maximum length of 63 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               
+               The following arguments are optional:
         :param pulumi.Input['DocumentClassifierOutputDataConfigArgs'] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -414,6 +420,8 @@ class _DocumentClassifierState:
         Name for the Document Classifier.
         Has a maximum length of 63 characters.
         Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -541,7 +549,6 @@ class DocumentClassifier(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -582,6 +589,8 @@ class DocumentClassifier(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name for the Document Classifier.
                Has a maximum length of 63 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -612,7 +621,6 @@ class DocumentClassifier(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -739,6 +747,8 @@ class DocumentClassifier(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name for the Document Classifier.
                Has a maximum length of 63 characters.
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -839,6 +849,8 @@ class DocumentClassifier(pulumi.CustomResource):
         Name for the Document Classifier.
         Has a maximum length of 63 characters.
         Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 

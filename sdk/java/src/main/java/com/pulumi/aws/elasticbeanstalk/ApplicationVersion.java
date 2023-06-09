@@ -170,12 +170,16 @@ public class ApplicationVersion extends com.pulumi.resources.CustomResource {
     /**
      * Unique name for the this Application Version.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Unique name for the this Application Version.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

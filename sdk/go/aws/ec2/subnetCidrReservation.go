@@ -14,7 +14,6 @@ import (
 // Provides a subnet CIDR reservation resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

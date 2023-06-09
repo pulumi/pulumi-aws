@@ -14,7 +14,6 @@ import (
 // Provides a CloudWatch Logs subscription filter resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

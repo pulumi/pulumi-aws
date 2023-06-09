@@ -75,7 +75,6 @@ def get_license_grants(filters: Optional[Sequence[pulumi.InputType['GetLicenseGr
     ## Example Usage
 
     The following shows getting all license grant ARNs granted to your account.
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -89,6 +88,9 @@ def get_license_grants(filters: Optional[Sequence[pulumi.InputType['GetLicenseGr
 
 
     :param Sequence[pulumi.InputType['GetLicenseGrantsFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -110,7 +112,6 @@ def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     ## Example Usage
 
     The following shows getting all license grant ARNs granted to your account.
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -124,5 +125,8 @@ def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
 
     :param Sequence[pulumi.InputType['GetLicenseGrantsFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     """
     ...

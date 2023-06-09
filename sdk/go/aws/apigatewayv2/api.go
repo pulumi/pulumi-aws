@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 // ### Basic WebSocket API
-//
 // ```go
 // package main
 //
@@ -43,7 +42,6 @@ import (
 //
 // ```
 // ### Basic HTTP API
-//
 // ```go
 // package main
 //

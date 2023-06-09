@@ -173,7 +173,6 @@ class Alias(pulumi.CustomResource):
         the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,7 +208,6 @@ class Alias(pulumi.CustomResource):
         the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

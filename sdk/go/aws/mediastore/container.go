@@ -13,7 +13,6 @@ import (
 // Provides a MediaStore Container.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

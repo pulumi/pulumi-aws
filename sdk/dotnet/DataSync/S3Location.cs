@@ -13,7 +13,6 @@ namespace Pulumi.Aws.DataSync
     /// Manages an S3 Location within AWS DataSync.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -19,7 +19,6 @@ import (
 // > For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
 //
 // The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
-//
 // ```go
 // package main
 //
@@ -79,7 +78,6 @@ import (
 //
 // ```
 // ### Selecting Backups By Tag
-//
 // ```go
 // package main
 //
@@ -112,7 +110,6 @@ import (
 //
 // ```
 // ### Selecting Backups By Conditions
-//
 // ```go
 // package main
 //
@@ -169,7 +166,6 @@ import (
 //
 // ```
 // ### Selecting Backups By Resource
-//
 // ```go
 // package main
 //
@@ -200,7 +196,6 @@ import (
 //
 // ```
 // ### Selecting Backups By Not Resource
-//
 // ```go
 // package main
 //

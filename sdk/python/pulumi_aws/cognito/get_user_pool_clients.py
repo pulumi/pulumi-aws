@@ -83,12 +83,11 @@ def get_user_pool_clients(user_pool_id: Optional[str] = None,
     Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    main = aws.cognito.get_user_pool_clients(user_pool_id=aws_cognito_user_pool["main"]["id"])
+    main = aws.cognito.get_user_pool_clients(user_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -113,12 +112,11 @@ def get_user_pool_clients_output(user_pool_id: Optional[pulumi.Input[str]] = Non
     Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    main = aws.cognito.get_user_pool_clients(user_pool_id=aws_cognito_user_pool["main"]["id"])
+    main = aws.cognito.get_user_pool_clients(user_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

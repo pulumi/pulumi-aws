@@ -421,7 +421,6 @@ class VpcEndpointService(pulumi.CustomResource):
 
         ## Example Usage
         ### Network Load Balancers
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -431,7 +430,6 @@ class VpcEndpointService(pulumi.CustomResource):
             network_load_balancer_arns=[aws_lb["example"]["arn"]])
         ```
         ### Gateway Load Balancers
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -477,7 +475,6 @@ class VpcEndpointService(pulumi.CustomResource):
 
         ## Example Usage
         ### Network Load Balancers
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -487,7 +484,6 @@ class VpcEndpointService(pulumi.CustomResource):
             network_load_balancer_arns=[aws_lb["example"]["arn"]])
         ```
         ### Gateway Load Balancers
-
         ```python
         import pulumi
         import pulumi_aws as aws

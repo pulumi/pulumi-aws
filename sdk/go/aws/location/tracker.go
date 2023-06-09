@@ -14,7 +14,6 @@ import (
 // Provides a Location Service Tracker.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -66,6 +65,8 @@ type Tracker struct {
 	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
 	TrackerArn pulumi.StringOutput `pulumi:"trackerArn"`
 	// The name of the tracker resource.
+	//
+	// The following arguments are optional:
 	TrackerName pulumi.StringOutput `pulumi:"trackerName"`
 	// The timestamp for when the tracker resource was last updated in ISO 8601 format.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
@@ -118,6 +119,8 @@ type trackerState struct {
 	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
 	TrackerArn *string `pulumi:"trackerArn"`
 	// The name of the tracker resource.
+	//
+	// The following arguments are optional:
 	TrackerName *string `pulumi:"trackerName"`
 	// The timestamp for when the tracker resource was last updated in ISO 8601 format.
 	UpdateTime *string `pulumi:"updateTime"`
@@ -139,6 +142,8 @@ type TrackerState struct {
 	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
 	TrackerArn pulumi.StringPtrInput
 	// The name of the tracker resource.
+	//
+	// The following arguments are optional:
 	TrackerName pulumi.StringPtrInput
 	// The timestamp for when the tracker resource was last updated in ISO 8601 format.
 	UpdateTime pulumi.StringPtrInput
@@ -158,6 +163,8 @@ type trackerArgs struct {
 	// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the tracker resource.
+	//
+	// The following arguments are optional:
 	TrackerName string `pulumi:"trackerName"`
 }
 
@@ -172,6 +179,8 @@ type TrackerArgs struct {
 	// Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The name of the tracker resource.
+	//
+	// The following arguments are optional:
 	TrackerName pulumi.StringInput
 }
 
@@ -298,6 +307,8 @@ func (o TrackerOutput) TrackerArn() pulumi.StringOutput {
 }
 
 // The name of the tracker resource.
+//
+// The following arguments are optional:
 func (o TrackerOutput) TrackerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.TrackerName }).(pulumi.StringOutput)
 }

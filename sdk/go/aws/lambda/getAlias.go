@@ -13,7 +13,6 @@ import (
 // Provides information about a Lambda Alias.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

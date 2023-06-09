@@ -14,61 +14,6 @@ import (
 // Executes a Redshift Data Statement.
 //
 // ## Example Usage
-// ### clusterIdentifier
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftdata"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftdata.NewStatement(ctx, "example", &redshiftdata.StatementArgs{
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Cluster_identifier),
-//				Database:          pulumi.Any(aws_redshift_cluster.Example.Database_name),
-//				DbUser:            pulumi.Any(aws_redshift_cluster.Example.Master_username),
-//				Sql:               pulumi.String("CREATE GROUP group_name;"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### workgroupName
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftdata"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftdata.NewStatement(ctx, "example", &redshiftdata.StatementArgs{
-//				WorkgroupName: pulumi.Any(aws_redshiftserverless_workgroup.Example.Workgroup_name),
-//				Database:      pulumi.String("dev"),
-//				Sql:           pulumi.String("CREATE GROUP group_name;"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -92,6 +37,8 @@ type Statement struct {
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn pulumi.StringPtrOutput `pulumi:"secretArn"`
 	// The SQL statement text to run.
+	//
+	// The following arguments are optional:
 	Sql pulumi.StringOutput `pulumi:"sql"`
 	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 	StatementName pulumi.StringPtrOutput `pulumi:"statementName"`
@@ -146,6 +93,8 @@ type statementState struct {
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn *string `pulumi:"secretArn"`
 	// The SQL statement text to run.
+	//
+	// The following arguments are optional:
 	Sql *string `pulumi:"sql"`
 	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 	StatementName *string `pulumi:"statementName"`
@@ -166,6 +115,8 @@ type StatementState struct {
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn pulumi.StringPtrInput
 	// The SQL statement text to run.
+	//
+	// The following arguments are optional:
 	Sql pulumi.StringPtrInput
 	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 	StatementName pulumi.StringPtrInput
@@ -190,6 +141,8 @@ type statementArgs struct {
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn *string `pulumi:"secretArn"`
 	// The SQL statement text to run.
+	//
+	// The following arguments are optional:
 	Sql string `pulumi:"sql"`
 	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 	StatementName *string `pulumi:"statementName"`
@@ -211,6 +164,8 @@ type StatementArgs struct {
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn pulumi.StringPtrInput
 	// The SQL statement text to run.
+	//
+	// The following arguments are optional:
 	Sql pulumi.StringInput
 	// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
 	StatementName pulumi.StringPtrInput
@@ -332,6 +287,8 @@ func (o StatementOutput) SecretArn() pulumi.StringPtrOutput {
 }
 
 // The SQL statement text to run.
+//
+// The following arguments are optional:
 func (o StatementOutput) Sql() pulumi.StringOutput {
 	return o.ApplyT(func(v *Statement) pulumi.StringOutput { return v.Sql }).(pulumi.StringOutput)
 }

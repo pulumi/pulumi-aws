@@ -750,7 +750,7 @@ class Certificate(pulumi.CustomResource):
                 name=range["value"]["name"],
                 records=[range["value"]["record"]],
                 ttl=60,
-                type=aws.route53/recordtype.RecordType(range["value"]["type"]),
+                type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 zone_id=aws_route53_zone["example"]["zone_id"]))
         ```
 
@@ -901,7 +901,7 @@ class Certificate(pulumi.CustomResource):
                 name=range["value"]["name"],
                 records=[range["value"]["record"]],
                 ttl=60,
-                type=aws.route53/recordtype.RecordType(range["value"]["type"]),
+                type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 zone_id=aws_route53_zone["example"]["zone_id"]))
         ```
 

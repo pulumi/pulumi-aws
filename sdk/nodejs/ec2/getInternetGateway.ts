@@ -43,6 +43,9 @@ export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.
 export interface GetInternetGatewayArgs {
     /**
      * Custom filter block as described below.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     filters?: inputs.ec2.GetInternetGatewayFilter[];
     /**
@@ -106,6 +109,9 @@ export function getInternetGatewayOutput(args?: GetInternetGatewayOutputArgs, op
 export interface GetInternetGatewayOutputArgs {
     /**
      * Custom filter block as described below.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInternetGatewayFilterArgs>[]>;
     /**

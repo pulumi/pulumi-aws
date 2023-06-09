@@ -26,6 +26,8 @@ type LifecyclePolicyPolicyDetails struct {
 	// See the `schedule` configuration block.
 	Schedules []LifecyclePolicyPolicyDetailsSchedule `pulumi:"schedules"`
 	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+	//
+	// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. This provider is unable to detect this at plan time but it will fail during apply.
 	TargetTags map[string]string `pulumi:"targetTags"`
 }
 
@@ -56,6 +58,8 @@ type LifecyclePolicyPolicyDetailsArgs struct {
 	// See the `schedule` configuration block.
 	Schedules LifecyclePolicyPolicyDetailsScheduleArrayInput `pulumi:"schedules"`
 	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+	//
+	// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. This provider is unable to detect this at plan time but it will fail during apply.
 	TargetTags pulumi.StringMapInput `pulumi:"targetTags"`
 }
 
@@ -172,6 +176,8 @@ func (o LifecyclePolicyPolicyDetailsOutput) Schedules() LifecyclePolicyPolicyDet
 }
 
 // A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+//
+// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. This provider is unable to detect this at plan time but it will fail during apply.
 func (o LifecyclePolicyPolicyDetailsOutput) TargetTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) map[string]string { return v.TargetTags }).(pulumi.StringMapOutput)
 }
@@ -271,6 +277,8 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Schedules() LifecyclePolicyPolicy
 }
 
 // A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
+//
+// > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. This provider is unable to detect this at plan time but it will fail during apply.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) map[string]string {
 		if v == nil {

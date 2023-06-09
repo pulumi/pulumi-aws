@@ -15,7 +15,6 @@ import (
 // ## Example Usage
 //
 // The following shows outputting all Local Gateway Route Table Ids.
-//
 // ```go
 // package main
 //
@@ -50,6 +49,9 @@ func GetLocalGatewayRouteTables(ctx *pulumi.Context, args *GetLocalGatewayRouteT
 // A collection of arguments for invoking getLocalGatewayRouteTables.
 type GetLocalGatewayRouteTablesArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters []GetLocalGatewayRouteTablesFilter `pulumi:"filters"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.
@@ -82,6 +84,9 @@ func GetLocalGatewayRouteTablesOutput(ctx *pulumi.Context, args GetLocalGatewayR
 // A collection of arguments for invoking getLocalGatewayRouteTables.
 type GetLocalGatewayRouteTablesOutputArgs struct {
 	// Custom filter block as described below.
+	//
+	// More complex filters can be expressed using one or more `filter` sub-blocks,
+	// which take the following arguments:
 	Filters GetLocalGatewayRouteTablesFilterArrayInput `pulumi:"filters"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired local gateway route table.

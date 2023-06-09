@@ -109,12 +109,16 @@ public class ServiceAction extends com.pulumi.resources.CustomResource {
     /**
      * Self-service action name.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Self-service action name.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

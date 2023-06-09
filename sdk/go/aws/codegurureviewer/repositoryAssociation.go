@@ -14,7 +14,6 @@ import (
 // Resource for managing an AWS CodeGuru Reviewer Repository Association.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -76,6 +75,8 @@ type RepositoryAssociation struct {
 	// The provider type of the repository association.
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+	//
+	// The following arguments are optional:
 	Repository          RepositoryAssociationRepositoryOutput              `pulumi:"repository"`
 	S3RepositoryDetails RepositoryAssociationS3RepositoryDetailArrayOutput `pulumi:"s3RepositoryDetails"`
 	// The state of the repository association.
@@ -133,6 +134,8 @@ type repositoryAssociationState struct {
 	// The provider type of the repository association.
 	ProviderType *string `pulumi:"providerType"`
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+	//
+	// The following arguments are optional:
 	Repository          *RepositoryAssociationRepository          `pulumi:"repository"`
 	S3RepositoryDetails []RepositoryAssociationS3RepositoryDetail `pulumi:"s3RepositoryDetails"`
 	// The state of the repository association.
@@ -159,6 +162,8 @@ type RepositoryAssociationState struct {
 	// The provider type of the repository association.
 	ProviderType pulumi.StringPtrInput
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+	//
+	// The following arguments are optional:
 	Repository          RepositoryAssociationRepositoryPtrInput
 	S3RepositoryDetails RepositoryAssociationS3RepositoryDetailArrayInput
 	// The state of the repository association.
@@ -177,6 +182,8 @@ type repositoryAssociationArgs struct {
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails *RepositoryAssociationKmsKeyDetails `pulumi:"kmsKeyDetails"`
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+	//
+	// The following arguments are optional:
 	Repository RepositoryAssociationRepository `pulumi:"repository"`
 	Tags       map[string]string               `pulumi:"tags"`
 }
@@ -186,6 +193,8 @@ type RepositoryAssociationArgs struct {
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails RepositoryAssociationKmsKeyDetailsPtrInput
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+	//
+	// The following arguments are optional:
 	Repository RepositoryAssociationRepositoryInput
 	Tags       pulumi.StringMapInput
 }
@@ -313,6 +322,8 @@ func (o RepositoryAssociationOutput) ProviderType() pulumi.StringOutput {
 }
 
 // An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+//
+// The following arguments are optional:
 func (o RepositoryAssociationOutput) Repository() RepositoryAssociationRepositoryOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) RepositoryAssociationRepositoryOutput { return v.Repository }).(RepositoryAssociationRepositoryOutput)
 }

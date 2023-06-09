@@ -15,7 +15,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// ### Using launch specifications
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,7 +70,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// ### Using launch templates
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -117,8 +115,45 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// &gt; **NOTE:** This provider does not support the functionality where multiple `subnet_id` or `availability_zone` parameters can be specified in the same
     /// launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
-    /// ### Using multiple launch configurations
+    /// ### Using multiple launch specifications
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
     /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Aws.Ec2.SpotFleetRequest("foo", new()
+    ///     {
+    ///         IamFleetRole = "arn:aws:iam::12345678:role/spot-fleet",
+    ///         LaunchSpecifications = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///             {
+    ///                 Ami = "ami-d06a90b0",
+    ///                 AvailabilityZone = "us-west-2a",
+    ///                 InstanceType = "m1.small",
+    ///                 KeyName = "my-key",
+    ///             },
+    ///             new Aws.Ec2.Inputs.SpotFleetRequestLaunchSpecificationArgs
+    ///             {
+    ///                 Ami = "ami-d06a90b0",
+    ///                 AvailabilityZone = "us-west-2a",
+    ///                 InstanceType = "m5.large",
+    ///                 KeyName = "my-key",
+    ///             },
+    ///         },
+    ///         SpotPrice = "0.005",
+    ///         TargetCapacity = 2,
+    ///         ValidUntil = "2019-11-04T20:44:20Z",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; In this example, we use a `dynamic` block to define zero or more `launch_specification` blocks, producing one for each element in the list of subnet ids.
+    /// ### Using multiple launch configurations
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -255,6 +290,12 @@ namespace Pulumi.Aws.Ec2
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
         /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// 
+        /// **Note**: This takes in similar but not
+        /// identical inputs as `aws.ec2.Instance`.  There are limitations on
+        /// what you can specify. See the list of officially supported inputs in the
+        /// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
         /// </summary>
         [Output("launchSpecifications")]
         public Output<ImmutableArray<Outputs.SpotFleetRequestLaunchSpecification>> LaunchSpecifications { get; private set; } = null!;
@@ -488,6 +529,12 @@ namespace Pulumi.Aws.Ec2
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
         /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// 
+        /// **Note**: This takes in similar but not
+        /// identical inputs as `aws.ec2.Instance`.  There are limitations on
+        /// what you can specify. See the list of officially supported inputs in the
+        /// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
         /// </summary>
         public InputList<Inputs.SpotFleetRequestLaunchSpecificationArgs> LaunchSpecifications
         {
@@ -701,6 +748,12 @@ namespace Pulumi.Aws.Ec2
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
         /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
+        /// 
+        /// **Note**: This takes in similar but not
+        /// identical inputs as `aws.ec2.Instance`.  There are limitations on
+        /// what you can specify. See the list of officially supported inputs in the
+        /// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
+        /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
         /// </summary>
         public InputList<Inputs.SpotFleetRequestLaunchSpecificationGetArgs> LaunchSpecifications
         {

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic configuration
-//
 // ```go
 // package main
 //
@@ -120,6 +119,8 @@ type WorkspaceSamlConfiguration struct {
 	// The status of the SAML configuration.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
 
@@ -185,6 +186,8 @@ type workspaceSamlConfigurationState struct {
 	// The status of the SAML configuration.
 	Status *string `pulumi:"status"`
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
@@ -216,6 +219,8 @@ type WorkspaceSamlConfigurationState struct {
 	// The status of the SAML configuration.
 	Status pulumi.StringPtrInput
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId pulumi.StringPtrInput
 }
 
@@ -249,6 +254,8 @@ type workspaceSamlConfigurationArgs struct {
 	// The role assertion.
 	RoleAssertion *string `pulumi:"roleAssertion"`
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId string `pulumi:"workspaceId"`
 }
 
@@ -279,6 +286,8 @@ type WorkspaceSamlConfigurationArgs struct {
 	// The role assertion.
 	RoleAssertion pulumi.StringPtrInput
 	// The workspace id.
+	//
+	// The following arguments are optional:
 	WorkspaceId pulumi.StringInput
 }
 
@@ -435,6 +444,8 @@ func (o WorkspaceSamlConfigurationOutput) Status() pulumi.StringOutput {
 }
 
 // The workspace id.
+//
+// The following arguments are optional:
 func (o WorkspaceSamlConfigurationOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }

@@ -365,6 +365,8 @@ export interface GetPolicyDocumentArgs {
     /**
      * IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `sourceJson`, `sourcePolicyDocuments`, and `overridePolicyDocuments` arguments. Non-overriding statements will be added to the exported document.
      *
+     * > **NOTE:** Statements without a `sid` cannot be overridden. In other words, a statement without a `sid` from documents assigned to the `sourceJson` or `sourcePolicyDocuments` arguments cannot be overridden by statements from documents assigned to the `overrideJson` or `overridePolicyDocuments` arguments.
+     *
      * @deprecated Use the attribute "override_policy_documents" instead.
      */
     overrideJson?: string;
@@ -768,6 +770,8 @@ export function getPolicyDocumentOutput(args?: GetPolicyDocumentOutputArgs, opts
 export interface GetPolicyDocumentOutputArgs {
     /**
      * IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `sourceJson`, `sourcePolicyDocuments`, and `overridePolicyDocuments` arguments. Non-overriding statements will be added to the exported document.
+     *
+     * > **NOTE:** Statements without a `sid` cannot be overridden. In other words, a statement without a `sid` from documents assigned to the `sourceJson` or `sourcePolicyDocuments` arguments cannot be overridden by statements from documents assigned to the `overrideJson` or `overridePolicyDocuments` arguments.
      *
      * @deprecated Use the attribute "override_policy_documents" instead.
      */

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic usage
-//
 // ```go
 // package main
 //
@@ -76,7 +75,6 @@ import (
 //
 // ```
 // ### Using Custom Images
-//
 // ```go
 // package main
 //
@@ -188,6 +186,8 @@ type Domain struct {
 	// The domain's URL.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	//
+	// The following arguments are optional:
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -269,6 +269,8 @@ type domainState struct {
 	// The domain's URL.
 	Url *string `pulumi:"url"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	//
+	// The following arguments are optional:
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -307,6 +309,8 @@ type DomainState struct {
 	// The domain's URL.
 	Url pulumi.StringPtrInput
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	//
+	// The following arguments are optional:
 	VpcId pulumi.StringPtrInput
 }
 
@@ -337,6 +341,8 @@ type domainArgs struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	//
+	// The following arguments are optional:
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -364,6 +370,8 @@ type DomainArgs struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	//
+	// The following arguments are optional:
 	VpcId pulumi.StringInput
 }
 
@@ -539,6 +547,8 @@ func (o DomainOutput) Url() pulumi.StringOutput {
 }
 
 // The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+//
+// The following arguments are optional:
 func (o DomainOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

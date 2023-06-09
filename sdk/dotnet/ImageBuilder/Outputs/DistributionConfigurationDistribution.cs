@@ -35,6 +35,8 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         public readonly ImmutableArray<string> LicenseConfigurationArns;
         /// <summary>
         /// AWS Region for the distribution.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Region;
 

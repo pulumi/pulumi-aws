@@ -14,10 +14,43 @@ import (
 // Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
 //
 // ## Example Usage
+// ```go
+// package main
+//
+// import (
+//
+// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
+// ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
+// NodeRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:eks-nodeGroup:NodeGroup.pp:3,20-44),
+// ScalingConfig: &eks.NodeGroupScalingConfigArgs{
+// DesiredSize: pulumi.Int(1),
+// MaxSize: pulumi.Int(2),
+// MinSize: pulumi.Int(1),
+// },
+// UpdateConfig: &eks.NodeGroupUpdateConfigArgs{
+// MaxUnavailable: pulumi.Int(1),
+// },
+// }, pulumi.DependsOn([]pulumi.Resource{
+// aws_iam_role_policy_attachment.ExampleAmazonEKSWorkerNodePolicy,
+// aws_iam_role_policy_attachment.ExampleAmazonEKS_CNI_Policy,
+// aws_iam_role_policy_attachment.ExampleAmazonEC2ContainerRegistryReadOnly,
+// }))
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
 // ### Ignoring Changes to Desired Size
 //
 // You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
-//
 // ```go
 // package main
 //
@@ -44,7 +77,6 @@ import (
 //
 // ```
 // ### Example IAM Role for EKS Node Group
-//
 // ```go
 // package main
 //
@@ -155,6 +187,8 @@ type NodeGroup struct {
 	// Status of the EKS Node Group.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -243,6 +277,8 @@ type nodeGroupState struct {
 	// Status of the EKS Node Group.
 	Status *string `pulumi:"status"`
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	//
+	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -291,6 +327,8 @@ type NodeGroupState struct {
 	// Status of the EKS Node Group.
 	Status pulumi.StringPtrInput
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -337,6 +375,8 @@ type nodeGroupArgs struct {
 	// Configuration block with scaling settings. Detailed below.
 	ScalingConfig NodeGroupScalingConfig `pulumi:"scalingConfig"`
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	//
+	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -378,6 +418,8 @@ type NodeGroupArgs struct {
 	// Configuration block with scaling settings. Detailed below.
 	ScalingConfig NodeGroupScalingConfigInput
 	// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+	//
+	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -561,6 +603,8 @@ func (o NodeGroupOutput) Status() pulumi.StringOutput {
 }
 
 // Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+//
+// The following arguments are optional:
 func (o NodeGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }

@@ -101,7 +101,6 @@ class VpnConnectionRoute(pulumi.CustomResource):
         Provides a static route between a VPN connection and a customer gateway.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -137,7 +136,6 @@ class VpnConnectionRoute(pulumi.CustomResource):
         Provides a static route between a VPN connection and a customer gateway.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

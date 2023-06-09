@@ -16,7 +16,6 @@ import (
 // For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -71,6 +70,8 @@ type Configuration struct {
 	// Latest revision of the configuration.
 	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
 	// Name of the configuration.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -131,6 +132,8 @@ type configurationState struct {
 	// Latest revision of the configuration.
 	LatestRevision *int `pulumi:"latestRevision"`
 	// Name of the configuration.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -154,6 +157,8 @@ type ConfigurationState struct {
 	// Latest revision of the configuration.
 	LatestRevision pulumi.IntPtrInput
 	// Name of the configuration.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -177,6 +182,8 @@ type configurationArgs struct {
 	// Version of the broker engine.
 	EngineVersion string `pulumi:"engineVersion"`
 	// Name of the configuration.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -195,6 +202,8 @@ type ConfigurationArgs struct {
 	// Version of the broker engine.
 	EngineVersion pulumi.StringInput
 	// Name of the configuration.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -323,6 +332,8 @@ func (o ConfigurationOutput) LatestRevision() pulumi.IntOutput {
 }
 
 // Name of the configuration.
+//
+// The following arguments are optional:
 func (o ConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

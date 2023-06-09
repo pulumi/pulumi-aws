@@ -130,12 +130,16 @@ public final class EndpointGroupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
      * 
+     * **endpoint_configuration** supports the following attributes:
+     * 
      */
     @Import(name="portOverrides")
     private @Nullable Output<List<EndpointGroupPortOverrideArgs>> portOverrides;
 
     /**
      * @return Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+     * 
+     * **endpoint_configuration** supports the following attributes:
      * 
      */
     public Optional<Output<List<EndpointGroupPortOverrideArgs>>> portOverrides() {
@@ -367,6 +371,8 @@ public final class EndpointGroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param portOverrides Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
          * 
+         * **endpoint_configuration** supports the following attributes:
+         * 
          * @return builder
          * 
          */
@@ -378,6 +384,8 @@ public final class EndpointGroupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param portOverrides Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
          * 
+         * **endpoint_configuration** supports the following attributes:
+         * 
          * @return builder
          * 
          */
@@ -387,6 +395,8 @@ public final class EndpointGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param portOverrides Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
+         * 
+         * **endpoint_configuration** supports the following attributes:
          * 
          * @return builder
          * 

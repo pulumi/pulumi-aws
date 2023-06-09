@@ -198,7 +198,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         Provides an IAM OpenID Connect provider.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,7 +233,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         Provides an IAM OpenID Connect provider.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

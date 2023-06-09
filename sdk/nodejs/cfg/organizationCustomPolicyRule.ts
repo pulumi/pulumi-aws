@@ -127,6 +127,8 @@ export class OrganizationCustomPolicyRule extends pulumi.CustomResource {
     public readonly tagValueScope!: pulumi.Output<string | undefined>;
     /**
      * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+     *
+     * The following arguments are optional:
      */
     public readonly triggerTypes!: pulumi.Output<string[]>;
 
@@ -246,6 +248,8 @@ export interface OrganizationCustomPolicyRuleState {
     tagValueScope?: pulumi.Input<string>;
     /**
      * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+     *
+     * The following arguments are optional:
      */
     triggerTypes?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -304,6 +308,8 @@ export interface OrganizationCustomPolicyRuleArgs {
     tagValueScope?: pulumi.Input<string>;
     /**
      * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+     *
+     * The following arguments are optional:
      */
     triggerTypes: pulumi.Input<pulumi.Input<string>[]>;
 }

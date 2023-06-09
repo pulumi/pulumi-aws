@@ -13,7 +13,6 @@ import (
 // Provides a WAF XSS Match Set Resource
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

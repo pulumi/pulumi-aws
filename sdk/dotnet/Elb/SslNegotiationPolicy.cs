@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Elb
     /// Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -120,6 +119,10 @@ namespace Pulumi.Aws.Elb
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// 
+        /// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+        /// 
+        /// &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
@@ -212,6 +215,10 @@ namespace Pulumi.Aws.Elb
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// 
+        /// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+        /// 
+        /// &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         /// </summary>
         public InputMap<string> Triggers
         {
@@ -265,6 +272,10 @@ namespace Pulumi.Aws.Elb
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
+        /// 
+        /// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
+        /// 
+        /// &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         /// </summary>
         public InputMap<string> Triggers
         {

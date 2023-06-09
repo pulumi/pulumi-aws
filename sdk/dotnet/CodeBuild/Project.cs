@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CodeBuild
     /// Provides a CodeBuild Project resource. See also the `aws.codebuild.Webhook` resource, which manages the webhook to the source (e.g., the "rebuild every time a code change is pushed" option in the CodeBuild web console).
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -426,6 +425,8 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Configuration block. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("source")]
         public Output<Outputs.ProjectSource> Source { get; private set; } = null!;
@@ -640,6 +641,8 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Configuration block. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.ProjectSourceArgs> Source { get; set; } = null!;
@@ -834,6 +837,8 @@ namespace Pulumi.Aws.CodeBuild
 
         /// <summary>
         /// Configuration block. Detailed below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("source")]
         public Input<Inputs.ProjectSourceGetArgs>? Source { get; set; }

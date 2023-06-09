@@ -1706,6 +1706,8 @@ class FaqS3Path(dict):
         """
         :param str bucket: The name of the S3 bucket that contains the file.
         :param str key: The name of the file.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
@@ -1723,6 +1725,8 @@ class FaqS3Path(dict):
     def key(self) -> str:
         """
         The name of the file.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "key")
 
@@ -2399,6 +2403,8 @@ class QuerySuggestionsBlockListSourceS3Path(dict):
         """
         :param str bucket: The name of the S3 bucket that contains the file.
         :param str key: The name of the file.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
@@ -2416,6 +2422,8 @@ class QuerySuggestionsBlockListSourceS3Path(dict):
     def key(self) -> str:
         """
         The name of the file.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "key")
 
@@ -2428,6 +2436,8 @@ class ThesaurusSourceS3Path(dict):
         """
         :param str bucket: The name of the S3 bucket that contains the file.
         :param str key: The name of the file.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
@@ -2445,6 +2455,8 @@ class ThesaurusSourceS3Path(dict):
     def key(self) -> str:
         """
         The name of the file.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "key")
 

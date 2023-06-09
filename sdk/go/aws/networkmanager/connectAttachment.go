@@ -41,6 +41,8 @@ type ConnectAttachment struct {
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
 	// Options for creating an attachment.
+	//
+	// The following arguments are optional:
 	Options ConnectAttachmentOptionsOutput `pulumi:"options"`
 	// The ID of the attachment account owner.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
@@ -113,6 +115,8 @@ type connectAttachmentState struct {
 	// The Region where the edge is located.
 	EdgeLocation *string `pulumi:"edgeLocation"`
 	// Options for creating an attachment.
+	//
+	// The following arguments are optional:
 	Options *ConnectAttachmentOptions `pulumi:"options"`
 	// The ID of the attachment account owner.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
@@ -145,6 +149,8 @@ type ConnectAttachmentState struct {
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringPtrInput
 	// Options for creating an attachment.
+	//
+	// The following arguments are optional:
 	Options ConnectAttachmentOptionsPtrInput
 	// The ID of the attachment account owner.
 	OwnerAccountId pulumi.StringPtrInput
@@ -172,6 +178,8 @@ type connectAttachmentArgs struct {
 	// The Region where the edge is located.
 	EdgeLocation string `pulumi:"edgeLocation"`
 	// Options for creating an attachment.
+	//
+	// The following arguments are optional:
 	Options ConnectAttachmentOptions `pulumi:"options"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -186,6 +194,8 @@ type ConnectAttachmentArgs struct {
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringInput
 	// Options for creating an attachment.
+	//
+	// The following arguments are optional:
 	Options ConnectAttachmentOptionsInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -315,6 +325,8 @@ func (o ConnectAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 }
 
 // Options for creating an attachment.
+//
+// The following arguments are optional:
 func (o ConnectAttachmentOutput) Options() ConnectAttachmentOptionsOutput {
 	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentOptionsOutput { return v.Options }).(ConnectAttachmentOptionsOutput)
 }

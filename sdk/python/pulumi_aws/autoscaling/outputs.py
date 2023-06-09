@@ -190,6 +190,14 @@ class GroupInstanceRefresh(dict):
         :param str strategy: Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
         :param 'GroupInstanceRefreshPreferencesArgs' preferences: Override default parameters for Instance Refresh.
         :param Sequence[str] triggers: Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
+               
+               > **NOTE:** A refresh is started when any of the following Auto Scaling Group properties change: `launch_configuration`, `launch_template`, `mixed_instances_policy`. Additional properties can be specified in the `triggers` property of `instance_refresh`.
+               
+               > **NOTE:** A refresh will not start when `version = "$Latest"` is configured in the `launch_template` block. To trigger the instance refresh when a launch template is changed, configure `version` to use the `latest_version` attribute of the `ec2.LaunchTemplate` resource.
+               
+               > **NOTE:** Auto Scaling Groups support up to one active instance refresh at a time. When this resource is updated, any existing refresh is cancelled.
+               
+               > **NOTE:** Depending on health check settings and group size, an instance refresh may take a long time or fail. This resource does not wait for the instance refresh to complete.
         """
         pulumi.set(__self__, "strategy", strategy)
         if preferences is not None:
@@ -218,6 +226,14 @@ class GroupInstanceRefresh(dict):
     def triggers(self) -> Optional[Sequence[str]]:
         """
         Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
+
+        > **NOTE:** A refresh is started when any of the following Auto Scaling Group properties change: `launch_configuration`, `launch_template`, `mixed_instances_policy`. Additional properties can be specified in the `triggers` property of `instance_refresh`.
+
+        > **NOTE:** A refresh will not start when `version = "$Latest"` is configured in the `launch_template` block. To trigger the instance refresh when a launch template is changed, configure `version` to use the `latest_version` attribute of the `ec2.LaunchTemplate` resource.
+
+        > **NOTE:** Auto Scaling Groups support up to one active instance refresh at a time. When this resource is updated, any existing refresh is cancelled.
+
+        > **NOTE:** Depending on health check settings and group size, an instance refresh may take a long time or fail. This resource does not wait for the instance refresh to complete.
         """
         return pulumi.get(self, "triggers")
 
@@ -803,25 +819,359 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
         """
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param Sequence[str] accelerator_names: List of accelerator names. Default is any acclerator.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: List of accelerator types. Default is any accelerator type.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param Sequence[str] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+               
+               > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         :param str bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param str burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param Sequence[str] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
+               
+               > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param Sequence[str] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+               
+               > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         :param Sequence[str] instance_generations: List of instance generation names. Default is any generation.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param str local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param Sequence[str] local_storage_types: List of local storage type names. Default any storage type.
+               
+               ```typescript
+               import * as pulumi from "@pulumi/pulumi";
+               ```
+               ```python
+               import pulumi
+               ```
+               ```csharp
+               using System.Collections.Generic;
+               using System.Linq;
+               using Pulumi;
+               
+               return await Deployment.RunAsync(() => 
+               {
+               });
+               ```
+               ```go
+               package main
+               
+               import (
+               	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+               )
+               
+               func main() {
+               	pulumi.Run(func(ctx *pulumi.Context) error {
+               		return nil
+               	})
+               }
+               ```
+               ```java
+               package generated_program;
+               
+               import com.pulumi.Context;
+               import com.pulumi.Pulumi;
+               import com.pulumi.core.Output;
+               import java.util.List;
+               import java.util.ArrayList;
+               import java.util.Map;
+               import java.io.File;
+               import java.nio.file.Files;
+               import java.nio.file.Paths;
+               
+               public class App {
+                   public static void main(String[] args) {
+                       Pulumi.run(App::stack);
+                   }
+               
+                   public static void stack(Context ctx) {
+                   }
+               }
+               ```
+               ```yaml
+               {}
+               ```
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs' memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param int on_demand_max_price_percentage_over_lowest_price: Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+               
+               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param bool require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
         :param int spot_max_price_percentage_over_lowest_price: Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+               
+               If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs' vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         """
@@ -885,6 +1235,60 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def accelerator_manufacturers(self) -> Optional[Sequence[str]]:
         """
         List of accelerator manufacturer names. Default is any manufacturer.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "accelerator_manufacturers")
 
@@ -893,6 +1297,60 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def accelerator_names(self) -> Optional[Sequence[str]]:
         """
         List of accelerator names. Default is any acclerator.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "accelerator_names")
 
@@ -909,6 +1367,60 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def accelerator_types(self) -> Optional[Sequence[str]]:
         """
         List of accelerator types. Default is any accelerator type.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "accelerator_types")
 
@@ -917,6 +1429,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def allowed_instance_types(self) -> Optional[Sequence[str]]:
         """
         List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+
+        > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         """
         return pulumi.get(self, "allowed_instance_types")
 
@@ -949,6 +1463,62 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def cpu_manufacturers(self) -> Optional[Sequence[str]]:
         """
         List of CPU manufacturer names. Default is any manufacturer.
+
+        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "cpu_manufacturers")
 
@@ -957,6 +1527,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def excluded_instance_types(self) -> Optional[Sequence[str]]:
         """
         List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+
+        > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
         """
         return pulumi.get(self, "excluded_instance_types")
 
@@ -965,6 +1537,60 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def instance_generations(self) -> Optional[Sequence[str]]:
         """
         List of instance generation names. Default is any generation.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "instance_generations")
 
@@ -981,6 +1607,60 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def local_storage_types(self) -> Optional[Sequence[str]]:
         """
         List of local storage type names. Default any storage type.
+
+        ```typescript
+        import * as pulumi from "@pulumi/pulumi";
+        ```
+        ```python
+        import pulumi
+        ```
+        ```csharp
+        using System.Collections.Generic;
+        using System.Linq;
+        using Pulumi;
+
+        return await Deployment.RunAsync(() => 
+        {
+        });
+        ```
+        ```go
+        package main
+
+        import (
+        	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        )
+
+        func main() {
+        	pulumi.Run(func(ctx *pulumi.Context) error {
+        		return nil
+        	})
+        }
+        ```
+        ```java
+        package generated_program;
+
+        import com.pulumi.Context;
+        import com.pulumi.Pulumi;
+        import com.pulumi.core.Output;
+        import java.util.List;
+        import java.util.ArrayList;
+        import java.util.Map;
+        import java.io.File;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
+
+        public class App {
+            public static void main(String[] args) {
+                Pulumi.run(App::stack);
+            }
+
+            public static void stack(Context ctx) {
+            }
+        }
+        ```
+        ```yaml
+        {}
+        ```
         """
         return pulumi.get(self, "local_storage_types")
 
@@ -1021,6 +1701,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         """
         Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
         return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
 
@@ -1037,6 +1719,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     def spot_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         """
         Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
         return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
 
@@ -1425,6 +2109,13 @@ class GroupTag(dict):
         :param str key: Key
         :param bool propagate_at_launch: Enables propagation of the tag to
                Amazon EC2 instances launched via this ASG
+               
+               To declare multiple tags additional `tag` blocks can be specified.
+               Alternatively the `tags` attributes can be used, which accepts a list of maps containing the above field names as keys and their respective values.
+               This allows the construction of dynamic lists of tags which is not possible using the single `tag` attribute.
+               `tag` and `tags` are mutually exclusive, only one of them can be specified.
+               
+               > **NOTE:** Other AWS APIs may automatically add special tags to their associated Auto Scaling Group for management purposes, such as ECS Capacity Providers adding the `AmazonECSManaged` tag. These generally should be included in the configuration so the provider does not attempt to remove them and so if the `min_size` was greater than zero on creation, that these tag(s) are applied to any initial EC2 Instances in the Auto Scaling Group. If these tag(s) were missing in the Auto Scaling Group configuration on creation, affected EC2 Instances missing the tags may require manual intervention of adding the tags to ensure they work properly with the other AWS service.
         :param str value: Value
         """
         pulumi.set(__self__, "key", key)
@@ -1445,6 +2136,13 @@ class GroupTag(dict):
         """
         Enables propagation of the tag to
         Amazon EC2 instances launched via this ASG
+
+        To declare multiple tags additional `tag` blocks can be specified.
+        Alternatively the `tags` attributes can be used, which accepts a list of maps containing the above field names as keys and their respective values.
+        This allows the construction of dynamic lists of tags which is not possible using the single `tag` attribute.
+        `tag` and `tags` are mutually exclusive, only one of them can be specified.
+
+        > **NOTE:** Other AWS APIs may automatically add special tags to their associated Auto Scaling Group for management purposes, such as ECS Capacity Providers adding the `AmazonECSManaged` tag. These generally should be included in the configuration so the provider does not attempt to remove them and so if the `min_size` was greater than zero on creation, that these tag(s) are applied to any initial EC2 Instances in the Auto Scaling Group. If these tag(s) were missing in the Auto Scaling Group configuration on creation, affected EC2 Instances missing the tags may require manual intervention of adding the tags to ensure they work properly with the other AWS service.
         """
         return pulumi.get(self, "propagate_at_launch")
 
@@ -2708,6 +3406,10 @@ class PolicyStepAdjustment(dict):
                difference between the alarm threshold and the CloudWatch metric.
                Without a value, AWS will treat this bound as positive infinity. The upper bound
                must be greater than the lower bound.
+               
+               Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+               
+               The following arguments are only available to "TargetTrackingScaling" type policies:
         """
         pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
         if metric_interval_lower_bound is not None:
@@ -2743,6 +3445,10 @@ class PolicyStepAdjustment(dict):
         difference between the alarm threshold and the CloudWatch metric.
         Without a value, AWS will treat this bound as positive infinity. The upper bound
         must be greater than the lower bound.
+
+        Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+
+        The following arguments are only available to "TargetTrackingScaling" type policies:
         """
         return pulumi.get(self, "metric_interval_upper_bound")
 

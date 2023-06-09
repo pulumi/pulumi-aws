@@ -359,12 +359,16 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the parameter group to associate with this cache cluster.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="parameterGroupName")
     private @Nullable Output<String> parameterGroupName;
 
     /**
      * @return The name of the parameter group to associate with this cache cluster.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> parameterGroupName() {
@@ -1116,6 +1120,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param parameterGroupName The name of the parameter group to associate with this cache cluster.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -1126,6 +1132,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param parameterGroupName The name of the parameter group to associate with this cache cluster.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Fsx
     /// See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -173,6 +172,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -310,6 +311,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -454,6 +457,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SubnetIds
         {

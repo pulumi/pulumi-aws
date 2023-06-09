@@ -22,6 +22,8 @@ class PrefixListReferenceArgs:
         The set of arguments for constructing a PrefixListReference resource.
         :param pulumi.Input[str] prefix_list_id: Identifier of EC2 Prefix List.
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         """
@@ -49,6 +51,8 @@ class PrefixListReferenceArgs:
     def transit_gateway_route_table_id(self) -> pulumi.Input[str]:
         """
         Identifier of EC2 Transit Gateway Route Table.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
@@ -95,6 +99,8 @@ class _PrefixListReferenceState:
         :param pulumi.Input[str] prefix_list_id: Identifier of EC2 Prefix List.
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+               
+               The following arguments are optional:
         """
         if blackhole is not None:
             pulumi.set(__self__, "blackhole", blackhole)
@@ -157,6 +163,8 @@ class _PrefixListReferenceState:
     def transit_gateway_route_table_id(self) -> Optional[pulumi.Input[str]]:
         """
         Identifier of EC2 Transit Gateway Route Table.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
@@ -180,7 +188,6 @@ class PrefixListReference(pulumi.CustomResource):
 
         ## Example Usage
         ### Attachment Routing
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -191,7 +198,6 @@ class PrefixListReference(pulumi.CustomResource):
             transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
         ```
         ### Blackhole Routing
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,6 +222,8 @@ class PrefixListReference(pulumi.CustomResource):
         :param pulumi.Input[str] prefix_list_id: Identifier of EC2 Prefix List.
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -228,7 +236,6 @@ class PrefixListReference(pulumi.CustomResource):
 
         ## Example Usage
         ### Attachment Routing
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -239,7 +246,6 @@ class PrefixListReference(pulumi.CustomResource):
             transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
         ```
         ### Blackhole Routing
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -321,6 +327,8 @@ class PrefixListReference(pulumi.CustomResource):
         :param pulumi.Input[str] prefix_list_id: Identifier of EC2 Prefix List.
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -367,6 +375,8 @@ class PrefixListReference(pulumi.CustomResource):
     def transit_gateway_route_table_id(self) -> pulumi.Output[str]:
         """
         Identifier of EC2 Transit Gateway Route Table.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "transit_gateway_route_table_id")
 

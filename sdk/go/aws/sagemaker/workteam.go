@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Cognito Usage
-//
 // ```go
 // package main
 //
@@ -51,7 +50,6 @@ import (
 //
 // ```
 // ### Oidc Usage
-//
 // ```go
 // package main
 //

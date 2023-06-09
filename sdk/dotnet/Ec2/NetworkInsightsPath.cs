@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,6 +68,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -163,6 +164,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -225,6 +228,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

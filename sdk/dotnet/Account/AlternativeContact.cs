@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Account
     /// Manages the specified alternate contact attached to an AWS Account.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

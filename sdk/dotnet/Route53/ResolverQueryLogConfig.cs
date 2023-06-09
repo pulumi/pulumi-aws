@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Route53
     /// Provides a Route 53 Resolver query logging configuration resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

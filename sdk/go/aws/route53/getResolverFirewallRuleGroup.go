@@ -53,6 +53,8 @@ func LookupResolverFirewallRuleGroup(ctx *pulumi.Context, args *LookupResolverFi
 // A collection of arguments for invoking getResolverFirewallRuleGroup.
 type LookupResolverFirewallRuleGroupArgs struct {
 	// The ID of the rule group.
+	//
+	// The following attribute is additionally exported:
 	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
 }
 
@@ -89,6 +91,8 @@ func LookupResolverFirewallRuleGroupOutput(ctx *pulumi.Context, args LookupResol
 // A collection of arguments for invoking getResolverFirewallRuleGroup.
 type LookupResolverFirewallRuleGroupOutputArgs struct {
 	// The ID of the rule group.
+	//
+	// The following attribute is additionally exported:
 	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
 }
 

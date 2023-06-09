@@ -43,6 +43,8 @@ class RecordingConfigurationDestinationConfigurationS3Args:
                  bucket_name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] bucket_name: S3 bucket name where recorded videos will be stored.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
@@ -51,6 +53,8 @@ class RecordingConfigurationDestinationConfigurationS3Args:
     def bucket_name(self) -> pulumi.Input[str]:
         """
         S3 bucket name where recorded videos will be stored.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "bucket_name")
 

@@ -465,7 +465,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         ## Example Usage
         ### Automation Tasks
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -492,7 +491,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             ))
         ```
         ### Run Command Tasks
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -510,12 +508,12 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             )],
             task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
                 run_command_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs(
-                    output_s3_bucket=aws_s3_bucket["example"]["id"],
+                    output_s3_bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     output_s3_key_prefix="output",
-                    service_role_arn=aws_iam_role["example"]["arn"],
+                    service_role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     timeout_seconds=600,
                     notification_config=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs(
-                        notification_arn=aws_sns_topic["example"]["arn"],
+                        notification_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         notification_events=["All"],
                         notification_type="Command",
                     ),
@@ -527,7 +525,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             ))
         ```
         ### Step Function Tasks
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -585,7 +582,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         ## Example Usage
         ### Automation Tasks
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -612,7 +608,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             ))
         ```
         ### Run Command Tasks
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -630,12 +625,12 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             )],
             task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
                 run_command_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs(
-                    output_s3_bucket=aws_s3_bucket["example"]["id"],
+                    output_s3_bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     output_s3_key_prefix="output",
-                    service_role_arn=aws_iam_role["example"]["arn"],
+                    service_role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     timeout_seconds=600,
                     notification_config=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs(
-                        notification_arn=aws_sns_topic["example"]["arn"],
+                        notification_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                         notification_events=["All"],
                         notification_type="Command",
                     ),
@@ -647,7 +642,6 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             ))
         ```
         ### Step Function Tasks
-
         ```python
         import pulumi
         import pulumi_aws as aws

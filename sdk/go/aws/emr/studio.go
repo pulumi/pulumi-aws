@@ -14,7 +14,6 @@ import (
 // Provides an Elastic MapReduce Studio.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -92,6 +91,8 @@ type Studio struct {
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+	//
+	// The following arguments are optional:
 	WorkspaceSecurityGroupId pulumi.StringOutput `pulumi:"workspaceSecurityGroupId"`
 }
 
@@ -175,6 +176,8 @@ type studioState struct {
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId *string `pulumi:"vpcId"`
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+	//
+	// The following arguments are optional:
 	WorkspaceSecurityGroupId *string `pulumi:"workspaceSecurityGroupId"`
 }
 
@@ -209,6 +212,8 @@ type StudioState struct {
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId pulumi.StringPtrInput
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+	//
+	// The following arguments are optional:
 	WorkspaceSecurityGroupId pulumi.StringPtrInput
 }
 
@@ -242,6 +247,8 @@ type studioArgs struct {
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId string `pulumi:"vpcId"`
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+	//
+	// The following arguments are optional:
 	WorkspaceSecurityGroupId string `pulumi:"workspaceSecurityGroupId"`
 }
 
@@ -272,6 +279,8 @@ type StudioArgs struct {
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
 	VpcId pulumi.StringInput
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+	//
+	// The following arguments are optional:
 	WorkspaceSecurityGroupId pulumi.StringInput
 }
 
@@ -437,6 +446,8 @@ func (o StudioOutput) VpcId() pulumi.StringOutput {
 }
 
 // The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
+//
+// The following arguments are optional:
 func (o StudioOutput) WorkspaceSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.WorkspaceSecurityGroupId }).(pulumi.StringOutput)
 }

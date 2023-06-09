@@ -264,7 +264,6 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         Provides a Route 53 Resolver DNS Firewall rule group association resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -303,7 +302,6 @@ class ResolverFirewallRuleGroupAssociation(pulumi.CustomResource):
         Provides a Route 53 Resolver DNS Firewall rule group association resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

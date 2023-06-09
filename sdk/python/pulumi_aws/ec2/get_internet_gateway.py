@@ -129,6 +129,9 @@ def get_internet_gateway(filters: Optional[Sequence[pulumi.InputType['GetInterne
 
 
     :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.
@@ -174,6 +177,9 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
 
 
     :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.

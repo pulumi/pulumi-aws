@@ -17,7 +17,6 @@ namespace Pulumi.Aws.Fis
     /// for more information.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -103,6 +102,8 @@ namespace Pulumi.Aws.Fis
 
         /// <summary>
         /// When an ongoing experiment should be stopped. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("stopConditions")]
         public Output<ImmutableArray<Outputs.ExperimentTemplateStopCondition>> StopConditions { get; private set; } = null!;
@@ -197,6 +198,8 @@ namespace Pulumi.Aws.Fis
 
         /// <summary>
         /// When an ongoing experiment should be stopped. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.ExperimentTemplateStopConditionArgs> StopConditions
         {
@@ -265,6 +268,8 @@ namespace Pulumi.Aws.Fis
 
         /// <summary>
         /// When an ongoing experiment should be stopped. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.ExperimentTemplateStopConditionGetArgs> StopConditions
         {

@@ -71,6 +71,9 @@ export interface GetSecurityGroupArgs {
     tags?: {[key: string]: string};
     /**
      * Id of the VPC that the desired security group belongs to.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     vpcId?: string;
 }
@@ -148,6 +151,9 @@ export interface GetSecurityGroupOutputArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Id of the VPC that the desired security group belongs to.
+     *
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      */
     vpcId?: pulumi.Input<string>;
 }

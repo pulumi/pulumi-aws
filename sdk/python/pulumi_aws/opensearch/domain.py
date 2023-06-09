@@ -42,6 +42,8 @@ class DomainArgs:
         :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
         :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         :param pulumi.Input[str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
@@ -173,6 +175,8 @@ class DomainArgs:
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the domain.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 
@@ -315,6 +319,8 @@ class _DomainState:
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
         :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         :param pulumi.Input[str] endpoint: Domain-specific endpoint used to submit index, search, and data upload requests.
@@ -499,6 +505,8 @@ class _DomainState:
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the domain.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 
@@ -913,6 +921,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         :param pulumi.Input[str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
@@ -1280,6 +1290,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
+               
+               The following arguments are optional:
         :param pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         :param pulumi.Input[str] endpoint: Domain-specific endpoint used to submit index, search, and data upload requests.
@@ -1407,6 +1419,8 @@ class Domain(pulumi.CustomResource):
     def domain_name(self) -> pulumi.Output[str]:
         """
         Name of the domain.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 

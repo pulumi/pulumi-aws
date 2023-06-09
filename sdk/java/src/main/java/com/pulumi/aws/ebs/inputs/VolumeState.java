@@ -201,12 +201,16 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      * 
+     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+     * 
      */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
     /**
      * @return The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+     * 
+     * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
     public Optional<Output<Integer>> throughput() {
@@ -520,6 +524,8 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param throughput The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
          * 
+         * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
+         * 
          * @return builder
          * 
          */
@@ -530,6 +536,8 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param throughput The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
+         * 
+         * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
          * 
          * @return builder
          * 

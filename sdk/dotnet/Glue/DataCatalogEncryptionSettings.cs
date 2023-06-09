@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue Data Catalog Encryption Settings resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

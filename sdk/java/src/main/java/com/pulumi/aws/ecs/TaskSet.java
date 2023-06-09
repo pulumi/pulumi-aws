@@ -339,12 +339,16 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
     /**
      * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="taskDefinition", refs={String.class}, tree="[0]")
     private Output<String> taskDefinition;
 
     /**
      * @return The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> taskDefinition() {

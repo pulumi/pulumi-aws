@@ -153,7 +153,6 @@ class SigningCertificate(pulumi.CustomResource):
         ## Example Usage
 
         **Using certs on file:**
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -164,7 +163,6 @@ class SigningCertificate(pulumi.CustomResource):
         ```
 
         **Example with cert in-line:**
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,7 +203,6 @@ class SigningCertificate(pulumi.CustomResource):
         ## Example Usage
 
         **Using certs on file:**
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,7 +213,6 @@ class SigningCertificate(pulumi.CustomResource):
         ```
 
         **Example with cert in-line:**
-
         ```python
         import pulumi
         import pulumi_aws as aws

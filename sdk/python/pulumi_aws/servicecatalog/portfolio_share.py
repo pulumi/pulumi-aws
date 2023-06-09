@@ -26,6 +26,8 @@ class PortfolioShareArgs:
         :param pulumi.Input[str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[str] principal_id: Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
         :param pulumi.Input[str] type: Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+               
+               The following arguments are optional:
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[bool] share_principals: Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         :param pulumi.Input[bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
@@ -72,6 +74,8 @@ class PortfolioShareArgs:
     def type(self) -> pulumi.Input[str]:
         """
         Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -148,6 +152,8 @@ class _PortfolioShareState:
         :param pulumi.Input[bool] share_principals: Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         :param pulumi.Input[bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         :param pulumi.Input[str] type: Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] wait_for_acceptance: Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
         """
         if accept_language is not None:
@@ -244,6 +250,8 @@ class _PortfolioShareState:
     def type(self) -> Optional[pulumi.Input[str]]:
         """
         Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -290,7 +298,6 @@ class PortfolioShare(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,6 +324,8 @@ class PortfolioShare(pulumi.CustomResource):
         :param pulumi.Input[bool] share_principals: Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         :param pulumi.Input[bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         :param pulumi.Input[str] type: Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] wait_for_acceptance: Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
         """
         ...
@@ -338,7 +347,6 @@ class PortfolioShare(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -434,6 +442,8 @@ class PortfolioShare(pulumi.CustomResource):
         :param pulumi.Input[bool] share_principals: Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         :param pulumi.Input[bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         :param pulumi.Input[str] type: Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] wait_for_acceptance: Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -503,6 +513,8 @@ class PortfolioShare(pulumi.CustomResource):
     def type(self) -> pulumi.Output[str]:
         """
         Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

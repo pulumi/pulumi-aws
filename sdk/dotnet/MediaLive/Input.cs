@@ -14,7 +14,6 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -148,6 +147,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// The different types of inputs that AWS Elemental MediaLive supports.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -290,6 +291,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// The different types of inputs that AWS Elemental MediaLive supports.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -444,6 +447,8 @@ namespace Pulumi.Aws.MediaLive
 
         /// <summary>
         /// The different types of inputs that AWS Elemental MediaLive supports.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

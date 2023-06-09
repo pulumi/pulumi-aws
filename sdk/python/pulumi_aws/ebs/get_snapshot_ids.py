@@ -94,7 +94,6 @@ def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIds
     criteria.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -144,7 +143,6 @@ def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     criteria.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

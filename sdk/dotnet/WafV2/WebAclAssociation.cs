@@ -17,7 +17,6 @@ namespace Pulumi.Aws.WafV2
     /// [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

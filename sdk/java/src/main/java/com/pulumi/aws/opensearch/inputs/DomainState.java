@@ -181,12 +181,16 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the domain.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
      * @return Name of the domain.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -620,6 +624,8 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param domainName Name of the domain.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -630,6 +636,8 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param domainName Name of the domain.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

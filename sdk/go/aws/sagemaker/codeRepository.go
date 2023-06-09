@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic usage
-//
 // ```go
 // package main
 //
@@ -43,7 +42,6 @@ import (
 //
 // ```
 // ### Example with Secret
-//
 // ```go
 // package main
 //

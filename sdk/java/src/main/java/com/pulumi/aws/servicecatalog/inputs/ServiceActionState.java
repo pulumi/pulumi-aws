@@ -64,12 +64,16 @@ public final class ServiceActionState extends com.pulumi.resources.ResourceArgs 
     /**
      * Self-service action name.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Self-service action name.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -169,6 +173,8 @@ public final class ServiceActionState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name Self-service action name.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -179,6 +185,8 @@ public final class ServiceActionState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param name Self-service action name.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

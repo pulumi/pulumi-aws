@@ -151,7 +151,6 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         Provides a resource to manage an S3 Object Lambda Access Point resource policy.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -165,7 +164,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
                 actions=["GetObject"],
                 content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
                     aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
-                        function_arn=aws_lambda_function["example"]["arn"],
+                        function_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             )],
@@ -207,7 +206,6 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         Provides a resource to manage an S3 Object Lambda Access Point resource policy.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -221,7 +219,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
                 actions=["GetObject"],
                 content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
                     aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
-                        function_arn=aws_lambda_function["example"]["arn"],
+                        function_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     ),
                 ),
             )],

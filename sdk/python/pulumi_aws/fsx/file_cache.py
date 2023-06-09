@@ -32,6 +32,8 @@ class FileCacheArgs:
         :param pulumi.Input[str] file_cache_type_version: The version for the type of cache that you're creating. The only supported value is `2.12`.
         :param pulumi.Input[int] storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+               
+               The following arguments are optional:
         :param pulumi.Input[bool] copy_tags_to_data_repository_associations: A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
         :param pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]] data_repository_associations: See the `data_repository_association` configuration block. Max of 8.
                A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
@@ -98,6 +100,8 @@ class FileCacheArgs:
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -217,6 +221,8 @@ class _FileCacheState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         :param pulumi.Input[int] storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of your virtual private cloud (VPC).
         """
@@ -428,6 +434,8 @@ class _FileCacheState:
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -490,7 +498,6 @@ class FileCache(pulumi.CustomResource):
         See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -545,6 +552,8 @@ class FileCache(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         :param pulumi.Input[int] storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -558,7 +567,6 @@ class FileCache(pulumi.CustomResource):
         See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -711,6 +719,8 @@ class FileCache(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         :param pulumi.Input[int] storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of your virtual private cloud (VPC).
         """
@@ -853,6 +863,8 @@ class FileCache(pulumi.CustomResource):
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "subnet_ids")
 

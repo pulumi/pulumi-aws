@@ -14,7 +14,6 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -117,6 +116,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The ARN of the site-to-site VPN connection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vpnConnectionArn")]
         public Output<string> VpnConnectionArn { get; private set; } = null!;
@@ -187,6 +188,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The ARN of the site-to-site VPN connection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpnConnectionArn", required: true)]
         public Input<string> VpnConnectionArn { get; set; } = null!;
@@ -285,6 +288,8 @@ namespace Pulumi.Aws.NetworkManager
 
         /// <summary>
         /// The ARN of the site-to-site VPN connection.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpnConnectionArn")]
         public Input<string>? VpnConnectionArn { get; set; }

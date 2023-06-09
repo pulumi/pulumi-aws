@@ -44,6 +44,8 @@ public final class DistributionConfigurationDistribution {
     /**
      * @return AWS Region for the distribution.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String region;
 
@@ -85,6 +87,8 @@ public final class DistributionConfigurationDistribution {
     }
     /**
      * @return AWS Region for the distribution.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String region() {

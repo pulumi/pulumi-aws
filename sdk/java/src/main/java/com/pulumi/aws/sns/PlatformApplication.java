@@ -310,12 +310,16 @@ public class PlatformApplication extends com.pulumi.resources.CustomResource {
     /**
      * The sample rate percentage (0-100) of successfully delivered messages.
      * 
+     * The following attributes are needed only when using APNS token credentials:
+     * 
      */
     @Export(name="successFeedbackSampleRate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> successFeedbackSampleRate;
 
     /**
      * @return The sample rate percentage (0-100) of successfully delivered messages.
+     * 
+     * The following attributes are needed only when using APNS token credentials:
      * 
      */
     public Output<Optional<String>> successFeedbackSampleRate() {

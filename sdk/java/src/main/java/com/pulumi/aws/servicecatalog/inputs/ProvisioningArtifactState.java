@@ -169,12 +169,16 @@ public final class ProvisioningArtifactState extends com.pulumi.resources.Resour
     /**
      * Template source as URL of the CloudFormation template in Amazon S3.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="templateUrl")
     private @Nullable Output<String> templateUrl;
 
     /**
      * @return Template source as URL of the CloudFormation template in Amazon S3.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> templateUrl() {
@@ -444,6 +448,8 @@ public final class ProvisioningArtifactState extends com.pulumi.resources.Resour
         /**
          * @param templateUrl Template source as URL of the CloudFormation template in Amazon S3.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -454,6 +460,8 @@ public final class ProvisioningArtifactState extends com.pulumi.resources.Resour
 
         /**
          * @param templateUrl Template source as URL of the CloudFormation template in Amazon S3.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -85,6 +85,8 @@ export class TableReplica extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * ARN of the _main_ or global table which this resource will replicate.
+     *
+     * Optional arguments:
      */
     public readonly globalTableArn!: pulumi.Output<string>;
     /**
@@ -156,6 +158,8 @@ export interface TableReplicaState {
     arn?: pulumi.Input<string>;
     /**
      * ARN of the _main_ or global table which this resource will replicate.
+     *
+     * Optional arguments:
      */
     globalTableArn?: pulumi.Input<string>;
     /**
@@ -186,6 +190,8 @@ export interface TableReplicaState {
 export interface TableReplicaArgs {
     /**
      * ARN of the _main_ or global table which this resource will replicate.
+     *
+     * Optional arguments:
      */
     globalTableArn: pulumi.Input<string>;
     /**

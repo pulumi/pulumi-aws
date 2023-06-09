@@ -19,6 +19,8 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
     /**
      * IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
      * 
+     * &gt; **NOTE:** Statements without a `sid` cannot be overridden. In other words, a statement without a `sid` from documents assigned to the `source_json` or `source_policy_documents` arguments cannot be overridden by statements from documents assigned to the `override_json` or `override_policy_documents` arguments.
+     * 
      * @deprecated
      * Use the attribute &#34;override_policy_documents&#34; instead.
      * 
@@ -29,6 +31,8 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
 
     /**
      * @return IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
+     * 
+     * &gt; **NOTE:** Statements without a `sid` cannot be overridden. In other words, a statement without a `sid` from documents assigned to the `source_json` or `source_policy_documents` arguments cannot be overridden by statements from documents assigned to the `override_json` or `override_policy_documents` arguments.
      * 
      * @deprecated
      * Use the attribute &#34;override_policy_documents&#34; instead.
@@ -169,6 +173,8 @@ public final class GetPolicyDocumentPlainArgs extends com.pulumi.resources.Invok
 
         /**
          * @param overrideJson IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
+         * 
+         * &gt; **NOTE:** Statements without a `sid` cannot be overridden. In other words, a statement without a `sid` from documents assigned to the `source_json` or `source_policy_documents` arguments cannot be overridden by statements from documents assigned to the `override_json` or `override_policy_documents` arguments.
          * 
          * @return builder
          * 

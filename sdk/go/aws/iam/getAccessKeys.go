@@ -14,7 +14,6 @@ import (
 // specific IAM user.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

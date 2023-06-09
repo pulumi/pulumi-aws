@@ -1995,6 +1995,8 @@ type ServiceLoadBalancer struct {
 	// Name of the container to associate with the load balancer (as it appears in a container definition).
 	ContainerName string `pulumi:"containerName"`
 	// Port on the container to associate with the load balancer.
+	//
+	// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 	ContainerPort int `pulumi:"containerPort"`
 	// Name of the ELB (Classic) to associate with the service.
 	ElbName *string `pulumi:"elbName"`
@@ -2017,6 +2019,8 @@ type ServiceLoadBalancerArgs struct {
 	// Name of the container to associate with the load balancer (as it appears in a container definition).
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
 	// Port on the container to associate with the load balancer.
+	//
+	// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 	ContainerPort pulumi.IntInput `pulumi:"containerPort"`
 	// Name of the ELB (Classic) to associate with the service.
 	ElbName pulumi.StringPtrInput `pulumi:"elbName"`
@@ -2081,6 +2085,8 @@ func (o ServiceLoadBalancerOutput) ContainerName() pulumi.StringOutput {
 }
 
 // Port on the container to associate with the load balancer.
+//
+// > **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
 func (o ServiceLoadBalancerOutput) ContainerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) int { return v.ContainerPort }).(pulumi.IntOutput)
 }
@@ -2117,6 +2123,8 @@ func (o ServiceLoadBalancerArrayOutput) Index(i pulumi.IntInput) ServiceLoadBala
 
 type ServiceNetworkConfiguration struct {
 	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+	//
+	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 	AssignPublicIp *bool `pulumi:"assignPublicIp"`
 	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -2137,6 +2145,8 @@ type ServiceNetworkConfigurationInput interface {
 
 type ServiceNetworkConfigurationArgs struct {
 	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+	//
+	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
 	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -2222,6 +2232,8 @@ func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutpu
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+//
+// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 func (o ServiceNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -2261,6 +2273,8 @@ func (o ServiceNetworkConfigurationPtrOutput) Elem() ServiceNetworkConfiguration
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+//
+// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
 func (o ServiceNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *bool {
 		if v == nil {
@@ -2295,6 +2309,8 @@ type ServiceOrderedPlacementStrategy struct {
 	// which has the same effect), or any platform or custom attribute that is applied to a container instance.
 	// For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
 	// needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+	//
+	// > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
 	Field *string `pulumi:"field"`
 	// Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
 	Type string `pulumi:"type"`
@@ -2316,6 +2332,8 @@ type ServiceOrderedPlacementStrategyArgs struct {
 	// which has the same effect), or any platform or custom attribute that is applied to a container instance.
 	// For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
 	// needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+	//
+	// > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
 	Field pulumi.StringPtrInput `pulumi:"field"`
 	// Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2376,6 +2394,8 @@ func (o ServiceOrderedPlacementStrategyOutput) ToServiceOrderedPlacementStrategy
 // which has the same effect), or any platform or custom attribute that is applied to a container instance.
 // For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
 // needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+//
+// > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
 func (o ServiceOrderedPlacementStrategyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceOrderedPlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
@@ -2994,7 +3014,7 @@ func (o ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrayOutpu
 
 type ServiceServiceConnectConfigurationService struct {
 	// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-	ClientAlias []ServiceServiceConnectConfigurationServiceClientAlias `pulumi:"clientAlias"`
+	ClientAliases []ServiceServiceConnectConfigurationServiceClientAlias `pulumi:"clientAliases"`
 	// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
 	DiscoveryName *string `pulumi:"discoveryName"`
 	// The port number for the Service Connect proxy to listen on.
@@ -3016,7 +3036,7 @@ type ServiceServiceConnectConfigurationServiceInput interface {
 
 type ServiceServiceConnectConfigurationServiceArgs struct {
 	// The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-	ClientAlias ServiceServiceConnectConfigurationServiceClientAliasArrayInput `pulumi:"clientAlias"`
+	ClientAliases ServiceServiceConnectConfigurationServiceClientAliasArrayInput `pulumi:"clientAliases"`
 	// The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
 	DiscoveryName pulumi.StringPtrInput `pulumi:"discoveryName"`
 	// The port number for the Service Connect proxy to listen on.
@@ -3077,9 +3097,9 @@ func (o ServiceServiceConnectConfigurationServiceOutput) ToServiceServiceConnect
 }
 
 // The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-func (o ServiceServiceConnectConfigurationServiceOutput) ClientAlias() ServiceServiceConnectConfigurationServiceClientAliasArrayOutput {
+func (o ServiceServiceConnectConfigurationServiceOutput) ClientAliases() ServiceServiceConnectConfigurationServiceClientAliasArrayOutput {
 	return o.ApplyT(func(v ServiceServiceConnectConfigurationService) []ServiceServiceConnectConfigurationServiceClientAlias {
-		return v.ClientAlias
+		return v.ClientAliases
 	}).(ServiceServiceConnectConfigurationServiceClientAliasArrayOutput)
 }
 
@@ -5280,6 +5300,8 @@ type TaskSetLoadBalancer struct {
 	// The name of the container to associate with the load balancer (as it appears in a container definition).
 	ContainerName string `pulumi:"containerName"`
 	// The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+	//
+	// > **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
 	ContainerPort *int `pulumi:"containerPort"`
 	// The name of the ELB (Classic) to associate with the service.
 	LoadBalancerName *string `pulumi:"loadBalancerName"`
@@ -5302,6 +5324,8 @@ type TaskSetLoadBalancerArgs struct {
 	// The name of the container to associate with the load balancer (as it appears in a container definition).
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
 	// The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+	//
+	// > **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
 	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
 	// The name of the ELB (Classic) to associate with the service.
 	LoadBalancerName pulumi.StringPtrInput `pulumi:"loadBalancerName"`
@@ -5366,6 +5390,8 @@ func (o TaskSetLoadBalancerOutput) ContainerName() pulumi.StringOutput {
 }
 
 // The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+//
+// > **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
 func (o TaskSetLoadBalancerOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetLoadBalancer) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
@@ -5402,6 +5428,8 @@ func (o TaskSetLoadBalancerArrayOutput) Index(i pulumi.IntInput) TaskSetLoadBala
 
 type TaskSetNetworkConfiguration struct {
 	// Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+	//
+	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
 	AssignPublicIp *bool `pulumi:"assignPublicIp"`
 	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -5422,6 +5450,8 @@ type TaskSetNetworkConfigurationInput interface {
 
 type TaskSetNetworkConfigurationArgs struct {
 	// Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+	//
+	// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
 	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
 	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -5507,6 +5537,8 @@ func (o TaskSetNetworkConfigurationOutput) ToTaskSetNetworkConfigurationPtrOutpu
 }
 
 // Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+//
+// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
 func (o TaskSetNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskSetNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -5546,6 +5578,8 @@ func (o TaskSetNetworkConfigurationPtrOutput) Elem() TaskSetNetworkConfiguration
 }
 
 // Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+//
+// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
 func (o TaskSetNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskSetNetworkConfiguration) *bool {
 		if v == nil {
@@ -6236,6 +6270,8 @@ func (o GetTaskExecutionCapacityProviderStrategyArrayOutput) Index(i pulumi.IntI
 
 type GetTaskExecutionNetworkConfiguration struct {
 	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+	//
+	// For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
 	AssignPublicIp *bool `pulumi:"assignPublicIp"`
 	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -6256,6 +6292,8 @@ type GetTaskExecutionNetworkConfigurationInput interface {
 
 type GetTaskExecutionNetworkConfigurationArgs struct {
 	// Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+	//
+	// For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
 	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
 	// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -6341,6 +6379,8 @@ func (o GetTaskExecutionNetworkConfigurationOutput) ToGetTaskExecutionNetworkCon
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+//
+// For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
 func (o GetTaskExecutionNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -6380,6 +6420,8 @@ func (o GetTaskExecutionNetworkConfigurationPtrOutput) Elem() GetTaskExecutionNe
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+//
+// For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
 func (o GetTaskExecutionNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GetTaskExecutionNetworkConfiguration) *bool {
 		if v == nil {
@@ -7228,6 +7270,8 @@ type GetTaskExecutionPlacementStrategy struct {
 	// The field to apply the placement strategy against.
 	Field *string `pulumi:"field"`
 	// The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+	//
+	// For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
 	Type string `pulumi:"type"`
 }
 
@@ -7246,6 +7290,8 @@ type GetTaskExecutionPlacementStrategyArgs struct {
 	// The field to apply the placement strategy against.
 	Field pulumi.StringPtrInput `pulumi:"field"`
 	// The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+	//
+	// For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -7306,6 +7352,8 @@ func (o GetTaskExecutionPlacementStrategyOutput) Field() pulumi.StringPtrOutput 
 }
 
 // The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+//
+// For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
 func (o GetTaskExecutionPlacementStrategyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskExecutionPlacementStrategy) string { return v.Type }).(pulumi.StringOutput)
 }

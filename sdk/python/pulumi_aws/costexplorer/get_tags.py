@@ -113,7 +113,6 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
     Provides details about a specific CE Tags.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -130,6 +129,8 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
     :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. See below.
     :param str tag_key: Key of the tag that you want to return values for.
     :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -161,7 +162,6 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
     Provides details about a specific CE Tags.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -178,5 +178,7 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
     :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. See below.
     :param str tag_key: Key of the tag that you want to return values for.
     :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values.
+           
+           The following arguments are optional:
     """
     ...

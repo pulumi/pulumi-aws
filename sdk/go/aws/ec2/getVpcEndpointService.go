@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### AWS Service
-//
 // ```go
 // package main
 //
@@ -54,7 +53,6 @@ import (
 //
 // ```
 // ### Non-AWS Service
-//
 // ```go
 // package main
 //
@@ -79,7 +77,6 @@ import (
 //
 // ```
 // ### Filter
-//
 // ```go
 // package main
 //
@@ -130,6 +127,8 @@ type LookupVpcEndpointServiceArgs struct {
 	// Service type, `Gateway` or `Interface`.
 	ServiceType *string `pulumi:"serviceType"`
 	// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+	//
+	// > **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `serviceName` pattern of `com.amazonaws.<region>.<service>`.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -189,6 +188,8 @@ type LookupVpcEndpointServiceOutputArgs struct {
 	// Service type, `Gateway` or `Interface`.
 	ServiceType pulumi.StringPtrInput `pulumi:"serviceType"`
 	// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+	//
+	// > **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `serviceName` pattern of `com.amazonaws.<region>.<service>`.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

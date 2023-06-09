@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,7 +54,6 @@ namespace Pulumi.Aws.Quicksight
     /// });
     /// ```
     /// ### With Column Level Permission Rules
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,7 +108,6 @@ namespace Pulumi.Aws.Quicksight
     /// });
     /// ```
     /// ### With Field Folders
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -163,7 +160,6 @@ namespace Pulumi.Aws.Quicksight
     /// });
     /// ```
     /// ### With Permissions
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -219,7 +215,6 @@ namespace Pulumi.Aws.Quicksight
     /// });
     /// ```
     /// ### With Row Level Permission Tag Configuration
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -356,6 +351,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("physicalTableMaps")]
         public Output<ImmutableArray<Outputs.DataSetPhysicalTableMap>> PhysicalTableMaps { get; private set; } = null!;
@@ -531,6 +528,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapArgs> PhysicalTableMaps
         {
@@ -685,6 +684,8 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapGetArgs> PhysicalTableMaps
         {

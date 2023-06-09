@@ -154,7 +154,6 @@ def get_quicksight_user(aws_account_id: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -166,6 +165,8 @@ def get_quicksight_user(aws_account_id: Optional[str] = None,
     :param str aws_account_id: AWS account ID.
     :param str namespace: QuickSight namespace. Defaults to `default`.
     :param str user_name: The name of the user that you want to match.
+           
+           The following arguments are optional:
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
@@ -199,7 +200,6 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[st
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -211,5 +211,7 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[st
     :param str aws_account_id: AWS account ID.
     :param str namespace: QuickSight namespace. Defaults to `default`.
     :param str user_name: The name of the user that you want to match.
+           
+           The following arguments are optional:
     """
     ...

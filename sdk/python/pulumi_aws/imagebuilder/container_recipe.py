@@ -37,6 +37,8 @@ class ContainerRecipeArgs:
         :param pulumi.Input[str] parent_image: The base image for the container recipe.
         :param pulumi.Input['ContainerRecipeTargetRepositoryArgs'] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[str] version: Version of the container recipe.
+               
+               The following attributes are optional:
         :param pulumi.Input[str] description: The description of the container recipe.
         :param pulumi.Input[str] dockerfile_template_data: The Dockerfile template used to build the image as an inline data blob.
         :param pulumi.Input[str] dockerfile_template_uri: The Amazon S3 URI for the Dockerfile that will be used to build the container image.
@@ -124,6 +126,8 @@ class ContainerRecipeArgs:
     def version(self) -> pulumi.Input[str]:
         """
         Version of the container recipe.
+
+        The following attributes are optional:
         """
         return pulumi.get(self, "version")
 
@@ -284,6 +288,8 @@ class _ContainerRecipeState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ContainerRecipeTargetRepositoryArgs'] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[str] version: Version of the container recipe.
+               
+               The following attributes are optional:
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         if arn is not None:
@@ -548,6 +554,8 @@ class _ContainerRecipeState:
     def version(self) -> Optional[pulumi.Input[str]]:
         """
         Version of the container recipe.
+
+        The following attributes are optional:
         """
         return pulumi.get(self, "version")
 
@@ -592,7 +600,6 @@ class ContainerRecipe(pulumi.CustomResource):
         Manages an Image Builder Container Recipe.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -602,11 +609,11 @@ class ContainerRecipe(pulumi.CustomResource):
             container_type="DOCKER",
             parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository=aws.imagebuilder.ContainerRecipeTargetRepositoryArgs(
-                repository_name=aws_ecr_repository["example"]["name"],
+                repository_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 service="ECR",
             ),
             components=[aws.imagebuilder.ContainerRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
+                component_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 parameters=[
                     aws.imagebuilder.ContainerRecipeComponentParameterArgs(
                         name="Parameter1",
@@ -647,6 +654,8 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['ContainerRecipeTargetRepositoryArgs']] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[str] version: Version of the container recipe.
+               
+               The following attributes are optional:
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         ...
@@ -659,7 +668,6 @@ class ContainerRecipe(pulumi.CustomResource):
         Manages an Image Builder Container Recipe.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -669,11 +677,11 @@ class ContainerRecipe(pulumi.CustomResource):
             container_type="DOCKER",
             parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository=aws.imagebuilder.ContainerRecipeTargetRepositoryArgs(
-                repository_name=aws_ecr_repository["example"]["name"],
+                repository_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 service="ECR",
             ),
             components=[aws.imagebuilder.ContainerRecipeComponentArgs(
-                component_arn=aws_imagebuilder_component["example"]["arn"],
+                component_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 parameters=[
                     aws.imagebuilder.ContainerRecipeComponentParameterArgs(
                         name="Parameter1",
@@ -823,6 +831,8 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['ContainerRecipeTargetRepositoryArgs']] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[str] version: Version of the container recipe.
+               
+               The following attributes are optional:
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1000,6 +1010,8 @@ class ContainerRecipe(pulumi.CustomResource):
     def version(self) -> pulumi.Output[str]:
         """
         Version of the container recipe.
+
+        The following attributes are optional:
         """
         return pulumi.get(self, "version")
 

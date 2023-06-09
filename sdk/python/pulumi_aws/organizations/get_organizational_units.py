@@ -72,7 +72,6 @@ def get_organizational_units(parent_id: Optional[str] = None,
     Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,7 +101,6 @@ def get_organizational_units_output(parent_id: Optional[pulumi.Input[str]] = Non
     Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

@@ -90,6 +90,12 @@ export class NetworkAclRule extends pulumi.CustomResource {
     public readonly fromPort!: pulumi.Output<number | undefined>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+     *
+     * > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+     *
+     * > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+     *
+     * > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      */
     public readonly icmpCode!: pulumi.Output<number | undefined>;
     /**
@@ -194,6 +200,12 @@ export interface NetworkAclRuleState {
     fromPort?: pulumi.Input<number>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+     *
+     * > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+     *
+     * > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+     *
+     * > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      */
     icmpCode?: pulumi.Input<number>;
     /**
@@ -244,6 +256,12 @@ export interface NetworkAclRuleArgs {
     fromPort?: pulumi.Input<number>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+     *
+     * > **NOTE:** If the value of `protocol` is `-1` or `all`, the `fromPort` and `toPort` values will be ignored and the rule will apply to all ports.
+     *
+     * > **NOTE:** If the value of `icmpType` is `-1` (which results in a wildcard ICMP type), the `icmpCode` must also be set to `-1` (wildcard ICMP code).
+     *
+     * > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      */
     icmpCode?: pulumi.Input<number>;
     /**

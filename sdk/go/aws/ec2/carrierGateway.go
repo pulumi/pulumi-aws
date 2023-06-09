@@ -14,7 +14,6 @@ import (
 // Manages an EC2 Carrier Gateway. See the AWS [documentation](https://docs.aws.amazon.com/vpc/latest/userguide/Carrier_Gateway.html) for more information.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

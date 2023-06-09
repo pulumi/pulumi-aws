@@ -264,12 +264,16 @@ public class VpcAttachment extends com.pulumi.resources.CustomResource {
     /**
      * The ARN of the VPC.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vpcArn", refs={String.class}, tree="[0]")
     private Output<String> vpcArn;
 
     /**
      * @return The ARN of the VPC.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vpcArn() {

@@ -12,6 +12,8 @@ import (
 
 type DatabaseAclConfiguration struct {
 	// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+	//
+	// > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
 	S3AclOption string `pulumi:"s3AclOption"`
 }
 
@@ -28,6 +30,8 @@ type DatabaseAclConfigurationInput interface {
 
 type DatabaseAclConfigurationArgs struct {
 	// Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+	//
+	// > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
 	S3AclOption pulumi.StringInput `pulumi:"s3AclOption"`
 }
 
@@ -109,6 +113,8 @@ func (o DatabaseAclConfigurationOutput) ToDatabaseAclConfigurationPtrOutputWithC
 }
 
 // Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+//
+// > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
 func (o DatabaseAclConfigurationOutput) S3AclOption() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseAclConfiguration) string { return v.S3AclOption }).(pulumi.StringOutput)
 }
@@ -138,6 +144,8 @@ func (o DatabaseAclConfigurationPtrOutput) Elem() DatabaseAclConfigurationOutput
 }
 
 // Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+//
+// > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
 func (o DatabaseAclConfigurationPtrOutput) S3AclOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseAclConfiguration) *string {
 		if v == nil {

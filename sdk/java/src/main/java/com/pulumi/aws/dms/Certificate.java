@@ -79,12 +79,16 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * The certificate identifier.
      * 
+     * - Must contain from 1 to 255 alphanumeric characters and hyphens.
+     * 
      */
     @Export(name="certificateId", refs={String.class}, tree="[0]")
     private Output<String> certificateId;
 
     /**
      * @return The certificate identifier.
+     * 
+     * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      * 
      */
     public Output<String> certificateId() {

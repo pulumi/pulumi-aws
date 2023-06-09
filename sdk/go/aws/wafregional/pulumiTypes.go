@@ -18,6 +18,8 @@ type ByteMatchSetByteMatchTuple struct {
 	// The value that you want AWS WAF to search for. The maximum length of the value is 50 bytes.
 	TargetString *string `pulumi:"targetString"`
 	// The formatting way for web request.
+	//
+	// FieldToMatch(field_to_match) support following:
 	TextTransformation string `pulumi:"textTransformation"`
 }
 
@@ -40,6 +42,8 @@ type ByteMatchSetByteMatchTupleArgs struct {
 	// The value that you want AWS WAF to search for. The maximum length of the value is 50 bytes.
 	TargetString pulumi.StringPtrInput `pulumi:"targetString"`
 	// The formatting way for web request.
+	//
+	// FieldToMatch(field_to_match) support following:
 	TextTransformation pulumi.StringInput `pulumi:"textTransformation"`
 }
 
@@ -110,6 +114,8 @@ func (o ByteMatchSetByteMatchTupleOutput) TargetString() pulumi.StringPtrOutput 
 }
 
 // The formatting way for web request.
+//
+// FieldToMatch(field_to_match) support following:
 func (o ByteMatchSetByteMatchTupleOutput) TextTransformation() pulumi.StringOutput {
 	return o.ApplyT(func(v ByteMatchSetByteMatchTuple) string { return v.TextTransformation }).(pulumi.StringOutput)
 }

@@ -20,6 +20,8 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
         /// <summary>
         /// Name of the database for the table. Unique to a Data Catalog.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;

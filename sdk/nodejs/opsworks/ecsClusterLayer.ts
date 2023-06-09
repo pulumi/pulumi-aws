@@ -123,6 +123,10 @@ export class EcsClusterLayer extends pulumi.CustomResource {
     public readonly systemPackages!: pulumi.Output<string[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * The following extra optional arguments, all lists of Chef recipe names, allow
+     * custom Chef recipes to be applied to layer instances at the five different
+     * lifecycle events, if custom cookbooks are enabled on the layer's stack:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
@@ -287,6 +291,10 @@ export interface EcsClusterLayerState {
     systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * The following extra optional arguments, all lists of Chef recipe names, allow
+     * custom Chef recipes to be applied to layer instances at the five different
+     * lifecycle events, if custom cookbooks are enabled on the layer's stack:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -369,6 +377,10 @@ export interface EcsClusterLayerArgs {
     systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     * The following extra optional arguments, all lists of Chef recipe names, allow
+     * custom Chef recipes to be applied to layer instances at the five different
+     * lifecycle events, if custom cookbooks are enabled on the layer's stack:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

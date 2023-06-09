@@ -36,6 +36,8 @@ public final class InstancePublicPortsPortInfo {
     /**
      * @return Last port in a range of open ports on an instance.
      * 
+     * The following arguments are optional:
+     * 
      */
     private Integer toPort;
 
@@ -73,6 +75,8 @@ public final class InstancePublicPortsPortInfo {
     }
     /**
      * @return Last port in a range of open ports on an instance.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Integer toPort() {

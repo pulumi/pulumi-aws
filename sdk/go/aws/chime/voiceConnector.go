@@ -14,7 +14,6 @@ import (
 // Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

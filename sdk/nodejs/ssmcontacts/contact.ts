@@ -98,6 +98,8 @@ export class Contact extends pulumi.CustomResource {
     /**
      * The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
+     *
+     * The following arguments are optional:
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -167,6 +169,8 @@ export interface ContactState {
     /**
      * The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string>;
 }
@@ -190,6 +194,8 @@ export interface ContactArgs {
     /**
      * The type of contact engaged. A single contact is type PERSONAL and an escalation
      * plan is type ESCALATION.
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

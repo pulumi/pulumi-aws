@@ -133,13 +133,12 @@ def get_export(accepts: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_export(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
+    example = aws.apigateway.get_export(rest_api_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        stage_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         export_type="oas30")
     ```
 
@@ -180,13 +179,12 @@ def get_export_output(accepts: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
     """
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_export(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
+    example = aws.apigateway.get_export(rest_api_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        stage_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         export_type="oas30")
     ```
 

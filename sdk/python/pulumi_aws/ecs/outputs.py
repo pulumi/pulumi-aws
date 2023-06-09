@@ -768,6 +768,8 @@ class ServiceLoadBalancer(dict):
         """
         :param str container_name: Name of the container to associate with the load balancer (as it appears in a container definition).
         :param int container_port: Port on the container to associate with the load balancer.
+               
+               > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         :param str elb_name: Name of the ELB (Classic) to associate with the service.
         :param str target_group_arn: ARN of the Load Balancer target group to associate with the service.
         """
@@ -791,6 +793,8 @@ class ServiceLoadBalancer(dict):
     def container_port(self) -> int:
         """
         Port on the container to associate with the load balancer.
+
+        > **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         """
         return pulumi.get(self, "container_port")
 
@@ -839,6 +843,8 @@ class ServiceNetworkConfiguration(dict):
         """
         :param Sequence[str] subnets: Subnets associated with the task or service.
         :param bool assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+               
+               For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         :param Sequence[str] security_groups: Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -860,6 +866,8 @@ class ServiceNetworkConfiguration(dict):
     def assign_public_ip(self) -> Optional[bool]:
         """
         Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+
+        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -883,6 +891,8 @@ class ServiceOrderedPlacementStrategy(dict):
                which has the same effect), or any platform or custom attribute that is applied to a container instance.
                For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
                needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+               
+               > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
         """
         pulumi.set(__self__, "type", type)
         if field is not None:
@@ -904,6 +914,8 @@ class ServiceOrderedPlacementStrategy(dict):
         which has the same effect), or any platform or custom attribute that is applied to a container instance.
         For the `binpack` type, valid values are `memory` and `cpu`. For the `random` type, this attribute is not
         needed. For more information, see [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html).
+
+        > **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
         """
         return pulumi.get(self, "field")
 
@@ -1123,8 +1135,8 @@ class ServiceServiceConnectConfigurationService(dict):
         suggest = None
         if key == "portName":
             suggest = "port_name"
-        elif key == "clientAlias":
-            suggest = "client_alias"
+        elif key == "clientAliases":
+            suggest = "client_aliases"
         elif key == "discoveryName":
             suggest = "discovery_name"
         elif key == "ingressPortOverride":
@@ -1143,18 +1155,18 @@ class ServiceServiceConnectConfigurationService(dict):
 
     def __init__(__self__, *,
                  port_name: str,
-                 client_alias: Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias']] = None,
+                 client_aliases: Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias']] = None,
                  discovery_name: Optional[str] = None,
                  ingress_port_override: Optional[int] = None):
         """
         :param str port_name: The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-        :param Sequence['ServiceServiceConnectConfigurationServiceClientAliasArgs'] client_alias: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        :param Sequence['ServiceServiceConnectConfigurationServiceClientAliasArgs'] client_aliases: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         :param str discovery_name: The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         :param int ingress_port_override: The port number for the Service Connect proxy to listen on.
         """
         pulumi.set(__self__, "port_name", port_name)
-        if client_alias is not None:
-            pulumi.set(__self__, "client_alias", client_alias)
+        if client_aliases is not None:
+            pulumi.set(__self__, "client_aliases", client_aliases)
         if discovery_name is not None:
             pulumi.set(__self__, "discovery_name", discovery_name)
         if ingress_port_override is not None:
@@ -1169,12 +1181,12 @@ class ServiceServiceConnectConfigurationService(dict):
         return pulumi.get(self, "port_name")
 
     @property
-    @pulumi.getter(name="clientAlias")
-    def client_alias(self) -> Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias']]:
+    @pulumi.getter(name="clientAliases")
+    def client_aliases(self) -> Optional[Sequence['outputs.ServiceServiceConnectConfigurationServiceClientAlias']]:
         """
         The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         """
-        return pulumi.get(self, "client_alias")
+        return pulumi.get(self, "client_aliases")
 
     @property
     @pulumi.getter(name="discoveryName")
@@ -2049,6 +2061,8 @@ class TaskSetLoadBalancer(dict):
         """
         :param str container_name: The name of the container to associate with the load balancer (as it appears in a container definition).
         :param int container_port: The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+               
+               > **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
         :param str load_balancer_name: The name of the ELB (Classic) to associate with the service.
         :param str target_group_arn: The ARN of the Load Balancer target group to associate with the service.
         """
@@ -2073,6 +2087,8 @@ class TaskSetLoadBalancer(dict):
     def container_port(self) -> Optional[int]:
         """
         The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+
+        > **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
         """
         return pulumi.get(self, "container_port")
 
@@ -2121,6 +2137,8 @@ class TaskSetNetworkConfiguration(dict):
         """
         :param Sequence[str] subnets: The subnets associated with the task or service. Maximum of 16.
         :param bool assign_public_ip: Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+               
+               For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
         :param Sequence[str] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -2142,6 +2160,8 @@ class TaskSetNetworkConfiguration(dict):
     def assign_public_ip(self) -> Optional[bool]:
         """
         Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+
+        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -2342,6 +2362,8 @@ class GetTaskExecutionNetworkConfigurationResult(dict):
         """
         :param Sequence[str] subnets: Subnets associated with the task or service.
         :param bool assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+               
+               For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
         :param Sequence[str] security_groups: Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -2363,6 +2385,8 @@ class GetTaskExecutionNetworkConfigurationResult(dict):
     def assign_public_ip(self) -> Optional[bool]:
         """
         Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
+
+        For more information, see the [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) documentation.
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -2670,6 +2694,8 @@ class GetTaskExecutionPlacementStrategyResult(dict):
                  field: Optional[str] = None):
         """
         :param str type: The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+               
+               For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
         :param str field: The field to apply the placement strategy against.
         """
         pulumi.set(__self__, "type", type)
@@ -2681,6 +2707,8 @@ class GetTaskExecutionPlacementStrategyResult(dict):
     def type(self) -> str:
         """
         The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
+
+        For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
         """
         return pulumi.get(self, "type")
 

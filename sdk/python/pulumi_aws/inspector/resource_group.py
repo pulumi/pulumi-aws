@@ -85,7 +85,6 @@ class ResourceGroup(pulumi.CustomResource):
         Provides an Amazon Inspector Classic Resource Group.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -110,7 +109,6 @@ class ResourceGroup(pulumi.CustomResource):
         Provides an Amazon Inspector Classic Resource Group.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

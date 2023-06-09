@@ -80,6 +80,8 @@ export class DomainSamlOptions extends pulumi.CustomResource {
 
     /**
      * Name of the domain.
+     *
+     * The following arguments are optional:
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -121,6 +123,8 @@ export class DomainSamlOptions extends pulumi.CustomResource {
 export interface DomainSamlOptionsState {
     /**
      * Name of the domain.
+     *
+     * The following arguments are optional:
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -135,6 +139,8 @@ export interface DomainSamlOptionsState {
 export interface DomainSamlOptionsArgs {
     /**
      * Name of the domain.
+     *
+     * The following arguments are optional:
      */
     domainName: pulumi.Input<string>;
     /**

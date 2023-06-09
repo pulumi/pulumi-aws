@@ -219,12 +219,16 @@ public class Stage extends com.pulumi.resources.CustomResource {
     /**
      * Name of the stage. Must be between 1 and 128 characters in length.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the stage. Must be between 1 and 128 characters in length.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

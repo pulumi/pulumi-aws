@@ -115,7 +115,6 @@ def get_parameters_by_path(path: Optional[str] = None,
     Provides SSM Parameters by path.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -129,6 +128,8 @@ def get_parameters_by_path(path: Optional[str] = None,
 
     :param str path: Prefix path of the parameter.
     :param bool recursive: Whether to recursively return parameters under `path`. Defaults to `false`.
+           
+           In addition to all arguments above, the following attributes are exported:
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
     """
     __args__ = dict()
@@ -158,7 +159,6 @@ def get_parameters_by_path_output(path: Optional[pulumi.Input[str]] = None,
     Provides SSM Parameters by path.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -172,6 +172,8 @@ def get_parameters_by_path_output(path: Optional[pulumi.Input[str]] = None,
 
     :param str path: Prefix path of the parameter.
     :param bool recursive: Whether to recursively return parameters under `path`. Defaults to `false`.
+           
+           In addition to all arguments above, the following attributes are exported:
     :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
     """
     ...

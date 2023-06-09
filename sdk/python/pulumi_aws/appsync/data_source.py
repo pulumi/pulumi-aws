@@ -449,7 +449,6 @@ class DataSource(pulumi.CustomResource):
         Provides an AppSync Data Source.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -523,7 +522,6 @@ class DataSource(pulumi.CustomResource):
         Provides an AppSync Data Source.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

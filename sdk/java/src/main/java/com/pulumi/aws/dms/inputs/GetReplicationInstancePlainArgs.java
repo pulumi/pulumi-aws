@@ -18,12 +18,22 @@ public final class GetReplicationInstancePlainArgs extends com.pulumi.resources.
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
      * 
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
+     * 
      */
     @Import(name="replicationInstanceId", required=true)
     private String replicationInstanceId;
 
     /**
      * @return The replication instance identifier. This parameter is stored as a lowercase string.
+     * 
+     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen
+     * - Cannot contain two consecutive hyphens.
      * 
      */
     public String replicationInstanceId() {
@@ -64,6 +74,11 @@ public final class GetReplicationInstancePlainArgs extends com.pulumi.resources.
 
         /**
          * @param replicationInstanceId The replication instance identifier. This parameter is stored as a lowercase string.
+         * 
+         * - Must contain from 1 to 63 alphanumeric characters or hyphens.
+         * - First character must be a letter.
+         * - Cannot end with a hyphen
+         * - Cannot contain two consecutive hyphens.
          * 
          * @return builder
          * 

@@ -14,7 +14,6 @@ import (
 // Provides an Elastic Container Registry Policy.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -283,7 +283,6 @@ class VirtualGateway(pulumi.CustomResource):
 
         ## Example Usage
         ### Access Logs and TLS
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,7 +298,7 @@ class VirtualGateway(pulumi.CustomResource):
                     tls=aws.appmesh.VirtualGatewaySpecListenerTlsArgs(
                         certificate=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateArgs(
                             acm=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs(
-                                certificate_arn=aws_acm_certificate["example"]["arn"],
+                                certificate_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             ),
                         ),
                         mode="STRICT",
@@ -342,7 +341,6 @@ class VirtualGateway(pulumi.CustomResource):
 
         ## Example Usage
         ### Access Logs and TLS
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,7 +356,7 @@ class VirtualGateway(pulumi.CustomResource):
                     tls=aws.appmesh.VirtualGatewaySpecListenerTlsArgs(
                         certificate=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateArgs(
                             acm=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs(
-                                certificate_arn=aws_acm_certificate["example"]["arn"],
+                                certificate_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                             ),
                         ),
                         mode="STRICT",

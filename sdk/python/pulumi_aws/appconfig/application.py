@@ -168,7 +168,6 @@ class Application(pulumi.CustomResource):
         Provides an AppConfig Application resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -204,7 +203,6 @@ class Application(pulumi.CustomResource):
         Provides an AppConfig Application resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

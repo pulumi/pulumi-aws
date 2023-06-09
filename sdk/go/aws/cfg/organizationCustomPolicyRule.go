@@ -16,35 +16,6 @@ import (
 // > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excludedAccounts` argument.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cfg.NewOrganizationCustomPolicyRule(ctx, "example", &cfg.OrganizationCustomPolicyRuleArgs{
-//				PolicyRuntime: pulumi.String("guard-2.x.x"),
-//				PolicyText:    pulumi.String("  let status = ['ACTIVE']\n\n  rule tableisactive when\n      resourceType == \"AWS::DynamoDB::Table\" {\n      configuration.tableStatus == %status\n  }\n\n  rule checkcompliance when\n      resourceType == \"AWS::DynamoDB::Table\"\n      tableisactive {\n          let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus\n          %pitr == \"ENABLED\"\n      }\n\n"),
-//				ResourceTypesScopes: pulumi.StringArray{
-//					pulumi.String("AWS::DynamoDB::Table"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -85,6 +56,8 @@ type OrganizationCustomPolicyRule struct {
 	// Tag value of AWS resources to evaluate
 	TagValueScope pulumi.StringPtrOutput `pulumi:"tagValueScope"`
 	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	//
+	// The following arguments are optional:
 	TriggerTypes pulumi.StringArrayOutput `pulumi:"triggerTypes"`
 }
 
@@ -153,6 +126,8 @@ type organizationCustomPolicyRuleState struct {
 	// Tag value of AWS resources to evaluate
 	TagValueScope *string `pulumi:"tagValueScope"`
 	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	//
+	// The following arguments are optional:
 	TriggerTypes []string `pulumi:"triggerTypes"`
 }
 
@@ -184,6 +159,8 @@ type OrganizationCustomPolicyRuleState struct {
 	// Tag value of AWS resources to evaluate
 	TagValueScope pulumi.StringPtrInput
 	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	//
+	// The following arguments are optional:
 	TriggerTypes pulumi.StringArrayInput
 }
 
@@ -217,6 +194,8 @@ type organizationCustomPolicyRuleArgs struct {
 	// Tag value of AWS resources to evaluate
 	TagValueScope *string `pulumi:"tagValueScope"`
 	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	//
+	// The following arguments are optional:
 	TriggerTypes []string `pulumi:"triggerTypes"`
 }
 
@@ -247,6 +226,8 @@ type OrganizationCustomPolicyRuleArgs struct {
 	// Tag value of AWS resources to evaluate
 	TagValueScope pulumi.StringPtrInput
 	// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+	//
+	// The following arguments are optional:
 	TriggerTypes pulumi.StringArrayInput
 }
 
@@ -403,6 +384,8 @@ func (o OrganizationCustomPolicyRuleOutput) TagValueScope() pulumi.StringPtrOutp
 }
 
 // List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`
+//
+// The following arguments are optional:
 func (o OrganizationCustomPolicyRuleOutput) TriggerTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringArrayOutput { return v.TriggerTypes }).(pulumi.StringArrayOutput)
 }

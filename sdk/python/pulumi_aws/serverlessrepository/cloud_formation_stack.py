@@ -265,7 +265,6 @@ class CloudFormationStack(pulumi.CustomResource):
         Deploys an Application CloudFormation Stack from the Serverless Application Repository.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -311,7 +310,6 @@ class CloudFormationStack(pulumi.CustomResource):
         Deploys an Application CloudFormation Stack from the Serverless Application Repository.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

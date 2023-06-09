@@ -14,12 +14,16 @@ public final class ProjectDataDeliveryCloudwatchLogs {
     /**
      * @return The name of the log group where the project stores evaluation events.
      * 
+     * The `s3_destination` block supports the following arguments:
+     * 
      */
     private @Nullable String logGroup;
 
     private ProjectDataDeliveryCloudwatchLogs() {}
     /**
      * @return The name of the log group where the project stores evaluation events.
+     * 
+     * The `s3_destination` block supports the following arguments:
      * 
      */
     public Optional<String> logGroup() {

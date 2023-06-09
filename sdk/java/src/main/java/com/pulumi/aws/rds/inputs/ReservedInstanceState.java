@@ -144,12 +144,16 @@ public final class ReservedInstanceState extends com.pulumi.resources.ResourceAr
     /**
      * ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="offeringId")
     private @Nullable Output<String> offeringId;
 
     /**
      * @return ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> offeringId() {
@@ -503,6 +507,8 @@ public final class ReservedInstanceState extends com.pulumi.resources.ResourceAr
         /**
          * @param offeringId ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -513,6 +519,8 @@ public final class ReservedInstanceState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param offeringId ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -14,200 +14,6 @@ import (
 // Provides a Route53 record resource.
 //
 // ## Example Usage
-// ### Simple routing policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewRecord(ctx, "www", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
-//				Name:   pulumi.String("www.example.com"),
-//				Type:   pulumi.String("A"),
-//				Ttl:    pulumi.Int(300),
-//				Records: pulumi.StringArray{
-//					aws_eip.Lb.Public_ip,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Weighted routing policy
-//
-// Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewRecord(ctx, "www-dev", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
-//				Name:   pulumi.String("www"),
-//				Type:   pulumi.String("CNAME"),
-//				Ttl:    pulumi.Int(5),
-//				WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
-//					&route53.RecordWeightedRoutingPolicyArgs{
-//						Weight: pulumi.Int(10),
-//					},
-//				},
-//				SetIdentifier: pulumi.String("dev"),
-//				Records: pulumi.StringArray{
-//					pulumi.String("dev.example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "www-live", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
-//				Name:   pulumi.String("www"),
-//				Type:   pulumi.String("CNAME"),
-//				Ttl:    pulumi.Int(5),
-//				WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
-//					&route53.RecordWeightedRoutingPolicyArgs{
-//						Weight: pulumi.Int(90),
-//					},
-//				},
-//				SetIdentifier: pulumi.String("live"),
-//				Records: pulumi.StringArray{
-//					pulumi.String("live.example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Alias record
-//
-// See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
-// to understand differences between alias and non-alias records.
-//
-// TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
-// you cannot change this, therefore `ttl` has to be omitted in alias records.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			main, err := elb.NewLoadBalancer(ctx, "main", &elb.LoadBalancerArgs{
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1c"),
-//				},
-//				Listeners: elb.LoadBalancerListenerArray{
-//					&elb.LoadBalancerListenerArgs{
-//						InstancePort:     pulumi.Int(80),
-//						InstanceProtocol: pulumi.String("http"),
-//						LbPort:           pulumi.Int(80),
-//						LbProtocol:       pulumi.String("http"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
-//				Name:   pulumi.String("example.com"),
-//				Type:   pulumi.String("A"),
-//				Aliases: route53.RecordAliasArray{
-//					&route53.RecordAliasArgs{
-//						Name:                 main.DnsName,
-//						ZoneId:               main.ZoneId,
-//						EvaluateTargetHealth: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### NS and SOA Record Management
-//
-// When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allowOverwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleZone, err := route53.NewZone(ctx, "exampleZone", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
-//				AllowOverwrite: pulumi.Bool(true),
-//				Name:           pulumi.String("test.example.com"),
-//				Ttl:            pulumi.Int(172800),
-//				Type:           pulumi.String("NS"),
-//				ZoneId:         exampleZone.ZoneId,
-//				Records: pulumi.StringArray{
-//					exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
-//						return nameServers[0], nil
-//					}).(pulumi.StringOutput),
-//					exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
-//						return nameServers[1], nil
-//					}).(pulumi.StringOutput),
-//					exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
-//						return nameServers[2], nil
-//					}).(pulumi.StringOutput),
-//					exampleZone.NameServers.ApplyT(func(nameServers []string) (string, error) {
-//						return nameServers[3], nil
-//					}).(pulumi.StringOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -233,6 +39,8 @@ type Record struct {
 	// Documented below.
 	Aliases RecordAliasArrayOutput `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite pulumi.BoolOutput `pulumi:"allowOverwrite"`
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrOutput `pulumi:"cidrRoutingPolicy"`
@@ -306,6 +114,8 @@ type recordState struct {
 	// Documented below.
 	Aliases []RecordAlias `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite *bool `pulumi:"allowOverwrite"`
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy *RecordCidrRoutingPolicy `pulumi:"cidrRoutingPolicy"`
@@ -342,6 +152,8 @@ type RecordState struct {
 	// Documented below.
 	Aliases RecordAliasArrayInput
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite pulumi.BoolPtrInput
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrInput
@@ -382,6 +194,8 @@ type recordArgs struct {
 	// Documented below.
 	Aliases []RecordAlias `pulumi:"aliases"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite *bool `pulumi:"allowOverwrite"`
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy *RecordCidrRoutingPolicy `pulumi:"cidrRoutingPolicy"`
@@ -417,6 +231,8 @@ type RecordArgs struct {
 	// Documented below.
 	Aliases RecordAliasArrayInput
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+	//
+	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 	AllowOverwrite pulumi.BoolPtrInput
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrInput
@@ -540,6 +356,8 @@ func (o RecordOutput) Aliases() RecordAliasArrayOutput {
 }
 
 // Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
+//
+// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
 func (o RecordOutput) AllowOverwrite() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Record) pulumi.BoolOutput { return v.AllowOverwrite }).(pulumi.BoolOutput)
 }

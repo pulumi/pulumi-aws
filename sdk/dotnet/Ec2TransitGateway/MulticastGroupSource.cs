@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// A multicast source is a network interface attached to a supported instance that sends multicast traffic.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

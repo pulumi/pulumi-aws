@@ -166,7 +166,6 @@ class ExtensionAssociation(pulumi.CustomResource):
         Associates an AppConfig Extension with a Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,7 +222,6 @@ class ExtensionAssociation(pulumi.CustomResource):
         Associates an AppConfig Extension with a Resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

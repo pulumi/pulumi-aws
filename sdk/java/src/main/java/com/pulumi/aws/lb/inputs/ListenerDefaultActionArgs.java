@@ -129,12 +129,16 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
     /**
      * Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -322,6 +326,8 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         /**
          * @param type Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -332,6 +338,8 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
 
         /**
          * @param type Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

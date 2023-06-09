@@ -13,7 +13,6 @@ import (
 // Provides an IP access control group in AWS WorkSpaces Service
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

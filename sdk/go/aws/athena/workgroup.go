@@ -13,7 +13,6 @@ import (
 // Provides an Athena Workgroup.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

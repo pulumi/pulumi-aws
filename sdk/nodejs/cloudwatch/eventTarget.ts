@@ -393,6 +393,8 @@ export class EventTarget extends pulumi.CustomResource {
     public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the rule you want to add targets to.
+     *
+     * The following arguments are optional:
      */
     public readonly rule!: pulumi.Output<string>;
     /**
@@ -528,6 +530,8 @@ export interface EventTargetState {
     roleArn?: pulumi.Input<string>;
     /**
      * The name of the rule you want to add targets to.
+     *
+     * The following arguments are optional:
      */
     rule?: pulumi.Input<string>;
     /**
@@ -603,6 +607,8 @@ export interface EventTargetArgs {
     roleArn?: pulumi.Input<string>;
     /**
      * The name of the rule you want to add targets to.
+     *
+     * The following arguments are optional:
      */
     rule: pulumi.Input<string>;
     /**

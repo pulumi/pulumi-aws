@@ -121,6 +121,9 @@ class GetSecretsSecretArgs:
         :param str encryption_algorithm: The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
         :param Sequence[str] grant_tokens: An optional list of Grant Tokens for the secret.
         :param str key_id: Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+               
+               For more information on `context` and `grant_tokens` see the [KMS
+               Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "payload", payload)
@@ -198,6 +201,9 @@ class GetSecretsSecretArgs:
     def key_id(self) -> Optional[str]:
         """
         Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+
+        For more information on `context` and `grant_tokens` see the [KMS
+        Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
         """
         return pulumi.get(self, "key_id")
 

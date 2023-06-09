@@ -89,6 +89,9 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
@@ -96,6 +99,9 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
     /**
      * @return Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -232,6 +238,9 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired local gateway route table.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -243,6 +252,9 @@ public final class GetLocalGatewayRouteTableArgs extends com.pulumi.resources.In
         /**
          * @param tags Mapping of tags, each pair of which must exactly match
          * a pair on the desired local gateway route table.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

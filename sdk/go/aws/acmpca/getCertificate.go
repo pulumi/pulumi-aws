@@ -13,7 +13,6 @@ import (
 // Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

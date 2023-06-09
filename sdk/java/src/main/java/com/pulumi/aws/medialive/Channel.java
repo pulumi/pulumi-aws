@@ -276,12 +276,16 @@ public class Channel extends com.pulumi.resources.CustomResource {
     /**
      * Name of the Channel.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the Channel.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

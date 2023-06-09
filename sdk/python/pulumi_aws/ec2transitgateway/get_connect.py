@@ -121,7 +121,6 @@ def get_connect(filters: Optional[Sequence[pulumi.InputType['GetConnectFilterArg
 
     ## Example Usage
     ### By Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -132,7 +131,6 @@ def get_connect(filters: Optional[Sequence[pulumi.InputType['GetConnectFilterArg
     )])
     ```
     ### By Identifier
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -172,7 +170,6 @@ def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
 
     ## Example Usage
     ### By Filter
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -183,7 +180,6 @@ def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
     )])
     ```
     ### By Identifier
-
     ```python
     import pulumi
     import pulumi_aws as aws

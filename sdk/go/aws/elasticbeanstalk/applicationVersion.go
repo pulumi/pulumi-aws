@@ -24,52 +24,6 @@ import (
 // To work around this you can either create each environment in a separate AWS account or create your `elasticbeanstalk.ApplicationVersion` resources with a unique names in your Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.
 //
 // ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			defaultBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "defaultBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket: defaultBucketV2.ID(),
-//				Key:    pulumi.String("beanstalk/go-v1.zip"),
-//				Source: pulumi.NewFileAsset("go-v1.zip"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticbeanstalk.NewApplication(ctx, "defaultApplication", &elasticbeanstalk.ApplicationArgs{
-//				Description: pulumi.String("tf-test-desc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticbeanstalk.NewApplicationVersion(ctx, "defaultApplicationVersion", &elasticbeanstalk.ApplicationVersionArgs{
-//				Application: pulumi.Any("tf-test-name"),
-//				Description: pulumi.String("application version"),
-//				Bucket:      defaultBucketV2.ID(),
-//				Key:         defaultBucketObjectv2.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type ApplicationVersion struct {
 	pulumi.CustomResourceState
 
@@ -86,6 +40,8 @@ type ApplicationVersion struct {
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -144,6 +100,8 @@ type applicationVersionState struct {
 	// S3 object that is the Application Version source bundle.
 	Key *string `pulumi:"key"`
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -165,6 +123,8 @@ type ApplicationVersionState struct {
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringPtrInput
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -188,6 +148,8 @@ type applicationVersionArgs struct {
 	// S3 object that is the Application Version source bundle.
 	Key string `pulumi:"key"`
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -206,6 +168,8 @@ type ApplicationVersionArgs struct {
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringInput
 	// Unique name for the this Application Version.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -329,6 +293,8 @@ func (o ApplicationVersionOutput) Key() pulumi.StringOutput {
 }
 
 // Unique name for the this Application Version.
+//
+// The following arguments are optional:
 func (o ApplicationVersionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

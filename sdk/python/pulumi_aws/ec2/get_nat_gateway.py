@@ -171,21 +171,19 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
     Provides details about a specific Nat Gateway.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
+    default = aws.ec2.get_nat_gateway(subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
     Usage with tags:
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"],
+    default = aws.ec2.get_nat_gateway(subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         tags={
             "Name": "gw NAT",
         })
@@ -193,6 +191,9 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
 
 
     :param Sequence[pulumi.InputType['GetNatGatewayFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str id: ID of the specific Nat Gateway to retrieve.
     :param str state: State of the NAT gateway (pending | failed | available | deleting | deleted ).
     :param str subnet_id: ID of subnet that the Nat Gateway resides in.
@@ -237,21 +238,19 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     Provides details about a specific Nat Gateway.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
+    default = aws.ec2.get_nat_gateway(subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
     Usage with tags:
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"],
+    default = aws.ec2.get_nat_gateway(subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         tags={
             "Name": "gw NAT",
         })
@@ -259,6 +258,9 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
 
 
     :param Sequence[pulumi.InputType['GetNatGatewayFilterArgs']] filters: Custom filter block as described below.
+           
+           More complex filters can be expressed using one or more `filter` sub-blocks,
+           which take the following arguments:
     :param str id: ID of the specific Nat Gateway to retrieve.
     :param str state: State of the NAT gateway (pending | failed | available | deleting | deleted ).
     :param str subnet_id: ID of subnet that the Nat Gateway resides in.

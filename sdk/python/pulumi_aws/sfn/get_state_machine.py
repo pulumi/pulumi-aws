@@ -121,7 +121,6 @@ def get_state_machine(name: Optional[str] = None,
     state machine without having to hard code the ARNs as input.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -156,7 +155,6 @@ def get_state_machine_output(name: Optional[pulumi.Input[str]] = None,
     state machine without having to hard code the ARNs as input.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

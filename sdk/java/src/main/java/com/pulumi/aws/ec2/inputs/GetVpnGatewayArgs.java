@@ -21,12 +21,18 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
      * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
+     * 
      */
     @Import(name="amazonSideAsn")
     private @Nullable Output<String> amazonSideAsn;
 
     /**
      * @return Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+     * 
+     * More complex filters can be expressed using one or more `filter` sub-blocks,
+     * which take the following arguments:
      * 
      */
     public Optional<Output<String>> amazonSideAsn() {
@@ -158,6 +164,9 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param amazonSideAsn Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
          * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
+         * 
          * @return builder
          * 
          */
@@ -168,6 +177,9 @@ public final class GetVpnGatewayArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param amazonSideAsn Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+         * 
+         * More complex filters can be expressed using one or more `filter` sub-blocks,
+         * which take the following arguments:
          * 
          * @return builder
          * 

@@ -82,6 +82,8 @@ export class Listener extends pulumi.CustomResource {
     public readonly clientAffinity!: pulumi.Output<string | undefined>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     *
+     * **port_range** supports the following attributes:
      */
     public readonly portRanges!: pulumi.Output<outputs.globalaccelerator.ListenerPortRange[]>;
     /**
@@ -141,6 +143,8 @@ export interface ListenerState {
     clientAffinity?: pulumi.Input<string>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     *
+     * **port_range** supports the following attributes:
      */
     portRanges?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRange>[]>;
     /**
@@ -163,6 +167,8 @@ export interface ListenerArgs {
     clientAffinity?: pulumi.Input<string>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+     *
+     * **port_range** supports the following attributes:
      */
     portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRange>[]>;
     /**

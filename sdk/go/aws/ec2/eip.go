@@ -235,6 +235,11 @@ type Eip struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Boolean if the EIP is in a VPC or not.
 	// Defaults to `true` unless the region supports EC2-Classic.
+	//
+	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+	//
+	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
+	// case both options are defined as the api only requires one or the other.
 	Vpc pulumi.BoolOutput `pulumi:"vpc"`
 }
 
@@ -306,6 +311,11 @@ type eipState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Boolean if the EIP is in a VPC or not.
 	// Defaults to `true` unless the region supports EC2-Classic.
+	//
+	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+	//
+	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
+	// case both options are defined as the api only requires one or the other.
 	Vpc *bool `pulumi:"vpc"`
 }
 
@@ -349,6 +359,11 @@ type EipState struct {
 	TagsAll pulumi.StringMapInput
 	// Boolean if the EIP is in a VPC or not.
 	// Defaults to `true` unless the region supports EC2-Classic.
+	//
+	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+	//
+	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
+	// case both options are defined as the api only requires one or the other.
 	Vpc pulumi.BoolPtrInput
 }
 
@@ -376,6 +391,11 @@ type eipArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Boolean if the EIP is in a VPC or not.
 	// Defaults to `true` unless the region supports EC2-Classic.
+	//
+	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+	//
+	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
+	// case both options are defined as the api only requires one or the other.
 	Vpc *bool `pulumi:"vpc"`
 }
 
@@ -400,6 +420,11 @@ type EipArgs struct {
 	Tags pulumi.StringMapInput
 	// Boolean if the EIP is in a VPC or not.
 	// Defaults to `true` unless the region supports EC2-Classic.
+	//
+	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+	//
+	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
+	// case both options are defined as the api only requires one or the other.
 	Vpc pulumi.BoolPtrInput
 }
 
@@ -583,6 +608,11 @@ func (o EipOutput) TagsAll() pulumi.StringMapOutput {
 
 // Boolean if the EIP is in a VPC or not.
 // Defaults to `true` unless the region supports EC2-Classic.
+//
+// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
+//
+// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
+// case both options are defined as the api only requires one or the other.
 func (o EipOutput) Vpc() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Eip) pulumi.BoolOutput { return v.Vpc }).(pulumi.BoolOutput)
 }

@@ -582,7 +582,6 @@ class PatchBaseline(pulumi.CustomResource):
         ### Basic Usage
 
         Using `approved_patches` only.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -590,7 +589,6 @@ class PatchBaseline(pulumi.CustomResource):
         production = aws.ssm.PatchBaseline("production", approved_patches=["KB123456"])
         ```
         ### Advanced Usage, specifying patch filters
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -653,7 +651,6 @@ class PatchBaseline(pulumi.CustomResource):
             rejected_patches=["KB987654"])
         ```
         ### Advanced usage, specifying Microsoft application and Windows patch rules
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -700,7 +697,6 @@ class PatchBaseline(pulumi.CustomResource):
             operating_system="WINDOWS")
         ```
         ### Advanced usage, specifying alternate patch source repository
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -798,7 +794,6 @@ class PatchBaseline(pulumi.CustomResource):
         ### Basic Usage
 
         Using `approved_patches` only.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -806,7 +801,6 @@ class PatchBaseline(pulumi.CustomResource):
         production = aws.ssm.PatchBaseline("production", approved_patches=["KB123456"])
         ```
         ### Advanced Usage, specifying patch filters
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -869,7 +863,6 @@ class PatchBaseline(pulumi.CustomResource):
             rejected_patches=["KB987654"])
         ```
         ### Advanced usage, specifying Microsoft application and Windows patch rules
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -916,7 +909,6 @@ class PatchBaseline(pulumi.CustomResource):
             operating_system="WINDOWS")
         ```
         ### Advanced usage, specifying alternate patch source repository
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -16,7 +16,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### Add notification configuration to SNS Topic
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,7 +93,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Add notification configuration to SQS Queue
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -172,7 +170,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Add notification configuration to Lambda Function
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -257,7 +254,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### Add multiple notification configurations to SQS Queue
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -347,7 +343,6 @@ namespace Pulumi.Aws.S3
     /// ```
     /// 
     /// For JSON syntax, use an array instead of defining the `queue` key twice.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -371,6 +366,8 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// Name of the bucket for notification configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -447,6 +444,8 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// Name of the bucket for notification configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -503,6 +502,8 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// Name of the bucket for notification configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

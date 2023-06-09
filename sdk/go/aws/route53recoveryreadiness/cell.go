@@ -14,7 +14,6 @@ import (
 // Provides an AWS Route 53 Recovery Readiness Cell.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -54,6 +53,8 @@ type Cell struct {
 	// ARN of the cell
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Unique name describing the cell.
+	//
+	// The following arguments are optional:
 	CellName pulumi.StringOutput `pulumi:"cellName"`
 	// List of cell arns to add as nested fault domains within this cell.
 	Cells pulumi.StringArrayOutput `pulumi:"cells"`
@@ -100,6 +101,8 @@ type cellState struct {
 	// ARN of the cell
 	Arn *string `pulumi:"arn"`
 	// Unique name describing the cell.
+	//
+	// The following arguments are optional:
 	CellName *string `pulumi:"cellName"`
 	// List of cell arns to add as nested fault domains within this cell.
 	Cells []string `pulumi:"cells"`
@@ -115,6 +118,8 @@ type CellState struct {
 	// ARN of the cell
 	Arn pulumi.StringPtrInput
 	// Unique name describing the cell.
+	//
+	// The following arguments are optional:
 	CellName pulumi.StringPtrInput
 	// List of cell arns to add as nested fault domains within this cell.
 	Cells pulumi.StringArrayInput
@@ -132,6 +137,8 @@ func (CellState) ElementType() reflect.Type {
 
 type cellArgs struct {
 	// Unique name describing the cell.
+	//
+	// The following arguments are optional:
 	CellName string `pulumi:"cellName"`
 	// List of cell arns to add as nested fault domains within this cell.
 	Cells []string `pulumi:"cells"`
@@ -142,6 +149,8 @@ type cellArgs struct {
 // The set of arguments for constructing a Cell resource.
 type CellArgs struct {
 	// Unique name describing the cell.
+	//
+	// The following arguments are optional:
 	CellName pulumi.StringInput
 	// List of cell arns to add as nested fault domains within this cell.
 	Cells pulumi.StringArrayInput
@@ -242,6 +251,8 @@ func (o CellOutput) Arn() pulumi.StringOutput {
 }
 
 // Unique name describing the cell.
+//
+// The following arguments are optional:
 func (o CellOutput) CellName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cell) pulumi.StringOutput { return v.CellName }).(pulumi.StringOutput)
 }

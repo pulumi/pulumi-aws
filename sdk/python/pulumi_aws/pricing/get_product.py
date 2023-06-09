@@ -84,7 +84,6 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
     This data source is only available in a us-east-1 or ap-south-1 provider.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -121,7 +120,6 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
         ],
         service_code="AmazonEC2")
     ```
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -165,7 +163,6 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
     This data source is only available in a us-east-1 or ap-south-1 provider.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -202,7 +199,6 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
         ],
         service_code="AmazonEC2")
     ```
-
     ```python
     import pulumi
     import pulumi_aws as aws

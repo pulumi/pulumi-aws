@@ -478,12 +478,16 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * The following arguments are deprecated, and will be removed in a future major version:
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * The following arguments are deprecated, and will be removed in a future major version:
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

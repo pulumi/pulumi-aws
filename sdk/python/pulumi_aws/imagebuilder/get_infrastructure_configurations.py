@@ -85,7 +85,6 @@ def get_infrastructure_configurations(filters: Optional[Sequence[pulumi.InputTyp
     Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -118,7 +117,6 @@ def get_infrastructure_configurations_output(filters: Optional[pulumi.Input[Opti
     Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

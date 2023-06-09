@@ -86,6 +86,11 @@ export interface GetAmiArgs {
      * filtering is done locally on what AWS returns, and could have a performance
      * impact if the result is large. Combine this with other
      * options to narrow down the list AWS returns.
+     *
+     * > **NOTE:** If more or less than a single match is returned by the search,
+     * this call will fail. Ensure that your search is specific enough to return
+     * a single AMI ID only, or use `mostRecent` to choose the most recent one. If
+     * you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
      */
     nameRegex?: string;
     /**
@@ -323,6 +328,11 @@ export interface GetAmiOutputArgs {
      * filtering is done locally on what AWS returns, and could have a performance
      * impact if the result is large. Combine this with other
      * options to narrow down the list AWS returns.
+     *
+     * > **NOTE:** If more or less than a single match is returned by the search,
+     * this call will fail. Ensure that your search is specific enough to return
+     * a single AMI ID only, or use `mostRecent` to choose the most recent one. If
+     * you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
      */
     nameRegex?: pulumi.Input<string>;
     /**

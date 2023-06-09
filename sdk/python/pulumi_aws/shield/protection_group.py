@@ -267,7 +267,6 @@ class ProtectionGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Create protection group for all resources
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,7 +277,6 @@ class ProtectionGroup(pulumi.CustomResource):
             protection_group_id="example")
         ```
         ### Create protection group for arbitrary number of resources
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,7 +293,6 @@ class ProtectionGroup(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_protection]))
         ```
         ### Create protection group for a type of resource
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -337,7 +334,6 @@ class ProtectionGroup(pulumi.CustomResource):
 
         ## Example Usage
         ### Create protection group for all resources
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -348,7 +344,6 @@ class ProtectionGroup(pulumi.CustomResource):
             protection_group_id="example")
         ```
         ### Create protection group for arbitrary number of resources
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -365,7 +360,6 @@ class ProtectionGroup(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[example_protection]))
         ```
         ### Create protection group for a type of resource
-
         ```python
         import pulumi
         import pulumi_aws as aws

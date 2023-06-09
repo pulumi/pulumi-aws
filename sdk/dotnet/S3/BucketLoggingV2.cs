@@ -17,7 +17,6 @@ namespace Pulumi.Aws.S3
     /// to decide which method meets your requirements.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

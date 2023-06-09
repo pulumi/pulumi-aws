@@ -323,7 +323,6 @@ class ContactFlowModule(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import json
@@ -415,7 +414,6 @@ class ContactFlowModule(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic
-
         ```python
         import pulumi
         import json

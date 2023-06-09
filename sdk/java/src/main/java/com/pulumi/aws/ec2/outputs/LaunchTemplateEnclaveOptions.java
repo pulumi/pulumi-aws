@@ -14,12 +14,16 @@ public final class LaunchTemplateEnclaveOptions {
     /**
      * @return If set to `true`, Nitro Enclaves will be enabled on the instance.
      * 
+     * For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
+     * 
      */
     private @Nullable Boolean enabled;
 
     private LaunchTemplateEnclaveOptions() {}
     /**
      * @return If set to `true`, Nitro Enclaves will be enabled on the instance.
+     * 
+     * For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
      * 
      */
     public Optional<Boolean> enabled() {

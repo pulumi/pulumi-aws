@@ -175,7 +175,6 @@ def get_stream(name: Optional[str] = None,
     For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -218,7 +217,6 @@ def get_stream_output(name: Optional[pulumi.Input[str]] = None,
     For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

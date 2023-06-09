@@ -32,12 +32,16 @@ public final class GetQuicksightGroupPlainArgs extends com.pulumi.resources.Invo
     /**
      * The name of the group that you want to match.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="groupName", required=true)
     private String groupName;
 
     /**
      * @return The name of the group that you want to match.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String groupName() {
@@ -98,6 +102,8 @@ public final class GetQuicksightGroupPlainArgs extends com.pulumi.resources.Invo
 
         /**
          * @param groupName The name of the group that you want to match.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

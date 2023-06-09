@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Provides an Elastic network interface (ENI) resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -207,6 +206,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Subnet ID to create the ENI in.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -424,6 +425,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Subnet ID to create the ENI in.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -630,6 +633,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Subnet ID to create the ENI in.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

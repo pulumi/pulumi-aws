@@ -398,18 +398,17 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.sagemaker.DataQualityJobDefinition("test",
             data_quality_app_specification=aws.sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs(
-                image_uri=data["aws_sagemaker_prebuilt_ecr_image"]["monitor"]["registry_path"],
+                image_uri=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             data_quality_job_input=aws.sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs(
                 endpoint_input=aws.sagemaker.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs(
-                    endpoint_name=aws_sagemaker_endpoint["my_endpoint"]["name"],
+                    endpoint_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ),
             data_quality_job_output_config=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigArgs(
@@ -462,18 +461,17 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.sagemaker.DataQualityJobDefinition("test",
             data_quality_app_specification=aws.sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs(
-                image_uri=data["aws_sagemaker_prebuilt_ecr_image"]["monitor"]["registry_path"],
+                image_uri=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             ),
             data_quality_job_input=aws.sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs(
                 endpoint_input=aws.sagemaker.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs(
-                    endpoint_name=aws_sagemaker_endpoint["my_endpoint"]["name"],
+                    endpoint_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ),
             data_quality_job_output_config=aws.sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigArgs(

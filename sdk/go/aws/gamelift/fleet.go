@@ -14,7 +14,6 @@ import (
 // Provides a GameLift Fleet resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// Provides a Global Accelerator listener.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,6 +76,8 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        /// 
+        /// **port_range** supports the following attributes:
         /// </summary>
         [Output("portRanges")]
         public Output<ImmutableArray<Outputs.ListenerPortRange>> PortRanges { get; private set; } = null!;
@@ -150,6 +151,8 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        /// 
+        /// **port_range** supports the following attributes:
         /// </summary>
         public InputList<Inputs.ListenerPortRangeArgs> PortRanges
         {
@@ -188,6 +191,8 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
+        /// 
+        /// **port_range** supports the following attributes:
         /// </summary>
         public InputList<Inputs.ListenerPortRangeGetArgs> PortRanges
         {

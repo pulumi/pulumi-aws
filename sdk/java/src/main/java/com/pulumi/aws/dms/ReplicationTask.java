@@ -143,12 +143,22 @@ public class ReplicationTask extends com.pulumi.resources.CustomResource {
     /**
      * The replication task identifier.
      * 
+     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen.
+     * - Cannot contain two consecutive hyphens.
+     * 
      */
     @Export(name="replicationTaskId", refs={String.class}, tree="[0]")
     private Output<String> replicationTaskId;
 
     /**
      * @return The replication task identifier.
+     * 
+     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen.
+     * - Cannot contain two consecutive hyphens.
      * 
      */
     public Output<String> replicationTaskId() {

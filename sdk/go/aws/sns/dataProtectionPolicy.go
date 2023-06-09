@@ -14,7 +14,6 @@ import (
 // Provides an SNS data protection topic policy resource
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

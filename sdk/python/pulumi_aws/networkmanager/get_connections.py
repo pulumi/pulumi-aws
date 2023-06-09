@@ -91,12 +91,11 @@ def get_connections(device_id: Optional[str] = None,
     Retrieve information about connections.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_connections(global_network_id=var["global_network_id"],
+    example = aws.networkmanager.get_connections(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         tags={
             "Env": "test",
         })
@@ -131,12 +130,11 @@ def get_connections_output(device_id: Optional[pulumi.Input[Optional[str]]] = No
     Retrieve information about connections.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_connections(global_network_id=var["global_network_id"],
+    example = aws.networkmanager.get_connections(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
         tags={
             "Env": "test",
         })

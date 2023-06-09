@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -40,7 +39,6 @@ import (
 //
 // ```
 // ### Managed Pool
-//
 // ```go
 // package main
 //
@@ -81,6 +79,8 @@ type DedicatedIpPool struct {
 	// ARN of the Dedicated IP Pool.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the dedicated IP pool.
+	//
+	// The following arguments are optional:
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode pulumi.StringOutput `pulumi:"scalingMode"`
@@ -124,6 +124,8 @@ type dedicatedIpPoolState struct {
 	// ARN of the Dedicated IP Pool.
 	Arn *string `pulumi:"arn"`
 	// Name of the dedicated IP pool.
+	//
+	// The following arguments are optional:
 	PoolName *string `pulumi:"poolName"`
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode *string `pulumi:"scalingMode"`
@@ -136,6 +138,8 @@ type DedicatedIpPoolState struct {
 	// ARN of the Dedicated IP Pool.
 	Arn pulumi.StringPtrInput
 	// Name of the dedicated IP pool.
+	//
+	// The following arguments are optional:
 	PoolName pulumi.StringPtrInput
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode pulumi.StringPtrInput
@@ -150,6 +154,8 @@ func (DedicatedIpPoolState) ElementType() reflect.Type {
 
 type dedicatedIpPoolArgs struct {
 	// Name of the dedicated IP pool.
+	//
+	// The following arguments are optional:
 	PoolName string `pulumi:"poolName"`
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode *string `pulumi:"scalingMode"`
@@ -160,6 +166,8 @@ type dedicatedIpPoolArgs struct {
 // The set of arguments for constructing a DedicatedIpPool resource.
 type DedicatedIpPoolArgs struct {
 	// Name of the dedicated IP pool.
+	//
+	// The following arguments are optional:
 	PoolName pulumi.StringInput
 	// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
 	ScalingMode pulumi.StringPtrInput
@@ -260,6 +268,8 @@ func (o DedicatedIpPoolOutput) Arn() pulumi.StringOutput {
 }
 
 // Name of the dedicated IP pool.
+//
+// The following arguments are optional:
 func (o DedicatedIpPoolOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringOutput { return v.PoolName }).(pulumi.StringOutput)
 }

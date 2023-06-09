@@ -293,12 +293,16 @@ public class Schedule extends com.pulumi.resources.CustomResource {
     /**
      * Configures the target of the schedule. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="target", refs={ScheduleTarget.class}, tree="[0]")
     private Output<ScheduleTarget> target;
 
     /**
      * @return Configures the target of the schedule. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<ScheduleTarget> target() {

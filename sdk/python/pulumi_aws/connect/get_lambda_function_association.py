@@ -69,7 +69,6 @@ def get_lambda_function_association(function_arn: Optional[str] = None,
     Provides details about a specific Connect Lambda Function Association.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,7 +101,6 @@ def get_lambda_function_association_output(function_arn: Optional[pulumi.Input[s
     Provides details about a specific Connect Lambda Function Association.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

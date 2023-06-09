@@ -135,7 +135,6 @@ class AuthPolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import json
@@ -187,7 +186,6 @@ class AuthPolicy(pulumi.CustomResource):
 
         ## Example Usage
         ### Basic Usage
-
         ```python
         import pulumi
         import json

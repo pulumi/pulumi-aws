@@ -33,12 +33,16 @@ public final class GetQuicksightGroupArgs extends com.pulumi.resources.InvokeArg
     /**
      * The name of the group that you want to match.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="groupName", required=true)
     private Output<String> groupName;
 
     /**
      * @return The name of the group that you want to match.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> groupName() {
@@ -110,6 +114,8 @@ public final class GetQuicksightGroupArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param groupName The name of the group that you want to match.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -120,6 +126,8 @@ public final class GetQuicksightGroupArgs extends com.pulumi.resources.InvokeArg
 
         /**
          * @param groupName The name of the group that you want to match.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

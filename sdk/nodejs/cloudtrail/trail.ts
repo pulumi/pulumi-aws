@@ -224,6 +224,8 @@ export class Trail extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * Name of the S3 bucket designated for publishing log files.
+     *
+     * The following arguments are optional:
      */
     public readonly s3BucketName!: pulumi.Output<string>;
     /**
@@ -367,6 +369,8 @@ export interface TrailState {
     name?: pulumi.Input<string>;
     /**
      * Name of the S3 bucket designated for publishing log files.
+     *
+     * The following arguments are optional:
      */
     s3BucketName?: pulumi.Input<string>;
     /**
@@ -441,6 +445,8 @@ export interface TrailArgs {
     name?: pulumi.Input<string>;
     /**
      * Name of the S3 bucket designated for publishing log files.
+     *
+     * The following arguments are optional:
      */
     s3BucketName: pulumi.Input<string>;
     /**

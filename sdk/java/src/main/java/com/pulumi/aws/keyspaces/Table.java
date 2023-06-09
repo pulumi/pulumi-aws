@@ -194,12 +194,16 @@ public class Table extends com.pulumi.resources.CustomResource {
     /**
      * The name of the table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     /**
      * @return The name of the table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> tableName() {

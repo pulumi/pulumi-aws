@@ -27,12 +27,16 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
     /**
      * Route requests to one or more target groups. See Forward blocks below.
      * 
+     * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
+     * 
      */
     @Import(name="forwards")
     private @Nullable Output<List<ListenerDefaultActionForwardArgs>> forwards;
 
     /**
      * @return Route requests to one or more target groups. See Forward blocks below.
+     * 
+     * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
      * 
      */
     public Optional<Output<List<ListenerDefaultActionForwardArgs>>> forwards() {
@@ -76,6 +80,8 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         /**
          * @param forwards Route requests to one or more target groups. See Forward blocks below.
          * 
+         * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
+         * 
          * @return builder
          * 
          */
@@ -87,6 +93,8 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         /**
          * @param forwards Route requests to one or more target groups. See Forward blocks below.
          * 
+         * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
+         * 
          * @return builder
          * 
          */
@@ -96,6 +104,8 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
 
         /**
          * @param forwards Route requests to one or more target groups. See Forward blocks below.
+         * 
+         * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
          * 
          * @return builder
          * 

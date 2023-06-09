@@ -39,7 +39,6 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// ### Edge Optimized (ACM Certificate)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,7 +74,6 @@ namespace Pulumi.Aws.ApiGateway
     /// });
     /// ```
     /// ### Edge Optimized (IAM Certificate)
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -206,6 +204,8 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+        /// 
+        /// When uploading a certificate, the following arguments are supported:
         /// </summary>
         [Output("regionalCertificateArn")]
         public Output<string?> RegionalCertificateArn { get; private set; } = null!;
@@ -236,6 +236,8 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// When referencing an AWS-managed certificate, the following arguments are supported:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -362,6 +364,8 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+        /// 
+        /// When uploading a certificate, the following arguments are supported:
         /// </summary>
         [Input("regionalCertificateArn")]
         public Input<string>? RegionalCertificateArn { get; set; }
@@ -383,6 +387,8 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// When referencing an AWS-managed certificate, the following arguments are supported:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -488,6 +494,8 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+        /// 
+        /// When uploading a certificate, the following arguments are supported:
         /// </summary>
         [Input("regionalCertificateArn")]
         public Input<string>? RegionalCertificateArn { get; set; }
@@ -521,6 +529,8 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// When referencing an AWS-managed certificate, the following arguments are supported:
         /// </summary>
         public InputMap<string> Tags
         {

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CloudFront
     /// Provides a CloudFront Field-level Encryption Config resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

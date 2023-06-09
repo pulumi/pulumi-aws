@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// Manages an Image Builder Image Recipe.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -155,6 +154,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -279,6 +280,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -401,6 +404,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

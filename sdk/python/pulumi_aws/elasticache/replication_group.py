@@ -92,6 +92,8 @@ class ReplicationGroupArgs:
                Changing this number will trigger a resizing operation before other settings modifications.
                Valid values are 0 to 5.
         :param pulumi.Input[str] replication_group_description: User-created description for the replication group. Must not be empty.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of cache security group names to associate with this replication group.
@@ -516,6 +518,8 @@ class ReplicationGroupArgs:
     def replication_group_description(self) -> Optional[pulumi.Input[str]]:
         """
         User-created description for the replication group. Must not be empty.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "replication_group_description")
 
@@ -750,6 +754,8 @@ class _ReplicationGroupState:
                Changing this number will trigger a resizing operation before other settings modifications.
                Valid values are 0 to 5.
         :param pulumi.Input[str] replication_group_description: User-created description for the replication group. Must not be empty.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of cache security group names to associate with this replication group.
@@ -1275,6 +1281,8 @@ class _ReplicationGroupState:
     def replication_group_description(self) -> Optional[pulumi.Input[str]]:
         """
         User-created description for the replication group. Must not be empty.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "replication_group_description")
 
@@ -1572,13 +1580,13 @@ class ReplicationGroup(pulumi.CustomResource):
             snapshot_window="01:00-02:00",
             log_delivery_configurations=[
                 aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=aws_cloudwatch_log_group["example"]["name"],
+                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
                 aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
+                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     destination_type="kinesis-firehose",
                     log_format="json",
                     log_type="engine-log",
@@ -1662,6 +1670,8 @@ class ReplicationGroup(pulumi.CustomResource):
                Changing this number will trigger a resizing operation before other settings modifications.
                Valid values are 0 to 5.
         :param pulumi.Input[str] replication_group_description: User-created description for the replication group. Must not be empty.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of cache security group names to associate with this replication group.
@@ -1781,13 +1791,13 @@ class ReplicationGroup(pulumi.CustomResource):
             snapshot_window="01:00-02:00",
             log_delivery_configurations=[
                 aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=aws_cloudwatch_log_group["example"]["name"],
+                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
                 aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
+                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     destination_type="kinesis-firehose",
                     log_format="json",
                     log_type="engine-log",
@@ -2058,6 +2068,8 @@ class ReplicationGroup(pulumi.CustomResource):
                Changing this number will trigger a resizing operation before other settings modifications.
                Valid values are 0 to 5.
         :param pulumi.Input[str] replication_group_description: User-created description for the replication group. Must not be empty.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of cache security group names to associate with this replication group.
@@ -2401,6 +2413,8 @@ class ReplicationGroup(pulumi.CustomResource):
     def replication_group_description(self) -> pulumi.Output[str]:
         """
         User-created description for the replication group. Must not be empty.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "replication_group_description")
 

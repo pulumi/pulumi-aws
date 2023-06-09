@@ -13,7 +13,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// Provides an AWS Network Firewall Firewall Policy Resource
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,6 +51,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// ## Policy with a Custom Action for Stateless Inspection
     /// 
     /// ## Import
     /// 

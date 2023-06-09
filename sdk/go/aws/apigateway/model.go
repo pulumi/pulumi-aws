@@ -14,7 +14,6 @@ import (
 // Provides a Model for a REST API Gateway.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

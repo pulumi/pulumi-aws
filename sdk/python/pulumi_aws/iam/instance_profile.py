@@ -266,7 +266,6 @@ class InstanceProfile(pulumi.CustomResource):
         Provides an IAM instance profile.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -311,7 +310,6 @@ class InstanceProfile(pulumi.CustomResource):
         Provides an IAM instance profile.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

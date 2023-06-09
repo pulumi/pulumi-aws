@@ -13,7 +13,6 @@ import (
 // Provides an API Gateway Usage Plan.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

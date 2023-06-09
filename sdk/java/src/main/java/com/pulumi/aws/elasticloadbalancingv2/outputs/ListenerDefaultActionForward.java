@@ -21,6 +21,8 @@ public final class ListenerDefaultActionForward {
     /**
      * @return Set of 1-5 target group blocks. Detailed below.
      * 
+     * The following arguments are optional:
+     * 
      */
     private List<ListenerDefaultActionForwardTargetGroup> targetGroups;
 
@@ -34,6 +36,8 @@ public final class ListenerDefaultActionForward {
     }
     /**
      * @return Set of 1-5 target group blocks. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public List<ListenerDefaultActionForwardTargetGroup> targetGroups() {

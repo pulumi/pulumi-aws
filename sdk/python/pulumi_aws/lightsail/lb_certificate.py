@@ -226,7 +226,6 @@ class LbCertificate(pulumi.CustomResource):
         Creates a Lightsail load balancer Certificate resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -267,7 +266,6 @@ class LbCertificate(pulumi.CustomResource):
         Creates a Lightsail load balancer Certificate resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

@@ -119,7 +119,6 @@ class RepositoryPolicy(pulumi.CustomResource):
         Note that currently only one policy may be applied to a repository.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,7 +178,6 @@ class RepositoryPolicy(pulumi.CustomResource):
         Note that currently only one policy may be applied to a repository.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

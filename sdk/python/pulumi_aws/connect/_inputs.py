@@ -1391,6 +1391,8 @@ class UserHierarchyStructureHierarchyStructureArgs:
                  level_two: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs']] = None):
         """
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs'] level_five: A block that defines the details of level five. The level block is documented below.
+               
+               Each level block supports the following arguments:
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs'] level_four: A block that defines the details of level four. The level block is documented below.
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs'] level_one: A block that defines the details of level one. The level block is documented below.
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs'] level_three: A block that defines the details of level three. The level block is documented below.
@@ -1412,6 +1414,8 @@ class UserHierarchyStructureHierarchyStructureArgs:
     def level_five(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs']]:
         """
         A block that defines the details of level five. The level block is documented below.
+
+        Each level block supports the following arguments:
         """
         return pulumi.get(self, "level_five")
 

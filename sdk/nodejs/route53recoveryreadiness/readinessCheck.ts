@@ -65,6 +65,8 @@ export class ReadinessCheck extends pulumi.CustomResource {
     public readonly readinessCheckName!: pulumi.Output<string>;
     /**
      * Name describing the resource set that will be monitored for readiness.
+     *
+     * The following arguments are optional:
      */
     public readonly resourceSetName!: pulumi.Output<string>;
     /**
@@ -127,6 +129,8 @@ export interface ReadinessCheckState {
     readinessCheckName?: pulumi.Input<string>;
     /**
      * Name describing the resource set that will be monitored for readiness.
+     *
+     * The following arguments are optional:
      */
     resourceSetName?: pulumi.Input<string>;
     /**
@@ -149,6 +153,8 @@ export interface ReadinessCheckArgs {
     readinessCheckName: pulumi.Input<string>;
     /**
      * Name describing the resource set that will be monitored for readiness.
+     *
+     * The following arguments are optional:
      */
     resourceSetName: pulumi.Input<string>;
     /**

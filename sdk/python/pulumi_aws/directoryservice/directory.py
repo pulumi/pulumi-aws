@@ -531,7 +531,6 @@ class Directory(pulumi.CustomResource):
 
         ## Example Usage
         ### SimpleAD
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -561,7 +560,6 @@ class Directory(pulumi.CustomResource):
             })
         ```
         ### Microsoft Active Directory (MicrosoftAD)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -592,7 +590,6 @@ class Directory(pulumi.CustomResource):
             })
         ```
         ### Microsoft Active Directory Connector (ADConnector)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -657,7 +654,6 @@ class Directory(pulumi.CustomResource):
 
         ## Example Usage
         ### SimpleAD
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -687,7 +683,6 @@ class Directory(pulumi.CustomResource):
             })
         ```
         ### Microsoft Active Directory (MicrosoftAD)
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -718,7 +713,6 @@ class Directory(pulumi.CustomResource):
             })
         ```
         ### Microsoft Active Directory Connector (ADConnector)
-
         ```python
         import pulumi
         import pulumi_aws as aws

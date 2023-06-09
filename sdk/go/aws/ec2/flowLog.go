@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### CloudWatch Logging
-//
 // ```go
 // package main
 //
@@ -103,7 +102,6 @@ import (
 //
 // ```
 // ### S3 Logging
-//
 // ```go
 // package main
 //
@@ -136,7 +134,6 @@ import (
 //
 // ```
 // ### S3 Logging in Apache Parquet format with per-hour partitions
-//
 // ```go
 // package main
 //

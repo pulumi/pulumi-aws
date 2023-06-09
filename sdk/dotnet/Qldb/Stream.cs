@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Qldb
     /// Provides an AWS Quantum Ledger Database (QLDB) Stream resource
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ec2
     /// Adds permission to create volumes off of a given EBS Snapshot.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

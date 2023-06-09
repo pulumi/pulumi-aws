@@ -13,7 +13,6 @@ import (
 // Retrieves information about a Service Discovery private or public DNS namespace.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

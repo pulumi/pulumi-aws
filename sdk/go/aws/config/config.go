@@ -83,7 +83,11 @@ func GetRegion(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "AWS_REGION", "AWS_DEFAULT_REGION"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
@@ -131,7 +135,9 @@ func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return false
+	var value bool
+	value = false
+	return value
 }
 
 // Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
@@ -147,7 +153,9 @@ func GetSkipMetadataApiCheck(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return true
+	var value bool
+	value = true
+	return value
 }
 
 // Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
@@ -157,7 +165,9 @@ func GetSkipRegionValidation(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return true
+	var value bool
+	value = true
+	return value
 }
 
 // Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.

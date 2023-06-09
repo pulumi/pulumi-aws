@@ -15,7 +15,6 @@ namespace Pulumi.Aws.CloudHsmV2
     /// ## Example Usage
     /// 
     /// The following example below creates an HSM module in CloudHSM cluster.
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

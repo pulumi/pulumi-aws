@@ -460,7 +460,6 @@ class PrimaryContact(pulumi.CustomResource):
         Manages the specified primary contact information associated with an AWS Account.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -504,7 +503,6 @@ class PrimaryContact(pulumi.CustomResource):
         Manages the specified primary contact information associated with an AWS Account.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

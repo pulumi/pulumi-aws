@@ -336,7 +336,6 @@ class EndpointConfiguration(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,7 +343,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         ec = aws.sagemaker.EndpointConfiguration("ec",
             production_variants=[aws.sagemaker.EndpointConfigurationProductionVariantArgs(
                 variant_name="variant-1",
-                model_name=aws_sagemaker_model["m"]["name"],
+                model_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 initial_instance_count=1,
                 instance_type="ml.t2.medium",
             )],
@@ -384,7 +383,6 @@ class EndpointConfiguration(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -392,7 +390,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         ec = aws.sagemaker.EndpointConfiguration("ec",
             production_variants=[aws.sagemaker.EndpointConfigurationProductionVariantArgs(
                 variant_name="variant-1",
-                model_name=aws_sagemaker_model["m"]["name"],
+                model_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 initial_instance_count=1,
                 instance_type="ml.t2.medium",
             )],

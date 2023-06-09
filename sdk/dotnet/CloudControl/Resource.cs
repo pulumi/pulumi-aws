@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CloudControl
     /// Manages a Cloud Control API Resource. The configuration and lifecycle handling of these resources is proxied through Cloud Control API handlers to the backend service.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -72,6 +71,8 @@ namespace Pulumi.Aws.CloudControl
 
         /// <summary>
         /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("typeName")]
         public Output<string> TypeName { get; private set; } = null!;
@@ -162,6 +163,8 @@ namespace Pulumi.Aws.CloudControl
 
         /// <summary>
         /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
@@ -216,6 +219,8 @@ namespace Pulumi.Aws.CloudControl
 
         /// <summary>
         /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }

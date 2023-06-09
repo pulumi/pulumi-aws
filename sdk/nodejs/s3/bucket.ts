@@ -400,6 +400,8 @@ export class Bucket extends pulumi.CustomResource {
     public readonly loggings!: pulumi.Output<outputs.s3.BucketLogging[] | undefined>;
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+     *
+     * > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
      */
     public readonly objectLockConfiguration!: pulumi.Output<outputs.s3.BucketObjectLockConfiguration | undefined>;
     /**
@@ -579,6 +581,8 @@ export interface BucketState {
     loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketLogging>[]>;
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+     *
+     * > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
      */
     objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
     /**
@@ -680,6 +684,8 @@ export interface BucketArgs {
     loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketLogging>[]>;
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
+     *
+     * > **NOTE:** You cannot use `accelerationStatus` in `cn-north-1` or `us-gov-west-1`
      */
     objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
     /**

@@ -13,7 +13,6 @@ import (
 // Provides a resource to create a SES template.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

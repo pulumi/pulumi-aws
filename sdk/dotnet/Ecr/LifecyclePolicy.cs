@@ -18,7 +18,6 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Example Usage
     /// ### Policy on untagged image
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,7 +54,6 @@ namespace Pulumi.Aws.Ecr
     /// });
     /// ```
     /// ### Policy on tagged image
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

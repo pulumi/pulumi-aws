@@ -14,7 +14,6 @@ import (
 // Provides a CloudFront Field-level Encryption Profile resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -638,12 +638,16 @@ public class Trail extends com.pulumi.resources.CustomResource {
     /**
      * Name of the S3 bucket designated for publishing log files.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="s3BucketName", refs={String.class}, tree="[0]")
     private Output<String> s3BucketName;
 
     /**
      * @return Name of the S3 bucket designated for publishing log files.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> s3BucketName() {

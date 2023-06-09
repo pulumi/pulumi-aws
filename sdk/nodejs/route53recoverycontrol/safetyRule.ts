@@ -115,6 +115,8 @@ export class SafetyRule extends pulumi.CustomResource {
     public readonly targetControls!: pulumi.Output<string[] | undefined>;
     /**
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+     *
+     * The following arguments are optional:
      */
     public readonly waitPeriodMs!: pulumi.Output<number>;
 
@@ -204,6 +206,8 @@ export interface SafetyRuleState {
     targetControls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+     *
+     * The following arguments are optional:
      */
     waitPeriodMs?: pulumi.Input<number>;
 }
@@ -238,6 +242,8 @@ export interface SafetyRuleArgs {
     targetControls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
+     *
+     * The following arguments are optional:
      */
     waitPeriodMs: pulumi.Input<number>;
 }

@@ -13,7 +13,6 @@ namespace Pulumi.Aws.DirectoryService
     /// Manages a directory in your account (directory owner) shared with another account (directory consumer).
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -85,6 +84,8 @@ namespace Pulumi.Aws.DirectoryService
 
         /// <summary>
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("target")]
         public Output<Outputs.SharedDirectoryTarget> Target { get; private set; } = null!;
@@ -169,6 +170,8 @@ namespace Pulumi.Aws.DirectoryService
 
         /// <summary>
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.SharedDirectoryTargetArgs> Target { get; set; } = null!;
@@ -217,6 +220,8 @@ namespace Pulumi.Aws.DirectoryService
 
         /// <summary>
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("target")]
         public Input<Inputs.SharedDirectoryTargetGetArgs>? Target { get; set; }

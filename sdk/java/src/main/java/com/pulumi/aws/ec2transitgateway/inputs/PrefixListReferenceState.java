@@ -71,12 +71,16 @@ public final class PrefixListReferenceState extends com.pulumi.resources.Resourc
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="transitGatewayRouteTableId")
     private @Nullable Output<String> transitGatewayRouteTableId;
 
     /**
      * @return Identifier of EC2 Transit Gateway Route Table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> transitGatewayRouteTableId() {
@@ -186,6 +190,8 @@ public final class PrefixListReferenceState extends com.pulumi.resources.Resourc
         /**
          * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -196,6 +202,8 @@ public final class PrefixListReferenceState extends com.pulumi.resources.Resourc
 
         /**
          * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

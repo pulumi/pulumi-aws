@@ -14,7 +14,6 @@ import (
 // Provides a CodeCommit Approval Rule Template Resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

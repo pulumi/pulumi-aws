@@ -14,7 +14,6 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// ## Example Usage
     /// ### Basic
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,6 +89,8 @@ namespace Pulumi.Aws.SecretsManager
 
         /// <summary>
         /// Secret ARN.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("secretArn")]
         public Output<string> SecretArn { get; private set; } = null!;
@@ -154,6 +155,8 @@ namespace Pulumi.Aws.SecretsManager
 
         /// <summary>
         /// Secret ARN.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
@@ -180,6 +183,8 @@ namespace Pulumi.Aws.SecretsManager
 
         /// <summary>
         /// Secret ARN.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }

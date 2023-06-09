@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic single step example
-//
 // ```go
 // package main
 //
@@ -48,7 +47,6 @@ import (
 //
 // ```
 // ### Multistep example
-//
 // ```go
 // package main
 //

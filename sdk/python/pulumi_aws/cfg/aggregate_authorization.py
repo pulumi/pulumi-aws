@@ -166,7 +166,6 @@ class AggregateAuthorization(pulumi.CustomResource):
         Manages an AWS Config Aggregate Authorization
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -200,7 +199,6 @@ class AggregateAuthorization(pulumi.CustomResource):
         Manages an AWS Config Aggregate Authorization
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

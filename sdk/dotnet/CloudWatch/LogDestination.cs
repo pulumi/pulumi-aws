@@ -13,7 +13,6 @@ namespace Pulumi.Aws.CloudWatch
     /// Provides a CloudWatch Logs destination resource.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

@@ -86,12 +86,11 @@ def get_auth_policy(policy: Optional[str] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.vpclattice.get_auth_policy(resource_identifier=aws_vpclattice_auth_policy["test"]["resource_identifier"])
+    test = aws.vpclattice.get_auth_policy(resource_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -123,12 +122,11 @@ def get_auth_policy_output(policy: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
     ### Basic Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.vpclattice.get_auth_policy(resource_identifier=aws_vpclattice_auth_policy["test"]["resource_identifier"])
+    test = aws.vpclattice.get_auth_policy(resource_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

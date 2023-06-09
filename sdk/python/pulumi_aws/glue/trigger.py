@@ -449,7 +449,6 @@ class Trigger(pulumi.CustomResource):
 
         ## Example Usage
         ### Conditional Trigger
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -457,17 +456,16 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             type="CONDITIONAL",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example1"]["name"],
+                job_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             predicate=aws.glue.TriggerPredicateArgs(
                 conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name=aws_glue_job["example2"]["name"],
+                    job_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     state="SUCCEEDED",
                 )],
             ))
         ```
         ### On-Demand Trigger
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -475,11 +473,10 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             type="ON_DEMAND",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example"]["name"],
+                job_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### Scheduled Trigger
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -488,13 +485,12 @@ class Trigger(pulumi.CustomResource):
             schedule="cron(15 12 * * ? *)",
             type="SCHEDULED",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example"]["name"],
+                job_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### Conditional Trigger with Crawler Action
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -502,11 +498,11 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             type="CONDITIONAL",
             actions=[aws.glue.TriggerActionArgs(
-                crawler_name=aws_glue_crawler["example1"]["name"],
+                crawler_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             predicate=aws.glue.TriggerPredicateArgs(
                 conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name=aws_glue_job["example2"]["name"],
+                    job_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     state="SUCCEEDED",
                 )],
             ))
@@ -514,7 +510,6 @@ class Trigger(pulumi.CustomResource):
         ### Conditional Trigger with Crawler Condition
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -522,11 +517,11 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             type="CONDITIONAL",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example1"]["name"],
+                job_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             predicate=aws.glue.TriggerPredicateArgs(
                 conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    crawler_name=aws_glue_crawler["example2"]["name"],
+                    crawler_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     crawl_state="SUCCEEDED",
                 )],
             ))
@@ -565,7 +560,6 @@ class Trigger(pulumi.CustomResource):
 
         ## Example Usage
         ### Conditional Trigger
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -573,17 +567,16 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             type="CONDITIONAL",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example1"]["name"],
+                job_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             predicate=aws.glue.TriggerPredicateArgs(
                 conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name=aws_glue_job["example2"]["name"],
+                    job_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     state="SUCCEEDED",
                 )],
             ))
         ```
         ### On-Demand Trigger
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -591,11 +584,10 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             type="ON_DEMAND",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example"]["name"],
+                job_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### Scheduled Trigger
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -604,13 +596,12 @@ class Trigger(pulumi.CustomResource):
             schedule="cron(15 12 * * ? *)",
             type="SCHEDULED",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example"]["name"],
+                job_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )])
         ```
         ### Conditional Trigger with Crawler Action
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -618,11 +609,11 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             type="CONDITIONAL",
             actions=[aws.glue.TriggerActionArgs(
-                crawler_name=aws_glue_crawler["example1"]["name"],
+                crawler_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             predicate=aws.glue.TriggerPredicateArgs(
                 conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name=aws_glue_job["example2"]["name"],
+                    job_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     state="SUCCEEDED",
                 )],
             ))
@@ -630,7 +621,6 @@ class Trigger(pulumi.CustomResource):
         ### Conditional Trigger with Crawler Condition
 
         **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -638,11 +628,11 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             type="CONDITIONAL",
             actions=[aws.glue.TriggerActionArgs(
-                job_name=aws_glue_job["example1"]["name"],
+                job_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             )],
             predicate=aws.glue.TriggerPredicateArgs(
                 conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    crawler_name=aws_glue_crawler["example2"]["name"],
+                    crawler_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                     crawl_state="SUCCEEDED",
                 )],
             ))

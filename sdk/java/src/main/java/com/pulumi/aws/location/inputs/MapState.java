@@ -80,12 +80,16 @@ public final class MapState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name for the map resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="mapName")
     private @Nullable Output<String> mapName;
 
     /**
      * @return The name for the map resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> mapName() {
@@ -255,6 +259,8 @@ public final class MapState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param mapName The name for the map resource.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -265,6 +271,8 @@ public final class MapState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param mapName The name for the map resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

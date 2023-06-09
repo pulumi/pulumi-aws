@@ -13,7 +13,6 @@ import (
 // Provides information about a MQ Broker Instance Offerings.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

@@ -117,7 +117,6 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         Provides a Route 53 Resolver DNSSEC config resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -151,7 +150,6 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         Provides a Route 53 Resolver DNSSEC config resource.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

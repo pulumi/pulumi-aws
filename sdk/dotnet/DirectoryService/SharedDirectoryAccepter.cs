@@ -15,7 +15,6 @@ namespace Pulumi.Aws.DirectoryService
     /// &gt; **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

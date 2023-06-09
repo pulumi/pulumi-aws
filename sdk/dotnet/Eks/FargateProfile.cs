@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Eks
     /// Manages an EKS Fargate Profile.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,7 +38,6 @@ namespace Pulumi.Aws.Eks
     /// });
     /// ```
     /// ### Example IAM Role for EKS Fargate Profile
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -127,6 +125,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -224,6 +224,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -298,6 +300,8 @@ namespace Pulumi.Aws.Eks
 
         /// <summary>
         /// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<string> SubnetIds
         {

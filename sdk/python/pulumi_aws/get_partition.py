@@ -85,7 +85,6 @@ def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPa
     which the provider is working.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

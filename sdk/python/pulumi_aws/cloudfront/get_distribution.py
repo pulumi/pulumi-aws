@@ -172,7 +172,6 @@ def get_distribution(id: Optional[str] = None,
     Use this data source to retrieve information about a CloudFront distribution.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -211,7 +210,6 @@ def get_distribution_output(id: Optional[pulumi.Input[str]] = None,
     Use this data source to retrieve information about a CloudFront distribution.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws

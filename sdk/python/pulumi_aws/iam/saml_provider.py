@@ -183,7 +183,6 @@ class SamlProvider(pulumi.CustomResource):
         Provides an IAM SAML provider.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,7 +214,6 @@ class SamlProvider(pulumi.CustomResource):
         Provides an IAM SAML provider.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

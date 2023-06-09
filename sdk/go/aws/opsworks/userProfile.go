@@ -14,7 +14,6 @@ import (
 // Provides an OpsWorks User Profile resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

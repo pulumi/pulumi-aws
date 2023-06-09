@@ -17,6 +17,206 @@ namespace Pulumi.Aws.Ec2
         /// This resource can be useful for getting back a set of subnet ids for a vpc.
         /// 
         /// &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following shows outputting all cidr blocks for every subnet id in a vpc.
+        /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const exampleSubnetIds = aws.ec2.getSubnetIds({
+        ///     vpcId: _var.vpc_id,
+        /// });
+        /// const exampleSubnet = exampleSubnetIds.then(exampleSubnetIds =&gt; .map(([, ]) =&gt; (aws.ec2.getSubnet({
+        ///     id: __value,
+        /// }))));
+        /// export const subnetCidrBlocks = exampleSubnet.map(s =&gt; (s.cidrBlock));
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        /// example_subnet = [aws.ec2.get_subnet(id=__value) for __key, __value in example_subnet_ids.ids]
+        /// pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_subnet])
+        /// ```
+        /// 
+        /// The following example retrieves a set of all subnets in a VPC with a custom
+        /// tag of `Tier` set to a value of "Private" so that the `aws.ec2.Instance` resource
+        /// can loop through the subnets, putting instances across availability zones.
+        /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// export = async () =&gt; {
+        ///     const private = await aws.ec2.getSubnetIds({
+        ///         vpcId: _var.vpc_id,
+        ///         tags: {
+        ///             Tier: "Private",
+        ///         },
+        ///     });
+        ///     const app: aws.ec2.Instance[] = [];
+        ///     for (const range of _private.ids.map((v, k) =&gt; ({key: k, value: v}))) {
+        ///         app.push(new aws.ec2.Instance(`app-${range.key}`, {
+        ///             ami: _var.ami,
+        ///             instanceType: "t2.micro",
+        ///             subnetId: range.value,
+        ///         }));
+        ///     }
+        /// }
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// private = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        ///     tags={
+        ///         "Tier": "Private",
+        ///     })
+        /// app = []
+        /// for range in [{"key": k, "value": v} for [k, v] in enumerate(private.ids)]:
+        ///     app.append(aws.ec2.Instance(f"app-{range['key']}",
+        ///         ami=var["ami"],
+        ///         instance_type="t2.micro",
+        ///         subnet_id=range["value"]))
+        /// ```
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(async() =&gt; 
+        /// {
+        ///     var @private = await Aws.Ec2.GetSubnetIds.InvokeAsync(new()
+        ///     {
+        ///         VpcId = @var.Vpc_id,
+        ///         Tags = 
+        ///         {
+        ///             { "Tier", "Private" },
+        ///         },
+        ///     });
+        /// 
+        ///     var app = new List&lt;Aws.Ec2.Instance&gt;();
+        ///     foreach (var range in )
+        ///     {
+        ///         app.Add(new Aws.Ec2.Instance($"app-{range.Key}", new()
+        ///         {
+        ///             Ami = @var.Ami,
+        ///             InstanceType = "t2.micro",
+        ///             SubnetId = range.Value,
+        ///         }));
+        ///     }
+        /// });
+        /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		private, err := ec2.GetSubnetIds(ctx, &amp;ec2.GetSubnetIdsArgs{
+        /// 			VpcId: _var.Vpc_id,
+        /// 			Tags: map[string]interface{}{
+        /// 				"Tier": "Private",
+        /// 			},
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		var app []*ec2.Instance
+        /// 		for key0, val0 := range private.Ids {
+        /// 			__res, err := ec2.NewInstance(ctx, fmt.Sprintf("app-%v", key0), &amp;ec2.InstanceArgs{
+        /// 				Ami:          pulumi.Any(_var.Ami),
+        /// 				InstanceType: pulumi.String("t2.micro"),
+        /// 				SubnetId:     pulumi.String(val0),
+        /// 			})
+        /// 			if err != nil {
+        /// 				return err
+        /// 			}
+        /// 			app = append(app, __res)
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.ec2.Ec2Functions;
+        /// import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+        /// import com.pulumi.aws.ec2.Instance;
+        /// import com.pulumi.aws.ec2.InstanceArgs;
+        /// import com.pulumi.codegen.internal.KeyedValue;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var private = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
+        ///             .vpcId(var_.vpc_id())
+        ///             .tags(Map.of("Tier", "Private"))
+        ///             .build());
+        /// 
+        ///         final var app = private.applyValue(getSubnetIdsResult -&gt; {
+        ///             final var resources = new ArrayList&lt;Instance&gt;();
+        ///             for (var range : KeyedValue.of(getSubnetIdsResult.ids()) {
+        ///                 var resource = new Instance("app-" + range.key(), InstanceArgs.builder()                
+        ///                     .ami(var_.ami())
+        ///                     .instanceType("t2.micro")
+        ///                     .subnetId(range.value())
+        ///                     .build());
+        /// 
+        ///                 resources.add(resource);
+        ///             }
+        /// 
+        ///             return resources;
+        ///         });
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// resources:
+        ///   app:
+        ///     type: aws:ec2:Instance
+        ///     properties:
+        ///       ami: ${var.ami}
+        ///       instanceType: t2.micro
+        ///       subnetId: ${range.value}
+        ///     options: {}
+        /// variables:
+        ///   private:
+        ///     fn::invoke:
+        ///       Function: aws:ec2:getSubnetIds
+        ///       Arguments:
+        ///         vpcId: ${var.vpc_id}
+        ///         tags:
+        ///           Tier: Private
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubnetIdsResult> InvokeAsync(GetSubnetIdsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args ?? new GetSubnetIdsArgs(), options.WithDefaults());
@@ -27,6 +227,206 @@ namespace Pulumi.Aws.Ec2
         /// This resource can be useful for getting back a set of subnet ids for a vpc.
         /// 
         /// &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following shows outputting all cidr blocks for every subnet id in a vpc.
+        /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// const exampleSubnetIds = aws.ec2.getSubnetIds({
+        ///     vpcId: _var.vpc_id,
+        /// });
+        /// const exampleSubnet = exampleSubnetIds.then(exampleSubnetIds =&gt; .map(([, ]) =&gt; (aws.ec2.getSubnet({
+        ///     id: __value,
+        /// }))));
+        /// export const subnetCidrBlocks = exampleSubnet.map(s =&gt; (s.cidrBlock));
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// example_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        /// example_subnet = [aws.ec2.get_subnet(id=__value) for __key, __value in example_subnet_ids.ids]
+        /// pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_subnet])
+        /// ```
+        /// 
+        /// The following example retrieves a set of all subnets in a VPC with a custom
+        /// tag of `Tier` set to a value of "Private" so that the `aws.ec2.Instance` resource
+        /// can loop through the subnets, putting instances across availability zones.
+        /// 
+        /// ```typescript
+        /// import * as pulumi from "@pulumi/pulumi";
+        /// import * as aws from "@pulumi/aws";
+        /// 
+        /// export = async () =&gt; {
+        ///     const private = await aws.ec2.getSubnetIds({
+        ///         vpcId: _var.vpc_id,
+        ///         tags: {
+        ///             Tier: "Private",
+        ///         },
+        ///     });
+        ///     const app: aws.ec2.Instance[] = [];
+        ///     for (const range of _private.ids.map((v, k) =&gt; ({key: k, value: v}))) {
+        ///         app.push(new aws.ec2.Instance(`app-${range.key}`, {
+        ///             ami: _var.ami,
+        ///             instanceType: "t2.micro",
+        ///             subnetId: range.value,
+        ///         }));
+        ///     }
+        /// }
+        /// ```
+        /// ```python
+        /// import pulumi
+        /// import pulumi_aws as aws
+        /// 
+        /// private = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        ///     tags={
+        ///         "Tier": "Private",
+        ///     })
+        /// app = []
+        /// for range in [{"key": k, "value": v} for [k, v] in enumerate(private.ids)]:
+        ///     app.append(aws.ec2.Instance(f"app-{range['key']}",
+        ///         ami=var["ami"],
+        ///         instance_type="t2.micro",
+        ///         subnet_id=range["value"]))
+        /// ```
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using System.Threading.Tasks;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(async() =&gt; 
+        /// {
+        ///     var @private = await Aws.Ec2.GetSubnetIds.InvokeAsync(new()
+        ///     {
+        ///         VpcId = @var.Vpc_id,
+        ///         Tags = 
+        ///         {
+        ///             { "Tier", "Private" },
+        ///         },
+        ///     });
+        /// 
+        ///     var app = new List&lt;Aws.Ec2.Instance&gt;();
+        ///     foreach (var range in )
+        ///     {
+        ///         app.Add(new Aws.Ec2.Instance($"app-{range.Key}", new()
+        ///         {
+        ///             Ami = @var.Ami,
+        ///             InstanceType = "t2.micro",
+        ///             SubnetId = range.Value,
+        ///         }));
+        ///     }
+        /// });
+        /// ```
+        /// ```go
+        /// package main
+        /// 
+        /// import (
+        /// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+        /// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+        /// )
+        /// 
+        /// func main() {
+        /// 	pulumi.Run(func(ctx *pulumi.Context) error {
+        /// 		private, err := ec2.GetSubnetIds(ctx, &amp;ec2.GetSubnetIdsArgs{
+        /// 			VpcId: _var.Vpc_id,
+        /// 			Tags: map[string]interface{}{
+        /// 				"Tier": "Private",
+        /// 			},
+        /// 		}, nil)
+        /// 		if err != nil {
+        /// 			return err
+        /// 		}
+        /// 		var app []*ec2.Instance
+        /// 		for key0, val0 := range private.Ids {
+        /// 			__res, err := ec2.NewInstance(ctx, fmt.Sprintf("app-%v", key0), &amp;ec2.InstanceArgs{
+        /// 				Ami:          pulumi.Any(_var.Ami),
+        /// 				InstanceType: pulumi.String("t2.micro"),
+        /// 				SubnetId:     pulumi.String(val0),
+        /// 			})
+        /// 			if err != nil {
+        /// 				return err
+        /// 			}
+        /// 			app = append(app, __res)
+        /// 		}
+        /// 		return nil
+        /// 	})
+        /// }
+        /// ```
+        /// ```java
+        /// package generated_program;
+        /// 
+        /// import com.pulumi.Context;
+        /// import com.pulumi.Pulumi;
+        /// import com.pulumi.core.Output;
+        /// import com.pulumi.aws.ec2.Ec2Functions;
+        /// import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+        /// import com.pulumi.aws.ec2.Instance;
+        /// import com.pulumi.aws.ec2.InstanceArgs;
+        /// import com.pulumi.codegen.internal.KeyedValue;
+        /// import java.util.List;
+        /// import java.util.ArrayList;
+        /// import java.util.Map;
+        /// import java.io.File;
+        /// import java.nio.file.Files;
+        /// import java.nio.file.Paths;
+        /// 
+        /// public class App {
+        ///     public static void main(String[] args) {
+        ///         Pulumi.run(App::stack);
+        ///     }
+        /// 
+        ///     public static void stack(Context ctx) {
+        ///         final var private = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
+        ///             .vpcId(var_.vpc_id())
+        ///             .tags(Map.of("Tier", "Private"))
+        ///             .build());
+        /// 
+        ///         final var app = private.applyValue(getSubnetIdsResult -&gt; {
+        ///             final var resources = new ArrayList&lt;Instance&gt;();
+        ///             for (var range : KeyedValue.of(getSubnetIdsResult.ids()) {
+        ///                 var resource = new Instance("app-" + range.key(), InstanceArgs.builder()                
+        ///                     .ami(var_.ami())
+        ///                     .instanceType("t2.micro")
+        ///                     .subnetId(range.value())
+        ///                     .build());
+        /// 
+        ///                 resources.add(resource);
+        ///             }
+        /// 
+        ///             return resources;
+        ///         });
+        /// 
+        ///     }
+        /// }
+        /// ```
+        /// ```yaml
+        /// resources:
+        ///   app:
+        ///     type: aws:ec2:Instance
+        ///     properties:
+        ///       ami: ${var.ami}
+        ///       instanceType: t2.micro
+        ///       subnetId: ${range.value}
+        ///     options: {}
+        /// variables:
+        ///   private:
+        ///     fn::invoke:
+        ///       Function: aws:ec2:getSubnetIds
+        ///       Arguments:
+        ///         vpcId: ${var.vpc_id}
+        ///         tags:
+        ///           Tier: Private
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSubnetIdsResult> Invoke(GetSubnetIdsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args ?? new GetSubnetIdsInvokeArgs(), options.WithDefaults());
@@ -53,6 +453,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Map of tags, each pair of which must exactly match
         /// a pair on the desired subnets.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -92,6 +495,9 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Map of tags, each pair of which must exactly match
         /// a pair on the desired subnets.
+        /// 
+        /// More complex filters can be expressed using one or more `filter` sub-blocks,
+        /// which take the following arguments:
         /// </summary>
         public InputMap<string> Tags
         {

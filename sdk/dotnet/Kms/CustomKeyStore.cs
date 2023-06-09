@@ -14,7 +14,6 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Example Usage
     /// ### Basic Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;

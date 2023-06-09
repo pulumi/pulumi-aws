@@ -89,6 +89,11 @@ export class ReplicationTask extends pulumi.CustomResource {
     public /*out*/ readonly replicationTaskArn!: pulumi.Output<string>;
     /**
      * The replication task identifier.
+     *
+     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen.
+     * - Cannot contain two consecutive hyphens.
      */
     public readonly replicationTaskId!: pulumi.Output<string>;
     /**
@@ -217,6 +222,11 @@ export interface ReplicationTaskState {
     replicationTaskArn?: pulumi.Input<string>;
     /**
      * The replication task identifier.
+     *
+     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen.
+     * - Cannot contain two consecutive hyphens.
      */
     replicationTaskId?: pulumi.Input<string>;
     /**
@@ -275,6 +285,11 @@ export interface ReplicationTaskArgs {
     replicationInstanceArn: pulumi.Input<string>;
     /**
      * The replication task identifier.
+     *
+     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
+     * - First character must be a letter.
+     * - Cannot end with a hyphen.
+     * - Cannot contain two consecutive hyphens.
      */
     replicationTaskId: pulumi.Input<string>;
     /**

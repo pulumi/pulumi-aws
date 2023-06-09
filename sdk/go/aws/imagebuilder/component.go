@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### URI Document
-//
 // ```go
 // package main
 //
@@ -89,8 +88,12 @@ type Component struct {
 	// Type of the component.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+	//
+	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 	// Version of the component.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -160,8 +163,12 @@ type componentState struct {
 	// Type of the component.
 	Type *string `pulumi:"type"`
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+	//
+	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 	Uri *string `pulumi:"uri"`
 	// Version of the component.
+	//
+	// The following attributes are optional:
 	Version *string `pulumi:"version"`
 }
 
@@ -197,8 +204,12 @@ type ComponentState struct {
 	// Type of the component.
 	Type pulumi.StringPtrInput
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+	//
+	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 	Uri pulumi.StringPtrInput
 	// Version of the component.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringPtrInput
 }
 
@@ -226,8 +237,12 @@ type componentArgs struct {
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+	//
+	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 	Uri *string `pulumi:"uri"`
 	// Version of the component.
+	//
+	// The following attributes are optional:
 	Version string `pulumi:"version"`
 }
 
@@ -252,8 +267,12 @@ type ComponentArgs struct {
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+	//
+	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 	Uri pulumi.StringPtrInput
 	// Version of the component.
+	//
+	// The following attributes are optional:
 	Version pulumi.StringInput
 }
 
@@ -420,11 +439,15 @@ func (o ComponentOutput) Type() pulumi.StringOutput {
 }
 
 // S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
+//
+// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
 func (o ComponentOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
 }
 
 // Version of the component.
+//
+// The following attributes are optional:
 func (o ComponentOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

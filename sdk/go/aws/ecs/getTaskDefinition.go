@@ -14,7 +14,6 @@ import (
 // a specific AWS ECS task definition.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

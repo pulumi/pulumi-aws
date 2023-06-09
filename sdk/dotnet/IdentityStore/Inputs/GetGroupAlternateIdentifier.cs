@@ -20,6 +20,8 @@ namespace Pulumi.Aws.IdentityStore.Inputs
 
         /// <summary>
         /// An entity attribute that's unique to a specific entity. Detailed below.
+        /// 
+        /// &gt; Exactly one of the above arguments must be provided.
         /// </summary>
         [Input("uniqueAttribute")]
         public Inputs.GetGroupAlternateIdentifierUniqueAttributeArgs? UniqueAttribute { get; set; }

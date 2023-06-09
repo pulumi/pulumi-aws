@@ -13,7 +13,6 @@ namespace Pulumi.Aws.Ssm
     /// This setting defines how a user interacts with or uses a service or a feature of a service.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;

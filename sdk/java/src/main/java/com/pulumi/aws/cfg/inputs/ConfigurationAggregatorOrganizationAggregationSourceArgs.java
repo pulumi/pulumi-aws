@@ -50,12 +50,16 @@ public final class ConfigurationAggregatorOrganizationAggregationSourceArgs exte
     /**
      * ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
      * 
+     * Either `regions` or `all_regions` (as true) must be specified.
+     * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
      * @return ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+     * 
+     * Either `regions` or `all_regions` (as true) must be specified.
      * 
      */
     public Output<String> roleArn() {
@@ -143,6 +147,8 @@ public final class ConfigurationAggregatorOrganizationAggregationSourceArgs exte
         /**
          * @param roleArn ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
          * 
+         * Either `regions` or `all_regions` (as true) must be specified.
+         * 
          * @return builder
          * 
          */
@@ -153,6 +159,8 @@ public final class ConfigurationAggregatorOrganizationAggregationSourceArgs exte
 
         /**
          * @param roleArn ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+         * 
+         * Either `regions` or `all_regions` (as true) must be specified.
          * 
          * @return builder
          * 

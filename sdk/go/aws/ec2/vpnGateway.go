@@ -13,7 +13,6 @@ import (
 // Provides a resource to create a VPC VPN Gateway.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

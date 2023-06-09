@@ -152,13 +152,12 @@ def get_addon(addon_name: Optional[str] = None,
     Retrieve information about an EKS add-on.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.eks.get_addon(addon_name="vpc-cni",
-        cluster_name=aws_eks_cluster["example"]["name"])
+        cluster_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("eksAddonOutputs", aws_eks_addon["example"])
     ```
 
@@ -196,13 +195,12 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     Retrieve information about an EKS add-on.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.eks.get_addon(addon_name="vpc-cni",
-        cluster_name=aws_eks_cluster["example"]["name"])
+        cluster_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     pulumi.export("eksAddonOutputs", aws_eks_addon["example"])
     ```
 

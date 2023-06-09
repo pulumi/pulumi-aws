@@ -14,7 +14,6 @@ import (
 // Provides a CloudWatch Logs destination policy resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

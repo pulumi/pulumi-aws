@@ -17,7 +17,6 @@ import (
 //
 // ## Example Usage
 // ### Application Load Balancer Association
-//
 // ```go
 // package main
 //
@@ -124,7 +123,6 @@ import (
 //
 // ```
 // ### API Gateway Association
-//
 // ```go
 // package main
 //

@@ -171,13 +171,12 @@ class MonitoringSchedule(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.sagemaker.MonitoringSchedule("test", monitoring_schedule_config=aws.sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs(
-            monitoring_job_definition_name=aws_sagemaker_data_quality_job_definition["test"]["name"],
+            monitoring_job_definition_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             monitoring_type="DataQuality",
         ))
         ```
@@ -208,13 +207,12 @@ class MonitoringSchedule(pulumi.CustomResource):
         ## Example Usage
 
         Basic usage:
-
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.sagemaker.MonitoringSchedule("test", monitoring_schedule_config=aws.sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs(
-            monitoring_job_definition_name=aws_sagemaker_data_quality_job_definition["test"]["name"],
+            monitoring_job_definition_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
             monitoring_type="DataQuality",
         ))
         ```

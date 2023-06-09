@@ -89,6 +89,8 @@ export class RepositoryAssociation extends pulumi.CustomResource {
     public /*out*/ readonly providerType!: pulumi.Output<string>;
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+     *
+     * The following arguments are optional:
      */
     public readonly repository!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationRepository>;
     public /*out*/ readonly s3RepositoryDetails!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationS3RepositoryDetail[]>;
@@ -187,6 +189,8 @@ export interface RepositoryAssociationState {
     providerType?: pulumi.Input<string>;
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+     *
+     * The following arguments are optional:
      */
     repository?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationRepository>;
     s3RepositoryDetails?: pulumi.Input<pulumi.Input<inputs.codegurureviewer.RepositoryAssociationS3RepositoryDetail>[]>;
@@ -212,6 +216,8 @@ export interface RepositoryAssociationArgs {
     kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails>;
     /**
      * An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
+     *
+     * The following arguments are optional:
      */
     repository: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationRepository>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -72,6 +71,8 @@ type Link struct {
 	// ARN of the sink that is used for this link.
 	SinkArn pulumi.StringOutput `pulumi:"sinkArn"`
 	// Identifier of the sink to use to create this link.
+	//
+	// The following arguments are optional:
 	SinkIdentifier pulumi.StringOutput `pulumi:"sinkIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -129,6 +130,8 @@ type linkState struct {
 	// ARN of the sink that is used for this link.
 	SinkArn *string `pulumi:"sinkArn"`
 	// Identifier of the sink to use to create this link.
+	//
+	// The following arguments are optional:
 	SinkIdentifier *string `pulumi:"sinkIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
@@ -149,6 +152,8 @@ type LinkState struct {
 	// ARN of the sink that is used for this link.
 	SinkArn pulumi.StringPtrInput
 	// Identifier of the sink to use to create this link.
+	//
+	// The following arguments are optional:
 	SinkIdentifier pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
@@ -165,6 +170,8 @@ type linkArgs struct {
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// Identifier of the sink to use to create this link.
+	//
+	// The following arguments are optional:
 	SinkIdentifier string `pulumi:"sinkIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -177,6 +184,8 @@ type LinkArgs struct {
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes pulumi.StringArrayInput
 	// Identifier of the sink to use to create this link.
+	//
+	// The following arguments are optional:
 	SinkIdentifier pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -300,6 +309,8 @@ func (o LinkOutput) SinkArn() pulumi.StringOutput {
 }
 
 // Identifier of the sink to use to create this link.
+//
+// The following arguments are optional:
 func (o LinkOutput) SinkIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.SinkIdentifier }).(pulumi.StringOutput)
 }

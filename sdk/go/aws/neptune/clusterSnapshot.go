@@ -14,7 +14,6 @@ import (
 // Manages a Neptune database cluster snapshot.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

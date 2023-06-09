@@ -15,7 +15,6 @@ namespace Pulumi.Aws.MemoryDb
     /// More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,6 +64,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// The engine version that the parameter group can be used with.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("family")]
         public Output<string> Family { get; private set; } = null!;
@@ -153,6 +154,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// The engine version that the parameter group can be used with.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("family", required: true)]
         public Input<string> Family { get; set; } = null!;
@@ -215,6 +218,8 @@ namespace Pulumi.Aws.MemoryDb
 
         /// <summary>
         /// The engine version that the parameter group can be used with.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("family")]
         public Input<string>? Family { get; set; }

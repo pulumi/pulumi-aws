@@ -136,7 +136,6 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
         Enable origination settings to control inbound calling to your SIP infrastructure.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,7 +186,6 @@ class VoiceConnectorOrganization(pulumi.CustomResource):
         Enable origination settings to control inbound calling to your SIP infrastructure.
 
         ## Example Usage
-
         ```python
         import pulumi
         import pulumi_aws as aws

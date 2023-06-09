@@ -29,6 +29,8 @@ class ServiceArgs:
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] service_name: Name of the service.
         :param pulumi.Input['ServiceSourceConfigurationArgs'] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] auto_scaling_configuration_arn: ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
         :param pulumi.Input['ServiceEncryptionConfigurationArgs'] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         :param pulumi.Input['ServiceHealthCheckConfigurationArgs'] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
@@ -71,6 +73,8 @@ class ServiceArgs:
     def source_configuration(self) -> pulumi.Input['ServiceSourceConfigurationArgs']:
         """
         The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "source_configuration")
 
@@ -193,6 +197,8 @@ class _ServiceState:
         :param pulumi.Input[str] service_name: Name of the service.
         :param pulumi.Input[str] service_url: Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         :param pulumi.Input['ServiceSourceConfigurationArgs'] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: Current state of the App Runner service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -351,6 +357,8 @@ class _ServiceState:
     def source_configuration(self) -> Optional[pulumi.Input['ServiceSourceConfigurationArgs']]:
         """
         The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "source_configuration")
 
@@ -415,7 +423,6 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
         ### Service with a Code Repository Source
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -424,7 +431,7 @@ class Service(pulumi.CustomResource):
             service_name="example",
             source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
                 authentication_configuration=aws.apprunner.ServiceSourceConfigurationAuthenticationConfigurationArgs(
-                    connection_arn=aws_apprunner_connection["example"]["arn"],
+                    connection_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 code_repository=aws.apprunner.ServiceSourceConfigurationCodeRepositoryArgs(
                     code_configuration=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs(
@@ -446,7 +453,7 @@ class Service(pulumi.CustomResource):
             network_configuration=aws.apprunner.ServiceNetworkConfigurationArgs(
                 egress_configuration=aws.apprunner.ServiceNetworkConfigurationEgressConfigurationArgs(
                     egress_type="VPC",
-                    vpc_connector_arn=aws_apprunner_vpc_connector["connector"]["arn"],
+                    vpc_connector_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ),
             tags={
@@ -454,7 +461,6 @@ class Service(pulumi.CustomResource):
             })
         ```
         ### Service with an Image Repository Source
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -476,7 +482,6 @@ class Service(pulumi.CustomResource):
             })
         ```
         ### Service with Observability Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -525,6 +530,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
         :param pulumi.Input[str] service_name: Name of the service.
         :param pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -538,7 +545,6 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
         ### Service with a Code Repository Source
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -547,7 +553,7 @@ class Service(pulumi.CustomResource):
             service_name="example",
             source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
                 authentication_configuration=aws.apprunner.ServiceSourceConfigurationAuthenticationConfigurationArgs(
-                    connection_arn=aws_apprunner_connection["example"]["arn"],
+                    connection_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
                 code_repository=aws.apprunner.ServiceSourceConfigurationCodeRepositoryArgs(
                     code_configuration=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs(
@@ -569,7 +575,7 @@ class Service(pulumi.CustomResource):
             network_configuration=aws.apprunner.ServiceNetworkConfigurationArgs(
                 egress_configuration=aws.apprunner.ServiceNetworkConfigurationEgressConfigurationArgs(
                     egress_type="VPC",
-                    vpc_connector_arn=aws_apprunner_vpc_connector["connector"]["arn"],
+                    vpc_connector_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
                 ),
             ),
             tags={
@@ -577,7 +583,6 @@ class Service(pulumi.CustomResource):
             })
         ```
         ### Service with an Image Repository Source
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -599,7 +604,6 @@ class Service(pulumi.CustomResource):
             })
         ```
         ### Service with Observability Configuration
-
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -731,6 +735,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: Name of the service.
         :param pulumi.Input[str] service_url: Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
         :param pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] status: Current state of the App Runner service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -840,6 +846,8 @@ class Service(pulumi.CustomResource):
     def source_configuration(self) -> pulumi.Output['outputs.ServiceSourceConfiguration']:
         """
         The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "source_configuration")
 

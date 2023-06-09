@@ -127,6 +127,8 @@ export class PublishingDestination extends pulumi.CustomResource {
     public readonly destinationArn!: pulumi.Output<string>;
     /**
      * Currently there is only "S3" available as destination type which is also the default value
+     *
+     * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      */
     public readonly destinationType!: pulumi.Output<string | undefined>;
     /**
@@ -186,6 +188,8 @@ export interface PublishingDestinationState {
     destinationArn?: pulumi.Input<string>;
     /**
      * Currently there is only "S3" available as destination type which is also the default value
+     *
+     * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      */
     destinationType?: pulumi.Input<string>;
     /**
@@ -208,6 +212,8 @@ export interface PublishingDestinationArgs {
     destinationArn: pulumi.Input<string>;
     /**
      * Currently there is only "S3" available as destination type which is also the default value
+     *
+     * > **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the "DescribePublishingDestination" call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      */
     destinationType?: pulumi.Input<string>;
     /**

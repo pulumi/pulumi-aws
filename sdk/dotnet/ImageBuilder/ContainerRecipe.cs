@@ -13,7 +13,6 @@ namespace Pulumi.Aws.ImageBuilder
     /// Manages an Image Builder Container Recipe.
     /// 
     /// ## Example Usage
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -182,6 +181,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Version of the container recipe.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -324,6 +325,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Version of the container recipe.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -470,6 +473,8 @@ namespace Pulumi.Aws.ImageBuilder
 
         /// <summary>
         /// Version of the container recipe.
+        /// 
+        /// The following attributes are optional:
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

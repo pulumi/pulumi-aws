@@ -10,7 +10,6 @@ import (
 // Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

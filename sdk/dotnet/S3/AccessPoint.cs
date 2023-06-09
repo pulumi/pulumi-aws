@@ -18,7 +18,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// ### AWS Partition Bucket
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,7 +36,6 @@ namespace Pulumi.Aws.S3
     /// });
     /// ```
     /// ### S3 on Outposts Bucket
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -136,6 +134,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Name you want to assign to this access point.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -230,6 +230,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Name you want to assign to this access point.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -317,6 +319,8 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// Name you want to assign to this access point.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

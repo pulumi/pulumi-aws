@@ -151,12 +151,16 @@ public class Link extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of the sink to use to create this link.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="sinkIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sinkIdentifier;
 
     /**
      * @return Identifier of the sink to use to create this link.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> sinkIdentifier() {

@@ -71,12 +71,11 @@ def get_outpost_instance_types(arn: Optional[str] = None,
     Information about Outposts Instance Types.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_outpost_instance_types(arn=data["aws_outposts_outpost"]["example"]["arn"])
+    example = aws.outposts.get_outpost_instance_types(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 
@@ -100,12 +99,11 @@ def get_outpost_instance_types_output(arn: Optional[pulumi.Input[str]] = None,
     Information about Outposts Instance Types.
 
     ## Example Usage
-
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_outpost_instance_types(arn=data["aws_outposts_outpost"]["example"]["arn"])
+    example = aws.outposts.get_outpost_instance_types(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
     ```
 
 

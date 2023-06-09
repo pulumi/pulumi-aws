@@ -15,7 +15,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -80,6 +79,8 @@ type Experience struct {
 	// A name for your Amazon Kendra experience.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	//
+	// The following arguments are optional:
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The current processing status of your Amazon Kendra experience.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -135,6 +136,8 @@ type experienceState struct {
 	// A name for your Amazon Kendra experience.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	//
+	// The following arguments are optional:
 	RoleArn *string `pulumi:"roleArn"`
 	// The current processing status of your Amazon Kendra experience.
 	Status *string `pulumi:"status"`
@@ -156,6 +159,8 @@ type ExperienceState struct {
 	// A name for your Amazon Kendra experience.
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	//
+	// The following arguments are optional:
 	RoleArn pulumi.StringPtrInput
 	// The current processing status of your Amazon Kendra experience.
 	Status pulumi.StringPtrInput
@@ -175,6 +180,8 @@ type experienceArgs struct {
 	// A name for your Amazon Kendra experience.
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	//
+	// The following arguments are optional:
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -189,6 +196,8 @@ type ExperienceArgs struct {
 	// A name for your Amazon Kendra experience.
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	//
+	// The following arguments are optional:
 	RoleArn pulumi.StringInput
 }
 
@@ -315,6 +324,8 @@ func (o ExperienceOutput) Name() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+//
+// The following arguments are optional:
 func (o ExperienceOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Experience) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

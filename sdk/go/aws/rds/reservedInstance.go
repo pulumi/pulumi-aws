@@ -19,42 +19,6 @@ import (
 //
 // ## Example Usage
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := rds.GetReservedInstanceOffering(ctx, &rds.GetReservedInstanceOfferingArgs{
-//				DbInstanceClass:    "db.t2.micro",
-//				Duration:           31536000,
-//				MultiAz:            false,
-//				OfferingType:       "All Upfront",
-//				ProductDescription: "mysql",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewReservedInstance(ctx, "example", &rds.ReservedInstanceArgs{
-//				OfferingId:    *pulumi.String(test.OfferingId),
-//				ReservationId: pulumi.String("optionalCustomReservationID"),
-//				InstanceCount: pulumi.Int(3),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // RDS DB Instance Reservations can be imported using the `instance_id`, e.g.,
@@ -84,6 +48,8 @@ type ReservedInstance struct {
 	// Whether the reservation applies to Multi-AZ deployments.
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
 	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
+	//
+	// The following arguments are optional:
 	OfferingId pulumi.StringOutput `pulumi:"offeringId"`
 	// Offering type of this reserved DB instance.
 	OfferingType pulumi.StringOutput `pulumi:"offeringType"`
@@ -154,6 +120,8 @@ type reservedInstanceState struct {
 	// Whether the reservation applies to Multi-AZ deployments.
 	MultiAz *bool `pulumi:"multiAz"`
 	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
+	//
+	// The following arguments are optional:
 	OfferingId *string `pulumi:"offeringId"`
 	// Offering type of this reserved DB instance.
 	OfferingType *string `pulumi:"offeringType"`
@@ -193,6 +161,8 @@ type ReservedInstanceState struct {
 	// Whether the reservation applies to Multi-AZ deployments.
 	MultiAz pulumi.BoolPtrInput
 	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
+	//
+	// The following arguments are optional:
 	OfferingId pulumi.StringPtrInput
 	// Offering type of this reserved DB instance.
 	OfferingType pulumi.StringPtrInput
@@ -222,6 +192,8 @@ type reservedInstanceArgs struct {
 	// Number of instances to reserve. Default value is `1`.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
+	//
+	// The following arguments are optional:
 	OfferingId string `pulumi:"offeringId"`
 	// Customer-specified identifier to track this reservation.
 	ReservationId *string `pulumi:"reservationId"`
@@ -234,6 +206,8 @@ type ReservedInstanceArgs struct {
 	// Number of instances to reserve. Default value is `1`.
 	InstanceCount pulumi.IntPtrInput
 	// ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
+	//
+	// The following arguments are optional:
 	OfferingId pulumi.StringInput
 	// Customer-specified identifier to track this reservation.
 	ReservationId pulumi.StringPtrInput
@@ -369,6 +343,8 @@ func (o ReservedInstanceOutput) MultiAz() pulumi.BoolOutput {
 }
 
 // ID of the Reserved DB instance offering to purchase. To determine an `offeringId`, see the `rds.getReservedInstanceOffering` data source.
+//
+// The following arguments are optional:
 func (o ReservedInstanceOutput) OfferingId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.OfferingId }).(pulumi.StringOutput)
 }

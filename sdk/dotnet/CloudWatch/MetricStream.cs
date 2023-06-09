@@ -14,7 +14,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// ### Filters
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -187,7 +186,6 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// ### Additional Statistics
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -307,6 +305,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("outputFormat")]
         public Output<string> OutputFormat { get; private set; } = null!;
@@ -437,6 +437,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("outputFormat", required: true)]
         public Input<string> OutputFormat { get; set; } = null!;
@@ -547,6 +549,8 @@ namespace Pulumi.Aws.CloudWatch
 
         /// <summary>
         /// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("outputFormat")]
         public Input<string>? OutputFormat { get; set; }

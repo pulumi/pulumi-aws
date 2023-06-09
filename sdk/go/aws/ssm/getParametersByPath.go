@@ -13,7 +13,6 @@ import (
 // Provides SSM Parameters by path.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //
@@ -54,6 +53,8 @@ type GetParametersByPathArgs struct {
 	// Prefix path of the parameter.
 	Path string `pulumi:"path"`
 	// Whether to recursively return parameters under `path`. Defaults to `false`.
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	Recursive *bool `pulumi:"recursive"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
 	WithDecryption *bool `pulumi:"withDecryption"`
@@ -90,6 +91,8 @@ type GetParametersByPathOutputArgs struct {
 	// Prefix path of the parameter.
 	Path pulumi.StringInput `pulumi:"path"`
 	// Whether to recursively return parameters under `path`. Defaults to `false`.
+	//
+	// In addition to all arguments above, the following attributes are exported:
 	Recursive pulumi.BoolPtrInput `pulumi:"recursive"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
 	WithDecryption pulumi.BoolPtrInput `pulumi:"withDecryption"`

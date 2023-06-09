@@ -19,7 +19,6 @@ import (
 //
 // ## Example Usage
 // ### Basic Usage
-//
 // ```go
 // package main
 //
@@ -188,6 +187,8 @@ type Pipe struct {
 	// Target resource of the pipe (typically an ARN).
 	Target pulumi.StringOutput `pulumi:"target"`
 	// Parameters required to set up a target for your pipe. Detailed below.
+	//
+	// The following arguments are optional:
 	TargetParameters PipeTargetParametersOutput `pulumi:"targetParameters"`
 }
 
@@ -260,6 +261,8 @@ type pipeState struct {
 	// Target resource of the pipe (typically an ARN).
 	Target *string `pulumi:"target"`
 	// Parameters required to set up a target for your pipe. Detailed below.
+	//
+	// The following arguments are optional:
 	TargetParameters *PipeTargetParameters `pulumi:"targetParameters"`
 }
 
@@ -289,6 +292,8 @@ type PipeState struct {
 	// Target resource of the pipe (typically an ARN).
 	Target pulumi.StringPtrInput
 	// Parameters required to set up a target for your pipe. Detailed below.
+	//
+	// The following arguments are optional:
 	TargetParameters PipeTargetParametersPtrInput
 }
 
@@ -318,6 +323,8 @@ type pipeArgs struct {
 	// Target resource of the pipe (typically an ARN).
 	Target string `pulumi:"target"`
 	// Parameters required to set up a target for your pipe. Detailed below.
+	//
+	// The following arguments are optional:
 	TargetParameters PipeTargetParameters `pulumi:"targetParameters"`
 }
 
@@ -344,6 +351,8 @@ type PipeArgs struct {
 	// Target resource of the pipe (typically an ARN).
 	Target pulumi.StringInput
 	// Parameters required to set up a target for your pipe. Detailed below.
+	//
+	// The following arguments are optional:
 	TargetParameters PipeTargetParametersInput
 }
 
@@ -495,6 +504,8 @@ func (o PipeOutput) Target() pulumi.StringOutput {
 }
 
 // Parameters required to set up a target for your pipe. Detailed below.
+//
+// The following arguments are optional:
 func (o PipeOutput) TargetParameters() PipeTargetParametersOutput {
 	return o.ApplyT(func(v *Pipe) PipeTargetParametersOutput { return v.TargetParameters }).(PipeTargetParametersOutput)
 }

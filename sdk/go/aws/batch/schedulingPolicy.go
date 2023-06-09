@@ -13,7 +13,6 @@ import (
 // Provides a Batch Scheduling Policy resource.
 //
 // ## Example Usage
-//
 // ```go
 // package main
 //

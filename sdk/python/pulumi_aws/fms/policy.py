@@ -510,7 +510,6 @@ class Policy(pulumi.CustomResource):
         Provides a resource to create an AWS Firewall Manager policy. You need to be using AWS organizations and have enabled the Firewall Manager administrator account.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json
@@ -576,7 +575,6 @@ class Policy(pulumi.CustomResource):
         Provides a resource to create an AWS Firewall Manager policy. You need to be using AWS organizations and have enabled the Firewall Manager administrator account.
 
         ## Example Usage
-
         ```python
         import pulumi
         import json

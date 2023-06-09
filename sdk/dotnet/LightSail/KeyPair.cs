@@ -18,7 +18,6 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// ### Create New Key Pair
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,7 +32,6 @@ namespace Pulumi.Aws.LightSail
     /// });
     /// ```
     /// ### Create New Key Pair with PGP Encrypted Private Key
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,7 +48,6 @@ namespace Pulumi.Aws.LightSail
     /// });
     /// ```
     /// ### Existing Public Key Import
-    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
@@ -129,6 +126,10 @@ namespace Pulumi.Aws.LightSail
         /// <summary>
         /// The public key material. This public key will be
         /// imported into Lightsail
+        /// 
+        /// &gt; **NOTE:** a PGP key is not required, however it is strongly encouraged.
+        /// Without a PGP key, the private key material will be stored in state unencrypted.
+        /// `pgp_key` is ignored if `public_key` is supplied.
         /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
@@ -199,6 +200,10 @@ namespace Pulumi.Aws.LightSail
         /// <summary>
         /// The public key material. This public key will be
         /// imported into Lightsail
+        /// 
+        /// &gt; **NOTE:** a PGP key is not required, however it is strongly encouraged.
+        /// Without a PGP key, the private key material will be stored in state unencrypted.
+        /// `pgp_key` is ignored if `public_key` is supplied.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
@@ -265,6 +270,10 @@ namespace Pulumi.Aws.LightSail
         /// <summary>
         /// The public key material. This public key will be
         /// imported into Lightsail
+        /// 
+        /// &gt; **NOTE:** a PGP key is not required, however it is strongly encouraged.
+        /// Without a PGP key, the private key material will be stored in state unencrypted.
+        /// `pgp_key` is ignored if `public_key` is supplied.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
