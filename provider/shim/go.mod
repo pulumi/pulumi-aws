@@ -68,7 +68,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/xray v1.16.11 // indirect
 	github.com/aws/smithy-go v1.13.5 // indirect
 	github.com/beevik/etree v1.1.4 // indirect
-	github.com/cloudflare/circl v1.3.2 // indirect
+	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/fatih/color v1.14.1 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/go-cmp v0.5.9 // indirect
