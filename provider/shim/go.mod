@@ -3,6 +3,7 @@ module github.com/hashicorp/terraform-provider-aws/shim
 go 1.18
 
 require (
+	github.com/hashicorp/terraform-plugin-framework v1.2.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.26.1
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 )
@@ -91,7 +92,6 @@ require (
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-exec v0.18.1 // indirect
 	github.com/hashicorp/terraform-json v0.16.0 // indirect
-	github.com/hashicorp/terraform-plugin-framework v1.2.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-timeouts v0.3.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.10.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.15.0 // indirect
